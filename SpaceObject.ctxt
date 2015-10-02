@@ -1,5 +1,16 @@
 #BlueJ class context
 comment0.params=
-comment0.target=void\ act()
-comment0.text=\n\ Act\ -\ do\ whatever\ the\ SpaceObject\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
-numComments=1
+comment0.target=SpaceObject()
+comment1.params=spawnX\ spawnY
+comment1.target=SpaceObject(int,\ int)
+comment2.params=
+comment2.target=void\ act()
+comment3.params=x
+comment3.target=void\ setSpaceX(int)
+comment4.params=y
+comment4.target=void\ setSpaceY(int)
+comment5.params=
+comment5.target=int\ getSpaceX()
+comment6.params=
+comment6.target=int\ getSpaceY()
+numComments=7

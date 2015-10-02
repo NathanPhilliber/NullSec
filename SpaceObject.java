@@ -8,12 +8,37 @@ import greenfoot.*;
  */
 public class SpaceObject extends Object
 {
-    /**
-     * Act - do whatever the SpaceObject wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    
+    private int spaceX;
+    private int spaceY;
+    
+    public SpaceObject(){
+        this(0,0);
+    }
+    
+    public SpaceObject(int spawnX, int spawnY){
+        setSpaceX(spawnX);
+        setSpaceY(spawnY);
+    }
+    
     public void act() 
     {
-        // Add your action code here.
-    }    
+        
+    }   
+    
+    public void setSpaceX(int x){
+        spaceX = x;
+    }
+    
+    public void setSpaceY(int y){
+        spaceY = y;
+    }
+    
+    public int getSpaceX(){
+        return spaceX;
+    }
+    
+    public int getSpaceY(){
+        return spaceY;
+    }
 }

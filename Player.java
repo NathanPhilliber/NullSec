@@ -8,12 +8,37 @@ import greenfoot.*;
  */
 public class Player extends Object
 {
-    /**
-     * Act - do whatever the Player wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    
+    private int spaceX;
+    private int spaceY;
+    
+    public Player(){
+        this(0,0);
+    }
+    
+    public Player(int x, int y){
+        setSpaceX(x);
+        setSpaceY(y);
+    }
+    
     public void act() 
     {
-        // Add your action code here.
-    }    
+       
+    } 
+    
+    public int getSpaceX(){
+        return spaceX;
+    }
+    
+    public int getSpaceY(){
+        return spaceY;
+    }
+    
+    public void setSpaceX(int x){
+        spaceX = x;
+    }
+    
+    public void setSpaceY(int y){
+        spaceY = y;
+    }
 }
