@@ -1,5 +1,8 @@
 #Greenfoot properties
-#Thu Oct 01 16:54:49 PDT 2015
+#Thu Oct 01 17:11:10 PDT 2015
 version=2.7.1
 project.charset=UTF-8
 class.Space.superclass=greenfoot.World
+class.SmoothMover.superclass=greenfoot.Actor
+class.Object.superclass=SmoothMover
+world.lastInstantiated=Space
