@@ -26,6 +26,8 @@ public class Space extends World
     {
         ship = new Ship();
         addObject(ship, getWidth()/2, getHeight()/2);
+        
+        addObject(new BackgroundStar(100,100),100,100);
     }
     
     public Ship getShip(){
