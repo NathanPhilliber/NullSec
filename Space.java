@@ -9,13 +9,26 @@ import greenfoot.*;
 public class Space extends World
 {
 
-    /**
-     * Constructor for objects of class Space.
-     * 
-     */
+    private Ship ship;
+    
     public Space()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(900, 450, 1, false); 
+
+        prepare();
+    }
+
+    /**
+     * Prepare the world for the start of the program. That is: create the initial
+     * objects and add them to the world.
+     */
+    private void prepare()
+    {
+        ship = new Ship();
+        addObject(ship, getWidth()/2, getHeight()/2);
+    }
+    
+    public Ship getShip(){
+        return ship;
     }
 }

@@ -9,36 +9,43 @@ import greenfoot.*;
 public class SpaceObject extends Object
 {
     
-    private int spaceX;
-    private int spaceY;
+    private double spaceX;
+    private double spaceY;
     
     public SpaceObject(){
-        this(0,0);
+        this(0.0,0.0);
     }
     
-    public SpaceObject(int spawnX, int spawnY){
+    public SpaceObject(double spawnX, double spawnY){
         setSpaceX(spawnX);
         setSpaceY(spawnY);
     }
     
     public void act() 
     {
-        
+        updatePosition();
     }   
     
-    public void setSpaceX(int x){
+    public void updatePosition(){
+        Space space = (Space) getWorld();
+        Ship ship = space.getShip();
+        
+        setLocation(getSpaceX() - ship.getSpaceX(), getSpaceY() - ship.getSpaceY());
+    }
+    
+    public void setSpaceX(double x){
         spaceX = x;
     }
     
-    public void setSpaceY(int y){
+    public void setSpaceY(double y){
         spaceY = y;
     }
     
-    public int getSpaceX(){
+    public double getSpaceX(){
         return spaceX;
     }
     
-    public int getSpaceY(){
+    public double getSpaceY(){
         return spaceY;
     }
 }
