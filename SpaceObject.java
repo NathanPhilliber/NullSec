@@ -56,4 +56,12 @@ public class SpaceObject extends Object
     public double getSpaceY(){
         return spaceY;
     }
+    
+    public void addSpaceX(double x){
+        setSpaceX(getSpaceX()+x);
+    }
+    
+    public void addSpaceY(double y){
+        setSpaceY(getSpaceY()+y);
+    }
 }

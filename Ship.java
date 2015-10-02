@@ -8,7 +8,13 @@ import greenfoot.*;
  */
 public class Ship extends Player
 {
+    public Ship(){
+        super();
+    }
     
+    public Ship(double x, double y){
+        super(x,y);
+    }
     public void act() 
     {
         super.act();

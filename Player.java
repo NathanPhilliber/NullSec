@@ -39,6 +39,9 @@ public class Player extends Object
     
     //Constructor, spawns player at x,y coord
     public Player(double x, double y){
+        
+        Space space = (Space) getWorld();
+        
         setSpaceX(x);
         setSpaceY(y);
         
@@ -219,6 +222,14 @@ public class Player extends Object
     
     public double getFlyDec(){
         return flyDec;
+    }
+    
+    public double getShipLocX(){
+        return getSpaceX()+getWorld().getWidth()/2;
+    }
+    
+    public double getShipLocY(){
+        return getSpaceY()+getWorld().getHeight()/2;
     }
     
     //Display debug info such as x,y coords, velocities, star count
