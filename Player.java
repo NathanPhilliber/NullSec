@@ -32,6 +32,13 @@ public class Player extends Object
     //Number is arbitrary
     private int starDensity = 2;
     
+    private double health = 100.0;
+    private double maxHealth = 100.0;
+    
+    private DamageBar damageBar;
+    
+    private boolean firstTime = true;
+    
     //Constructor, spawns player at 0,0
     public Player(){
         this(0,0);
@@ -47,19 +54,24 @@ public class Player extends Object
         
         setVelX(0.0);
         setVelY(0.0);
+        
+        
     }
     
     //Called every tick
     //Allows ship to "move" (changes coords), displays debug info and spawns stars
     public void act() 
     {
+       firstTime();
        fly();
        showDebug(true);
        generateStars(starDensity);
+       damageBar.updateDamage(getHealth(), getMaxHealth());
     } 
     
     //Checks for key presses and changes coords ("moves" ship)
     public void fly(){
+        //System.out.println("H: " + getHealth());
         
         //If spacebar or w is pressed
         if(Greenfoot.isKeyDown("space") || Greenfoot.isKeyDown("w")){
@@ -133,6 +145,15 @@ public class Player extends Object
             }
         }
         
+    }
+    
+    public void firstTime(){
+        if(firstTime){
+            Space space = (Space) getWorld();
+            damageBar = new DamageBar(this, -30, getHealth(), getMaxHealth());
+            space.addObject(damageBar, 0, 0);
+            firstTime = false;
+        }
     }
     
     //Private method used for star spawning, returns either 1.0 or -1.0
@@ -232,6 +253,49 @@ public class Player extends Object
         return getSpaceY()+getWorld().getHeight()/2;
     }
     
+    public double getHealth(){
+        return health;
+    }
+    
+    public double getMaxHealth(){
+        return maxHealth;
+    }
+    
+    public void setHealth(double health){
+        if(health > getMaxHealth()){
+            this.health = getMaxHealth();
+            
+        }
+        else if(health < 0.0){
+            this.health = 0.0;
+        }
+        else{
+            this.health = health;
+        }
+        
+    }
+    
+    public void setMaxHealth(double health){
+        if(getHealth() > health){
+            setHealth(health);
+        }
+        else{
+            maxHealth = health;
+        }
+        
+    }
+    
+    public void addHealth(double add){
+        setHealth(getHealth()+add);
+        
+    }
+    
+    public DamageBar getDamageBar(){
+        return damageBar;
+    }
+    
+    
+    
     //Display debug info such as x,y coords, velocities, star count
     public void showDebug(boolean show){
         if(show){
@@ -241,7 +305,9 @@ public class Player extends Object
             getWorld().showText("vX: "+String.format("%.02f", (getVelX())), 60, 75);
             getWorld().showText("vY: "+String.format("%.02f", (getVelY())), 60, 100);        
             
-            getWorld().showText("Stars: "+ BackgroundStar.getNumStars(), 60, 125);     
+            getWorld().showText("Stars: "+ BackgroundStar.getNumStars(), 60, 125); 
+            
+            getWorld().showText("Health: "+ getHealth(), 60, 150); 
         }
     }
 }

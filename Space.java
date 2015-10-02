@@ -20,7 +20,8 @@ public class Space extends World
     {
         ship = new Ship(0, 0);
         addObject(ship, getWidth()/2, getHeight()/2);
-        //addObject(new AlienShip(0,0), 10,10);
+        
+        addObject(new AlienShip(0,0), 10,10);
         //addObject(new Planet(0,0),0,0);
     }
     

@@ -34,6 +34,10 @@ public class Entity extends SpaceObject
     
     private boolean reachedTarget;
     
+    private DamageBar damageBar;
+    
+    private boolean firstTime = true;
+    
     public Entity(){
         super();
     }
@@ -47,7 +51,17 @@ public class Entity extends SpaceObject
     {
         super.act();
         makeMoves();
+        firstTime();
     }    
+    
+    public void firstTime(){
+        if(firstTime){
+            Space space = (Space) getWorld();
+            damageBar = new DamageBar(this, -30, getHealth(), getMaxHealth());
+            space.addObject(damageBar, 0, 0);
+            firstTime = false;
+        }
+    }
     
     public void moveTo(double x, double y){
         setReachedTarget(false);
@@ -143,7 +157,7 @@ public class Entity extends SpaceObject
     }
     
     private boolean checkClose(){
-        System.out.println((getTargetX()-getSpaceX())+ " " + (getTargetY()-getSpaceY()));
+        //System.out.println((getTargetX()-getSpaceX())+ " " + (getTargetY()-getSpaceY()));
         if(Math.abs(getTargetX()-getSpaceX()) < 3.0 && Math.abs(getTargetY()-getSpaceY()) < 3.0){
             return true;
         }
