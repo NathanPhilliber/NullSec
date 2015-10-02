@@ -1,5 +1,5 @@
 import greenfoot.*;
-
+import java.util.PriorityQueue;
 /**
  * Subclass of other objects that will interact with the player directly.
  * 
@@ -38,6 +38,12 @@ public class Entity extends SpaceObject
     
     private boolean firstTime = true;
     
+    private PriorityQueue actionQueue = new PriorityQueue();
+    //List of action codes:
+    // moveTo
+    // kill
+    
+    private boolean queueInUse = false;
     public Entity(){
         super();
     }
@@ -52,21 +58,64 @@ public class Entity extends SpaceObject
         super.act();
         makeMoves();
         firstTime();
+        runQueue();
     }    
+    
+    //This is the way to make an entity run an action.
+    //Add an action as a string "METHODNAME/arg1/arg2/..."
+    //The action will be added to a queue and will then be run
+    public void addAction(String action){
+        actionQueue.add(action);
+        
+    }
+    
+    //Needs to be run every tick. Checks to see if a command is already being run.
+    //If no command is being run, the method operates the next command if there is one.
+    private void runQueue(){
+        if(queueInUse == false){
+            //pop off next command
+            if(actionQueue.isEmpty() == false){
+                
+                translateCommand((String)actionQueue.poll());
+                queueInUse(true);
+                
+            }
+            
+        }
+    }
+    
+    //Translates string command to real method. Update this as new actions are added
+    private void translateCommand(String cmdS){
+        String[] arg = cmdS.split("/");
+        
+        //moveTo method
+        //"moveTo/targetX/targetY"
+        if(arg[0].equalsIgnoreCase("moveTo")){
+            moveTo(Double.parseDouble(arg[1]),Double.parseDouble(arg[2]));
+        }
+    }
+    
+    //Switch queue to be in use or not
+    private void queueInUse(boolean state){
+        queueInUse = state;
+    }
     
     //Called once during the first tick. Useful for certain objects that require
     //the entity to already be spawned.
-    public void firstTime(){
+    private void firstTime(){
         if(firstTime){
             Space space = (Space) getWorld();
             damageBar = new DamageBar(this, -30, getHealth(), getMaxHealth());
             space.addObject(damageBar, 0, 0);
             firstTime = false;
+            
+            
         }
     }
     
     //Move to and x,y over time.
-    public void moveTo(double x, double y){
+    private void moveTo(double x, double y){
+        
         setReachedTarget(false);
         setTargetX(x);
         setTargetY(y);
@@ -88,6 +137,7 @@ public class Entity extends SpaceObject
             
             if(checkClose()){
                 setReachedTarget(true);
+                queueInUse(false);
             }
         }
         

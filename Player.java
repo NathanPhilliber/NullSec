@@ -33,7 +33,7 @@ public class Player extends Object
     private int starDensity = 2;
     
     //Health values of player
-    private double health = 100.0;
+    private double health = 50.0;
     private double maxHealth = 100.0;
     
     //Damage bar for player
@@ -71,6 +71,7 @@ public class Player extends Object
        showDebug(true);
        generateStars(starDensity);
        damageBar.updateDamage(getHealth(), getMaxHealth());
+       debugHealthHack(); //Allows to add health via '[']' DELETE THIS BEFORE PUBLISH
     } 
     
     //Checks for key presses and changes coords ("moves" ship)
@@ -119,6 +120,15 @@ public class Player extends Object
         //Add velocity to coordinates, thereby "moving" the ship
         addSpaceX(getVelX());
         addSpaceY(getVelY());
+    }
+    
+    private void debugHealthHack(){
+        if(Greenfoot.isKeyDown("[")){
+            addHealth(-.5);
+        }
+        if(Greenfoot.isKeyDown("]")){
+            addHealth(.5);
+        }
     }
     
     //Generates stars offscreen

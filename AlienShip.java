@@ -19,6 +19,9 @@ public class AlienShip extends Entity
     public AlienShip(double x, double y){
         super(x,y);
         //moveTo(450,225);
+        
+        addAction("moveTo/1000/1000");
+        addAction("moveTo/500/700");
     }
     
     public void act() 
@@ -28,7 +31,7 @@ public class AlienShip extends Entity
         
         Space space = (Space) getWorld();
         Ship ship = space.getShip();
-        moveTo(ship.getShipLocX(),ship.getShipLocY());
+        //moveTo(ship.getShipLocX(),ship.getShipLocY());
         //System.out.println(getSpaceX() + " " + getSpaceY());
         
     }    

@@ -89,6 +89,16 @@ public class DamageBar extends Object
             setImage(img[curImgI]); //Switch image
             
         }
+        
+        if((((int)(getMaxHealth()-getHealth()))-(interval*curImgI)) <= interval){
+            //System.out.println((((int)(getMaxHealth()-getHealth()))-(interval*curImgI)));
+            curImgI--; //Iterate to next image in array
+            if(curImgI < 0){
+                curImgI = 0;
+            }
+            setImage(img[curImgI]); //Switch image
+            
+        }
     }
     
     public double getOffset(){
