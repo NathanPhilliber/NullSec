@@ -1,16 +1,11 @@
 import greenfoot.*;
 
-/**
- * Write a description of class Space here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Space extends World
 {
 
     private Ship ship;
     
+    //Contructor, spawn world
     public Space()
     {    
         super(900, 450, 1, false); 
@@ -18,18 +13,15 @@ public class Space extends World
         prepare();
     }
 
-    /**
-     * Prepare the world for the start of the program. That is: create the initial
-     * objects and add them to the world.
-     */
+    //Add ship to world
     private void prepare()
     {
         ship = new Ship();
         addObject(ship, getWidth()/2, getHeight()/2);
         
-        addObject(new BackgroundStar(100,100),100,100);
     }
     
+    //Return ship object
     public Ship getShip(){
         return ship;
     }
