@@ -1,33 +1,38 @@
 import greenfoot.*;
 
 /**
- * Write a description of class DamageBar here.
+ * DamageBar is a visual representation of player/entity health. Follows player/entity 
+ * above or below
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Written by Nathan Philliber
  */
 public class DamageBar extends Object
 {
     
+    //Object to follow
     private Object obj;
     
+    //Health values
     private double maxHealth;
     private double health;
     
+    //Follow above or below object, negative for above, postitive for below
     private double offset;
     
-    private int curImg = 100;
+    
+    //Current image being displayed (array iterator)
     private int curImgI = 0;
+    
+    //Array of all image names. All images must be equally divided. These are divided by 5. Could be smaller or larger.
     private String img[] = {"images/DamageBar_100.png","images/DamageBar_95.png","images/DamageBar_90.png",
         "images/DamageBar_85.png","images/DamageBar_80.png","images/DamageBar_75.png","images/DamageBar_70.png",
         "images/DamageBar_65.png","images/DamageBar_60.png","images/DamageBar_55.png","images/DamageBar_50.png",
         "images/DamageBar_45.png","images/DamageBar_40.png","images/DamageBar_35.png","images/DamageBar_30.png",
         "images/DamageBar_25.png","images/DamageBar_20.png","images/DamageBar_15.png","images/DamageBar_10.png",
         "images/DamageBar_5.png","images/DamageBar_0.png"};
-    public DamageBar(){
         
-    }
     
+    //Constructors
     public DamageBar(Player player, double off, double health, double maxHealth){
         obj = player;
         setOffset(off);
@@ -51,37 +56,37 @@ public class DamageBar extends Object
         this(player, -40, health, maxHealth);
     }
    
-    
+    //Only updates position, updating the visual is the responsibility of the class damagebar belongs to.
     public void act() 
     {
         updatePosition();
         
     } 
     
+    //Change location as object moves.
     public void updatePosition(){
         setLocation(obj.getX(), obj.getY()+getOffset());
     }
     
+    //Updates damage values / displayed image.
     public void updateDamage(double cur, double max){
         setHealth(cur);
         setMaxHealth(max);
         updateImage();
     }
     
-    public void updateImage(){
+    //In class method used to change image based on ratio of health
+    private void updateImage(){
         
-        //System.out.println(getHealth() + "/"+getMaxHealth());
         
+        //How much damage is between each image state
         int interval = (int)getMaxHealth()/(img.length-1);
-        //System.out.println(interval + " interval");
-        //System.out.println(getHealth());
+        
+        //Decide when it is time to switch to the next down state
         if((((int)(getMaxHealth()-getHealth()))-(interval*curImgI)) >= interval){
-            //System.out.println(((int)(getMaxHealth()-getHealth())-(interval*curImgI))-1);
-            curImgI++;
             
-            setImage(img[curImgI]);
-            //System.out.println(curImgI);
-            
+            curImgI++; //Iterate to next image in array
+            setImage(img[curImgI]); //Switch image
             
         }
     }

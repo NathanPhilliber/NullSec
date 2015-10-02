@@ -32,11 +32,14 @@ public class Player extends Object
     //Number is arbitrary
     private int starDensity = 2;
     
+    //Health values of player
     private double health = 100.0;
     private double maxHealth = 100.0;
     
+    //Damage bar for player
     private DamageBar damageBar;
     
+    //Used for in class operations
     private boolean firstTime = true;
     
     //Constructor, spawns player at 0,0
@@ -60,6 +63,7 @@ public class Player extends Object
     
     //Called every tick
     //Allows ship to "move" (changes coords), displays debug info and spawns stars
+    //Updates health
     public void act() 
     {
        firstTime();
@@ -71,8 +75,7 @@ public class Player extends Object
     
     //Checks for key presses and changes coords ("moves" ship)
     public void fly(){
-        //System.out.println("H: " + getHealth());
-        
+       
         //If spacebar or w is pressed
         if(Greenfoot.isKeyDown("space") || Greenfoot.isKeyDown("w")){
             int angle = getRotation();
@@ -147,6 +150,9 @@ public class Player extends Object
         
     }
     
+    
+    //Called during the first tick only
+    //Some methods require the ship to alrady be spawned to work
     public void firstTime(){
         if(firstTime){
             Space space = (Space) getWorld();
@@ -261,6 +267,7 @@ public class Player extends Object
         return maxHealth;
     }
     
+    //Set the health, makes sure you're not setting health over the maximum or under 0
     public void setHealth(double health){
         if(health > getMaxHealth()){
             this.health = getMaxHealth();
@@ -275,6 +282,7 @@ public class Player extends Object
         
     }
     
+    //Set maximum health, makes sure you're not setting it under current health
     public void setMaxHealth(double health){
         if(getHealth() > health){
             setHealth(health);
@@ -296,7 +304,7 @@ public class Player extends Object
     
     
     
-    //Display debug info such as x,y coords, velocities, star count
+    //Display debug info such as x,y coords, velocities, star count, health
     public void showDebug(boolean show){
         if(show){
             getWorld().showText("X: "+String.format("%.02f", (getSpaceX())), 60, 25);

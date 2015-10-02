@@ -1,10 +1,10 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Entity here.
+ * Subclass of other objects that will interact with the player directly.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Written by Nathan Philliber
+ * 
  */
 public class Entity extends SpaceObject
 {
@@ -54,6 +54,8 @@ public class Entity extends SpaceObject
         firstTime();
     }    
     
+    //Called once during the first tick. Useful for certain objects that require
+    //the entity to already be spawned.
     public void firstTime(){
         if(firstTime){
             Space space = (Space) getWorld();
@@ -63,17 +65,20 @@ public class Entity extends SpaceObject
         }
     }
     
+    //Move to and x,y over time.
     public void moveTo(double x, double y){
         setReachedTarget(false);
         setTargetX(x);
         setTargetY(y);
     }
     
+    //Make progress towards desired location
     private void makeMoves(){
         
         if(reachedTarget()==false){
             Space space = (Space) getWorld();
             Ship ship = space.getShip();
+            
             turnTowards((int)(getTargetX()-ship.getSpaceX()), (int)(getTargetY()-ship.getSpaceY()));
             
             int angle = getRotation();
@@ -156,8 +161,8 @@ public class Entity extends SpaceObject
         return reachedTarget;
     }
     
+    //Check if the ship is close to its' desired target
     private boolean checkClose(){
-        //System.out.println((getTargetX()-getSpaceX())+ " " + (getTargetY()-getSpaceY()));
         if(Math.abs(getTargetX()-getSpaceX()) < 3.0 && Math.abs(getTargetY()-getSpaceY()) < 3.0){
             return true;
         }
