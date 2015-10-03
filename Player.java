@@ -84,7 +84,7 @@ public class Player extends Object
     } 
     
     //Checks for key presses and changes coords ("moves" ship)
-    public void fly(){
+    private void fly(){
        
         //If spacebar or w is pressed
         if(Greenfoot.isKeyDown("space") || Greenfoot.isKeyDown("w")){
@@ -141,7 +141,7 @@ public class Player extends Object
     }
     
     //Generates stars offscreen
-    public void generateStars(int density){
+    private void generateStars(int density){
         World world = getWorld();
         
         //Doesn't spawn stars every call, higher density will increase odds
@@ -172,7 +172,7 @@ public class Player extends Object
     
     //Called during the first tick only
     //Some methods require the ship to alrady be spawned to work
-    public void firstTime(){
+    private void firstTime(){
         if(firstTime){
             Space space = (Space) getWorld();
             damageBar = new DamageBar(this, -30, getHealth(), getMaxHealth());
@@ -324,7 +324,7 @@ public class Player extends Object
     
     
     //Display debug info such as x,y coords, velocities, star count, health
-    public void showDebug(boolean show){
+    private void showDebug(boolean show){
         if(show){
             getWorld().showText("X: "+String.format("%.02f", (getSpaceX())), 60, 25);
             getWorld().showText("Y: "+String.format("%.02f", (getSpaceY())), 60, 50); 

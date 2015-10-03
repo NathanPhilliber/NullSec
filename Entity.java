@@ -195,27 +195,27 @@ public class Entity extends SpaceObject
         return maxHealth;
     }
     
-    public double getTargetX(){
+    private double getTargetX(){
         return targetX;
     }
     
-    public void setTargetX(double x){
+    private void setTargetX(double x){
         targetX = x;
     }
     
-    public double getTargetY(){
+    private double getTargetY(){
         return targetY;
     }
     
-    public void setTargetY(double y){
+    private void setTargetY(double y){
         targetY = y;
     }
     
-    public void setReachedTarget(boolean state){
+    private void setReachedTarget(boolean state){
         reachedTarget = state;
     }
     
-    public boolean reachedTarget(){
+    private boolean reachedTarget(){
         return reachedTarget;
     }
     
