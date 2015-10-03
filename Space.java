@@ -65,10 +65,6 @@ public class Space extends World
         return ship;
     }
     
-    public void act(){
-        System.out.println(numberOfObjects());
-    }
-    
     
     
 }

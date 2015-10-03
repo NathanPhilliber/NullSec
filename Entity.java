@@ -113,8 +113,6 @@ public class Entity extends SpaceObject
         }
     }
     
-    
-    
     //Move to and x,y over time.
     private void moveTo(double x, double y){
         

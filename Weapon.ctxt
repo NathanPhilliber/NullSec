@@ -1,14 +1,4 @@
 #BlueJ class context
 comment0.params=
-comment0.target=Weapon()
-comment1.params=x\ y
-comment1.target=Weapon(double,\ double)
-comment2.params=
-comment2.target=void\ act()
-comment3.params=
-comment3.target=void\ fire()
-comment4.params=
-comment4.target=int\ getMouseX()
-comment5.params=
-comment5.target=int\ getMouseY()
-numComments=6
+comment0.target=void\ act()
+numComments=1

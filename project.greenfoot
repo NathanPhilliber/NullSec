@@ -23,9 +23,6 @@ class.Projectile.image=ant.png
 class.Projectile.superclass=Weapon
 class.Ship.image=Spaceship_idle.png
 class.Ship.superclass=Player
-class.SimpleBullet.image=ant.png
-class.SimpleBullet.superclass=Object
-class.SimpleLaserGun.superclass=Weapon
 class.SmoothMover.superclass=greenfoot.Actor
 class.Space.image=Background.jpeg
 class.Space.superclass=greenfoot.World
@@ -70,7 +67,6 @@ dependency2.type=UsesDependency
 dependency20.from=Entity
 dependency20.to=DamageBar
 dependency20.type=UsesDependency
-<<<<<<< Updated upstream
 dependency21.from=Player
 dependency21.to=Mine
 dependency21.type=UsesDependency
@@ -89,35 +85,6 @@ dependency25.type=UsesDependency
 dependency26.from=Fireball
 dependency26.to=Beam
 dependency26.type=UsesDependency
-=======
-dependency21.from=Weapon
-dependency21.to=SimpleBullet
-dependency21.type=UsesDependency
-dependency22.from=Player
-dependency22.to=Weapon
-dependency22.type=UsesDependency
-dependency23.from=Weapon
-dependency23.to=Space
-dependency23.type=UsesDependency
-dependency24.from=Weapon
-dependency24.to=Ship
-dependency24.type=UsesDependency
-dependency25.from=SimpleLaserGun
-dependency25.to=SimpleBullet
-dependency25.type=UsesDependency
-dependency26.from=Player
-dependency26.to=SimpleLaserGun
-dependency26.type=UsesDependency
-dependency27.from=Weapon
-dependency27.to=Player
-dependency27.type=UsesDependency
-dependency28.from=SimpleLaserGun
-dependency28.to=Player
-dependency28.type=UsesDependency
-dependency29.from=SimpleBullet
-dependency29.to=Player
-dependency29.type=UsesDependency
->>>>>>> Stashed changes
 dependency3.from=SpaceObject
 dependency3.to=Ship
 dependency3.type=UsesDependency
@@ -143,13 +110,8 @@ mainWindow.height=790
 mainWindow.width=1329
 mainWindow.x=59
 mainWindow.y=93
-<<<<<<< Updated upstream
 package.numDependencies=26
 package.numTargets=18
-=======
-package.numDependencies=29
-package.numTargets=14
->>>>>>> Stashed changes
 project.charset=UTF-8
 target1.editor.height=700
 target1.editor.width=900
@@ -169,66 +131,45 @@ target10.editor.width=900
 target10.editor.x=25
 target10.editor.y=40
 target10.height=50
-<<<<<<< Updated upstream
 target10.name=SpaceObject
-=======
-target10.name=Object
->>>>>>> Stashed changes
 target10.naviview.expanded=true
 target10.showInterface=false
 target10.type=ClassTarget
 target10.typeParameters=
-<<<<<<< Updated upstream
 target10.width=100
 target10.x=160
-=======
-target10.width=80
-target10.x=70
->>>>>>> Stashed changes
 target10.y=70
 target11.editor.height=700
 target11.editor.width=900
 target11.editor.x=40
 target11.editor.y=43
 target11.height=50
-target11.name=Planet
+target11.name=BackgroundStar
 target11.naviview.expanded=true
 target11.showInterface=false
 target11.type=ClassTarget
 target11.typeParameters=
-target11.width=80
-target11.x=140
+target11.width=120
+target11.x=10
 target11.y=190
 target12.editor.height=700
 target12.editor.width=900
-<<<<<<< Updated upstream
 target12.editor.x=195
 target12.editor.y=58
 target12.height=50
 target12.name=Beam
-=======
-target12.editor.x=40
-target12.editor.y=43
-target12.height=50
-target12.name=Ship
->>>>>>> Stashed changes
 target12.naviview.expanded=true
 target12.showInterface=false
 target12.type=ClassTarget
 target12.typeParameters=
 target12.width=80
 target12.x=100
-<<<<<<< Updated upstream
 target12.y=370
-=======
-target12.y=130
->>>>>>> Stashed changes
 target13.editor.height=700
 target13.editor.width=900
 target13.editor.x=40
 target13.editor.y=43
 target13.height=50
-<<<<<<< Updated upstream
 target13.name=SmoothMover
 target13.naviview.expanded=true
 target13.showInterface=false
@@ -243,28 +184,11 @@ target14.editor.x=40
 target14.editor.y=20
 target14.height=50
 target14.name=Fireball
-=======
-target13.name=BackgroundStar
-target13.naviview.expanded=true
-target13.showInterface=false
-target13.type=ClassTarget
-target13.typeParameters=
-target13.width=120
-target13.x=10
-target13.y=190
-target14.editor.height=700
-target14.editor.width=900
-target14.editor.x=67
-target14.editor.y=42
-target14.height=50
-target14.name=AlienShip
->>>>>>> Stashed changes
 target14.naviview.expanded=true
 target14.showInterface=false
 target14.type=ClassTarget
 target14.typeParameters=
 target14.width=80
-<<<<<<< Updated upstream
 target14.x=10
 target14.y=430
 target15.editor.height=700
@@ -319,10 +243,6 @@ target18.typeParameters=
 target18.width=80
 target18.x=70
 target18.y=10
-=======
-target14.x=100
-target14.y=250
->>>>>>> Stashed changes
 target2.editor.height=700
 target2.editor.width=1085
 target2.editor.x=174
@@ -350,15 +270,9 @@ target3.width=90
 target3.x=190
 target3.y=370
 target4.editor.height=700
-<<<<<<< Updated upstream
 target4.editor.width=900
 target4.editor.x=67
 target4.editor.y=42
-=======
-target4.editor.width=1085
-target4.editor.x=51
-target4.editor.y=55
->>>>>>> Stashed changes
 target4.height=50
 target4.name=AlienShip
 target4.naviview.expanded=true
@@ -396,19 +310,14 @@ target6.x=140
 target6.y=190
 target7.editor.height=700
 target7.editor.width=900
-target7.editor.x=186
-target7.editor.y=63
+target7.editor.x=40
+target7.editor.y=43
 target7.height=50
-<<<<<<< Updated upstream
 target7.name=Ship
-=======
-target7.name=SimpleBullet
->>>>>>> Stashed changes
 target7.naviview.expanded=true
 target7.showInterface=false
 target7.type=ClassTarget
 target7.typeParameters=
-<<<<<<< Updated upstream
 target7.width=80
 target7.x=100
 target7.y=130
@@ -418,26 +327,11 @@ target8.editor.x=40
 target8.editor.y=20
 target8.height=50
 target8.name=Projectile
-=======
-target7.width=100
-target7.x=120
-target7.y=310
-target8.editor.height=700
-target8.editor.width=900
-target8.editor.x=144
-target8.editor.y=63
-target8.height=50
-target8.name=SimpleLaserGun
->>>>>>> Stashed changes
 target8.naviview.expanded=true
 target8.showInterface=false
 target8.type=ClassTarget
 target8.typeParameters=
-<<<<<<< Updated upstream
 target8.width=80
-=======
-target8.width=120
->>>>>>> Stashed changes
 target8.x=10
 target8.y=370
 target9.editor.height=700
