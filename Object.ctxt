@@ -1,5 +1,6 @@
 #BlueJ class context
 comment0.params=
+<<<<<<< Updated upstream
 comment0.target=void\ act()
 comment1.params=
 comment1.target=void\ removeAtEdge()
@@ -7,3 +8,9 @@ comment1.text=\r\n\ removeAtEdge()\r\n\ ALWAYS\ PUT\ AT\ THE\ END\ OF\ A\ ACT\ M
 comment2.params=
 comment2.target=boolean\ isAtEdge()
 numComments=3
+=======
+comment0.target=Object()
+comment1.params=
+comment1.target=void\ act()
+numComments=2
+>>>>>>> Stashed changes

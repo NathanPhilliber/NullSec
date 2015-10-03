@@ -9,6 +9,12 @@ import greenfoot.*;
 public class Object extends SmoothMover
 {
     
+    private static int numObjects;
+    
+    public Object(){
+        
+    }
+    
     public void act() 
     {
         // Add your action code here.

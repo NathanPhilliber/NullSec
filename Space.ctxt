@@ -4,6 +4,7 @@ comment0.target=Space()
 comment1.params=
 comment1.target=void\ prepare()
 comment2.params=
+<<<<<<< Updated upstream
 comment2.target=void\ act()
 comment3.params=
 comment3.target=void\ tutorial()
@@ -12,3 +13,9 @@ comment4.target=void\ clearText()
 comment5.params=
 comment5.target=Ship\ getShip()
 numComments=6
+=======
+comment2.target=Ship\ getShip()
+comment3.params=
+comment3.target=void\ act()
+numComments=4
+>>>>>>> Stashed changes

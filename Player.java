@@ -49,6 +49,8 @@ public class Player extends Object
     //Used for in class operations
     private boolean firstTime = true;
     
+    private Weapon weapon = new SimpleLaserGun();
+    
     //Constructor, spawns player at 0,0
     public Player(){
         this(0,0);
@@ -75,6 +77,7 @@ public class Player extends Object
     {
        firstTime();
        fly();
+       shoot();
        showDebug(true);
        generateStars(starDensity);
        damageBar.updateDamage(getHealth(), getMaxHealth());
@@ -82,6 +85,12 @@ public class Player extends Object
        
        weaponSystems();//john
     } 
+    
+    public void shoot(){
+        if(Greenfoot.isKeyDown("shift")){
+            weapon.fire();
+        }
+    }
     
     //Checks for key presses and changes coords ("moves" ship)
     public void fly(){
@@ -177,6 +186,12 @@ public class Player extends Object
             Space space = (Space) getWorld();
             damageBar = new DamageBar(this, -30, getHealth(), getMaxHealth());
             space.addObject(damageBar, 0, 0);
+            
+            
+            getWorld().addObject(weapon, getX(),getY());
+            
+            
+            
             firstTime = false;
         }
     }
