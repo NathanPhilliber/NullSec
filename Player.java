@@ -8,6 +8,13 @@ import java.lang.Math;
  */
 public class Player extends Object
 {
+    //john start
+    private int weaponTimer = 0;
+    private int weaponToggle = 0;
+    private int weaponLV = 0;
+    private int weaponType = 0;
+    //john end
+    
     
     //Coords to keep track of ship
     private double spaceX;
@@ -72,6 +79,8 @@ public class Player extends Object
        generateStars(starDensity);
        damageBar.updateDamage(getHealth(), getMaxHealth());
        debugHealthHack(); //Allows to add health via '[']' DELETE THIS BEFORE PUBLISH
+       
+       weaponSystems();//john
     } 
     
     //Checks for key presses and changes coords ("moves" ship)
@@ -328,4 +337,160 @@ public class Player extends Object
             getWorld().showText("Health: "+ getHealth(), 60, 150); 
         }
     }
+    
+    /**********************************************************************************************************
+     **********************************************************************************************************
+     *
+     *weapon systems
+     *added by john
+     *10/2/15
+     *curently not mouse driven
+     *will be updated
+     *
+     **********************************************************************************************************
+     **********************************************************************************************************
+     */
+    
+   
+    public void weaponSystems()
+    {
+        shoot(weaponLV, weaponType);
+        toggleWeapon();
+        weaponLV();
+    }
+   
+    private void shoot(int LV, int wep)
+    {
+            
+        if (Greenfoot.isKeyDown("c"))
+        {
+            weaponTimer++;
+            if (wep==0)
+            {
+                if (weaponTimer%15 == 1)
+                {
+                    projectile(LV);
+                }
+            }            
+            if (wep==1)
+            {
+                beam(LV);
+            }
+            if (wep==2)
+            {
+                if (weaponTimer%35 == 1)
+                {
+                    Missile(LV);
+                }
+            }
+            if (wep==3)
+            {
+                Mine(LV);
+            }
+            if (wep==4)
+            {
+                //stuff wave
+            }
+        }
+        else
+        {
+            weaponTimer = 0;
+        }
+        
+    }
+    
+    private void Mine(int LV)
+    {
+        getWorld().addObject(new Mine(getX(),getY()), getX(), getY());
+    }
+    
+    private void Missile(int LV)
+    {
+        getWorld().addObject(new Missile(getRotation()), getX(), getY());
+    }
+    
+    private void projectile(int LV)
+    {
+        getWorld().addObject(new Projectile(getRotation()), getX(), getY());
+        if (LV>=1)
+        {
+            getWorld().addObject(new Projectile(getRotation()+10), getX(), getY());
+            getWorld().addObject(new Projectile(getRotation()-10), getX(), getY());
+        }
+        if (LV>=2)
+        {
+            getWorld().addObject(new Projectile(getRotation()+20), getX(), getY());
+            getWorld().addObject(new Projectile(getRotation()-20), getX(), getY());
+        }
+        if (LV>=3)
+        {
+            getWorld().addObject(new Projectile(getRotation()+30), getX(), getY());
+            getWorld().addObject(new Projectile(getRotation()-30), getX(), getY());
+        }
+    }
+    
+    private void beam(int LV)
+    {
+        for (int i=0; i<=10*(LV+1); i++)
+        {
+            getWorld().addObject(new Beam(getRotation()), (int)Math.round(getX()+i*8*Math.cos(getRotation()*2*Math.PI/360)), (int)Math.round(getY()+i*8*Math.sin(getRotation()*2*Math.PI/360)));
+        }
+    }
+    
+    private void toggleWeapon()
+    {
+        if (Greenfoot.isKeyDown("q"))
+        {
+            if (weaponToggle==0)
+            {
+                if (weaponType == 4)
+                {
+                    weaponType = 0;
+                }
+                else
+                {
+                    weaponType++;
+                }
+                weaponToggle++;
+            }
+        }
+        else
+        {
+            weaponToggle = 0;
+        }
+    }
+    
+    private void weaponLV()
+    {
+        if (Greenfoot.isKeyDown("0"))
+        {
+            weaponLV = 0;
+        }
+        if (Greenfoot.isKeyDown("1"))
+        {
+            weaponLV = 1;
+        }
+        if (Greenfoot.isKeyDown("2"))
+        {
+            weaponLV = 2;
+        }
+        if (Greenfoot.isKeyDown("3"))
+        {
+            weaponLV = 3;
+        }
+        if (Greenfoot.isKeyDown("4"))
+        {
+            weaponLV = 4;
+        }
+        if (Greenfoot.isKeyDown("5"))
+        {
+            weaponLV = 5;
+        }
+        if (Greenfoot.isKeyDown("6"))
+        {
+            weaponLV = 6;
+        }
+    }
+    //john end
+   
 }

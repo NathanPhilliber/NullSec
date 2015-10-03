@@ -27,24 +27,26 @@ public class Space extends World
         tutorial();
     }
     
-    public void tutorial()
-    {
-        
-        //EXAMPLE
-        //CHANGE AS NEEDED
-        showText("W to move forward", 600, 260);
-        showText("A and D to turn", 600, 280);
-        showText("C to shoot", 600, 300);
-        showText("space to boost", 600, 320);
-        showText("Q to swich weapon", 600, 340);
-        showText("numbers to change LV", 600, 360);
-        showText("shift to draw line", 600, 380);
-        showText("PRESS ANY KEY TO CONTINUE", 600, 440);
-    }
     
     public void act()
     {
         clearText();
+    }
+    
+    public void tutorial()
+    {
+        
+        /**
+         * EXAMPLE
+         * CHANGE AS NEEDED
+         */
+        showText("W to move forward", 450, 260);
+        showText("A and D to turn", 450, 280);
+        showText("C to shoot", 450, 300);
+        showText("space to boost (someone should add)", 450, 320);
+        showText("Q to swich weapon", 450, 340);
+        showText("numbers to change LV", 450, 360);
+        showText("PRESS ANY KEY TO CONTINUE", 450, 440);
     }
     
     public void clearText()
@@ -53,7 +55,7 @@ public class Space extends World
         {
             for (int i=0; i<=600; i+=20)
             {
-                showText("",600,i);
+                showText("",450,i);
             }
         }
     }
