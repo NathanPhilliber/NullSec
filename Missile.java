@@ -6,7 +6,7 @@ import greenfoot.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Missile extends Weapon
+public class Missile extends Weapon implements ProjectileObject
 {
     /**
      * Not fully implamented

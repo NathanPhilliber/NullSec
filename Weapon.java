@@ -14,3 +14,7 @@ public class Weapon extends Object
         // Add your action code here.
     }    
 }
+
+interface ProjectileObject{
+    
+}

@@ -6,7 +6,7 @@ import greenfoot.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class PlasmaBall extends Weapon
+public class PlasmaBall extends Weapon implements ProjectileObject
 {
     /**
      * Act - do whatever the PlasmaBall wants to do. This method is called whenever

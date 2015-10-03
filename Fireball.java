@@ -6,7 +6,7 @@ import greenfoot.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Fireball extends Weapon
+public class Fireball extends Weapon implements ProjectileObject
 {
     private int beamAngle = 0;
     

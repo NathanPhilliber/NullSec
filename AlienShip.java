@@ -8,31 +8,26 @@ import greenfoot.*;
  */
 public class AlienShip extends Entity
 {
-    /**
-     * Act - do whatever the AlienShip wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+   
     public AlienShip(){
         super();
     }
     
     public AlienShip(double x, double y){
         super(x,y);
-        //moveTo(450,225);
         
-        addAction("moveTo/1000/1000");
-        addAction("moveTo/500/700");
+        
+        
     }
     
     public void act() 
     {
-        // Add your action code here.
+        
         super.act();
         
-        Space space = (Space) getWorld();
-        Ship ship = space.getShip();
-        //moveTo(ship.getShipLocX(),ship.getShipLocY());
-        //System.out.println(getSpaceX() + " " + getSpaceY());
+        if(hasMoreActions() == false){
+            addAction("moveTo/"+(Greenfoot.getRandomNumber(1000)-500)+"/"+(Greenfoot.getRandomNumber(1000)-500));
+        }
         
     }    
 }

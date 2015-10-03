@@ -29,6 +29,7 @@ public class Entity extends SpaceObject
     //Lower the number the longer it takes to stop
     private double flyDec = .01;
     
+    //Where ship is to fly to
     private double targetX;
     private double targetY;
     
@@ -100,6 +101,13 @@ public class Entity extends SpaceObject
         queueInUse = state;
     }
     
+    
+    public boolean hasMoreActions(){
+        if(actionQueue.size() == 0){
+            return false;
+        }
+        return true;
+    }
     //Called once during the first tick. Useful for certain objects that require
     //the entity to already be spawned.
     private void firstTime(){

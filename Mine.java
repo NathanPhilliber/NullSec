@@ -6,7 +6,7 @@ import greenfoot.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Mine extends Weapon
+public class Mine extends Weapon implements ProjectileObject
 {
     /**
      * currently broken

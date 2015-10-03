@@ -40,7 +40,7 @@ public class Player extends Object
     private int starDensity = 2;
     
     //Health values of player
-    private double health = 50.0;
+    private double health = 100.0;
     private double maxHealth = 100.0;
     
     //Damage bar for player
