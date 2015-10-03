@@ -43,7 +43,7 @@ public class Space extends World
         showText("W to move forward", 450, 260);
         showText("A and D to turn", 450, 280);
         showText("C to shoot", 450, 300);
-        showText("space to boost (someone should add)", 450, 320);
+        showText("space to boost", 450, 320);
         showText("Q to swich weapon", 450, 340);
         showText("numbers to change LV", 450, 360);
         showText("PRESS ANY KEY TO CONTINUE", 450, 440);

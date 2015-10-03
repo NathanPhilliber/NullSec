@@ -28,9 +28,10 @@ public class Player extends Object
     private int turnSpeed = 3;
     private double flySpeed = 0.3;
     
+    
     //The maximum velocity the ship can have
     private double maxFlySpeed = 3.0;
-    
+    private double maxFlyBoostSpeed = 10.0;
     //How fast the ship deccelerates 
     //Lower the number the longer it takes to stop
     private double flyDec = .01;
@@ -87,7 +88,7 @@ public class Player extends Object
     private void fly(){
        
         //If spacebar or w is pressed
-        if(Greenfoot.isKeyDown("space") || Greenfoot.isKeyDown("w")){
+        if(Greenfoot.isKeyDown("w")){
             int angle = getRotation();
             
             //Add to velocity based on what angle the ship is turned to
@@ -95,12 +96,23 @@ public class Player extends Object
             setVelY((Math.sin(Math.toRadians(angle))*getFlySpeed()) + getVelY());
             
             //Check if ship is going too fast
-            if(Math.abs(getVelX()) >= getMaxFlySpeed()){
+            if(Greenfoot.isKeyDown("space")){
+                if(Math.abs(getVelX()) >= getMaxFlyBoostSpeed()){
+                setVelX(getMaxFlyBoostSpeed()*Integer.signum((int)getVelX()));
+                }
+                if(Math.abs(getVelY()) >= getMaxFlyBoostSpeed()){
+                    setVelY(getMaxFlyBoostSpeed()*Integer.signum((int)getVelY()));
+                }
+            }
+            else{
+                if(Math.abs(getVelX()) >= getMaxFlySpeed()){
                 setVelX(getMaxFlySpeed()*Integer.signum((int)getVelX()));
+                }
+                if(Math.abs(getVelY()) >= getMaxFlySpeed()){
+                    setVelY(getMaxFlySpeed()*Integer.signum((int)getVelY()));
+                }
             }
-            if(Math.abs(getVelY()) >= getMaxFlySpeed()){
-                setVelY(getMaxFlySpeed()*Integer.signum((int)getVelY()));
-            }
+            
         }
         
         //Fixes problem of velocity glitching out when close to 0
@@ -260,6 +272,14 @@ public class Player extends Object
     
     public void setMaxFlySpeed(int speed){
         maxFlySpeed = speed;
+    }
+    
+    public double getMaxFlyBoostSpeed(){
+        return maxFlyBoostSpeed;
+    }
+    
+    public void setMaxFlyBoostSpeed(int speed){
+        maxFlyBoostSpeed = speed;
     }
     
     public void setFlyDec(double dec){
