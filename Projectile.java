@@ -19,8 +19,8 @@ public class Projectile extends Weapon
     {
         //colision effect goes here
         //update Position method to move relitive to ship (if you want the ship to be able to catch up to projectiles)
-        removeAtEdge();
         move(5);
+        removeAtEdge();
     }    
     public Projectile(int angle)
     {

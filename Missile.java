@@ -23,9 +23,8 @@ public class Missile extends Weapon
     {
         //colision effect goes here
         move(3);
-        removeAtEdge();
         seakTarget();
-        
+        removeAtEdge();
     }  
     
     public Missile(int angle)

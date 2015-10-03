@@ -341,11 +341,11 @@ public class Player extends Object
     /**********************************************************************************************************
      **********************************************************************************************************
      *
-     *weapon systems
-     *added by john
-     *10/2/15
-     *curently not mouse driven
-     *will be updated
+     * weapon systems
+     * added by john
+     * 10/2/15
+     * curently not mouse driven
+     * will be updated
      *
      **********************************************************************************************************
      **********************************************************************************************************
@@ -389,6 +389,17 @@ public class Player extends Object
             }
             if (wep==4)
             {
+                if (weaponTimer%70 == 1)
+                {
+                    fireball(LV);
+                }
+            }
+            if (wep==5)
+            {
+                //plasma
+            }
+            if (wep==6)
+            {
                 //stuff wave
             }
         }
@@ -397,6 +408,11 @@ public class Player extends Object
             weaponTimer = 0;
         }
         
+    }
+    
+    private void fireball(int LV)
+    {
+        getWorld().addObject(new Fireball(getRotation()), getX(), getY());
     }
     
     private void Mine(int LV)
@@ -443,7 +459,7 @@ public class Player extends Object
         {
             if (weaponToggle==0)
             {
-                if (weaponType == 4)
+                if (weaponType == 6)
                 {
                     weaponType = 0;
                 }

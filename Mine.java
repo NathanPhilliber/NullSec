@@ -19,6 +19,7 @@ public class Mine extends Weapon
     {
         //colision effect goes here
         //Update Position (so it gets moved with everything else)
+        getWorld().removeObject(this);
     }    
     
     public Mine(int x,int y)

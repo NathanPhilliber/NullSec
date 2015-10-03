@@ -14,8 +14,14 @@ public class Object extends SmoothMover
         // Add your action code here.
     }    
     
-    //john start
-    public void removeAtEdge()
+    /**
+     * removeAtEdge()
+     * ALWAYS PUT AT THE END OF A ACT METHOD
+     * ALLLLLLLLLLLLLLLLLLLLLLLLLLLLLWAYYYYYYYYYYYYYYSSSSSSSSSSSS
+     * john start
+     * 
+     */
+    public void removeAtEdge() 
     {
         if (isAtEdge())
         {
