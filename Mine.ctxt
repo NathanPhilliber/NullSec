@@ -1,14 +1,11 @@
 #BlueJ class context
 comment0.params=
 comment0.target=void\ act()
-comment1.params=x\ y
-comment1.target=Mine(double,\ double)
+comment1.params=x\ y\ isPlayer\ damage
+comment1.target=Mine(double,\ double,\ boolean,\ double)
 comment2.params=
-comment2.target=void\ collision()
+comment2.target=void\ time()
+comment2.text=\n\ \ \ \ public\ void\ collision()\n\ \ \ \ {\n\ \ \ \ \ \ \ \ if\ (checkCollision())\n\ \ \ \ \ \ \ \ {\n\ \ \ \ \ \ \ \ \ \ \ \ //explode();\n\ \ \ \ \ \ \ \ }\n\ \ \ \ }\n
 comment3.params=
-comment3.target=void\ time()
-comment4.params=
-comment4.target=void\ explode()
-comment5.params=
-comment5.target=boolean\ checkCollision()
-numComments=6
+comment3.target=void\ explode()
+numComments=4

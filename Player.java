@@ -440,37 +440,37 @@ public class Player extends Object implements DamageTaker
     
     private void PlasmaBall(int LV)
     {
-        getWorld().addObject(new PlasmaBall(getRotation()), getX(), getY());
+        getWorld().addObject(new PlasmaBall(getRotation(), true, 3.0), getX(), getY());
         if (LV>=1)
         {
-            getWorld().addObject(new PlasmaBall(getRotation()+10), getX(), getY());
-            getWorld().addObject(new PlasmaBall(getRotation()-10), getX(), getY());
+            getWorld().addObject(new PlasmaBall(getRotation()+10,true, 3.0), getX(), getY());
+            getWorld().addObject(new PlasmaBall(getRotation()-10,true, 3.0), getX(), getY());
         }
         if (LV>=2)
         {
-            getWorld().addObject(new PlasmaBall(getRotation()+20), getX(), getY());
-            getWorld().addObject(new PlasmaBall(getRotation()-20), getX(), getY());
+            getWorld().addObject(new PlasmaBall(getRotation()+20,true, 3.0), getX(), getY());
+            getWorld().addObject(new PlasmaBall(getRotation()-20,true, 3.0), getX(), getY());
         }
         if (LV>=3)
         {
-            getWorld().addObject(new PlasmaBall(getRotation()+30), getX(), getY());
-            getWorld().addObject(new PlasmaBall(getRotation()-30), getX(), getY());
+            getWorld().addObject(new PlasmaBall(getRotation()+30,true, 3.0), getX(), getY());
+            getWorld().addObject(new PlasmaBall(getRotation()-30,true, 3.0), getX(), getY());
         }
     }
     
     private void fireball(int LV)
     {
-        getWorld().addObject(new Fireball(getRotation()), getX(), getY());
+        getWorld().addObject(new Fireball(getRotation(), true, 3.0), getX(), getY());
     }
     
     private void Mine(int LV)
     {
-        getWorld().addObject(new Mine(spaceX+getX(),spaceY+getY()), getX(), getY());
+        getWorld().addObject(new Mine(spaceX+getX(),spaceY+getY(), true, 5.0), getX(), getY());
     }
     
     private void Missile(int LV)
     {
-        getWorld().addObject(new Missile(getRotation()), getX(), getY());
+        getWorld().addObject(new Missile(getRotation(), true, 3.0), getX(), getY());
     }
     
     private void projectile(int LV)
@@ -497,7 +497,7 @@ public class Player extends Object implements DamageTaker
     {
         for (int i=0; i<=10*(LV+1); i++)
         {
-            getWorld().addObject(new Beam(getRotation()), (int)Math.round(getX()+i*8*Math.cos(getRotation()*2*Math.PI/360)), (int)Math.round(getY()+i*8*Math.sin(getRotation()*2*Math.PI/360)));
+            getWorld().addObject(new Beam(getRotation(), true, 3.0), (int)Math.round(getX()+i*8*Math.cos(getRotation()*2*Math.PI/360)), (int)Math.round(getY()+i*8*Math.sin(getRotation()*2*Math.PI/360)));
         }
     }
     

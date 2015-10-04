@@ -1,12 +1,10 @@
 #BlueJ class context
 comment0.params=
 comment0.target=void\ act()
-comment1.params=angle
-comment1.target=Missile(int)
+comment1.params=angle\ isPlayer\ damage
+comment1.target=Missile(int,\ boolean,\ double)
 comment2.params=
 comment2.target=void\ seakTarget()
 comment3.params=
 comment3.target=void\ turnRandom()
-comment4.params=
-comment4.target=boolean\ checkCollision()
-numComments=5
+numComments=4

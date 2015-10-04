@@ -11,19 +11,27 @@ public class PlasmaBall extends Weapon implements ProjectileObject
     private double straightX;
     private double straightY;
     private int step = 0;
+    
+
+    
+    
     /**
      * Act - do whatever the PlasmaBall wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
+        super.act();
         waveMove(1);
+        
         removeAtEdge();
     } 
     
-    public PlasmaBall(int angle)
+    public PlasmaBall(int angle, boolean isPlayer, double damage)
     {
+        super(isPlayer, damage);
         setRotation(angle);
+        
     }
     
 
@@ -42,8 +50,5 @@ public class PlasmaBall extends Weapon implements ProjectileObject
         step++;
     }
     
-    public boolean checkCollision(){
-        return true;
 
-    }
 }

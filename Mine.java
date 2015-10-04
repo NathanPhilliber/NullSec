@@ -20,16 +20,18 @@ public class Mine extends Weapon implements ProjectileObject
     
     public void act() 
     {
+        
         //colision effect goes here
         updatePosition();
         time();
-        collision();
+        //collision();
     }    
     
-    public Mine(double x, double y){
-        super(x,y);
+    public Mine(double x, double y, boolean isPlayer, double damage){
+        super(x,y, isPlayer, damage);
     }
     
+    /*
     public void collision()
     {
         if (checkCollision())
@@ -37,7 +39,7 @@ public class Mine extends Weapon implements ProjectileObject
             //explode();
         }
     }
-    
+    */
     private void time()
     {
         if (timer >= 100)
@@ -54,7 +56,5 @@ public class Mine extends Weapon implements ProjectileObject
         getWorld().removeObject(this);
     }
     
-    public boolean checkCollision(){
-        return true;
-    }
+
 }

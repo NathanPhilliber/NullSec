@@ -124,7 +124,7 @@ public class Entity extends SpaceObject implements DamageTaker
     
     public boolean getHit(double damage){
         addHealth(-damage);
-        //System.out.println(getHealth());
+        System.out.println(getHealth());
         return true;
     }
     

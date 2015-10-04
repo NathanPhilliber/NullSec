@@ -1,9 +1,7 @@
 #BlueJ class context
 comment0.params=
 comment0.target=void\ act()
-comment0.text=\r\n\ not\ completly\ finished\r\n\ feel\ free\ to\ change\ immage\r\n\ beam\ lenth\ is\ changed\ in\ Player.beam()\r\n\ add\ colisions\ as\ nessary\r\n\ \r\n
-comment1.params=angle
-comment1.target=Beam(int)
-comment2.params=
-comment2.target=boolean\ checkCollision()
-numComments=3
+comment0.text=\n\ not\ completly\ finished\n\ feel\ free\ to\ change\ immage\n\ beam\ lenth\ is\ changed\ in\ Player.beam()\n\ add\ colisions\ as\ nessary\n\ \n
+comment1.params=angle\ isPlayer\ damage
+comment1.target=Beam(int,\ boolean,\ double)
+numComments=2

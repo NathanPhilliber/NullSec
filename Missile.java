@@ -21,14 +21,16 @@ public class Missile extends Weapon implements ProjectileObject
     
     public void act() 
     {
+        super.act();
         //colision effect goes here
         move(3);
         seakTarget();
         removeAtEdge();
     }  
     
-    public Missile(int angle)
+    public Missile(int angle, boolean isPlayer, double damage)
     {
+        super(isPlayer, damage);
         setRotation(angle);
     }
     
@@ -47,7 +49,5 @@ public class Missile extends Weapon implements ProjectileObject
         setRotation(getRotation()+(Greenfoot.getRandomNumber(5)-2));
     }
     
-    public boolean checkCollision(){
-        return true;
-    }
+
 }
