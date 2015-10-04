@@ -8,6 +8,7 @@ import greenfoot.*;
  */
 public class Mine extends Weapon implements ProjectileObject
 {
+
     /**
      * currently broken
      * Not fully implamented
@@ -15,17 +16,42 @@ public class Mine extends Weapon implements ProjectileObject
      * add colisions as nessary
      * 
      */
+    int timer=0;
+    
     public void act() 
     {
         //colision effect goes here
-        //Update Position (so it gets moved with everything else)
-        getWorld().removeObject(this);
+        updatePosition();
+        time();
+        collision();
     }    
     
-    public Mine(int x,int y)
+    public Mine(double x, double y){
+        super(x,y);
+    }
+    
+    public void collision()
     {
-        //X = x;
-        //Y = y;
+        if (checkCollision())
+        {
+            //explode();
+        }
+    }
+    
+    private void time()
+    {
+        if (timer >= 100)
+        {
+            explode();
+        }
+        timer++;
+    }
+    
+    public void explode()
+    {
+        
+        //remove objects
+        getWorld().removeObject(this);
     }
     
     public boolean checkCollision(){

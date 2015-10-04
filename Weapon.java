@@ -6,13 +6,21 @@ import greenfoot.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Weapon extends Object
+public class Weapon extends SpaceObject
 {
     
     public void act() 
     {
         // Add your action code here.
-    }    
+    }  
+    
+        public Weapon(){
+        
+    }
+    
+        public Weapon(double x, double y){
+        super(x,y);
+    }
 }
 
 interface ProjectileObject{

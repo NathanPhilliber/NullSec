@@ -465,7 +465,7 @@ public class Player extends Object implements DamageTaker
     
     private void Mine(int LV)
     {
-        getWorld().addObject(new Mine(getX(),getY()), getX(), getY());
+        getWorld().addObject(new Mine(spaceX+getX(),spaceY+getY()), getX(), getY());
     }
     
     private void Missile(int LV)

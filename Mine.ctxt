@@ -1,9 +1,14 @@
 #BlueJ class context
 comment0.params=
 comment0.target=void\ act()
-comment0.text=\r\n\ currently\ broken\r\n\ Not\ fully\ implamented\r\n\ feel\ free\ to\ change\ immage\r\n\ add\ colisions\ as\ nessary\r\n\ \r\n
 comment1.params=x\ y
-comment1.target=Mine(int,\ int)
+comment1.target=Mine(double,\ double)
 comment2.params=
-comment2.target=boolean\ checkCollision()
-numComments=3
+comment2.target=void\ collision()
+comment3.params=
+comment3.target=void\ time()
+comment4.params=
+comment4.target=void\ explode()
+comment5.params=
+comment5.target=boolean\ checkCollision()
+numComments=6
