@@ -16,5 +16,5 @@ public class Weapon extends Object
 }
 
 interface ProjectileObject{
-    
+    public boolean checkCollision();
 }

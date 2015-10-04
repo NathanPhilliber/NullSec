@@ -81,17 +81,19 @@ public class DamageBar extends Object
         
         //How much damage is between each image state
         int interval = (int)getMaxHealth()/(img.length-1);
-        
+        /*
         //Decide when it is time to switch to the next down state
         if((((int)(getMaxHealth()-getHealth()))-(interval*curImgI)) >= interval){
-            
+            System.out.println("DOWN");
             curImgI++; //Iterate to next image in array
+            
             setImage(img[curImgI]); //Switch image
             
         }
         
         if((((int)(getMaxHealth()-getHealth()))-(interval*curImgI)) <= interval){
             //System.out.println((((int)(getMaxHealth()-getHealth()))-(interval*curImgI)));
+            System.out.println("UP");
             curImgI--; //Iterate to next image in array
             if(curImgI < 0){
                 curImgI = 0;
@@ -99,6 +101,20 @@ public class DamageBar extends Object
             setImage(img[curImgI]); //Switch image
             
         }
+        */
+       //System.out.println(((int)(getMaxHealth()-getHealth()))%interval);
+       if(((int)(getMaxHealth()-getHealth()))/interval>curImgI){
+           
+           curImgI++;
+           setImage(img[curImgI]);
+        }
+        
+        if(((int)(getMaxHealth()-getHealth()))/interval<curImgI){
+           
+           curImgI--;
+           setImage(img[curImgI]);
+        }
+       
     }
     
     public double getOffset(){

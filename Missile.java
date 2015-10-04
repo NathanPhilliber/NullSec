@@ -46,4 +46,8 @@ public class Missile extends Weapon implements ProjectileObject
     {
         setRotation(getRotation()+(Greenfoot.getRandomNumber(5)-2));
     }
+    
+    public boolean checkCollision(){
+        return true;
+    }
 }

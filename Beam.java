@@ -25,4 +25,8 @@ public class Beam extends Weapon implements ProjectileObject
     {
         setRotation(angle);
     }
+    
+    public boolean checkCollision(){
+        return true;
+    }
 }

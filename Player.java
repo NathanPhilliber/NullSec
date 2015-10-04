@@ -6,7 +6,7 @@ import java.lang.Math;
  * 
  * Written by Nathan Philliber
  */
-public class Player extends Object
+public class Player extends Object implements DamageTaker
 {
     //john start
     private int weaponTimer = 0;
@@ -84,6 +84,11 @@ public class Player extends Object
        weaponSystems();//john
     } 
     
+    
+    public boolean getHit(double damage){
+        return true;
+    }
+    
     //Checks for key presses and changes coords ("moves" ship)
     private void fly(){
        
@@ -96,7 +101,7 @@ public class Player extends Object
             setVelY((Math.sin(Math.toRadians(angle))*getFlySpeed()) + getVelY());
             
             //Check if ship is going too fast
-            if(Greenfoot.isKeyDown("space")){
+            if(Greenfoot.isKeyDown("space")){ //Boost
                 if(Math.abs(getVelX()) >= getMaxFlyBoostSpeed()){
                 setVelX(getMaxFlyBoostSpeed()*Integer.signum((int)getVelX()));
                 }
@@ -163,7 +168,7 @@ public class Player extends Object
             if(getPosNeg()==1){
                 
                 //If the ship is going fast enough left/right, spawn a star on one of those sides
-                if(Math.abs(getVelX()) > 1.0){
+                if(Math.abs(getVelX()) > 1.0){ 
                     world.addObject(new BackgroundStar((getSpaceX() + world.getWidth()/2)+(world.getWidth()/2*getPosNeg()),
                     (getSpaceY() + world.getHeight()/2)+Greenfoot.getRandomNumber(world.getHeight())-world.getHeight()/2),0,0);
                 }
@@ -447,21 +452,21 @@ public class Player extends Object
     
     private void projectile(int LV)
     {
-        getWorld().addObject(new Projectile(getRotation()), getX(), getY());
+        getWorld().addObject(new Projectile(getRotation(), 8.0), getX(), getY());
         if (LV>=1)
         {
-            getWorld().addObject(new Projectile(getRotation()+10), getX(), getY());
-            getWorld().addObject(new Projectile(getRotation()-10), getX(), getY());
+            getWorld().addObject(new Projectile(getRotation()+10,8.0), getX(), getY());
+            getWorld().addObject(new Projectile(getRotation()-10,8.0), getX(), getY());
         }
         if (LV>=2)
         {
-            getWorld().addObject(new Projectile(getRotation()+20), getX(), getY());
-            getWorld().addObject(new Projectile(getRotation()-20), getX(), getY());
+            getWorld().addObject(new Projectile(getRotation()+20,8.0), getX(), getY());
+            getWorld().addObject(new Projectile(getRotation()-20,8.0), getX(), getY());
         }
         if (LV>=3)
         {
-            getWorld().addObject(new Projectile(getRotation()+30), getX(), getY());
-            getWorld().addObject(new Projectile(getRotation()-30), getX(), getY());
+            getWorld().addObject(new Projectile(getRotation()+30,8.0), getX(), getY());
+            getWorld().addObject(new Projectile(getRotation()-30,8.0), getX(), getY());
         }
     }
     

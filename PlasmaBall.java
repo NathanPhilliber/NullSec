@@ -23,5 +23,7 @@ public class PlasmaBall extends Weapon implements ProjectileObject
         setRotation(angle);
     }
     
-    
+    public boolean checkCollision(){
+        return true;
+    }
 }

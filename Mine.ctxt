@@ -4,4 +4,6 @@ comment0.target=void\ act()
 comment0.text=\n\ currently\ broken\n\ Not\ fully\ implamented\n\ feel\ free\ to\ change\ immage\n\ add\ colisions\ as\ nessary\n\ \n
 comment1.params=x\ y
 comment1.target=Mine(int,\ int)
-numComments=2
+comment2.params=
+comment2.target=boolean\ checkCollision()
+numComments=3

@@ -6,13 +6,13 @@ import java.util.PriorityQueue;
  * Written by Nathan Philliber
  * 
  */
-public class Entity extends SpaceObject
+public class Entity extends SpaceObject implements DamageTaker
 {
     //#####
     //TO DO: Make stack of actions for the ship to take
     
     private double aggression = 0.0;
-    private double health = 0.0;
+    private double health = 100.0;
     private double maxHealth = 100.0;
     
     private double velX;
@@ -59,6 +59,7 @@ public class Entity extends SpaceObject
         super.act();
         makeMoves();
         firstTime();
+        damageBar.updateDamage(getHealth(), getMaxHealth());
         runQueue();
     }    
     
@@ -120,6 +121,13 @@ public class Entity extends SpaceObject
             
         }
     }
+    
+    public boolean getHit(double damage){
+        addHealth(-damage);
+        //System.out.println(getHealth());
+        return true;
+    }
+    
     
     //Move to and x,y over time.
     private void moveTo(double x, double y){
@@ -193,6 +201,10 @@ public class Entity extends SpaceObject
     
     public double getMaxHealth(){
         return maxHealth;
+    }
+    
+    public void addHealth(double hp){
+        setHealth(getHealth()+hp);
     }
     
     private double getTargetX(){

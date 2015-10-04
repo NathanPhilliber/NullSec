@@ -27,4 +27,8 @@ public class Mine extends Weapon implements ProjectileObject
         //X = x;
         //Y = y;
     }
+    
+    public boolean checkCollision(){
+        return true;
+    }
 }

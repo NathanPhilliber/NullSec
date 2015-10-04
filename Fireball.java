@@ -39,4 +39,8 @@ public class Fireball extends Weapon implements ProjectileObject
             getWorld().addObject(new Beam(beamAngle+180), (int)Math.round(getX()+i*8*Math.cos((beamAngle+180)*2*Math.PI/360)), (int)Math.round(getY()+i*8*Math.sin((beamAngle+180)*2*Math.PI/360)));
         }
     }
+    
+    public boolean checkCollision(){
+        return true;
+    }
 }
