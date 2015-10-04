@@ -421,7 +421,10 @@ public class Player extends Object implements DamageTaker
             }
             if (wep==5)
             {
-                //plasma
+                if (weaponTimer%30 <= 4)
+                {
+                    PlasmaBall(LV);
+                }
             }
             if (wep==6)
             {
@@ -433,6 +436,26 @@ public class Player extends Object implements DamageTaker
             weaponTimer = 0;
         }
         
+    }
+    
+    private void PlasmaBall(int LV)
+    {
+        getWorld().addObject(new PlasmaBall(getRotation()), getX(), getY());
+        if (LV>=1)
+        {
+            getWorld().addObject(new PlasmaBall(getRotation()+10), getX(), getY());
+            getWorld().addObject(new PlasmaBall(getRotation()-10), getX(), getY());
+        }
+        if (LV>=2)
+        {
+            getWorld().addObject(new PlasmaBall(getRotation()+20), getX(), getY());
+            getWorld().addObject(new PlasmaBall(getRotation()-20), getX(), getY());
+        }
+        if (LV>=3)
+        {
+            getWorld().addObject(new PlasmaBall(getRotation()+30), getX(), getY());
+            getWorld().addObject(new PlasmaBall(getRotation()-30), getX(), getY());
+        }
     }
     
     private void fireball(int LV)

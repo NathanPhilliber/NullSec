@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.params=
 comment0.target=void\ act()
-comment0.text=\n\ currently\ broken\n\ Not\ fully\ implamented\n\ feel\ free\ to\ change\ immage\n\ add\ colisions\ as\ nessary\n\ \n
+comment0.text=\r\n\ currently\ broken\r\n\ Not\ fully\ implamented\r\n\ feel\ free\ to\ change\ immage\r\n\ add\ colisions\ as\ nessary\r\n\ \r\n
 comment1.params=x\ y
 comment1.target=Mine(int,\ int)
 comment2.params=
