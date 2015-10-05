@@ -10,10 +10,13 @@ public class Weapon extends SpaceObject
 {
     private boolean ownedByPlayer;
     private double damage;
-    
+    private MouseInfo mouse;
+    private double targetX;
+    private double targetY;
     public void act() 
     {
         checkCollision();
+        updateMousePos();
     }  
     
     public Weapon(boolean isPlayer, double damage){
@@ -23,6 +26,15 @@ public class Weapon extends SpaceObject
     
     public Weapon(double x, double y,boolean isPlayer, double damage){
         super(x,y);
+    }
+    
+    public void updateMousePos(){
+        mouse = Greenfoot.getMouseInfo();
+        if(mouse != null){
+            targetX = mouse.getX();
+            targetY = mouse.getY();
+        }
+        
     }
     
     public boolean checkCollision(){
@@ -53,6 +65,14 @@ public class Weapon extends SpaceObject
     
     public void removeSelf(){
         getWorld().removeObject(this);
+    }
+    
+    public double getTargetX(){
+        return targetX;
+    }
+    
+    public double getTargetY(){
+        return targetY;
     }
 }
 

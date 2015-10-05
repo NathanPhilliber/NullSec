@@ -16,14 +16,15 @@ public class Projectile extends Weapon implements ProjectileObject
      * 
      */
     
-    
-    
+    private boolean firstTime = true;
+    private int angleChange = 0;
     public void act() 
     {
         super.act();
         //colision effect goes here
         //update Position method to move relitive to ship (if you want the ship to be able to catch up to projectiles)
-        move(5);
+        firstTime();
+        move(8);
         
         
         
@@ -33,8 +34,8 @@ public class Projectile extends Weapon implements ProjectileObject
     public Projectile(int angle, boolean isPlayer, double damage)
     {
         super(isPlayer, damage);
-        setRotation(angle);
-        
+        //setRotation(angle);
+        angleChange = angle;
         //System.out.println("spawn");
     }
     
@@ -42,5 +43,12 @@ public class Projectile extends Weapon implements ProjectileObject
         this(angle, true, damage);
     }
     
-
+    public void firstTime(){
+        if(firstTime){
+            firstTime = false;
+            turnTowards((int)getTargetX(), (int)getTargetY());
+            setRotation(getRotation()+angleChange);
+        }
+        
+    }
 }

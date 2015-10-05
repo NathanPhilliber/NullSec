@@ -7,4 +7,6 @@ comment2.params=
 comment2.target=void\ seakTarget()
 comment3.params=
 comment3.target=void\ turnRandom()
-numComments=4
+comment4.params=
+comment4.target=void\ firstTime()
+numComments=5

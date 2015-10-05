@@ -67,7 +67,6 @@ comment38.params=show
 comment38.target=void\ showDebug(boolean)
 comment39.params=
 comment39.target=void\ weaponSystems()
-comment39.text=\n\n\n\ weapon\ systems\n\ added\ by\ john\n\ 10/2/15\n\ curently\ not\ mouse\ driven\n\ will\ be\ updated\n\n\n\n
 comment4.params=
 comment4.target=void\ fly()
 comment40.params=LV\ wep

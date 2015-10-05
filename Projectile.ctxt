@@ -1,9 +1,10 @@
 #BlueJ class context
 comment0.params=
 comment0.target=void\ act()
-comment0.text=\n\ Works\n\ feel\ free\ to\ change\ immage\ or\ move\ speed\n\ shooting\ speed\ is\ changed\ in\ Player.shoot()\n\ add\ colisions\ as\ nessary\n\ \n
 comment1.params=angle\ isPlayer\ damage
 comment1.target=Projectile(int,\ boolean,\ double)
 comment2.params=angle\ damage
 comment2.target=Projectile(int,\ double)
-numComments=3
+comment3.params=
+comment3.target=void\ firstTime()
+numComments=4

@@ -18,11 +18,12 @@ public class Missile extends Weapon implements ProjectileObject
     
     private int turn;
     private int time;
-    
+    private boolean firstTime = true;
     public void act() 
     {
         super.act();
         //colision effect goes here
+        firstTime();
         move(3);
         seakTarget();
         removeAtEdge();
@@ -31,7 +32,8 @@ public class Missile extends Weapon implements ProjectileObject
     public Missile(int angle, boolean isPlayer, double damage)
     {
         super(isPlayer, damage);
-        setRotation(angle);
+        //setRotation(angle);
+        
     }
     
     private void seakTarget()
@@ -49,5 +51,11 @@ public class Missile extends Weapon implements ProjectileObject
         setRotation(getRotation()+(Greenfoot.getRandomNumber(5)-2));
     }
     
-
+    public void firstTime(){
+        if(firstTime){
+            firstTime = false;
+            turnTowards((int)getTargetX(), (int)getTargetY());
+        }
+        
+    }
 }

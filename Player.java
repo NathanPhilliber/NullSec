@@ -378,6 +378,13 @@ public class Player extends Object implements DamageTaker
      */
     
    
+    private double projectileDamage = 3.0;
+    private double beamDamage = .2;
+    private double missileDamage = 6.0;
+    private double fireballDamage = 4.0;
+    private double mineDamage = 15.0;
+    private double plasmaBallDamage = 2.0;
+    
     public void weaponSystems()
     {
         shoot(weaponLV, weaponType);
@@ -393,7 +400,7 @@ public class Player extends Object implements DamageTaker
             weaponTimer++;
             if (wep==0)
             {
-                if (weaponTimer%15 == 1)
+                if (weaponTimer%10 == 1)
                 {
                     projectile(LV);
                 }
@@ -441,56 +448,56 @@ public class Player extends Object implements DamageTaker
     
     private void PlasmaBall(int LV)
     {
-        getWorld().addObject(new PlasmaBall(getRotation(), true, 3.0), getX(), getY());
+        getWorld().addObject(new PlasmaBall(getRotation(), true, plasmaBallDamage), getX(), getY());
         if (LV>=1)
         {
-            getWorld().addObject(new PlasmaBall(getRotation()+10,true, 3.0), getX(), getY());
-            getWorld().addObject(new PlasmaBall(getRotation()-10,true, 3.0), getX(), getY());
+            getWorld().addObject(new PlasmaBall(getRotation()+10,true, plasmaBallDamage), getX(), getY());
+            getWorld().addObject(new PlasmaBall(getRotation()-10,true, plasmaBallDamage), getX(), getY());
         }
         if (LV>=2)
         {
-            getWorld().addObject(new PlasmaBall(getRotation()+20,true, 3.0), getX(), getY());
-            getWorld().addObject(new PlasmaBall(getRotation()-20,true, 3.0), getX(), getY());
+            getWorld().addObject(new PlasmaBall(getRotation()+20,true, plasmaBallDamage), getX(), getY());
+            getWorld().addObject(new PlasmaBall(getRotation()-20,true, plasmaBallDamage), getX(), getY());
         }
         if (LV>=3)
         {
-            getWorld().addObject(new PlasmaBall(getRotation()+30,true, 3.0), getX(), getY());
-            getWorld().addObject(new PlasmaBall(getRotation()-30,true, 3.0), getX(), getY());
+            getWorld().addObject(new PlasmaBall(getRotation()+30,true, plasmaBallDamage), getX(), getY());
+            getWorld().addObject(new PlasmaBall(getRotation()-30,true, plasmaBallDamage), getX(), getY());
         }
     }
     
     private void fireball(int LV)
     {
-        getWorld().addObject(new Fireball(getRotation(), true, 3.0), getX(), getY());
+        getWorld().addObject(new Fireball(getRotation(), true, fireballDamage), getX(), getY());
     }
     
     private void Mine(int LV)
     {
-        getWorld().addObject(new Mine(spaceX+getX(),spaceY+getY(), true, 5.0), getX(), getY());
+        getWorld().addObject(new Mine(spaceX+getX(),spaceY+getY(), true, mineDamage), getX(), getY());
     }
     
     private void Missile(int LV)
     {
-        getWorld().addObject(new Missile(getRotation(), true, 3.0), getX(), getY());
+        getWorld().addObject(new Missile(getRotation(), true, mineDamage), getX(), getY());
     }
     
     private void projectile(int LV)
     {
-        getWorld().addObject(new Projectile(getRotation(), 8.0), getX(), getY());
+        getWorld().addObject(new Projectile(0, projectileDamage), getX(), getY());
         if (LV>=1)
         {
-            getWorld().addObject(new Projectile(getRotation()+10,8.0), getX(), getY());
-            getWorld().addObject(new Projectile(getRotation()-10,8.0), getX(), getY());
+            getWorld().addObject(new Projectile(10,projectileDamage), getX(), getY());
+            getWorld().addObject(new Projectile(-10,projectileDamage), getX(), getY());
         }
         if (LV>=2)
         {
-            getWorld().addObject(new Projectile(getRotation()+20,8.0), getX(), getY());
-            getWorld().addObject(new Projectile(getRotation()-20,8.0), getX(), getY());
+            getWorld().addObject(new Projectile(20,projectileDamage), getX(), getY());
+            getWorld().addObject(new Projectile(20,projectileDamage), getX(), getY());
         }
         if (LV>=3)
         {
-            getWorld().addObject(new Projectile(getRotation()+30,8.0), getX(), getY());
-            getWorld().addObject(new Projectile(getRotation()-30,8.0), getX(), getY());
+            getWorld().addObject(new Projectile(30,projectileDamage), getX(), getY());
+            getWorld().addObject(new Projectile(30,projectileDamage), getX(), getY());
         }
     }
     
@@ -498,7 +505,7 @@ public class Player extends Object implements DamageTaker
     {
         for (int i=0; i<=10*(LV+1); i++)
         {
-            getWorld().addObject(new Beam(getRotation(), true, 3.0), (int)Math.round(getX()+i*8*Math.cos(getRotation()*2*Math.PI/360)), (int)Math.round(getY()+i*8*Math.sin(getRotation()*2*Math.PI/360)));
+            getWorld().addObject(new Beam(getRotation(), true, beamDamage), (int)Math.round(getX()+i*8*Math.cos(getRotation()*2*Math.PI/360)), (int)Math.round(getY()+i*8*Math.sin(getRotation()*2*Math.PI/360)));
         }
     }
     
