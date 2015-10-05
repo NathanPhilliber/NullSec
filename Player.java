@@ -162,7 +162,8 @@ public class Player extends Object implements DamageTaker
         World world = getWorld();
         
         //Doesn't spawn stars every call, higher density will increase odds
-        if((Greenfoot.getRandomNumber(100))/density < 10){
+        //Don't spawn more than 120 stars
+        if((Greenfoot.getRandomNumber(100))/density < 10 && BackgroundStar.getNumStars() < 120){
             
             //Divide star spawns between up/down and right/left
             if(getPosNeg()==1){
