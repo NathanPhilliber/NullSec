@@ -160,4 +160,7 @@ public class DamageBar extends Object
         setHealth(getHealth()+add);
     }
     
+    public void removeSelf(){
+        getWorld().removeObject(this);
+    }
 }

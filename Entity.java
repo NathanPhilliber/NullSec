@@ -61,7 +61,15 @@ public class Entity extends SpaceObject implements DamageTaker
         firstTime();
         damageBar.updateDamage(getHealth(), getMaxHealth());
         runQueue();
+        checkDead();
     }    
+    
+    public void checkDead(){
+        if(getHealth() <= 0.0){
+            damageBar.removeSelf();
+            removeSelf();
+        }
+    }
     
     //This is the way to make an entity run an action.
     //Add an action as a string "METHODNAME/arg1/arg2/..."
@@ -237,5 +245,9 @@ public class Entity extends SpaceObject implements DamageTaker
             return true;
         }
         return false;
+    }
+    
+    public void removeSelf(){
+        getWorld().removeObject(this);
     }
 }
