@@ -372,7 +372,7 @@ public class Player extends Object implements DamageTaker
      * 10/2/15
      * curently not mouse driven
      * will be updated
-     *
+     * 
      **********************************************************************************************************
      **********************************************************************************************************
      */
@@ -398,6 +398,10 @@ public class Player extends Object implements DamageTaker
         if (Greenfoot.isKeyDown("c"))
         {
             weaponTimer++;
+            if(weaponTimer > 10000){
+                weaponTimer = 0;
+            }
+            
             if (wep==0)
             {
                 if (weaponTimer%10 == 1)
