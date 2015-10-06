@@ -12,7 +12,7 @@ public class PlasmaBall extends Weapon implements ProjectileObject
     private double straightY;
     private int step = 0;
     
-    private double speed = 5.0;
+    private double speed = 7.0;
     
     
     /**

@@ -20,7 +20,7 @@ public class Mine extends Weapon implements ProjectileObject
     
     public void act() 
     {
-        
+        super.act();
         //colision effect goes here
         updatePosition();
         time();

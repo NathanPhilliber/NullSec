@@ -24,7 +24,11 @@ public class Space extends World
         addObject(new AlienShip(0,0), 10,10);
         //addObject(new Planet(0,0),0,0);
         
+        
+        
         tutorial();
+        
+        setPaintOrder(Ship.class, BackgroundStar.class);
     }
     
     

@@ -25,7 +25,7 @@ public class Player extends Object implements DamageTaker
     private double velY;
     
     //Rate at which ship turns and accelerates
-    private int turnSpeed = 3;
+    private int turnSpeed = 5;
     private double flySpeed = 0.3;
     
     
@@ -401,13 +401,11 @@ public class Player extends Object implements DamageTaker
    
     private void shoot(int LV, int wep)
     {
-            
+        
         if (Greenfoot.isKeyDown("c") || Greenfoot.mousePressed(null))
         {
             weaponTimer++;
-            if(weaponTimer > 10000){
-                weaponTimer = 0;
-            }
+            
             
             if (wep==0)
             {
