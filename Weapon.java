@@ -15,6 +15,7 @@ public class Weapon extends SpaceObject
     private double targetY;
     public void act() 
     {
+        //super.act(); //Need to make so always spawn at ship
         checkCollision();
         updateMousePos();
     }  
