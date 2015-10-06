@@ -87,6 +87,7 @@ public class Player extends Object implements DamageTaker
     
     public boolean getHit(double damage){
         return true;
+        //Needs to be written
     }
     
     public boolean isAccelerating(){
@@ -118,7 +119,8 @@ public class Player extends Object implements DamageTaker
             }
             else{
                 if(Math.abs(getVelX()) >= getMaxFlySpeed()){
-                setVelX(getMaxFlySpeed()*Integer.signum((int)getVelX()));
+                    //Set velocity to maximum velocity in correct direction
+                    setVelX(getMaxFlySpeed()*Integer.signum((int)getVelX()));
                 }
                 if(Math.abs(getVelY()) >= getMaxFlySpeed()){
                     setVelY(getMaxFlySpeed()*Integer.signum((int)getVelY()));
@@ -128,6 +130,7 @@ public class Player extends Object implements DamageTaker
         }
         
         //Fixes problem of velocity glitching out when close to 0
+        
         if(Math.abs(getVelX()) <= .1){
             setVelX(0.0);
         }
@@ -320,6 +323,8 @@ public class Player extends Object implements DamageTaker
     }
     
     //Set the health, makes sure you're not setting health over the maximum or under 0
+    
+    
     public void setHealth(double health){
         if(health > getMaxHealth()){
             this.health = getMaxHealth();
@@ -327,9 +332,11 @@ public class Player extends Object implements DamageTaker
         }
         else if(health < 0.0){
             this.health = 0.0;
+            
         }
         else{
             this.health = health;
+            
         }
         
     }
@@ -407,9 +414,10 @@ public class Player extends Object implements DamageTaker
             weaponTimer++;
             
             
+            
             if (wep==0)
             {
-                if (weaponTimer%10 == 1)
+                if (weaponTimer%5 == 1)
                 {
                     projectile(LV);
                 }
