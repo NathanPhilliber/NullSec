@@ -4,7 +4,6 @@ public class Space extends World
 {
 
     private Ship ship;
-    
 
     
     //Contructor, spawn world
@@ -20,26 +19,27 @@ public class Space extends World
     {
         ship = new Ship(0, 0);
         addObject(ship, getWidth()/2, getHeight()/2);
-        
+
         addObject(new AlienShip(0,0), 10,10);
         //addObject(new Planet(0,0),0,0);
-        
-        
-        
+
+        for (int i = 0; i<100; i++)
+        {
+            addObject(new Particle(450, 270, 5, 5, 100, 10, 50), 0, 0);
+        }
         tutorial();
-        
+
         setPaintOrder(Ship.class, BackgroundStar.class);
     }
-    
-    
+
     public void act()
     {
         clearText();
     }
-    
+
     public void tutorial()
     {
-        
+
         /**
          * EXAMPLE
          * CHANGE AS NEEDED
@@ -52,7 +52,7 @@ public class Space extends World
         showText("numbers to change LV", 450, 360);
         showText("PRESS ANY KEY TO CONTINUE", 450, 440);
     }
-    
+
     public void clearText()
     {
         if (Greenfoot.getKey() != null)
@@ -63,12 +63,11 @@ public class Space extends World
             }
         }
     }
-    
+
     //Return ship object
     public Ship getShip(){
         return ship;
     }
-    
-    
+
     
 }
