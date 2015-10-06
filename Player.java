@@ -89,11 +89,18 @@ public class Player extends Object implements DamageTaker
         return true;
     }
     
+    public boolean isAccelerating(){
+         if(Greenfoot.isKeyDown("w")){
+             return true;
+         }
+         return false;
+    }
+    
     //Checks for key presses and changes coords ("moves" ship)
     private void fly(){
        
         //If spacebar or w is pressed
-        if(Greenfoot.isKeyDown("w")){
+        if(isAccelerating()){
             int angle = getRotation();
             
             //Add to velocity based on what angle the ship is turned to

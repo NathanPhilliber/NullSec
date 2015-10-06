@@ -24,7 +24,7 @@ public class Projectile extends Weapon implements ProjectileObject
         //colision effect goes here
         //update Position method to move relitive to ship (if you want the ship to be able to catch up to projectiles)
         firstTime();
-        move(8);
+        move(12);
         
         
         
