@@ -402,7 +402,7 @@ public class Player extends Object implements DamageTaker
     private void shoot(int LV, int wep)
     {
             
-        if (Greenfoot.isKeyDown("c"))
+        if (Greenfoot.isKeyDown("c") || Greenfoot.mousePressed(null))
         {
             weaponTimer++;
             if(weaponTimer > 10000){

@@ -19,12 +19,14 @@ public class Missile extends Weapon implements ProjectileObject
     private int turn;
     private int time;
     private boolean firstTime = true;
+    
+    private double speed = 10.0;
     public void act() 
     {
         super.act();
         //colision effect goes here
         firstTime();
-        move(3);
+        spaceMove(speed);
         seakTarget();
         removeAtEdge();
     }  

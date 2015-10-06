@@ -18,15 +18,17 @@ public class Projectile extends Weapon implements ProjectileObject
     
     private boolean firstTime = true;
     private int angleChange = 0;
+    private double speed = 15.0;
+    
     public void act() 
     {
         super.act();
         //colision effect goes here
         //update Position method to move relitive to ship (if you want the ship to be able to catch up to projectiles)
         firstTime();
-        move(12);
-        //addSpaceX();
-        //addSpaceY();
+        //move(12);
+        
+        spaceMove(speed);
         
         
         removeAtEdge(); //CALL LAST
