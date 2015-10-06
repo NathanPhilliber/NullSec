@@ -1,18 +1,16 @@
 #BlueJ class context
 comment0.params=
 comment0.target=void\ act()
-comment1.params=isPlayer\ damage
-comment1.target=Weapon(boolean,\ double)
-comment2.params=x\ y\ isPlayer\ damage
-comment2.target=Weapon(double,\ double,\ boolean,\ double)
+comment1.params=startX\ startY\ isPlayer\ damage
+comment1.target=Weapon(double,\ double,\ boolean,\ double)
+comment2.params=
+comment2.target=void\ updateMousePos()
 comment3.params=
-comment3.target=void\ updateMousePos()
+comment3.target=boolean\ checkCollision()
 comment4.params=
-comment4.target=boolean\ checkCollision()
+comment4.target=void\ removeSelf()
 comment5.params=
-comment5.target=void\ removeSelf()
+comment5.target=double\ getTargetX()
 comment6.params=
-comment6.target=double\ getTargetX()
-comment7.params=
-comment7.target=double\ getTargetY()
-numComments=8
+comment6.target=double\ getTargetY()
+numComments=7

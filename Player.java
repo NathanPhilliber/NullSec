@@ -459,27 +459,27 @@ public class Player extends Object implements DamageTaker
     
     private void PlasmaBall(int LV)
     {
-        getWorld().addObject(new PlasmaBall(getRotation(), true, plasmaBallDamage), getX(), getY());
+        getWorld().addObject(new PlasmaBall(getRotation(), true, plasmaBallDamage, getShipLocX(), getShipLocY()), (int)getShipLocX(),(int)getShipLocY());
         if (LV>=1)
         {
-            getWorld().addObject(new PlasmaBall(getRotation()+10,true, plasmaBallDamage), getX(), getY());
-            getWorld().addObject(new PlasmaBall(getRotation()-10,true, plasmaBallDamage), getX(), getY());
+            getWorld().addObject(new PlasmaBall(getRotation()+10,true, plasmaBallDamage, getShipLocX(), getShipLocY()), (int)getShipLocX(),(int)getShipLocY());
+            getWorld().addObject(new PlasmaBall(getRotation()-10,true, plasmaBallDamage, getShipLocX(),getShipLocY()), (int)getShipLocX(),(int)getShipLocY());
         }
         if (LV>=2)
         {
-            getWorld().addObject(new PlasmaBall(getRotation()+20,true, plasmaBallDamage), getX(), getY());
-            getWorld().addObject(new PlasmaBall(getRotation()-20,true, plasmaBallDamage), getX(), getY());
+            getWorld().addObject(new PlasmaBall(getRotation()+20,true, plasmaBallDamage, getShipLocX(),getShipLocY()), (int)getShipLocX(),(int)getShipLocY());
+            getWorld().addObject(new PlasmaBall(getRotation()-20,true, plasmaBallDamage, getShipLocX(),getShipLocY()), (int)getShipLocX(),(int)getShipLocY());
         }
         if (LV>=3)
         {
-            getWorld().addObject(new PlasmaBall(getRotation()+30,true, plasmaBallDamage), getX(), getY());
-            getWorld().addObject(new PlasmaBall(getRotation()-30,true, plasmaBallDamage), getX(), getY());
+            getWorld().addObject(new PlasmaBall(getRotation()+30,true, plasmaBallDamage, getShipLocX(),getShipLocY()),  (int)getShipLocX(),(int)getShipLocY());
+            getWorld().addObject(new PlasmaBall(getRotation()-30,true, plasmaBallDamage, getShipLocX(),getShipLocY()),  (int)getShipLocX(),(int)getShipLocY());
         }
     }
     
     private void fireball(int LV)
     {
-        getWorld().addObject(new Fireball(getRotation(), true, fireballDamage), getX(), getY());
+        getWorld().addObject(new Fireball(getRotation(), true, fireballDamage, getShipLocX(), getShipLocY()), getX(), getY());
     }
     
     private void Mine(int LV)
@@ -489,26 +489,26 @@ public class Player extends Object implements DamageTaker
     
     private void Missile(int LV)
     {
-        getWorld().addObject(new Missile(getRotation(), true, mineDamage), getX(), getY());
+        getWorld().addObject(new Missile(getRotation(), true, mineDamage, getShipLocX(), getShipLocY()), getX(), getY());
     }
     
     private void projectile(int LV)
     {
-        getWorld().addObject(new Projectile(0, projectileDamage), getX(), getY());
+        getWorld().addObject(new Projectile(0, true, projectileDamage, getShipLocX(), getShipLocY()), getX(), getY());
         if (LV>=1)
         {
-            getWorld().addObject(new Projectile(10,projectileDamage), getX(), getY());
-            getWorld().addObject(new Projectile(-10,projectileDamage), getX(), getY());
+            getWorld().addObject(new Projectile(10, true, projectileDamage, getShipLocX(), getShipLocY()), getX(), getY());
+            getWorld().addObject(new Projectile(-10, true, projectileDamage, getShipLocX(), getShipLocY()), getX(), getY());
         }
         if (LV>=2)
         {
-            getWorld().addObject(new Projectile(20,projectileDamage), getX(), getY());
-            getWorld().addObject(new Projectile(20,projectileDamage), getX(), getY());
+            getWorld().addObject(new Projectile(20, true, projectileDamage, getShipLocX(), getShipLocY()), getX(), getY());
+            getWorld().addObject(new Projectile(20, true, projectileDamage, getShipLocX(), getShipLocY()), getX(), getY());
         }
         if (LV>=3)
         {
-            getWorld().addObject(new Projectile(30,projectileDamage), getX(), getY());
-            getWorld().addObject(new Projectile(30,projectileDamage), getX(), getY());
+            getWorld().addObject(new Projectile(30, true, projectileDamage, getShipLocX(), getShipLocY()), getX(), getY());
+            getWorld().addObject(new Projectile(30, true, projectileDamage, getShipLocX(), getShipLocY()), getX(), getY());
         }
     }
     
@@ -516,7 +516,7 @@ public class Player extends Object implements DamageTaker
     {
         for (int i=0; i<=10*(LV+1); i++)
         {
-            getWorld().addObject(new Beam(getRotation(), true, beamDamage), (int)Math.round(getX()+i*8*Math.cos(getRotation()*2*Math.PI/360)), (int)Math.round(getY()+i*8*Math.sin(getRotation()*2*Math.PI/360)));
+            getWorld().addObject(new Beam(getRotation(), true, beamDamage, getShipLocX(), getShipLocY()), (int)Math.round(getX()+i*8*Math.cos(getRotation()*2*Math.PI/360)), (int)Math.round(getY()+i*8*Math.sin(getRotation()*2*Math.PI/360)));
         }
     }
     

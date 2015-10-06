@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.params=
 comment0.target=void\ act()
-comment1.params=angle\ isPlayer\ damage
-comment1.target=Missile(int,\ boolean,\ double)
+comment1.params=angle\ isPlayer\ damage\ startX\ startY
+comment1.target=Missile(int,\ boolean,\ double,\ double,\ double)
 comment2.params=
 comment2.target=void\ seakTarget()
 comment3.params=

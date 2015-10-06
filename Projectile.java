@@ -31,17 +31,15 @@ public class Projectile extends Weapon implements ProjectileObject
         removeAtEdge(); //CALL LAST
         
     }    
-    public Projectile(int angle, boolean isPlayer, double damage)
+    public Projectile(int angle, boolean isPlayer, double damage, double startX, double startY)
     {
-        super(isPlayer, damage);
+        super(startX, startY, isPlayer, damage);
         //setRotation(angle);
         angleChange = angle;
         //System.out.println("spawn");
     }
     
-    public Projectile(int angle, double damage){
-        this(angle, true, damage);
-    }
+
     
     public void firstTime(){
         if(firstTime){

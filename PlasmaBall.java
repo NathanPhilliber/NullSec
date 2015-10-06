@@ -27,9 +27,9 @@ public class PlasmaBall extends Weapon implements ProjectileObject
         removeAtEdge();
     } 
     
-    public PlasmaBall(int angle, boolean isPlayer, double damage)
+    public PlasmaBall(int angle, boolean isPlayer, double damage, double startX, double startY)
     {
-        super(isPlayer, damage);
+        super(startX, startY,isPlayer, damage);
         setRotation(angle);
         
     }

@@ -29,9 +29,9 @@ public class Missile extends Weapon implements ProjectileObject
         removeAtEdge();
     }  
     
-    public Missile(int angle, boolean isPlayer, double damage)
+    public Missile(int angle, boolean isPlayer, double damage, double startX, double startY)
     {
-        super(isPlayer, damage);
+        super(startX, startY, isPlayer, damage);
         //setRotation(angle);
         
     }

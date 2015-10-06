@@ -22,9 +22,9 @@ public class Beam extends Weapon implements ProjectileObject
         getWorld().removeObject(this);
     }    
     
-    public Beam(int angle, boolean isPlayer, double damage)
+    public Beam(int angle, boolean isPlayer, double damage, double startX, double startY)
     {
-        super(isPlayer, damage);
+        super(startX, startY, isPlayer, damage);
         setRotation(angle);
     }
     

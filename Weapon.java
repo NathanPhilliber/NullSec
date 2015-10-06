@@ -20,14 +20,13 @@ public class Weapon extends SpaceObject
         updateMousePos();
     }  
     
-    public Weapon(boolean isPlayer, double damage){
+    public Weapon(double startX, double startY, boolean isPlayer, double damage){
+        super(startX, startY);
         ownedByPlayer = isPlayer;
         this.damage = damage;
     }
     
-    public Weapon(double x, double y,boolean isPlayer, double damage){
-        super(x,y);
-    }
+    
     
     public void updateMousePos(){
         mouse = Greenfoot.getMouseInfo();
