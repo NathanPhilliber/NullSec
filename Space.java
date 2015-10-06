@@ -10,7 +10,7 @@ public class Space extends World
     //Contructor, spawn world
     public Space()
     {    
-        super(900, 450, 1, false); 
+        super(920, 540, 1, false); 
 
         prepare();
     }

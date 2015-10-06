@@ -25,7 +25,8 @@ public class Projectile extends Weapon implements ProjectileObject
         //update Position method to move relitive to ship (if you want the ship to be able to catch up to projectiles)
         firstTime();
         move(12);
-        
+        //addSpaceX();
+        //addSpaceY();
         
         
         removeAtEdge(); //CALL LAST
