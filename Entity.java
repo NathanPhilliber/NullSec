@@ -50,6 +50,8 @@ public class Entity extends SpaceObject implements DamageTaker
     private double fireballDamage = 4.0;
     private double mineDamage = 15.0;
     private double plasmaBallDamage = 2.0;
+    
+    private int weaponDelay = 0;
 
     private boolean queueInUse = false;
 
@@ -82,7 +84,22 @@ public class Entity extends SpaceObject implements DamageTaker
         tryToDelete();
     }    
     
+    public void shootPlayer(int weapon, int cyclesBetweenShots, int numShots){
+        Space space = (Space) getWorld();
+        Ship ship = space.getShip();
+
+        weaponDelay++;
+        if(weaponDelay%cyclesBetweenShots == 0){
+            
+           shoot(ship.getX(), ship.getY(), weapon);
+              
+        } //MAKE THIS LIKE THE MOVE NEED SHOOTING HELPER FUNCTIONS KEEP TRACK OF NUMBER SHOTS
+        
+    }
     
+    public void shootPlayer(int weapon, int timeBetweenShots){
+        
+    }
     
     public void shoot(double targetX, double targetY, int weapon){
         switch(weapon){
