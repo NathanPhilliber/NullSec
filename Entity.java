@@ -73,7 +73,7 @@ public class Entity extends SpaceObject implements DamageTaker
         runQueue();
         checkDead();
 
-        shoot(ship.getX(),ship.getY(), Weapon.PROJECTILE);
+        shoot(ship.getX(),ship.getY(), Weapon.MISSILE);
         
         
         if(isScheduledForDeletion()){
@@ -96,7 +96,7 @@ public class Entity extends SpaceObject implements DamageTaker
                 }
                 break;
             case Weapon.MISSILE:
-                getWorld().addObject(new Missile(getRotation(), false, mineDamage, getSpaceX(), getSpaceY()), getX(), getY());
+                getWorld().addObject(new Missile(getRotation(), false, mineDamage, getSpaceX(), getSpaceY(), targetX, targetY), getX(), getY());
                 break;
             case Weapon.MINE:
                 getWorld().addObject(new Mine(getSpaceX(),getSpaceY(), false, mineDamage), getX(), getY());

@@ -38,6 +38,12 @@ public class Missile extends Weapon implements ProjectileObject
         
     }
     
+    public Missile(int angle, boolean isPlayer, double damage, double startX, double startY, double tarX, double tarY){
+        this(angle, isPlayer, damage, startX, startY);
+        setTargetX(tarX);
+        setTargetY(tarY);
+    }
+    
     private void seakTarget()
     {
         //seaking stuff here
