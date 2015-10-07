@@ -73,7 +73,7 @@ public class Entity extends SpaceObject implements DamageTaker
         runQueue();
         checkDead();
 
-        //shoot(ship.getX(),ship.getY(), Weapon.PLASMABALL);
+        shoot(ship.getX(),ship.getY(), Weapon.PROJECTILE);
         
         
         if(isScheduledForDeletion()){
