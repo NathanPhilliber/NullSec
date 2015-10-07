@@ -9,9 +9,12 @@ import greenfoot.*;
 public class Object extends SmoothMover
 {
     
+    private boolean deleteMe = false;
+    
     public void act() 
     {
         // Add your action code here.
+        
     }    
     
     /**
@@ -62,6 +65,19 @@ public class Object extends SmoothMover
             world.addObject(new Particle(x, y, 20, 6, 17, 6, 20,"images/ant.png"), 0, 0);
         }
     }
+    
+    public void scheduleDelete(){
+        deleteMe = true;
+    }
+    public void tryToDelete(){
+        if(deleteMe){
+            getWorld().removeObject(this);
+        }
+    }
+    public boolean isScheduledForDeletion(){
+        return deleteMe;
+    }
+    
 }
 
 interface DamageTaker{

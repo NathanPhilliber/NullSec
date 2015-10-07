@@ -86,6 +86,7 @@ public class Player extends Object implements DamageTaker
     
     
     public boolean getHit(double damage){
+        addHealth(-damage);
         return true;
         //Needs to be written
     }

@@ -31,6 +31,7 @@ public class Weapon extends SpaceObject
             
         }
         
+        
     }  
     
     public Weapon(double startX, double startY, boolean isPlayer, double damage){
