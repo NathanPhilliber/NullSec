@@ -27,7 +27,7 @@ public class AlienShip extends Entity
         
         if(hasMoreActions() == false){
            
-            //addAction("moveTo/"+(Greenfoot.getRandomNumber(500)-250)+"/"+(Greenfoot.getRandomNumber(500)-250));
+            addAction("moveTo/"+(Greenfoot.getRandomNumber(500)-250)+"/"+(Greenfoot.getRandomNumber(500)-250));
         }
         
     }    

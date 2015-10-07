@@ -73,13 +73,17 @@ public class Entity extends SpaceObject implements DamageTaker
         runQueue();
         checkDead();
 
-        shoot(ship.getX(),ship.getY(), Weapon.PLASMABALL);
+        //shoot(ship.getX(),ship.getY(), Weapon.PLASMABALL);
+        
+        
         if(isScheduledForDeletion()){
             addExplosion(getSpaceX(), getSpaceY());
         }
         tryToDelete();
     }    
-
+    
+    
+    
     public void shoot(double targetX, double targetY, int weapon){
         switch(weapon){
             case Weapon.PROJECTILE:
@@ -144,6 +148,9 @@ public class Entity extends SpaceObject implements DamageTaker
         //"moveTo/targetX/targetY"
         if(arg[0].equalsIgnoreCase("moveTo")){
             moveTo(Double.parseDouble(arg[1]),Double.parseDouble(arg[2]));
+        }
+        else if(arg[0].equalsIgnoreCase("shootPlayer")){
+            //shoot player code, what weapon and for how long
         }
     }
 
