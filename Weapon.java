@@ -13,11 +13,24 @@ public class Weapon extends SpaceObject
     private MouseInfo mouse;
     private double targetX;
     private double targetY;
+    
+    public static final int PROJECTILE = 0;
+    public static final int BEAM = 1;
+    public static final int MISSILE = 2;
+    public static final int MINE = 3;
+    public static final int FIREBALL = 4;
+    public static final int PLASMABALL = 5;
+    
+    
     public void act() 
     {
         super.act(); //Need to make so always spawn at ship
         checkCollision();
-        updateMousePos();
+        if(ownedByPlayer == true){
+            updateMousePos();
+            
+        }
+        
     }  
     
     public Weapon(double startX, double startY, boolean isPlayer, double damage){
@@ -73,6 +86,14 @@ public class Weapon extends SpaceObject
     
     public double getTargetY(){
         return targetY;
+    }
+    
+    public void setTargetX(double tarX){
+        targetX = tarX;
+    }
+    
+    public void setTargetY(double tarY){
+        targetY = tarY;
     }
 }
 

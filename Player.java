@@ -30,7 +30,7 @@ public class Player extends Object implements DamageTaker
     
     
     //The maximum velocity the ship can have
-    private double maxFlySpeed = 3.0;
+    private double maxFlySpeed = 4.0;
     private double maxFlyBoostSpeed = 10.0;
     //How fast the ship deccelerates 
     //Lower the number the longer it takes to stop

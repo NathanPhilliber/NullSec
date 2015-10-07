@@ -42,6 +42,13 @@ public class Projectile extends Weapon implements ProjectileObject
         //System.out.println("spawn");
     }
     
+    //Constructor for entity shooting
+    public Projectile(int angle, boolean isPlayer, double damage, double startX, double startY, double targetX, double targetY){
+        this(angle, isPlayer, damage, startX, startY);
+        setTargetX(targetX);
+        setTargetY(targetY);
+    }
+    
 
     
     public void firstTime(){

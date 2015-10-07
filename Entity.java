@@ -44,6 +44,13 @@ public class Entity extends SpaceObject implements DamageTaker
     // moveTo
     // kill
     
+    private double projectileDamage = 3.0;
+    private double beamDamage = .2;
+    private double missileDamage = 6.0;
+    private double fireballDamage = 4.0;
+    private double mineDamage = 15.0;
+    private double plasmaBallDamage = 2.0;
+    
     private boolean queueInUse = false;
     public Entity(){
         super();
@@ -62,7 +69,28 @@ public class Entity extends SpaceObject implements DamageTaker
         damageBar.updateDamage(getHealth(), getMaxHealth());
         runQueue();
         checkDead();
+        Space space = (Space) getWorld();
+        Ship ship = space.getShip();
+        shoot(ship.getSpaceX()+space.getWidth()/2, ship.getSpaceY()+space.getHeight()/2, Weapon.PROJECTILE);
+        System.out.println(ship.getSpaceX() + " :: " + ship.getSpaceY());
     }    
+    
+    public void shoot(double targetX, double targetY, int weapon){
+        switch(weapon){
+            case Weapon.PROJECTILE:
+                getWorld().addObject(new Projectile(0, false, projectileDamage, getSpaceX(), getSpaceY(), targetX, targetY), getX(), getY());
+            case Weapon.BEAM:
+            
+            case Weapon.MISSILE:
+            
+            case Weapon.MINE:
+            
+            case Weapon.FIREBALL:
+            
+            case Weapon.PLASMABALL:
+            
+        }
+    }
     
     public void checkDead(){
         if(getHealth() <= 0.0){
