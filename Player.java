@@ -77,6 +77,7 @@ public class Player extends Object implements DamageTaker
        firstTime();
        fly();
        showDebug(true);
+       scrollWeapon();
        generateStars(starDensity);
        damageBar.updateDamage(getHealth(), getMaxHealth());
        debugHealthHack(); //Allows to add health via '[']' DELETE THIS BEFORE PUBLISH
@@ -366,19 +367,26 @@ public class Player extends Object implements DamageTaker
     
     //Display debug info such as x,y coords, velocities, star count, health
     private void showDebug(boolean show){
-        if(show){
-            getWorld().showText("X: "+String.format("%.02f", (getSpaceX())), 60, 25);
-            getWorld().showText("Y: "+String.format("%.02f", (getSpaceY())), 60, 50); 
+             if(show){
+            int x = getWorld().getWidth() - 75;
             
-            getWorld().showText("vX: "+String.format("%.02f", (getVelX())), 60, 75);
-            getWorld().showText("vY: "+String.format("%.02f", (getVelY())), 60, 100);        
+            getWorld().showText("X: "+String.format("%.02f", (getSpaceX())), x, 25);
+            getWorld().showText("Y: "+String.format("%.02f", (getSpaceY())), x, 50); 
             
-            getWorld().showText("Stars: "+ BackgroundStar.getNumStars(), 60, 125); 
+            getWorld().showText("vX: "+String.format("%.02f", (getVelX())), x, 75);
+            getWorld().showText("vY: "+String.format("%.02f", (getVelY())), x, 100);        
             
-            getWorld().showText("Health: "+ getHealth(), 60, 150); 
+            getWorld().showText("Stars: "+ BackgroundStar.getNumStars(), x, 125); 
+            
+            getWorld().showText("Health: "+ getHealth(), x, 150);
+            getWorld().showText("Weapon: "+ null, x, 175);
         }
-    }
+    }   
     
+    private void scrollWeapon()
+    {
+         weaponType = Space.getWeapon();
+    }    
     /**********************************************************************************************************
      **********************************************************************************************************
      *
