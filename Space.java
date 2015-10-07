@@ -23,10 +23,7 @@ public class Space extends World
         addObject(new AlienShip(0,0), 10,10);
         //addObject(new Planet(0,0),0,0);
 
-        for (int i = 0; i<100; i++)
-        {
-            addObject(new Particle(450, 270, 5, 5, 100, 10, 50), 0, 0);
-        }
+        
         tutorial();
 
         setPaintOrder(Ship.class, BackgroundStar.class);

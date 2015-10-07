@@ -1,6 +1,6 @@
 #BlueJ class context
-comment0.params=startX\ startY\ straightness\ radius\ lifetime\ particleSpeed\ lifetimeRandom
-comment0.target=Particle(double,\ double,\ int,\ double,\ int,\ double,\ int)
+comment0.params=startX\ startY\ straightness\ radius\ lifetime\ particleSpeed\ lifetimeRandom\ image
+comment0.target=Particle(double,\ double,\ int,\ double,\ int,\ double,\ int,\ java.lang.String)
 comment1.params=
 comment1.target=void\ particleLife()
 comment2.params=

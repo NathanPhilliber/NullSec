@@ -248,6 +248,7 @@ public class Entity extends SpaceObject implements DamageTaker
     }
     
     public void removeSelf(){
+        addExplosion(getSpaceX(), getSpaceY());
         getWorld().removeObject(this);
     }
 }

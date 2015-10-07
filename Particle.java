@@ -18,7 +18,7 @@ public class Particle extends SpaceObject
     private double speed;
     private int turnTimer = 0;
 
-    public Particle(double startX, double startY, int straightness, double radius, int lifetime, double particleSpeed, int lifetimeRandom)
+    public Particle(double startX, double startY, int straightness, double radius, int lifetime, double particleSpeed, int lifetimeRandom, String image)
     {
         super(startX, startY);
         this.straightness = straightness;
@@ -26,6 +26,7 @@ public class Particle extends SpaceObject
         this.lifetime = lifetime + Greenfoot.getRandomNumber(lifetimeRandom);
         speed = particleSpeed;
         turn(Greenfoot.getRandomNumber(360));
+        setImage(image);
     }
 
     public void particleLife()
