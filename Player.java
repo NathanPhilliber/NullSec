@@ -379,7 +379,7 @@ public class Player extends Object implements DamageTaker
             getWorld().showText("Stars: "+ BackgroundStar.getNumStars(), x, 125); 
             
             getWorld().showText("Health: "+ getHealth(), x, 150);
-            getWorld().showText("Weapon: "+ null, x, 175);
+            getWorld().showText("Weapon: "+ Space.getWeapon(), x, 175);
         }
     }   
     

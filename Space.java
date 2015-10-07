@@ -57,7 +57,7 @@ public class Space extends World
         //}
         tutorial();
 
-        setPaintOrder(AntIcon.class, IconFire.class, MissleIcon.class, IconPlasma.class, IconLaser.class, IconMine.class, WeaponBG.class, Ship.class, BackgroundStar.class);
+        setPaintOrder(AntIcon.class, IconFire.class, MissleIcon.class, IconPlasma.class, IconLaser.class, IconMine.class, WeaponBG.class, DamageBar.class, Cannon.class, Weapon.class, Ship.class, BackgroundStar.class);
 
         IconMine iconmine = new IconMine();
         addObject(iconmine, 52, 294);
@@ -130,6 +130,9 @@ public class Space extends World
         addObject(anticon2, 46, 71);
         AntIcon anticon3 = new AntIcon();
         addObject(anticon3, 60, 55);
+        Cannon cannon = new Cannon();
+        addObject(cannon, 443, 267);
+        cannon.setLocation(438, 263);
     }
     
     public void act()
