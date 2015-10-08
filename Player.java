@@ -422,8 +422,6 @@ public class Player extends Object implements DamageTaker
         {
             weaponTimer++;
             
-            
-            
             if (wep==0)
             {
                 if (weaponTimer%5 == 1)

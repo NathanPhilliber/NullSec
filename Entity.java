@@ -46,7 +46,7 @@ public class Entity extends SpaceObject implements DamageTaker
 
     private double projectileDamage = 3.0;
     private double beamDamage = .2;
-    private double missileDamage = 6.0;
+    private double missileDamage = 0.1;
     private double fireballDamage = 4.0;
     private double mineDamage = 15.0;
     private double plasmaBallDamage = 2.0;
@@ -113,7 +113,7 @@ public class Entity extends SpaceObject implements DamageTaker
                 }
                 break;
             case Weapon.MISSILE:
-                getWorld().addObject(new Missile(getRotation(), false, mineDamage, getSpaceX(), getSpaceY(), targetX, targetY), getX(), getY());
+                getWorld().addObject(new Missile(getRotation(), false, missileDamage, getSpaceX(), getSpaceY(), targetX, targetY), getX(), getY());
                 break;
             case Weapon.MINE:
                 getWorld().addObject(new Mine(getSpaceX(),getSpaceY(), false, mineDamage), getX(), getY());
