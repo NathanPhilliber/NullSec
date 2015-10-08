@@ -1,10 +1,8 @@
 #BlueJ class context
 comment0.params=
 comment0.target=void\ act()
-comment1.params=angle\ isPlayer\ damage\ startX\ startY
+comment1.params=angleOffset\ isPlayer\ damage\ startX\ startY
 comment1.target=Projectile(int,\ boolean,\ double,\ double,\ double)
-comment2.params=angle\ isPlayer\ damage\ startX\ startY\ targetX\ targetY
+comment2.params=angleOffset\ isPlayer\ damage\ startX\ startY\ targetX\ targetY
 comment2.target=Projectile(int,\ boolean,\ double,\ double,\ double,\ double,\ double)
-comment3.params=
-comment3.target=void\ firstTime()
-numComments=4
+numComments=3

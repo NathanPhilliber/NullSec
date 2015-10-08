@@ -26,10 +26,6 @@ public class Weapon extends SpaceObject
     {
         super.act(); //Need to make so always spawn at ship
         checkCollision();
-        if(ownedByPlayer == true){
-            updateMousePos();
-            
-        }
         setRemovalOffEdge(100);
     }  
     
@@ -39,20 +35,12 @@ public class Weapon extends SpaceObject
         this.damage = damage;
     }
     
-    
-    
-    public void updateMousePos(){
-        mouse = Greenfoot.getMouseInfo();
-        if(mouse != null){
-            targetX = mouse.getX();
-            targetY = mouse.getY();
-        }
-        
+    public int angleTowards(double yourX,double yourY,double targetX, double targetY)
+    {
+       return (int)Math.round(Math.atan2((targetY-yourY),(targetX-yourX))*360/(2*Math.PI)); 
     }
     
     public boolean checkCollision(){
-        
-        
         if(ownedByPlayer){
             Entity obj = (Entity) getOneIntersectingObject(Entity.class);  
             if(obj != null && touch(obj)){

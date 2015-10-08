@@ -20,27 +20,31 @@ public class Missile extends Weapon implements ProjectileObject
     private int time;
     private boolean firstTime = true;
     
-    private double speed = 10.0;
+    private double speed = 6.0;
     public void act() 
     {
         super.act();
-        firstTime();
         spaceMove(speed);
-        seakTarget();
+        seakTarget();//no work
         checkRemoval();//LAST
     }  
     
-    public Missile(int angle, boolean isPlayer, double damage, double startX, double startY)
+    public Missile(int angleOffset, boolean isPlayer, double damage, double startX, double startY)
     {
         super(startX, startY, isPlayer, damage);
-        //setRotation(angle);
-        
+        if (isPlayer)
+        {
+            MouseInfo m = Greenfoot.getMouseInfo();
+            if(m != null)
+            {
+                setRotation(angleTowards(460,270,m.getX(),m.getY())+angleOffset);
+            }
+        }
     }
     
-    public Missile(int angle, boolean isPlayer, double damage, double startX, double startY, double tarX, double tarY){
-        this(angle, isPlayer, damage, startX, startY);
-        setTargetX(tarX);
-        setTargetY(tarY);
+    public Missile(int angleOffset, boolean isPlayer, double damage, double startX, double startY, double targetX, double targetY){
+        this(angleOffset, isPlayer, damage, startX, startY);
+        setRotation(angleTowards(startX,startY,targetX,targetY)+angleOffset);
     }
     
     private void seakTarget()
@@ -56,13 +60,5 @@ public class Missile extends Weapon implements ProjectileObject
     private void turnRandom()
     {
         setRotation(getRotation()+(Greenfoot.getRandomNumber(5)-2));
-    }
-    
-    public void firstTime(){
-        if(firstTime){
-            firstTime = false;
-            turnTowards((int)getTargetX(), (int)getTargetY());
-        }
-        
     }
 }
