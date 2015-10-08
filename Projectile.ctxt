@@ -5,4 +5,6 @@ comment1.params=angle\ isPlayer\ damage\ startX\ startY
 comment1.target=Projectile(int,\ boolean,\ double,\ double,\ double)
 comment2.params=angle\ isPlayer\ damage\ startX\ startY\ targetX\ targetY
 comment2.target=Projectile(int,\ boolean,\ double,\ double,\ double,\ double,\ double)
-numComments=3
+comment3.params=
+comment3.target=void\ firstTime()
+numComments=4

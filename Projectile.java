@@ -23,6 +23,8 @@ public class Projectile extends Weapon implements ProjectileObject
     public void act() 
     {
         super.act();
+        firstTime();
+        //move(12);
         
         spaceMove(speed);
         checkRemoval();//LAST
@@ -30,8 +32,7 @@ public class Projectile extends Weapon implements ProjectileObject
     public Projectile(int angle, boolean isPlayer, double damage, double startX, double startY)
     {
         super(startX, startY, isPlayer, damage);
-        updateMousePos();
-        setRotation((int)Math.round(Math.atan2((getTargetY()-startY),(getTargetX()-startX))*360/(2*Math.PI))+angle);
+        //setRotation(angle);
         angleChange = angle;
         //System.out.println("spawn");
     }
@@ -41,11 +42,10 @@ public class Projectile extends Weapon implements ProjectileObject
         this(angle, isPlayer, damage, startX, startY);
         setTargetX(targetX);
         setTargetY(targetY);
-        setRotation((int)Math.round(Math.atan2((getTargetY()-startY),(getTargetX()-startX))*360/(2*Math.PI))+angle);
     }
     
 
-    /* NO NEED trig OP
+    
     public void firstTime(){
         if(firstTime){
             firstTime = false;
@@ -54,5 +54,4 @@ public class Projectile extends Weapon implements ProjectileObject
         }
         
     }
-    */
 }
