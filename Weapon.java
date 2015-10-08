@@ -28,7 +28,6 @@ public class Weapon extends SpaceObject
         checkCollision();
         if(ownedByPlayer == true){
             updateMousePos();
-            
         }
         setRemovalOffEdge(100);
     }  
