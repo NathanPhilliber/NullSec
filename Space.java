@@ -46,7 +46,7 @@ public class Space extends World
         ship = new Ship(0, 0);
         addObject(ship, getWidth()/2, getHeight()/2);
 
-        addObject(new AlienShip(0,0), 10,10);
+        addObject(new AlienShip(200,200), 10,10);
         //addObject(new Planet(0,0),0,0);
 
         scrollListener();
@@ -190,7 +190,7 @@ public class Space extends World
         {
             tempWep = 5;
         }
-        System.out.println(tempWep);
+        
         return tempWep;
     } 
     
@@ -208,7 +208,7 @@ class ScrollingListener implements MouseWheelListener
     
     public double getScroll(){
         double t = amount;
-        System.out.println(amount);
+        
         amount = 0;
         return t;
     }

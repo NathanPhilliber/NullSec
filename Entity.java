@@ -52,6 +52,9 @@ public class Entity extends SpaceObject implements DamageTaker
     private double plasmaBallDamage = 2.0;
     
     private int weaponDelay = 0;
+    private int shootProgress = 0;
+    private int cyclesBetweenShots = 0;
+    private int currentWeapon = 0;
 
     private boolean queueInUse = false;
 
@@ -74,8 +77,9 @@ public class Entity extends SpaceObject implements DamageTaker
         damageBar.updateDamage(getHealth(), getMaxHealth());
         runQueue();
         checkDead();
-
-        shoot(ship.getX(),ship.getY(), Weapon.MISSILE);
+        takeAShot();
+        //System.out.println(actionQueue.size());
+        //shoot(ship.getX(),ship.getY(), Weapon.MISSILE);
         
         
         if(isScheduledForDeletion()){
@@ -85,21 +89,35 @@ public class Entity extends SpaceObject implements DamageTaker
     }    
     
     public void shootPlayer(int weapon, int cyclesBetweenShots, int numShots){
-        Space space = (Space) getWorld();
-        Ship ship = space.getShip();
-
-        weaponDelay++;
-        if(weaponDelay%cyclesBetweenShots == 0){
-            
-           shoot(ship.getX(), ship.getY(), weapon);
-              
-        } //MAKE THIS LIKE THE MOVE NEED SHOOTING HELPER FUNCTIONS KEEP TRACK OF NUMBER SHOTS
+        
+        shootProgress = numShots;
+        this.cyclesBetweenShots = cyclesBetweenShots;
+        currentWeapon = weapon;
+        
+        
         
     }
     
-    public void shootPlayer(int weapon, int timeBetweenShots){
+    private void takeAShot(){
+        Space space = (Space) getWorld();
+        Ship ship = space.getShip();
+        
+        weaponDelay++;
+        if(shootProgress > 0){
+            if(weaponDelay%cyclesBetweenShots == 0){
+                shootProgress--;
+                shoot(ship.getX(), ship.getY(), currentWeapon);
+              
+            }
+        }
+        else{
+            queueInUse(false);
+        }
         
     }
+    
+    
+    
     
     public void shoot(double targetX, double targetY, int weapon){
         switch(weapon){
@@ -148,9 +166,9 @@ public class Entity extends SpaceObject implements DamageTaker
         if(queueInUse == false){
             //pop off next command
             if(actionQueue.isEmpty() == false){
-
-                translateCommand((String)actionQueue.poll());
                 queueInUse(true);
+                translateCommand((String)actionQueue.poll());
+                
 
             }
 
@@ -168,6 +186,7 @@ public class Entity extends SpaceObject implements DamageTaker
         }
         else if(arg[0].equalsIgnoreCase("shootPlayer")){
             //shoot player code, what weapon and for how long
+            shootPlayer(Integer.parseInt(arg[1]),Integer.parseInt(arg[2]), Integer.parseInt(arg[3]));
         }
     }
 
@@ -190,6 +209,10 @@ public class Entity extends SpaceObject implements DamageTaker
             ship = space.getShip();
             damageBar = new DamageBar(this, -30, getHealth(), getMaxHealth());
             space.addObject(damageBar, 0, 0);
+            
+            
+            
+            
             firstTime = false;
 
         }
@@ -197,7 +220,7 @@ public class Entity extends SpaceObject implements DamageTaker
 
     public boolean getHit(double damage){
         addHealth(-damage);
-        System.out.println(getHealth());
+        //System.out.println(getHealth());
         return true;
     }
 
