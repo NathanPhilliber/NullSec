@@ -20,11 +20,12 @@ public class Object extends SmoothMover
     }    
     
     /**
-     * 
+     * removeAtEdge()
+     * ALWAYS PUT AT THE END OF A ACT METHOD
+     * ALLLLLLLLLLLLLLLLLLLLLLLLLLLLLWAYYYYYYYYYYYYYYSSSSSSSSSSSS
      * john start
      * 
      */
-    
     public void setRemovalOffEdge(int dist) 
     {
         if (isOffEdge(dist))

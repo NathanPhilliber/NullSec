@@ -32,11 +32,6 @@ public class Weapon extends SpaceObject
         setRemovalOffEdge(100);
     }  
     
-    public int angleTowards(double X,double Y)
-    {
-        return (int)Math.round(Math.atan2((getTargetY()-getSpaceY()),(getTargetX()-getSpaceX()))*360/(2*Math.PI));
-    }
-    
     public Weapon(double startX, double startY, boolean isPlayer, double damage){
         super(startX, startY);
         ownedByPlayer = isPlayer;
