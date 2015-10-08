@@ -53,6 +53,7 @@ public class Mine extends Weapon implements ProjectileObject
     {
         
         //remove objects
+        addExplosion(getSpaceX(), getSpaceY());
         getWorld().removeObject(this);
     }
     
