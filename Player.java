@@ -412,6 +412,7 @@ public class Player extends Object implements DamageTaker
     private int weaponLV = 0;
     private int weaponType = 0;
     private boolean rMButton = false;
+    private int hearthTimer = 0;
     //john end
     
     private double projectileDamage = 3.0;
@@ -426,6 +427,38 @@ public class Player extends Object implements DamageTaker
         shoot(weaponLV, weaponType);
         toggleWeapon();
         weaponLV();
+        hearth();
+    }
+    
+    private void blink()
+    {
+        //add (shorth TP forward
+    }
+    
+    private void reverse()
+    {
+        //add
+    }
+    
+    //add sheilds
+    
+    private void hearth()
+    {
+        if (Greenfoot.isKeyDown("b"))
+        {
+            hearthTimer++;
+            if (hearthTimer >= 100)
+            {
+                setSpaceX(0);
+                setSpaceY(0);
+                setVelX(0);
+                setVelY(0);
+            }
+        }
+        else
+        {
+            hearthTimer = 0;
+        }
     }
    
     private void shoot(int LV, int wep)
