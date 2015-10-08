@@ -8,12 +8,7 @@ import java.lang.Math;
  */
 public class Player extends Object implements DamageTaker
 {
-    //john start
-    private int weaponTimer = 0;
-    private int weaponToggle = 0;
-    private int weaponLV = 0;
-    private int weaponType = 0;
-    //john end
+    
     
     
     //Coords to keep track of ship
@@ -411,7 +406,14 @@ public class Player extends Object implements DamageTaker
      **********************************************************************************************************
      */
     
-   
+    //john start
+    private int weaponTimer = 0;
+    private int weaponToggle = 0;
+    private int weaponLV = 0;
+    private int weaponType = 0;
+    private boolean rMButton = false;
+    //john end
+    
     private double projectileDamage = 3.0;
     private double beamDamage = .2;
     private double missileDamage = 6.0;
@@ -428,60 +430,75 @@ public class Player extends Object implements DamageTaker
    
     private void shoot(int LV, int wep)
     {
-        
-        if (Greenfoot.isKeyDown("c") || Greenfoot.mousePressed(null))
+        if (Greenfoot.isKeyDown("c") || rMButton())
         {
-            weaponTimer++;
-            
-            if (wep==0)
-            {
-                if (weaponTimer%5 == 1)
-                {
-                    projectile(LV);
-                }
-            }            
-            if (wep==1)
-            {
-                beam(LV);
-            }
-            if (wep==2)
-            {
-                if (weaponTimer%35 == 1)
-                {
-                    Missile(LV);
-                }
-            }
-            if (wep==3)
-            {
-                Mine(LV);
-            }
-            if (wep==4)
-            {
-                if (weaponTimer%70 == 1)
-                {
-                    fireball(LV);
-                }
-            }
-            if (wep==5)
-            {
-                if (weaponTimer%30 <= 4)
-                {
-                    PlasmaBall(LV);
-                }
-            }
-            if (wep==6)
-            {
-                //stuff wave
-            }
+            weaponTimer(LV,wep);
         }
         else
         {
             weaponTimer = 0;
         }
-        
     }
     
-    private void PlasmaBall(int LV)
+    public boolean rMButton()
+    {
+        MouseInfo mi = Greenfoot.getMouseInfo();
+        if (Greenfoot.mousePressed(null))
+        {
+            rMButton = true;
+        }
+        if (Greenfoot.mouseClicked(null)) 
+        {
+            rMButton = false;
+        }
+        return rMButton;
+    }
+    private void weaponTimer(int LV, int wep)
+    {
+        weaponTimer++;
+        if (wep==0)
+        {
+            if (weaponTimer%10 == 1)
+            {
+                projectile(LV);
+            }
+        }            
+        if (wep==1)
+        {
+            beam(LV);
+        }
+        if (wep==2)
+        {
+            if (weaponTimer%35 == 1)
+            {
+                missile(LV);
+            }
+        }
+        if (wep==3)
+        {
+            mine(LV);
+        }
+        if (wep==4)
+        {
+            if (weaponTimer%70 == 1)
+            {
+                fireball(LV);
+            }
+        }
+        if (wep==5)
+        {
+            if (weaponTimer%30 <= 4)
+            {
+                plasmaBall(LV);
+            }
+        }
+        if (wep==6)
+        {
+            //stuff wave
+        }
+    }
+    
+    private void plasmaBall(int LV)
     {
         getWorld().addObject(new PlasmaBall(getRotation(), true, plasmaBallDamage, getShipLocX(), getShipLocY()), (int)getShipLocX(),(int)getShipLocY());
         if (LV>=1)
@@ -506,12 +523,12 @@ public class Player extends Object implements DamageTaker
         getWorld().addObject(new Fireball(getRotation(), true, fireballDamage, getShipLocX(), getShipLocY()), getX(), getY());
     }
     
-    private void Mine(int LV)
+    private void mine(int LV)
     {
         getWorld().addObject(new Mine(spaceX+getX(),spaceY+getY(), true, mineDamage), getX(), getY());
     }
     
-    private void Missile(int LV)
+    private void missile(int LV)
     {
         getWorld().addObject(new Missile(getRotation(), true, mineDamage, getShipLocX(), getShipLocY()), getX(), getY());
     }
