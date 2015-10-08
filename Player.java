@@ -390,7 +390,7 @@ public class Player extends Object implements DamageTaker
     
     private void scrollWeapon()
     {
-         weaponType = Space.getWeapon();
+         weaponType = (int) Space.getWeapon();
     }    
     /**********************************************************************************************************
      **********************************************************************************************************

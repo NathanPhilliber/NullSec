@@ -24,7 +24,7 @@ public class Space extends World
     int prevx,prevy;
     int alpha = 255;
     int key = 9;
-    static int tempWep = 0;
+    static double tempWep = 0;
     int mode = 0;
     boolean firstpass = true;
     static ScrollingListener scroll = new ScrollingListener();
@@ -112,7 +112,13 @@ public class Space extends World
 
         WeaponBG weaponbg5 = new WeaponBG();
         addObject(weaponbg5, 48, 380);
-
+        
+        InsideMP insidemp = new InsideMP();
+        addObject(insidemp, 800, 405);
+        
+        OutsideMP outsidemp = new OutsideMP();
+        addObject(outsidemp, 800, 405);
+        
         WeaponBG weaponbg6 = new WeaponBG();
         addObject(weaponbg6, 48, 460);
         MissleIcon missleicon = new MissleIcon();
@@ -173,7 +179,7 @@ public class Space extends World
         return ship;
     }
     
-    public static int getWeapon()
+    public static double getWeapon()
     {
         tempWep += scroll.getScroll();
         if(tempWep < 0)
@@ -184,22 +190,25 @@ public class Space extends World
         {
             tempWep = 5;
         }
+        System.out.println(tempWep);
         return tempWep;
     } 
     
 }
+
 //Classception
 class ScrollingListener implements MouseWheelListener
 {
-    int amount = 0;
+    double amount = 0;
     
     public void mouseWheelMoved(MouseWheelEvent e){
         amount += e.getWheelRotation();  
         e.consume();
     }
     
-    public int getScroll(){
-        int t = amount;
+    public double getScroll(){
+        double t = amount;
+        System.out.println(amount);
         amount = 0;
         return t;
     }
