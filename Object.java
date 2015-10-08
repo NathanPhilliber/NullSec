@@ -68,6 +68,14 @@ public class Object extends SmoothMover
         }
     }
     
+    public void addRocketTrail(double x, double y){
+        World world = getWorld();
+        
+        world.addObject(new Particle(x, y, 10, 6, 7, 6, 10,"images/spark1.png"), 0, 0);
+            
+        
+    }
+    
     public void scheduleDelete(){
         deleteMe = true;
     }

@@ -17,8 +17,17 @@ public class Particle extends SpaceObject
     private int lifetime;
     private double speed;
     private int turnTimer = 0;
+    private int angle = 0;
 
     public Particle(double startX, double startY, int straightness, double radius, int lifetime, double particleSpeed, int lifetimeRandom, String image)
+    {
+        
+        this(startX, startY, straightness, radius, lifetime, particleSpeed, lifetimeRandom,0, image);
+        
+        
+    }
+    
+    public Particle(double startX, double startY, int straightness, double radius, int lifetime, double particleSpeed, int lifetimeRandom,int angle, String image)
     {
         super(startX, startY);
         this.straightness = straightness;

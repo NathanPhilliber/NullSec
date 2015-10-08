@@ -102,10 +102,11 @@ public class Player extends Object implements DamageTaker
     //Checks for key presses and changes coords ("moves" ship)
     private void fly(){
        
+       //System.out.println(getShipLocX() + "  " + getShipLocY());
         //If spacebar or w is pressed
         if(isAccelerating()){
             int angle = getRotation();
-            
+            //addRocketTrail(getShipLocX()-30*Math.cos(getRotation()*2*Math.PI/360), getShipLocY()-30*Math.sin(getRotation()*2*Math.PI/360));
             //Add to velocity based on what angle the ship is turned to
             setVelX((Math.cos(Math.toRadians(angle))*getFlySpeed()) + getVelX());
             setVelY((Math.sin(Math.toRadians(angle))*getFlySpeed()) + getVelY());
@@ -113,19 +114,23 @@ public class Player extends Object implements DamageTaker
             //Check if ship is going too fast
             if(Greenfoot.isKeyDown("space")){ //Boost
                 if(Math.abs(getVelX()) >= getMaxFlyBoostSpeed()){
-                setVelX(getMaxFlyBoostSpeed()*Integer.signum((int)getVelX()));
+                    setVelX(getMaxFlyBoostSpeed()*Integer.signum((int)getVelX()));
+                    addRocketTrail(getShipLocX()-30*Math.cos(getRotation()*2*Math.PI/360), getShipLocY()-30*Math.sin(getRotation()*2*Math.PI/360));
                 }
                 if(Math.abs(getVelY()) >= getMaxFlyBoostSpeed()){
                     setVelY(getMaxFlyBoostSpeed()*Integer.signum((int)getVelY()));
+                    addRocketTrail(getShipLocX()-30*Math.cos(getRotation()*2*Math.PI/360), getShipLocY()-30*Math.sin(getRotation()*2*Math.PI/360));
                 }
             }
             else{
                 if(Math.abs(getVelX()) >= getMaxFlySpeed()){
                     //Set velocity to maximum velocity in correct direction
                     setVelX(getMaxFlySpeed()*Integer.signum((int)getVelX()));
+                    addRocketTrail(getShipLocX()-30*Math.cos(getRotation()*2*Math.PI/360), getShipLocY()-30*Math.sin(getRotation()*2*Math.PI/360));
                 }
                 if(Math.abs(getVelY()) >= getMaxFlySpeed()){
                     setVelY(getMaxFlySpeed()*Integer.signum((int)getVelY()));
+                    addRocketTrail(getShipLocX()-30*Math.cos(getRotation()*2*Math.PI/360), getShipLocY()-30*Math.sin(getRotation()*2*Math.PI/360));
                 }
             }
             
@@ -222,6 +227,7 @@ public class Player extends Object implements DamageTaker
     //Check to see if the ship is moving in any direction
     public boolean isMoving(){
         if(getVelX() != 0 || getVelY() != 0){
+            
             return true;
         }
         return false;
