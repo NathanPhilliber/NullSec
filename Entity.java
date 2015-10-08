@@ -46,7 +46,7 @@ public class Entity extends SpaceObject implements DamageTaker
 
     private double projectileDamage = 3.0;
     private double beamDamage = .2;
-    private double missileDamage = 0.1;
+    private double missileDamage = 0.5;
     private double fireballDamage = 4.0;
     private double mineDamage = 15.0;
     private double plasmaBallDamage = 2.0;

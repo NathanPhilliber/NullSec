@@ -81,7 +81,7 @@ public class Player extends Object implements DamageTaker
        generateStars(starDensity);
        damageBar.updateDamage(getHealth(), getMaxHealth());
        debugHealthHack(); //Allows to add health via '[']' DELETE THIS BEFORE PUBLISH
-       
+       //checkDead();
        weaponSystems();//john
     } 
     
@@ -363,6 +363,11 @@ public class Player extends Object implements DamageTaker
         return damageBar;
     }
     
+    public void checkDead(){
+        if(getHealth() <= 0.0){
+            addExplosion(getShipLocX(), getShipLocY());
+        }
+    }
     
     
     //Display debug info such as x,y coords, velocities, star count, health
