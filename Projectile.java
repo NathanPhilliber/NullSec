@@ -27,21 +27,21 @@ public class Projectile extends Weapon implements ProjectileObject
         spaceMove(speed);
         checkRemoval();//LAST
     }    
-    public Projectile(int angle, boolean isPlayer, double damage, double startX, double startY)
+    public Projectile(int angleOfset, boolean isPlayer, double damage, double startX, double startY)
     {
         super(startX, startY, isPlayer, damage);
         updateMousePos();
-        setRotation((int)Math.round(Math.atan2((getTargetY()-startY),(getTargetX()-startX))*360/(2*Math.PI))+angle);
-        angleChange = angle;
+        setRotation(angleTowards(getTargetX(),getTargetY())+angleOfset);
+        //angleChange = angleOfset;
         //System.out.println("spawn");
     }
     
     //Constructor for entity shooting
-    public Projectile(int angle, boolean isPlayer, double damage, double startX, double startY, double targetX, double targetY){
-        this(angle, isPlayer, damage, startX, startY);
-        setTargetX(targetX);
-        setTargetY(targetY);
-        setRotation((int)Math.round(Math.atan2((getTargetY()-startY),(getTargetX()-startX))*360/(2*Math.PI))+angle);
+    public Projectile(int angleOfset, boolean isPlayer, double damage, double startX, double startY, double targetX, double targetY){
+        this(angleOfset, isPlayer, damage, startX, startY);
+        //setTargetX(targetX);
+        //setTargetY(targetY);
+        setRotation(angleTowards(targetX,targetY)+angleOfset);
     }
     
 
