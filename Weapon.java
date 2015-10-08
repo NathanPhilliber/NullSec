@@ -1,5 +1,5 @@
 import greenfoot.*;
-
+import java.util.List;
 /**
  * Write a description of class Weapon here.
  * 
@@ -56,7 +56,7 @@ public class Weapon extends SpaceObject
         
         if(ownedByPlayer){
             Entity obj = (Entity) getOneIntersectingObject(Entity.class);  
-            if(obj != null){
+            if(obj != null && touch(obj)){
                 
                 obj.getHit(damage);
                 setLocation(getX()+3000,getY()); //Ghetto delete
@@ -66,7 +66,7 @@ public class Weapon extends SpaceObject
         }
         else{
             Player obj = (Player)getOneIntersectingObject(Player.class);  
-            if(obj != null){
+            if(obj != null && touch(obj)){
                 obj.getHit(damage);
                 setLocation(getX()+3000,getY()); //Ghetto delete
 
