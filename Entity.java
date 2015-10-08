@@ -82,10 +82,10 @@ public class Entity extends SpaceObject implements DamageTaker
         //shoot(ship.getX(),ship.getY(), Weapon.MISSILE);
         
         
-        if(isScheduledForDeletion()){
+        if(isScheduledForRemoval()){
             addExplosion(getSpaceX(), getSpaceY());
         }
-        tryToDelete();
+        checkRemoval();
     }    
     
     public void shootPlayer(int weapon, int cyclesBetweenShots, int numShots){
@@ -147,8 +147,8 @@ public class Entity extends SpaceObject implements DamageTaker
 
     public void checkDead(){
         if(getHealth() <= 0.0){
-            damageBar.scheduleDelete();
-            scheduleDelete();
+            damageBar.scheduleRemoval();
+            scheduleRemoval();
         }
     }
 

@@ -24,7 +24,7 @@ public class PlasmaBall extends Weapon implements ProjectileObject
         super.act();
         waveMove(1);
         spaceMove(speed);
-        removeAtEdge();
+        checkRemoval();//LAST
     } 
     
     public PlasmaBall(int angle, boolean isPlayer, double damage, double startX, double startY)

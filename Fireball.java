@@ -21,7 +21,7 @@ public class Fireball extends Weapon implements ProjectileObject
         super.act();
         spaceMove(speed);
         beam();
-        removeAtEdge();
+        checkRemoval();//LAST
     }    
     
     public Fireball(int angle, boolean isPlayer, double damage, double startX, double startY)

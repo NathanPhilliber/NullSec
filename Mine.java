@@ -21,10 +21,9 @@ public class Mine extends Weapon implements ProjectileObject
     public void act() 
     {
         super.act();
-        //colision effect goes here
         updatePosition();
         time();
-        //collision();
+        checkRemoval();//LAST
     }    
     
     public Mine(double x, double y, boolean isPlayer, double damage){

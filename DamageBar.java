@@ -59,11 +59,11 @@ public class DamageBar extends Object
     //Only updates position, updating the visual is the responsibility of the class damagebar belongs to.
     public void act() 
     {
-        if(isScheduledForDeletion() == false){
+        if(isScheduledForRemoval() == false){
             updatePosition();
         }
         
-        tryToDelete();
+        checkRemoval();
         
     } 
     

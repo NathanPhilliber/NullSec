@@ -26,11 +26,43 @@ public class Object extends SmoothMover
      * john start
      * 
      */
-    public void removeAtEdge() 
+    public void setRemovalOffEdge(int dist) 
+    {
+        if (isOffEdge(dist))
+        {
+            scheduleRemoval();
+        }
+    }
+    
+    public boolean isOffEdge(int dist)
+    {
+        if (getX() <= -dist)
+        {
+            return true;
+        }
+        else if (getX() >= getWorld().getWidth()+dist)
+        {
+            return true;
+        }
+        else if (getY() <= -dist)
+        {
+            return true;
+        }
+        else if (getY() >= getWorld().getHeight()+dist)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    public void setRemovalAtEdge() 
     {
         if (isAtEdge())
         {
-            getWorld().removeObject(this);
+            scheduleRemoval();
         }
     }
     
@@ -76,15 +108,15 @@ public class Object extends SmoothMover
         
     }
     
-    public void scheduleDelete(){
+    public void scheduleRemoval(){
         deleteMe = true;
     }
-    public void tryToDelete(){
+    public void checkRemoval(){
         if(deleteMe){
             getWorld().removeObject(this);
         }
     }
-    public boolean isScheduledForDeletion(){
+    public boolean isScheduledForRemoval(){
         return deleteMe;
     }
 

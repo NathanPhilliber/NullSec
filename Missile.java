@@ -24,11 +24,10 @@ public class Missile extends Weapon implements ProjectileObject
     public void act() 
     {
         super.act();
-        //colision effect goes here
         firstTime();
         spaceMove(speed);
         seakTarget();
-        removeAtEdge();
+        checkRemoval();//LAST
     }  
     
     public Missile(int angle, boolean isPlayer, double damage, double startX, double startY)

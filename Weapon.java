@@ -30,8 +30,7 @@ public class Weapon extends SpaceObject
             updateMousePos();
             
         }
-        
-        
+        setRemovalOffEdge(100);
     }  
     
     public Weapon(double startX, double startY, boolean isPlayer, double damage){
@@ -59,7 +58,7 @@ public class Weapon extends SpaceObject
             if(obj != null && touch(obj)){
                 
                 obj.getHit(damage);
-                setLocation(getX()+3000,getY()); //Ghetto delete
+                scheduleRemoval();
 
                 return true;
             }
@@ -68,7 +67,7 @@ public class Weapon extends SpaceObject
             Player obj = (Player)getOneIntersectingObject(Player.class);  
             if(obj != null && touch(obj)){
                 obj.getHit(damage);
-                setLocation(getX()+3000,getY()); //Ghetto delete
+                scheduleRemoval();
 
                 return true;
             }

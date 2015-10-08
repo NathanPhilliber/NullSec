@@ -23,16 +23,11 @@ public class Projectile extends Weapon implements ProjectileObject
     public void act() 
     {
         super.act();
-        //colision effect goes here
-        //update Position method to move relitive to ship (if you want the ship to be able to catch up to projectiles)
         firstTime();
         //move(12);
         
         spaceMove(speed);
-        
-        
-        removeAtEdge(); //CALL LAST
-        
+        checkRemoval();//LAST
     }    
     public Projectile(int angle, boolean isPlayer, double damage, double startX, double startY)
     {

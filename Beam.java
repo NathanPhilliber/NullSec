@@ -18,8 +18,8 @@ public class Beam extends Weapon implements ProjectileObject
     public void act() 
     {
         super.act();
-        //colision effect goes here
-        getWorld().removeObject(this);
+        scheduleRemoval();
+        checkRemoval();//LAST
     }    
     
     public Beam(int angle, boolean isPlayer, double damage, double startX, double startY)
