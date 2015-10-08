@@ -106,7 +106,7 @@ public class Entity extends SpaceObject implements DamageTaker
         if(shootProgress > 0){
             if(weaponDelay%cyclesBetweenShots == 0){
                 shootProgress--;
-                shoot(ship.getX(), ship.getY(), currentWeapon);
+                shoot(ship.getSpaceX()+460, ship.getSpaceY()+270, currentWeapon);
               
             }
         }

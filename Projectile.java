@@ -23,25 +23,33 @@ public class Projectile extends Weapon implements ProjectileObject
     public void act() 
     {
         super.act();
-        firstTime();
-        //move(12);
-        
+        //firstTime();
         spaceMove(speed);
         checkRemoval();//LAST
     }    
     public Projectile(int angle, boolean isPlayer, double damage, double startX, double startY)
     {
         super(startX, startY, isPlayer, damage);
-        //setRotation(angle);
-        angleChange = angle;
+        if (isPlayer)
+        {
+            MouseInfo m = Greenfoot.getMouseInfo();
+            if(m != null)
+            {
+                setRotation((int)Math.round(Math.atan2((m.getY()-270),(m.getX()-460))*360/(2*Math.PI))+angle);
+            }
+        }
+        
+        
+        //angleChange = angle;
         //System.out.println("spawn");
     }
     
     //Constructor for entity shooting
     public Projectile(int angle, boolean isPlayer, double damage, double startX, double startY, double targetX, double targetY){
         this(angle, isPlayer, damage, startX, startY);
-        setTargetX(targetX);
-        setTargetY(targetY);
+        //setTargetX(targetX);
+        //setTargetY(targetY);
+        setRotation((int)Math.round(Math.atan2((targetY-startY),(targetX-startX))*360/(2*Math.PI))+angle);
     }
     
 
