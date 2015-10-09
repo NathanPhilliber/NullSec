@@ -1,5 +1,6 @@
 import greenfoot.*;
 import java.util.PriorityQueue;
+import java.util.List;
 /**
  * Subclass of other objects that will interact with the player directly.
  * 
@@ -57,11 +58,24 @@ public class Entity extends SpaceObject implements DamageTaker
     private int currentWeapon = 0;
 
     private boolean queueInUse = false;
-
+    //Minimap Vars
+    private double mpRatio = 10;
+    
+    private double mpRatioX = 5.5*mpRatio;
+    private double mpRatioY = 3.23*mpRatio;
+    
+    private int spawnX;
+    private int spawnY;
+    
+    private boolean firstpass = true;
+    // End Minimap vars
     private Space space;
     private Ship ship;
     public Entity(){
         super();
+        firstpass = true;
+        spawnX = getX();
+        spawnY = getY();
     }
 
     public Entity(double x, double y){
@@ -78,6 +92,8 @@ public class Entity extends SpaceObject implements DamageTaker
         runQueue();
         checkDead();
         takeAShot();
+        setupMinimap();
+        updateMinimap();
         //System.out.println(actionQueue.size());
         //shoot(ship.getX(),ship.getY(), Weapon.MISSILE);
         
@@ -86,7 +102,32 @@ public class Entity extends SpaceObject implements DamageTaker
             addExplosion(getSpaceX(), getSpaceY());
         }
         checkRemoval();
-    }    
+    }
+    public void setupMinimap()
+    {
+      if(firstpass)
+      {
+      double minimapX = (getX()/mpRatioX) + 800-(167/mpRatio)/2 + spawnX/mpRatioX;
+      double minimapY = (getY()/mpRatioY) + 405-(167/mpRatio)/2 + spawnY/mpRatioY;
+      
+      EnemyShip enemyShip = new EnemyShip();
+      getWorld().addObject(enemyShip, (int) minimapX, (int) minimapY);
+      firstpass = false;
+      }
+    }
+    
+    public void updateMinimap()
+    {
+      double minimapX = (getX()/mpRatioX) + 800-(167/mpRatio)/2 + spawnX/mpRatioX;
+      double minimapY = (getY()/mpRatioY) + 405-(167/mpRatio)/2 + spawnY/mpRatioY;
+      
+      List<Actor> actors = getWorld().getObjects(EnemyShip.class); 
+      for (Actor a : actors)
+      {
+       a.setLocation((int) minimapX, (int) minimapY);
+      }
+    }
+    
     /***************************************************************************
      * *************************************************************************
      * TRIG IS NO HARD
