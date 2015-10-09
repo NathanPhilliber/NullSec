@@ -501,7 +501,14 @@ public class Player extends Object implements DamageTaker
         beamCharge();
         if (Greenfoot.isKeyDown("c") || rMButton())
         {
-            weaponTimer(LV,wep);
+            if (mouseAim)
+            {
+                weaponTimer(mouseAngle(),LV,wep);
+            }
+            else
+            {
+                weaponTimer(getRotation(),LV,wep);
+            }
         }
         else
         {
@@ -547,19 +554,19 @@ public class Player extends Object implements DamageTaker
         }
         return rMButton;
     }
-    private void weaponTimer(int LV, int wep)
+    private void weaponTimer(int angle,int LV,int wep)
     {
         weaponTimer++;
         if (wep==0)
         {
             if (weaponTimer%10 == 1)
             {
-                projectile(LV);
+                projectile(angle,LV);
             }
         }            
         if (wep==1&&!beamCD)
         {
-            beam(LV);
+            beam(angle,LV);
             beamCharge--;
             beamCharge--;
             beamCharge--;
@@ -568,25 +575,25 @@ public class Player extends Object implements DamageTaker
         {
             if (weaponTimer%35 == 1)
             {
-                missile(LV);
+                missile(angle,LV);
             }
         }
         if (wep==3)
         {
-            mine(LV);
+            mine(angle,LV);
         }
         if (wep==4)
         {
             if (weaponTimer%70 == 1)
             {
-                fireball(LV);
+                fireball(angle,LV);
             }
         }
         if (wep==5)
         {
             if (weaponTimer%30 <= 4)
             {
-                plasmaBall(LV);
+                plasmaBall(angle,LV);
             }
         }
         if (wep==6)
@@ -595,7 +602,7 @@ public class Player extends Object implements DamageTaker
         }
     }
     
-    private void plasmaBall(int LV)
+    private void plasmaBall(int angle,int LV)
     {
         getWorld().addObject(new PlasmaBall(getRotation(), true, plasmaBallDamage, getShipLocX(), getShipLocY()), (int)getShipLocX(),(int)getShipLocY());
         if (LV>=1)
@@ -615,57 +622,47 @@ public class Player extends Object implements DamageTaker
         }
     }
     
-    private void fireball(int LV)
+    private void fireball(int angle,int LV)
     {
-        getWorld().addObject(new Fireball(getRotation(), true, fireballDamage, getShipLocX(), getShipLocY()), getX(), getY());
+            getWorld().addObject(new Fireball(angle, true, fireballDamage, getShipLocX(), getShipLocY()), getX(), getY());
     }
     
-    private void mine(int LV)
+    private void mine(int angle,int LV)
     {
         getWorld().addObject(new Mine(spaceX+getX(),spaceY+getY(), true, mineDamage), getX(), getY());
     }
     
-    private void missile(int LV)
+    private void missile(int angle,int LV)
     {
-        getWorld().addObject(new Missile(getRotation(), true, mineDamage, getShipLocX(), getShipLocY()), getX(), getY());
+            getWorld().addObject(new Missile(angle, true, mineDamage, getShipLocX(), getShipLocY()), getX(), getY());
     }
     
-    private void projectile(int LV)
+    private void projectile(int angle,int LV)
     {
-        getWorld().addObject(new Projectile(0, true, projectileDamage, getShipLocX(), getShipLocY()), getX(), getY());
+        getWorld().addObject(new Projectile(angle, true, projectileDamage, getShipLocX(), getShipLocY()), getX(), getY());
         if (LV>=1)
         {
-            getWorld().addObject(new Projectile(10, true, projectileDamage, getShipLocX(), getShipLocY()), getX(), getY());
-            getWorld().addObject(new Projectile(-10, true, projectileDamage, getShipLocX(), getShipLocY()), getX(), getY());
+            getWorld().addObject(new Projectile(angle+10, true, projectileDamage, getShipLocX(), getShipLocY()), getX(), getY());
+            getWorld().addObject(new Projectile(angle-10, true, projectileDamage, getShipLocX(), getShipLocY()), getX(), getY());
         }
         if (LV>=2)
         {
-            getWorld().addObject(new Projectile(20, true, projectileDamage, getShipLocX(), getShipLocY()), getX(), getY());
-            getWorld().addObject(new Projectile(20, true, projectileDamage, getShipLocX(), getShipLocY()), getX(), getY());
+            getWorld().addObject(new Projectile(angle+20, true, projectileDamage, getShipLocX(), getShipLocY()), getX(), getY());
+            getWorld().addObject(new Projectile(angle-20, true, projectileDamage, getShipLocX(), getShipLocY()), getX(), getY());
         }
         if (LV>=3)
         {
-            getWorld().addObject(new Projectile(30, true, projectileDamage, getShipLocX(), getShipLocY()), getX(), getY());
-            getWorld().addObject(new Projectile(30, true, projectileDamage, getShipLocX(), getShipLocY()), getX(), getY());
+            getWorld().addObject(new Projectile(angle+30, true, projectileDamage, getShipLocX(), getShipLocY()), getX(), getY());
+            getWorld().addObject(new Projectile(angle-30, true, projectileDamage, getShipLocX(), getShipLocY()), getX(), getY());
         }
     }
     
-    private void beam(int LV)
+    private void beam(int angle,int LV)
     {
-        if (mouseAim)
-        {
-            for (int i=0; i<=10*(LV+1); i++)
+        for (int i=0; i<=10*(LV+1); i++)
             {
-                getWorld().addObject(new Beam(mouseAngle(), true, beamDamage, getShipLocX(), getShipLocY()), (int)Math.round(getX()+i*8*Math.cos(mouseAngle()*2*Math.PI/360)), (int)Math.round(getY()+i*8*Math.sin(mouseAngle()*2*Math.PI/360)));
+                getWorld().addObject(new Beam(angle, true, beamDamage, getShipLocX(), getShipLocY()), (int)Math.round(getX()+i*8*Math.cos(angle*2*Math.PI/360)), (int)Math.round(getY()+i*8*Math.sin(angle*2*Math.PI/360)));
             }
-        }
-        else
-        {
-            for (int i=0; i<=10*(LV+1); i++)
-            {
-                getWorld().addObject(new Beam(getRotation(), true, beamDamage, getShipLocX(), getShipLocY()), (int)Math.round(getX()+i*8*Math.cos(getRotation()*2*Math.PI/360)), (int)Math.round(getY()+i*8*Math.sin(getRotation()*2*Math.PI/360)));
-            }
-        }
     }
     
     private void toggleWeapon()

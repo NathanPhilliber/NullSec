@@ -24,17 +24,10 @@ public class Fireball extends Weapon implements ProjectileObject
         checkRemoval();//LAST
     }    
     
-    public Fireball(int angleOffset, boolean isPlayer, double damage, double startX, double startY)
+    public Fireball(int angle, boolean isPlayer, double damage, double startX, double startY)
     {
         super(startX, startY, isPlayer, damage);
-        if (isPlayer)
-        {
-            MouseInfo m = Greenfoot.getMouseInfo();
-            if(m != null)
-            {
-                setRotation(angleTowards(460,270,m.getX(),m.getY())+angleOffset);
-            }
-        }
+        setRotation(angle);
     }
     
     private void beam()

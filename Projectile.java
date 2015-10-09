@@ -26,17 +26,10 @@ public class Projectile extends Weapon implements ProjectileObject
         spaceMove(speed);
         checkRemoval();//LAST
     }    
-    public Projectile(int angleOffset, boolean isPlayer, double damage, double startX, double startY)
+    public Projectile(int angle, boolean isPlayer, double damage, double startX, double startY)
     {
         super(startX, startY, isPlayer, damage);
-        if (isPlayer)
-        {
-            MouseInfo m = Greenfoot.getMouseInfo();
-            if(m != null)
-            {
-                setRotation(angleTowards(460,270,m.getX(),m.getY())+angleOffset);
-            }
-        }
+        setRotation(angle);
     }
     
     //Constructor for entity shooting

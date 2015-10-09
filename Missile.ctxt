@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.params=
 comment0.target=void\ act()
-comment1.params=angleOffset\ isPlayer\ damage\ startX\ startY
+comment1.params=angle\ isPlayer\ damage\ startX\ startY
 comment1.target=Missile(int,\ boolean,\ double,\ double,\ double)
 comment2.params=angleOffset\ isPlayer\ damage\ startX\ startY\ targetX\ targetY
 comment2.target=Missile(int,\ boolean,\ double,\ double,\ double,\ double,\ double)

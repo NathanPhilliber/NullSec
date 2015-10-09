@@ -29,17 +29,10 @@ public class Missile extends Weapon implements ProjectileObject
         checkRemoval();//LAST
     }  
     
-    public Missile(int angleOffset, boolean isPlayer, double damage, double startX, double startY)
+    public Missile(int angle, boolean isPlayer, double damage, double startX, double startY)
     {
         super(startX, startY, isPlayer, damage);
-        if (isPlayer)
-        {
-            MouseInfo m = Greenfoot.getMouseInfo();
-            if(m != null)
-            {
-                setRotation(angleTowards(460,270,m.getX(),m.getY())+angleOffset);
-            }
-        }
+        setRotation(angle);
     }
     
     public Missile(int angleOffset, boolean isPlayer, double damage, double startX, double startY, double targetX, double targetY){
