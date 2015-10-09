@@ -445,6 +445,8 @@ public class Player extends Object implements DamageTaker
     private boolean rMButton = false;
     private int hearthTimer = 0;
     private int blinkCD = 0;
+    private int beamCharge = 0;
+    private boolean beamCD = false;
     //john end
     
     private double projectileDamage = 3.0;
@@ -495,6 +497,7 @@ public class Player extends Object implements DamageTaker
    
     private void shoot(int LV, int wep)
     {
+        beamCharge();
         if (Greenfoot.isKeyDown("c") || rMButton())
         {
             weaponTimer(LV,wep);
@@ -502,6 +505,31 @@ public class Player extends Object implements DamageTaker
         else
         {
             weaponTimer = 0;
+        }
+    }
+    
+    private void beamCharge()
+    {
+        bramChargeBar();
+        if (beamCharge<300)
+        {
+            beamCharge++;
+        }
+        if (beamCharge<=5)
+        {
+            beamCD = true;
+        }
+        if (beamCharge>=100)
+        {
+            beamCD = false;
+        }
+    }
+    
+    private void bramChargeBar()
+    {
+        for (int i=1; i <= beamCharge/15; i++)
+        {
+            getWorld().addObject(new Beam(0, true, 0, 400, 520),400+i*4,520);
         }
     }
     
@@ -528,9 +556,12 @@ public class Player extends Object implements DamageTaker
                 projectile(LV);
             }
         }            
-        if (wep==1)
+        if (wep==1&&!beamCD)
         {
             beam(LV);
+            beamCharge--;
+            beamCharge--;
+            beamCharge--;
         }
         if (wep==2)
         {
