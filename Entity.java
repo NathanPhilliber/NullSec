@@ -10,7 +10,7 @@ public class Entity extends SpaceObject implements DamageTaker
 {
     //#####
     //TO DO: Make stack of actions for the ship to take
-
+    
     private double aggression = 0.0;
     private double health = 100.0;
     private double maxHealth = 100.0;
@@ -62,11 +62,12 @@ public class Entity extends SpaceObject implements DamageTaker
     private Ship ship;
     public Entity(){
         super();
+        setIsPlayer(false);//forWEAPONS
     }
 
     public Entity(double x, double y){
         super(x,y);
-
+        setIsPlayer(false);//forWEAPONS
     }
 
     public void act() 
@@ -134,25 +135,22 @@ public class Entity extends SpaceObject implements DamageTaker
     public void shoot(double targetX, double targetY, int weapon){
         switch(weapon){
             case Weapon.PROJECTILE:
-                getWorld().addObject(new Projectile(getTargetAngle(targetX,targetY), false, projectileDamage, getSpaceX(), getSpaceY()), getX(), getY());
+                projectile(getTargetAngle(targetX,targetY),0,getSpaceX(), getSpaceY());//in object WEAPON SYSTEMS
                 break;
             case Weapon.BEAM:
-                for (int i=0; i<=30; i++){
-    
-                    getWorld().addObject(new Beam(getTargetAngle(targetX,targetY), false, beamDamage, getSpaceX(), getSpaceY()), (int)Math.round(getX()+i*8*Math.cos(getTargetAngle(targetX,targetY)*2*Math.PI/360)), (int)Math.round(getY()+i*8*Math.sin(getTargetAngle(targetX,targetY)*2*Math.PI/360)));
-                }
+                beam(getTargetAngle(targetX,targetY),1,getSpaceX(), getSpaceY());//in object WEAPON SYSTEMS
                 break;
             case Weapon.MISSILE:
-                getWorld().addObject(new Missile(getTargetAngle(targetX,targetY), false, missileDamage, getSpaceX(), getSpaceY()), getX(), getY());
+                missile(getTargetAngle(targetX,targetY),0,getSpaceX(), getSpaceY());//in object WEAPON SYSTEMS
                 break;
             case Weapon.MINE:
-                getWorld().addObject(new Mine(getTargetAngle(targetX,targetY), false, getSpaceX(), getSpaceY(), mineDamage), getX(), getY());
+                mine(getTargetAngle(targetX,targetY),1,getSpaceX(), getSpaceY());//in object WEAPON SYSTEMS
                 break;
             case Weapon.FIREBALL:
-                getWorld().addObject(new Fireball(getTargetAngle(targetX,targetY), false, fireballDamage, getSpaceX(), getSpaceY()), getX(), getY());
+                fireball(getTargetAngle(targetX,targetY),1,getSpaceX(), getSpaceY());//in object WEAPON SYSTEMS
                 break;  
             case Weapon.PLASMABALL:
-                getWorld().addObject(new PlasmaBall(getTargetAngle(targetX,targetY), false, plasmaBallDamage, getSpaceX(), getSpaceY()), (int)getSpaceX(),(int)getSpaceY());
+                plasmaBall(getTargetAngle(targetX,targetY),1,getSpaceX(), getSpaceY());//in object WEAPON SYSTEMS
                 break;
         }
     }

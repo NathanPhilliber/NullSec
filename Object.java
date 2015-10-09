@@ -207,7 +207,128 @@ public class Object extends SmoothMover
                     b=false;
         return !b;
     }
-  
+    /*****************************************************************************
+     *****************************************************************************
+     * WEAPON SYSTEMS
+     *     for
+     * PLAYER AND NPC
+     * 
+     * 
+     * 
+     *****************************************************************************
+     *****************************************************************************
+     */
+    
+    
+    //damages
+    private double projectileDamage = 3.0;
+    private double beamDamage = .2;
+    private double missileDamage = 6.0;
+    private double fireballDamage = 4.0;
+    private double mineDamage = 15.0;
+    private double plasmaBallDamage = 2.0;
+    
+    private boolean isPlayer;
+    protected void setIsPlayer(boolean P)
+    {
+        isPlayer = P;
+    }
+    protected boolean getIsPlayer()
+    {
+        return isPlayer;
+    }
+    
+    protected void projectile(int angle,int LV,double X,double Y)
+    {
+        spawnProjectile(angle,X,Y);
+        if (LV>=1)
+        {
+            spawnProjectile(angle+10,X,Y);
+            spawnProjectile(angle-10,X,Y);
+        }
+        if (LV>=2)
+        {
+            spawnProjectile(angle+20,X,Y);
+            spawnProjectile(angle-20,X,Y);
+        }
+        if (LV>=3)
+        {
+            spawnProjectile(angle+30,X,Y);
+            spawnProjectile(angle-30,X,Y);
+        }
+    }
+    private void spawnProjectile(int angle,double X,double Y)
+    {
+        getWorld().addObject(new Projectile(angle, getIsPlayer(), projectileDamage, X, Y), getX(), getY());
+    }
+    
+    
+    protected void beam(int angle,int LV,double X,double Y)
+    {
+        for (int i=0; i<=10*(LV+1); i++)
+            {
+                getWorld().addObject(new Beam(angle, getIsPlayer(), beamDamage, X, Y), (int)Math.round(getX()+i*8*Math.cos(angle*2*Math.PI/360)), (int)Math.round(getY()+i*8*Math.sin(angle*2*Math.PI/360)));
+            }
+    }
+    
+    
+    protected void missile(int angle,int LV,double X,double Y)
+    {
+            getWorld().addObject(new Missile(angle, getIsPlayer(), missileDamage, X, Y), getX(), getY());
+    }
+    
+    
+    protected void mine(int angle,int LV,double X,double Y)
+    {
+        getWorld().addObject(new Mine(angle, true, X, Y, mineDamage), getX(), getY());
+    }
+    
+    
+    protected void fireball(int angle,int LV,double X,double Y)
+    {
+            getWorld().addObject(new Fireball(angle, true, fireballDamage, X, Y), getX(), getY());
+    }
+    
+    
+    protected void plasmaBall(int angle,int LV,double X,double Y)
+    {
+        spawnPlasmaBall(getRotation(),X,Y);
+        if (LV>=1)
+        {
+            spawnPlasmaBall(getRotation()+10,X,Y);
+            spawnPlasmaBall(getRotation()-10,X,Y);
+        }
+        if (LV>=2)
+        {
+            spawnPlasmaBall(getRotation()+20,X,Y);
+            spawnPlasmaBall(getRotation()-20,X,Y);
+        }
+        if (LV>=3)
+        {
+            spawnPlasmaBall(getRotation()+30,X,Y);
+            spawnPlasmaBall(getRotation()-30,X,Y);
+        }
+    }
+    private void spawnPlasmaBall(int angle,double X,double Y)
+    {
+        getWorld().addObject(new PlasmaBall(getRotation(), true, plasmaBallDamage, X, Y), getX(), getY());
+    }
+    
+    
+    private boolean rMButton = false;
+    public boolean rMButton()
+    {
+        MouseInfo mi = Greenfoot.getMouseInfo();
+        if (Greenfoot.mousePressed(null))
+        {
+            rMButton = true;
+        }
+        if (Greenfoot.mouseClicked(null)) 
+        {
+            rMButton = false;
+        }
+        return rMButton;
+    }
 }
 
 interface DamageTaker{
