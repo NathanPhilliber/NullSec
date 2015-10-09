@@ -88,6 +88,11 @@ public class Entity extends SpaceObject implements DamageTaker
         checkRemoval();
     }    
     
+    public int getTargetAngle(double targetX,double targetY)//TRIG NO IS HARD
+    {
+        return (int)Math.round(Math.atan2((targetY-getSpaceY()),(targetX-getSpaceX()))*360/(2*Math.PI));
+    }
+    
     public void shootPlayer(int weapon, int cyclesBetweenShots, int numShots){
         
         shootProgress = numShots;
@@ -122,7 +127,7 @@ public class Entity extends SpaceObject implements DamageTaker
     public void shoot(double targetX, double targetY, int weapon){
         switch(weapon){
             case Weapon.PROJECTILE:
-                getWorld().addObject(new Projectile(0, false, projectileDamage, getSpaceX(), getSpaceY(), targetX, targetY), getX(), getY());
+                getWorld().addObject(new Projectile(getTargetAngle(targetX,targetY), false, projectileDamage, getSpaceX(), getSpaceY(), targetX, targetY), getX(), getY());
                 break;
             case Weapon.BEAM:
                 for (int i=0; i<=30; i++){

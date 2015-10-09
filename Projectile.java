@@ -33,9 +33,9 @@ public class Projectile extends Weapon implements ProjectileObject
     }
     
     //Constructor for entity shooting
-    public Projectile(int angleOffset, boolean isPlayer, double damage, double startX, double startY, double targetX, double targetY){
-        this(angleOffset, isPlayer, damage, startX, startY);
-        setRotation(angleTowards(startX,startY,targetX,targetY)+angleOffset);
+    public Projectile(int angle, boolean isPlayer, double damage, double startX, double startY, double targetX, double targetY){
+        this(angle, isPlayer, damage, startX, startY);
+        //setRotation(angleTowards(startX,startY,targetX,targetY));
     }
     
 }
