@@ -71,15 +71,19 @@ public class Entity extends SpaceObject implements DamageTaker
     // End Minimap vars
     private Space space;
     private Ship ship;
+    
+    //player location
+    private double playerX;
+    private double playerY;
+    
     public Entity(){
         super();
-<<<<<<< HEAD
+
         setIsPlayer(false);//forWEAPONS
-=======
+
         firstpass = true;
         spawnX = getX();
         spawnY = getY();
->>>>>>> origin/master
     }
 
     public Entity(double x, double y){
@@ -99,14 +103,47 @@ public class Entity extends SpaceObject implements DamageTaker
         setupMinimap();
         updateMinimap();
         //System.out.println(actionQueue.size());
-        //shoot(ship.getX(),ship.getY(), Weapon.MISSILE);
         
-        
+        //circleTarget();//testing
+        updatePlayerLocation();
         if(isScheduledForRemoval()){
             addExplosion(getSpaceX(), getSpaceY());
         }
         checkRemoval();
     }
+    
+    private void updatePlayerLocation()
+    {
+        playerX = ship.getSpaceX()+getWorld().getWidth()/2;
+        playerY = ship.getSpaceY()+getWorld().getHeight()/2;;
+    }
+    
+    public void circleTarget()
+    {
+        spaceMove(1);
+        if (checkRange(250))
+        {
+            System.out.println("in range");
+        }
+        else
+        {
+            System.out.println("out of range");
+            if (getRotation() >= getTargetAngle(targetX,targetY)-2)
+            {
+                setRotation(getRotation()+turnSpeed);
+            }
+            else if (getRotation() <= getTargetAngle(targetX,targetY)+2)
+            {
+                setRotation(getRotation()-turnSpeed);
+            }
+        } 
+    }
+    private boolean checkRange(double r)
+    {
+        return r >= (Math.sqrt(Math.pow(playerX-getSpaceX(),2)+Math.pow(playerY-getSpaceY(),2)));
+    }
+    
+    
     public void setupMinimap()
     {
       if(firstpass)
@@ -145,14 +182,11 @@ public class Entity extends SpaceObject implements DamageTaker
         return (int)Math.round(Math.atan2((targetY-getSpaceY()),(targetX-getSpaceX()))*360/(2*Math.PI));
     }
     
+    
     public void shootPlayer(int weapon, int cyclesBetweenShots, int numShots){
-        
         shootProgress = numShots;
         this.cyclesBetweenShots = cyclesBetweenShots;
         currentWeapon = weapon;
-        
-        
-        
     }
     
     private void takeAShot(){
@@ -163,7 +197,7 @@ public class Entity extends SpaceObject implements DamageTaker
         if(shootProgress > 0){
             if(weaponDelay%cyclesBetweenShots == 0){
                 shootProgress--;
-                shoot(ship.getSpaceX()+460, ship.getSpaceY()+270, currentWeapon);
+                shoot(playerX, playerY, currentWeapon);
               
             }
         }
@@ -241,6 +275,10 @@ public class Entity extends SpaceObject implements DamageTaker
         else if(arg[0].equalsIgnoreCase("shootPlayer")){
             //shoot player code, what weapon and for how long
             shootPlayer(Integer.parseInt(arg[1]),Integer.parseInt(arg[2]), Integer.parseInt(arg[3]));
+        }
+        else if(arg[0].equalsIgnoreCase("shootPlayer")){
+            //circle target code
+            //circleTarget();
         }
     }
 

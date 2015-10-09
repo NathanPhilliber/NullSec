@@ -29,6 +29,7 @@ public class AlienShip extends Entity
            
             addAction("moveTo/"+(Greenfoot.getRandomNumber(500)-250)+"/"+(Greenfoot.getRandomNumber(500)-250));
             addAction("shootPlayer/0/10/5");
+            //addAction("circleTarget");
             
         }
         
