@@ -22,6 +22,7 @@ public class Player extends Object implements DamageTaker
     //Rate at which ship turns and accelerates
     private int turnSpeed = 5;
     private double flySpeed = 0.3;
+    private double revSpeed = 0.1;
     
     
     //The maximum velocity the ship can have
@@ -103,8 +104,8 @@ public class Player extends Object implements DamageTaker
             int angle = getRotation();
             //addRocketTrail(getShipLocX()-30*Math.cos(getRotation()*2*Math.PI/360), getShipLocY()-30*Math.sin(getRotation()*2*Math.PI/360));
             //Add to velocity based on what angle the ship is turned to
-            setVelX((Math.cos(Math.toRadians(angle))*getFlySpeed()) + getVelX());
-            setVelY((Math.sin(Math.toRadians(angle))*getFlySpeed()) + getVelY());
+            addVelX((Math.cos(Math.toRadians(angle))*getFlySpeed()));
+            addVelY((Math.sin(Math.toRadians(angle))*getFlySpeed()));
             
             //Check if ship is going too fast
             if(Greenfoot.isKeyDown("space")){ //Boost
@@ -155,9 +156,20 @@ public class Player extends Object implements DamageTaker
             turn(turnSpeed);
         }
         
+        reverseThruster();//john
+        
         //Add velocity to coordinates, thereby "moving" the ship
         addSpaceX(getVelX());
         addSpaceY(getVelY());
+    }
+    
+    private void reverseThruster()//john
+    {
+        if (Greenfoot.isKeyDown("s"))
+        {
+            addVelX(-.05*Math.cos(getRotation()*2*Math.PI/360));
+            addVelY(-.05*Math.sin(getRotation()*2*Math.PI/360));
+        }
     }
     
     private void debugHealthHack(){
@@ -269,6 +281,14 @@ public class Player extends Object implements DamageTaker
         return velY;
     }
     
+     public void addVelX(double x){
+        setVelX(getVelX()+x);
+    }
+    
+    public void addVelY(double y){
+        setVelY(getVelY()+y);
+    }
+    
     public int getTurnSpeed(){
         return turnSpeed;
     }
@@ -307,6 +327,14 @@ public class Player extends Object implements DamageTaker
     
     public double getFlyDec(){
         return flyDec;
+    }
+    
+    public double getRevSpeed(){
+        return revSpeed;
+    }
+    
+    public void setRevSpeed(int speed){
+        revSpeed = speed;
     }
     
     public double getShipLocX(){
@@ -395,13 +423,16 @@ public class Player extends Object implements DamageTaker
     }    
     /**********************************************************************************************************
      **********************************************************************************************************
-     *
-     * weapon systems
-     * added by john
-     * 10/2/15
-     * curently not mouse driven
-     * will be updated
+     **********************************************************************************************************
+     **********************************************************************************************************
+     * WEAPON SYSTEMS
+     * by john
+     * 10/8/15
      * 
+     *
+     * //add sheilds
+     **********************************************************************************************************
+     **********************************************************************************************************
      **********************************************************************************************************
      **********************************************************************************************************
      */
@@ -442,13 +473,6 @@ public class Player extends Object implements DamageTaker
             blinkCD=0;
         }
     }
-    
-    private void reverse()
-    {
-        //add
-    }
-    
-    //add sheilds
     
     private void hearth()
     {
