@@ -413,6 +413,7 @@ public class Player extends Object implements DamageTaker
     private int weaponType = 0;
     private boolean rMButton = false;
     private int hearthTimer = 0;
+    private int blinkCD = 0;
     //john end
     
     private double projectileDamage = 3.0;
@@ -428,11 +429,18 @@ public class Player extends Object implements DamageTaker
         toggleWeapon();
         weaponLV();
         hearth();
+        blink();
     }
     
     private void blink()
     {
-        //add (shorth TP forward
+        blinkCD++;
+        if (Greenfoot.isKeyDown("v") && blinkCD>=200)
+        {
+            addSpaceX(250*Math.cos(getRotation()*2*Math.PI/360));
+            addSpaceY(250*Math.sin(getRotation()*2*Math.PI/360));
+            blinkCD=0;
+        }
     }
     
     private void reverse()
