@@ -30,6 +30,15 @@ public class Object extends SmoothMover
         return getRotation();//tired of typing it wrong
     }
     
+    public int mouseAngle()//from center of world
+    {
+        MouseInfo m = Greenfoot.getMouseInfo();
+        if(m != null)
+        {
+            return (int)Math.round(Math.atan2((m.getY()-getWorld().getHeight()/2),(m.getX()-getWorld().getWidth()/2))*360/(2*Math.PI));
+        }
+        return 0;
+    }
     
     public void setRemovalOffEdge(int dist) 
     {

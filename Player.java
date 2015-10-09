@@ -447,6 +447,7 @@ public class Player extends Object implements DamageTaker
     private int blinkCD = 0;
     private int beamCharge = 0;
     private boolean beamCD = false;
+    public boolean mouseAim = true;
     //john end
     
     private double projectileDamage = 3.0;
@@ -651,9 +652,19 @@ public class Player extends Object implements DamageTaker
     
     private void beam(int LV)
     {
-        for (int i=0; i<=10*(LV+1); i++)
+        if (mouseAim)
         {
-            getWorld().addObject(new Beam(getRotation(), true, beamDamage, getShipLocX(), getShipLocY()), (int)Math.round(getX()+i*8*Math.cos(getRotation()*2*Math.PI/360)), (int)Math.round(getY()+i*8*Math.sin(getRotation()*2*Math.PI/360)));
+            for (int i=0; i<=10*(LV+1); i++)
+            {
+                getWorld().addObject(new Beam(mouseAngle(), true, beamDamage, getShipLocX(), getShipLocY()), (int)Math.round(getX()+i*8*Math.cos(mouseAngle()*2*Math.PI/360)), (int)Math.round(getY()+i*8*Math.sin(mouseAngle()*2*Math.PI/360)));
+            }
+        }
+        else
+        {
+            for (int i=0; i<=10*(LV+1); i++)
+            {
+                getWorld().addObject(new Beam(getRotation(), true, beamDamage, getShipLocX(), getShipLocY()), (int)Math.round(getX()+i*8*Math.cos(getRotation()*2*Math.PI/360)), (int)Math.round(getY()+i*8*Math.sin(getRotation()*2*Math.PI/360)));
+            }
         }
     }
     
