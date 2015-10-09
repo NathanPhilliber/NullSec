@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.params=
 comment0.target=void\ act()
-comment1.params=startX\ startY\ isPlayer\ damage
-comment1.target=Weapon(double,\ double,\ boolean,\ double)
+comment1.params=angle\ isPlayer\ startX\ startY\ damage
+comment1.target=Weapon(int,\ boolean,\ double,\ double,\ double)
 comment2.params=yourX\ yourY\ targetX\ targetY
 comment2.target=int\ angleTowards(double,\ double,\ double,\ double)
 comment3.params=

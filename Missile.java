@@ -31,13 +31,7 @@ public class Missile extends Weapon implements ProjectileObject
     
     public Missile(int angle, boolean isPlayer, double damage, double startX, double startY)
     {
-        super(startX, startY, isPlayer, damage);
-        setRotation(angle);
-    }
-    
-    public Missile(int angleOffset, boolean isPlayer, double damage, double startX, double startY, double targetX, double targetY){
-        this(angleOffset, isPlayer, damage, startX, startY);
-        setRotation(angleTowards(startX,startY,targetX,targetY)+angleOffset);
+        super(angle, isPlayer, startX, startY, damage);
     }
     
     private void seakTarget()

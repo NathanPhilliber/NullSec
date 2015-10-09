@@ -26,8 +26,7 @@ public class Fireball extends Weapon implements ProjectileObject
     
     public Fireball(int angle, boolean isPlayer, double damage, double startX, double startY)
     {
-        super(startX, startY, isPlayer, damage);
-        setRotation(angle);
+        super(angle, isPlayer, startX, startY, damage);
     }
     
     private void beam()

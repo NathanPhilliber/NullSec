@@ -29,8 +29,9 @@ public class Weapon extends SpaceObject
         setRemovalOffEdge(100);
     }  
     
-    public Weapon(double startX, double startY, boolean isPlayer, double damage){
+    public Weapon(int angle, boolean isPlayer, double startX, double startY, double damage){
         super(startX, startY);
+        setRotation(angle);
         ownedByPlayer = isPlayer;
         this.damage = damage;
     }

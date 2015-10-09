@@ -87,8 +87,15 @@ public class Entity extends SpaceObject implements DamageTaker
         }
         checkRemoval();
     }    
-    
-    public int getTargetAngle(double targetX,double targetY)//TRIG NO IS HARD
+    /***************************************************************************
+     * *************************************************************************
+     * TRIG IS NO HARD
+     * TRIG IS NO HARD
+     * TRIG IS NO HARD
+     * *************************************************************************
+     * *************************************************************************
+     */
+    public int getTargetAngle(double targetX,double targetY)
     {
         return (int)Math.round(Math.atan2((targetY-getSpaceY()),(targetX-getSpaceX()))*360/(2*Math.PI));
     }
@@ -127,25 +134,25 @@ public class Entity extends SpaceObject implements DamageTaker
     public void shoot(double targetX, double targetY, int weapon){
         switch(weapon){
             case Weapon.PROJECTILE:
-                getWorld().addObject(new Projectile(getTargetAngle(targetX,targetY), false, projectileDamage, getSpaceX(), getSpaceY(), targetX, targetY), getX(), getY());
+                getWorld().addObject(new Projectile(getTargetAngle(targetX,targetY), false, projectileDamage, getSpaceX(), getSpaceY()), getX(), getY());
                 break;
             case Weapon.BEAM:
                 for (int i=0; i<=30; i++){
     
-                    getWorld().addObject(new Beam(0, false, beamDamage, getSpaceX(), getSpaceY()), (int)Math.round(getX()+i*8*Math.cos(getRotation()*2*Math.PI/360)), (int)Math.round(getY()+i*8*Math.sin(getRotation()*2*Math.PI/360)));
+                    getWorld().addObject(new Beam(getTargetAngle(targetX,targetY), false, beamDamage, getSpaceX(), getSpaceY()), (int)Math.round(getX()+i*8*Math.cos(getTargetAngle(targetX,targetY)*2*Math.PI/360)), (int)Math.round(getY()+i*8*Math.sin(getTargetAngle(targetX,targetY)*2*Math.PI/360)));
                 }
                 break;
             case Weapon.MISSILE:
-                getWorld().addObject(new Missile(getRotation(), false, missileDamage, getSpaceX(), getSpaceY(), targetX, targetY), getX(), getY());
+                getWorld().addObject(new Missile(getTargetAngle(targetX,targetY), false, missileDamage, getSpaceX(), getSpaceY()), getX(), getY());
                 break;
             case Weapon.MINE:
-                getWorld().addObject(new Mine(getSpaceX(),getSpaceY(), false, mineDamage), getX(), getY());
+                getWorld().addObject(new Mine(getTargetAngle(targetX,targetY), false, getSpaceX(), getSpaceY(), mineDamage), getX(), getY());
                 break;
             case Weapon.FIREBALL:
-                getWorld().addObject(new Fireball(getRotation(), false, fireballDamage, getSpaceX(), getSpaceY()), getX(), getY());
+                getWorld().addObject(new Fireball(getTargetAngle(targetX,targetY), false, fireballDamage, getSpaceX(), getSpaceY()), getX(), getY());
                 break;  
             case Weapon.PLASMABALL:
-                getWorld().addObject(new PlasmaBall(getRotation(), false, plasmaBallDamage, getSpaceX(), getSpaceY()), (int)getSpaceX(),(int)getSpaceY());
+                getWorld().addObject(new PlasmaBall(getTargetAngle(targetX,targetY), false, plasmaBallDamage, getSpaceX(), getSpaceY()), (int)getSpaceX(),(int)getSpaceY());
                 break;
         }
     }

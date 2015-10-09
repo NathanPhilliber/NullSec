@@ -24,8 +24,7 @@ public class Beam extends Weapon implements ProjectileObject
     
     public Beam(int angle, boolean isPlayer, double damage, double startX, double startY)
     {
-        super(startX, startY, isPlayer, damage);
-        setRotation(angle);
+        super(angle, isPlayer, startX, startY, damage);
     }
     
 

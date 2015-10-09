@@ -26,8 +26,8 @@ public class Mine extends Weapon implements ProjectileObject
         checkRemoval();//LAST
     }    
     
-    public Mine(double x, double y, boolean isPlayer, double damage){
-        super(x,y, isPlayer, damage);
+    public Mine(int angle,boolean isPlayer,double x, double y, double damage){
+        super(angle, isPlayer, x, y, damage);
     }
     
     /*

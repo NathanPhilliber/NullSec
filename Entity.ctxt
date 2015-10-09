@@ -47,6 +47,7 @@ comment29.params=state
 comment29.target=void\ setReachedTarget(boolean)
 comment3.params=targetX\ targetY
 comment3.target=int\ getTargetAngle(double,\ double)
+comment3.text=\r\n\ *************************************************************************\r\n\ TRIG\ IS\ NO\ HARD\r\n\ TRIG\ IS\ NO\ HARD\r\n\ TRIG\ IS\ NO\ HARD\r\n\ *************************************************************************\r\n\ *************************************************************************\r\n
 comment30.params=
 comment30.target=boolean\ reachedTarget()
 comment31.params=

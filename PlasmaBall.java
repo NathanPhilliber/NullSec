@@ -29,9 +29,7 @@ public class PlasmaBall extends Weapon implements ProjectileObject
     
     public PlasmaBall(int angle, boolean isPlayer, double damage, double startX, double startY)
     {
-        super(startX, startY,isPlayer, damage);
-        setRotation(angle);
-        
+        super(angle, isPlayer, startX, startY, damage);
     }
     
 
