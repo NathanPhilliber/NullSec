@@ -104,7 +104,9 @@ public class Entity extends SpaceObject implements DamageTaker
         updateMinimap();
         //System.out.println(actionQueue.size());
         
-        //circleTarget();//testing
+        //prob in wrong spot >>>>>>>>>>>>>FIX<<<<<<<<<<<<<
+        circleTarget();//prob in wrong spot
+        
         updatePlayerLocation();
         if(isScheduledForRemoval()){
             addExplosion(getSpaceX(), getSpaceY());
@@ -120,21 +122,36 @@ public class Entity extends SpaceObject implements DamageTaker
     
     public void circleTarget()
     {
-        spaceMove(1);
+        spaceMove(4);
+        int angleDif = angleRange(getRotation())-getTargetAngle(playerX,playerY);
+        if (180 < angleDif)
+            {
+                angleDif -= 360;
+            }
+            else if (-180 > angleDif)
+            {
+                angleDif += 360;
+            }
         if (checkRange(250))
         {
-            System.out.println("in range");
+            if (5 <= angleDif)
+            {
+                setRotation(getRotation()+angleDif/80);
+            }
+            else if (-5 >= angleDif)
+            {
+                setRotation(getRotation()-angleDif/80);
+            }
         }
         else
         {
-            System.out.println("out of range");
-            if (getRotation() >= getTargetAngle(targetX,targetY)-2)
+            if (5 <= angleDif)
             {
-                setRotation(getRotation()+turnSpeed);
+                setRotation(getRotation()-angleDif/80);
             }
-            else if (getRotation() <= getTargetAngle(targetX,targetY)+2)
+            else if (-5 >= angleDif)
             {
-                setRotation(getRotation()-turnSpeed);
+                setRotation(getRotation()+angleDif/80);
             }
         } 
     }

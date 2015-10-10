@@ -25,9 +25,17 @@ public class Object extends SmoothMover
      * john start
      * 
      */
-    public int getAngle()
+    //from 0 to 360 to -180 to 180 
+    public int angleRange(int angle)
     {
-        return getRotation();//tired of typing it wrong
+        if (angle<=180)
+        {
+            return angle;
+        }
+        else
+        {
+            return angle-360;
+        }
     }
     
     public int mouseAngle()//from center of world
