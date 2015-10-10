@@ -35,6 +35,7 @@ public class Player extends Object implements DamageTaker
     //How dense the stars should spawn. Higher number means more stars.
     //Number is arbitrary
     private int starDensity = 2;
+    private int nebulaDensity = 100;
     
     //Health values of player
     private double health = 100.0;
@@ -76,6 +77,7 @@ public class Player extends Object implements DamageTaker
        showDebug(true);
        scrollWeapon();
        generateStars(starDensity);
+       generateNebulas(nebulaDensity);
        damageBar.updateDamage(getHealth(), getMaxHealth());
        debugHealthHack(); //Allows to add health via '[']' DELETE THIS BEFORE PUBLISH
        //checkDead();
@@ -212,7 +214,33 @@ public class Player extends Object implements DamageTaker
         
     }
     
-    
+   private void generateNebulas(int density){
+        World world = getWorld();
+        
+        //Doesn't spawn stars every call, higher density will increase odds
+        //Don't spawn more than 120 stars
+        if((Greenfoot.getRandomNumber(400)) < 10 && BackgroundStar.getNumStars() < 400){
+            
+            //Divide star spawns between up/down and right/left
+            if(Greenfoot.getRandomNumber(2)==1){
+                //If the ship is going fast enough left/right, spawn a star on one of those sides
+                if(Math.abs(getVelX()) > 1.0){ 
+                    world.addObject(new Nebula((getSpaceX() + world.getWidth()/2)+((world.getWidth()+2000)*getPosNeg()),
+                    (getSpaceY() + world.getHeight()/2)+Greenfoot.getRandomNumber(world.getHeight())),1000*(int)getPosNeg(),-1000*(int)getPosNeg());
+                }
+            
+            }   
+            else{
+                //If the ship is going fast enough up/down, spawn a star on one of those sides
+                if(Math.abs(getVelY()) > 1.0){
+                    world.addObject(new Nebula((getSpaceX() + world.getWidth()/2)+Greenfoot.getRandomNumber(world.getWidth()),
+                    (getSpaceY() + world.getHeight()/2)+((world.getHeight()+2000)*getPosNeg())),1000*(int)getPosNeg(),1000*(int)getPosNeg());
+                
+            }
+        }
+    }
+        
+    }
     //Called during the first tick only
     //Some methods require the ship to alrady be spawned to work
     private void firstTime(){
