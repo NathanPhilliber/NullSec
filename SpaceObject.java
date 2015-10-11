@@ -26,7 +26,11 @@ public class SpaceObject extends Object
     //Called every tick, updates object position relative to ship coords
     public void act() 
     {
+       Space theWorld = (Space) getWorld();
+       if(!theWorld.isPaused)
+       {
         updatePosition();
+       }
     }   
     
     //Moves the objects according to the ship's coords

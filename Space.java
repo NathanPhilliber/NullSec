@@ -28,8 +28,14 @@ public class Space extends World
     int mode = 0;
     boolean firstpass = true;
     static ScrollingListener scroll = new ScrollingListener();
-    JPanel panel = WorldHandler.getInstance().getWorldCanvas();      
+    JPanel panel = WorldHandler.getInstance().getWorldCanvas();
+    
+    private boolean readPause = true;
+    public boolean isPaused;
+    public static boolean setPause;
+    
     //Contructor, spawn world
+    
     public Space()
     {    
         super(920, 540, 1, false); 
@@ -58,7 +64,7 @@ public class Space extends World
         //}
         tutorial();
 
-        setPaintOrder(OutsideMP.class, EnemyShip.class, PlayerShip.class, InsideMP.class, AntIcon.class, IconFire.class, MissleIcon.class, IconPlasma.class, IconLaser.class, IconMine.class, WeaponBG.class, DamageBar.class, Cannon.class, Weapon.class, Ship.class, BackgroundStar.class);
+        setPaintOrder(DockMenu.class, OutsideMP.class, EnemyShip.class, PlayerShip.class, InsideMP.class, AntIcon.class, IconFire.class, MissleIcon.class, IconPlasma.class, IconLaser.class, IconMine.class, WeaponBG.class, DamageBar.class, Cannon.class, Weapon.class, Ship.class, Planets.class, BackgroundStar.class);
 
         IconMine iconmine = new IconMine();
         addObject(iconmine, 52, 294);
@@ -122,6 +128,9 @@ public class Space extends World
         
         OutsideMP outsidemp = new OutsideMP();
         addObject(outsidemp, 800, 405);
+
+        PlanetOne planetOne = new PlanetOne();  
+        addObject(planetOne,-100, 0);
         
         WeaponBG weaponbg6 = new WeaponBG();
         addObject(weaponbg6, 48, 460);
@@ -147,8 +156,33 @@ public class Space extends World
     
     public void act()
     {
+        if(!readPause)
+        {
+        if(setPause == true || Greenfoot.isKeyDown("Escape"))
+            readPause = true;
+        }
+        if(readPause)
+        {
+            if(Greenfoot.isKeyDown("Escape"))
+            {
+            if(isPaused) isPaused = false;
+            else         isPaused = true;
+            readPause = false;
+            }
+            if(setPause == true)
+            {
+               isPaused = true;
+            }
+            if(setPause == false)
+            {
+                isPaused = false;
+            }
+        }
+        if(!isPaused)
+        {
         clearText();
         getWeapon();
+        }
     }
       
     public void tutorial()
@@ -166,7 +200,8 @@ public class Space extends World
         showText("numbers to change LV", 450, 360);
         showText("PRESS ANY KEY TO CONTINUE", 450, 440);
     }
-
+    
+    
     public void clearText()
     {
         if (Greenfoot.getKey() != null)

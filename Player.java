@@ -72,6 +72,9 @@ public class Player extends Object implements DamageTaker
     //Updates health
     public void act() 
     {
+       Space theWorld = (Space) getWorld();
+       if(!theWorld.isPaused)
+       {
        firstTime();
        fly();
        showDebug(true);
@@ -82,6 +85,7 @@ public class Player extends Object implements DamageTaker
        debugHealthHack(); //Allows to add health via '[']' DELETE THIS BEFORE PUBLISH
        //checkDead();
        weaponSystems();//john
+       }
     } 
     
     

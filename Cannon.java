@@ -13,8 +13,12 @@ public class Cannon extends Player
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
-    {
+    { 
+       Space theWorld = (Space) getWorld();
+       if(!theWorld.isPaused)
+       {
         setupCannon();
+       }
     }
     public void setupCannon()
     {

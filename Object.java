@@ -215,6 +215,37 @@ public class Object extends SmoothMover
                     b=false;
         return !b;
     }
+    public void pause(boolean isPaused)
+    {
+        
+        List<Actor> actors = getWorld().getObjects(null);
+        
+        if(isPaused == true)
+        {
+            for(Actor a: actors)
+            {
+                a.setLocation(a.getX(), a.getY());
+            }
+        }
+    }
+    public void dockMenu()
+    {
+        World world = getWorld();
+        
+        Space.setPause = true;
+        
+        world.addObject(new MenuBG(), world.getWidth()/2, world.getHeight()/2);
+        world.addObject(new MenuMain(), world.getWidth()/2, world.getHeight()/2);
+        world.addObject(new MenuYes(), world.getWidth()/2 - 100, world.getHeight()/2);
+        world.addObject(new MenuNo(), world.getWidth()/2+100, world.getHeight()/2);
+
+    }
+    public void removeDockMenu()
+    {
+            List<DockMenu> dockMenu = getWorld().getObjects(DockMenu.class);
+            getWorld().removeObjects(dockMenu);
+            Space.setPause = false;
+    }
     /*****************************************************************************
      *****************************************************************************
      * WEAPON SYSTEMS
