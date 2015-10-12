@@ -134,25 +134,25 @@ public class Entity extends SpaceObject implements DamageTaker
             }
         if (checkRange(250))
         {
-            if (5 <= angleDif)
-            {
+            //if (5 <= angleDif)
+            //{
                 setRotation(getRotation()+angleDif/80);
-            }
+            /*}
             else if (-5 >= angleDif)
             {
                 setRotation(getRotation()-angleDif/80);
-            }
+            }*/
         }
         else
         {
-            if (5 <= angleDif)
-            {
+            //if (5 <= angleDif)
+            //{
                 setRotation(getRotation()-angleDif/80);
-            }
+            /*}
             else if (-5 >= angleDif)
             {
                 setRotation(getRotation()+angleDif/80);
-            }
+            }*/
         } 
     }
     private boolean checkRange(double r)
@@ -188,9 +188,13 @@ public class Entity extends SpaceObject implements DamageTaker
     
     /***************************************************************************
      * *************************************************************************
+     * *************************************************************************
+     * *************************************************************************
      * TRIG IS NO HARD
      * TRIG IS NO HARD
      * TRIG IS NO HARD
+     * *************************************************************************
+     * *************************************************************************
      * *************************************************************************
      * *************************************************************************
      */
