@@ -12,11 +12,10 @@ public class Object extends SmoothMover
 {
     
     private boolean deleteMe = false;
+
     
     public void act() 
     {
-        // Add your action code here.
-        
     }    
     
     /**
@@ -117,8 +116,8 @@ public class Object extends SmoothMover
         World world = getWorld();
         for (int i = 0; i<13; i++)
         {
-            world.addObject(new Particle(x, y, 8, 6, 10, 6, 20,"images/fire1.png"), 0, 0);
-            world.addObject(new Particle(x, y, 20, 6, 17, 6, 20,"images/ant.png"), 0, 0);
+            world.addObject(new Particle(x, y, 8, 6, 10, 6, 20,"exPart1.png"), 0, 0);
+            world.addObject(new Particle(x, y, 20, 6, 17, 6, 20,"exPart2.png"), 0, 0);
         }
     }
     

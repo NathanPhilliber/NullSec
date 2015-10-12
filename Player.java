@@ -47,6 +47,8 @@ public class Player extends Object implements DamageTaker
     //Used for in class operations
     private boolean firstTime = true;
     
+    
+    private int spawnRate = 100;  
     //Constructor, spawns player at 0,0
     public Player(){
         this(0,0);
@@ -79,6 +81,7 @@ public class Player extends Object implements DamageTaker
        fly();
        showDebug(true);
        scrollWeapon();
+       addAsteroid();
        generateStars(starDensity);
        generateNebulas(nebulaDensity);
        damageBar.updateDamage(getHealth(), getMaxHealth());
@@ -430,7 +433,42 @@ public class Player extends Object implements DamageTaker
             addExplosion(getShipLocX(), getShipLocY());
         }
     }
-    
+    public void addAsteroid()
+    {
+       if(spawnRate == 0)
+        {
+          int size = Greenfoot.getRandomNumber(3);
+          
+          
+          int areay = getWorld().getHeight();
+          int areax = getWorld().getWidth();
+          int topBot = Greenfoot.getRandomNumber(1);
+          int x = (Greenfoot.getRandomNumber(3)+2 % 2 == 0) ? -50 : areax + 50;
+          int y = Greenfoot.getRandomNumber(areay);
+          
+          if(size == 0)
+          {
+          Asteroid1 asteroidS = new Asteroid1();
+          getWorld().addObject(asteroidS, x, y);
+          }
+          if(size == 1)
+          {
+          Asteroid2 asteroidM = new Asteroid2();
+          getWorld().addObject(asteroidM, x, y);
+          }
+          if(size == 2)
+          {
+          Asteroid3 asteroidB = new Asteroid3();
+          getWorld().addObject(asteroidB, x, y);
+          }
+          spawnRate = 100;
+         
+        }
+        else
+        {
+          spawnRate--;
+        }  
+    }
     
     //Display debug info such as x,y coords, velocities, star count, health
     private void showDebug(boolean show){
@@ -563,7 +601,7 @@ public class Player extends Object implements DamageTaker
     {
         for (int i=1; i <= beamCharge/15; i++)
         {
-            getWorld().addObject(new Beam(0, true, 0, 400, 520),400+i*4,520);
+            getWorld().addObject(new Beam(0, true, 0, 400, 520),418+i*4,520);
         }
     }
     
