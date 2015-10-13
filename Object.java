@@ -320,10 +320,10 @@ public class Object extends SmoothMover
             getWorld().addObject(new Missile(angle, getIsPlayer(), missileDamage, X, Y), getX(), getY());
     }
     
-    
+    //CHANGE TO USE RANGE VARIABLE
     protected void mine(int angle,int LV,double X,double Y)
     {
-        getWorld().addObject(new Mine(angle, true, X, Y, mineDamage), getX(), getY());
+        getWorld().addObject(new Mine(angle, true, X, Y, mineDamage, 250), getX(), getY());
     }
     
     

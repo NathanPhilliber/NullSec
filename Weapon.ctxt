@@ -17,4 +17,6 @@ comment7.params=tarX
 comment7.target=void\ setTargetX(double)
 comment8.params=tarY
 comment8.target=void\ setTargetY(double)
-numComments=9
+comment9.params=
+comment9.target=double\ getDamage()
+numComments=10

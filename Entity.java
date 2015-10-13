@@ -105,7 +105,7 @@ public class Entity extends SpaceObject implements DamageTaker
         //System.out.println(actionQueue.size());
         
         //prob in wrong spot >>>>>>>>>>>>>FIX<<<<<<<<<<<<<
-        circleTarget();//prob in wrong spot
+        //circleTarget();//prob in wrong spot
         
         updatePlayerLocation();
         if(isScheduledForRemoval()){
