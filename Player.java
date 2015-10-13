@@ -83,7 +83,7 @@ public class Player extends Object implements DamageTaker
        scrollWeapon();
        addAsteroid();
        generateStars(starDensity);
-       //generateNebulas(nebulaDensity);
+       generateNebulas(nebulaDensity);
        damageBar.updateDamage(getHealth(), getMaxHealth());
        debugHealthHack(); //Allows to add health via '[']' DELETE THIS BEFORE PUBLISH
        //checkDead();

@@ -1,7 +1,7 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Planet here.
+ * Write a description of class Planets here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
@@ -9,20 +9,30 @@ import greenfoot.*;
 public class Planet extends SpaceObject
 {
     /**
-     * Act - do whatever the Planet wants to do. This method is called whenever
+     * Act - do whatever the Planets wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public Planet(){
-        super();
-    }
-    
-    public Planet(double x, double y){
-        super(x,y);
-    }
-    
+    private boolean firstPass = true;
+     
     public void act() 
     {
-        // Add your action code here.
         super.act();
-    }    
+        checkDock();
+    }
+    public void checkDock()
+    {
+        if(touch(Player.class))
+        {
+            if(firstPass && Greenfoot.isKeyDown("e"))
+            {
+             dockMenu();
+             firstPass = false;
+            }
+        }
+        else
+        {
+            firstPass = true;
+            Space.setPause = false;
+        }
+    }
 }

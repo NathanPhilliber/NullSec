@@ -67,7 +67,7 @@ public class Entity extends SpaceObject implements DamageTaker
     private int spawnX;
     private int spawnY;
     
-    private boolean firstpass = true;
+
     // End Minimap vars
     private Space space;
     private Ship ship;
@@ -81,7 +81,7 @@ public class Entity extends SpaceObject implements DamageTaker
 
         setIsPlayer(false);//forWEAPONS
 
-        firstpass = true;
+ 
         spawnX = getX();
         spawnY = getY();
     }
@@ -100,7 +100,7 @@ public class Entity extends SpaceObject implements DamageTaker
         runQueue();
         checkDead();
         takeAShot();
-        setupMinimap();
+        
         updateMinimap();
         //System.out.println(actionQueue.size());
         
@@ -114,7 +114,7 @@ public class Entity extends SpaceObject implements DamageTaker
         checkRemoval();
     }
     
-    private void updatePlayerLocation()
+    private void updatePlayerLocation() //What the shit is this? use getShipLoc
     {
         playerX = ship.getSpaceX()+getWorld().getWidth()/2;
         playerY = ship.getSpaceY()+getWorld().getHeight()/2;;
@@ -163,41 +163,29 @@ public class Entity extends SpaceObject implements DamageTaker
     
     public void setupMinimap()
     {
-      if(firstpass)
-      {
-      double minimapX = (getX()/mpRatioX) + 800-(167/mpRatio)/2 + spawnX/mpRatioX;
-      double minimapY = (getY()/mpRatioY) + 405-(167/mpRatio)/2 + spawnY/mpRatioY;
       
-      EnemyShip enemyShip = new EnemyShip();
-      getWorld().addObject(enemyShip, (int) minimapX, (int) minimapY);
-      firstpass = false;
-      }
+          double minimapX = (getX()/mpRatioX) + 800-(167/mpRatio)/2 + spawnX/mpRatioX;
+          double minimapY = (getY()/mpRatioY) + 405-(167/mpRatio)/2 + spawnY/mpRatioY;
+          
+          EnemyShip enemyShip = new EnemyShip();
+          getWorld().addObject(enemyShip, (int) minimapX, (int) minimapY);
+          
+      
     }
     
     public void updateMinimap()
     {
-      double minimapX = (getX()/mpRatioX) + 800-(167/mpRatio)/2 + spawnX/mpRatioX;
-      double minimapY = (getY()/mpRatioY) + 405-(167/mpRatio)/2 + spawnY/mpRatioY;
-      
-      List<Actor> actors = getWorld().getObjects(EnemyShip.class); 
-      for (Actor a : actors)
-      {
-       a.setLocation((int) minimapX, (int) minimapY);
-      }
+          double minimapX = (getX()/mpRatioX) + 800-(167/mpRatio)/2 + spawnX/mpRatioX;
+          double minimapY = (getY()/mpRatioY) + 405-(167/mpRatio)/2 + spawnY/mpRatioY;
+          
+          List<Actor> actors = getWorld().getObjects(EnemyShip.class); 
+          for (Actor a : actors)
+          {
+              a.setLocation((int) minimapX, (int) minimapY);
+          }
     }
     
-    /***************************************************************************
-     * *************************************************************************
-     * *************************************************************************
-     * *************************************************************************
-     * TRIG IS NO HARD
-     * TRIG IS NO HARD
-     * TRIG IS NO HARD
-     * *************************************************************************
-     * *************************************************************************
-     * *************************************************************************
-     * *************************************************************************
-     */
+    
     public int getTargetAngle(double targetX,double targetY)
     {
         return (int)Math.round(Math.atan2((targetY-getSpaceY()),(targetX-getSpaceX()))*360/(2*Math.PI));
@@ -322,7 +310,7 @@ public class Entity extends SpaceObject implements DamageTaker
             ship = space.getShip();
             damageBar = new DamageBar(this, -30, getHealth(), getMaxHealth());
             space.addObject(damageBar, 0, 0);
-            
+            setupMinimap();
             
             
             
