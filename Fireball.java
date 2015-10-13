@@ -21,6 +21,7 @@ public class Fireball extends Weapon implements ProjectileObject
         super.act();
         spaceMove(speed);
         beam();
+        addFire(getSpaceX(), getSpaceY());
         checkRemoval();//LAST
     }    
     

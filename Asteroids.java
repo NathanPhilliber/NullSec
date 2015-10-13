@@ -17,6 +17,7 @@ public class Asteroids extends Object
        super.act();
        asteroidMovement();
     }
+    
     public void asteroidMovement()
     {
       turn(turnSpeed);

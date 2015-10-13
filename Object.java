@@ -126,7 +126,12 @@ public class Object extends SmoothMover
         
         world.addObject(new Particle(x, y, 10, 6, 7, 6, 10,"images/spark1.png"), 0, 0);
             
-        
+        //double startX, double startY, int straightness, double radius, int lifetime, double particleSpeed, int lifetimeRandom,int angle, String image)
+    }
+    
+    public void addFire(double x, double y){
+        World world = getWorld();
+        world.addObject(new Particle(x, y, 10, 6, 5, 3, 15,"images/firesparks.png"), 0, 0);
     }
     
     public void scheduleRemoval(){

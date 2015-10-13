@@ -83,7 +83,7 @@ public class Player extends Object implements DamageTaker
        scrollWeapon();
        addAsteroid();
        generateStars(starDensity);
-       generateNebulas(nebulaDensity);
+       //generateNebulas(nebulaDensity);
        damageBar.updateDamage(getHealth(), getMaxHealth());
        debugHealthHack(); //Allows to add health via '[']' DELETE THIS BEFORE PUBLISH
        //checkDead();
@@ -487,6 +487,11 @@ public class Player extends Object implements DamageTaker
             getWorld().showText("Weapon: "+ Space.getWeapon(), x, 175);
         }
     }   
+    
+    public double getSpeed(){
+        return Math.sqrt(Math.pow(getVelX(),2)+Math.pow(getVelY(),2));
+    }
+    
     
     private void scrollWeapon()
     {
