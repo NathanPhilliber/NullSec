@@ -496,7 +496,24 @@ public class Player extends Object implements DamageTaker
     private void scrollWeapon()
     {
          weaponType = (int) Space.getWeapon();
-    }    
+    }   
+    /* sooooo broken
+    public static double getWeapon()
+    {
+        int tempWep=0;
+        tempWep += scroll.getScroll();
+        if(tempWep < 0)
+        {
+            tempWep = 0;
+        }
+        if(tempWep > 5)
+        {
+            tempWep = 5;
+        }
+        
+        return tempWep;
+    } 
+    */
     /**********************************************************************************************************
      **********************************************************************************************************
      **********************************************************************************************************
@@ -530,8 +547,8 @@ public class Player extends Object implements DamageTaker
     public void weaponSystems()
     {
         shoot(weaponLV, weaponType);
-        toggleWeapon();
-        weaponLV();
+        toggleWeaponLV();
+        weaponType();
         hearth();
         blink();
     }
@@ -664,9 +681,9 @@ public class Player extends Object implements DamageTaker
     }
 
     
-    private void toggleWeapon()
+    private void toggleWeaponLV()
     {
-        if (Greenfoot.isKeyDown("q"))
+        if (Greenfoot.isKeyDown("="))
         {
             if (weaponToggle==0)
             {
@@ -681,6 +698,21 @@ public class Player extends Object implements DamageTaker
                 weaponToggle++;
             }
         }
+        else if (Greenfoot.isKeyDown("-"))
+        {
+            if (weaponToggle==0)
+            {
+                if (weaponLV == 0)
+                {
+                    weaponLV = 6;
+                }
+                else
+                {
+                    weaponLV++;
+                }
+                weaponToggle++;
+            }
+        }
         else
         {
             weaponToggle = 0;
@@ -688,35 +720,31 @@ public class Player extends Object implements DamageTaker
     }
     
     
-    private void weaponLV()
+    private void weaponType()
     {
-        if (Greenfoot.isKeyDown("0"))
-        {
-            weaponLV = 0;
-        }
         if (Greenfoot.isKeyDown("1"))
         {
-            weaponLV = 1;
+            weaponType = 0;
         }
         if (Greenfoot.isKeyDown("2"))
         {
-            weaponLV = 2;
+            weaponType = 1;
         }
         if (Greenfoot.isKeyDown("3"))
         {
-            weaponLV = 3;
+            weaponType = 2;
         }
         if (Greenfoot.isKeyDown("4"))
         {
-            weaponLV = 4;
+            weaponType = 3;
         }
         if (Greenfoot.isKeyDown("5"))
         {
-            weaponLV = 5;
+            weaponType = 4;
         }
         if (Greenfoot.isKeyDown("6"))
         {
-            weaponLV = 6;
+            weaponType = 5;
         }
     }
     //john end

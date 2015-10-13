@@ -354,7 +354,7 @@ public class Object extends SmoothMover
     }
     private void spawnPlasmaBall(int angle,double X,double Y)
     {
-        getWorld().addObject(new PlasmaBall(getRotation(), true, plasmaBallDamage, X, Y), getX(), getY());
+        getWorld().addObject(new PlasmaBall(angle, true, plasmaBallDamage, X, Y), getX(), getY());
     }
     
     
