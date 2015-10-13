@@ -17,7 +17,7 @@ public class Particle extends SpaceObject
     private int lifetime;
     private double speed;
     private int turnTimer = 0;
-    private int angle = 0;
+    private int chance;
 
     public Particle(double startX, double startY, int straightness, double radius, int lifetime, double particleSpeed, int lifetimeRandom, String image)
     {
@@ -27,7 +27,7 @@ public class Particle extends SpaceObject
         
     }
     
-    public Particle(double startX, double startY, int straightness, double radius, int lifetime, double particleSpeed, int lifetimeRandom,int angle, String image)
+    public Particle(double startX, double startY, int straightness, double radius, int lifetime, double particleSpeed, int lifetimeRandom,int chance, String image)
     {
         super(startX, startY);
         this.straightness = straightness;
@@ -36,6 +36,10 @@ public class Particle extends SpaceObject
         speed = particleSpeed;
         turn(Greenfoot.getRandomNumber(360));
         setImage(image);
+        this.chance = chance;
+        if(Greenfoot.getRandomNumber(100) + chance > 100){
+            this.lifetime = 0;
+        }
     }
 
     public void particleLife()
