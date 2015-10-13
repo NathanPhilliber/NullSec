@@ -3,7 +3,7 @@ import greenfoot.*;
 /**
  * Write a description of class Particle here.
  * 
- * @author (your name) 
+ * Juan Manuel Jimenez Ramos 
  * @version (a version number or a date)
  */
 public class Particle extends SpaceObject
@@ -41,7 +41,7 @@ public class Particle extends SpaceObject
             this.lifetime = 0;
         }
     }
-
+    // Counts down the particles life and removes them after a certain amount of time.
     public void particleLife()
     {
         if (lifetime <= 0)
@@ -51,7 +51,7 @@ public class Particle extends SpaceObject
         }
         lifetime--;
     }
-
+    // Dictates how the particles move
     public void particleMovement()
     {
         spaceMove(speed);
@@ -61,7 +61,7 @@ public class Particle extends SpaceObject
         }
         turnTimer++;
     }
-
+   
     public void act() 
     {
         // Add your action code here.
