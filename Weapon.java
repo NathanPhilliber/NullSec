@@ -84,6 +84,10 @@ public class Weapon extends SpaceObject
     public void setTargetY(double tarY){
         targetY = tarY;
     }
+    
+    public double getDamage(){
+        return damage;
+    }
 }
 
 interface ProjectileObject{

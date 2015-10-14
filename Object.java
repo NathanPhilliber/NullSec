@@ -116,22 +116,29 @@ public class Object extends SmoothMover
         World world = getWorld();
         for (int i = 0; i<13; i++)
         {
-            world.addObject(new Particle(x, y, 8, 6, 10, 6, 20,"exPart1.png"), 0, 0);
-            world.addObject(new Particle(x, y, 20, 6, 17, 6, 20,"exPart2.png"), 0, 0);
+            world.addObject(new Particle(x, y, 8, 6, 10, 6, 20, 0,"images/exPart1.png"), 0, 0);
+            world.addObject(new Particle(x, y, 20, 6, 17, 6, 20, 0,"images/exPart2.png"), 0, 0);
+            world.addObject(new Particle(x, y, 10, 6, 7, 6, 10, 95, "images/spark1.png"), 0, 0);
+            world.addObject(new Particle(x, y, 10, 6, 7, 6, 10, 95, "images/smoke1.png"), 0, 0);
         }
     }
     
     public void addRocketTrail(double x, double y){
         World world = getWorld();
         
-        world.addObject(new Particle(x, y, 10, 6, 7, 6, 10,"images/spark1.png"), 0, 0);
-            
+        world.addObject(new Particle(x, y, 10, 6, 7, 6, 10, 95, "images/spark1.png"), 0, 0);
+        world.addObject(new Particle(x, y, 10, 6, 7, 6, 10, 95, "images/smoke1.png"), 0, 0);
         //double startX, double startY, int straightness, double radius, int lifetime, double particleSpeed, int lifetimeRandom,int angle, String image)
     }
     
     public void addFire(double x, double y){
         World world = getWorld();
-        world.addObject(new Particle(x, y, 10, 6, 5, 3, 15,"images/firesparks.png"), 0, 0);
+        world.addObject(new Particle(x, y, 10, 6, 5, 3, 15, 50,"images/firesparks.png"), 0, 0);
+    }
+    
+    public void addMineTicker(double x, double y){
+        World world = getWorld();
+        world.addObject(new Particle(x, y, 10, 6, 5, 3, 15, 95,"images/spark1.png"), 0, 0);
     }
     
     public void scheduleRemoval(){
@@ -265,11 +272,13 @@ public class Object extends SmoothMover
     
     //damages
     private double projectileDamage = 3.0;
-    private double beamDamage = .2;
-    private double missileDamage = 6.0;
+    private double beamDamage = .5;
+    private double missileDamage = 10.0;
     private double fireballDamage = 4.0;
-    private double mineDamage = 15.0;
+    private double mineDamage = 25.0;
     private double plasmaBallDamage = 2.0;
+    
+    private int mineRange = 250;
     
     private boolean isPlayer;
     protected void setIsPlayer(boolean P)
@@ -323,7 +332,7 @@ public class Object extends SmoothMover
     
     protected void mine(int angle,int LV,double X,double Y)
     {
-        getWorld().addObject(new Mine(angle, true, X, Y, mineDamage), getX(), getY());
+        getWorld().addObject(new Mine(angle, true, X, Y, mineDamage, mineRange), getX(), getY());
     }
     
     

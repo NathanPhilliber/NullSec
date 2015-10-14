@@ -1,5 +1,5 @@
 import greenfoot.*;
-
+import java.util.List;
 /**
  * Write a description of class Mine here.
  * 
@@ -16,29 +16,32 @@ public class Mine extends Weapon implements ProjectileObject
      * add colisions as nessary
      * 
      */
-    int timer=0;
-    
+    private int timer=0;
+    private int range;
     public void act() 
     {
         super.act();
+        addMineTicker(getSpaceX(), getSpaceY());
         updatePosition();
         time();
+        
         checkRemoval();//LAST
     }    
-    
-    public Mine(int angle,boolean isPlayer,double x, double y, double damage){
+
+    public Mine(int angle,boolean isPlayer,double x, double y, double damage, int range){
         super(angle, isPlayer, x, y, damage);
+        this.range = range;
     }
-    
+
     /*
     public void collision()
     {
-        if (checkCollision())
-        {
-            //explode();
-        }
+    if (checkCollision())
+    {
+    //explode();
     }
-    */
+    }
+     */
     private void time()
     {
         if (timer >= 100)
@@ -47,14 +50,25 @@ public class Mine extends Weapon implements ProjectileObject
         }
         timer++;
     }
-    
+
     public void explode()
     {
-        
+
         //remove objects
+
+        List<Entity> objects = getObjectsInRange(range, Entity.class);
+        
+        for (Entity object : objects) {
+            
+                
+            object.getHit(getDamage());
+                
+                
+           
+        }
+
         addExplosion(getSpaceX(), getSpaceY());
-        getWorld().removeObject(this);
+        scheduleRemoval();
     }
-    
 
 }
