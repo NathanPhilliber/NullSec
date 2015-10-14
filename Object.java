@@ -116,8 +116,10 @@ public class Object extends SmoothMover
         World world = getWorld();
         for (int i = 0; i<13; i++)
         {
-            world.addObject(new Particle(x, y, 8, 6, 10, 6, 20, 0,"exPart1.png"), 0, 0);
-            world.addObject(new Particle(x, y, 20, 6, 17, 6, 20, 0,"exPart2.png"), 0, 0);
+            world.addObject(new Particle(x, y, 8, 6, 10, 6, 20, 0,"images/exPart1.png"), 0, 0);
+            world.addObject(new Particle(x, y, 20, 6, 17, 6, 20, 0,"images/exPart2.png"), 0, 0);
+            world.addObject(new Particle(x, y, 10, 6, 7, 6, 10, 95, "images/spark1.png"), 0, 0);
+            world.addObject(new Particle(x, y, 10, 6, 7, 6, 10, 95, "images/smoke1.png"), 0, 0);
         }
     }
     
