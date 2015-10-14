@@ -60,7 +60,6 @@ public class Entity extends SpaceObject implements DamageTaker
     private boolean queueInUse = false;
     //Minimap Vars
     private double mpRatio = 10;
-    
     private double mpRatioX = 5.5*mpRatio;
     private double mpRatioY = 3.23*mpRatio;
     
@@ -78,7 +77,8 @@ public class Entity extends SpaceObject implements DamageTaker
     
     public Entity(){
         super();
-
+        space = (Space) getWorld();
+        ship = space.getShip();
         setIsPlayer(false);//forWEAPONS
 
  
@@ -101,7 +101,18 @@ public class Entity extends SpaceObject implements DamageTaker
         checkDead();
         takeAShot();
         
-        updateMinimap();
+        /*****************************************************************************************************
+         * ***************************************************************************************************
+         * ***************************************************************************************************
+         * ***************************************************************************************************
+         * GOOD MINIMAP
+         * ***************************************************************************************************
+         * ***************************************************************************************************
+         * ***************************************************************************************************
+         * ***************************************************************************************************/
+        miniMap(new EnemyShip());
+        
+        //updateMinimap();
         //System.out.println(actionQueue.size());
         
         //prob in wrong spot >>>>>>>>>>>>>FIX<<<<<<<<<<<<<
@@ -304,13 +315,20 @@ public class Entity extends SpaceObject implements DamageTaker
     }
     //Called once during the first tick. Useful for certain objects that require
     //the entity to already be spawned.
+    /**STOP USING FIRST TIME
+     * USE THE CONSTRUCTOR
+     * 
+     * 
+     * 
+     */
+    
     private void firstTime(){
         if(firstTime){
             space = (Space) getWorld();
             ship = space.getShip();
             damageBar = new DamageBar(this, -30, getHealth(), getMaxHealth());
             space.addObject(damageBar, 0, 0);
-            setupMinimap();
+            //setupMinimap();
             
             
             

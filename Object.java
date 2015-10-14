@@ -16,7 +16,7 @@ public class Object extends SmoothMover
     
     public void act() 
     {
-    }    
+    } 
     
     /**
      * 

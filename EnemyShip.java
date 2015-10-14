@@ -10,6 +10,18 @@ public class EnemyShip extends Minimap
 {
     public void act()
     {
+       getWorld().removeObject(this);
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        /** soooooooooooooooooooooooooooo bad
        if(touch(InsideMP.class) == false)
        { 
            getImage().setTransparency(1); //Ghetto invisible
@@ -17,6 +29,6 @@ public class EnemyShip extends Minimap
        if(touch(InsideMP.class))
        {
            getImage().setTransparency(255);
-       }
+       }*/
     }
 }

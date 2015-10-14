@@ -10,7 +10,6 @@ public class Player extends Object implements DamageTaker
 {
     
     
-    
     //Coords to keep track of ship
     private double spaceX;
     private double spaceY;
@@ -47,7 +46,6 @@ public class Player extends Object implements DamageTaker
     //Used for in class operations
     private boolean firstTime = true;
     
-    
     private int spawnRate = 100;  
     //Constructor, spawns player at 0,0
     public Player(){
@@ -58,15 +56,13 @@ public class Player extends Object implements DamageTaker
     //Constructor, spawns player at x,y coord
     public Player(double x, double y){
         setIsPlayer(true);
-        Space space = (Space) getWorld();
         
         setSpaceX(x);
         setSpaceY(y);
         
         setVelX(0.0);
         setVelY(0.0);
-        
-        
+
     }
     
     //Called every tick
@@ -74,9 +70,8 @@ public class Player extends Object implements DamageTaker
     //Updates health
     public void act() 
     {
-       Space theWorld = (Space) getWorld();
-       if(!theWorld.isPaused)
-       {
+       //if(!SPACE.getIsPaused())
+       //{
        firstTime();
        fly();
        showDebug(true);
@@ -88,9 +83,16 @@ public class Player extends Object implements DamageTaker
        debugHealthHack(); //Allows to add health via '[']' DELETE THIS BEFORE PUBLISH
        //checkDead();
        weaponSystems();//john
-       }
+       updateWorldPlayerXY();
+       //}
     } 
     
+    public void updateWorldPlayerXY()
+    {
+        Space SPACE = (Space) getWorld();
+        SPACE.setPlayerX(getSpaceX());
+        SPACE.setPlayerY(getSpaceY());
+    }
     
     public boolean getHit(double damage){
         addHealth(-damage);
@@ -252,9 +254,9 @@ public class Player extends Object implements DamageTaker
     //Some methods require the ship to alrady be spawned to work
     private void firstTime(){
         if(firstTime){
-            Space space = (Space) getWorld();
+            Space SPACE=(Space)getWorld();
             damageBar = new DamageBar(this, -30, getHealth(), getMaxHealth());
-            space.addObject(damageBar, 0, 0);
+            SPACE.addObject(damageBar, 0, 0);
             firstTime = false;
         }
     }
@@ -472,19 +474,21 @@ public class Player extends Object implements DamageTaker
     
     //Display debug info such as x,y coords, velocities, star count, health
     private void showDebug(boolean show){
-             if(show){
-            int x = getWorld().getWidth() - 75;
+        if(show)
+        {
+            Space SPACE = (Space) getWorld();
+            int x = SPACE.getWidth() - 75;
+        
+            SPACE.showText("X: "+String.format("%.02f", (getSpaceX())), x, 25);
+            SPACE.showText("Y: "+String.format("%.02f", (getSpaceY())), x, 50); 
             
-            getWorld().showText("X: "+String.format("%.02f", (getSpaceX())), x, 25);
-            getWorld().showText("Y: "+String.format("%.02f", (getSpaceY())), x, 50); 
+            SPACE.showText("vX: "+String.format("%.02f", (getVelX())), x, 75);
+            SPACE.showText("vY: "+String.format("%.02f", (getVelY())), x, 100);        
             
-            getWorld().showText("vX: "+String.format("%.02f", (getVelX())), x, 75);
-            getWorld().showText("vY: "+String.format("%.02f", (getVelY())), x, 100);        
+            SPACE.showText("Stars: "+ BackgroundStar.getNumStars(), x, 125); 
             
-            getWorld().showText("Stars: "+ BackgroundStar.getNumStars(), x, 125); 
-            
-            getWorld().showText("Health: "+ getHealth(), x, 150);
-            getWorld().showText("Weapon: "+ Space.getWeapon(), x, 175);
+            SPACE.showText("Health: "+ getHealth(), x, 150);
+            SPACE.showText("Weapon: "+ SPACE.getWeapon(), x, 175);
         }
     }   
     
@@ -495,7 +499,8 @@ public class Player extends Object implements DamageTaker
     
     private void scrollWeapon()
     {
-         weaponType = (int) Space.getWeapon();
+        Space SPACE = (Space) getWorld();
+        weaponType = (int) SPACE.getWeapon();
     }   
     /* sooooo broken
     public static double getWeapon()

@@ -15,7 +15,8 @@ public class IconFire extends HUD
     public void act() 
     {
         Actor a = getOneIntersectingObject(WeaponBG.class);
-        if(Space.getWeapon() == 4)
+        Space SPACE = (Space) getWorld();
+        if(SPACE.getWeapon() == 4)
         {
           a.setImage("SelectedWeapon.png");
         }

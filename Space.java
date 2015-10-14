@@ -14,7 +14,10 @@ import java.util.List;
 
 public class Space extends World
 {
-
+    
+    static double playerX;
+    static double playerY;
+    
     private Ship ship;
     
     boolean isDown = false;
@@ -31,7 +34,7 @@ public class Space extends World
     JPanel panel = WorldHandler.getInstance().getWorldCanvas();
     
     private boolean readPause = true;
-    public boolean isPaused;
+    public boolean isPaused=false;
     public static boolean setPause;
     
     //Contructor, spawn world
@@ -49,13 +52,14 @@ public class Space extends World
 
     private void prepare()
     {
-        ship = new Ship(0, 0);
-        addObject(ship, getWidth()/2, getHeight()/2);
+        isPaused=false;
+        ship = new Ship(0,0);
+        addObject(ship, (int)getWidth()/2, (int)getHeight()/2);
 
         addObject(new AlienShip(0,0), 10,10);
         //addObject(new AlienShip(1000,1000), 10,10);
         //addObject(new Planet(0,0),0,0);
-
+        
         scrollListener();
 
         // for (int i = 0; i<100; i++)
@@ -130,7 +134,7 @@ public class Space extends World
         addObject(outsidemp, 800, 405);
 
         PlanetOne planetOne = new PlanetOne();  
-        addObject(planetOne,-100, 0);
+        addObject(planetOne,0, 0);
         
         WeaponBG weaponbg6 = new WeaponBG();
         addObject(weaponbg6, 48, 460);
@@ -165,9 +169,9 @@ public class Space extends World
         {
             if(Greenfoot.isKeyDown("Escape"))
             {
-            if(isPaused) isPaused = false;
-            else         isPaused = true;
-            readPause = false;
+                if(isPaused) isPaused = false;
+                else         isPaused = true;
+                readPause = false;
             }
             if(setPause == true)
             {
@@ -180,11 +184,49 @@ public class Space extends World
         }
         if(!isPaused)
         {
-        clearText();
-        getWeapon();
+            clearText();
+            getWeapon();
         }
     }
+    
+    public boolean getIsPaused()
+    {
+        return isPaused;
+    }
       
+    public double getPlayerX()
+    {
+        return playerX;
+    }
+    public double getPlayerY()
+    {
+        return playerY;
+    }
+    public void setPlayerX(double x)
+    {
+        playerX=x;
+    }
+    public void setPlayerY(double y)
+    {
+        playerY=y;
+    }
+    public double getWindowX()
+    {
+        return playerX-560;
+    }
+    public double getWindowY()
+    {
+        return playerY-270;
+    }
+    public void setWindowX(double x)
+    {
+        playerX=x+560;
+    }
+    public void setWindowY(double y)
+    {
+        playerY=y+270;
+    }
+    
     public void tutorial()
     {
 
@@ -218,7 +260,7 @@ public class Space extends World
         return ship;
     }
     
-    public static double getWeapon()
+    public double getWeapon()
     {
         tempWep += scroll.getScroll();
         if(tempWep < 0)

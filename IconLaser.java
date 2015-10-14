@@ -15,7 +15,8 @@ public class IconLaser extends HUD
     public void act() 
     {
         Actor a = getOneIntersectingObject(WeaponBG.class);
-        if(Space.getWeapon() == 1)
+        Space SPACE = (Space) getWorld();
+        if(SPACE.getWeapon() == 1)
         {
           a.setImage("SelectedWeapon.png");
         }

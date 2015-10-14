@@ -15,7 +15,8 @@ public class AntIcon extends HUD
     public void act() 
     {
         Actor a = getOneIntersectingObject(WeaponBG.class);
-        if(Space.getWeapon() == 0)
+        Space SPACE = (Space) getWorld();
+        if(SPACE.getWeapon() == 0)
         {
           a.setImage("SelectedWeapon.png");
         }

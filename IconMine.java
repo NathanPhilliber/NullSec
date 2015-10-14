@@ -15,7 +15,8 @@ public class IconMine extends HUD
     public void act() 
     {
         Actor a = getOneIntersectingObject(WeaponBG.class);
-        if(Space.getWeapon() == 3)
+        Space s=(Space)getWorld();
+        if(s.getWeapon() == 3)
         {
           a.setImage("SelectedWeapon.png");
         }

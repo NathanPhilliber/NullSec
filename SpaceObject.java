@@ -11,7 +11,6 @@ public class SpaceObject extends Object
     
     private double spaceX;
     private double spaceY;
-    
     //Default constructor, spawns object at 0,0
     public SpaceObject(){
         this(0.0,0.0);
@@ -21,6 +20,7 @@ public class SpaceObject extends Object
     public SpaceObject(double spawnX, double spawnY){
         setSpaceX(spawnX);
         setSpaceY(spawnY);
+        //Space SPACE = (Space) getWorld();
     }
     
     //Called every tick, updates object position relative to ship coords
@@ -33,10 +33,36 @@ public class SpaceObject extends Object
        }
     }   
     
+        /*****************************************************************************************************
+     * ***************************************************************************************************
+     * ***************************************************************************************************
+     * ***************************************************************************************************
+     * MINIMAP
+     * 
+     * 
+     * 
+     * 
+     * ***************************************************************************************************
+     * ***************************************************************************************************
+     * ***************************************************************************************************
+     * ***************************************************************************************************
+     */
+    //Minimap Vars
+    private double mpRatio = 10;
+    private double mpRatioX = 5.5*mpRatio;
+    private double mpRatioY = 3.23*mpRatio;
+    protected void miniMap(Actor object)
+    {
+        Space SPACE = (Space) getWorld();
+        Ship ship = SPACE.getShip();
+        
+        SPACE.addObject(new EnemyShip(),(int)(800+(getSpaceX() - ship.getSpaceX()-540)/mpRatioX),(int)(405+(getSpaceY() - ship.getSpaceY()-270)/mpRatioY));
+    }
+
     //Moves the objects according to the ship's coords
     public void updatePosition(){
-        Space space = (Space) getWorld();
-        Ship ship = space.getShip();
+        Space SPACE = (Space) getWorld();
+        Ship ship = SPACE.getShip();
         
         setLocation(getSpaceX() - ship.getSpaceX(), getSpaceY() - ship.getSpaceY());
     }
