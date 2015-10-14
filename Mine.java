@@ -21,8 +21,10 @@ public class Mine extends Weapon implements ProjectileObject
     public void act() 
     {
         super.act();
+        addMineTicker(getSpaceX(), getSpaceY());
         updatePosition();
         time();
+        
         checkRemoval();//LAST
     }    
 

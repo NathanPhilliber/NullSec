@@ -134,6 +134,11 @@ public class Object extends SmoothMover
         world.addObject(new Particle(x, y, 10, 6, 5, 3, 15, 50,"images/firesparks.png"), 0, 0);
     }
     
+    public void addMineTicker(double x, double y){
+        World world = getWorld();
+        world.addObject(new Particle(x, y, 10, 6, 5, 3, 15, 95,"images/spark1.png"), 0, 0);
+    }
+    
     public void scheduleRemoval(){
         deleteMe = true;
     }
@@ -271,6 +276,8 @@ public class Object extends SmoothMover
     private double mineDamage = 15.0;
     private double plasmaBallDamage = 2.0;
     
+    private int mineRange = 250;
+    
     private boolean isPlayer;
     protected void setIsPlayer(boolean P)
     {
@@ -320,10 +327,10 @@ public class Object extends SmoothMover
             getWorld().addObject(new Missile(angle, getIsPlayer(), missileDamage, X, Y), getX(), getY());
     }
     
-    //CHANGE TO USE RANGE VARIABLE
+    
     protected void mine(int angle,int LV,double X,double Y)
     {
-        getWorld().addObject(new Mine(angle, true, X, Y, mineDamage, 250), getX(), getY());
+        getWorld().addObject(new Mine(angle, true, X, Y, mineDamage, mineRange), getX(), getY());
     }
     
     

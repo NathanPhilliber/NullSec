@@ -32,7 +32,7 @@ public class Particle extends SpaceObject
         super(startX, startY);
         this.straightness = straightness;
         this.radius = radius;
-        this.lifetime = lifetime + Greenfoot.getRandomNumber(lifetimeRandom);
+        this.lifetime = lifetime + Greenfoot.getRandomNumber(lifetimeRandom+1);
         speed = particleSpeed;
         turn(Greenfoot.getRandomNumber(360));
         setImage(image);
