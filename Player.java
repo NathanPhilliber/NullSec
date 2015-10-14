@@ -70,21 +70,22 @@ public class Player extends Object implements DamageTaker
     //Updates health
     public void act() 
     {
-       //if(!SPACE.getIsPaused())
-       //{
-       firstTime();
-       fly();
-       showDebug(true);
-       scrollWeapon();
-       addAsteroid();
-       generateStars(starDensity);
-       generateNebulas(nebulaDensity);
-       damageBar.updateDamage(getHealth(), getMaxHealth());
-       debugHealthHack(); //Allows to add health via '[']' DELETE THIS BEFORE PUBLISH
-       //checkDead();
-       weaponSystems();//john
-       updateWorldPlayerXY();
-       //}
+       Space SPACE = (Space) getWorld();
+       if(!SPACE.getIsPaused())
+       {
+           firstTime();
+           fly();
+           showDebug(true);
+           scrollWeapon();
+           addAsteroid();
+           generateStars(starDensity);
+           generateNebulas(nebulaDensity);
+           damageBar.updateDamage(getHealth(), getMaxHealth());
+           debugHealthHack(); //Allows to add health via '[']' DELETE THIS BEFORE PUBLISH
+           //checkDead();
+           weaponSystems();//john
+           updateWorldPlayerXY();
+       }
     } 
     
     public void updateWorldPlayerXY()
