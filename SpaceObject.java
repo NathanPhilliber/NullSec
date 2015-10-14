@@ -51,12 +51,17 @@ public class SpaceObject extends Object
     private double mpRatio = 10;
     private double mpRatioX = 5.5*mpRatio;
     private double mpRatioY = 3.23*mpRatio;
+    private int mpRadius = 90;
     protected void miniMap(Actor object)
     {
         Space SPACE = (Space) getWorld();
         Ship ship = SPACE.getShip();
-        
-        SPACE.addObject(new EnemyShip(),(int)(800+(getSpaceX() - ship.getSpaceX()-540)/mpRatioX),(int)(405+(getSpaceY() - ship.getSpaceY()-270)/mpRatioY));
+        int x = (int)(800+(getSpaceX() - ship.getSpaceX()-540)/mpRatioX);
+        int y = (int)(405+(getSpaceY() - ship.getSpaceY()-270)/mpRatioY);
+        if (mpRadius>=Math.sqrt(Math.pow(x-800,2)+Math.pow(y-405,2)))
+        {
+            SPACE.addObject(new EnemyShip(),x,y);
+        }
     }
 
     //Moves the objects according to the ship's coords

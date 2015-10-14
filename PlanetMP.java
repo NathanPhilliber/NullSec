@@ -6,7 +6,7 @@ import greenfoot.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class PlanetsMP extends Minimap
+public class PlanetMP extends Minimap
 {
     /**
      * Act - do whatever the PlanetsMP wants to do. This method is called whenever
@@ -14,6 +14,6 @@ public class PlanetsMP extends Minimap
      */
     public void act() 
     {
-        // Add your action code here.
+        getWorld().removeObject(this);
     }    
 }
