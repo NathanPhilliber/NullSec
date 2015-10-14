@@ -45,12 +45,7 @@ public class Entity extends SpaceObject implements DamageTaker
     // moveTo
     // kill
 
-    private double projectileDamage = 3.0;
-    private double beamDamage = .2;
-    private double missileDamage = 0.5;
-    private double fireballDamage = 4.0;
-    private double mineDamage = 15.0;
-    private double plasmaBallDamage = 2.0;
+
     
     private int weaponDelay = 0;
     private int shootProgress = 0;
@@ -116,7 +111,7 @@ public class Entity extends SpaceObject implements DamageTaker
         //System.out.println(actionQueue.size());
         
         //prob in wrong spot >>>>>>>>>>>>>FIX<<<<<<<<<<<<<
-        circleTarget();//prob in wrong spot
+        //circleTarget();//prob in wrong spot
         
         updatePlayerLocation();
         if(isScheduledForRemoval()){
@@ -326,7 +321,7 @@ public class Entity extends SpaceObject implements DamageTaker
         if(firstTime){
             space = (Space) getWorld();
             ship = space.getShip();
-            damageBar = new DamageBar(this, -30, getHealth(), getMaxHealth());
+            damageBar = new DamageBar(this, -50, getHealth(), getMaxHealth());
             space.addObject(damageBar, 0, 0);
             //setupMinimap();
             

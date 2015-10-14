@@ -271,9 +271,9 @@ public class Object extends SmoothMover
     
     
     //damages
-    private double projectileDamage = 3.0;
+    private double projectileDamage = .5;
     private double beamDamage = .5;
-    private double missileDamage = 10.0;
+    private double missileDamage = 8.0;
     private double fireballDamage = 4.0;
     private double mineDamage = 25.0;
     private double plasmaBallDamage = 2.0;
