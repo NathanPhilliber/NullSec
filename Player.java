@@ -75,7 +75,7 @@ public class Player extends Object implements DamageTaker
        {
            firstTime();
            fly();
-           showDebug(true);
+           showDebug(false);
            scrollWeapon();
            addAsteroid();
            generateStars(starDensity);

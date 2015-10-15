@@ -16,19 +16,20 @@ public class AlienShip extends Entity
     public AlienShip(double x, double y){
         super(x,y);
         
-        
-        
+        projectileDamage = .1;
+        missileDamage = 1.0;
     }
     
     public void act() 
     {
         
         super.act();
-        firstTime();
+        //firstTime();
         if(hasMoreActions() == false){
            
-            //addAction("moveTo/"+(Greenfoot.getRandomNumber(500)-250)+"/"+(Greenfoot.getRandomNumber(500)-250));
-            
+            addAction("moveTo/"+(Greenfoot.getRandomNumber(1000)-500)+"/"+(Greenfoot.getRandomNumber(1000)-500));
+            addAction("shootPlayer/0/10/10");
+            addAction("shootPlayer/2/10/5");
             //addAction("circleTarget");
         }
         
@@ -37,7 +38,7 @@ public class AlienShip extends Entity
     public void firstTime(){
         if(firstTime){
             addAction("moveTo/500/500");
-            addAction("shootPlayer/0/10/5");
+            addAction("shootPlayer/0/10/100");
             addAction("shootPlayer/2/10/5");
             firstTime = false;
         }

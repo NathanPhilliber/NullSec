@@ -361,7 +361,7 @@ public class Entity extends SpaceObject implements DamageTaker
             if(checkClose()){
                 setReachedTarget(true);
                 queueInUse(false);
-                System.out.println("DONE");
+                //System.out.println("DONE");
             }
         }
 
