@@ -13,12 +13,16 @@ public class StartMenu extends World
      * Constructor for objects of class StartMenu.
      * 
      */
+    
+    
     public StartMenu()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(920, 540, 1, false); 
         createStars(100);
         prepare();
+        
+        
     }
 
     /**

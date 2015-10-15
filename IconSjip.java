@@ -15,6 +15,13 @@ public class IconSjip extends Menu
     private int initialDelay = 10;
     private int delay = initialDelay;
     
+    GreenfootSound sound;
+    
+    public IconSjip(){
+        sound = new GreenfootSound("sounds/AmbientSpace.wav");
+        sound.playLoop();
+    }
+    
     public void act()
     {
         selectionMove();
@@ -52,7 +59,10 @@ public class IconSjip extends Menu
      {
          if(getY() == 280)
          {
+             sound.stop();
+             
              Greenfoot.setWorld(new Space());
+             
          }
          if(getY() == 430)
          {

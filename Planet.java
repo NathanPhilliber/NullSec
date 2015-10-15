@@ -13,26 +13,31 @@ public class Planet extends SpaceObject
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     private boolean firstPass = true;
-     
+
     public void act() 
     {
         super.act();
         checkDock();
     }
+
     public void checkDock()
     {
-        if(touch(Player.class))
+        if(Greenfoot.isKeyDown("e") && firstPass)
         {
-            if(firstPass && Greenfoot.isKeyDown("e"))
+            if(touch(Player.class))
             {
-             dockMenu();
-             firstPass = false;
+
+                dockMenu();
+                firstPass = false;
+            }
+            else
+            {
+                firstPass = true;
+                Space.setPause = false;
             }
         }
-        else
-        {
-            firstPass = true;
-            Space.setPause = false;
-        }
+
     }
+
+
 }
