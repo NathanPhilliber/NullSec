@@ -13,7 +13,9 @@ public class Planet extends SpaceObject
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     //public static boolean firstPass = true;
-
+    public Planet(double startX, double startY){
+        super(startX, startY);
+    }
     public void act() 
     {
         super.act();

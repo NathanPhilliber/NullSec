@@ -133,8 +133,11 @@ public class Space extends World
         OutsideMP outsidemp = new OutsideMP();
         addObject(outsidemp, 800, 405);
 
-        PlanetOne planetOne = new PlanetOne();  
+        PlanetOne planetOne = new PlanetOne(1000,1000);
         addObject(planetOne,0, 0);
+        
+        PlanetOne planetOne2 = new PlanetOne(0,0);
+        addObject(planetOne2,0, 0);
         
         WeaponBG weaponbg6 = new WeaponBG();
         addObject(weaponbg6, 48, 460);
