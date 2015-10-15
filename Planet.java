@@ -1,5 +1,5 @@
 import greenfoot.*;
-
+import java.awt.Color;
 /**
  * Write a description of class Planets here.
  * 
@@ -12,32 +12,24 @@ public class Planet extends SpaceObject
      * Act - do whatever the Planets wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    private boolean firstPass = true;
+    public static boolean firstPass = true;
 
     public void act() 
     {
         super.act();
+        miniMap(new PlanetMP());
         checkDock();
     }
 
     public void checkDock()
     {
-        if(Greenfoot.isKeyDown("e") && firstPass)
+        if(Greenfoot.isKeyDown("e"))
         {
-            if(touch(Player.class))
+            if(touch(Player.class)  && firstPass)
             {
-
                 dockMenu();
                 firstPass = false;
             }
-            else
-            {
-                firstPass = true;
-                Space.setPause = false;
-            }
         }
-
     }
-
-
 }

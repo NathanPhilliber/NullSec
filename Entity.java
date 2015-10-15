@@ -89,6 +89,9 @@ public class Entity extends SpaceObject implements DamageTaker
 
     public void act() 
     {
+       Space SPACE = (Space) getWorld();
+       if(!SPACE.getIsPaused())
+       {
         super.act();
 
         firstTime();
@@ -124,6 +127,7 @@ public class Entity extends SpaceObject implements DamageTaker
             addExplosion(getSpaceX(), getSpaceY());
         }
         checkRemoval();
+    }
     }
 
     private void updatePlayerLocation() //What the shit is this? use getShipLoc

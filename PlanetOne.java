@@ -14,6 +14,5 @@ public class PlanetOne extends Planet{
     public void act() 
     {
         super.act();
-        miniMap(new PlanetMP());
     }
 }

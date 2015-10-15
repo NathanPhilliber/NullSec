@@ -1,5 +1,6 @@
 import greenfoot.*;
-
+import java.awt.Color;
+import java.awt.Graphics.*;
 /**
  * Every object in space that is not related to the player will be  subclass
  * of this class. This class mainly keeps track of movement.
@@ -60,7 +61,7 @@ public class SpaceObject extends Object
         int y = (int)(405+(getSpaceY() - ship.getSpaceY()-270)/mpRatioY);
         if (mpRadius>=Math.sqrt(Math.pow(x-800,2)+Math.pow(y-405,2)))
         {
-            SPACE.addObject(new EnemyShip(),x,y);
+           getWorld().addObject(object, x, y);
         }
     }
 

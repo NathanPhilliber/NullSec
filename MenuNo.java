@@ -18,6 +18,7 @@ public class MenuNo extends DockMenu
         {
             removeDockMenu();
             Space.setPause = false;
+            Planet.firstPass = true;
         }
     }    
 }
