@@ -56,7 +56,7 @@ public class Space extends World
         ship = new Ship(0,0);
         addObject(ship, (int)getWidth()/2, (int)getHeight()/2);
 
-        addObject(new AlienShip(0,0), 10,10);
+        addObject(new AlienShip(1000,1000), 1000,1000);
         //addObject(new AlienShip(1000,1000), 10,10);
         //addObject(new Planet(0,0),0,0);
         
@@ -68,7 +68,7 @@ public class Space extends World
         //}
         tutorial();
 
-        setPaintOrder(DockMenu.class, OutsideMP.class, EnemyShip.class, PlayerShip.class, InsideMP.class, AntIcon.class, IconFire.class, AlienShip.class, MissleIcon.class, IconPlasma.class, IconLaser.class, IconMine.class, WeaponBG.class, DamageBar.class, Cannon.class, Beam.class, Projectile.class, Missile.class, Ship.class, PlasmaBall.class, Mine.class, Fireball.class, Planet.class, BackgroundStar.class);
+        setPaintOrder(DockMenu.class, OutsideMP.class, EnemyShip.class, PlayerShip.class, InsideMP.class, AntIcon.class, IconFire.class, AlienShip.class, MissleIcon.class, IconPlasma.class, IconLaser.class, IconMine.class, WeaponBG.class, DamageBar.class, Cannon.class, Beam.class, Projectile.class, Missile.class, Ship.class, PlasmaBall.class, Mine.class, Fireball.class, Particle.class, Planet.class, BackgroundStar.class);
 
         IconMine iconmine = new IconMine();
         addObject(iconmine, 52, 294);

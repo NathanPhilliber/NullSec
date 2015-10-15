@@ -271,14 +271,14 @@ public class Object extends SmoothMover
     
     
     //damages
-    private double projectileDamage = .5;
-    private double beamDamage = .5;
-    private double missileDamage = 8.0;
-    private double fireballDamage = 4.0;
-    private double mineDamage = 25.0;
-    private double plasmaBallDamage = 2.0;
+    protected double projectileDamage = .5;
+    protected double beamDamage = .5;
+    protected double missileDamage = 8.0;
+    protected double fireballDamage = 4.0;
+    protected double mineDamage = 25.0;
+    protected double plasmaBallDamage = 2.0;
     
-    private int mineRange = 250;
+    protected int mineRange = 250;
     
     private boolean isPlayer;
     protected void setIsPlayer(boolean P)
