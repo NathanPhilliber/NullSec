@@ -15,8 +15,7 @@ import java.util.List;
 public class Space extends World
 {
     
-    static double playerX;
-    static double playerY;
+
     
     private Ship ship;
     
@@ -27,15 +26,15 @@ public class Space extends World
     int prevx,prevy;
     int alpha = 255;
     int key = 9;
-    static double tempWep = 0;
+    double tempWep = 0; //static
     int mode = 0;
     boolean firstpass = true;
-    static ScrollingListener scroll = new ScrollingListener();
+    ScrollingListener scroll = new ScrollingListener(); //static
     JPanel panel = WorldHandler.getInstance().getWorldCanvas();
     
     private boolean readPause = true;
     public boolean isPaused=false;
-    public static boolean setPause;
+    public boolean setPause; //static 
     
     //Contructor, spawn world
     
@@ -195,38 +194,15 @@ public class Space extends World
         return isPaused;
     }
       
-    public double getPlayerX()
-    {
-        return playerX;
-    }
-    public double getPlayerY()
-    {
-        return playerY;
-    }
-    public void setPlayerX(double x)
-    {
-        playerX=x;
-    }
-    public void setPlayerY(double y)
-    {
-        playerY=y;
-    }
-    public double getWindowX()
-    {
-        return playerX-560;
-    }
-    public double getWindowY()
-    {
-        return playerY-270;
-    }
-    public void setWindowX(double x)
-    {
-        playerX=x+560;
-    }
-    public void setWindowY(double y)
-    {
-        playerY=y+270;
-    }
+
+
+    
+    
+    ///TRIG IS FUNNNN
+    
+    
+    
+
     
     public void tutorial()
     {

@@ -10,14 +10,13 @@ import java.util.ArrayList;
  */
 public class Object extends SmoothMover
 {
-    
+
     private boolean deleteMe = false;
 
-    
     public void act() 
     {
     } 
-    
+
     /**
      * 
      * 
@@ -36,7 +35,7 @@ public class Object extends SmoothMover
             return angle-360;
         }
     }
-    
+
     public int mouseAngle()//from center of world
     {
         MouseInfo m = Greenfoot.getMouseInfo();
@@ -46,7 +45,7 @@ public class Object extends SmoothMover
         }
         return 0;
     }
-    
+
     public void setRemovalOffEdge(int dist) 
     {
         if (isOffEdge(dist))
@@ -54,7 +53,7 @@ public class Object extends SmoothMover
             scheduleRemoval();
         }
     }
-    
+
     public boolean isOffEdge(int dist)
     {
         if (getX() <= -dist)
@@ -78,7 +77,7 @@ public class Object extends SmoothMover
             return false;
         }
     }
-    
+
     public void setRemovalAtEdge() 
     {
         if (isAtEdge())
@@ -86,7 +85,7 @@ public class Object extends SmoothMover
             scheduleRemoval();
         }
     }
-    
+
     public boolean isAtEdge()
     {
         if (getX() <= 0)
@@ -111,7 +110,7 @@ public class Object extends SmoothMover
         }
     }
     //john end
-    
+
     public void addExplosion(double x, double y){
         World world = getWorld();
         for (int i = 0; i<13; i++)
@@ -122,37 +121,38 @@ public class Object extends SmoothMover
             world.addObject(new Particle(x, y, 10, 6, 7, 6, 10, 95, "images/smoke1.png"), 0, 0);
         }
     }
-    
+
     public void addRocketTrail(double x, double y){
         World world = getWorld();
-        
+
         world.addObject(new Particle(x, y, 10, 6, 7, 6, 10, 95, "images/spark1.png"), 0, 0);
         world.addObject(new Particle(x, y, 10, 6, 7, 6, 10, 95, "images/smoke1.png"), 0, 0);
         //double startX, double startY, int straightness, double radius, int lifetime, double particleSpeed, int lifetimeRandom,int angle, String image)
     }
-    
+
     public void addFire(double x, double y){
         World world = getWorld();
         world.addObject(new Particle(x, y, 10, 6, 5, 3, 15, 50,"images/firesparks.png"), 0, 0);
     }
-    
+
     public void addMineTicker(double x, double y){
         World world = getWorld();
         world.addObject(new Particle(x, y, 10, 6, 5, 3, 15, 95,"images/spark1.png"), 0, 0);
     }
-    
+
     public void scheduleRemoval(){
         deleteMe = true;
     }
+
     public void checkRemoval(){
         if(deleteMe){
             getWorld().removeObject(this);
         }
     }
+
     public boolean isScheduledForRemoval(){
         return deleteMe;
     }
-
 
     /** This method is a pixel perfect collision detection. Returns a List of all Actors, that are touched by this object */
     public List getTouchedObjects(Class clss)
@@ -226,11 +226,12 @@ public class Object extends SmoothMover
                     b=false;
         return !b;
     }
+
     public void pause(boolean isPaused)
     {
-        
+
         List<Actor> actors = getWorld().getObjects(null);
-        
+
         if(isPaused == true)
         {
             for(Actor a: actors)
@@ -239,23 +240,27 @@ public class Object extends SmoothMover
             }
         }
     }
+
     public void dockMenu()
     {
-        World world = getWorld();
-        
-        Space.setPause = true;
-        
+
+        Space world = (Space) getWorld();
+        world.setPause = true;
+
         world.addObject(new MenuBG(), world.getWidth()/2, world.getHeight()/2);
         world.addObject(new MenuMain(), world.getWidth()/2, world.getHeight()/2);
         world.addObject(new MenuYes(), world.getWidth()/2 - 100, world.getHeight()/2);
         world.addObject(new MenuNo(), world.getWidth()/2+100, world.getHeight()/2);
 
     }
+
     public void removeDockMenu()
     {
-            List<DockMenu> dockMenu = getWorld().getObjects(DockMenu.class);
-            getWorld().removeObjects(dockMenu);
-            Space.setPause = false;
+        Space world = (Space) getWorld();
+        world.setPause = false;
+        List<DockMenu> dockMenu = getWorld().getObjects(DockMenu.class);
+        getWorld().removeObjects(dockMenu);
+
     }
     /*****************************************************************************
      *****************************************************************************
@@ -268,8 +273,7 @@ public class Object extends SmoothMover
      *****************************************************************************
      *****************************************************************************
      */
-    
-    
+
     //damages
     protected double projectileDamage = 5.0;
     protected double beamDamage = .5;
@@ -277,19 +281,20 @@ public class Object extends SmoothMover
     protected double fireballDamage = 10.0;
     protected double mineDamage = 25.0;
     protected double plasmaBallDamage = 4.0;
-    
+
     protected int mineRange = 250;
-    
+
     private boolean isPlayer;
     protected void setIsPlayer(boolean P)
     {
         isPlayer = P;
     }
+
     protected boolean getIsPlayer()
     {
         return isPlayer;
     }
-    
+
     protected void projectile(int angle,int LV,double X,double Y)
     {
         spawnProjectile(angle,X,Y);
@@ -309,39 +314,35 @@ public class Object extends SmoothMover
             spawnProjectile(angle-30,X,Y);
         }
     }
+
     private void spawnProjectile(int angle,double X,double Y)
     {
         getWorld().addObject(new Projectile(angle, getIsPlayer(), projectileDamage, X, Y), getX(), getY());
     }
-    
-    
+
     protected void beam(int angle,int LV,double X,double Y)
     {
         for (int i=0; i<=10*(LV+1); i++)
-            {
-                getWorld().addObject(new Beam(angle, getIsPlayer(), beamDamage, X, Y), (int)Math.round(getX()+i*8*Math.cos(angle*2*Math.PI/360)), (int)Math.round(getY()+i*8*Math.sin(angle*2*Math.PI/360)));
-            }
+        {
+            getWorld().addObject(new Beam(angle, getIsPlayer(), beamDamage, X, Y), (int)Math.round(getX()+i*8*Math.cos(angle*2*Math.PI/360)), (int)Math.round(getY()+i*8*Math.sin(angle*2*Math.PI/360)));
+        }
     }
-    
-    
+
     protected void missile(int angle,int LV,double X,double Y)
     {
-            getWorld().addObject(new Missile(angle, getIsPlayer(), missileDamage, X, Y), getX(), getY());
+        getWorld().addObject(new Missile(angle, getIsPlayer(), missileDamage, X, Y), getX(), getY());
     }
-    
-    
+
     protected void mine(int angle,int LV,double X,double Y)
     {
         getWorld().addObject(new Mine(angle, true, X, Y, mineDamage, mineRange), getX(), getY());
     }
-    
-    
+
     protected void fireball(int angle,int LV,double X,double Y)
     {
-            getWorld().addObject(new Fireball(angle, true, fireballDamage, X, Y), getX(), getY());
+        getWorld().addObject(new Fireball(angle, true, fireballDamage, X, Y), getX(), getY());
     }
-    
-    
+
     protected void plasmaBall(int angle,int LV,double X,double Y)
     {
         spawnPlasmaBall(getRotation(),X,Y);
@@ -361,12 +362,12 @@ public class Object extends SmoothMover
             spawnPlasmaBall(getRotation()-30,X,Y);
         }
     }
+
     private void spawnPlasmaBall(int angle,double X,double Y)
     {
         getWorld().addObject(new PlasmaBall(angle, true, plasmaBallDamage, X, Y), getX(), getY());
     }
-    
-    
+
     private boolean rMButton = false;
     public boolean rMButton()
     {

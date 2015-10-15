@@ -16,9 +16,13 @@ public class MenuNo extends DockMenu
     {
         if(Greenfoot.mouseClicked(this))
         {
+            Space space = (Space) getWorld();
+            Ship ship = space.getShip();
+            ship.resetDockMenu();
             removeDockMenu();
-            Space.setPause = false;
-            Planet.firstPass = true;
+            space.setPause = false;
+            //Planet.firstPass = true;
+            
         }
     }    
 }

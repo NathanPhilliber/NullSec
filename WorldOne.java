@@ -22,7 +22,7 @@ public class WorldOne extends World
      private void prepare()
     {
         WorldOneFG worldOneFG = new WorldOneFG();
-        addObject(worldOneFG, 580, 300);
+        addObject(worldOneFG, 460, 300);
         
         //addObject(new PlayerHover(), 50, 300);
     }

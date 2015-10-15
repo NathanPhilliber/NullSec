@@ -8,110 +8,118 @@ import java.lang.Math;
  */
 public class Player extends Object implements DamageTaker
 {
-    
-    
+
     //Coords to keep track of ship
     private double spaceX;
     private double spaceY;
-    
+
     //Velocity of ship
     private double velX;
     private double velY;
-    
+
     //Rate at which ship turns and accelerates
     private int turnSpeed = 5;
     private double flySpeed = 0.3;
-    private double revSpeed = 0.1;
-    
-    
+    private double revSpeed = 0.15;
+
     //The maximum velocity the ship can have
     private double maxFlySpeed = 4.0;
     private double maxFlyBoostSpeed = 10.0;
     //How fast the ship deccelerates 
     //Lower the number the longer it takes to stop
     private double flyDec = .01;
-    
+
     //How dense the stars should spawn. Higher number means more stars.
     //Number is arbitrary
     private int starDensity = 2;
     private int nebulaDensity = 100;
-    
+
+    private boolean dockPressed = false;
+
     //Health values of player
     private double health = 100.0;
     private double maxHealth = 100.0;
-    
+
     //Damage bar for player
     private DamageBar damageBar;
-    
+
     //Used for in class operations
     private boolean firstTime = true;
-    
+
     private int spawnRate = 100;  
     //Constructor, spawns player at 0,0
     public Player(){
         this(0,0);
-        setIsPlayer(true);
+
     }
-    
+
     //Constructor, spawns player at x,y coord
     public Player(double x, double y){
         setIsPlayer(true);
-        
+
         setSpaceX(x);
         setSpaceY(y);
-        
+
         setVelX(0.0);
         setVelY(0.0);
 
     }
-    
+
     //Called every tick
     //Allows ship to "move" (changes coords), displays debug info and spawns stars
     //Updates health
     public void act() 
     {
-       Space SPACE = (Space) getWorld();
-       if(!SPACE.getIsPaused())
-       {
-           firstTime();
-           fly();
-           showDebug(false);
-           scrollWeapon();
-           addAsteroid();
-           generateStars(starDensity);
-           generateNebulas(nebulaDensity);
-           damageBar.updateDamage(getHealth(), getMaxHealth());
-           debugHealthHack(); //Allows to add health via '[']' DELETE THIS BEFORE PUBLISH
-           //checkDead();
-           weaponSystems();//john
-           updateWorldPlayerXY();
-       }
-    } 
-    
-    public void updateWorldPlayerXY()
-    {
         Space SPACE = (Space) getWorld();
-        SPACE.setPlayerX(getSpaceX());
-        SPACE.setPlayerY(getSpaceY());
+        if(!SPACE.getIsPaused())
+        {
+            firstTime();
+            fly();
+            showDebug(true);
+            scrollWeapon();
+            addAsteroid();
+            generateStars(starDensity);
+            generateNebulas(nebulaDensity);
+            damageBar.updateDamage(getHealth(), getMaxHealth());
+            debugHealthHack(); //Allows to add health via '[']' DELETE THIS BEFORE PUBLISH
+            //checkDead();
+            weaponSystems();//john
+            checkDock();
+
+        }
+    } 
+
+    public void checkDock(){
+        if(Greenfoot.isKeyDown("e")){
+            if(touch(Planet.class) && dockPressed == false){
+                dockPressed = true;
+                dockMenu();
+
+            }
+        }
     }
-    
+
+    public void resetDockMenu(){
+        dockPressed = false;
+    }
+
     public boolean getHit(double damage){
         addHealth(-damage);
         return true;
-        //Needs to be written
+        //ADD DEATH AND RESPAWN
     }
-    
+
     public boolean isAccelerating(){
-         if(Greenfoot.isKeyDown("w")){
-             return true;
-         }
-         return false;
+        if(Greenfoot.isKeyDown("w")){
+            return true;
+        }
+        return false;
     }
-    
+
     //Checks for key presses and changes coords ("moves" ship)
     private void fly(){
-       
-       //System.out.println(getShipLocX() + "  " + getShipLocY());
+
+        //System.out.println(getShipLocX() + "  " + getShipLocY());
         //If spacebar or w is pressed
         if(isAccelerating()){
             int angle = getRotation();
@@ -119,7 +127,7 @@ public class Player extends Object implements DamageTaker
             //Add to velocity based on what angle the ship is turned to
             addVelX((Math.cos(Math.toRadians(angle))*getFlySpeed()));
             addVelY((Math.sin(Math.toRadians(angle))*getFlySpeed()));
-            
+
             //Check if ship is going too fast
             if(Greenfoot.isKeyDown("space")){ //Boost
                 if(Math.abs(getVelX()) >= getMaxFlyBoostSpeed()){
@@ -142,49 +150,60 @@ public class Player extends Object implements DamageTaker
                     addRocketTrail(getShipLocX()-30*Math.cos(getRotation()*2*Math.PI/360), getShipLocY()-30*Math.sin(getRotation()*2*Math.PI/360));
                 }
             }
-            
+
         }
-        
+
         //Fixes problem of velocity glitching out when close to 0
-        
+
         if(Math.abs(getVelX()) <= .1){
             setVelX(0.0);
         }
         if(Math.abs(getVelY()) <= .1){
             setVelY(0.0);
         }
-        
+
         //Decelerate the ship
         setVelX(getVelX() + (Math.signum(getVelX())*-1)*getFlyDec());
         setVelY(getVelY() + (Math.signum(getVelY())*-1)*getFlyDec());
-        
+
         //If 'a' is pressed turn left
         if(Greenfoot.isKeyDown("a")){
             turn(-turnSpeed);
-            
+
         }
-        
+
         //If 'd' is pressed turn right
         if(Greenfoot.isKeyDown("d")){
             turn(turnSpeed);
         }
-        
+
         reverseThruster();//john
-        
+
         //Add velocity to coordinates, thereby "moving" the ship
         addSpaceX(getVelX());
         addSpaceY(getVelY());
     }
-    
+
     private void reverseThruster()//john
     {
         if (Greenfoot.isKeyDown("s"))
         {
-            addVelX(-.05*Math.cos(getRotation()*2*Math.PI/360));
-            addVelY(-.05*Math.sin(getRotation()*2*Math.PI/360));
+            int angle = getRotation();
+            addVelX(-(Math.cos(Math.toRadians(angle))*revSpeed));
+            addVelY(-(Math.sin(Math.toRadians(angle))*revSpeed));
+
+        }
+        if(Math.abs(getVelX()) >= getMaxFlySpeed()){
+            //Set velocity to maximum velocity in correct direction
+            setVelX(getMaxFlySpeed()*Integer.signum((int)getVelX()));
+            addRocketTrail(getShipLocX()-30*Math.cos(getRotation()*2*Math.PI/360), getShipLocY()-30*Math.sin(getRotation()*2*Math.PI/360));
+        }
+        if(Math.abs(getVelY()) >= getMaxFlySpeed()){
+            setVelY(getMaxFlySpeed()*Integer.signum((int)getVelY()));
+            addRocketTrail(getShipLocX()-30*Math.cos(getRotation()*2*Math.PI/360), getShipLocY()-30*Math.sin(getRotation()*2*Math.PI/360));
         }
     }
-    
+
     private void debugHealthHack(){
         if(Greenfoot.isKeyDown("[")){
             addHealth(-.5);
@@ -193,63 +212,63 @@ public class Player extends Object implements DamageTaker
             addHealth(.5);
         }
     }
-    
+
     //Generates stars offscreen
     private void generateStars(int density){
         World world = getWorld();
-        
+
         //Doesn't spawn stars every call, higher density will increase odds
         //Don't spawn more than 120 stars
         if((Greenfoot.getRandomNumber(100))/density < 10 && BackgroundStar.getNumStars() < 120){
-            
+
             //Divide star spawns between up/down and right/left
             if(getPosNeg()==1){
-                
+
                 //If the ship is going fast enough left/right, spawn a star on one of those sides
                 if(Math.abs(getVelX()) > 1.0){ 
                     world.addObject(new BackgroundStar((getSpaceX() + world.getWidth()/2)+(world.getWidth()/2*getPosNeg()),
-                    (getSpaceY() + world.getHeight()/2)+Greenfoot.getRandomNumber(world.getHeight())-world.getHeight()/2),0,0);
+                            (getSpaceY() + world.getHeight()/2)+Greenfoot.getRandomNumber(world.getHeight())-world.getHeight()/2),0,0);
                 }
-            
+
             }   
             else{
                 //If the ship is going fast enough up/down, spawn a star on one of those sides
                 if(Math.abs(getVelY()) > 1.0){
                     world.addObject(new BackgroundStar((getSpaceX() + world.getWidth()/2)+Greenfoot.getRandomNumber(world.getWidth())-world.getWidth()/2,
-                    (getSpaceY() + world.getHeight()/2)+(world.getHeight()/2*getPosNeg())),0,0);
+                            (getSpaceY() + world.getHeight()/2)+(world.getHeight()/2*getPosNeg())),0,0);
                 }
-                
+
             }
         }
-        
+
     }
-    
-   private void generateNebulas(int density){
+
+    private void generateNebulas(int density){
         World world = getWorld();
-        
+
         //Doesn't spawn stars every call, higher density will increase odds
         //Don't spawn more than 120 stars
         if((Greenfoot.getRandomNumber(400)) < 10 && BackgroundStar.getNumStars() < 400){
-            
+
             //Divide star spawns between up/down and right/left
             if(Greenfoot.getRandomNumber(2)==1){
                 //If the ship is going fast enough left/right, spawn a star on one of those sides
                 if(Math.abs(getVelX()) > 1.0){ 
                     world.addObject(new Nebula((getSpaceX() + world.getWidth()/2)+((world.getWidth()+2000)*getPosNeg()),
-                    (getSpaceY() + world.getHeight()/2)+Greenfoot.getRandomNumber(world.getHeight())),1000*(int)getPosNeg(),-1000*(int)getPosNeg());
+                            (getSpaceY() + world.getHeight()/2)+Greenfoot.getRandomNumber(world.getHeight())),1000*(int)getPosNeg(),-1000*(int)getPosNeg());
                 }
-            
+
             }   
             else{
                 //If the ship is going fast enough up/down, spawn a star on one of those sides
                 if(Math.abs(getVelY()) > 1.0){
                     world.addObject(new Nebula((getSpaceX() + world.getWidth()/2)+Greenfoot.getRandomNumber(world.getWidth()),
-                    (getSpaceY() + world.getHeight()/2)+((world.getHeight()+2000)*getPosNeg())),1000*(int)getPosNeg(),1000*(int)getPosNeg());
-                
+                            (getSpaceY() + world.getHeight()/2)+((world.getHeight()+2000)*getPosNeg())),1000*(int)getPosNeg(),1000*(int)getPosNeg());
+
+                }
             }
         }
-    }
-        
+
     }
     //Called during the first tick only
     //Some methods require the ship to alrady be spawned to work
@@ -261,7 +280,7 @@ public class Player extends Object implements DamageTaker
             firstTime = false;
         }
     }
-    
+
     //Private method used for star spawning, returns either 1.0 or -1.0
     private double getPosNeg(){
         if(Greenfoot.getRandomNumber(2) ==0){
@@ -269,148 +288,146 @@ public class Player extends Object implements DamageTaker
         }
         return -1.0;
     }
-    
+
     //Check to see if the ship is moving in any direction
     public boolean isMoving(){
         if(getVelX() != 0 || getVelY() != 0){
-            
+
             return true;
         }
         return false;
     }
-    
-    
+
     public double getSpaceX(){
         return spaceX;
     }
-    
+
     public double getSpaceY(){
         return spaceY;
     }
-    
+
     public void setSpaceX(double x){
         spaceX = x;
     }
-    
+
     public void setSpaceY(double y){
         spaceY = y;
     }
-    
+
     public void addSpaceX(double x){
         setSpaceX(getSpaceX()+x);
     }
-    
+
     public void addSpaceY(double y){
         setSpaceY(getSpaceY()+y);
     }
-    
+
     public void setVelX(double x){
         velX = x;
     }
-    
+
     public void setVelY(double y){
         velY = y;
     }
-    
+
     public double getVelX(){
         return velX;
     }
-    
+
     public double getVelY(){
         return velY;
     }
-    
-     public void addVelX(double x){
+
+    public void addVelX(double x){
         setVelX(getVelX()+x);
     }
-    
+
     public void addVelY(double y){
         setVelY(getVelY()+y);
     }
-    
+
     public int getTurnSpeed(){
         return turnSpeed;
     }
-    
+
     public void setTurnSpeed(int speed){
         turnSpeed = speed;
     }
-    
+
     public double getFlySpeed(){
         return flySpeed;
     }
-    
+
     public void setFlySpeed(int speed){
         flySpeed = speed;
     }
-    
+
     public double getMaxFlySpeed(){
         return maxFlySpeed;
     }
-    
+
     public void setMaxFlySpeed(int speed){
         maxFlySpeed = speed;
     }
-    
+
     public double getMaxFlyBoostSpeed(){
         return maxFlyBoostSpeed;
     }
-    
+
     public void setMaxFlyBoostSpeed(int speed){
         maxFlyBoostSpeed = speed;
     }
-    
+
     public void setFlyDec(double dec){
         flyDec = dec;
     }
-    
+
     public double getFlyDec(){
         return flyDec;
     }
-    
+
     public double getRevSpeed(){
         return revSpeed;
     }
-    
+
     public void setRevSpeed(int speed){
         revSpeed = speed;
     }
-    
+
     public double getShipLocX(){
         return getSpaceX()+getWorld().getWidth()/2;
     }
-    
+
     public double getShipLocY(){
         return getSpaceY()+getWorld().getHeight()/2;
     }
-    
+
     public double getHealth(){
         return health;
     }
-    
+
     public double getMaxHealth(){
         return maxHealth;
     }
-    
+
     //Set the health, makes sure you're not setting health over the maximum or under 0
-    
-    
+
     public void setHealth(double health){
         if(health > getMaxHealth()){
             this.health = getMaxHealth();
-            
+
         }
         else if(health < 0.0){
             this.health = 0.0;
-            
+
         }
         else{
             this.health = health;
-            
+
         }
-        
+
     }
-    
+
     //Set maximum health, makes sure you're not setting it under current health
     public void setMaxHealth(double health){
         if(getHealth() > health){
@@ -419,85 +436,84 @@ public class Player extends Object implements DamageTaker
         else{
             maxHealth = health;
         }
-        
+
     }
-    
+
     public void addHealth(double add){
         setHealth(getHealth()+add);
-        
+
     }
-    
+
     public DamageBar getDamageBar(){
         return damageBar;
     }
-    
+
     public void checkDead(){
         if(getHealth() <= 0.0){
             addExplosion(getShipLocX(), getShipLocY());
         }
     }
+
     public void addAsteroid()
     {
-       if(spawnRate == 0)
+        if(spawnRate == 0)
         {
-          int size = Greenfoot.getRandomNumber(3);
-          
-          
-          int areay = getWorld().getHeight();
-          int areax = getWorld().getWidth();
-          int topBot = Greenfoot.getRandomNumber(1);
-          int x = (Greenfoot.getRandomNumber(3)+2 % 2 == 0) ? -50 : areax + 50;
-          int y = Greenfoot.getRandomNumber(areay);
-          
-          if(size == 0)
-          {
-          Asteroid1 asteroidS = new Asteroid1();
-          getWorld().addObject(asteroidS, x, y);
-          }
-          if(size == 1)
-          {
-          Asteroid2 asteroidM = new Asteroid2();
-          getWorld().addObject(asteroidM, x, y);
-          }
-          if(size == 2)
-          {
-          Asteroid3 asteroidB = new Asteroid3();
-          getWorld().addObject(asteroidB, x, y);
-          }
-          spawnRate = 100;
-         
+            int size = Greenfoot.getRandomNumber(3);
+
+            int areay = getWorld().getHeight();
+            int areax = getWorld().getWidth();
+            int topBot = Greenfoot.getRandomNumber(1);
+            int x = (Greenfoot.getRandomNumber(3)+2 % 2 == 0) ? -50 : areax + 50;
+            int y = Greenfoot.getRandomNumber(areay);
+
+            if(size == 0)
+            {
+                Asteroid1 asteroidS = new Asteroid1();
+                getWorld().addObject(asteroidS, x, y);
+            }
+            if(size == 1)
+            {
+                Asteroid2 asteroidM = new Asteroid2();
+                getWorld().addObject(asteroidM, x, y);
+            }
+            if(size == 2)
+            {
+                Asteroid3 asteroidB = new Asteroid3();
+                getWorld().addObject(asteroidB, x, y);
+            }
+            spawnRate = 100;
+
         }
         else
         {
-          spawnRate--;
+            spawnRate--;
         }  
     }
-    
+
     //Display debug info such as x,y coords, velocities, star count, health
     private void showDebug(boolean show){
         if(show)
         {
             Space SPACE = (Space) getWorld();
             int x = SPACE.getWidth() - 75;
-        
+
             SPACE.showText("X: "+String.format("%.02f", (getSpaceX())), x, 25);
             SPACE.showText("Y: "+String.format("%.02f", (getSpaceY())), x, 50); 
-            
+
             SPACE.showText("vX: "+String.format("%.02f", (getVelX())), x, 75);
             SPACE.showText("vY: "+String.format("%.02f", (getVelY())), x, 100);        
-            
+
             SPACE.showText("Stars: "+ BackgroundStar.getNumStars(), x, 125); 
-            
+
             SPACE.showText("Health: "+ getHealth(), x, 150);
             SPACE.showText("Weapon: "+ SPACE.getWeapon(), x, 175);
         }
     }   
-    
+
     public double getSpeed(){
         return Math.sqrt(Math.pow(getVelX(),2)+Math.pow(getVelY(),2));
     }
-    
-    
+
     private void scrollWeapon()
     {
         Space SPACE = (Space) getWorld();
@@ -506,20 +522,20 @@ public class Player extends Object implements DamageTaker
     /* sooooo broken
     public static double getWeapon()
     {
-        int tempWep=0;
-        tempWep += scroll.getScroll();
-        if(tempWep < 0)
-        {
-            tempWep = 0;
-        }
-        if(tempWep > 5)
-        {
-            tempWep = 5;
-        }
-        
-        return tempWep;
+    int tempWep=0;
+    tempWep += scroll.getScroll();
+    if(tempWep < 0)
+    {
+    tempWep = 0;
+    }
+    if(tempWep > 5)
+    {
+    tempWep = 5;
+    }
+
+    return tempWep;
     } 
-    */
+     */
     /**********************************************************************************************************
      **********************************************************************************************************
      **********************************************************************************************************
@@ -535,21 +551,20 @@ public class Player extends Object implements DamageTaker
      **********************************************************************************************************
      **********************************************************************************************************
      */
-    
+
     //john start
-    
+
     private int weaponTimer = 0;
     private int weaponToggle = 0;
     private int weaponLV = 0;
     private int weaponType = 0;
-    
+
     private int hearthTimer = 0;
     private int blinkCD = 0;
     private int beamCharge = 0;
     private boolean beamCD = false;
     public boolean mouseAim = true;
-    
-    
+
     public void weaponSystems()
     {
         shoot(weaponLV, weaponType);
@@ -558,7 +573,7 @@ public class Player extends Object implements DamageTaker
         hearth();
         blink();
     }
-    
+
     private void blink()
     {
         blinkCD++;
@@ -569,7 +584,7 @@ public class Player extends Object implements DamageTaker
             blinkCD=0;
         }
     }
-    
+
     private void hearth()
     {
         if (Greenfoot.isKeyDown("b"))
@@ -588,7 +603,7 @@ public class Player extends Object implements DamageTaker
             hearthTimer = 0;
         }
     }
-   
+
     private void shoot(int LV, int wep)
     {
         beamCharge();
@@ -608,7 +623,7 @@ public class Player extends Object implements DamageTaker
             weaponTimer = 0;
         }
     }
-    
+
     private void beamCharge()
     {
         bramChargeBar();
@@ -625,6 +640,7 @@ public class Player extends Object implements DamageTaker
             beamCD = false;
         }
     }
+
     private void bramChargeBar()
     {
         for (int i=1; i <= beamCharge/15; i++)
@@ -632,9 +648,7 @@ public class Player extends Object implements DamageTaker
             getWorld().addObject(new Beam(0, true, 0, 400, 520),418+i*4,520);
         }
     }
-    
-    
-    
+
     private void weaponTimer(int angle,int LV,int wep)
     {
         weaponTimer++;
@@ -686,7 +700,6 @@ public class Player extends Object implements DamageTaker
         }
     }
 
-    
     private void toggleWeaponLV()
     {
         if (Greenfoot.isKeyDown("="))
@@ -724,8 +737,7 @@ public class Player extends Object implements DamageTaker
             weaponToggle = 0;
         }
     }
-    
-    
+
     private void weaponType()
     {
         if (Greenfoot.isKeyDown("1"))
@@ -754,5 +766,5 @@ public class Player extends Object implements DamageTaker
         }
     }
     //john end
-   
+
 }
