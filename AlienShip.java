@@ -37,9 +37,9 @@ public class AlienShip extends Entity
     
     public void firstTime(){
         if(firstTime){
-            addAction("moveTo/500/500");
-            addAction("shootPlayer/0/10/100");
-            addAction("shootPlayer/2/10/5");
+            //addAction("moveTo/500/500");
+            //addAction("shootPlayer/0/10/100");
+            //addAction("shootPlayer/2/10/5");
             firstTime = false;
         }
     }

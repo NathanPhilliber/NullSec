@@ -57,8 +57,7 @@ public class Space extends World
 
         addObject(new AlienShip(1000,1000), 1000,1000);
         addObject(new AlienShip(0,0), 0,0);
-        //addObject(new AlienShip(1000,1000), 10,10);
-        //addObject(new Planet(0,0),0,0);
+  
         
         scrollListener();
 
@@ -163,6 +162,12 @@ public class Space extends World
     
     public void act()
     {
+        
+        
+        
+        //System.out.println(numberOfObjects());
+        
+        
         if(!readPause)
         {
         if(setPause == true || Greenfoot.isKeyDown("Escape"))

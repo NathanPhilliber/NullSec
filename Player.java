@@ -79,7 +79,7 @@ public class Player extends Object implements DamageTaker
             scrollWeapon();
             addAsteroid();
             generateStars(starDensity);
-            generateNebulas(nebulaDensity);
+            //generateNebulas(nebulaDensity);
             damageBar.updateDamage(getHealth(), getMaxHealth());
             debugHealthHack(); //Allows to add health via '[']' DELETE THIS BEFORE PUBLISH
             //checkDead();
@@ -489,11 +489,15 @@ public class Player extends Object implements DamageTaker
             spawnRate--;
         }  
     }
-
+    
+    private long tick = 0;
+    private long time = System.currentTimeMillis();
     //Display debug info such as x,y coords, velocities, star count, health
     private void showDebug(boolean show){
         if(show)
         {
+            tick++;
+            long curTime = System.currentTimeMillis();
             Space SPACE = (Space) getWorld();
             int x = SPACE.getWidth() - 75;
 
@@ -507,6 +511,8 @@ public class Player extends Object implements DamageTaker
 
             SPACE.showText("Health: "+ getHealth(), x, 150);
             SPACE.showText("Weapon: "+ SPACE.getWeapon(), x, 175);
+            
+            SPACE.showText("Tick: "+ tick*1000/(curTime - time), x, 200);
         }
     }   
 

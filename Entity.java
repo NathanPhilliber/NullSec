@@ -45,7 +45,6 @@ public class Entity extends SpaceObject implements DamageTaker
     // moveTo
     // kill
 
-    
     private int weaponDelay = 0;
     private int shootProgress = 0;
     private int cyclesBetweenShots = 0;
@@ -85,49 +84,50 @@ public class Entity extends SpaceObject implements DamageTaker
         setIsPlayer(false);//forWEAPONS
         setTargetX(x);
         setTargetY(y);
+        
     }
 
     public void act() 
     {
-       Space SPACE = (Space) getWorld();
-       if(!SPACE.getIsPaused())
-       {
-        super.act();
+        Space SPACE = (Space) getWorld();
+        if(!SPACE.getIsPaused())
+        {
+            super.act();
 
-        firstTime();
-        damageBar.updateDamage(getHealth(), getMaxHealth());
-        runQueue();
-        
-        makeMoves();
-        checkDead();
-        takeAShot();
+            firstTime();
+            damageBar.updateDamage(getHealth(), getMaxHealth());
+            runQueue();
 
-        /*****************************************************************************************************
-         * ***************************************************************************************************
-         * ***************************************************************************************************
-         * ***************************************************************************************************
-         * GOOD MINIMAP
-         * ***************************************************************************************************
-         * ***************************************************************************************************
-         * ***************************************************************************************************
-         * ***************************************************************************************************/
-        miniMap(new EnemyShip());
+            makeMoves();
+            checkDead();
+            takeAShot();
 
-        //updateMinimap();
-        //System.out.println(actionQueue.size());
+            /*****************************************************************************************************
+             * ***************************************************************************************************
+             * ***************************************************************************************************
+             * ***************************************************************************************************
+             * GOOD MINIMAP
+             * ***************************************************************************************************
+             * ***************************************************************************************************
+             * ***************************************************************************************************
+             * ***************************************************************************************************/
+            miniMap(new EnemyShip());
 
-        //prob in wrong spot >>>>>>>>>>>>>FIX<<<<<<<<<<<<<
-        //circleTarget();//prob in wrong spot
+            updateMinimap();
+            //System.out.println(actionQueue.size());
 
-        System.out.println("Queue in use: " + queueInUse);
+            //prob in wrong spot >>>>>>>>>>>>>FIX<<<<<<<<<<<<<
+            //circleTarget();//prob in wrong spot
 
-        updatePlayerLocation();
-        
-        if(isScheduledForRemoval()){
-            addExplosion(getSpaceX(), getSpaceY());
+            //System.out.println("Queue in use: " + queueInUse);
+
+            //updatePlayerLocation();
+
+            if(isScheduledForRemoval()){
+                addExplosion(getSpaceX(), getSpaceY());
+            }
+            checkRemoval();
         }
-        checkRemoval();
-    }
     }
 
     private void updatePlayerLocation() //What the shit is this? use getShipLoc
@@ -187,6 +187,7 @@ public class Entity extends SpaceObject implements DamageTaker
         getWorld().addObject(enemyShip, (int) minimapX, (int) minimapY);
 
     }
+
     public void updateMinimap()
     {
         double minimapX = (getX()/mpRatioX) + 800-(167/mpRatio)/2 + spawnX/mpRatioX;
@@ -214,7 +215,6 @@ public class Entity extends SpaceObject implements DamageTaker
         Space space = (Space) getWorld();
         Ship ship = space.getShip();
 
-        
         if(shootProgress > 0){
             weaponDelay++;
             if(weaponDelay%cyclesBetweenShots == 0){
@@ -229,7 +229,6 @@ public class Entity extends SpaceObject implements DamageTaker
 
     }
 
-    
     public void shoot(double targetX, double targetY, int weapon){
         switch(weapon){
             case Weapon.PROJECTILE:
@@ -283,7 +282,7 @@ public class Entity extends SpaceObject implements DamageTaker
 
     //Translates string command to real method. Update this as new actions are added
     private void translateCommand(String cmdS){
-        
+
         String[] arg = cmdS.split("/");
         System.out.println(cmdS);
         //moveTo method
@@ -326,9 +325,7 @@ public class Entity extends SpaceObject implements DamageTaker
             space.addObject(damageBar, 0, 0);
             //setupMinimap();
 
-            
             firstTime = false;
-
         }
     }
 
@@ -350,7 +347,7 @@ public class Entity extends SpaceObject implements DamageTaker
     private void makeMoves(){
         //
         if(reachedTarget()==false){
-            
+
             //System.out.println("Reached Target: " + reachedTarget());
             Space space = (Space) getWorld();
             Ship ship = space.getShip();
