@@ -6,7 +6,7 @@ import greenfoot.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class AntIcon extends HUD
+public class IconProjectile extends HUD
 {
     /**
      * Act - do whatever the AntIcon wants to do. This method is called whenever

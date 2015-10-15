@@ -68,7 +68,7 @@ public class Space extends World
         //}
         tutorial();
 
-        setPaintOrder(DockMenu.class, OutsideMP.class, EnemyShip.class, PlayerShip.class, PlanetMP.class, InsideMP.class, AntIcon.class, IconFire.class, AlienShip.class, MissleIcon.class, IconPlasma.class, IconLaser.class, IconMine.class, WeaponBG.class, DamageBar.class, Cannon.class, Beam.class,  BeamHUD.class, Projectile.class, Missile.class, Ship.class, PlasmaBall.class, Mine.class, Fireball.class, Particle.class, Planet.class, BackgroundStar.class);
+        setPaintOrder(DockMenu.class, OutsideMP.class, EnemyShip.class, PlayerShip.class, PlanetMP.class, InsideMP.class, IconProjectile.class, IconFire.class, AlienShip.class, MissleIcon.class, IconPlasma.class, IconLaser.class, IconMine.class, WeaponBG.class, DamageBar.class, Cannon.class, Beam.class,  BeamHUD.class, Projectile.class, Missile.class, Ship.class, PlasmaBall.class, Mine.class, Fireball.class, Particle.class, Planet.class, BackgroundStar.class);
 
         IconMine iconmine = new IconMine();
         addObject(iconmine, 52, 294);
@@ -147,9 +147,9 @@ public class Space extends World
         missleicon2.setLocation(40, 211);
         missleicon.setLocation(52, 224);
         iconlaser.setLocation(46, 139);
-        AntIcon anticon = new AntIcon();
+        IconProjectile anticon = new IconProjectile();
         addObject(anticon, 38, 60);
-        AntIcon anticon2 = new AntIcon();
+        IconProjectile anticon2 = new IconProjectile();
         addObject(anticon2, 56, 60);
         Cannon cannon = new Cannon();
         addObject(cannon, 443, 267);
