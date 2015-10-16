@@ -21,6 +21,8 @@ public class Missile extends Weapon implements ProjectileObject
     private boolean firstTime = true;
     
     private double speed = 6.0;
+    
+    private GreenfootSound shootSound = new GreenfootSound("sounds/missileLaunch.mp3");
     public void act() 
     {
         super.act();
@@ -32,6 +34,7 @@ public class Missile extends Weapon implements ProjectileObject
     public Missile(int angle, boolean isPlayer, double damage, double startX, double startY)
     {
         super(angle, isPlayer, startX, startY, damage);
+        shootSound.play();
     }
     
     private void seakTarget()

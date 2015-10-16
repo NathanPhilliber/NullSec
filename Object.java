@@ -120,6 +120,8 @@ public class Object extends SmoothMover
             world.addObject(new Particle(x, y, 10, 6, 7, 6, 10, 95, "images/spark1.png"), 0, 0);
             world.addObject(new Particle(x, y, 10, 6, 7, 6, 10, 95, "images/smoke1.png"), 0, 0);
         }
+        GreenfootSound explodeSound = new GreenfootSound("sounds/explode1.mp3");
+        explodeSound.play();
     }
 
     public void addRocketTrail(double x, double y){
