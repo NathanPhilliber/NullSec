@@ -55,7 +55,7 @@ public class Space extends World
         ship = new Ship(0,0);
         addObject(ship, (int)getWidth()/2, (int)getHeight()/2);
 
-        addObject(new AlienShip(1000,1000), 1000,1000);
+        //addObject(new AlienShip(1000,1000), 1000,1000);
         addObject(new AlienShip(0,0), 0,0);
   
         

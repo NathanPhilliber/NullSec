@@ -1,5 +1,5 @@
 import greenfoot.*;
-import java.util.PriorityQueue;
+import java.util.LinkedList;
 import java.util.List;
 /**
  * Subclass of other objects that will interact with the player directly.
@@ -35,12 +35,13 @@ public class Entity extends SpaceObject implements DamageTaker
     private double targetY;
 
     private boolean reachedTarget;
+    private boolean isShooting;
 
     private DamageBar damageBar;
 
     private boolean firstTime = true;
 
-    private PriorityQueue actionQueue = new PriorityQueue();
+    private LinkedList actionQueue = new LinkedList();
     //List of action codes:
     // moveTo
     // kill
@@ -93,7 +94,7 @@ public class Entity extends SpaceObject implements DamageTaker
         if(!SPACE.getIsPaused())
         {
             super.act();
-
+            //System.out.println(actionQueue.size() + " " + queueInUse);
             firstTime();
             damageBar.updateDamage(getHealth(), getMaxHealth());
             runQueue();
@@ -130,11 +131,7 @@ public class Entity extends SpaceObject implements DamageTaker
         }
     }
 
-    private void updatePlayerLocation() //What the shit is this? use getShipLoc
-    {
-        playerX = ship.getSpaceX()+getWorld().getWidth()/2;
-        playerY = ship.getSpaceY()+getWorld().getHeight()/2;;
-    }
+  
 
     public void circleTarget()
     {
@@ -206,25 +203,31 @@ public class Entity extends SpaceObject implements DamageTaker
     }
 
     public void shootPlayer(int weapon, int cyclesBetweenShots, int numShots){
+        
         shootProgress = numShots;
         this.cyclesBetweenShots = cyclesBetweenShots;
         currentWeapon = weapon;
+        isShooting = true;
     }
 
     private void takeAShot(){
         Space space = (Space) getWorld();
         Ship ship = space.getShip();
 
-        if(shootProgress > 0){
+        if(shootProgress > 0 && isShooting){
             weaponDelay++;
             if(weaponDelay%cyclesBetweenShots == 0){
                 shootProgress--;
-                shoot(playerX, playerY, currentWeapon);
+                shoot(ship.getShipLocX(), ship.getShipLocY(), currentWeapon);
 
             }
         }
-        else{
+        else if(shootProgress == 0){
+            //System.out.println("COMMAND RECIEVED");
             queueInUse(false);
+            weaponDelay = 0;
+            shootProgress = -1;
+            isShooting = false;
         }
 
     }
@@ -264,7 +267,7 @@ public class Entity extends SpaceObject implements DamageTaker
     //The action will be added to a queue and will then be run
     public void addAction(String action){
         actionQueue.add(action);
-
+        System.out.println(actionQueue);
     }
 
     //Needs to be run every tick. Checks to see if a command is already being run.
@@ -272,9 +275,11 @@ public class Entity extends SpaceObject implements DamageTaker
     private void runQueue(){
         if(queueInUse == false){
             //pop off next command
-            if(actionQueue.isEmpty() == false){
+            if(actionQueue.isEmpty() == false && queueInUse == false){
+                //System.out.println("QueueUse: " + queueInUse + ", Empty: " + actionQueue.isEmpty());
                 queueInUse(true);
                 translateCommand((String)actionQueue.poll());
+                //System.out.println("QueueUse: " + queueInUse + ", Empty: " + actionQueue.isEmpty());
 
             }
         }

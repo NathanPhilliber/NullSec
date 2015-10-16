@@ -24,12 +24,12 @@ public class AlienShip extends Entity
     {
         
         super.act();
-        //firstTime();
+        firstTime();
         if(hasMoreActions() == false){
            
-            addAction("moveTo/"+(Greenfoot.getRandomNumber(1000)-500)+"/"+(Greenfoot.getRandomNumber(1000)-500));
-            addAction("shootPlayer/0/10/10");
-            addAction("shootPlayer/2/10/5");
+            //addAction("moveTo/"+(Greenfoot.getRandomNumber(1000)-500)+"/"+(Greenfoot.getRandomNumber(1000)-500));
+            //addAction("shootPlayer/0/10/10");
+            //addAction("shootPlayer/2/10/5");
             //addAction("circleTarget");
         }
         
@@ -37,7 +37,11 @@ public class AlienShip extends Entity
     
     public void firstTime(){
         if(firstTime){
-            //addAction("moveTo/500/500");
+            addAction("moveTo/500/500");
+            addAction("shootPlayer/2/10/5");
+            addAction("moveTo/700/500");
+            addAction("shootPlayer/2/10/5");
+            addAction("moveTo/800/500");
             //addAction("shootPlayer/0/10/100");
             //addAction("shootPlayer/2/10/5");
             firstTime = false;
