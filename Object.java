@@ -76,6 +76,14 @@ public class Object extends SmoothMover
         {
             return false;
         }
+
+    }
+
+    public boolean isOffscreen(){
+        if((getX() < 0 || getX() > getWorld().getWidth()) || (getY() < 0 || getY() > getWorld().getHeight())){
+            return true;
+        }
+        return false;
     }
 
     public void setRemovalAtEdge() 

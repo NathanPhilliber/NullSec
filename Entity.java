@@ -67,13 +67,16 @@ public class Entity extends SpaceObject implements DamageTaker
     //player location
     private double playerX;
     private double playerY;
-    
+
     public static final int EXPLORE_MODE = 0;
     public static final int GUARD_MODE = 1;
     public static final int ATTACK_MODE = 2;
-    
+
     private int currentMode = -1;
-    
+
+    private int ticksToDie = 1000;
+    private int ticksAwayFromPlayer = ticksToDie;
+
     public Entity(){
         super();
         space = (Space) getWorld();
@@ -91,7 +94,7 @@ public class Entity extends SpaceObject implements DamageTaker
         setIsPlayer(false);//forWEAPONS
         setTargetX(x);
         setTargetY(y);
-        
+
     }
 
     public void act() 
@@ -109,7 +112,8 @@ public class Entity extends SpaceObject implements DamageTaker
             checkDead();
             takeAShot();
 
-            
+            decayIfFar();
+            //System.out.println(isOffscreen());
             miniMap(new EnemyShip());
 
             updateMinimap();
@@ -128,8 +132,6 @@ public class Entity extends SpaceObject implements DamageTaker
             checkRemoval();
         }
     }
-
-  
 
     public void circleTarget()
     {
@@ -172,6 +174,20 @@ public class Entity extends SpaceObject implements DamageTaker
         return r >= (Math.sqrt(Math.pow(playerX-getSpaceX(),2)+Math.pow(playerY-getSpaceY(),2)));
     }
 
+    private void decayIfFar(){
+        if(isOffscreen()){
+            ticksAwayFromPlayer--;
+            if(ticksAwayFromPlayer < 0){
+                setHealth(0.0);
+            }
+        }
+        else{
+            ticksAwayFromPlayer = ticksToDie;
+        }
+
+    }
+
+
     public void setupMinimap()
     {
 
@@ -201,7 +217,7 @@ public class Entity extends SpaceObject implements DamageTaker
     }
 
     public void shootPlayer(int weapon, int cyclesBetweenShots, int numShots){
-        
+
         shootProgress = numShots;
         this.cyclesBetweenShots = cyclesBetweenShots;
         currentWeapon = weapon;
@@ -265,7 +281,7 @@ public class Entity extends SpaceObject implements DamageTaker
     //The action will be added to a queue and will then be run
     public void addAction(String action){
         actionQueue.add(action);
-        System.out.println(actionQueue);
+        //System.out.println(actionQueue);
     }
 
     //Needs to be run every tick. Checks to see if a command is already being run.
@@ -287,7 +303,7 @@ public class Entity extends SpaceObject implements DamageTaker
     private void translateCommand(String cmdS){
 
         String[] arg = cmdS.split("/");
-        System.out.println(cmdS);
+        //System.out.println(cmdS);
         //moveTo method
         //"moveTo/targetX/targetY"
         if(arg[0].equalsIgnoreCase("moveTo")){
