@@ -72,7 +72,13 @@ public class Entity extends SpaceObject implements DamageTaker
     public static final int GUARD_MODE = 1;
     public static final int ATTACK_MODE = 2;
 
+    private int maxExploreLength = 1000;
+    
     private int currentMode = -1;
+
+    private int currentWait = 0;
+    
+    private boolean modeChanged = false;
 
     private int ticksToDie = 1000;
     private int ticksAwayFromPlayer = ticksToDie;
@@ -94,7 +100,9 @@ public class Entity extends SpaceObject implements DamageTaker
         setIsPlayer(false);//forWEAPONS
         setTargetX(x);
         setTargetY(y);
-
+        spawnX =(int) x;
+        spawnY =(int) y;
+        setMode(0);
     }
 
     public void act() 
@@ -111,26 +119,76 @@ public class Entity extends SpaceObject implements DamageTaker
             makeMoves();
             checkDead();
             takeAShot();
-
+            modeActions();
             decayIfFar();
+            waitHelper();
             //System.out.println(isOffscreen());
             miniMap(new EnemyShip());
-
+            
+            
+            
             updateMinimap();
             //System.out.println(actionQueue.size());
 
             //prob in wrong spot >>>>>>>>>>>>>FIX<<<<<<<<<<<<<
             //circleTarget();//prob in wrong spot
 
-            //System.out.println("Queue in use: " + queueInUse);
+            //System.out.println(actionQueue);
 
-            //updatePlayerLocation();
+            
+            //CHANGE THIS TO SHIP, NEEDS FOR CIRCLE TARGET
+            //updatePlayerLocation(); 
 
             if(isScheduledForRemoval()){
                 addExplosion(getSpaceX(), getSpaceY());
             }
             checkRemoval();
         }
+    }
+
+    public void modeActions(){
+
+        if(modeChanged){
+            clearActions();
+            modeChanged = false;
+            
+        }
+
+        Space space = (Space) getWorld();
+        Ship ship = space.getShip();
+
+        switch(getMode()){
+            case EXPLORE_MODE:
+            
+            if(hasMoreActions() == false){
+                System.out.println("Adding more actions");
+                addAction("wait/200");
+                addAction("MoveTo/" + (Greenfoot.getRandomNumber(maxExploreLength)-(maxExploreLength/2)+spawnX) + "/" + (Greenfoot.getRandomNumber(maxExploreLength)-(maxExploreLength/2)+spawnY));    
+            }
+
+            break;
+            case GUARD_MODE:
+            break;
+            case ATTACK_MODE:
+            break;
+            default:
+            System.out.println("NO MODE SPECIFIED");
+            break;
+
+        }
+    }
+
+    public void clearActions(){
+        actionQueue.clear();
+    }
+
+    public void setMode(int mode){
+        currentMode = mode;
+        modeChanged = true;
+    }
+
+    public int getMode(){
+        return currentMode;
     }
 
     public void circleTarget()
@@ -187,7 +245,6 @@ public class Entity extends SpaceObject implements DamageTaker
 
     }
 
-
     public void setupMinimap()
     {
 
@@ -216,6 +273,23 @@ public class Entity extends SpaceObject implements DamageTaker
         return (int)Math.round(Math.atan2((targetY-getSpaceY()),(targetX-getSpaceX()))*360/(2*Math.PI));
     }
 
+    public void wait(int actCycles){
+        currentWait = actCycles;
+        
+    }
+    
+    private void waitHelper(){
+        
+        if(currentWait <= 0){
+            queueInUse(false);
+            
+        }
+        else{
+            currentWait--;
+            //System.out.println(currentWait);
+        }
+    }
+    
     public void shootPlayer(int weapon, int cyclesBetweenShots, int numShots){
 
         shootProgress = numShots;
@@ -223,6 +297,8 @@ public class Entity extends SpaceObject implements DamageTaker
         currentWeapon = weapon;
         isShooting = true;
     }
+    
+    
 
     private void takeAShot(){
         Space space = (Space) getWorld();
@@ -290,6 +366,7 @@ public class Entity extends SpaceObject implements DamageTaker
         if(queueInUse == false){
             //pop off next command
             if(actionQueue.isEmpty() == false && queueInUse == false){
+                System.out.println("ACTION FIRED");
                 //System.out.println("QueueUse: " + queueInUse + ", Empty: " + actionQueue.isEmpty());
                 queueInUse(true);
                 translateCommand((String)actionQueue.poll());
@@ -312,6 +389,10 @@ public class Entity extends SpaceObject implements DamageTaker
         else if(arg[0].equalsIgnoreCase("shootPlayer")){
             //shoot player code, what weapon and for how long
             shootPlayer(Integer.parseInt(arg[1]),Integer.parseInt(arg[2]), Integer.parseInt(arg[3]));
+        }
+        else if(arg[0].equalsIgnoreCase("wait")){
+            //System.out.println("WAIT");
+            wait(Integer.parseInt(arg[1]));
         }
 
     }
