@@ -712,13 +712,13 @@ public class Player extends Object implements DamageTaker
         {
             if (weaponToggle==0)
             {
-                if (weaponType == 6)
+                if (weaponLV == 6)
                 {
-                    weaponType = 0;
+                   weaponLV = 0;
                 }
                 else
                 {
-                    weaponType++;
+                    weaponLV++;
                 }
                 weaponToggle++;
             }
@@ -733,7 +733,7 @@ public class Player extends Object implements DamageTaker
                 }
                 else
                 {
-                    weaponLV++;
+                    weaponLV--;
                 }
                 weaponToggle++;
             }
