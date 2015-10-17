@@ -9,9 +9,12 @@ import java.util.List;
  */
 public class Entity extends SpaceObject implements DamageTaker
 {
-    //#####
-    //TO DO: Make stack of actions for the ship to take
 
+    /**********************************************************
+     * 
+     * CLASS VARIABLES
+     * 
+     *********************************************************/
     private double aggression = 0.0;
     private double health = 100.0;
     private double maxHealth = 100.0;
@@ -42,9 +45,6 @@ public class Entity extends SpaceObject implements DamageTaker
     private boolean firstTime = true;
 
     private LinkedList actionQueue = new LinkedList();
-    //List of action codes:
-    // moveTo
-    // kill
 
     private int weaponDelay = 0;
     private int shootProgress = 0;
@@ -83,6 +83,19 @@ public class Entity extends SpaceObject implements DamageTaker
     private int ticksToDie = 1000;
     private int ticksAwayFromPlayer = ticksToDie;
 
+    private int circleTargetX = 0;
+    private int circleTargetY = 0;;
+    private boolean currentlyCircling = false;
+    private int circleCycle = 0;
+
+    private boolean currentlyWaiting = false;
+
+    /**********************************************************
+     * 
+     * CONSTRUCTORS
+     * 
+     *********************************************************/
+
     public Entity(){
         super();
         space = (Space) getWorld();
@@ -105,37 +118,31 @@ public class Entity extends SpaceObject implements DamageTaker
         setMode(1);
     }
 
+    /**********************************************************
+     * 
+     * ACT METHOD
+     * 
+     *********************************************************/
+
     public void act() 
     {
         Space SPACE = (Space) getWorld();
         if(!SPACE.getIsPaused())
         {
             super.act();
-            //System.out.println(actionQueue.size() + " " + queueInUse);
+
             firstTime();
             damageBar.updateDamage(getHealth(), getMaxHealth());
             runQueue();
-
-            makeMoves();
             checkDead();
-            takeAShot();
+
+            
             modeActions();
             decayIfFar();
-            waitHelper();
-            circleTargetHelper(circleTargetX, circleTargetY);
-            //System.out.println(isOffscreen());
+
             miniMap(new EnemyShip());
 
             updateMinimap();
-            //System.out.println(actionQueue.size());
-
-            //prob in wrong spot >>>>>>>>>>>>>FIX<<<<<<<<<<<<<
-            //circleTarget();//prob in wrong spot
-
-            //System.out.println(actionQueue);
-
-            //CHANGE THIS TO SHIP, NEEDS FOR CIRCLE TARGET
-            //updatePlayerLocation(); 
 
             if(isScheduledForRemoval()){
                 addExplosion(getSpaceX(), getSpaceY());
@@ -143,6 +150,12 @@ public class Entity extends SpaceObject implements DamageTaker
             checkRemoval();
         }
     }
+
+    /**********************************************************
+     * 
+     * MODE / AI OPERATIONS
+     * 
+     *********************************************************/
 
     public void modeActions(){
 
@@ -168,7 +181,7 @@ public class Entity extends SpaceObject implements DamageTaker
             case GUARD_MODE:
             if(hasMoreActions() == false){
                 addAction("circleTarget/0/0/300");
-                System.out.println("DONE");
+                
             }
             break;
             case ATTACK_MODE:
@@ -180,10 +193,6 @@ public class Entity extends SpaceObject implements DamageTaker
         }
     }
 
-    public void clearActions(){
-        actionQueue.clear();
-    }
-
     public void setMode(int mode){
         currentMode = mode;
         modeChanged = true;
@@ -193,11 +202,87 @@ public class Entity extends SpaceObject implements DamageTaker
         return currentMode;
     }
 
-    private int circleTargetX = 0;
-    private int circleTargetY = 0;;
-    private boolean currentlyCircling = false;
-    private int circleCycle = 0;
-    
+    /**********************************************************
+     * 
+     * QUEUE MANAGEMENT
+     * 
+     *********************************************************/
+
+    public void clearActions(){
+        actionQueue.clear();
+    }
+
+    public void addAction(String action){
+        actionQueue.add(action);
+        //System.out.println(actionQueue);
+    }
+
+    //Needs to be run every tick. Checks to see if a command is already being run.
+    //If no command is being run, the method operates the next command if there is one.
+    private void runQueue(){
+
+        //Run all helper functions
+        makeMoves();
+        takeAShot();
+        waitHelper();
+        circleTargetHelper(circleTargetX, circleTargetY);
+
+        if(queueInUse == false){
+            //pop off next command
+            if(actionQueue.isEmpty() == false && queueInUse == false){
+
+                //System.out.println("QueueUse: " + queueInUse + ", Empty: " + actionQueue.isEmpty());
+                queueInUse(true);
+                translateCommand((String)actionQueue.poll());
+                //System.out.println("QueueUse: " + queueInUse + ", Empty: " + actionQueue.isEmpty());
+
+            }
+        }
+    }
+
+    //Translates string command to real method. Update this as new actions are added
+    private void translateCommand(String cmdS){
+
+        String[] arg = cmdS.split("/");
+        //System.out.println(cmdS);
+        //moveTo method
+        //"moveTo/targetX/targetY"
+        if(arg[0].equalsIgnoreCase("moveTo")){
+            moveTo(Double.parseDouble(arg[1]),Double.parseDouble(arg[2]));
+        }
+        else if(arg[0].equalsIgnoreCase("shootPlayer")){
+            //shoot player code, what weapon and for how long
+            shootPlayer(Integer.parseInt(arg[1]),Integer.parseInt(arg[2]), Integer.parseInt(arg[3]));
+        }
+        else if(arg[0].equalsIgnoreCase("wait")){
+            //System.out.println("WAIT");
+            wait(Integer.parseInt(arg[1]));
+        }
+        else if(arg[0].equalsIgnoreCase("circleTarget")){
+            //System.out.println("WAIT");
+            circleTarget(Integer.parseInt(arg[1]),Integer.parseInt(arg[2]),Integer.parseInt(arg[3]));
+        }
+
+    }
+
+    //Switch queue to be in use or not
+    private void queueInUse(boolean state){
+        queueInUse = state;
+    }
+
+    public boolean hasMoreActions(){
+        if(actionQueue.size() == 0){
+            return false;
+        }
+        return true;
+    }
+
+    /**********************************************************
+     * 
+     * COMMANDS TO BE ADDED TO QUEUE
+     * 
+     *********************************************************/
+
     public void circleTarget(int x, int y, int numOfCycles){
         currentlyCircling = true;
         circleTargetX = x;
@@ -210,13 +295,12 @@ public class Entity extends SpaceObject implements DamageTaker
     {
         if(currentlyCircling){
             circleCycle--;
-            
+
             if(circleCycle <= 0){
                 currentlyCircling = false;
                 queueInUse(false);
             }
-            
-            
+
             spaceMove(maxFlySpeed);
             int angleDif = angleRange(getRotation())-getTargetAngle(x,y);
             if (180 < angleDif)
@@ -229,77 +313,24 @@ public class Entity extends SpaceObject implements DamageTaker
             }
             if (checkRange(250))
             {
-                //if (5 <= angleDif)
-                //{
+
                 setRotation(getRotation()+angleDif/80);
-                /*}
-                else if (-5 >= angleDif)
-                {
-                setRotation(getRotation()-angleDif/80);
-                }*/
+
             }
             else
             {
-                //if (5 <= angleDif)
-                //{
+
                 setRotation(getRotation()-angleDif/80);
-                /*}
-                else if (-5 >= angleDif)
-                {
-                setRotation(getRotation()+angleDif/80);
-                }*/
+
             } 
         }
 
-    }
-
-    private boolean checkRange(double r)
-    {
-        return r >= (Math.sqrt(Math.pow(playerX-getSpaceX(),2)+Math.pow(playerY-getSpaceY(),2)));
-    }
-
-    private void decayIfFar(){
-        if(isOffscreen()){
-            ticksAwayFromPlayer--;
-            if(ticksAwayFromPlayer < 0){
-                setHealth(0.0);
-            }
-        }
-        else{
-            ticksAwayFromPlayer = ticksToDie;
-        }
-
-    }
-
-    public void setupMinimap()
-    {
-
-        double minimapX = (getX()/mpRatioX) + 800-(167/mpRatio)/2 + spawnX/mpRatioX;
-        double minimapY = (getY()/mpRatioY) + 405-(167/mpRatio)/2 + spawnY/mpRatioY;
-
-        EnemyShip enemyShip = new EnemyShip();
-        getWorld().addObject(enemyShip, (int) minimapX, (int) minimapY);
-
-    }
-
-    public void updateMinimap()
-    {
-        double minimapX = (getX()/mpRatioX) + 800-(167/mpRatio)/2 + spawnX/mpRatioX;
-        double minimapY = (getY()/mpRatioY) + 405-(167/mpRatio)/2 + spawnY/mpRatioY;
-
-        List<Actor> actors = getWorld().getObjects(EnemyShip.class); 
-        for (Actor a : actors)
-        {
-            a.setLocation((int) minimapX, (int) minimapY);
-        }
     }
 
     public int getTargetAngle(double targetX,double targetY)
     {
         return (int)Math.round(Math.atan2((targetY-getSpaceY()),(targetX-getSpaceX()))*360/(2*Math.PI));
     }
-
-    private boolean currentlyWaiting = false;
 
     public void wait(int actCycles){
         currentWait = actCycles;
@@ -373,101 +404,6 @@ public class Entity extends SpaceObject implements DamageTaker
         }
     }
 
-    public void checkDead(){
-        if(getHealth() <= 0.0){
-            damageBar.scheduleRemoval();
-            scheduleRemoval();
-        }
-    }
-
-    //This is the way to make an entity run an action.
-    //Add an action as a string "METHODNAME/arg1/arg2/..."
-    //The action will be added to a queue and will then be run
-    public void addAction(String action){
-        actionQueue.add(action);
-        //System.out.println(actionQueue);
-    }
-
-    //Needs to be run every tick. Checks to see if a command is already being run.
-    //If no command is being run, the method operates the next command if there is one.
-    private void runQueue(){
-        if(queueInUse == false){
-            //pop off next command
-            if(actionQueue.isEmpty() == false && queueInUse == false){
-
-                //System.out.println("QueueUse: " + queueInUse + ", Empty: " + actionQueue.isEmpty());
-                queueInUse(true);
-                translateCommand((String)actionQueue.poll());
-                //System.out.println("QueueUse: " + queueInUse + ", Empty: " + actionQueue.isEmpty());
-
-            }
-        }
-    }
-
-    //Translates string command to real method. Update this as new actions are added
-    private void translateCommand(String cmdS){
-
-        String[] arg = cmdS.split("/");
-        //System.out.println(cmdS);
-        //moveTo method
-        //"moveTo/targetX/targetY"
-        if(arg[0].equalsIgnoreCase("moveTo")){
-            moveTo(Double.parseDouble(arg[1]),Double.parseDouble(arg[2]));
-        }
-        else if(arg[0].equalsIgnoreCase("shootPlayer")){
-            //shoot player code, what weapon and for how long
-            shootPlayer(Integer.parseInt(arg[1]),Integer.parseInt(arg[2]), Integer.parseInt(arg[3]));
-        }
-        else if(arg[0].equalsIgnoreCase("wait")){
-            //System.out.println("WAIT");
-            wait(Integer.parseInt(arg[1]));
-        }
-        else if(arg[0].equalsIgnoreCase("circleTarget")){
-            //System.out.println("WAIT");
-            circleTarget(Integer.parseInt(arg[1]),Integer.parseInt(arg[2]),Integer.parseInt(arg[3]));
-        }
-
-    }
-
-    //Switch queue to be in use or not
-    private void queueInUse(boolean state){
-        queueInUse = state;
-    }
-
-    public boolean hasMoreActions(){
-        if(actionQueue.size() == 0){
-            return false;
-        }
-        return true;
-    }
-    //Called once during the first tick. Useful for certain objects that require
-    //the entity to already be spawned.
-    /**STOP USING FIRST TIME
-     * USE THE CONSTRUCTOR
-     *  ^^^^
-     * CANT USE CONSTRUCTOR FOR CERTAIN THINGS 
-     * 
-     */
-
-    private void firstTime(){
-        if(firstTime){
-            space = (Space) getWorld();
-            ship = space.getShip();
-            damageBar = new DamageBar(this, -50, getHealth(), getMaxHealth());
-            space.addObject(damageBar, 0, 0);
-            //setupMinimap();
-
-            firstTime = false;
-        }
-    }
-
-    public boolean getHit(double damage){
-        addHealth(-damage);
-        //System.out.println(getHealth());
-        return true;
-    }
-
-    //Move to and x,y over time.
     private void moveTo(double x, double y){
 
         setReachedTarget(false);
@@ -500,16 +436,89 @@ public class Entity extends SpaceObject implements DamageTaker
 
     }
 
-    public void setAggression(double agro){
-        aggression = agro;
+    private double getTargetX(){
+        return targetX;
     }
 
-    public double getAggression(){
-        return aggression;
+    private void setTargetX(double x){
+        targetX = x;
     }
 
-    public void addAggression(double agro){
-        setAggression(getAggression() + agro);
+    private double getTargetY(){
+        return targetY;
+    }
+
+    private void setTargetY(double y){
+        targetY = y;
+    }
+
+    private void setReachedTarget(boolean state){
+        reachedTarget = state;
+    }
+
+    private boolean reachedTarget(){
+        return reachedTarget;
+    }
+
+    //Check if the ship is close to its' desired target
+    private boolean checkClose(){
+        if(Math.abs(getTargetX()-getSpaceX()) < 3.0 && Math.abs(getTargetY()-getSpaceY()) < 3.0){
+            return true;
+        }
+        return false;
+    }
+
+    /**********************************************************
+     * 
+     * MINIMAP
+     * 
+     *********************************************************/
+
+    private boolean checkRange(double r)
+    {
+        return r >= (Math.sqrt(Math.pow(playerX-getSpaceX(),2)+Math.pow(playerY-getSpaceY(),2)));
+    }
+
+    public void setupMinimap()
+    {
+
+        double minimapX = (getX()/mpRatioX) + 800-(167/mpRatio)/2 + spawnX/mpRatioX;
+        double minimapY = (getY()/mpRatioY) + 405-(167/mpRatio)/2 + spawnY/mpRatioY;
+
+        EnemyShip enemyShip = new EnemyShip();
+        getWorld().addObject(enemyShip, (int) minimapX, (int) minimapY);
+
+    }
+
+    public void updateMinimap()
+    {
+        double minimapX = (getX()/mpRatioX) + 800-(167/mpRatio)/2 + spawnX/mpRatioX;
+        double minimapY = (getY()/mpRatioY) + 405-(167/mpRatio)/2 + spawnY/mpRatioY;
+
+        List<Actor> actors = getWorld().getObjects(EnemyShip.class); 
+        for (Actor a : actors)
+        {
+            a.setLocation((int) minimapX, (int) minimapY);
+        }
+    }
+
+    /**********************************************************
+     * 
+     * HEALTH RELATED
+     * 
+     *********************************************************/
+
+    public boolean getHit(double damage){
+        addHealth(-damage);
+        //System.out.println(getHealth());
+        return true;
+    }
+
+    public void checkDead(){
+        if(getHealth() <= 0.0){
+            damageBar.scheduleRemoval();
+            scheduleRemoval();
+        }
     }
 
     public void setHealth(double health){
@@ -546,36 +555,47 @@ public class Entity extends SpaceObject implements DamageTaker
         setHealth(getHealth()+hp);
     }
 
-    private double getTargetX(){
-        return targetX;
-    }
-
-    private void setTargetX(double x){
-        targetX = x;
-    }
-
-    private double getTargetY(){
-        return targetY;
-    }
-
-    private void setTargetY(double y){
-        targetY = y;
-    }
-
-    private void setReachedTarget(boolean state){
-        reachedTarget = state;
-    }
-
-    private boolean reachedTarget(){
-        return reachedTarget;
-    }
-
-    //Check if the ship is close to its' desired target
-    private boolean checkClose(){
-        if(Math.abs(getTargetX()-getSpaceX()) < 3.0 && Math.abs(getTargetY()-getSpaceY()) < 3.0){
-            return true;
+    /**********************************************************
+     * 
+     * MISC
+     * 
+     *********************************************************/
+    private void decayIfFar(){
+        if(isOffscreen()){
+            ticksAwayFromPlayer--;
+            if(ticksAwayFromPlayer < 0){
+                setHealth(0.0);
+            }
         }
-        return false;
+        else{
+            ticksAwayFromPlayer = ticksToDie;
+        }
+
+    }
+
+    private void firstTime(){
+        if(firstTime){
+            space = (Space) getWorld();
+            ship = space.getShip();
+            damageBar = new DamageBar(this, -50, getHealth(), getMaxHealth());
+            space.addObject(damageBar, 0, 0);
+            //setupMinimap();
+
+            firstTime = false;
+        }
+    }
+
+    //Move to and x,y over time.
+    public void setAggression(double agro){
+        aggression = agro;
+    }
+
+    public double getAggression(){
+        return aggression;
+    }
+
+    public void addAggression(double agro){
+        setAggression(getAggression() + agro);
     }
 
 }
