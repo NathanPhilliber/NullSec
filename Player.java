@@ -132,6 +132,7 @@ public class Player extends Object implements DamageTaker
             if(Greenfoot.isKeyDown("space")){ //Boost
                 if(Math.abs(getVelX()) >= getMaxFlyBoostSpeed()){
                     setVelX(getMaxFlyBoostSpeed()*Integer.signum((int)getVelX()));
+
                     addRocketTrail(getShipLocX()-30*Math.cos(getRotation()*2*Math.PI/360), getShipLocY()-30*Math.sin(getRotation()*2*Math.PI/360));
                 }
                 if(Math.abs(getVelY()) >= getMaxFlyBoostSpeed()){
@@ -143,6 +144,7 @@ public class Player extends Object implements DamageTaker
                 if(Math.abs(getVelX()) >= getMaxFlySpeed()){
                     //Set velocity to maximum velocity in correct direction
                     setVelX(getMaxFlySpeed()*Integer.signum((int)getVelX()));
+
                     addRocketTrail(getShipLocX()-30*Math.cos(getRotation()*2*Math.PI/360), getShipLocY()-30*Math.sin(getRotation()*2*Math.PI/360));
                 }
                 if(Math.abs(getVelY()) >= getMaxFlySpeed()){
@@ -192,16 +194,17 @@ public class Player extends Object implements DamageTaker
             addVelX(-(Math.cos(Math.toRadians(angle))*revSpeed));
             addVelY(-(Math.sin(Math.toRadians(angle))*revSpeed));
 
+            if(Math.abs(getVelX()) >= getMaxFlySpeed()){
+                //Set velocity to maximum velocity in correct direction
+                setVelX(getMaxFlySpeed()*Integer.signum((int)getVelX()));
+                addRocketTrail(getShipLocX()-30*Math.cos(getRotation()*2*Math.PI/360), getShipLocY()-30*Math.sin(getRotation()*2*Math.PI/360));
+            }
+            if(Math.abs(getVelY()) >= getMaxFlySpeed()){
+                setVelY(getMaxFlySpeed()*Integer.signum((int)getVelY()));
+                addRocketTrail(getShipLocX()-30*Math.cos(getRotation()*2*Math.PI/360), getShipLocY()-30*Math.sin(getRotation()*2*Math.PI/360));
+            }
         }
-        if(Math.abs(getVelX()) >= getMaxFlySpeed()){
-            //Set velocity to maximum velocity in correct direction
-            setVelX(getMaxFlySpeed()*Integer.signum((int)getVelX()));
-            addRocketTrail(getShipLocX()-30*Math.cos(getRotation()*2*Math.PI/360), getShipLocY()-30*Math.sin(getRotation()*2*Math.PI/360));
-        }
-        if(Math.abs(getVelY()) >= getMaxFlySpeed()){
-            setVelY(getMaxFlySpeed()*Integer.signum((int)getVelY()));
-            addRocketTrail(getShipLocX()-30*Math.cos(getRotation()*2*Math.PI/360), getShipLocY()-30*Math.sin(getRotation()*2*Math.PI/360));
-        }
+
     }
 
     private void debugHealthHack(){
@@ -489,7 +492,7 @@ public class Player extends Object implements DamageTaker
             spawnRate--;
         }  
     }
-    
+
     private long tick = 0;
     private long time = System.currentTimeMillis();
     //Display debug info such as x,y coords, velocities, star count, health
@@ -511,7 +514,7 @@ public class Player extends Object implements DamageTaker
 
             SPACE.showText("Health: "+ getHealth(), x, 150);
             SPACE.showText("Weapon: "+ SPACE.getWeapon(), x, 175);
-            
+
             SPACE.showText("Tick: "+ tick*1000/(curTime - time), x, 200);
         }
     }   
@@ -714,7 +717,7 @@ public class Player extends Object implements DamageTaker
             {
                 if (weaponLV == 6)
                 {
-                   weaponLV = 0;
+                    weaponLV = 0;
                 }
                 else
                 {
