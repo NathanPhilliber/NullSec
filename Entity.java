@@ -15,6 +15,7 @@ public class Entity extends SpaceObject implements DamageTaker
      * CLASS VARIABLES
      * 
      *********************************************************/
+
     private double aggression = 0.0;
     private double health = 100.0;
     private double maxHealth = 100.0;
@@ -96,10 +97,19 @@ public class Entity extends SpaceObject implements DamageTaker
      * 
      *********************************************************/
 
+     
+     
+     //FIX PLAYER X AND PLAYERY IN CIRCLETARGET
+     
+     
+     
+     
+     
+     
+     
     public Entity(){
         super();
-        space = (Space) getWorld();
-        ship = space.getShip();
+
         setIsPlayer(false);//forWEAPONS
 
         spawnX = getX();
@@ -126,17 +136,20 @@ public class Entity extends SpaceObject implements DamageTaker
 
     public void act() 
     {
-        Space SPACE = (Space) getWorld();
-        if(!SPACE.getIsPaused())
+        //Space SPACE = (Space) getWorld();
+        if(space == null){
+            
+        }
+        else if(!space.getIsPaused())
         {
             super.act();
 
             firstTime();
+            
             damageBar.updateDamage(getHealth(), getMaxHealth());
             runQueue();
             checkDead();
 
-            
             modeActions();
             decayIfFar();
 
@@ -165,14 +178,10 @@ public class Entity extends SpaceObject implements DamageTaker
 
         }
 
-        Space space = (Space) getWorld();
-        Ship ship = space.getShip();
-
         switch(getMode()){
             case EXPLORE_MODE:
 
             if(hasMoreActions() == false){
-                //System.out.println("Adding more actions");
                 addAction("wait/" + Greenfoot.getRandomNumber(400));
                 addAction("MoveTo/" + (Greenfoot.getRandomNumber(maxExploreLength)-(maxExploreLength/2)+spawnX) + "/" + (Greenfoot.getRandomNumber(maxExploreLength)-(maxExploreLength/2)+spawnY));    
             }
@@ -181,7 +190,7 @@ public class Entity extends SpaceObject implements DamageTaker
             case GUARD_MODE:
             if(hasMoreActions() == false){
                 addAction("circleTarget/0/0/300");
-                
+
             }
             break;
             case ATTACK_MODE:
@@ -214,7 +223,6 @@ public class Entity extends SpaceObject implements DamageTaker
 
     public void addAction(String action){
         actionQueue.add(action);
-        //System.out.println(actionQueue);
     }
 
     //Needs to be run every tick. Checks to see if a command is already being run.
@@ -244,22 +252,20 @@ public class Entity extends SpaceObject implements DamageTaker
     private void translateCommand(String cmdS){
 
         String[] arg = cmdS.split("/");
-        //System.out.println(cmdS);
-        //moveTo method
-        //"moveTo/targetX/targetY"
+
         if(arg[0].equalsIgnoreCase("moveTo")){
             moveTo(Double.parseDouble(arg[1]),Double.parseDouble(arg[2]));
         }
         else if(arg[0].equalsIgnoreCase("shootPlayer")){
-            //shoot player code, what weapon and for how long
+
             shootPlayer(Integer.parseInt(arg[1]),Integer.parseInt(arg[2]), Integer.parseInt(arg[3]));
         }
         else if(arg[0].equalsIgnoreCase("wait")){
-            //System.out.println("WAIT");
+
             wait(Integer.parseInt(arg[1]));
         }
         else if(arg[0].equalsIgnoreCase("circleTarget")){
-            //System.out.println("WAIT");
+
             circleTarget(Integer.parseInt(arg[1]),Integer.parseInt(arg[2]),Integer.parseInt(arg[3]));
         }
 
@@ -287,7 +293,6 @@ public class Entity extends SpaceObject implements DamageTaker
         currentlyCircling = true;
         circleTargetX = x;
         circleTargetY = y;
-        //queueInUse(true);
         circleCycle = numOfCycles;
     }
 
@@ -303,25 +308,19 @@ public class Entity extends SpaceObject implements DamageTaker
 
             spaceMove(maxFlySpeed);
             int angleDif = angleRange(getRotation())-getTargetAngle(x,y);
-            if (180 < angleDif)
-            {
+
+            if (180 < angleDif){
                 angleDif -= 360;
             }
-            else if (-180 > angleDif)
-            {
+            else if (-180 > angleDif){
                 angleDif += 360;
             }
-            if (checkRange(250))
-            {
 
+            if (checkRange(250)){
                 setRotation(getRotation()+angleDif/80);
-
             }
-            else
-            {
-
+            else{
                 setRotation(getRotation()-angleDif/80);
-
             } 
         }
 
@@ -345,7 +344,6 @@ public class Entity extends SpaceObject implements DamageTaker
             }
             else{
                 currentWait--;
-                //System.out.println(currentWait);
             }
         }
 
@@ -360,19 +358,16 @@ public class Entity extends SpaceObject implements DamageTaker
     }
 
     private void takeAShot(){
-        Space space = (Space) getWorld();
-        Ship ship = space.getShip();
 
         if(shootProgress > 0 && isShooting){
             weaponDelay++;
+
             if(weaponDelay%cyclesBetweenShots == 0){
                 shootProgress--;
                 shoot(ship.getShipLocX(), ship.getShipLocY(), currentWeapon);
-
             }
         }
         else if(shootProgress == 0){
-            //System.out.println("COMMAND RECIEVED");
             queueInUse(false);
             weaponDelay = 0;
             shootProgress = -1;
@@ -405,7 +400,6 @@ public class Entity extends SpaceObject implements DamageTaker
     }
 
     private void moveTo(double x, double y){
-
         setReachedTarget(false);
         setTargetX(x);
         setTargetY(y);
@@ -413,15 +407,9 @@ public class Entity extends SpaceObject implements DamageTaker
 
     //Make progress towards desired location
     private void makeMoves(){
-        //
         if(reachedTarget()==false){
 
-            //System.out.println("Reached Target: " + reachedTarget());
-            Space space = (Space) getWorld();
-            Ship ship = space.getShip();
-
             turnTowards((int)(getTargetX()-ship.getSpaceX()), (int)(getTargetY()-ship.getSpaceY()));
-
             int angle = getRotation();
 
             addSpaceX(Math.cos(Math.toRadians(angle))*maxFlySpeed);
@@ -430,7 +418,6 @@ public class Entity extends SpaceObject implements DamageTaker
             if(checkClose()){
                 setReachedTarget(true);
                 queueInUse(false);
-                //System.out.println("DONE");
             }
         }
 
@@ -476,7 +463,7 @@ public class Entity extends SpaceObject implements DamageTaker
 
     private boolean checkRange(double r)
     {
-        return r >= (Math.sqrt(Math.pow(playerX-getSpaceX(),2)+Math.pow(playerY-getSpaceY(),2)));
+        return r >= (Math.sqrt(Math.pow(ship.getShipLocX()-getSpaceX(),2)+Math.pow(ship.getShipLocY()-getSpaceY(),2)));
     }
 
     public void setupMinimap()
@@ -575,8 +562,8 @@ public class Entity extends SpaceObject implements DamageTaker
 
     private void firstTime(){
         if(firstTime){
-            space = (Space) getWorld();
-            ship = space.getShip();
+            this.space = (Space) getWorld();
+            this.ship = space.getShip();
             damageBar = new DamageBar(this, -50, getHealth(), getMaxHealth());
             space.addObject(damageBar, 0, 0);
             //setupMinimap();
