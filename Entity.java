@@ -66,8 +66,8 @@ public class Entity extends SpaceObject implements DamageTaker
     private Ship ship;
 
     //player location
-    private double playerX;
-    private double playerY;
+    //private double playerX;
+    //private double playerY;
 
     public static final int EXPLORE_MODE = 0;
     public static final int GUARD_MODE = 1;
@@ -96,16 +96,6 @@ public class Entity extends SpaceObject implements DamageTaker
      * CONSTRUCTORS
      * 
      *********************************************************/
-
-     
-     
-     //FIX PLAYER X AND PLAYERY IN CIRCLETARGET
-     
-     
-     
-     
-     
-     
      
     public Entity(){
         super();
@@ -138,16 +128,18 @@ public class Entity extends SpaceObject implements DamageTaker
     {
         //Space SPACE = (Space) getWorld();
         if(space == null){
-            
+            space = (Space) getWorld();
         }
         else if(!space.getIsPaused())
         {
             super.act();
 
             firstTime();
-            
+
             damageBar.updateDamage(getHealth(), getMaxHealth());
+
             runQueue();
+
             checkDead();
 
             modeActions();
@@ -189,7 +181,7 @@ public class Entity extends SpaceObject implements DamageTaker
             break;
             case GUARD_MODE:
             if(hasMoreActions() == false){
-                addAction("circleTarget/0/0/300");
+                addAction("circleTarget/100/100/300");
 
             }
             break;
@@ -299,6 +291,7 @@ public class Entity extends SpaceObject implements DamageTaker
     public void circleTargetHelper(int x, int y)
     {
         if(currentlyCircling){
+
             circleCycle--;
 
             if(circleCycle <= 0){
