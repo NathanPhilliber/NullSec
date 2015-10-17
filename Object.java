@@ -12,9 +12,13 @@ public class Object extends SmoothMover
 {
 
     private boolean deleteMe = false;
+    private Space space;
 
     public void act() 
     {
+        if(space == null){
+            space = (Space) getWorld();
+        }
     } 
 
     /**
@@ -41,7 +45,7 @@ public class Object extends SmoothMover
         MouseInfo m = Greenfoot.getMouseInfo();
         if(m != null)
         {
-            return (int)Math.round(Math.atan2((m.getY()-getWorld().getHeight()/2),(m.getX()-getWorld().getWidth()/2))*360/(2*Math.PI));
+            return (int)Math.round(Math.atan2((m.getY()-space.getHeight()/2),(m.getX()-space.getWidth()/2))*360/(2*Math.PI));
         }
         return 0;
     }
@@ -60,7 +64,7 @@ public class Object extends SmoothMover
         {
             return true;
         }
-        else if (getX() >= getWorld().getWidth()+dist)
+        else if (getX() >= space.getWidth()+dist)
         {
             return true;
         }
@@ -68,7 +72,7 @@ public class Object extends SmoothMover
         {
             return true;
         }
-        else if (getY() >= getWorld().getHeight()+dist)
+        else if (getY() >= space.getHeight()+dist)
         {
             return true;
         }
@@ -80,7 +84,7 @@ public class Object extends SmoothMover
     }
 
     public boolean isOffscreen(){
-        if((getX() < 0 || getX() > getWorld().getWidth()) || (getY() < 0 || getY() > getWorld().getHeight())){
+        if((getX() < 0 || getX() > space.getWidth()) || (getY() < 0 || getY() > space.getHeight())){
             return true;
         }
         return false;
@@ -100,7 +104,7 @@ public class Object extends SmoothMover
         {
             return true;
         }
-        else if (getX() >= getWorld().getWidth()-1)
+        else if (getX() >= space.getWidth()-1)
         {
             return true;
         }
@@ -108,7 +112,7 @@ public class Object extends SmoothMover
         {
             return true;
         }
-        else if (getY() >= getWorld().getHeight()-1)
+        else if (getY() >= space.getHeight()-1)
         {
             return true;
         }
@@ -120,35 +124,37 @@ public class Object extends SmoothMover
     //john end
 
     public void addExplosion(double x, double y){
-        World world = getWorld();
+        
         for (int i = 0; i<13; i++)
         {
-            world.addObject(new Particle(x, y, 8, 6, 10, 6, 20, 0,"images/exPart1.png"), 0, 0);
-            world.addObject(new Particle(x, y, 20, 6, 17, 6, 20, 0,"images/exPart2.png"), 0, 0);
-            world.addObject(new Particle(x, y, 10, 6, 7, 6, 10, 95, "images/spark1.png"), 0, 0);
-            world.addObject(new Particle(x, y, 10, 6, 7, 6, 10, 95, "images/smoke1.png"), 0, 0);
+            space.addObject(new Particle(x, y, 8, 6, 10, 6, 20, 0,"images/exPart1.png"), 0, 0);
+            space.addObject(new Particle(x, y, 20, 6, 17, 6, 20, 0,"images/exPart2.png"), 0, 0);
+            space.addObject(new Particle(x, y, 10, 6, 7, 6, 10, 95, "images/spark1.png"), 0, 0);
+            space.addObject(new Particle(x, y, 10, 6, 7, 6, 10, 95, "images/smoke1.png"), 0, 0);
         }
         GreenfootSound explodeSound = new GreenfootSound("sounds/explode1.mp3");
         explodeSound.play();
     }
 
     public void addRocketTrail(double x, double y){
-        World world = getWorld();
+        
 
-        world.addObject(new Particle(x, y, 10, 6, 7, 6, 10, 95, "images/spark1.png"), 0, 0);
-        world.addObject(new Particle(x, y, 10, 6, 7, 6, 10, 95, "images/smoke1.png"), 0, 0);
+        space.addObject(new Particle(x, y, 10, 6, 7, 6, 10, 95, "images/spark1.png"), 0, 0);
+        space.addObject(new Particle(x, y, 10, 6, 7, 6, 10, 95, "images/smoke1.png"), 0, 0);
         //double startX, double startY, int straightness, double radius, int lifetime, double particleSpeed, int lifetimeRandom,int angle, String image)
     }
 
     public void addFire(double x, double y){
-        World world = getWorld();
-        world.addObject(new Particle(x, y, 10, 6, 5, 3, 15, 50,"images/firesparks.png"), 0, 0);
+        
+        space.addObject(new Particle(x, y, 10, 6, 5, 3, 15, 50,"images/firesparks.png"), 0, 0);
     }
 
     public void addMineTicker(double x, double y){
-        World world = getWorld();
-        world.addObject(new Particle(x, y, 10, 6, 5, 3, 15, 95,"images/spark1.png"), 0, 0);
+        
+        space.addObject(new Particle(x, y, 10, 6, 5, 3, 15, 95,"images/spark1.png"), 0, 0);
     }
+    
+    
 
     public void scheduleRemoval(){
         deleteMe = true;
@@ -156,7 +162,7 @@ public class Object extends SmoothMover
 
     public void checkRemoval(){
         if(deleteMe){
-            getWorld().removeObject(this);
+            space.removeObject(this);
         }
     }
 
@@ -240,7 +246,7 @@ public class Object extends SmoothMover
     public void pause(boolean isPaused)
     {
 
-        List<Actor> actors = getWorld().getObjects(null);
+        List<Actor> actors = space.getObjects(null);
 
         if(isPaused == true)
         {
@@ -254,22 +260,22 @@ public class Object extends SmoothMover
     public void dockMenu()
     {
 
-        Space world = (Space) getWorld();
-        world.setPause = true;
+        
+        space.setPause = true;
 
-        world.addObject(new MenuBG(), world.getWidth()/2, world.getHeight()/2);
-        world.addObject(new MenuMain(), world.getWidth()/2, world.getHeight()/2);
-        world.addObject(new MenuYes(), world.getWidth()/2 - 100, world.getHeight()/2);
-        world.addObject(new MenuNo(), world.getWidth()/2+100, world.getHeight()/2);
+        space.addObject(new MenuBG(), space.getWidth()/2, space.getHeight()/2);
+        space.addObject(new MenuMain(), space.getWidth()/2, space.getHeight()/2);
+        space.addObject(new MenuYes(), space.getWidth()/2 - 100, space.getHeight()/2);
+        space.addObject(new MenuNo(), space.getWidth()/2+100, space.getHeight()/2);
 
     }
 
     public void removeDockMenu()
     {
-        Space world = (Space) getWorld();
-        world.setPause = false;
-        List<DockMenu> dockMenu = getWorld().getObjects(DockMenu.class);
-        getWorld().removeObjects(dockMenu);
+       
+        space.setPause = false;
+        List<DockMenu> dockMenu = space.getObjects(DockMenu.class);
+        space.removeObjects(dockMenu);
 
     }
     /*****************************************************************************
@@ -327,30 +333,30 @@ public class Object extends SmoothMover
 
     private void spawnProjectile(int angle,double X,double Y)
     {
-        getWorld().addObject(new Projectile(angle, getIsPlayer(), projectileDamage, X, Y), getX(), getY());
+        space.addObject(new Projectile(angle, getIsPlayer(), projectileDamage, X, Y), getX(), getY());
     }
 
     protected void beam(int angle,int LV,double X,double Y)
     {
         for (int i=0; i<=10*(LV+1); i++)
         {
-            getWorld().addObject(new Beam(angle, getIsPlayer(), beamDamage, X, Y), (int)Math.round(getX()+i*8*Math.cos(angle*2*Math.PI/360)), (int)Math.round(getY()+i*8*Math.sin(angle*2*Math.PI/360)));
+            space.addObject(new Beam(angle, getIsPlayer(), beamDamage, X, Y), (int)Math.round(getX()+i*8*Math.cos(angle*2*Math.PI/360)), (int)Math.round(getY()+i*8*Math.sin(angle*2*Math.PI/360)));
         }
     }
 
     protected void missile(int angle,int LV,double X,double Y)
     {
-        getWorld().addObject(new Missile(angle, getIsPlayer(), missileDamage, X, Y), getX(), getY());
+        space.addObject(new Missile(angle, getIsPlayer(), missileDamage, X, Y), getX(), getY());
     }
 
     protected void mine(int angle,int LV,double X,double Y)
     {
-        getWorld().addObject(new Mine(angle, true, X, Y, mineDamage, mineRange), getX(), getY());
+        space.addObject(new Mine(angle, true, X, Y, mineDamage, mineRange), getX(), getY());
     }
 
     protected void fireball(int angle,int LV,double X,double Y)
     {
-        getWorld().addObject(new Fireball(angle, true, fireballDamage, X, Y), getX(), getY());
+        space.addObject(new Fireball(angle, true, fireballDamage, X, Y), getX(), getY());
     }
 
     protected void plasmaBall(int angle,int LV,double X,double Y)
@@ -375,7 +381,7 @@ public class Object extends SmoothMover
 
     private void spawnPlasmaBall(int angle,double X,double Y)
     {
-        getWorld().addObject(new PlasmaBall(angle, true, plasmaBallDamage, X, Y), getX(), getY());
+        space.addObject(new PlasmaBall(angle, true, plasmaBallDamage, X, Y), getX(), getY());
     }
 
     private boolean rMButton = false;

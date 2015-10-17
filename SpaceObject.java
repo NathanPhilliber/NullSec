@@ -31,6 +31,7 @@ public class SpaceObject extends Object
 
     //Called every tick, updates object position relative to ship coords
     public void act(){
+        super.act();
         if(space == null){
             space = (Space) getWorld();
             ship = space.getShip();

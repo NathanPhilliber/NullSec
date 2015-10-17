@@ -70,6 +70,7 @@ public class Player extends Object implements DamageTaker
     //Updates health
     public void act() 
     {
+        super.act();
         Space SPACE = (Space) getWorld();
         if(!SPACE.getIsPaused())
         {
