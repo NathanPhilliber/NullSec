@@ -16,7 +16,7 @@ public class AlienShip extends Entity
     public AlienShip(double x, double y){
         super(x,y);
 
-        projectileDamage = .1;
+        projectileDamage = 1.0;
         missileDamage = 1.0;
     }
 

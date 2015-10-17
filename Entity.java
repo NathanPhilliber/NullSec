@@ -65,10 +65,6 @@ public class Entity extends SpaceObject implements DamageTaker
     private Space space;
     private Ship ship;
 
-    //player location
-    //private double playerX;
-    //private double playerY;
-
     public static final int EXPLORE_MODE = 0;
     public static final int GUARD_MODE = 1;
     public static final int ATTACK_MODE = 2;
@@ -115,7 +111,8 @@ public class Entity extends SpaceObject implements DamageTaker
         setTargetY(y);
         spawnX =(int) x;
         spawnY =(int) y;
-        setMode(1);
+        
+        setMode(2); //delete this
     }
 
     /**********************************************************
@@ -129,6 +126,7 @@ public class Entity extends SpaceObject implements DamageTaker
         //Space SPACE = (Space) getWorld();
         if(space == null){
             space = (Space) getWorld();
+            ship = space.getShip();
         }
         else if(!space.getIsPaused())
         {
@@ -171,7 +169,7 @@ public class Entity extends SpaceObject implements DamageTaker
         }
 
         switch(getMode()){
-            case EXPLORE_MODE:
+            case EXPLORE_MODE: /***************** EXPLORE MODE */
 
             if(hasMoreActions() == false){
                 addAction("wait/" + Greenfoot.getRandomNumber(400));
@@ -179,15 +177,23 @@ public class Entity extends SpaceObject implements DamageTaker
             }
 
             break;
-            case GUARD_MODE:
+            
+            case GUARD_MODE: /***************** GUARD MODE */
             if(hasMoreActions() == false){
-                addAction("circleTarget/100/100/300");
-
+                addAction("circleTarget/"+ spawnX + "/" + spawnY +"/300");
+                
             }
             break;
-            case ATTACK_MODE:
+            
+            case ATTACK_MODE: /***************** ATTACK MODE */
+            if(hasMoreActions() == false){
+                addAction("circleTarget/"+ (int)ship.getShipLocX() + "/" + (int)ship.getShipLocY() +"/" + Greenfoot.getRandomNumber(300));
+                addAction("shootPlayer/0/10/5");
+                
+            }
             break;
-            default:
+            
+            default: /***************** DEFAULT */
             System.out.println("NO MODE SPECIFIED");
             break;
 
