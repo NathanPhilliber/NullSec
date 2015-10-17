@@ -62,8 +62,6 @@ public class Entity extends SpaceObject implements DamageTaker
     protected int spawnY;
 
     // End Minimap vars
-    private Space space;
-    private Ship ship;
 
     public static final int EXPLORE_MODE = 0;
     public static final int GUARD_MODE = 1;
@@ -87,6 +85,8 @@ public class Entity extends SpaceObject implements DamageTaker
 
     private boolean currentlyWaiting = false;
 
+    private int circleTargetRadius = 250;
+    
     /**********************************************************
      * 
      * CONSTRUCTORS
@@ -187,8 +187,9 @@ public class Entity extends SpaceObject implements DamageTaker
             
             case ATTACK_MODE: /***************** ATTACK MODE */
             if(hasMoreActions() == false){
-                addAction("circleTarget/"+ (int)ship.getShipLocX() + "/" + (int)ship.getShipLocY() +"/" + Greenfoot.getRandomNumber(300));
+                addAction("circleTarget/"+ (int)ship.getShipLocX() + "/" + (int)ship.getShipLocY() +"/" + Greenfoot.getRandomNumber(300)+"/80");
                 addAction("shootPlayer/0/10/5");
+                
                 
             }
             break;
@@ -287,11 +288,16 @@ public class Entity extends SpaceObject implements DamageTaker
      * 
      *********************************************************/
 
-    public void circleTarget(int x, int y, int numOfCycles){
+    public void circleTarget(int x, int y, int numOfCycles, int radius){
         currentlyCircling = true;
         circleTargetX = x;
         circleTargetY = y;
         circleCycle = numOfCycles;
+        circleTargetRadius = radius;
+    }
+    
+    public void circleTarget(int x, int y, int numOfCycles){
+        circleTarget(x,y,numOfCycles,250);
     }
 
     public void circleTargetHelper(int x, int y)
@@ -315,7 +321,7 @@ public class Entity extends SpaceObject implements DamageTaker
                 angleDif += 360;
             }
 
-            if (checkRange(250)){
+            if (checkRange(circleTargetRadius)){
                 setRotation(getRotation()+angleDif/80);
             }
             else{

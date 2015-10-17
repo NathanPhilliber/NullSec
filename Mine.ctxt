@@ -5,7 +5,6 @@ comment1.params=angle\ isPlayer\ x\ y\ damage\ range
 comment1.target=Mine(int,\ boolean,\ double,\ double,\ double,\ int)
 comment2.params=
 comment2.target=void\ time()
-comment2.text=\n\ \ \ \ public\ void\ collision()\n\ \ \ \ {\n\ \ \ \ if\ (checkCollision())\n\ \ \ \ {\n\ \ \ \ //explode();\n\ \ \ \ }\n\ \ \ \ }\n
 comment3.params=
 comment3.target=void\ explode()
 numComments=4

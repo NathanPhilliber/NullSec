@@ -55,8 +55,7 @@ public class BackgroundStar extends SpaceObject
     //Checks how close star is to player ship via approximation by pythagorean theorem
     //If the star is far away (off screen) it will delete itself
     public void checkIfClosePlayer(){
-        Space space = (Space) getWorld();
-        Ship ship = space.getShip();
+        
         
         if(Math.sqrt((ship.getSpaceX()-getSpaceX())*(ship.getSpaceX()-getSpaceX())+
         (ship.getSpaceY()-getSpaceY())*(ship.getSpaceY()-getSpaceY()))>1000.0){

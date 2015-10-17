@@ -12,6 +12,11 @@ public class SpaceObject extends Object
 
     private double spaceX;
     private double spaceY;
+
+    protected Space space;
+    protected Ship ship;
+
+    private boolean firstTime = true;
     //Default constructor, spawns object at 0,0
     public SpaceObject(){
         this(0.0,0.0);
@@ -26,36 +31,28 @@ public class SpaceObject extends Object
 
     //Called every tick, updates object position relative to ship coords
     public void act(){
-        Space theWorld = (Space) getWorld();
-        if(!theWorld.isPaused)
-        {
-            updatePosition();
+        if(space == null){
+            space = (Space) getWorld();
+            ship = space.getShip();
         }
+        else{
+            if(!space.isPaused)
+            {
+                updatePosition();
+            }
+        }
+
     }   
 
-    /*****************************************************************************************************
-     * ***************************************************************************************************
-     * ***************************************************************************************************
-     * ***************************************************************************************************
-     * MINIMAP
-     * 
-     * 
-     * 
-     * 
-     * ***************************************************************************************************
-     * ***************************************************************************************************
-     * ***************************************************************************************************
-     * ***************************************************************************************************
-     */
     //Minimap Vars
     private double mpRatio = 10;
     private double mpRatioX = 5.5*mpRatio;
     private double mpRatioY = 3.23*mpRatio;
     private int mpRadius = 90;
+
     protected void miniMap(Actor object)
     {
-        Space SPACE = (Space) getWorld();
-        Ship ship = SPACE.getShip();
+
         int x = (int)(800+(getSpaceX() - ship.getSpaceX()-540)/mpRatioX);
         int y = (int)(405+(getSpaceY() - ship.getSpaceY()-270)/mpRatioY);
         if (mpRadius>=Math.sqrt(Math.pow(x-800,2)+Math.pow(y-405,2)))
@@ -66,8 +63,6 @@ public class SpaceObject extends Object
 
     //Moves the objects according to the ship's coords
     public void updatePosition(){
-        Space SPACE = (Space) getWorld();
-        Ship ship = SPACE.getShip();
 
         setLocation(getSpaceX() - ship.getSpaceX(), getSpaceY() - ship.getSpaceY());
     }
@@ -104,4 +99,5 @@ public class SpaceObject extends Object
         addSpaceX(speed*Math.cos(getRotation()*2*Math.PI/360));
         addSpaceY(speed*Math.sin(getRotation()*2*Math.PI/360));
     }
+
 }

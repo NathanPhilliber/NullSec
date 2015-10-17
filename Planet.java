@@ -23,17 +23,5 @@ public class Planet extends SpaceObject
         //checkDock();
     }
     
-    /*
-    public void checkDock()
-    {
-        if(Greenfoot.isKeyDown("e"))
-        {
-            if(touch(Player.class)  && firstPass)
-            {
-                dockMenu();
-                firstPass = false;
-            }
-        }
-    }
-    */
+
 }
