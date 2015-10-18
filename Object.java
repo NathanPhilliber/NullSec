@@ -12,12 +12,14 @@ public class Object extends SmoothMover
 {
 
     private boolean deleteMe = false;
-    private Space space;
+    protected Space space;
+    protected Ship ship;
 
     public void act() 
     {
         if(space == null){
             space = (Space) getWorld();
+            ship = space.getShip();
         }
     } 
 

@@ -47,6 +47,7 @@ public class Player extends Object implements DamageTaker
     private boolean firstTime = true;
 
     private int spawnRate = 100;  
+
     //Constructor, spawns player at 0,0
     public Player(){
         this(0,0);
@@ -77,8 +78,12 @@ public class Player extends Object implements DamageTaker
             firstTime();
             fly();
             showDebug(true);
+
             scrollWeapon();
-            addAsteroid();
+
+            spawnAsteroid();
+            //addAsteroid();
+
             generateStars(starDensity);
             //generateNebulas(nebulaDensity);
             damageBar.updateDamage(getHealth(), getMaxHealth());
@@ -458,40 +463,61 @@ public class Player extends Object implements DamageTaker
         }
     }
 
+    /*
     public void addAsteroid()
     {
-        if(spawnRate == 0)
-        {
-            int size = Greenfoot.getRandomNumber(3);
+    if(spawnRate == 0)
+    {
+    int size = Greenfoot.getRandomNumber(3);
 
-            int areay = getWorld().getHeight();
-            int areax = getWorld().getWidth();
-            int topBot = Greenfoot.getRandomNumber(1);
-            int x = (Greenfoot.getRandomNumber(3)+2 % 2 == 0) ? -50 : areax + 50;
-            int y = Greenfoot.getRandomNumber(areay);
+    int areay = getWorld().getHeight();
+    int areax = getWorld().getWidth();
+    int topBot = Greenfoot.getRandomNumber(1);
+    int x = (Greenfoot.getRandomNumber(3)+2 % 2 == 0) ? -50 : areax + 50;
+    int y = Greenfoot.getRandomNumber(areay);
 
-            if(size == 0)
-            {
-                Asteroid1 asteroidS = new Asteroid1();
-                getWorld().addObject(asteroidS, x, y);
-            }
-            if(size == 1)
-            {
-                Asteroid2 asteroidM = new Asteroid2();
-                getWorld().addObject(asteroidM, x, y);
-            }
-            if(size == 2)
-            {
-                Asteroid3 asteroidB = new Asteroid3();
-                getWorld().addObject(asteroidB, x, y);
-            }
-            spawnRate = 100;
+    if(size == 0)
+    {
+    Asteroid1 asteroidS = new Asteroid1();
+    getWorld().addObject(asteroidS, x, y);
+    }
+    if(size == 1)
+    {
+    Asteroid2 asteroidM = new Asteroid2();
+    getWorld().addObject(asteroidM, x, y);
+    }
+    if(size == 2)
+    {
+    Asteroid3 asteroidB = new Asteroid3();
+    getWorld().addObject(asteroidB, x, y);
+    }
+    spawnRate = 100;
 
+    }
+    else
+    {
+    spawnRate--;
+    }  
+    }
+     */
+
+    private int asteroidSpawnChance = 60;
+
+    public void spawnAsteroid(){
+        if(Greenfoot.getRandomNumber(asteroidSpawnChance) == 0){
+            switch(Greenfoot.getRandomNumber(3)){
+                case 0:
+                space.addObject(new AsteroidLarge(ship.getShipLocX()+700*getPosNeg(),ship.getShipLocY()+700*getPosNeg(),Greenfoot.getRandomNumber(360),10.0),-10,-10);
+                break;
+                case 1:
+                space.addObject(new AsteroidMedium(ship.getShipLocX()+700*getPosNeg(),ship.getShipLocY()+700*getPosNeg(),Greenfoot.getRandomNumber(360),10.0),-10,-10);            
+                break;
+                case 2:
+                space.addObject(new AsteroidSmall(ship.getShipLocX()+700*getPosNeg(),ship.getShipLocY()+700*getPosNeg(),Greenfoot.getRandomNumber(360),10.0),-10,-10);            
+                break;
+            }
         }
-        else
-        {
-            spawnRate--;
-        }  
+
     }
 
     private long tick = 0;

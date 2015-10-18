@@ -165,7 +165,7 @@ public class Space extends World
         
         
         
-        //System.out.println(numberOfObjects());
+        System.out.println(numberOfObjects());
         
         
         if(!readPause)
