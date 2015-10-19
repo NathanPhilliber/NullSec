@@ -12,6 +12,7 @@ public class Asteroid extends SpaceObject implements DamageTaker
     private double speed;
     protected double health = 5.0;
     
+    
     public Asteroid(double x, double y, int rotation, double speed){
         super(x,y);
         this.speed = speed;
@@ -22,12 +23,16 @@ public class Asteroid extends SpaceObject implements DamageTaker
     {
        super.act();
        spaceMove(speed);
+       checkCollision();
        checkIfFar();
+       
+       
+       checkRemoval();
     }
     
     public void checkIfFar(){
         if(isOffEdge(800)){
-            space.removeObject(this);
+            scheduleRemoval();
         }
     }
     
@@ -35,5 +40,18 @@ public class Asteroid extends SpaceObject implements DamageTaker
         return true;
     }
     
+    public boolean checkCollision(){
+        Player obj = (Player)getOneIntersectingObject(Player.class);  
+            if(obj != null && touch(obj)){
+                obj.getHit(getDamage());
+                scheduleRemoval();
+
+                return true;
+            }
+            return false;
+    }
     
+    public double getDamage(){
+        return 0.0;
+    }
 }

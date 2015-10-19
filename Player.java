@@ -46,7 +46,7 @@ public class Player extends Object implements DamageTaker
     //Used for in class operations
     private boolean firstTime = true;
 
-    private int spawnRate = 100;  
+    private int spawnRate = 120;  
 
     //Constructor, spawns player at 0,0
     public Player(){

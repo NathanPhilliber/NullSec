@@ -13,6 +13,8 @@ public class AsteroidMedium extends Asteroid
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
 
+    protected double damage = 7.0;
+    
     public AsteroidMedium(double x, double y, int rotation, double speed){
         super(x,y,rotation,speed);
     }
@@ -36,5 +38,9 @@ public class AsteroidMedium extends Asteroid
             return true;
         }
         return false;
+    }
+    
+    public double getDamage(){
+        return damage;
     }
 }

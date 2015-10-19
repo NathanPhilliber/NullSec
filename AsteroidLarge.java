@@ -12,6 +12,8 @@ public class AsteroidLarge extends Asteroid
      * Act - do whatever the AsteroidLarge wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    protected double damage = 13.0;
+    
     public AsteroidLarge(double x, double y, int rotation, double speed){
         super(x,y,rotation,speed);
     }
@@ -35,5 +37,9 @@ public class AsteroidLarge extends Asteroid
             return true;
         }
         return false;
+    }
+    
+    public double getDamage(){
+        return damage;
     }
 }

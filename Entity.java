@@ -112,7 +112,7 @@ public class Entity extends SpaceObject implements DamageTaker
         spawnX =(int) x;
         spawnY =(int) y;
         
-        setMode(2); //delete this
+        setMode(EXPLORE_MODE); //delete this
     }
 
     /**********************************************************
@@ -167,12 +167,16 @@ public class Entity extends SpaceObject implements DamageTaker
             modeChanged = false;
 
         }
+        
+        if(getMode() == EXPLORE_MODE && ship.getHealth() - getHealth() >= 5){
+            setMode(ATTACK_MODE);
+        }
 
         switch(getMode()){
             case EXPLORE_MODE: /***************** EXPLORE MODE */
 
             if(hasMoreActions() == false){
-                addAction("wait/" + Greenfoot.getRandomNumber(400));
+                addAction("wait/" + Greenfoot.getRandomNumber(200));
                 addAction("MoveTo/" + (Greenfoot.getRandomNumber(maxExploreLength)-(maxExploreLength/2)+spawnX) + "/" + (Greenfoot.getRandomNumber(maxExploreLength)-(maxExploreLength/2)+spawnY));    
             }
 
@@ -187,8 +191,9 @@ public class Entity extends SpaceObject implements DamageTaker
             
             case ATTACK_MODE: /***************** ATTACK MODE */
             if(hasMoreActions() == false){
+                addAction("shootPlayer/0/10/7");
                 addAction("circleTarget/"+ (int)ship.getShipLocX() + "/" + (int)ship.getShipLocY() +"/" + Greenfoot.getRandomNumber(300)+"/80");
-                addAction("shootPlayer/0/10/5");
+                
                 
                 
             }
