@@ -501,19 +501,19 @@ public class Player extends Object implements DamageTaker
     }
      */
 
-    private int asteroidSpawnChance = 60;
+    private int asteroidSpawnChance = 90;
 
     public void spawnAsteroid(){
         if(Greenfoot.getRandomNumber(asteroidSpawnChance) == 0){
             switch(Greenfoot.getRandomNumber(3)){
                 case 0:
-                space.addObject(new AsteroidLarge(ship.getShipLocX()+700*getPosNeg(),ship.getShipLocY()+700*getPosNeg(),Greenfoot.getRandomNumber(360),10.0),-10,-10);
+                space.addObject(new AsteroidLarge(ship.getShipLocX()+700*getPosNeg(),ship.getShipLocY()+700*getPosNeg(),Greenfoot.getRandomNumber(360),4.0),-10,-10);
                 break;
                 case 1:
-                space.addObject(new AsteroidMedium(ship.getShipLocX()+700*getPosNeg(),ship.getShipLocY()+700*getPosNeg(),Greenfoot.getRandomNumber(360),10.0),-10,-10);            
+                space.addObject(new AsteroidMedium(ship.getShipLocX()+700*getPosNeg(),ship.getShipLocY()+700*getPosNeg(),Greenfoot.getRandomNumber(360),4.0),-10,-10);            
                 break;
                 case 2:
-                space.addObject(new AsteroidSmall(ship.getShipLocX()+700*getPosNeg(),ship.getShipLocY()+700*getPosNeg(),Greenfoot.getRandomNumber(360),10.0),-10,-10);            
+                space.addObject(new AsteroidSmall(ship.getShipLocX()+700*getPosNeg(),ship.getShipLocY()+700*getPosNeg(),Greenfoot.getRandomNumber(360),4.0),-10,-10);            
                 break;
             }
         }

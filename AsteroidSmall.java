@@ -21,4 +21,9 @@ public class AsteroidSmall extends Asteroid
         super.act();
         // Add your action code here.
     }    
+    
+    public boolean getHit(double damage){
+        space.removeObject(this);
+        return true;
+    }
 }

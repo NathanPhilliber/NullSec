@@ -11,16 +11,14 @@ import javax.swing.ImageIcon;
 import java.awt.event.*;
 import java.util.List;
 
-
 public class Space extends World
 {
-    
 
     
     private Ship ship;
-    
+
     boolean isDown = false;
-   
+
     MouseInfo mouse;
     int mx,my;
     int prevx,prevy;
@@ -31,23 +29,23 @@ public class Space extends World
     boolean firstpass = true;
     ScrollingListener scroll = new ScrollingListener(); //static
     JPanel panel = WorldHandler.getInstance().getWorldCanvas();
-    
+
     private boolean readPause = true;
     public boolean isPaused=false;
     public boolean setPause; //static 
-    
+
     //Contructor, spawn world
-    
+
     public Space()
     {    
         super(920, 540, 1, false); 
         prepare();
     }
+
     public void scrollListener()
     {
-      panel.addMouseWheelListener(scroll);
+        panel.addMouseWheelListener(scroll);
     }
-    
 
     private void prepare()
     {
@@ -57,10 +55,8 @@ public class Space extends World
 
         //addObject(new AlienShip(1000,1000), 1000,1000);
         addObject(new AlienShip(0,0), 0,0);
-  
-        
-        scrollListener();
 
+        scrollListener();
         // for (int i = 0; i<100; i++)
         // {
         //    addObject(new Particle(450, 270, 5, 5, 100, 10, 50), 0, 0);
@@ -107,7 +103,7 @@ public class Space extends World
         iconfire2.setLocation(47, 377);
         iconlaser.setLocation(47, 138);
         iconmine.setLocation(48, 299);
-        
+
         PlayerShip playermp = new PlayerShip();
         addObject(playermp, 800, 405);
 
@@ -125,19 +121,19 @@ public class Space extends World
 
         WeaponBG weaponbg5 = new WeaponBG();
         addObject(weaponbg5, 48, 380);
-        
+
         InsideMP insidemp = new InsideMP();
         addObject(insidemp, 800, 405);
-        
+
         OutsideMP outsidemp = new OutsideMP();
         addObject(outsidemp, 800, 405);
 
         PlanetOne planetOne = new PlanetOne(1000,1000);
         addObject(planetOne,0, 0);
-        
+
         PlanetOne planetOne2 = new PlanetOne(0,0);
         addObject(planetOne2,0, 0);
-        
+
         WeaponBG weaponbg6 = new WeaponBG();
         addObject(weaponbg6, 48, 460);
         MissleIcon missleicon = new MissleIcon();
@@ -156,22 +152,20 @@ public class Space extends World
         Cannon cannon = new Cannon();
         addObject(cannon, 443, 267);
         cannon.setLocation(438, 263);
-        
+
         addObject(new BeamHUD(), 460, 512);
     }
-    
+
     public void act()
     {
+
         
-        
-        
-        System.out.println(numberOfObjects());
-        
-        
+        //System.out.println(numberOfObjects());
+
         if(!readPause)
         {
-        if(setPause == true || Greenfoot.isKeyDown("Escape"))
-            readPause = true;
+            if(setPause == true || Greenfoot.isKeyDown("Escape"))
+                readPause = true;
         }
         if(readPause)
         {
@@ -183,7 +177,7 @@ public class Space extends World
             }
             if(setPause == true)
             {
-               isPaused = true;
+                isPaused = true;
             }
             if(setPause == false)
             {
@@ -196,20 +190,12 @@ public class Space extends World
             getWeapon();
         }
     }
-    
+
     public boolean getIsPaused()
     {
         return isPaused;
     }
-      
 
-
-    
-    
-    ///TRIG IS FUNNNN
-    
-    
-    
 
     
     public void tutorial()
@@ -227,8 +213,7 @@ public class Space extends World
         showText("numbers to change LV", 450, 360);
         showText("PRESS ANY KEY TO CONTINUE", 450, 440);
     }
-    
-    
+
     public void clearText()
     {
         if (Greenfoot.getKey() != null)
@@ -244,7 +229,7 @@ public class Space extends World
     public Ship getShip(){
         return ship;
     }
-    
+
     public double getWeapon()
     {
         tempWep += scroll.getScroll();
@@ -256,25 +241,25 @@ public class Space extends World
         {
             tempWep = 5;
         }
-        
+
         return tempWep;
     } 
-    
+
 }
 
 //Classception
 class ScrollingListener implements MouseWheelListener
 {
     double amount = 0;
-    
+
     public void mouseWheelMoved(MouseWheelEvent e){
         amount += e.getWheelRotation();  
         e.consume();
     }
-    
+
     public double getScroll(){
         double t = amount;
-        
+
         amount = 0;
         return t;
     }

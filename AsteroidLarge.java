@@ -21,4 +21,19 @@ public class AsteroidLarge extends Asteroid
         super.act();
         // Add your action code here.
     }   
+    
+    public boolean getHit(double damage){
+        health -= damage;
+        if(health <= 0){
+            space.removeObject(this);
+            
+            int times = Greenfoot.getRandomNumber(4)+1;
+            
+            for(int i = 0; i < times; i++){
+                space.addObject(new AsteroidMedium(getSpaceX(), getSpaceY(),Greenfoot.getRandomNumber(360), 3.0), 0,0);
+            }
+            return true;
+        }
+        return false;
+    }
 }
