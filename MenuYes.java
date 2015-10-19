@@ -12,11 +12,16 @@ public class MenuYes extends DockMenu
      * Act - do whatever the MenuYes wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    public static World newWorld = new Shop();
     public void act() 
     {
-        if(Greenfoot.mouseClicked(this))
+        checkClicked();
+    }
+    public void checkClicked()
+    {
+       if(Greenfoot.mouseClicked(this))
         {
-            Greenfoot.setWorld(new WorldOne());
+            Greenfoot.setWorld(newWorld);
         }
-    }    
+    }
 }

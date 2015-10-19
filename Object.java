@@ -14,7 +14,7 @@ public class Object extends SmoothMover
     private boolean deleteMe = false;
     protected Space space;
     protected Ship ship;
-
+      
     public void act() 
     {
         if(space == null){
@@ -274,7 +274,7 @@ public class Object extends SmoothMover
 
     public void removeDockMenu()
     {
-       
+        space = (Space) getWorld(); 
         space.setPause = false;
         List<DockMenu> dockMenu = space.getObjects(DockMenu.class);
         space.removeObjects(dockMenu);

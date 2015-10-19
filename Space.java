@@ -128,12 +128,18 @@ public class Space extends World
         OutsideMP outsidemp = new OutsideMP();
         addObject(outsidemp, 800, 405);
 
-        PlanetOne planetOne = new PlanetOne(1000,1000);
+        PlanetOne planetOne = new PlanetOne(0,0);
         addObject(planetOne,0, 0);
 
         PlanetOne planetOne2 = new PlanetOne(0,0);
         addObject(planetOne2,0, 0);
-
+        
+        PlanetTwo planetTwo = new PlanetTwo(500, 1000);
+        addObject(planetTwo,0, 0);
+        
+        ShopPlanet shopPlanet = new ShopPlanet(0,2000);
+        addObject(shopPlanet, 0, 0); 
+        
         WeaponBG weaponbg6 = new WeaponBG();
         addObject(weaponbg6, 48, 460);
         MissleIcon missleicon = new MissleIcon();
