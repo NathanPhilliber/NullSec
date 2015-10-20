@@ -66,6 +66,7 @@ public class Entity extends SpaceObject implements DamageTaker
     public static final int EXPLORE_MODE = 0;
     public static final int GUARD_MODE = 1;
     public static final int ATTACK_MODE = 2;
+    public static final int WAITFORPLAYER_MODE = 3;
 
     protected int maxExploreLength = 1000;
 
@@ -75,7 +76,7 @@ public class Entity extends SpaceObject implements DamageTaker
 
     private boolean modeChanged = false;
 
-    private int ticksToDie = 1000;
+    private int ticksToDie = 1000; //MAX TICK CYCLES BEFORE DEATH
     private int ticksAwayFromPlayer = ticksToDie;
 
     private int circleTargetX = 0;
@@ -86,6 +87,8 @@ public class Entity extends SpaceObject implements DamageTaker
     private boolean currentlyWaiting = false;
 
     private int circleTargetRadius = 250;
+    
+    protected int desiredMode = EXPLORE_MODE;
     
     /**********************************************************
      * 
@@ -112,7 +115,7 @@ public class Entity extends SpaceObject implements DamageTaker
         spawnX =(int) x;
         spawnY =(int) y;
         
-        setMode(EXPLORE_MODE); //delete this
+        setMode(WAITFORPLAYER_MODE); //delete this
     }
 
     /**********************************************************
@@ -198,6 +201,16 @@ public class Entity extends SpaceObject implements DamageTaker
                 
             }
             break;
+            
+            case WAITFORPLAYER_MODE:
+            if(hasMoreActions() == false){
+                addAction("wait/300");
+                resetTicks();
+                if(isOffscreen() == false){
+                    setMode(desiredMode);
+                }
+                
+            }
             
             default: /***************** DEFAULT */
             System.out.println("NO MODE SPECIFIED");
@@ -565,9 +578,13 @@ public class Entity extends SpaceObject implements DamageTaker
             }
         }
         else{
-            ticksAwayFromPlayer = ticksToDie;
+            resetTicks();
         }
 
+    }
+    
+    private void resetTicks(){
+        ticksAwayFromPlayer = ticksToDie;
     }
 
     private void firstTime(){

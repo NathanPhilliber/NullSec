@@ -1,9 +1,10 @@
 #Greenfoot properties
-#Mon Oct 19 17:52:08 PDT 2015
+#Mon Oct 19 20:02:11 PDT 2015
 target15.width=80
 target5.height=50
 dependency103.to=WorldOneFG
 class.Cannon.superclass=Player
+class.TutorialWorld.superclass=Space
 target53.y=310
 target53.x=120
 class.WeaponShopFG.image=BackgroundFront.png
@@ -1496,7 +1497,7 @@ target73.type=ClassTarget
 dependency134.from=AsteroidLarge
 target22.height=50
 target75.y=490
-world.lastInstantiated=Platformer
+world.lastInstantiated=TutorialWorld
 target75.x=10
 target7.height=50
 target35.width=80
@@ -1526,6 +1527,7 @@ target60.name=DamageBar
 target64.y=850
 target64.x=110
 version=2.7.1
+class.OuterSpace.superclass=Space
 dependency81.from=Object
 target1.width=80
 target39.naviview.expanded=true

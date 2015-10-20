@@ -46,8 +46,8 @@ public class StartMenu extends World
         Exit exit = new Exit();
         addObject(exit, 460, 430);
         
-        IconSjip iconsjip = new IconSjip();
-        addObject(iconsjip, 325, 280);
+        IconShip iconship = new IconShip();
+        addObject(iconship, 325, 280);
         
     }
     //http://www.greenfoot.org/topics/730

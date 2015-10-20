@@ -80,9 +80,10 @@ public class PlatformPlayer extends PlatformObject
     
     private void jump()
     {
-        Actor block = getOneObjectAtOffset(10,10,null);
-        if (Greenfoot.isKeyDown("w") && block != null)
+        //Actor block = getOneObjectAtOffset(10,10,null);
+        if (Greenfoot.isKeyDown("space") && touch(Block.class))
         {
+            
             velY = -jumpSpeed;
         }
     }
@@ -107,10 +108,11 @@ public class PlatformPlayer extends PlatformObject
     
     private void collision()
     {
-        Actor block = getOneObjectAtOffset(15,15,null);
-        if (block != null && velY > 0)
+        //Actor block = getOneObjectAtOffset(15,15,null);
+        if (touch(Block.class))
         {
             velY = 0;
+            
         }
     }
     

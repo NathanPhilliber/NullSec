@@ -47,23 +47,16 @@ public class Space extends World
         panel.addMouseWheelListener(scroll);
     }
 
-    private void prepare()
+    protected void prepare()
     {
         isPaused=false;
         ship = new Ship(0,0);
-        addObject(ship, (int)getWidth()/2, (int)getHeight()/2);
-
-        //addObject(new AlienShip(1000,1000), 1000,1000);
-        addObject(new AlienShip(0,0), 0,0);
+        
 
         scrollListener();
-        // for (int i = 0; i<100; i++)
-        // {
-        //    addObject(new Particle(450, 270, 5, 5, 100, 10, 50), 0, 0);
-        //}
-        tutorial();
+        
 
-        setPaintOrder(DockMenu.class, OutsideMP.class, EnemyShip.class, PlayerShip.class, PlanetMP.class, InsideMP.class, IconProjectile.class, IconFire.class, AlienShip.class, MissleIcon.class, IconPlasma.class, IconLaser.class, IconMine.class, WeaponBG.class, DamageBar.class, Cannon.class, Beam.class,  BeamHUD.class, Projectile.class, Missile.class, Ship.class, PlasmaBall.class, Mine.class, Fireball.class, Particle.class, Planet.class, BackgroundStar.class);
+        setPaintOrder(DockMenu.class, OutsideMP.class, EnemyShip.class, PlayerShip.class, PlanetMP.class, InsideMP.class, IconProjectile.class, IconFire.class, AlienShip.class, MissleIcon.class, IconPlasma.class, IconLaser.class, IconMine.class, WeaponBG.class, DamageBar.class, Cannon.class, Beam.class,  BeamHUD.class, Projectile.class, Missile.class, Ship.class, PlasmaBall.class, Mine.class, Fireball.class, Particle.class, Asteroid.class, Planet.class, BackgroundStar.class);
 
         IconMine iconmine = new IconMine();
         addObject(iconmine, 52, 294);
@@ -128,17 +121,7 @@ public class Space extends World
         OutsideMP outsidemp = new OutsideMP();
         addObject(outsidemp, 800, 405);
 
-        PlanetOne planetOne = new PlanetOne(0,0);
-        addObject(planetOne,0, 0);
 
-        PlanetOne planetOne2 = new PlanetOne(0,0);
-        addObject(planetOne2,0, 0);
-        
-        PlanetTwo planetTwo = new PlanetTwo(500, 1000);
-        addObject(planetTwo,0, 0);
-        
-        ShopPlanet shopPlanet = new ShopPlanet(0,2000);
-        addObject(shopPlanet, 0, 0); 
         
         WeaponBG weaponbg6 = new WeaponBG();
         addObject(weaponbg6, 48, 460);

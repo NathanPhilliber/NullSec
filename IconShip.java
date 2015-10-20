@@ -6,7 +6,7 @@ import greenfoot.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class IconSjip extends Menu
+public class IconShip extends Menu
 {
     /**
      * Act - do whatever the IconSjip wants to do. This method is called whenever
@@ -17,7 +17,7 @@ public class IconSjip extends Menu
 
     GreenfootSound sound;
 
-    public IconSjip(){
+    public IconShip(){
         sound = new GreenfootSound("sounds/AmbientSpace.wav");
         sound.playLoop();
     }
@@ -66,7 +66,7 @@ public class IconSjip extends Menu
             {
                 sound.stop();
 
-                Greenfoot.setWorld(new Space());
+                Greenfoot.setWorld(new TutorialWorld());
 
             }
             if(getY() == 430)
