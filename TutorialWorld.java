@@ -34,6 +34,10 @@ public class TutorialWorld extends Space
     {
         super.act();
     }
+    
+    public void clearCoins(){
+        removeObjects(getObjects(Gold.class));
+    }
 
 }
 

@@ -27,15 +27,22 @@ public class AsteroidLarge extends Asteroid
     public boolean getHit(double damage){
         health -= damage;
         if(health <= 0){
+            
+            int times = Greenfoot.getRandomNumber(4)+1;
+            int numCoins = Greenfoot.getRandomNumber(5)+1;
+            
+            for(int i = 0; i < times; i++){
+                space.addObject(new AsteroidMedium(getSpaceX(), getSpaceY(),Greenfoot.getRandomNumber(360), 3.0), 0,0);
+            }
+            
+            for(int i = 0; i < numCoins; i++){
+                space.addObject(new Gold(getSpaceX()+Greenfoot.getRandomNumber(20)-10, getSpaceY()+Greenfoot.getRandomNumber(20)-10, 1),-10,-10);
+            }
+            
             try{
                 space.removeObject(this);
             } catch(NullPointerException e){
                 System.out.println(e);
-            }
-            int times = Greenfoot.getRandomNumber(4)+1;
-
-            for(int i = 0; i < times; i++){
-                space.addObject(new AsteroidMedium(getSpaceX(), getSpaceY(),Greenfoot.getRandomNumber(360), 3.0), 0,0);
             }
             return true;
         }

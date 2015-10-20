@@ -102,6 +102,9 @@ public class TutorialObjectManager extends SpaceObject
 
             alien2.spawnX = (int)ship.getShipLocX()-45;
             alien2.spawnY = (int)ship.getShipLocY()-65;
+            
+            alien1.dropLoot = false;
+            alien2.dropLoot = false;
 
             alien1.addAction("moveTo/" + (ship.getShipLocX()+75) + "/" + (ship.getShipLocY()+80));
             alien2.addAction("moveTo/" + (ship.getShipLocX()-45) + "/" + (ship.getShipLocY()-65));
@@ -147,6 +150,8 @@ public class TutorialObjectManager extends SpaceObject
             }
             if(Gold.totalGold >= 10){
                 stage++;
+                TutorialWorld world = (TutorialWorld)getWorld();
+                world.clearCoins();
             }
         }
 

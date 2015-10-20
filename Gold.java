@@ -1,5 +1,5 @@
 import greenfoot.*;
-
+import java.util.List;
 /**
  * Write a description of class Gold here.
  * 
@@ -13,21 +13,23 @@ public class Gold extends SpaceObject
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public static int totalGold = 0;
-    
+
     public int value;
-    
+
     public Gold(double x, double y, int value){
         super(x,y);
         this.value = value;
     }
-    
+
     public void act() 
     {
         super.act();
     }   
-    
+
     public void pickUp(){
-       totalGold += value; 
-       getWorld().removeObject(this);
+        totalGold += value; 
+        getWorld().removeObject(this);
     }
+
+    
 }

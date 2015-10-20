@@ -299,7 +299,7 @@ public class Player extends Object implements DamageTaker
                 //thisIsATutorial = false;
             }
 
-            goldScore = new Counter("Space Dabloons: ");
+            goldScore = new Counter("Space Doubloons: ");
             getWorld().addObject(goldScore, SPACE.getWidth()-119, SPACE.getHeight()-22);
             firstTime = false;
         }

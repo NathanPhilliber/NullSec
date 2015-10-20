@@ -25,6 +25,7 @@ public class AsteroidSmall extends Asteroid
     }    
     
     public boolean getHit(double damage){
+        space.addObject(new Gold(getSpaceX()+Greenfoot.getRandomNumber(20)-10, getSpaceY()+Greenfoot.getRandomNumber(20)-10, 1),-10,-10);
         space.removeObject(this);
         return true;
     }

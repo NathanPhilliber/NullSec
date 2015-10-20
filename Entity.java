@@ -88,6 +88,8 @@ public class Entity extends SpaceObject implements DamageTaker
     private boolean currentlyWaiting = false;
 
     private int circleTargetRadius = 250;
+
+    public boolean dropLoot = true;
     
     public boolean isAlive = true;
 
@@ -151,10 +153,10 @@ public class Entity extends SpaceObject implements DamageTaker
 
             miniMap(new EnemyShip());
 
-
             if(isScheduledForRemoval()){
                 addExplosion(getSpaceX(), getSpaceY());
                 isAlive = false;
+                dropCoins();
             }
             checkRemoval();
         }
@@ -200,7 +202,6 @@ public class Entity extends SpaceObject implements DamageTaker
                 addAction("shootPlayer/0/10/7");
                 addAction("circleTarget/"+ (int)ship.getShipLocX() + "/" + (int)ship.getShipLocY() +"/" + Greenfoot.getRandomNumber(300)+"/80");
 
-                
             }
             break;
 
@@ -492,7 +493,6 @@ public class Entity extends SpaceObject implements DamageTaker
         return r >= (Math.sqrt(Math.pow(ship.getShipLocX()-getSpaceX(),2)+Math.pow(ship.getShipLocY()-getSpaceY(),2)));
     }
 
-
     /**********************************************************
      * 
      * HEALTH RELATED
@@ -565,6 +565,7 @@ public class Entity extends SpaceObject implements DamageTaker
         }
 
     }
+
     private void resetTicks(){
         ticksAwayFromPlayer = ticksToDie;
     }
@@ -598,4 +599,13 @@ public class Entity extends SpaceObject implements DamageTaker
         useDecay = false;
     }
 
+    public void dropCoins(){
+        if(dropLoot){
+            int numCoins = Greenfoot.getRandomNumber(10) + 1;
+            for(int i = 0; i < numCoins; i++){
+                space.addObject(new Gold(getSpaceX()+Greenfoot.getRandomNumber(30)-15, getSpaceY()+Greenfoot.getRandomNumber(30)-15, 1),-10,-10);
+            }
+        }
+
+    }
 }
