@@ -67,11 +67,14 @@ public class TutorialObjectManager extends SpaceObject
             setLocation(1000,1000);
         }
         
-        else if(currentTick == 300){
-            alien1 = new AlienShip(ship.getShipLocX()+100, ship.getShipLocY()+100);
-            alien2 = new AlienShip(ship.getShipLocX()-100, ship.getShipLocY()-100);
+        else if(currentTick == 2900){
+            alien1 = new AlienShip(ship.getShipLocX()+500, ship.getShipLocY()+500);
+            alien2 = new AlienShip(ship.getShipLocX()-500, ship.getShipLocY()-500);
             space.addObject(alien1, -10,-10);
             space.addObject(alien2, -10, -10);
+            
+            alien1.addAction("moveTo/" + (ship.getShipLocX()+50) + "/" + (ship.getShipLocY()+25));
+            alien2.addAction("moveTo/" + (ship.getShipLocX()-45) + "/" + (ship.getShipLocY()-65));
         }
     }    
 }
