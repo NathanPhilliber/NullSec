@@ -211,6 +211,7 @@ public class Entity extends SpaceObject implements DamageTaker
                 }
                 
             }
+            break;
             
             default: /***************** DEFAULT */
             System.out.println("NO MODE SPECIFIED");

@@ -47,6 +47,8 @@ public class Player extends Object implements DamageTaker
     private boolean firstTime = true;
 
     private int spawnRate = 120;  
+    
+    private TutorialObjectManager tutObj;
 
     //Constructor, spawns player at 0,0
     public Player(){
@@ -286,6 +288,15 @@ public class Player extends Object implements DamageTaker
             Space SPACE=(Space)getWorld();
             damageBar = new DamageBar(this, -30, getHealth(), getMaxHealth());
             SPACE.addObject(damageBar, 0, 0);
+            
+            if(getWorld() instanceof TutorialWorld){
+                tutObj = new TutorialObjectManager();
+                SPACE.addObject(tutObj,-10,-10);
+            }
+            else{
+                //thisIsATutorial = false;
+            }
+            
             firstTime = false;
         }
     }
