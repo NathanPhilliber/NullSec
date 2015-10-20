@@ -72,8 +72,8 @@ public class Player extends Object implements DamageTaker
     public void act() 
     {
         super.act();
-        Space SPACE = (Space) getWorld();
-        if(!SPACE.getIsPaused())
+        
+        if(!space.getIsPaused())
         {
             firstTime();
             fly();
