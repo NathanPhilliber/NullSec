@@ -317,6 +317,10 @@ public class Player extends Object implements DamageTaker
         }
         return false;
     }
+    
+    public void lookForGold(){
+        //COLLISION AND CALL PICKUP
+    }
 
     public double getSpaceX(){
         return spaceX;
