@@ -47,8 +47,10 @@ public class Player extends Object implements DamageTaker
     private boolean firstTime = true;
 
     private int spawnRate = 120;  
-    
+
     private TutorialObjectManager tutObj;
+
+    public Counter goldScore;
 
     //Constructor, spawns player at 0,0
     public Player(){
@@ -67,14 +69,13 @@ public class Player extends Object implements DamageTaker
         setVelY(0.0);
 
     }
-
     //Called every tick
     //Allows ship to "move" (changes coords), displays debug info and spawns stars
     //Updates health
     public void act() 
     {
         super.act();
-        
+
         if(!space.getIsPaused())
         {
             firstTime();
@@ -84,10 +85,11 @@ public class Player extends Object implements DamageTaker
             scrollWeapon();
 
             spawnAsteroid();
-            //addAsteroid();
+
+            lookForGold();
 
             generateStars(starDensity);
-            //generateNebulas(nebulaDensity);
+            generateNebulas(nebulaDensity);
             damageBar.updateDamage(getHealth(), getMaxHealth());
             debugHealthHack(); //Allows to add health via '[']' DELETE THIS BEFORE PUBLISH
             //checkDead();
@@ -288,7 +290,7 @@ public class Player extends Object implements DamageTaker
             Space SPACE=(Space)getWorld();
             damageBar = new DamageBar(this, -30, getHealth(), getMaxHealth());
             SPACE.addObject(damageBar, 0, 0);
-            
+
             if(getWorld() instanceof TutorialWorld){
                 tutObj = new TutorialObjectManager();
                 SPACE.addObject(tutObj,-10,-10);
@@ -296,7 +298,9 @@ public class Player extends Object implements DamageTaker
             else{
                 //thisIsATutorial = false;
             }
-            
+
+            goldScore = new Counter("Space Dabloons: ");
+            getWorld().addObject(goldScore, SPACE.getWidth()-119, SPACE.getHeight()-22);
             firstTime = false;
         }
     }
@@ -317,9 +321,21 @@ public class Player extends Object implements DamageTaker
         }
         return false;
     }
-    
+
     public void lookForGold(){
         //COLLISION AND CALL PICKUP
+        SpaceObject obj =(SpaceObject) getOneIntersectingObject(SpaceObject.class);
+        if(obj != null){
+            if(obj instanceof Gold){
+                if(touch(obj)){ //Don't run this disgusting function unless neceessary
+                    Gold ent = (Gold) obj;
+                    ent.pickUp();
+                    goldScore.setValue(Gold.totalGold);
+
+                }
+            }
+        }
+
     }
 
     public double getSpaceX(){

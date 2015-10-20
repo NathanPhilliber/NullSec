@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Tue Oct 20 11:25:34 PDT 2015
+#Tue Oct 20 14:45:10 PDT 2015
 target15.width=80
 target5.height=50
 dependency103.to=WorldOneFG
@@ -265,6 +265,7 @@ target26.x=10
 target23.height=50
 target38.editor.height=700
 dependency63.type=UsesDependency
+class.Gold.image=gold.png
 target45.width=80
 target41.showInterface=false
 class.DamageBar.superclass=Object

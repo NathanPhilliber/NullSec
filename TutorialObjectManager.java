@@ -111,11 +111,45 @@ public class TutorialObjectManager extends SpaceObject
             if(alien1 != null && alien2 != null){
                 if(alien1.isAlive == false && alien2.isAlive == false){
                     stage++;
+                    currentTick = 0;
                 }
             }
         }
-        
-            
 
+        else if(currentTick == 75 && stage == 11){
+            setImage("images/TutorialSlide6.png");
+            setLocation(450,110);
+            stage++;
+        }
+        else if(Greenfoot.isKeyDown("e") && stage == 12){
+            setLocation(1000,1000);
+            currentTick = 0;
+            stage++;
+        }
+        
+        else if(currentTick == 75 && stage == 13){
+            setImage("images/TutorialSlide7.png");
+            setLocation(450,110);
+            stage++;
+        }
+        else if(Greenfoot.isKeyDown("e") && stage == 14){
+            setLocation(1000,1000);
+            currentTick = 0;
+            stage++;
+        }
+        
+        else if(stage == 15){
+            if(currentTick % 100 == 0){
+                for(int i = 0; i < 5; i++){
+                    space.addObject(new Gold((ship.getShipLocX()+Greenfoot.getRandomNumber(1500)-750),(ship.getShipLocY()+Greenfoot.getRandomNumber(1500)-750), 1), -10, -10);
+                }
+                
+            }
+            if(Gold.totalGold >= 10){
+                stage++;
+            }
+        }
+
+            
     }    
 }

@@ -13,24 +13,27 @@ public class AsteroidLarge extends Asteroid
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     protected double damage = 13.0;
-    
+
     public AsteroidLarge(double x, double y, int rotation, double speed){
         super(x,y,rotation,speed);
     }
-    
+
     public void act() 
     {
         super.act();
         // Add your action code here.
     }   
-    
+
     public boolean getHit(double damage){
         health -= damage;
         if(health <= 0){
-            space.removeObject(this);
-            
+            try{
+                space.removeObject(this);
+            } catch(NullPointerException e){
+                System.out.println(e);
+            }
             int times = Greenfoot.getRandomNumber(4)+1;
-            
+
             for(int i = 0; i < times; i++){
                 space.addObject(new AsteroidMedium(getSpaceX(), getSpaceY(),Greenfoot.getRandomNumber(360), 3.0), 0,0);
             }
@@ -38,7 +41,7 @@ public class AsteroidLarge extends Asteroid
         }
         return false;
     }
-    
+
     public double getDamage(){
         return damage;
     }

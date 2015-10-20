@@ -16,8 +16,9 @@ public class Gold extends SpaceObject
     
     public int value;
     
-    public Gold(double x, double y){
+    public Gold(double x, double y, int value){
         super(x,y);
+        this.value = value;
     }
     
     public void act() 
