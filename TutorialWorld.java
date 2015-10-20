@@ -27,7 +27,7 @@ public class TutorialWorld extends Space
         super.prepare();
         addObject(getShip(), (int)getWidth()/2, (int)getHeight()/2);
 
-        addObject(new AlienShip(1000,1000),1000,1000);
+        
 
     }
     public void act()
