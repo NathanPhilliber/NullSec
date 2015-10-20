@@ -67,7 +67,7 @@ public class TutorialObjectManager extends SpaceObject
             setLocation(1000,1000);
         }
         
-        else if(currentTick == 2900){
+        else if(currentTick == 300){
             alien1 = new AlienShip(ship.getShipLocX()+100, ship.getShipLocY()+100);
             alien2 = new AlienShip(ship.getShipLocX()-100, ship.getShipLocY()-100);
             space.addObject(alien1, -10,-10);

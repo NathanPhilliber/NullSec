@@ -148,7 +148,7 @@ public class Entity extends SpaceObject implements DamageTaker
 
             miniMap(new EnemyShip());
 
-            updateMinimap();
+            
 
             if(isScheduledForRemoval()){
                 addExplosion(getSpaceX(), getSpaceY());
@@ -490,28 +490,7 @@ public class Entity extends SpaceObject implements DamageTaker
         return r >= (Math.sqrt(Math.pow(ship.getShipLocX()-getSpaceX(),2)+Math.pow(ship.getShipLocY()-getSpaceY(),2)));
     }
 
-    public void setupMinimap()
-    {
-
-        double minimapX = (getX()/mpRatioX) + 800-(167/mpRatio)/2 + spawnX/mpRatioX;
-        double minimapY = (getY()/mpRatioY) + 405-(167/mpRatio)/2 + spawnY/mpRatioY;
-
-        EnemyShip enemyShip = new EnemyShip();
-        getWorld().addObject(enemyShip, (int) minimapX, (int) minimapY);
-
-    }
-
-    public void updateMinimap()
-    {
-        double minimapX = (getX()/mpRatioX) + 800-(167/mpRatio)/2 + spawnX/mpRatioX;
-        double minimapY = (getY()/mpRatioY) + 405-(167/mpRatio)/2 + spawnY/mpRatioY;
-
-        List<Actor> actors = getWorld().getObjects(EnemyShip.class); 
-        for (Actor a : actors)
-        {
-            a.setLocation((int) minimapX, (int) minimapY);
-        }
-    }
+    
 
     /**********************************************************
      * 
