@@ -58,8 +58,8 @@ public class Entity extends SpaceObject implements DamageTaker
     private double mpRatioX = 5.5*mpRatio;
     private double mpRatioY = 3.23*mpRatio;
 
-    protected int spawnX;
-    protected int spawnY;
+    public int spawnX;
+    public int spawnY;
 
     // End Minimap vars
 
@@ -78,6 +78,7 @@ public class Entity extends SpaceObject implements DamageTaker
 
     private int ticksToDie = 1000; //MAX TICK CYCLES BEFORE DEATH
     private int ticksAwayFromPlayer = ticksToDie;
+    private boolean useDecay = true;
 
     private int circleTargetX = 0;
     private int circleTargetY = 0;;
@@ -88,14 +89,16 @@ public class Entity extends SpaceObject implements DamageTaker
 
     private int circleTargetRadius = 250;
     
+    public boolean isAlive = true;
+
     protected int desiredMode = EXPLORE_MODE;
-    
+
     /**********************************************************
      * 
      * CONSTRUCTORS
      * 
      *********************************************************/
-     
+
     public Entity(){
         super();
 
@@ -114,7 +117,7 @@ public class Entity extends SpaceObject implements DamageTaker
         setTargetY(y);
         spawnX =(int) x;
         spawnY =(int) y;
-        
+
         setMode(WAITFORPLAYER_MODE); //delete this
     }
 
@@ -148,10 +151,10 @@ public class Entity extends SpaceObject implements DamageTaker
 
             miniMap(new EnemyShip());
 
-            
 
             if(isScheduledForRemoval()){
                 addExplosion(getSpaceX(), getSpaceY());
+                isAlive = false;
             }
             checkRemoval();
         }
@@ -170,7 +173,7 @@ public class Entity extends SpaceObject implements DamageTaker
             modeChanged = false;
 
         }
-        
+
         if(getMode() == EXPLORE_MODE && ship.getHealth() - getHealth() >= 5){
             setMode(ATTACK_MODE);
         }
@@ -179,40 +182,39 @@ public class Entity extends SpaceObject implements DamageTaker
             case EXPLORE_MODE: /***************** EXPLORE MODE */
 
             if(hasMoreActions() == false){
-                addAction("wait/" + Greenfoot.getRandomNumber(200));
+                addAction("wait/" + Greenfoot.getRandomNumber(100));
                 addAction("MoveTo/" + (Greenfoot.getRandomNumber(maxExploreLength)-(maxExploreLength/2)+spawnX) + "/" + (Greenfoot.getRandomNumber(maxExploreLength)-(maxExploreLength/2)+spawnY));    
             }
 
             break;
-            
+
             case GUARD_MODE: /***************** GUARD MODE */
             if(hasMoreActions() == false){
                 addAction("circleTarget/"+ spawnX + "/" + spawnY +"/300");
-                
+
             }
             break;
-            
+
             case ATTACK_MODE: /***************** ATTACK MODE */
             if(hasMoreActions() == false){
                 addAction("shootPlayer/0/10/7");
                 addAction("circleTarget/"+ (int)ship.getShipLocX() + "/" + (int)ship.getShipLocY() +"/" + Greenfoot.getRandomNumber(300)+"/80");
-                
-                
+
                 
             }
             break;
-            
+
             case WAITFORPLAYER_MODE:
             if(hasMoreActions() == false){
-                addAction("wait/300");
+                addAction("wait/50");
                 resetTicks();
                 if(isOffscreen() == false){
                     setMode(desiredMode);
                 }
-                
+
             }
             break;
-            
+
             default: /***************** DEFAULT */
             System.out.println("NO MODE SPECIFIED");
             break;
@@ -314,7 +316,7 @@ public class Entity extends SpaceObject implements DamageTaker
         circleCycle = numOfCycles;
         circleTargetRadius = radius;
     }
-    
+
     public void circleTarget(int x, int y, int numOfCycles){
         circleTarget(x,y,numOfCycles,250);
     }
@@ -490,7 +492,6 @@ public class Entity extends SpaceObject implements DamageTaker
         return r >= (Math.sqrt(Math.pow(ship.getShipLocX()-getSpaceX(),2)+Math.pow(ship.getShipLocY()-getSpaceY(),2)));
     }
 
-    
 
     /**********************************************************
      * 
@@ -551,18 +552,19 @@ public class Entity extends SpaceObject implements DamageTaker
      * 
      *********************************************************/
     private void decayIfFar(){
-        if(isOffscreen()){
-            ticksAwayFromPlayer--;
-            if(ticksAwayFromPlayer < 0){
-                setHealth(0.0);
+        if(useDecay){
+            if(isOffscreen()){
+                ticksAwayFromPlayer--;
+                if(ticksAwayFromPlayer < 0){
+                    setHealth(0.0);
+                }
             }
-        }
-        else{
-            resetTicks();
+            else{
+                resetTicks();
+            } 
         }
 
     }
-    
     private void resetTicks(){
         ticksAwayFromPlayer = ticksToDie;
     }
@@ -590,6 +592,10 @@ public class Entity extends SpaceObject implements DamageTaker
 
     public void addAggression(double agro){
         setAggression(getAggression() + agro);
+    }
+
+    public void decayOff(){
+        useDecay = false;
     }
 
 }
