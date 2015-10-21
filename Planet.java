@@ -17,9 +17,10 @@ public class Planet extends SpaceObject
     
     
     //public static boolean firstPass = true;
-    public Planet(double startX, double startY, World world){
+    public Planet(double startX, double startY, World world, String image){
         super(startX, startY);
         this.world = world;
+        setImage(image);
         //System.out.println(world);
     }
     public void act() 
