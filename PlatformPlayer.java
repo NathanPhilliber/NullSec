@@ -50,16 +50,36 @@ public class PlatformPlayer extends PlatformObject
     }    
     private void updatePosition()
     {
-        double stepX = ((realX-w.getOffset())-getExactX())/10;
+        //setLocation(realX-w.getOffset(),getExactY());
+        
+        //X check
+        double stepX = (realX-w.getOffset()-getExactX())/10;
+        for (int i=0;i<=9;i++)
+        {
+            setLocation(getExactX()+stepX,getExactY());
+            if (touch(Block.class))
+            {
+                velX=0;
+                setLocation(getExactX()+stepX,getExactY());
+                realX-=stepX*(10-i);
+                i=10;
+            }
+        }
+        
+        //Y check
         double stepY = (realY-getExactY())/10;
         for (int i=0;i<=9;i++)
         {
-            setLocation(getExactX()+stepX,getExactY()+stepY);
+            setLocation(getExactX(),getExactY()+stepY);
             if (touch(Block.class))
             {
-                onBlock=true;
+                if (stepY>=0)
+                {
+                    onBlock=true;
+                }
                 velY=0;
                 setLocation(getExactX(),getExactY()-stepY);
+                realY-=stepY*(10-i);
                 i=10;
             }
             if(velY!=0)
@@ -73,17 +93,18 @@ public class PlatformPlayer extends PlatformObject
     {
         if (getX()>=getWorld().getWidth()-sideScrollDist && velX>0 || getX()<= sideScrollDist && velX<0)
         {
-            w.setOffset(w.getOffset()+velX);
+            //w.setOffset(w.getOffset()+velX);
+            w.setOffset(realX-getExactX());
         }
     }
     
     private void leftRight()
     {
-        if (Greenfoot.isKeyDown("d"))
+        if (Greenfoot.isKeyDown("d")&&!touch(Block.class))
         {
             velX += moveSpeed;
         }
-        if (Greenfoot.isKeyDown("a"))
+        if (Greenfoot.isKeyDown("a")&&!touch(Block.class))
         {
             velX -= moveSpeed;
         }
