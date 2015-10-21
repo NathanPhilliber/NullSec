@@ -335,6 +335,7 @@ public class Player extends Object implements DamageTaker
             if(getWorld() instanceof TutorialWorld){
                 tutObj = new TutorialObjectManager();
                 SPACE.addObject(tutObj,-10,-10);
+                updateAvailableWeapons(true, true, false, true, false, false);
             }
             else{
                 //thisIsATutorial = false;

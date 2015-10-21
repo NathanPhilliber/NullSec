@@ -89,14 +89,8 @@ public class Space extends World
             addObject(weaponbg4, 48, 300);
 
             IconMine iconmine = new IconMine();
-            addObject(iconmine, 52, 294);
-            iconmine.setLocation(48, 301);
-            iconmine.setLocation(47, 227);
-            iconmine.setLocation(48, 227);
-            iconmine.setLocation(48, 227);
-            iconmine.setLocation(49, 302);
-            iconmine.setLocation(49, 301);
-            iconmine.setLocation(48, 299);
+            addObject(iconmine, 48, 299);
+
         }
 
         if(beam){
@@ -104,14 +98,9 @@ public class Space extends World
             addObject(weaponbg2, 48, 140);
 
             IconLaser iconlaser = new IconLaser();
-            addObject(iconlaser, 48, 226);
-            iconlaser.setLocation(46, 150);
-            iconlaser.setLocation(45, 226);
-            iconlaser.setLocation(46, 226);
-            iconlaser.setLocation(47, 151);
-            iconlaser.setLocation(46, 139);
-            iconlaser.setLocation(46, 151);
-            iconlaser.setLocation(47, 138);
+            addObject(iconlaser, 47, 138);
+ 
+
         }
 
         if(plasma){
@@ -124,10 +113,8 @@ public class Space extends World
             removeObject(iconplasma);
 
             IconPlasma iconplasma2 = new IconPlasma();
-            addObject(iconplasma2, 40, 357);
-            iconplasma2.setLocation(47, 376);
-            iconplasma2.setLocation(48, 447);
-            iconplasma2.setLocation(47, 459);
+            addObject(iconplasma2, 47, 459);
+          
         }
 
         if(missile){
