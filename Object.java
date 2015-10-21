@@ -14,7 +14,7 @@ public class Object extends SmoothMover
     private boolean deleteMe = false;
     protected Space space;
     protected Ship ship;
-      
+
     public void act() 
     {
         if(space == null){
@@ -126,7 +126,7 @@ public class Object extends SmoothMover
     //john end
 
     public void addExplosion(double x, double y){
-        
+
         for (int i = 0; i<13; i++)
         {
             space.addObject(new Particle(x, y, 8, 6, 10, 6, 20, 0,"images/exPart1.png"), 0, 0);
@@ -139,7 +139,6 @@ public class Object extends SmoothMover
     }
 
     public void addRocketTrail(double x, double y){
-        
 
         space.addObject(new Particle(x, y, 10, 6, 7, 6, 10, 95, "images/spark1.png"), 0, 0);
         space.addObject(new Particle(x, y, 10, 6, 7, 6, 10, 95, "images/smoke1.png"), 0, 0);
@@ -147,16 +146,20 @@ public class Object extends SmoothMover
     }
 
     public void addFire(double x, double y){
-        
+
         space.addObject(new Particle(x, y, 10, 6, 5, 3, 15, 50,"images/firesparks.png"), 0, 0);
     }
 
     public void addMineTicker(double x, double y){
-        
+
         space.addObject(new Particle(x, y, 10, 6, 5, 3, 15, 95,"images/spark1.png"), 0, 0);
     }
-    
-    
+
+    public void addCoinPickup(double x, double y){
+        for(int i = 0; i < 40; i++){
+            space.addObject(new Particle(x, y, 15, 6, 10, 5, 10, 95,"images/coinEffect.png"), 0, 0);
+        }
+    }
 
     public void scheduleRemoval(){
         deleteMe = true;
@@ -262,9 +265,7 @@ public class Object extends SmoothMover
     public void dockMenu()
     {
 
-        
         space.setPause = true;
-
         space.addObject(new MenuBG(), space.getWidth()/2, space.getHeight()/2);
         space.addObject(new MenuMain(), space.getWidth()/2, space.getHeight()/2);
         space.addObject(new MenuYes(), space.getWidth()/2 - 100, space.getHeight()/2);

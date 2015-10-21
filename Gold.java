@@ -27,6 +27,7 @@ public class Gold extends SpaceObject
     }   
 
     public void pickUp(){
+        addCoinPickup(getSpaceX(), getSpaceY());
         totalGold += value; 
         getWorld().removeObject(this);
     }
