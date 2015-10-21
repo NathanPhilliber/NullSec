@@ -100,8 +100,7 @@ public class TutorialObjectManager extends SpaceObject
             setLocation(1000,1000);
             currentTick = 0;
             ding2.play();
-   
-            
+
             alien1 = new AlienShip(ship.getShipLocX()+500, ship.getShipLocY()+500);
             alien2 = new AlienShip(ship.getShipLocX()-500, ship.getShipLocY()-500);
 
@@ -170,7 +169,26 @@ public class TutorialObjectManager extends SpaceObject
                 stage++;
                 TutorialWorld world = (TutorialWorld)getWorld();
                 world.clearCoins();
+                currentTick = 0;
+
             }
+        }
+
+        else if(currentTick == 75 && stage == 16){
+            setImage("images/TutorialSlide8.png");
+            setLocation(450,110);
+            stage++;
+            ding1.play();
+        }
+        
+        else if(Greenfoot.isKeyDown("e") && stage == 17){
+            setLocation(1000,1000);
+            
+            space.addObject(new PlanetOne(ship.getShipLocX()+800, ship.getShipLocY(),new OuterSpace()), -500,-500);
+            
+            currentTick = 0;
+            stage++;
+            ding2.play();
         }
 
     }    
