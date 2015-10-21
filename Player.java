@@ -108,6 +108,23 @@ public class Player extends Object implements DamageTaker
             }
         }
     }
+    
+    public void dockWorld(){
+        //Planet planet = (Planet)getOneIntersectingObject(Planet.class);
+        //planet.loadWorld();
+        
+        SpaceObject obj =(SpaceObject) getOneIntersectingObject(SpaceObject.class);
+        if(obj != null){
+            if(obj instanceof Planet){
+                if(touch(obj)){ //Don't run this disgusting function unless neceessary
+                    Planet planet = (Planet) obj;
+                    System.out.println(planet.world);
+                    planet.loadWorld();
+
+                }
+            }
+        }
+    }
 
     public void resetDockMenu(){
         dockPressed = false;

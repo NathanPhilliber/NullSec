@@ -16,7 +16,7 @@ public class PlanetTwo extends Planet
     {
         super.act();
     }
-    public PlanetTwo(double startX, double startY){
-        super(startX, startY);
+    public PlanetTwo(double startX, double startY, World world){
+        super(startX, startY, world);
     }
 }

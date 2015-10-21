@@ -16,7 +16,7 @@ public class ShopPlanet extends Planet
     {
        super.act();
     }
-    public ShopPlanet(double startX, double startY){
-        super(startX, startY);
+    public ShopPlanet(double startX, double startY, World world){
+        super(startX, startY, world);
     }
 }

@@ -14,6 +14,8 @@ import java.util.List;
 public class OuterSpace extends Space
 {
 
+    //World worldOne = new WorldOne();
+    //World shop = new Shop();
     //Contructor, spawn world
     public OuterSpace()
     {    
@@ -31,16 +33,16 @@ public class OuterSpace extends Space
         /********  ADD YOUR SPACE OBJECT STUFF HERE  *******/
         addObject(new AlienShip(0,0), 0,0);
 
-        PlanetOne planetOne = new PlanetOne(0,0);
+        PlanetOne planetOne = new PlanetOne(0,0, new WorldOne());
         addObject(planetOne,0, 0);
 
-        PlanetOne planetOne2 = new PlanetOne(0,0);
+        PlanetOne planetOne2 = new PlanetOne(0,0, new WorldOne());
         addObject(planetOne2,0, 0);
 
-        PlanetTwo planetTwo = new PlanetTwo(500, 1000);
+        PlanetTwo planetTwo = new PlanetTwo(500, 1000, new WorldOne());
         addObject(planetTwo,0, 0);
 
-        ShopPlanet shopPlanet = new ShopPlanet(0,2000);
+        ShopPlanet shopPlanet = new ShopPlanet(0,2000, new Shop());
         addObject(shopPlanet, 0, 0); 
 
     }

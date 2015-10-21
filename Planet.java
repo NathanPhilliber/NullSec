@@ -12,15 +12,27 @@ public class Planet extends SpaceObject
      * Act - do whatever the Planets wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    
+    public World world;
+    
+    
     //public static boolean firstPass = true;
-    public Planet(double startX, double startY){
+    public Planet(double startX, double startY, World world){
         super(startX, startY);
+        this.world = world;
+        //System.out.println(world);
     }
     public void act() 
     {
         super.act();
         miniMap(new PlanetMP());
         //checkDock();
+    }
+    
+    public void loadWorld(){
+        
+        
+        Greenfoot.setWorld(world);
     }
     
 
