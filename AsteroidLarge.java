@@ -27,7 +27,7 @@ public class AsteroidLarge extends Asteroid
     public boolean getHit(double damage){
         health -= damage;
         if(health <= 0){
-            
+            rock1.play();
             int times = Greenfoot.getRandomNumber(4)+1;
             int numCoins = Greenfoot.getRandomNumber(5)+1;
             

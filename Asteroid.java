@@ -12,6 +12,7 @@ public class Asteroid extends SpaceObject implements DamageTaker
     private double speed;
     protected double health = 5.0;
     
+    protected GreenfootSound rock1 = new GreenfootSound("sounds/rocks1.wav");
     
     public Asteroid(double x, double y, int rotation, double speed){
         super(x,y);

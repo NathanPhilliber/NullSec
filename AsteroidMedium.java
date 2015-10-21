@@ -29,7 +29,7 @@ public class AsteroidMedium extends Asteroid
         health -= damage;
         if(health <= 0){
             
-
+            rock1.play();
             int times = Greenfoot.getRandomNumber(4)+1;
             int numCoins = Greenfoot.getRandomNumber(3)+1;
 

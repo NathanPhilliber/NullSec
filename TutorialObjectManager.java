@@ -23,6 +23,9 @@ public class TutorialObjectManager extends SpaceObject
 
     private int stage = 0;
 
+    private GreenfootSound ding1 = new GreenfootSound("sounds/ding1.wav");
+    private GreenfootSound ding2 = new GreenfootSound("sounds/ding2.wav");
+
     protected void addedToWorld(World world){
         space = (Space) world;
         ship = space.getShip();
@@ -38,56 +41,67 @@ public class TutorialObjectManager extends SpaceObject
             setImage("images/TutorialSlide1.png");
             setLocation(450,110);
             stage++;
+            ding1.play();
         }
         else if(Greenfoot.isKeyDown("e") && stage == 1){
             setLocation(1000,1000);
             currentTick = 0;
             stage++;
+            ding2.play();
         }
 
         else if(currentTick == 50 && stage == 2){
             setImage("images/TutorialSlide2.png");
             setLocation(450,110);
             stage++;
+            ding1.play();
         }
         else if(Greenfoot.isKeyDown("e") && stage == 3){
             setLocation(1000,1000);
             currentTick = 0;
             stage++;
+            ding2.play();
         }
 
         else if(currentTick == 50 && stage == 4){
             setImage("images/TutorialSlide3.png");
             setLocation(450,110);
             stage++;
+            ding1.play();
         }
         else if(Greenfoot.isKeyDown("e") && stage == 5){
             setLocation(1000,1000);
             currentTick = 0;
             stage++;
+            ding2.play();
         }
 
         else if(currentTick == 50 && stage == 6){
             setImage("images/TutorialSlide4.png");
             setLocation(450,110);
             stage++;
+            ding1.play();
         }
         else if(Greenfoot.isKeyDown("e") && stage == 7){
             setLocation(1000,1000);
             currentTick = 0;
             stage++;
+            ding2.play();
         }
 
         else if(currentTick == 75 && stage == 8){
             setImage("images/TutorialSlide5.png");
             setLocation(450,110);
             stage++;
+            ding1.play();
         }
         else if(Greenfoot.isKeyDown("e") && stage == 9){
             stage++;
             setLocation(1000,1000);
             currentTick = 0;
-
+            ding2.play();
+   
+            
             alien1 = new AlienShip(ship.getShipLocX()+500, ship.getShipLocY()+500);
             alien2 = new AlienShip(ship.getShipLocX()-500, ship.getShipLocY()-500);
 
@@ -102,7 +116,7 @@ public class TutorialObjectManager extends SpaceObject
 
             alien2.spawnX = (int)ship.getShipLocX()-45;
             alien2.spawnY = (int)ship.getShipLocY()-65;
-            
+
             alien1.dropLoot = false;
             alien2.dropLoot = false;
 
@@ -123,30 +137,34 @@ public class TutorialObjectManager extends SpaceObject
             setImage("images/TutorialSlide6.png");
             setLocation(450,110);
             stage++;
+            ding1.play();
         }
         else if(Greenfoot.isKeyDown("e") && stage == 12){
             setLocation(1000,1000);
             currentTick = 0;
             stage++;
+            ding2.play();
         }
-        
+
         else if(currentTick == 75 && stage == 13){
             setImage("images/TutorialSlide7.png");
             setLocation(450,110);
             stage++;
+            ding1.play();
         }
         else if(Greenfoot.isKeyDown("e") && stage == 14){
             setLocation(1000,1000);
             currentTick = 0;
             stage++;
+            ding2.play();
         }
-        
+
         else if(stage == 15){
             if(currentTick % 100 == 0){
                 for(int i = 0; i < 5; i++){
                     space.addObject(new Gold((ship.getShipLocX()+Greenfoot.getRandomNumber(1500)-750),(ship.getShipLocY()+Greenfoot.getRandomNumber(1500)-750), 1), -10, -10);
                 }
-                
+
             }
             if(Gold.totalGold >= 10){
                 stage++;
@@ -155,6 +173,5 @@ public class TutorialObjectManager extends SpaceObject
             }
         }
 
-            
     }    
 }
