@@ -6,7 +6,7 @@ import greenfoot.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class MissleIcon extends HUD
+public class MissleIcon extends HUD implements weaponGUI
 {
     /**
      * Act - do whatever the MissleIcon wants to do. This method is called whenever

@@ -52,6 +52,13 @@ public class Player extends Object implements DamageTaker
 
     public Counter goldScore;
 
+    private boolean projectileEnabled = true; //DO NOT DIRECTLY EDIT THESE
+    private boolean missileEnabled = true;
+    private boolean beamEnabled = true;
+    private boolean mineEnabled = true;
+    private boolean fireballEnabled = true;
+    private boolean plasmaballEnabled = true;
+
     //Constructor, spawns player at 0,0
     public Player(){
         this(0,0);
@@ -67,6 +74,8 @@ public class Player extends Object implements DamageTaker
 
         setVelX(0.0);
         setVelY(0.0);
+        
+        
 
     }
     //Called every tick
@@ -99,6 +108,18 @@ public class Player extends Object implements DamageTaker
         }
     } 
 
+    public void updateAvailableWeapons(boolean proj, boolean beam, boolean missile, boolean mine, boolean fire, boolean plasma){
+        space.removeWeaponGUI();
+        projectileEnabled = proj;
+        missileEnabled = missile;
+        beamEnabled = beam;
+        mineEnabled = mine;
+        fireballEnabled = fire;
+        plasmaballEnabled = plasma;
+        space.drawWeaponGUI(projectileEnabled, beamEnabled, missileEnabled, mineEnabled, fireballEnabled, plasmaballEnabled);
+
+    }
+
     public void checkDock(){
         if(Greenfoot.isKeyDown("e")){
             if(touch(Planet.class) && dockPressed == false){
@@ -108,17 +129,17 @@ public class Player extends Object implements DamageTaker
             }
         }
     }
-    
+
     public void dockWorld(){
         //Planet planet = (Planet)getOneIntersectingObject(Planet.class);
         //planet.loadWorld();
-        
+
         SpaceObject obj =(SpaceObject) getOneIntersectingObject(SpaceObject.class);
         if(obj != null){
             if(obj instanceof Planet){
                 if(touch(obj)){ //Don't run this disgusting function unless neceessary
                     Planet planet = (Planet) obj;
-                    System.out.println(planet.world);
+                    //System.out.println(planet.world);
                     planet.loadWorld();
 
                 }
@@ -308,6 +329,9 @@ public class Player extends Object implements DamageTaker
             damageBar = new DamageBar(this, -30, getHealth(), getMaxHealth());
             SPACE.addObject(damageBar, 0, 0);
 
+            
+            updateAvailableWeapons(true, true, true, true, true, true);
+            
             if(getWorld() instanceof TutorialWorld){
                 tutObj = new TutorialObjectManager();
                 SPACE.addObject(tutObj,-10,-10);
@@ -693,6 +717,10 @@ public class Player extends Object implements DamageTaker
         beamCharge();
         if (Greenfoot.isKeyDown("c") || rMButton())
         {
+            
+         
+            
+            
             if (mouseAim)
             {
                 weaponTimer(mouseAngle(),LV,wep);

@@ -6,7 +6,7 @@ import greenfoot.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class IconLaser extends HUD
+public class IconLaser extends HUD implements weaponGUI
 {
     /**
      * Act - do whatever the IconLaser wants to do. This method is called whenever

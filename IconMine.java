@@ -6,7 +6,7 @@ import greenfoot.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class IconMine extends HUD
+public class IconMine extends HUD implements weaponGUI
 {
     /**
      * Act - do whatever the IconMine wants to do. This method is called whenever
@@ -18,11 +18,11 @@ public class IconMine extends HUD
         Space s=(Space)getWorld();
         if(s.getWeapon() == 3)
         {
-          a.setImage("SelectedWeapon.png");
+            a.setImage("SelectedWeapon.png");
         }
         else
         {
-          a.setImage("HUD1.png");
+            a.setImage("HUD1.png");
         }
     }    
 }

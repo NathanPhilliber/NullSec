@@ -20,3 +20,6 @@ public class HUD extends Object
         // Add your action code here.
     }    
 }
+interface weaponGUI{
+    
+}

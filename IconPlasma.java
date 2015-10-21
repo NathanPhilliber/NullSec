@@ -6,7 +6,7 @@ import greenfoot.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class IconPlasma extends HUD
+public class IconPlasma extends HUD implements weaponGUI
 {
     /**
      * Act - do whatever the IconPlasma wants to do. This method is called whenever

@@ -6,7 +6,7 @@ import greenfoot.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class WeaponBG extends HUD
+public class WeaponBG extends HUD implements weaponGUI
 {
     /**
      * Act - do whatever the WeaponBG wants to do. This method is called whenever

@@ -14,11 +14,8 @@ import java.util.List;
 public class Space extends World
 {
 
-    
     private Ship ship;
-
     boolean isDown = false;
-
     MouseInfo mouse;
     int mx,my;
     int prevx,prevy;
@@ -34,8 +31,14 @@ public class Space extends World
     public boolean isPaused=false;
     public boolean setPause; //static 
 
-    //Contructor, spawn world
+    private boolean projectileEnabled = true; //DO NOT DIRECTLY EDIT THESE
+    private boolean missileEnabled = true;
+    private boolean beamEnabled = true;
+    private boolean mineEnabled = true;
+    private boolean fireballEnabled = true;
+    private boolean plasmaballEnabled = true;
 
+    //Contructor, spawn world
     public Space()
     {    
         super(920, 540, 1, false); 
@@ -51,69 +54,13 @@ public class Space extends World
     {
         isPaused=false;
         ship = new Ship(0,0);
-        
 
         scrollListener();
-        
 
         setPaintOrder(Counter.class, TutorialObjectManager.class, DockMenu.class, OutsideMP.class, EnemyShip.class, PlayerShip.class, PlanetMP.class, InsideMP.class, IconProjectile.class, IconFire.class, AlienShip.class, MissleIcon.class, IconPlasma.class, IconLaser.class, IconMine.class, WeaponBG.class, DamageBar.class, Cannon.class, Beam.class,  BeamHUD.class, Projectile.class, Missile.class, Ship.class, PlasmaBall.class, Mine.class, Fireball.class, Particle.class, Asteroid.class, Planet.class, BackgroundStar.class);
 
-        IconMine iconmine = new IconMine();
-        addObject(iconmine, 52, 294);
-        iconmine.setLocation(48, 301);
-        IconLaser iconlaser = new IconLaser();
-        addObject(iconlaser, 48, 226);
-        IconPlasma iconplasma = new IconPlasma();
-        addObject(iconplasma, 48, 73);
-        iconplasma.setLocation(47, 80);
-        iconlaser.setLocation(46, 150);
-        iconmine.setLocation(47, 227);
-
-        iconmine.setLocation(48, 227);
-        IconFire iconfire = new IconFire();
-        addObject(iconfire, 49, 364);
-        iconfire.setLocation(47, 377);
-        iconfire.setLocation(49, 376);
-        iconmine.setLocation(49, 302);
-        iconlaser.setLocation(45, 226);
-        iconlaser.setLocation(46, 226);
-        removeObject(iconplasma);
-        iconlaser.setLocation(46, 151);
-        iconmine.setLocation(48, 227);
-        iconfire.setLocation(49, 299);
-        IconPlasma iconplasma2 = new IconPlasma();
-        addObject(iconplasma2, 40, 357);
-        iconplasma2.setLocation(47, 376);
-        iconplasma2.setLocation(48, 447);
-        iconfire.setLocation(110, 355);
-        removeObject(iconfire);
-        IconFire iconfire2 = new IconFire();
-        addObject(iconfire2, 49, 375);
-        iconfire2.setLocation(45, 372);
-        iconmine.setLocation(49, 301);
-        iconlaser.setLocation(47, 151);
-        iconplasma2.setLocation(47, 459);
-        iconfire2.setLocation(47, 377);
-        iconlaser.setLocation(47, 138);
-        iconmine.setLocation(48, 299);
-
         PlayerShip playermp = new PlayerShip();
         addObject(playermp, 800, 405);
-
-        WeaponBG weaponbg = new WeaponBG();
-        addObject(weaponbg, 48, 60);
-
-        WeaponBG weaponbg2 = new WeaponBG();  
-        addObject(weaponbg2, 48, 140);
-
-        WeaponBG weaponbg3 = new WeaponBG();        
-        addObject(weaponbg3, 48, 220);
-
-        WeaponBG weaponbg4 = new WeaponBG();  
-        addObject(weaponbg4, 48, 300);
-
-        WeaponBG weaponbg5 = new WeaponBG();
-        addObject(weaponbg5, 48, 380);
 
         InsideMP insidemp = new InsideMP();
         addObject(insidemp, 800, 405);
@@ -121,36 +68,127 @@ public class Space extends World
         OutsideMP outsidemp = new OutsideMP();
         addObject(outsidemp, 800, 405);
 
-
-        
-        WeaponBG weaponbg6 = new WeaponBG();
-        addObject(weaponbg6, 48, 460);
-        MissleIcon missleicon = new MissleIcon();
-        addObject(missleicon, 46, 53);
-        MissleIcon missleicon2 = new MissleIcon();
-        addObject(missleicon2, 44, 63);
-        missleicon.setLocation(49, 50);
-        missleicon2.setLocation(41, 64);
-        missleicon2.setLocation(40, 211);
-        missleicon.setLocation(52, 224);
-        iconlaser.setLocation(46, 139);
-        IconProjectile anticon = new IconProjectile();
-        addObject(anticon, 38, 60);
-        IconProjectile anticon2 = new IconProjectile();
-        addObject(anticon2, 56, 60);
         Cannon cannon = new Cannon();
         addObject(cannon, 443, 267);
         cannon.setLocation(438, 263);
 
         addObject(new BeamHUD(), 460, 512);
+
+    }
+
+    public void drawWeaponGUI(boolean proj, boolean beam, boolean missile, boolean mine, boolean fire, boolean plasma){
+        projectileEnabled = proj;
+        missileEnabled = missile;
+        beamEnabled = beam;
+        mineEnabled = mine;
+        fireballEnabled = fire;
+        plasmaballEnabled = plasma;
+
+        if(mine){
+            WeaponBG weaponbg4 = new WeaponBG();  
+            addObject(weaponbg4, 48, 300);
+
+            IconMine iconmine = new IconMine();
+            addObject(iconmine, 52, 294);
+            iconmine.setLocation(48, 301);
+            iconmine.setLocation(47, 227);
+            iconmine.setLocation(48, 227);
+            iconmine.setLocation(48, 227);
+            iconmine.setLocation(49, 302);
+            iconmine.setLocation(49, 301);
+            iconmine.setLocation(48, 299);
+        }
+
+        if(beam){
+            WeaponBG weaponbg2 = new WeaponBG();  
+            addObject(weaponbg2, 48, 140);
+
+            IconLaser iconlaser = new IconLaser();
+            addObject(iconlaser, 48, 226);
+            iconlaser.setLocation(46, 150);
+            iconlaser.setLocation(45, 226);
+            iconlaser.setLocation(46, 226);
+            iconlaser.setLocation(47, 151);
+            iconlaser.setLocation(46, 139);
+            iconlaser.setLocation(46, 151);
+            iconlaser.setLocation(47, 138);
+        }
+
+        if(plasma){
+            WeaponBG weaponbg6 = new WeaponBG();
+            addObject(weaponbg6, 48, 460);
+
+            IconPlasma iconplasma = new IconPlasma();
+            addObject(iconplasma, 48, 73);
+            iconplasma.setLocation(47, 80);
+            removeObject(iconplasma);
+
+            IconPlasma iconplasma2 = new IconPlasma();
+            addObject(iconplasma2, 40, 357);
+            iconplasma2.setLocation(47, 376);
+            iconplasma2.setLocation(48, 447);
+            iconplasma2.setLocation(47, 459);
+        }
+
+        if(missile){
+            WeaponBG weaponbg3 = new WeaponBG();        
+            addObject(weaponbg3, 48, 220);
+
+            MissleIcon missleicon = new MissleIcon();
+            addObject(missleicon, 46, 53);
+            MissleIcon missleicon2 = new MissleIcon();
+            addObject(missleicon2, 44, 63);
+            missleicon.setLocation(49, 50);
+            missleicon2.setLocation(41, 64);
+            missleicon2.setLocation(40, 211);
+            missleicon.setLocation(52, 224);
+        }
+
+        if(fire){
+            WeaponBG weaponbg5 = new WeaponBG();
+            addObject(weaponbg5, 48, 380);
+
+            IconFire iconfire = new IconFire();
+            addObject(iconfire, 49, 364);
+            iconfire.setLocation(47, 377);
+            iconfire.setLocation(49, 376);
+            iconfire.setLocation(49, 299);
+
+            iconfire.setLocation(110, 355);
+            removeObject(iconfire);
+            IconFire iconfire2 = new IconFire();
+            addObject(iconfire2, 49, 375);
+            iconfire2.setLocation(45, 372);
+            iconfire2.setLocation(47, 377);
+        }
+        if(proj){
+            WeaponBG weaponbg = new WeaponBG();
+            addObject(weaponbg, 48, 60);
+
+            IconProjectile anticon = new IconProjectile();
+            addObject(anticon, 38, 60);
+            IconProjectile anticon2 = new IconProjectile();
+            addObject(anticon2, 56, 60);
+        }
+
+    }
+
+    public void removeWeaponGUI(){
+        List objects = getObjects(HUD.class);
+
+        for(int i = 0; i < objects.size(); i++){
+            if(!(objects.get(i) instanceof weaponGUI)){
+                objects.remove(i);
+                i -= 1;
+            }
+        }
+        removeObjects(objects);
     }
 
     public void act()
     {
 
-        
         //System.out.println(numberOfObjects());
-
         if(!readPause)
         {
             if(setPause == true || Greenfoot.isKeyDown("Escape"))
@@ -185,8 +223,6 @@ public class Space extends World
         return isPaused;
     }
 
-
-    
     public void tutorial()
     {
 
@@ -231,6 +267,24 @@ public class Space extends World
             tempWep = 5;
         }
 
+        if(tempWep == 0 && projectileEnabled == false){
+            tempWep++;
+        }
+        if(tempWep == 1 && beamEnabled == false){
+            tempWep++;
+        }
+        if(tempWep == 2 && missileEnabled == false){
+            tempWep++;
+        }
+        if(tempWep == 3 && mineEnabled == false){
+            tempWep++;
+        }
+        if(tempWep == 4 && fireballEnabled == false){
+            tempWep++;
+        }
+        if(tempWep == 5 && plasmaballEnabled == false){
+            tempWep = 0;
+        }
         return tempWep;
     } 
 
