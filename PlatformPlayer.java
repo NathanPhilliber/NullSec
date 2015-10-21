@@ -16,6 +16,7 @@ public class PlatformPlayer extends PlatformObject
     private int sideScrollDist = 200;
     
     //varibles
+    private boolean onBlock=false;
     private double realX;
     private double realY;
     private double velX;
@@ -41,28 +42,38 @@ public class PlatformPlayer extends PlatformObject
         showDebug(true);
         jump();
         leftRight();
-        physics();
-        sideScroll();
-    }    
-    private void physics()
-    {
         gravity(gravity);
         airResist();
-        collision();
         velocity();
+        sideScroll();
+        updatePosition();
+    }    
+    private void updatePosition()
+    {
+        double stepX = ((realX-w.getOffset())-getExactX())/10;
+        double stepY = (realY-getExactY())/10;
+        for (int i=0;i<=9;i++)
+        {
+            setLocation(getExactX()+stepX,getExactY()+stepY);
+            if (touch(Block.class))
+            {
+                onBlock=true;
+                velY=0;
+                setLocation(getExactX(),getExactY()-stepY);
+                i=10;
+            }
+            if(velY!=0)
+            {
+                onBlock=false;
+            }
+        }
     }
-    
     
     private void sideScroll()
     {
         if (getX()>=getWorld().getWidth()-sideScrollDist && velX>0 || getX()<= sideScrollDist && velX<0)
         {
             w.setOffset(w.getOffset()+velX);
-            setLocation(getX(),realY);
-        }
-        else
-        {
-            setLocation(realX-w.getOffset(),realY);
         }
     }
     
@@ -80,40 +91,21 @@ public class PlatformPlayer extends PlatformObject
     
     private void jump()
     {
-        //Actor block = getOneObjectAtOffset(10,10,null);
-        if (Greenfoot.isKeyDown("space") && touch(Block.class))
+        if ((Greenfoot.isKeyDown("space")||Greenfoot.isKeyDown("w")) && onBlock)
         {
-            
+            onBlock=false;
             velY = -jumpSpeed;
         }
     }
-    
-    
-    private void velRound()
-    {
-        if (velX<=.2)
-        {
-            velX=0;
-        }
-    }
+
     private void airResist()
     {
         velX -= airResist*velX;
         
-        //velX -= airResist*velX*Math.abs(velX);
         //old
+        //velX -= airResist*velX*Math.abs(velX);
         //velX -= airResist*velX*Math.log(Math.abs(velX)+1);
         //velY -= airResist*velY*Math.log(Math.abs(velY)+1);
-    }
-    
-    private void collision()
-    {
-        //Actor block = getOneObjectAtOffset(15,15,null);
-        if (touch(Block.class))
-        {
-            velY = 0;
-            
-        }
     }
     
     private void velocity()
@@ -124,7 +116,10 @@ public class PlatformPlayer extends PlatformObject
     
     private void gravity(double grav)
     {
-        velY += grav;
+        if (!onBlock)
+        {
+            velY += grav;
+        }
     }
     
     private void showDebug(boolean show)
@@ -133,11 +128,11 @@ public class PlatformPlayer extends PlatformObject
         {
             int x = getWorld().getWidth() - 75;
             
-            //getWorld().showText("X: "+String.format("%.02f", (realX)), x, 25);
-            //getWorld().showText("Y: "+String.format("%.02f", (realY)), x, 50); 
+            getWorld().showText("X: "+String.format("%.02f", (realX)), x, 25);
+            getWorld().showText("Y: "+String.format("%.02f", (realY)), x, 50); 
             
-            // getWorld().showText("vX: "+String.format("%.02f", (velX)), x, 75);
-            //getWorld().showText("vY: "+String.format("%.02f", (velY)), x, 100);
+            getWorld().showText("vX: "+String.format("%.02f", (velX)), x, 75);
+            getWorld().showText("vY: "+String.format("%.02f", (velY)), x, 100);
         }
     }
 }
