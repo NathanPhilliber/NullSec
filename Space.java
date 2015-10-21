@@ -99,10 +99,8 @@ public class Space extends World
 
             IconLaser iconlaser = new IconLaser();
             addObject(iconlaser, 47, 138);
- 
 
         }
-
         if(plasma){
             WeaponBG weaponbg6 = new WeaponBG();
             addObject(weaponbg6, 48, 460);
@@ -114,7 +112,7 @@ public class Space extends World
 
             IconPlasma iconplasma2 = new IconPlasma();
             addObject(iconplasma2, 47, 459);
-          
+
         }
 
         if(missile){
@@ -245,6 +243,12 @@ public class Space extends World
     public double getWeapon()
     {
         tempWep += scroll.getScroll();
+        
+        int numType = weaponType();
+        
+        if (numType != -1){
+            tempWep = numType;
+        }
         if(tempWep < 0)
         {
             tempWep = 0;
@@ -275,7 +279,39 @@ public class Space extends World
         return tempWep;
     } 
 
+    private int weaponType()
+    {
+        int weaponType = -1;
+        if (Greenfoot.isKeyDown("1"))
+        {
+            weaponType = 0;
+        }
+        if (Greenfoot.isKeyDown("2"))
+        {
+            weaponType = 1;
+        }
+        if (Greenfoot.isKeyDown("3"))
+        {
+            weaponType = 2;
+        }
+        if (Greenfoot.isKeyDown("4"))
+        {
+            weaponType = 3;
+        }
+        if (Greenfoot.isKeyDown("5"))
+        {
+            weaponType = 4;
+        }
+        if (Greenfoot.isKeyDown("6"))
+        {
+            weaponType = 5;
+        }
+        
+        return weaponType;
+    }
+
 }
+
 
 //Classception
 class ScrollingListener implements MouseWheelListener

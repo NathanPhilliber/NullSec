@@ -335,7 +335,7 @@ public class Player extends Object implements DamageTaker
             if(getWorld() instanceof TutorialWorld){
                 tutObj = new TutorialObjectManager();
                 SPACE.addObject(tutObj,-10,-10);
-                updateAvailableWeapons(true, true, false, true, false, false);
+                updateAvailableWeapons(true, false, false, false, false, false);
             }
             else{
                 //thisIsATutorial = false;
@@ -678,7 +678,7 @@ public class Player extends Object implements DamageTaker
     {
         shoot(weaponLV, weaponType);
         toggleWeaponLV();
-        weaponType();
+        //weaponType();
         hearth();
         blink();
     }
@@ -851,33 +851,7 @@ public class Player extends Object implements DamageTaker
         }
     }
 
-    private void weaponType()
-    {
-        if (Greenfoot.isKeyDown("1"))
-        {
-            weaponType = 0;
-        }
-        if (Greenfoot.isKeyDown("2"))
-        {
-            weaponType = 1;
-        }
-        if (Greenfoot.isKeyDown("3"))
-        {
-            weaponType = 2;
-        }
-        if (Greenfoot.isKeyDown("4"))
-        {
-            weaponType = 3;
-        }
-        if (Greenfoot.isKeyDown("5"))
-        {
-            weaponType = 4;
-        }
-        if (Greenfoot.isKeyDown("6"))
-        {
-            weaponType = 5;
-        }
-    }
+    
     //john end
 
 }
