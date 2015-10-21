@@ -156,8 +156,8 @@ public class Object extends SmoothMover
     }
 
     public void addCoinPickup(double x, double y){
-        for(int i = 0; i < 40; i++){
-            space.addObject(new Particle(x, y, 15, 6, 10, 5, 10, 95,"images/coinEffect.png"), 0, 0);
+        for(int i = 0; i < 30; i++){
+            space.addObject(new Particle(x, y, 15, 6, 5, 5, 10, 0,"images/coinEffect.png"), 0, 0);
         }
     }
 
