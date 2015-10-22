@@ -4,7 +4,7 @@ public class Platformer extends World
     private double worldOffset=0;
     
     
-    public static Level3 level = new Level3();
+    
     
     
     public Platformer()

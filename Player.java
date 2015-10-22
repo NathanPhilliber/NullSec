@@ -65,42 +65,52 @@ public class Player extends Object implements DamageTaker
 
     private boolean alienCurAlive = false;
 
+    
+    
     public void keepEnemyOnScreen(){
-        if(alienCurAlive == false){
-            alien = new AlienShip(getShipLocX()+Greenfoot.getRandomNumber(500)-250, getShipLocY()+Greenfoot.getRandomNumber(500)-250);
-            space.addObject(alien,0,0);
-            alienCurAlive = true;
-        }
-        else{
-            if(alien.isAlive == false){
-                numEnemiesKilled++;
-                alienCurAlive = false;
-
-                switch(numEnemiesKilled){
-                    case 1:
-                    updateAvailableWeapons(true, true, false, false, false, false);
-                    break;
-                    case 2:
-                    updateAvailableWeapons(true, true, true, false, false, false);
-                    break;
-                    case 3:
-                    updateAvailableWeapons(true, true, true, true, false, false);
-                    break;
-                    case 4:
-                    updateAvailableWeapons(true, true, true, true, true, false);
-                    break;
-                    case 5:
-                    updateAvailableWeapons(true, true, true, true, true, true);
-                    break;
-
-                    default:
-                    break;
-                }
+        if(getWorld() instanceof OuterSpace){
+            if(alienCurAlive == false){
+                alien = new AlienShip(getShipLocX()+Greenfoot.getRandomNumber(500)-250, getShipLocY()+Greenfoot.getRandomNumber(500)-250);
+                space.addObject(alien,0,0);
+                alienCurAlive = true;
             }
+            else{
+                if(alien.isAlive == false){
+                    numEnemiesKilled++;
+                    alienCurAlive = false;
+
+                    switch(numEnemiesKilled){
+                        case 1:
+                        updateAvailableWeapons(true, true, false, false, false, false);
+                        break;
+                        case 2:
+                        updateAvailableWeapons(true, true, true, false, false, false);
+                        break;
+                        case 3:
+                        updateAvailableWeapons(true, true, true, true, false, false);
+                        break;
+                        case 4:
+                        updateAvailableWeapons(true, true, true, true, true, false);
+                        break;
+                        case 5:
+                        updateAvailableWeapons(true, true, true, true, true, true);
+                        break;
+
+                        default:
+                        break;
+                    }
+                }
+            }   
         }
+
     }
 
+    
+    
     /******* DELETE LATER********/
+    
+    
+    
     //Constructor, spawns player at 0,0
     public Player(){
         this(0,0);
@@ -116,7 +126,6 @@ public class Player extends Object implements DamageTaker
 
         setVelX(0.0);
         setVelY(0.0);
-
 
     }
     //Called every tick
@@ -759,7 +768,6 @@ public class Player extends Object implements DamageTaker
         if (Greenfoot.isKeyDown("c") || rMButton())
         {
 
-            
             if (mouseAim)
             {
                 weaponTimer(mouseAngle(),LV,wep);

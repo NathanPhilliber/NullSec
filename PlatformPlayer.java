@@ -16,7 +16,7 @@ public class PlatformPlayer extends PlatformObject
     private double airResist = .25;
     private double moveSpeed = 2;
     private double jumpSpeed = 16;
-    private int sideScrollDist = 200;
+    private int sideScrollDist = 400;
     private Class blockType = Block.class;
 
     //varibles
@@ -54,7 +54,11 @@ public class PlatformPlayer extends PlatformObject
 
     public void act() 
     {
-        
+        Actor b=getOneIntersectingObject(Block.class);
+        if(b!=null)
+        {
+            System.out.println(b);
+        }
         
         if(w == null){
             w=(Platformer)getWorld();
@@ -126,7 +130,7 @@ public class PlatformPlayer extends PlatformObject
     private void updatePosition()
     {
         //setLocation(realX-w.getOffset(),getExactY());
-        int steps=20;
+        int steps=2;
         //X check
         double stepX = (realX-w.getOffset()-getExactX())/steps;
         for (int i=0;i<=steps-1;i++)
@@ -137,7 +141,7 @@ public class PlatformPlayer extends PlatformObject
             {
                 velX=0;
                 setLocation(getExactX()-stepX,getExactY());
-                realX-=stepX*(steps-i);
+                realX -= stepX*(steps-i);
                 i=steps;
             }
         }

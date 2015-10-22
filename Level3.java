@@ -87,11 +87,6 @@ public class Level3 extends Platformer
             addObject(new Block(), 27*i+4077, 500);
         }
         
-        for (int i = 0; i <= 18; i++)
-        {
-            addObject(new Block(), 27*i+4077, 500);
-        }
-        
         for (int i = 0; i <= 12; i++)
         {
             addObject(new Block(), 27*i+4050, 473);
