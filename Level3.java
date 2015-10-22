@@ -14,11 +14,9 @@ public class Level3 extends Platformer
      * 
      */
     
-    public static OuterSpace;
-    
     public Level3()
     {
-
+        
         prepare();
     }
     

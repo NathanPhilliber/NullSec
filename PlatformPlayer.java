@@ -9,8 +9,7 @@ import greenfoot.*;
 public class PlatformPlayer extends PlatformObject
 {
     
-    public Platformer home;
-    public Space space;
+   
     
     //constants
     private double gravity = .5;
@@ -64,7 +63,7 @@ public class PlatformPlayer extends PlatformObject
         pausePlayerHelper();
         
         if(playerPaused == false){
-            showDebug(false);
+            showDebug(true);
             jump();
             leftRight();
             gravity(gravity);
@@ -84,7 +83,7 @@ public class PlatformPlayer extends PlatformObject
         Actor c=getOneIntersectingObject(ExitPortal.class);
         if(c != null)
         {
-            Greenfoot.setWorld(space);
+            Greenfoot.setWorld(new OuterSpace());
         }
 
         Actor d=getOneIntersectingObject(LavaBlock.class);
@@ -102,7 +101,16 @@ public class PlatformPlayer extends PlatformObject
     
     private void restartWorld(){
         if(deleteMe){
-            Greenfoot.setWorld(home);
+            
+            //Greenfoot.setWorld(getWorld());
+            
+            World world = getWorld();
+            if(world instanceof Level3){
+                Greenfoot.setWorld(new Level3());
+            }
+            else{
+                System.out.println("ADD WORLD TO PLATFORMPLAYER");
+            }
         }
     }
     private void pausePlayerHelper(){
@@ -118,10 +126,10 @@ public class PlatformPlayer extends PlatformObject
     private void updatePosition()
     {
         //setLocation(realX-w.getOffset(),getExactY());
-
+        int steps=20;
         //X check
-        double stepX = (realX-w.getOffset()-getExactX())/10;
-        for (int i=0;i<=9;i++)
+        double stepX = (realX-w.getOffset()-getExactX())/steps;
+        for (int i=0;i<=steps-1;i++)
         {
             setLocation(getExactX()+stepX,getExactY());
             Actor b=getOneIntersectingObject(blockType);
@@ -129,14 +137,14 @@ public class PlatformPlayer extends PlatformObject
             {
                 velX=0;
                 setLocation(getExactX()-stepX,getExactY());
-                realX-=stepX*(10-i);
-                i=10;
+                realX-=stepX*(steps-i);
+                i=steps;
             }
         }
 
         //Y check
-        double stepY = (realY-getExactY())/10;
-        for (int i=0;i<=9;i++)
+        double stepY = (realY-getExactY())/steps;
+        for (int i=0;i<=steps-1;i++)
         {
             setLocation(getExactX(),getExactY()+stepY);
             Actor b=getOneIntersectingObject(blockType);
@@ -148,8 +156,8 @@ public class PlatformPlayer extends PlatformObject
                 }
                 velY=0;
                 setLocation(getExactX(),getExactY()-stepY);
-                realY-=stepY*(10-i);
-                i=10;
+                realY-=stepY*(steps-i);
+                i=steps;
             }
             if(velY!=0)
             {
