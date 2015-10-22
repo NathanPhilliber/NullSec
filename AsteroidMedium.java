@@ -14,7 +14,7 @@ public class AsteroidMedium extends Asteroid
      */
 
     protected double damage = 7.0;
-    
+
     public AsteroidMedium(double x, double y, int rotation, double speed){
         super(x,y,rotation,speed);
     }
@@ -28,25 +28,28 @@ public class AsteroidMedium extends Asteroid
     public boolean getHit(double damage){
         health -= damage;
         if(health <= 0){
-            
+
             rock1.play();
             int times = Greenfoot.getRandomNumber(4)+1;
             int numCoins = Greenfoot.getRandomNumber(3)+1;
+            try{
+                for(int i = 0; i < times; i++){
+                    space.addObject(new AsteroidSmall(getSpaceX(), getSpaceY(),Greenfoot.getRandomNumber(360), 3.0), 0,0);
+                }
 
-            for(int i = 0; i < times; i++){
-                space.addObject(new AsteroidSmall(getSpaceX(), getSpaceY(),Greenfoot.getRandomNumber(360), 3.0), 0,0);
+                for(int i = 0; i < numCoins; i++){
+                    space.addObject(new Gold(getSpaceX()+Greenfoot.getRandomNumber(20)-10, getSpaceY()+Greenfoot.getRandomNumber(20)-10, 1),-10,-10);
+                }
+
+                space.removeObject(this);
+            } catch (NullPointerException e){
+                System.out.println(e + "MediumAsteroid");
             }
-            
-            for(int i = 0; i < numCoins; i++){
-                space.addObject(new Gold(getSpaceX()+Greenfoot.getRandomNumber(20)-10, getSpaceY()+Greenfoot.getRandomNumber(20)-10, 1),-10,-10);
-            }
-            
-            space.removeObject(this);
             return true;
         }
         return false;
     }
-    
+
     public double getDamage(){
         return damage;
     }
