@@ -13,6 +13,9 @@ public class Level3 extends Platformer
      * Constructor for objects of class Level3.
      * 
      */
+    
+    public static OuterSpace;
+    
     public Level3()
     {
 

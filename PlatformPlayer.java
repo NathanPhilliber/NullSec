@@ -8,6 +8,10 @@ import greenfoot.*;
  */
 public class PlatformPlayer extends PlatformObject
 {
+    
+    public Platformer home;
+    public Space space;
+    
     //constants
     private double gravity = .5;
     private double airResist = .25;
@@ -15,7 +19,7 @@ public class PlatformPlayer extends PlatformObject
     private double jumpSpeed = 16;
     private int sideScrollDist = 200;
     private Class blockType = Block.class;
-    
+
     //varibles
     private boolean onBlock=false;
     private double realX;
@@ -25,57 +29,96 @@ public class PlatformPlayer extends PlatformObject
     private boolean isWalkingRight;
     private boolean isWalkingLeft;
     Platformer w;
-    
+
     GifImage walkRight = new GifImage("WalkingAnimation.gif");
     GifImage walkLeft = new GifImage("WalkingAnimationLeft.gif");
     GifImage standRight = new GifImage("StandingRight.png");
     GifImage standLeft = new GifImage("StandingLeft.png");
-    
+
     public PlatformPlayer()
     {
         this(100,50);
         setImage(standRight.getCurrentImage());
     }
-    
+
     public PlatformPlayer(double X, double Y)
     {
         realX = X;
         realY = Y;
         velX = 0;
         velY = 0;
+        
+        
     }
+
     
+
     public void act() 
     {
-        w=(Platformer)getWorld();
-        showDebug(true);
-        jump();
-        leftRight();
-        gravity(gravity);
-        airResist();
-        velocity();
-        sideScroll();
-        updatePosition();
-        checkSpecialCollisions();
+        
+        
+        if(w == null){
+            w=(Platformer)getWorld();
+        }
+        
+        pausePlayerHelper();
+        
+        if(playerPaused == false){
+            showDebug(false);
+            jump();
+            leftRight();
+            gravity(gravity);
+            airResist();
+            velocity();
+            sideScroll();
+            updatePosition();
+            restartWorld();
+            checkSpecialCollisions();
+            
+        }
+
     }
+
     private void checkSpecialCollisions()
     {
         Actor c=getOneIntersectingObject(ExitPortal.class);
         if(c != null)
         {
-            Greenfoot.setWorld(new OuterSpace());
+            Greenfoot.setWorld(space);
         }
-        
+
         Actor d=getOneIntersectingObject(LavaBlock.class);
         if(d != null)
         {
-            Greenfoot.setWorld(new Platformer());
+            pauseCycles = 50;
+            setLocation(getX(), getY() -1000);
+            deleteMe = true;
         }
     }
+
+    private int pauseCycles = 0;
+    private boolean playerPaused = false;
+    private boolean deleteMe = false;
+    
+    private void restartWorld(){
+        if(deleteMe){
+            Greenfoot.setWorld(home);
+        }
+    }
+    private void pausePlayerHelper(){
+        pauseCycles--;
+        if(pauseCycles > 0){
+            playerPaused = true;
+        }
+        else{
+            playerPaused = false;
+        }
+    }
+
     private void updatePosition()
     {
         //setLocation(realX-w.getOffset(),getExactY());
-        
+
         //X check
         double stepX = (realX-w.getOffset()-getExactX())/10;
         for (int i=0;i<=9;i++)
@@ -90,7 +133,7 @@ public class PlatformPlayer extends PlatformObject
                 i=10;
             }
         }
-        
+
         //Y check
         double stepY = (realY-getExactY())/10;
         for (int i=0;i<=9;i++)
@@ -114,7 +157,7 @@ public class PlatformPlayer extends PlatformObject
             }
         }
     }
-    
+
     private void sideScroll()
     {
         if (getX()>=getWorld().getWidth()-sideScrollDist && velX>0 || getX()<= sideScrollDist && velX<0)
@@ -123,7 +166,7 @@ public class PlatformPlayer extends PlatformObject
             w.setOffset(realX-getExactX());
         }
     }
-    
+
     private void leftRight()
     {
         Actor b=getOneIntersectingObject(blockType);
@@ -132,36 +175,36 @@ public class PlatformPlayer extends PlatformObject
             velX += moveSpeed;
             setImage(walkRight.getCurrentImage());
         }
-        
+
         if (Greenfoot.isKeyDown("a")&&b==null)
         {
             velX -= moveSpeed;
             setImage(walkLeft.getCurrentImage());
         }
-        
+
         if (Greenfoot.isKeyDown("d")&&!isWalkingRight)
         {
             isWalkingRight = true;
         }
-        
+
         if(!Greenfoot.isKeyDown("d")&&isWalkingRight)
         {
             setImage(standRight.getCurrentImage());
             isWalkingRight = false;
         }
-        
+
         if (Greenfoot.isKeyDown("a")&&!isWalkingLeft)
         {
             isWalkingLeft = true;
         }
-        
+
         if(!Greenfoot.isKeyDown("a")&&isWalkingLeft)
         {
             setImage(standLeft.getCurrentImage());
             isWalkingLeft = false;
         }
     }
-    
+
     private void jump()
     {
         if ((Greenfoot.isKeyDown("space")||Greenfoot.isKeyDown("w")) && onBlock)
@@ -174,33 +217,33 @@ public class PlatformPlayer extends PlatformObject
     private void airResist()
     {
         velX -= airResist*velX;
-        
+
         //old
         //velX -= airResist*velX*Math.abs(velX);
         //velX -= airResist*velX*Math.log(Math.abs(velX)+1);
         //velY -= airResist*velY*Math.log(Math.abs(velY)+1);
     }
-    
+
     private void velocity()
     {
         realX += velX;
         realY += velY;
     }
-    
+
     private void gravity(double grav)
     {
-            velY += grav;
+        velY += grav;
     }
-    
+
     private void showDebug(boolean show)
     {
         if(show)
         {
             int x = getWorld().getWidth() - 75;
-            
+
             getWorld().showText("X: "+String.format("%.02f", (realX)), x, 25);
             getWorld().showText("Y: "+String.format("%.02f", (realY)), x, 50); 
-            
+
             getWorld().showText("vX: "+String.format("%.02f", (velX)), x, 75);
             getWorld().showText("vY: "+String.format("%.02f", (velY)), x, 100);
         }
