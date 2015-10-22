@@ -61,7 +61,7 @@ public class PlatformPlayer extends PlatformObject
             if (b!=null)
             {
                 velX=0;
-                setLocation(getExactX()+stepX,getExactY());
+                setLocation(getExactX()-stepX,getExactY());
                 realX-=stepX*(10-i);
                 i=10;
             }
