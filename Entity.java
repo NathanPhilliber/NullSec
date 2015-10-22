@@ -199,6 +199,12 @@ public class Entity extends SpaceObject implements DamageTaker
 
             case ATTACK_MODE: /***************** ATTACK MODE */
             if(hasMoreActions() == false){
+                if(Greenfoot.getRandomNumber(4) != 0){
+                    addAction("shootPlayer/0/10/7");
+                }
+                else{
+                    addAction("shootPlayer/2/10/7");
+                }
                 addAction("shootPlayer/0/10/7");
                 addAction("circleTarget/"+ (int)ship.getShipLocX() + "/" + (int)ship.getShipLocY() +"/" + Greenfoot.getRandomNumber(300)+"/80");
 
