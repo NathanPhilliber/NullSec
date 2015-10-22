@@ -59,6 +59,48 @@ public class Player extends Object implements DamageTaker
     private boolean fireballEnabled = true;
     private boolean plasmaballEnabled = true;
 
+    /****** DEMO STUFF *********/
+    private int numEnemiesKilled = 0;
+    private AlienShip alien;
+
+    private boolean alienCurAlive = false;
+
+    public void keepEnemyOnScreen(){
+        if(alienCurAlive == false){
+            alien = new AlienShip(getShipLocX()+Greenfoot.getRandomNumber(500)-250, getShipLocY()+Greenfoot.getRandomNumber(500)-250);
+            space.addObject(alien,0,0);
+            alienCurAlive = true;
+        }
+        else{
+            if(alien.isAlive == false){
+                numEnemiesKilled++;
+                alienCurAlive = false;
+
+                switch(numEnemiesKilled){
+                    case 1:
+                    updateAvailableWeapons(true, true, false, false, false, false);
+                    break;
+                    case 2:
+                    updateAvailableWeapons(true, true, true, false, false, false);
+                    break;
+                    case 3:
+                    updateAvailableWeapons(true, true, true, true, false, false);
+                    break;
+                    case 4:
+                    updateAvailableWeapons(true, true, true, true, true, false);
+                    break;
+                    case 5:
+                    updateAvailableWeapons(true, true, true, true, true, true);
+                    break;
+
+                    default:
+                    break;
+                }
+            }
+        }
+    }
+
+    /******* DELETE LATER********/
     //Constructor, spawns player at 0,0
     public Player(){
         this(0,0);
@@ -74,8 +116,7 @@ public class Player extends Object implements DamageTaker
 
         setVelX(0.0);
         setVelY(0.0);
-        
-        
+
 
     }
     //Called every tick
@@ -89,7 +130,7 @@ public class Player extends Object implements DamageTaker
         {
             firstTime();
             fly();
-            showDebug(true);
+            showDebug(false);
 
             scrollWeapon();
 
@@ -103,8 +144,9 @@ public class Player extends Object implements DamageTaker
             debugHealthHack(); //Allows to add health via '[']' DELETE THIS BEFORE PUBLISH
             //checkDead();
             weaponSystems();//john
-            checkDock();
 
+            keepEnemyOnScreen();
+            checkDock();
         }
     } 
 
@@ -329,9 +371,7 @@ public class Player extends Object implements DamageTaker
             damageBar = new DamageBar(this, -30, getHealth(), getMaxHealth());
             SPACE.addObject(damageBar, 0, 0);
 
-            
-            updateAvailableWeapons(true, true, true, true, true, true);
-            
+            updateAvailableWeapons(true, false, false, false, false, false);
             if(getWorld() instanceof TutorialWorld){
                 tutObj = new TutorialObjectManager();
                 SPACE.addObject(tutObj,-10,-10);
@@ -718,9 +758,7 @@ public class Player extends Object implements DamageTaker
         beamCharge();
         if (Greenfoot.isKeyDown("c") || rMButton())
         {
-            
-         
-            
+
             
             if (mouseAim)
             {
@@ -758,7 +796,7 @@ public class Player extends Object implements DamageTaker
     {
         for (int i=1; i <= beamCharge/15; i++)
         {
-            getWorld().addObject(new Beam(0, true, 0, 400, 520),418+i*4,520);
+            getWorld().addObject(new Beam(0, true, beamDamage, 400, 520),418+i*4,520);
         }
     }
 
@@ -851,7 +889,5 @@ public class Player extends Object implements DamageTaker
         }
     }
 
-    
     //john end
-
 }

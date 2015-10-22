@@ -21,7 +21,7 @@ public class IconShip extends Menu
         sound = new GreenfootSound("sounds/AmbientSpace.wav");
 
         /* TURN THIs BACK ON*/
-        //sound.playLoop();
+        sound.playLoop();
     }
 
     public void act()

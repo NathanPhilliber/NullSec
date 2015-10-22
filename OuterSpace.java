@@ -31,25 +31,25 @@ public class OuterSpace extends Space
         //addObject(new AlienShip(1000,1000), 1000,1000);
 
         /********  ADD YOUR SPACE OBJECT STUFF HERE  *******/
-        addObject(new AlienShip(0,0), 0,0);
+        //addObject(new AlienShip(0,0), 0,0);
 
-        Planet planetOne = new Planet(0,0, new WorldOne(), "images/Planet1.png");
-        addObject(planetOne,0, 0);
+        Planet planetOne = new Planet(1000,-1000, new WorldOne(), "images/Planet1.png");
+        addObject(planetOne,3000, 0);
 
         Planet planetOne2 = new Planet(2500,400, new WorldOne(), "images/Planet2.png");
-        addObject(planetOne2,0, 0);
+        addObject(planetOne2,3000, 0);
 
         Planet planetTwo = new Planet(500, 1000, new WorldOne(), "images/Planet3.png");
-        addObject(planetTwo,0, 0);
+        addObject(planetTwo,3000, 0);
         
         Planet planet3 = new Planet(-500, -1000, new WorldOne(), "images/Planet4.png");
-        addObject(planet3,0, 0);
+        addObject(planet3,3000, 0);
         
         Planet planet4 = new Planet(1000, -2400, new WorldOne(), "images/Planet5.png");
-        addObject(planet4,0, 0);
+        addObject(planet4,3000, 0);
 
         Planet shopPlanet = new Planet(0,2000, new Shop(), "images/PlanetShop.png");
-        addObject(shopPlanet, 0, 0); 
+        addObject(shopPlanet, 3000, 0); 
 
     }
 

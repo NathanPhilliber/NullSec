@@ -69,5 +69,9 @@ public class Mine extends Weapon implements ProjectileObject
         addExplosion(getSpaceX(), getSpaceY());
         scheduleRemoval();
     }
+    
+    public boolean checkCollision(){
+        return false;
+    }
 
 }

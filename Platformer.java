@@ -4,7 +4,7 @@ public class Platformer extends World
     private double worldOffset=0;
     public Platformer()
     {    
-        super(920, 540, 1, false); 
+        super(920, 540, 1, false); //ORIGINAL SIZE 920 540 ALWAYS CHANGE BACK TO THIS WHEN DONE
         prepare();
     }
     private void prepare()
