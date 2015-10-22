@@ -8,9 +8,7 @@ import greenfoot.*;
  */
 public class PlatformPlayer extends PlatformObject
 {
-    
-   
-    
+
     //constants
     private double gravity = .5;
     private double airResist = .25;
@@ -46,11 +44,8 @@ public class PlatformPlayer extends PlatformObject
         realY = Y;
         velX = 0;
         velY = 0;
-        
-        
-    }
 
-    
+    }
 
     public void act() 
     {
@@ -59,13 +54,13 @@ public class PlatformPlayer extends PlatformObject
         {
             System.out.println(b);
         }
-        
+
         if(w == null){
             w=(Platformer)getWorld();
         }
-        
+
         pausePlayerHelper();
-        
+
         if(playerPaused == false){
             showDebug(true);
             jump();
@@ -77,7 +72,7 @@ public class PlatformPlayer extends PlatformObject
             updatePosition();
             restartWorld();
             checkSpecialCollisions();
-            
+
         }
 
     }
@@ -102,12 +97,12 @@ public class PlatformPlayer extends PlatformObject
     private int pauseCycles = 0;
     private boolean playerPaused = false;
     private boolean deleteMe = false;
-    
+
     private void restartWorld(){
         if(deleteMe){
-            
+
             //Greenfoot.setWorld(getWorld());
-            
+
             World world = getWorld();
             if(world instanceof Level3){
                 Greenfoot.setWorld(new Level3());
@@ -117,6 +112,7 @@ public class PlatformPlayer extends PlatformObject
             }
         }
     }
+
     private void pausePlayerHelper(){
         pauseCycles--;
         if(pauseCycles > 0){
@@ -130,7 +126,7 @@ public class PlatformPlayer extends PlatformObject
     private void updatePosition()
     {
         //setLocation(realX-w.getOffset(),getExactY());
-        int steps=2;
+        int steps=10;
         //X check
         double stepX = (realX-w.getOffset()-getExactX())/steps;
         for (int i=0;i<=steps-1;i++)
@@ -139,10 +135,19 @@ public class PlatformPlayer extends PlatformObject
             Actor b=getOneIntersectingObject(blockType);
             if (b!=null)
             {
+
+                   
                 velX=0;
+                //System.out.println(stepX);
                 setLocation(getExactX()-stepX,getExactY());
                 realX -= stepX*(steps-i);
                 i=steps;
+
+            }
+
+            b=getOneIntersectingObject(blockType);
+            if(b != null){
+                setLocation(getExactX(), getExactY()-5);
             }
         }
 
