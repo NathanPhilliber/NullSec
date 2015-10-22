@@ -127,7 +127,7 @@ public class TutorialObjectManager extends SpaceObject
             if(alien1 != null && alien2 != null){
                 if(alien1.isAlive == false && alien2.isAlive == false){
                     stage++;
-                    currentTick = 0;
+                    currentTick = 0;  
                 }
             }
         }
@@ -184,7 +184,7 @@ public class TutorialObjectManager extends SpaceObject
         else if(Greenfoot.isKeyDown("e") && stage == 17){
             setLocation(1000,1000);
             
-            space.addObject(new Planet(ship.getShipLocX()+800, ship.getShipLocY(),new OuterSpace(), "images/Planet1.png"), -500,-500);
+            space.addObject(new Planet(ship.getShipLocX()+800, ship.getShipLocY(),new Platformer(), "images/Planet1.png"), -500,-500);
             
             currentTick = 0;
             stage++;

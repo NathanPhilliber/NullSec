@@ -14,6 +14,7 @@ public class PlatformPlayer extends PlatformObject
     private double moveSpeed = 2;
     private double jumpSpeed = 16;
     private int sideScrollDist = 200;
+    private Class blockType = Block.class;
     
     //varibles
     private boolean onBlock=false;
@@ -21,11 +22,19 @@ public class PlatformPlayer extends PlatformObject
     private double realY;
     private double velX;
     private double velY;
+    private boolean isWalkingRight;
+    private boolean isWalkingLeft;
     Platformer w;
+    
+    GifImage walkRight = new GifImage("WalkingAnimation.gif");
+    GifImage walkLeft = new GifImage("WalkingAnimationLeft.gif");
+    GifImage standRight = new GifImage("StandingRight.png");
+    GifImage standLeft = new GifImage("StandingLeft.png");
     
     public PlatformPlayer()
     {
         this(100,50);
+        setImage(standRight.getCurrentImage());
     }
     
     public PlatformPlayer(double X, double Y)
@@ -47,7 +56,22 @@ public class PlatformPlayer extends PlatformObject
         velocity();
         sideScroll();
         updatePosition();
-    }    
+        checkSpecialCollisions();
+    }
+    private void checkSpecialCollisions()
+    {
+        Actor c=getOneIntersectingObject(ExitPortal.class);
+        if(c != null)
+        {
+            Greenfoot.setWorld(new OuterSpace());
+        }
+        
+        Actor d=getOneIntersectingObject(LavaBlock.class);
+        if(d != null)
+        {
+            Greenfoot.setWorld(new Platformer());
+        }
+    }
     private void updatePosition()
     {
         //setLocation(realX-w.getOffset(),getExactY());
@@ -57,7 +81,7 @@ public class PlatformPlayer extends PlatformObject
         for (int i=0;i<=9;i++)
         {
             setLocation(getExactX()+stepX,getExactY());
-            Actor b=getOneIntersectingObject(Block.class);
+            Actor b=getOneIntersectingObject(blockType);
             if (b!=null)
             {
                 velX=0;
@@ -72,7 +96,7 @@ public class PlatformPlayer extends PlatformObject
         for (int i=0;i<=9;i++)
         {
             setLocation(getExactX(),getExactY()+stepY);
-            Actor b=getOneIntersectingObject(Block.class);
+            Actor b=getOneIntersectingObject(blockType);
             if (b!=null)
             {
                 if (stepY>=0)
@@ -102,13 +126,39 @@ public class PlatformPlayer extends PlatformObject
     
     private void leftRight()
     {
-        if (Greenfoot.isKeyDown("d")&&!touch(Block.class))
+        Actor b=getOneIntersectingObject(blockType);
+        if (Greenfoot.isKeyDown("d")&&b==null)
         {
             velX += moveSpeed;
+            setImage(walkRight.getCurrentImage());
         }
-        if (Greenfoot.isKeyDown("a")&&!touch(Block.class))
+        
+        if (Greenfoot.isKeyDown("a")&&b==null)
         {
             velX -= moveSpeed;
+            setImage(walkLeft.getCurrentImage());
+        }
+        
+        if (Greenfoot.isKeyDown("d")&&!isWalkingRight)
+        {
+            isWalkingRight = true;
+        }
+        
+        if(!Greenfoot.isKeyDown("d")&&isWalkingRight)
+        {
+            setImage(standRight.getCurrentImage());
+            isWalkingRight = false;
+        }
+        
+        if (Greenfoot.isKeyDown("a")&&!isWalkingLeft)
+        {
+            isWalkingLeft = true;
+        }
+        
+        if(!Greenfoot.isKeyDown("a")&&isWalkingLeft)
+        {
+            setImage(standLeft.getCurrentImage());
+            isWalkingLeft = false;
         }
     }
     

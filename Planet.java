@@ -31,8 +31,6 @@ public class Planet extends SpaceObject
     }
     
     public void loadWorld(){
-        
-        
         Greenfoot.setWorld(world);
     }
     

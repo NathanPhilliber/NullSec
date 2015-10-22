@@ -8,8 +8,11 @@ import java.util.List;
  */
 public class PlayerHover extends PlatformOne
 {
+    GifImage gifImage = new GifImage("WalkingAnimation.gif");
+    
     public void act() 
     {
+        setImage(gifImage.getCurrentImage());
         if(Greenfoot.isKeyDown("d"))
         {
             List<WorldOneFG> floor = getWorld().getObjects(WorldOneFG.class);
