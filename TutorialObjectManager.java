@@ -184,7 +184,7 @@ public class TutorialObjectManager extends SpaceObject
         else if(Greenfoot.isKeyDown("e") && stage == 17){
             setLocation(1000,1000);
             
-            space.addObject(new Planet(ship.getShipLocX()+800, ship.getShipLocY(),new Level3(), "images/Planet1.png"), -500,-500);
+            space.addObject(new Planet(ship.getShipLocX()+800, ship.getShipLocY(),new Platformer(), "images/Planet1.png"), -500,-500);
             
             currentTick = 0;
             stage++;
