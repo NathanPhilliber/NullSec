@@ -57,7 +57,8 @@ public class PlatformPlayer extends PlatformObject
         for (int i=0;i<=9;i++)
         {
             setLocation(getExactX()+stepX,getExactY());
-            if (touch(Block.class))
+            Actor b=getOneIntersectingObject(Block.class);
+            if (b!=null)
             {
                 velX=0;
                 setLocation(getExactX()+stepX,getExactY());
@@ -71,7 +72,8 @@ public class PlatformPlayer extends PlatformObject
         for (int i=0;i<=9;i++)
         {
             setLocation(getExactX(),getExactY()+stepY);
-            if (touch(Block.class))
+            Actor b=getOneIntersectingObject(Block.class);
+            if (b!=null)
             {
                 if (stepY>=0)
                 {
@@ -137,10 +139,7 @@ public class PlatformPlayer extends PlatformObject
     
     private void gravity(double grav)
     {
-        if (!onBlock)
-        {
             velY += grav;
-        }
     }
     
     private void showDebug(boolean show)
