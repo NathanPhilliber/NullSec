@@ -41,6 +41,12 @@ public class OuterSpace extends Space
 
         Planet planetTwo = new Planet(500, 1000, new WorldOne(), "images/Planet3.png");
         addObject(planetTwo,0, 0);
+        
+        Planet planet3 = new Planet(-500, -1000, new WorldOne(), "images/Planet4.png");
+        addObject(planet3,0, 0);
+        
+        Planet planet4 = new Planet(1000, -2400, new WorldOne(), "images/Planet5.png");
+        addObject(planet4,0, 0);
 
         Planet shopPlanet = new Planet(0,2000, new Shop(), "images/PlanetShop.png");
         addObject(shopPlanet, 0, 0); 
