@@ -26,6 +26,8 @@ public class PlatformPlayer extends PlatformObject
     private boolean isWalkingRight;
     private boolean isWalkingLeft;
     Platformer w;
+    
+   
 
     GifImage walkRight = new GifImage("WalkingAnimation.gif");
     GifImage walkLeft = new GifImage("WalkingAnimationLeft.gif");
@@ -129,6 +131,8 @@ public class PlatformPlayer extends PlatformObject
         int steps=10;
         //X check
         double stepX = (realX-w.getOffset()-getExactX())/steps;
+        
+        
         for (int i=0;i<=steps-1;i++)
         {
             setLocation(getExactX()+stepX,getExactY());
@@ -147,7 +151,14 @@ public class PlatformPlayer extends PlatformObject
 
             b=getOneIntersectingObject(blockType);
             if(b != null){
-                setLocation(getExactX(), getExactY()-5);
+                if(isWalkingRight){
+                    setLocation(getExactX() - 3, getExactY());
+                }
+                if(isWalkingLeft){
+                    setLocation(getExactX() +3 , getExactY());
+                }
+                
+                
             }
         }
 
