@@ -17,6 +17,9 @@ public class OuterSpace extends Space
     //World worldOne = new WorldOne();
     //World shop = new Shop();
     //Contructor, spawn world
+
+    private Level3 level3 = new Level3();
+
     public OuterSpace()
     {    
         super();
@@ -33,19 +36,19 @@ public class OuterSpace extends Space
         /********  ADD YOUR SPACE OBJECT STUFF HERE  *******/
         //addObject(new AlienShip(0,0), 0,0);
 
-        Planet planetOne = new Planet(1000,-1000, new Level3(), "images/Planet1.png");
+        Planet planetOne = new Planet(1000,-1000, level3, "images/Planet1.png");
         addObject(planetOne,3000, 0);
 
-        Planet planetOne2 = new Planet(2500,400, new Level3(), "images/Planet2.png");
+        Planet planetOne2 = new Planet(2500,400, level3, "images/Planet2.png");
         addObject(planetOne2,3000, 0);
 
-        Planet planetTwo = new Planet(500, 1000, new Level3(), "images/Planet3.png");
+        Planet planetTwo = new Planet(500, 1000, level3, "images/Planet3.png");
         addObject(planetTwo,3000, 0);
-        
-        Planet planet3 = new Planet(-500, -1000, new Level3(), "images/Planet4.png");
+
+        Planet planet3 = new Planet(-500, -1000,  level3, "images/Planet4.png");
         addObject(planet3,3000, 0);
-        
-        Planet planet4 = new Planet(1000, -2400, new Level3(), "images/Planet5.png");
+
+        Planet planet4 = new Planet(1000, -2400,  level3, "images/Planet5.png");
         addObject(planet4,3000, 0);
 
         //Planet shopPlanet = new Planet(0,2000, new Shop(), "images/PlanetShop.png");
