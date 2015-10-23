@@ -52,6 +52,8 @@ public class Player extends Object implements DamageTaker
 
     public Counter goldScore;
 
+    private int asteroidSpawnChance = 90;
+
     private boolean projectileEnabled = true; //DO NOT DIRECTLY EDIT THESE
     private boolean missileEnabled = true;
     private boolean beamEnabled = true;
@@ -59,14 +61,26 @@ public class Player extends Object implements DamageTaker
     private boolean fireballEnabled = true;
     private boolean plasmaballEnabled = true;
 
-    /****** DEMO STUFF *********/
+    private int weaponTimer = 0;
+    private int weaponToggle = 0;
+    private int weaponLV = 0;
+    private int weaponType = 0;
+
+    private int hearthTimer = 0;
+    private int blinkCD = 0;
+    private int beamCharge = 0;
+    private boolean beamCD = false;
+    public boolean mouseAim = true;
+
+    /*************************************************************/
+    /*********************  DEMO STUFF  **************************/
+    /*************************************************************/
+
     private int numEnemiesKilled = 0;
     private AlienShip alien;
 
     private boolean alienCurAlive = false;
 
-    
-    
     public void keepEnemyOnScreen(){
         if(getWorld() instanceof OuterSpace){
             if(alienCurAlive == false){
@@ -105,12 +119,11 @@ public class Player extends Object implements DamageTaker
 
     }
 
-    
-    
     /******* DELETE LATER********/
-    
-    
-    
+    /***************************************************************/
+    /*********************  CONSTRUCTORS  **************************/
+    /***************************************************************/
+
     //Constructor, spawns player at 0,0
     public Player(){
         this(0,0);
@@ -128,6 +141,10 @@ public class Player extends Object implements DamageTaker
         setVelY(0.0);
 
     }
+
+    /******************************************************/
+    /*********************  ACT  **************************/
+    /******************************************************/
     //Called every tick
     //Allows ship to "move" (changes coords), displays debug info and spawns stars
     //Updates health
@@ -148,10 +165,10 @@ public class Player extends Object implements DamageTaker
             lookForGold();
 
             generateStars(starDensity);
-            //generateNebulas(nebulaDensity);
+            //generateNebulas(nebulaDensity); //Cant shoot in nebulas
             damageBar.updateDamage(getHealth(), getMaxHealth());
             debugHealthHack(); //Allows to add health via '[']' DELETE THIS BEFORE PUBLISH
-            //checkDead();
+            //checkDead(); //Add this back in later, make respawn
             weaponSystems();//john
 
             keepEnemyOnScreen();
@@ -159,15 +176,31 @@ public class Player extends Object implements DamageTaker
         }
     } 
 
-    public void updateAvailableWeapons(boolean proj, boolean beam, boolean missile, boolean mine, boolean fire, boolean plasma){
-        space.removeWeaponGUI();
-        projectileEnabled = proj;
-        missileEnabled = missile;
-        beamEnabled = beam;
-        mineEnabled = mine;
-        fireballEnabled = fire;
-        plasmaballEnabled = plasma;
-        space.drawWeaponGUI(projectileEnabled, beamEnabled, missileEnabled, mineEnabled, fireballEnabled, plasmaballEnabled);
+    /*************************************************************************/
+    /*********************  MOVEMENT AND COLLISION  **************************/
+    /*************************************************************************/
+
+    public boolean isMoving(){
+        if(getVelX() != 0 || getVelY() != 0){
+
+            return true;
+        }
+        return false;
+    }
+
+    public void lookForGold(){
+        //COLLISION AND CALL PICKUP
+        SpaceObject obj =(SpaceObject) getOneIntersectingObject(SpaceObject.class);
+        if(obj != null){
+            if(obj instanceof Gold){
+                if(touch(obj)){ //Don't run this disgusting function unless neceessary
+                    Gold ent = (Gold) obj;
+                    ent.pickUp();
+                    goldScore.setValue(Gold.totalGold);
+
+                }
+            }
+        }
 
     }
 
@@ -285,8 +318,7 @@ public class Player extends Object implements DamageTaker
         addSpaceY(getVelY());
     }
 
-    private void reverseThruster()//john
-    {
+    private void reverseThruster(){
         if (Greenfoot.isKeyDown("s"))
         {
             int angle = getRotation();
@@ -306,14 +338,38 @@ public class Player extends Object implements DamageTaker
 
     }
 
-    private void debugHealthHack(){
-        if(Greenfoot.isKeyDown("[")){
-            addHealth(-.5);
-        }
-        if(Greenfoot.isKeyDown("]")){
-            addHealth(.5);
+    public double getSpeed(){
+        return Math.sqrt(Math.pow(getVelX(),2)+Math.pow(getVelY(),2));
+    }
+
+    private void blink()
+    {
+        blinkCD++;
+        if (Greenfoot.isKeyDown("v") && blinkCD>=200){
+            addSpaceX(250*Math.cos(getRotation()*2*Math.PI/360));
+            addSpaceY(250*Math.sin(getRotation()*2*Math.PI/360));
+            blinkCD=0;
         }
     }
+
+    private void hearth(){
+        if (Greenfoot.isKeyDown("b")){
+            hearthTimer++;
+            if (hearthTimer >= 100){
+                setSpaceX(0);
+                setSpaceY(0);
+                setVelX(0);
+                setVelY(0);
+            }
+        }
+        else{
+            hearthTimer = 0;
+        }
+    }
+
+    /********************************************************************/
+    /*********************  OBJECT GENERATION  **************************/
+    /********************************************************************/
 
     //Generates stars offscreen
     private void generateStars(int density){
@@ -372,6 +428,217 @@ public class Player extends Object implements DamageTaker
         }
 
     }
+
+    public void spawnAsteroid(){
+        if(Greenfoot.getRandomNumber(asteroidSpawnChance) == 0){
+            switch(Greenfoot.getRandomNumber(3)){
+                case 0:
+                space.addObject(new AsteroidLarge(ship.getShipLocX()+700*getPosNeg(),ship.getShipLocY()+700*getPosNeg(),Greenfoot.getRandomNumber(360),4.0),-10,-10);
+                break;
+                case 1:
+                space.addObject(new AsteroidMedium(ship.getShipLocX()+700*getPosNeg(),ship.getShipLocY()+700*getPosNeg(),Greenfoot.getRandomNumber(360),4.0),-10,-10);            
+                break;
+                case 2:
+                space.addObject(new AsteroidSmall(ship.getShipLocX()+700*getPosNeg(),ship.getShipLocY()+700*getPosNeg(),Greenfoot.getRandomNumber(360),4.0),-10,-10);            
+                break;
+            }
+        }
+
+    }
+
+    /******************************************************************/
+    /*********************  WEAPONS SYSTEMS  **************************/
+    /******************************************************************/
+    public void updateAvailableWeapons(boolean proj, boolean beam, boolean missile, boolean mine, boolean fire, boolean plasma){
+        space.removeWeaponGUI();
+        projectileEnabled = proj;
+        missileEnabled = missile;
+        beamEnabled = beam;
+        mineEnabled = mine;
+        fireballEnabled = fire;
+        plasmaballEnabled = plasma;
+        space.drawWeaponGUI(projectileEnabled, beamEnabled, missileEnabled, mineEnabled, fireballEnabled, plasmaballEnabled);
+
+    }
+
+    private void shoot(int LV, int wep){
+        beamCharge();
+        if (Greenfoot.isKeyDown("c") || rMButton())
+        {
+
+            if (mouseAim){
+                weaponTimer(mouseAngle(),LV,wep);
+            }
+            else{
+                weaponTimer(getRotation(),LV,wep);
+            }
+        }
+        else{
+            weaponTimer = 0;
+        }
+    }
+
+    private void beamCharge(){
+        bramChargeBar();
+        if (beamCharge<300){
+            beamCharge++;
+        }
+        if (beamCharge<=5){
+            beamCD = true;
+        }
+        if (beamCharge>=100){
+            beamCD = false;
+        }
+    }
+
+    private void bramChargeBar(){
+        for (int i=1; i <= beamCharge/15; i++){
+            getWorld().addObject(new Beam(0, true, beamDamage, 400, 520),418+i*4,520);
+        }
+    }
+
+    private void weaponTimer(int angle,int LV,int wep){
+        weaponTimer++;
+        if (wep==0){
+            if (weaponTimer%10 == 1){
+                projectile(angle,LV,getShipLocX(),getShipLocY());
+            }
+        }            
+        if (wep==1&&!beamCD){
+            beam(angle,LV,getShipLocX(),getShipLocY());//in object WEAPON SYSTEMS
+            beamCharge--;
+            beamCharge--;
+            beamCharge--;
+        }
+        if (wep==2){
+            if (weaponTimer%35 == 1){
+                missile(angle,LV,getShipLocX(),getShipLocY());//in object WEAPON SYSTEMS
+            }
+        }
+        if (wep==3){
+            if (weaponTimer%30 == 1){
+                mine(angle,LV,spaceX+getX(),spaceY+getY());//in object WEAPON SYSTEMS
+            }
+        }
+        if (wep==4){
+            if (weaponTimer%70 == 1){
+                fireball(angle,LV,getShipLocX(),getShipLocY());//in object WEAPON SYSTEMS
+            }
+        }
+        if (wep==5){
+            if (weaponTimer%30 <= 4){
+                plasmaBall(angle,LV,getShipLocX(),getShipLocY());
+            }
+        }
+
+    }
+
+    private void toggleWeaponLV(){
+        if (Greenfoot.isKeyDown("=")){
+            if (weaponToggle==0){
+                if (weaponLV == 6){
+                    weaponLV = 0;
+                }
+                else{
+                    weaponLV++;
+                }
+                weaponToggle++;
+            }
+        }
+        else if (Greenfoot.isKeyDown("-")){
+            if (weaponToggle==0){
+                if (weaponLV == 0){
+                    weaponLV = 6;
+                }
+                else{
+                    weaponLV--;
+                }
+                weaponToggle++;
+            }
+        }
+        else{
+            weaponToggle = 0;
+        }
+    }
+
+    private void scrollWeapon(){
+        weaponType = (int) space.getWeapon();
+    }   
+
+    public void weaponSystems(){
+        shoot(weaponLV, weaponType);
+        toggleWeaponLV();
+        //weaponType();
+        hearth();
+        blink();
+    }
+
+    /****************************************************************/
+    /*********************  HEALTH SYSTEM  **************************/
+    /****************************************************************/
+    private void debugHealthHack(){
+        if(Greenfoot.isKeyDown("[")){
+            addHealth(-.5);
+        }
+        if(Greenfoot.isKeyDown("]")){
+            addHealth(.5);
+        }
+    }
+
+    public double getHealth(){
+        return health;
+    }
+
+    public double getMaxHealth(){
+        return maxHealth;
+    }
+
+    //Set the health, makes sure you're not setting health over the maximum or under 0
+
+    public void setHealth(double health){
+        if(health > getMaxHealth()){
+            this.health = getMaxHealth();
+
+        }
+        else if(health < 0.0){
+            this.health = 0.0;
+
+        }
+        else{
+            this.health = health;
+
+        }
+
+    }
+
+    //Set maximum health, makes sure you're not setting it under current health
+    public void setMaxHealth(double health){
+        if(getHealth() > health){
+            setHealth(health);
+        }
+        else{
+            maxHealth = health;
+        }
+
+    }
+
+    public void addHealth(double add){
+        setHealth(getHealth()+add);
+
+    }
+
+    public DamageBar getDamageBar(){
+        return damageBar;
+    }
+
+    public void checkDead(){
+        if(getHealth() <= 0.0){
+            addExplosion(getShipLocX(), getShipLocY());
+        }
+    }
+    /*******************************************************/
+    /*********************  MISC  **************************/
+    /*******************************************************/
     //Called during the first tick only
     //Some methods require the ship to alrady be spawned to work
     private void firstTime(){
@@ -402,31 +669,6 @@ public class Player extends Object implements DamageTaker
             return 1.0;
         }
         return -1.0;
-    }
-
-    //Check to see if the ship is moving in any direction
-    public boolean isMoving(){
-        if(getVelX() != 0 || getVelY() != 0){
-
-            return true;
-        }
-        return false;
-    }
-
-    public void lookForGold(){
-        //COLLISION AND CALL PICKUP
-        SpaceObject obj =(SpaceObject) getOneIntersectingObject(SpaceObject.class);
-        if(obj != null){
-            if(obj instanceof Gold){
-                if(touch(obj)){ //Don't run this disgusting function unless neceessary
-                    Gold ent = (Gold) obj;
-                    ent.pickUp();
-                    goldScore.setValue(Gold.totalGold);
-
-                }
-            }
-        }
-
     }
 
     public double getSpaceX(){
@@ -533,115 +775,6 @@ public class Player extends Object implements DamageTaker
         return getSpaceY()+getWorld().getHeight()/2;
     }
 
-    public double getHealth(){
-        return health;
-    }
-
-    public double getMaxHealth(){
-        return maxHealth;
-    }
-
-    //Set the health, makes sure you're not setting health over the maximum or under 0
-
-    public void setHealth(double health){
-        if(health > getMaxHealth()){
-            this.health = getMaxHealth();
-
-        }
-        else if(health < 0.0){
-            this.health = 0.0;
-
-        }
-        else{
-            this.health = health;
-
-        }
-
-    }
-
-    //Set maximum health, makes sure you're not setting it under current health
-    public void setMaxHealth(double health){
-        if(getHealth() > health){
-            setHealth(health);
-        }
-        else{
-            maxHealth = health;
-        }
-
-    }
-
-    public void addHealth(double add){
-        setHealth(getHealth()+add);
-
-    }
-
-    public DamageBar getDamageBar(){
-        return damageBar;
-    }
-
-    public void checkDead(){
-        if(getHealth() <= 0.0){
-            addExplosion(getShipLocX(), getShipLocY());
-        }
-    }
-
-    /*
-    public void addAsteroid()
-    {
-    if(spawnRate == 0)
-    {
-    int size = Greenfoot.getRandomNumber(3);
-
-    int areay = getWorld().getHeight();
-    int areax = getWorld().getWidth();
-    int topBot = Greenfoot.getRandomNumber(1);
-    int x = (Greenfoot.getRandomNumber(3)+2 % 2 == 0) ? -50 : areax + 50;
-    int y = Greenfoot.getRandomNumber(areay);
-
-    if(size == 0)
-    {
-    Asteroid1 asteroidS = new Asteroid1();
-    getWorld().addObject(asteroidS, x, y);
-    }
-    if(size == 1)
-    {
-    Asteroid2 asteroidM = new Asteroid2();
-    getWorld().addObject(asteroidM, x, y);
-    }
-    if(size == 2)
-    {
-    Asteroid3 asteroidB = new Asteroid3();
-    getWorld().addObject(asteroidB, x, y);
-    }
-    spawnRate = 100;
-
-    }
-    else
-    {
-    spawnRate--;
-    }  
-    }
-     */
-
-    private int asteroidSpawnChance = 90;
-
-    public void spawnAsteroid(){
-        if(Greenfoot.getRandomNumber(asteroidSpawnChance) == 0){
-            switch(Greenfoot.getRandomNumber(3)){
-                case 0:
-                space.addObject(new AsteroidLarge(ship.getShipLocX()+700*getPosNeg(),ship.getShipLocY()+700*getPosNeg(),Greenfoot.getRandomNumber(360),4.0),-10,-10);
-                break;
-                case 1:
-                space.addObject(new AsteroidMedium(ship.getShipLocX()+700*getPosNeg(),ship.getShipLocY()+700*getPosNeg(),Greenfoot.getRandomNumber(360),4.0),-10,-10);            
-                break;
-                case 2:
-                space.addObject(new AsteroidSmall(ship.getShipLocX()+700*getPosNeg(),ship.getShipLocY()+700*getPosNeg(),Greenfoot.getRandomNumber(360),4.0),-10,-10);            
-                break;
-            }
-        }
-
-    }
-
     private long tick = 0;
     private long time = System.currentTimeMillis();
     //Display debug info such as x,y coords, velocities, star count, health
@@ -650,252 +783,22 @@ public class Player extends Object implements DamageTaker
         {
             tick++;
             long curTime = System.currentTimeMillis();
-            Space SPACE = (Space) getWorld();
-            int x = SPACE.getWidth() - 75;
 
-            SPACE.showText("X: "+String.format("%.02f", (getSpaceX())), x, 25);
-            SPACE.showText("Y: "+String.format("%.02f", (getSpaceY())), x, 50); 
+            int x = space.getWidth() - 75;
 
-            SPACE.showText("vX: "+String.format("%.02f", (getVelX())), x, 75);
-            SPACE.showText("vY: "+String.format("%.02f", (getVelY())), x, 100);        
+            space.showText("X: "+String.format("%.02f", (getSpaceX())), x, 25);
+            space.showText("Y: "+String.format("%.02f", (getSpaceY())), x, 50); 
 
-            SPACE.showText("Stars: "+ BackgroundStar.getNumStars(), x, 125); 
+            space.showText("vX: "+String.format("%.02f", (getVelX())), x, 75);
+            space.showText("vY: "+String.format("%.02f", (getVelY())), x, 100);        
 
-            SPACE.showText("Health: "+ getHealth(), x, 150);
-            SPACE.showText("Weapon: "+ SPACE.getWeapon(), x, 175);
+            space.showText("Stars: "+ BackgroundStar.getNumStars(), x, 125); 
 
-            SPACE.showText("Tick: "+ tick*1000/(curTime - time), x, 200);
+            space.showText("Health: "+ getHealth(), x, 150);
+            space.showText("Weapon: "+ space.getWeapon(), x, 175);
+
+            space.showText("Tick: "+ tick*1000/(curTime - time), x, 200);
         }
     }   
 
-    public double getSpeed(){
-        return Math.sqrt(Math.pow(getVelX(),2)+Math.pow(getVelY(),2));
-    }
-
-    private void scrollWeapon()
-    {
-        Space SPACE = (Space) getWorld();
-        weaponType = (int) SPACE.getWeapon();
-    }   
-    /* sooooo broken
-    public static double getWeapon()
-    {
-    int tempWep=0;
-    tempWep += scroll.getScroll();
-    if(tempWep < 0)
-    {
-    tempWep = 0;
-    }
-    if(tempWep > 5)
-    {
-    tempWep = 5;
-    }
-
-    return tempWep;
-    } 
-     */
-    /**********************************************************************************************************
-     **********************************************************************************************************
-     **********************************************************************************************************
-     **********************************************************************************************************
-     * WEAPON SYSTEMS
-     * by john
-     * 10/8/15
-     * 
-     *
-     * //add sheilds
-     **********************************************************************************************************
-     **********************************************************************************************************
-     **********************************************************************************************************
-     **********************************************************************************************************
-     */
-
-    //john start
-
-    private int weaponTimer = 0;
-    private int weaponToggle = 0;
-    private int weaponLV = 0;
-    private int weaponType = 0;
-
-    private int hearthTimer = 0;
-    private int blinkCD = 0;
-    private int beamCharge = 0;
-    private boolean beamCD = false;
-    public boolean mouseAim = true;
-
-    public void weaponSystems()
-    {
-        shoot(weaponLV, weaponType);
-        toggleWeaponLV();
-        //weaponType();
-        hearth();
-        blink();
-    }
-
-    private void blink()
-    {
-        blinkCD++;
-        if (Greenfoot.isKeyDown("v") && blinkCD>=200)
-        {
-            addSpaceX(250*Math.cos(getRotation()*2*Math.PI/360));
-            addSpaceY(250*Math.sin(getRotation()*2*Math.PI/360));
-            blinkCD=0;
-        }
-    }
-
-    private void hearth()
-    {
-        if (Greenfoot.isKeyDown("b"))
-        {
-            hearthTimer++;
-            if (hearthTimer >= 100)
-            {
-                setSpaceX(0);
-                setSpaceY(0);
-                setVelX(0);
-                setVelY(0);
-            }
-        }
-        else
-        {
-            hearthTimer = 0;
-        }
-    }
-
-    private void shoot(int LV, int wep)
-    {
-        beamCharge();
-        if (Greenfoot.isKeyDown("c") || rMButton())
-        {
-
-            if (mouseAim)
-            {
-                weaponTimer(mouseAngle(),LV,wep);
-            }
-            else
-            {
-                weaponTimer(getRotation(),LV,wep);
-            }
-        }
-        else
-        {
-            weaponTimer = 0;
-        }
-    }
-
-    private void beamCharge()
-    {
-        bramChargeBar();
-        if (beamCharge<300)
-        {
-            beamCharge++;
-        }
-        if (beamCharge<=5)
-        {
-            beamCD = true;
-        }
-        if (beamCharge>=100)
-        {
-            beamCD = false;
-        }
-    }
-
-    private void bramChargeBar()
-    {
-        for (int i=1; i <= beamCharge/15; i++)
-        {
-            getWorld().addObject(new Beam(0, true, beamDamage, 400, 520),418+i*4,520);
-        }
-    }
-
-    private void weaponTimer(int angle,int LV,int wep)
-    {
-        weaponTimer++;
-        if (wep==0)
-        {
-            if (weaponTimer%10 == 1)
-            {
-                projectile(angle,LV,getShipLocX(),getShipLocY());
-            }
-        }            
-        if (wep==1&&!beamCD)
-        {
-            beam(angle,LV,getShipLocX(),getShipLocY());//in object WEAPON SYSTEMS
-            beamCharge--;
-            beamCharge--;
-            beamCharge--;
-        }
-        if (wep==2)
-        {
-            if (weaponTimer%35 == 1)
-            {
-                missile(angle,LV,getShipLocX(),getShipLocY());//in object WEAPON SYSTEMS
-            }
-        }
-        if (wep==3)
-        {
-            if (weaponTimer%30 == 1)
-            {
-                mine(angle,LV,spaceX+getX(),spaceY+getY());//in object WEAPON SYSTEMS
-            }
-        }
-        if (wep==4)
-        {
-            if (weaponTimer%70 == 1)
-            {
-                fireball(angle,LV,getShipLocX(),getShipLocY());//in object WEAPON SYSTEMS
-            }
-        }
-        if (wep==5)
-        {
-            if (weaponTimer%30 <= 4)
-            {
-                plasmaBall(angle,LV,getShipLocX(),getShipLocY());
-            }
-        }
-        if (wep==6)
-        {
-            //stuff wave
-        }
-    }
-
-    private void toggleWeaponLV()
-    {
-        if (Greenfoot.isKeyDown("="))
-        {
-            if (weaponToggle==0)
-            {
-                if (weaponLV == 6)
-                {
-                    weaponLV = 0;
-                }
-                else
-                {
-                    weaponLV++;
-                }
-                weaponToggle++;
-            }
-        }
-        else if (Greenfoot.isKeyDown("-"))
-        {
-            if (weaponToggle==0)
-            {
-                if (weaponLV == 0)
-                {
-                    weaponLV = 6;
-                }
-                else
-                {
-                    weaponLV--;
-                }
-                weaponToggle++;
-            }
-        }
-        else
-        {
-            weaponToggle = 0;
-        }
-    }
-
-    //john end
 }
