@@ -3,14 +3,21 @@ public class Platformer extends World
 {
     private double worldOffset=0;
     
-    
+    public double returnX, returnY;
     
     
     
     public Platformer()
     {    
+        this(0,0);
+        
+    }
+    
+    public Platformer(double returnX, double returnY){
         super(920, 540, 1, false); //ORIGINAL SIZE 920 540 ALWAYS CHANGE BACK TO THIS WHEN DONE
         
+        this.returnX = returnX - getWidth()/2;
+        this.returnY = returnY - getHeight()/2;
     }
     
     

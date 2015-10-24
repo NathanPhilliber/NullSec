@@ -37,11 +37,19 @@ public class Space extends World
     private boolean mineEnabled = true;
     private boolean fireballEnabled = true;
     private boolean plasmaballEnabled = true;
+    
+    private double spawnX, spawnY;
 
     //Contructor, spawn world
     public Space()
     {    
-        super(920, 540, 1, false); 
+        this(0,0);
+    }
+    
+    public Space(double spawnX, double spawnY){
+        super(920, 540, 1, false);
+        this.spawnX = spawnX;
+        this.spawnY = spawnY;
         prepare();
     }
 
@@ -53,7 +61,7 @@ public class Space extends World
     protected void prepare()
     {
         isPaused=false;
-        ship = new Ship(0,0);
+        ship = new Ship(spawnX,spawnY);
 
         scrollListener();
 

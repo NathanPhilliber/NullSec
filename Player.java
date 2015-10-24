@@ -18,7 +18,7 @@ public class Player extends Object implements DamageTaker
     private double velY;
 
     //Rate at which ship turns and accelerates
-    private int turnSpeed = 5;
+    private int turnSpeed = 3;
     private double flySpeed = 0.3;
     private double revSpeed = 0.15;
 
@@ -27,7 +27,7 @@ public class Player extends Object implements DamageTaker
     private double maxFlyBoostSpeed = 10.0;
     //How fast the ship deccelerates 
     //Lower the number the longer it takes to stop
-    private double flyDec = .01;
+    private double flyDec = .08;
 
     //How dense the stars should spawn. Higher number means more stars.
     //Number is arbitrary

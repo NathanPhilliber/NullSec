@@ -75,7 +75,8 @@ public class PlatformPlayer extends PlatformObject
         Actor p=getOneIntersectingObject(ExitPortal.class);
         if(p != null)
         {
-            Greenfoot.setWorld(new OuterSpace());
+            Platformer plat = (Platformer) getWorld();
+            Greenfoot.setWorld(new OuterSpace(plat.returnX, plat.returnY));
         }
 
         Actor l=getOneIntersectingObject(LavaBlock.class);
@@ -98,7 +99,8 @@ public class PlatformPlayer extends PlatformObject
 
             World world = getWorld();
             if(world instanceof Level3){
-                Greenfoot.setWorld(new Level3());
+                Level3 level3 = (Level3) world;
+                Greenfoot.setWorld(new Level3(level3.returnX, level3.returnY));
             }
             else{
                 System.out.println("ADD WORLD TO PLATFORMPLAYER");
