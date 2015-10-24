@@ -1,32 +1,16 @@
 import greenfoot.*;
-
-/**
- * Write a description of class Level3 here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Level3 extends Platformer
 {
-
-    /**
-     * Constructor for objects of class Level3.
-     * 
-     */
-    
     public Level3()
     {
-        
         prepare();
     }
     
     private double worldOffset=0;
     private void prepare()
     {
-        addObject(new PlatformPlayer(),540,50);
-        
+        addObject(new PlatformPlayer(),300,50);
         addObject(new ExitPortal(),4580, 412);
-        
         for (int i = 0; i <= 75; i++)
         {
             addObject(new Block(), 27*i, 500);

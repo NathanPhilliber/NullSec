@@ -33,36 +33,28 @@ public class PlatformPlayer extends PlatformObject
     GifImage walkLeft = new GifImage("WalkingAnimationLeft.gif");
     GifImage standRight = new GifImage("StandingRight.png");
     GifImage standLeft = new GifImage("StandingLeft.png");
-
+    public void addedToWorld(World world)
+    {
+        realX=getX();
+        realY=getY();
+    }
+    
     public PlatformPlayer()
     {
-        this(100,50);
-        setImage(standRight.getCurrentImage());
-    }
-
-    public PlatformPlayer(double X, double Y)
-    {
-        realX = X;
-        realY = Y;
         velX = 0;
         velY = 0;
-
+        setImage(standRight.getCurrentImage());
     }
 
     public void act() 
     {
         Actor b=getOneIntersectingObject(Block.class);
+        w=(Platformer)getWorld();
         if(b!=null)
         {
-            System.out.println(b);
+            //System.out.println(b);
         }
-
-        if(w == null){
-            w=(Platformer)getWorld();
-        }
-
         pausePlayerHelper();
-
         if(playerPaused == false){
             showDebug(true);
             jump();
@@ -74,21 +66,20 @@ public class PlatformPlayer extends PlatformObject
             updatePosition();
             restartWorld();
             checkSpecialCollisions();
-
         }
 
     }
 
     private void checkSpecialCollisions()
     {
-        Actor c=getOneIntersectingObject(ExitPortal.class);
-        if(c != null)
+        Actor p=getOneIntersectingObject(ExitPortal.class);
+        if(p != null)
         {
             Greenfoot.setWorld(new OuterSpace());
         }
 
-        Actor d=getOneIntersectingObject(LavaBlock.class);
-        if(d != null)
+        Actor l=getOneIntersectingObject(LavaBlock.class);
+        if(l != null)
         {
             pauseCycles = 50;
             setLocation(getX(), getY() -1000);
@@ -131,34 +122,37 @@ public class PlatformPlayer extends PlatformObject
         int steps=10;
         //X check
         double stepX = (realX-w.getOffset()-getExactX())/steps;
-        
-        
         for (int i=0;i<=steps-1;i++)
         {
-            setLocation(getExactX()+stepX,getExactY());
+            double oldX=getExactX();
+            setLocation(oldX+stepX,getExactY());
             Actor b=getOneIntersectingObject(blockType);
             if (b!=null)
-            {
-
-                   
+            { 
                 velX=0;
-                //System.out.println(stepX);
-                setLocation(getExactX()-stepX,getExactY());
-                realX -= stepX*(steps-i);
+                System.out.println(stepX);
+                setLocation(oldX,getExactY());
+                realX=oldX+w.getOffset();
+                System.out.println(realX);
+                if (stepX==0)
+                {
+                    Greenfoot.stop();//debug on >>>>>>>>>>>>>>>>>DEBUG<<<<<<<<<<<<<<<
+                }
                 i=steps;
-
             }
 
             b=getOneIntersectingObject(blockType);
-            if(b != null){
-                if(isWalkingRight){
+            if(b!=null)
+            {
+                setLocation(getExactX(),getExactY()-10);
+                realY-=10;
+                System.out.println(realY);
+                /*if(isWalkingRight){
                     setLocation(getExactX() - 3, getExactY());
                 }
                 if(isWalkingLeft){
                     setLocation(getExactX() +3 , getExactY());
-                }
-                
-                
+                }*/
             }
         }
 
