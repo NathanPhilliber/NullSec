@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class Weapon extends SpaceObject
 {
-    private boolean ownedByPlayer;
+    protected boolean ownedByPlayer;
     private double damage;
     private MouseInfo mouse;
     private double targetX;

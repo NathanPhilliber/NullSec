@@ -15,13 +15,13 @@ public class Missile extends Weapon implements ProjectileObject
      * will eventualy seak targets 
      * 
      */
-    
+
     private int turn;
     private int time;
     private boolean firstTime = true;
-    
+
     private double speed = 6.0;
-    
+
     private GreenfootSound shootSound = new GreenfootSound("sounds/missileLaunch.mp3");
     public void act() 
     {
@@ -30,23 +30,31 @@ public class Missile extends Weapon implements ProjectileObject
         seakTarget();//no work
         checkRemoval();//LAST
     }  
-    
+
     public Missile(int angle, boolean isPlayer, double damage, double startX, double startY)
     {
         super(angle, isPlayer, startX, startY, damage);
         shootSound.play();
+        
     }
     
+    public void addedToWorld(){
+        if(ownedByPlayer){
+            
+            speed += space.getShip().getSpeed();
+        }
+    }
+
     private void seakTarget()
     {
         //seaking stuff here
-        
+
         //if (no target in range)
         //{
-            turnRandom();
+        turnRandom();
         //}
     }
-    
+
     private void turnRandom()
     {
         setRotation(getRotation()+(Greenfoot.getRandomNumber(5)-2));
