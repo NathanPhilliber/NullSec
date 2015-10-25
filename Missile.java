@@ -1,5 +1,5 @@
 import greenfoot.*;
-
+import java.util.List;
 /**
  * Write a description of class Missle here.
  * 
@@ -44,15 +44,35 @@ public class Missile extends Weapon implements ProjectileObject
             speed += space.getShip().getSpeed();
         }
     }
-
+    public double getDistance(Actor actor) {
+        return Math.hypot(actor.getX() - getX(), actor.getY() - getY());
+    }
+    public Actor getNearestActor()                   
+    {
+        List<Actor> nearActors = getObjectsInRange(120, AlienShip.class);  
+        Actor nearestActor = null;  
+        double nearestDistance = 120;  
+        double distance;   
+        for (int i = 0; i < nearActors.size(); i++)  
+        {  
+            distance = getDistance(nearActors.get(i));  
+            if (distance < nearestDistance)  
+            {  
+                nearestActor = nearActors.get(i);  
+                nearestDistance = distance;  
+            }  
+        }  
+      return nearestActor;
+    }
     private void seakTarget()
     {
-        //seaking stuff here
-
-        //if (no target in range)
-        //{
-        turnRandom();
-        //}
+        if(getNearestActor() != null)
+        {
+            int currAngle = 90 - (int) Math.toDegrees(Math.atan2(((double) getNearestActor().getX() - this.getX()), ((double) getNearestActor().getY() - this.getY())));
+            int newRotation = (int) currAngle + (int) Math.ceil( -currAngle / 360 ) * 360;
+            setRotation(newRotation);
+            System.out.println(currAngle);
+        }
     }
 
     private void turnRandom()

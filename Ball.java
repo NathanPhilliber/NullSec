@@ -16,7 +16,7 @@ public class Ball extends NonPlayer
     {
         // Add your action code here.
         turnAtEdge();
-
+        super.act();
     }    
 
     public void turnAtEdge()
@@ -24,7 +24,7 @@ public class Ball extends NonPlayer
 
         if (Greenfoot.getRandomNumber (100) < 30)
         {
-            move(Greenfoot.getRandomNumber (50-(25)));
+            setRealX(getRealX() + Greenfoot.getRandomNumber (50-(25)));
         }
 
         if (getX() <= 5 || getX() >= getWorld().getWidth() -5)

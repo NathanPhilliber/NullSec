@@ -265,7 +265,6 @@ public class Space extends World
         {
             tempWep = 5;
         }
-
         if(tempWep == 0 && projectileEnabled == false){
             tempWep++;
         }

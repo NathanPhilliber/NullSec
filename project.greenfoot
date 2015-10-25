@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Sat Oct 24 11:30:55 PDT 2015
+#Sat Oct 24 16:54:09 PDT 2015
 target86.type=ClassTarget
 target15.width=80
 target5.height=50
@@ -252,8 +252,8 @@ target70.naviview.expanded=true
 target75.type=ClassTarget
 dependency177.to=OuterSpace
 dependency136.from=Space
-class.Level2.superclass=Platformer
 target45.editor.width=900
+class.Level2.superclass=Platformer
 class.Missile.superclass=Weapon
 dependency33.to=Entity
 dependency169.from=OuterSpace
@@ -692,6 +692,7 @@ target54.naviview.expanded=true
 target73.width=80
 class.TutorialObjectManager.superclass=SpaceObject
 dependency26.type=UsesDependency
+class.level4.image=BackgroundLevel4.png
 target66.y=70
 target66.x=70
 dependency59.type=UsesDependency
@@ -760,6 +761,7 @@ dependency123.type=UsesDependency
 simulation.speed=50
 dependency156.type=UsesDependency
 target77.editor.height=700
+class.level4.superclass=Platformer
 target11.typeParameters=
 dependency189.type=UsesDependency
 target59.editor.y=23
@@ -1823,7 +1825,7 @@ target75.y=850
 target35.width=80
 target7.height=50
 target75.x=200
-world.lastInstantiated=Level2
+world.lastInstantiated=Level1
 dependency112.to=Space
 dependency124.type=UsesDependency
 target70.name=WeaponShopFG

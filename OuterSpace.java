@@ -29,7 +29,6 @@ public class OuterSpace extends Space
     
     public OuterSpace(double spawnX, double spawnY){
         super(spawnX, spawnY);
-        
         prepareObjects();
     }
 
