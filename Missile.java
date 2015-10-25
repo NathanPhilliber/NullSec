@@ -27,7 +27,11 @@ public class Missile extends Weapon implements ProjectileObject
     {
         super.act();
         spaceMove(speed);
-        seakTarget();//no work
+
+        if(ownedByPlayer){
+
+            seakTarget();//no work
+        }
         checkRemoval();//LAST
     }  
 
@@ -35,18 +39,20 @@ public class Missile extends Weapon implements ProjectileObject
     {
         super(angle, isPlayer, startX, startY, damage);
         shootSound.play();
-        
+
     }
-    
+
     public void addedToWorld(){
         if(ownedByPlayer){
-            
+
             speed += space.getShip().getSpeed();
         }
     }
+
     public double getDistance(Actor actor) {
         return Math.hypot(actor.getX() - getX(), actor.getY() - getY());
     }
+
     public Actor getNearestActor()                   
     {
         List<Actor> nearActors = getObjectsInRange(120, AlienShip.class);  
@@ -62,8 +68,9 @@ public class Missile extends Weapon implements ProjectileObject
                 nearestDistance = distance;  
             }  
         }  
-      return nearestActor;
+        return nearestActor;
     }
+
     private void seakTarget()
     {
         if(getNearestActor() != null)
