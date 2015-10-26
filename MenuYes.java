@@ -23,10 +23,11 @@ public class MenuYes extends DockMenu
     {
         if(Greenfoot.mouseClicked(this))
         {
-            System.out.println(ship);
+           
             Space space = (Space) getWorld();
             space.getShip().dockWorld();
-            
+            space.setPause = false;
+            space.removeObjects(space.getObjects(DockMenu.class));
         }
     }
 }

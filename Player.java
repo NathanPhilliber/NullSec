@@ -72,6 +72,8 @@ public class Player extends Object implements DamageTaker
     private boolean beamCD = false;
     public boolean mouseAim = true;
 
+    private boolean playerDisabled = false;
+
     /*************************************************************/
     /*********************  DEMO STUFF  **************************/
     /*************************************************************/
@@ -156,13 +158,13 @@ public class Player extends Object implements DamageTaker
         if(!space.getIsPaused())
         {
             firstTime();
-            fly();
+            if(playerDisabled == false){
+                fly(); 
+            }
+
             showDebug(false);
-
             scrollWeapon();
-
             spawnAsteroid();
-
             lookForGold();
 
             generateStars(starDensity);
@@ -171,7 +173,6 @@ public class Player extends Object implements DamageTaker
             debugHealthHack(); //Allows to add health via '[']' DELETE THIS BEFORE PUBLISH
             //checkDead(); //Add this back in later, make respawn
             weaponSystems();//john
-
             keepEnemyOnScreen();
             checkDock();
         }
@@ -180,6 +181,11 @@ public class Player extends Object implements DamageTaker
     /*************************************************************************/
     /*********************  MOVEMENT AND COLLISION  **************************/
     /*************************************************************************/
+
+    public void lockPlayer(boolean lock){
+        playerDisabled = lock;
+
+    }
 
     public boolean isMoving(){
         if(getVelX() != 0 || getVelY() != 0){
@@ -211,6 +217,7 @@ public class Player extends Object implements DamageTaker
 
             }
         }
+        delayLoadWorldHelper();
     }
 
     public void dockWorld(){
@@ -222,13 +229,34 @@ public class Player extends Object implements DamageTaker
             if(obj instanceof Planet){
                 if(touch(obj)){ //Don't run this disgusting function unless neceessary
                     Planet planet = (Planet) obj;
-                    //System.out.println(planet.world);
-                    planet.loadWorld();
+                    lockPlayer(true);
+                    currentPlanet = planet;
+                    planetLoadDelay = 100;
 
                 }
             }
         }
     }
+
+    private Planet currentPlanet;
+    protected int planetLoadDelay = 0;
+    private GreenfootImage shipImg = new GreenfootImage("images/RocketBoost.png");
+    
+    private void delayLoadWorldHelper(){
+        if(planetLoadDelay > 1){
+            planetLoadDelay--;
+            
+            addPlanetDock(getShipLocX(), getShipLocY());
+
+        }
+        else if(planetLoadDelay == 1){
+            planetLoadDelay--;
+
+            currentPlanet.loadWorld();
+        }
+    }
+
+    
 
     public void resetDockMenu(){
         dockPressed = false;

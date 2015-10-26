@@ -161,8 +161,23 @@ public class Object extends SmoothMover
         }
     }
 
+    public void addPlanetDock(double x, double y){
+        for(int i = 0; i < 30; i++){
+            space.addObject(new Particle(x, y, 6, 6, 10, 2, 20, 0,"images/smoke2.png"), 0, 0);
+        }
+    }
+
     public void scheduleRemoval(){
         deleteMe = true;
+    }
+
+    public static GreenfootImage scale(GreenfootImage gi_Image,int i_width,int i_height)
+    {
+        java.awt.Image image_=gi_Image.getAwtImage().getScaledInstance(i_width,i_height,java.awt.Image.SCALE_SMOOTH);
+
+        gi_Image=new GreenfootImage(i_width,i_height);
+        gi_Image.getAwtImage().createGraphics().drawImage(image_,0,0,null);
+        return gi_Image;
     }
 
     public void checkRemoval(){
