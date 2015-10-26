@@ -18,7 +18,11 @@ public class Level4 extends Platformer
         super(returnX, returnY);
         prepare();
     }
-
+    
+    public Level4()
+    {
+    }
+    
     private void prepare()
     {
         addObject(new PlatformPlayer(),300,50);

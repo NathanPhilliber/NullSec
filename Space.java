@@ -323,17 +323,18 @@ public class Space extends World
 //Classception
 class ScrollingListener implements MouseWheelListener
 {
-    double amount = 0;
+    double aftAmount = 0;
+    double initAmount = 0;
 
     public void mouseWheelMoved(MouseWheelEvent e){
-        amount += e.getWheelRotation();  
+        initAmount += e.getWheelRotation();                 
         e.consume();
     }
 
     public double getScroll(){
-        double t = amount;
-
-        amount = 0;
+        double t = Math.round(initAmount/2);
+        
+        initAmount = 0;
         return t;
     }
 }
