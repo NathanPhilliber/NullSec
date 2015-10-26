@@ -120,6 +120,7 @@ public class Player extends Object implements DamageTaker
     }
 
     /******* DELETE LATER********/
+
     /***************************************************************/
     /*********************  CONSTRUCTORS  **************************/
     /***************************************************************/
@@ -192,16 +193,14 @@ public class Player extends Object implements DamageTaker
         //COLLISION AND CALL PICKUP
         SpaceObject obj =(SpaceObject) getOneIntersectingObject(SpaceObject.class);
         if(obj != null){
+
             if(obj instanceof Gold){
-                if(touch(obj)){ //Don't run this disgusting function unless neceessary
-                    Gold ent = (Gold) obj;
-                    ent.pickUp();
-                    goldScore.setValue(Gold.totalGold);
-
-                }
+                Gold ent = (Gold) obj;
+                ent.pickUp();
+                goldScore.setValue(Gold.totalGold);
             }
-        }
 
+        }
     }
 
     public void checkDock(){
@@ -370,6 +369,15 @@ public class Player extends Object implements DamageTaker
     /********************************************************************/
     /*********************  OBJECT GENERATION  **************************/
     /********************************************************************/
+
+    private void initialStarSpawn(int density){
+        for(int i = 0; i < 7*density; i++){
+            space.addObject(new BackgroundStar(
+                    getShipLocX() + Greenfoot.getRandomNumber(space.getWidth()) - space.getWidth()/2,
+                    getShipLocY() + Greenfoot.getRandomNumber(space.getHeight()) - space.getHeight()/2
+                ),0,0);
+        }
+    }
 
     //Generates stars offscreen
     private void generateStars(int density){
@@ -643,14 +651,15 @@ public class Player extends Object implements DamageTaker
     //Some methods require the ship to alrady be spawned to work
     private void firstTime(){
         if(firstTime){
-            Space SPACE=(Space)getWorld();
+
+            initialStarSpawn(starDensity);
             damageBar = new DamageBar(this, -30, getHealth(), getMaxHealth());
-            SPACE.addObject(damageBar, 0, 0);
+            space.addObject(damageBar, 0, 0);
 
             updateAvailableWeapons(true, false, false, false, false, false);
             if(getWorld() instanceof TutorialWorld){
                 tutObj = new TutorialObjectManager();
-                SPACE.addObject(tutObj,-10,-10);
+                space.addObject(tutObj,-10,-10);
                 updateAvailableWeapons(true, false, false, false, false, false);
             }
             else{
@@ -658,7 +667,7 @@ public class Player extends Object implements DamageTaker
             }
 
             goldScore = new Counter("Space Doubloons: ");
-            getWorld().addObject(goldScore, SPACE.getWidth()-119, SPACE.getHeight()-22);
+            getWorld().addObject(goldScore, space.getWidth()-119, space.getHeight()-22);
             firstTime = false;
         }
     }
