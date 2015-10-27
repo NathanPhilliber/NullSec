@@ -27,7 +27,8 @@ public class PlatformPlayer extends PlatformObject
     private boolean isWalkingLeft;
     Platformer w;
     
-   
+    private boolean locked = false;
+
 
     GifImage walkRight = new GifImage("WalkingAnimation.gif");
     GifImage walkLeft = new GifImage("WalkingAnimationLeft.gif");
@@ -38,7 +39,7 @@ public class PlatformPlayer extends PlatformObject
         realX=getX();
         realY=getY();
     }
-    
+
     public PlatformPlayer()
     {
         velX = 0;
@@ -56,18 +57,33 @@ public class PlatformPlayer extends PlatformObject
         }
         pausePlayerHelper();
         if(playerPaused == false){
+            if(locked == false){
+                jump();
+                leftRight();
+            }
             showDebug(false);
-            jump();
-            leftRight();
+            
+            
             gravity(gravity);
             airResist();
             velocity();
             sideScroll();
             updatePosition();
             restartWorld();
+            checkIfOffEdge();
             checkSpecialCollisions();
         }
 
+    }
+    
+    public void lockPlayerMovement(boolean lock){
+        locked = lock;
+    }
+    
+    private void checkIfOffEdge(){
+        if(getY() > 1500){
+            kill();
+        }
     }
 
     private void checkSpecialCollisions()
@@ -82,9 +98,7 @@ public class PlatformPlayer extends PlatformObject
         Actor l=getOneIntersectingObject(LavaBlock.class);
         if(l != null)
         {
-            pauseCycles = 50;
-            setLocation(getX(), getY() -1000);
-            deleteMe = true;
+            kill();
         }
     }
 
@@ -118,6 +132,13 @@ public class PlatformPlayer extends PlatformObject
         }
     }
 
+    public void kill(){
+        lockPlayerMovement(true);
+        pauseCycles = 50;
+        setLocation(getX(), getY() -10000);
+        deleteMe = true;
+    }
+
     private void updatePosition()
     {
         //setLocation(realX-w.getOffset(),getExactY());
@@ -148,9 +169,9 @@ public class PlatformPlayer extends PlatformObject
             {
                 setLocation(getExactX(),getExactY()-1);
                 realY-=1;
-                
+
                 //System.out.println(realY);
-                
+
                 if(isWalkingRight){
                     setLocation(getExactX() - 3, getExactY());
                 }
