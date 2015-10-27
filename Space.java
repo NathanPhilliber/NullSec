@@ -76,9 +76,7 @@ public class Space extends World
         OutsideMP outsidemp = new OutsideMP();
         addObject(outsidemp, 800, 405);
 
-        Cannon cannon = new Cannon();
-        addObject(cannon, 443, 267);
-        cannon.setLocation(438, 263);
+        addObject(new Cannon(),getWidth()/2,getHeight()/2);
 
         addObject(new BeamHUD(), 460, 512);
 

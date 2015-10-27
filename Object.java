@@ -354,9 +354,9 @@ public class Object extends SmoothMover
         space.addObject(new Projectile(angle, getIsPlayer(), projectileDamage, X, Y), getX(), getY());
     }
 
-    protected void beam(int angle,int LV,double X,double Y)
+    protected void beam(int angle,int LV,double X,double Y,double charge)
     {
-        for (int i=0; i<=10*(LV+1); i++)
+        for (int i=0; i<=charge*(LV+2); i++)
         {
             space.addObject(new Beam(angle, getIsPlayer(), beamDamage, X, Y), (int)Math.round(getX()+i*8*Math.cos(angle*2*Math.PI/360)), (int)Math.round(getY()+i*8*Math.sin(angle*2*Math.PI/360)));
         }

@@ -1,27 +1,12 @@
 import greenfoot.*;
-
-/**
- * Write a description of class IconSjip here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class IconShip extends Menu
 {
-    /**
-     * Act - do whatever the IconSjip wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     private int initialDelay = 10;
     private int delay = initialDelay;
-
-    GreenfootSound sound;
-
-    public IconShip(){
-        sound = new GreenfootSound("sounds/AmbientSpace.wav");
-
-        /* TURN THIs BACK ON*/
-        sound.playLoop();
+    GreenfootSound music;
+    public IconShip(GreenfootSound m)
+    {
+        music=m;
     }
 
     public void act()
@@ -29,7 +14,7 @@ public class IconShip extends Menu
         selectionMove();
         selectOption();
     }
-
+    
     public void selectionMove()
     {
         if(delay <= 0)
@@ -66,14 +51,16 @@ public class IconShip extends Menu
         {
             if(getY() == 280)
             {
-                sound.stop();
-
+                music.stop();
                 Greenfoot.setWorld(new TutorialWorld());
-
             }
             if(getY() == 430)
             {
                 Greenfoot.stop(); 
+            }
+            if(getY() == 330)
+            {
+                Greenfoot.setWorld(new OptionsMenu(music));
             }
         }
     }

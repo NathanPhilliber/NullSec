@@ -1,7 +1,8 @@
 import greenfoot.*;
-public class Logo extends Menu
+public class SoundToggle extends Menu
 {
     public void act() 
     {
-    }    
+
+    } 
 }

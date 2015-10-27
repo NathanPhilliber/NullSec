@@ -130,13 +130,12 @@ public class Player extends Object implements DamageTaker
     //Constructor, spawns player at 0,0
     public Player(){
         this(0,0);
-
     }
 
     //Constructor, spawns player at x,y coord
     public Player(double x, double y){
         setIsPlayer(true);
-
+        
         setSpaceX(x);
         setSpaceY(y);
 
@@ -485,7 +484,8 @@ public class Player extends Object implements DamageTaker
     /******************************************************************/
     /*********************  WEAPONS SYSTEMS  **************************/
     /******************************************************************/
-    public void updateAvailableWeapons(boolean proj, boolean beam, boolean missile, boolean mine, boolean fire, boolean plasma){
+    public void updateAvailableWeapons(boolean proj, boolean beam, boolean missile, boolean mine, boolean fire, boolean plasma)
+    {
         space.removeWeaponGUI();
         projectileEnabled = proj;
         missileEnabled = missile;
@@ -497,7 +497,8 @@ public class Player extends Object implements DamageTaker
 
     }
 
-    private void shoot(int LV, int wep){
+    private void shoot(int LV, int wep)
+    {
         beamCharge();
         if (Greenfoot.isKeyDown("c") || rMButton())
         {
@@ -514,8 +515,9 @@ public class Player extends Object implements DamageTaker
         }
     }
 
-    private void beamCharge(){
-        bramChargeBar();
+    private void beamCharge()
+    {
+        beamChargeBar();
         if (beamCharge<300){
             beamCharge++;
         }
@@ -527,13 +529,15 @@ public class Player extends Object implements DamageTaker
         }
     }
 
-    private void bramChargeBar(){
+    private void beamChargeBar()
+    {
         for (int i=1; i <= beamCharge/15; i++){
             getWorld().addObject(new Beam(0, true, beamDamage, 400, 520),418+i*4,520);
         }
     }
 
-    private void weaponTimer(int angle,int LV,int wep){
+    private void weaponTimer(int angle,int LV,int wep)
+    {
         weaponTimer++;
         if (wep==0){
             if (weaponTimer%10 == 1){
@@ -541,7 +545,7 @@ public class Player extends Object implements DamageTaker
             }
         }            
         if (wep==1&&!beamCD){
-            beam(angle,LV,getShipLocX(),getShipLocY());//in object WEAPON SYSTEMS
+            beam(angle,LV,getShipLocX(),getShipLocY(),beamCharge/30);//in object WEAPON SYSTEMS
             beamCharge--;
             beamCharge--;
             beamCharge--;
@@ -571,20 +575,26 @@ public class Player extends Object implements DamageTaker
 
     private void toggleWeaponLV(){
         if (Greenfoot.isKeyDown("=")){
-            if (weaponToggle==0){
-                if (weaponLV == 6){
+            if (weaponToggle==0)
+            {
+                if (weaponLV == 5)
+                {
                     weaponLV = 0;
                 }
-                else{
+                else
+                {
                     weaponLV++;
                 }
                 weaponToggle++;
             }
         }
-        else if (Greenfoot.isKeyDown("-")){
-            if (weaponToggle==0){
-                if (weaponLV == 0){
-                    weaponLV = 6;
+        else if (Greenfoot.isKeyDown("-"))
+        {
+            if (weaponToggle==0)
+            {
+                if (weaponLV == 0)
+                {
+                    weaponLV = 5;
                 }
                 else{
                     weaponLV--;

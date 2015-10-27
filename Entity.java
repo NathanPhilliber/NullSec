@@ -415,7 +415,7 @@ public class Entity extends SpaceObject implements DamageTaker
             projectile(getTargetAngle(targetX,targetY),0,getSpaceX(), getSpaceY());//in object WEAPON SYSTEMS
             break;
             case Weapon.BEAM:
-            beam(getTargetAngle(targetX,targetY),1,getSpaceX(), getSpaceY());//in object WEAPON SYSTEMS
+            beam(getTargetAngle(targetX,targetY),1,getSpaceX(), getSpaceY(),10);//in object WEAPON SYSTEMS
             break;
             case Weapon.MISSILE:
             missile(getTargetAngle(targetX,targetY),0,getSpaceX(), getSpaceY());//in object WEAPON SYSTEMS
