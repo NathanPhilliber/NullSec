@@ -18,7 +18,7 @@ public class LevelCreator extends World
     public LevelCreator()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(2000, 540, 1); 
+        super(4000, 540, 1); 
         setPaintOrder(LevelCreatorDisplayBlock.class, LevelCreatorBlockHover.class);
         prepare();
         showText("Press 'e' to place block. Click top left to toggle block. Press enter to generate file", 485,25);
@@ -73,6 +73,9 @@ public class LevelCreator extends World
                     }
                     else if(thisBlock.myImage == 4){
                         writer.write("addObject(new PlatformPlayer(),"+ object.getX()+"+offsetX,"+object.getY()+"+offsetY);\n");
+                    }
+                    else if(thisBlock.myImage == 5){
+                        writer.write("addObject(new ExitPortal(),"+ object.getX()+"+offsetX,"+object.getY()+"+offsetY);\n");
                     }
                     else{
                         writer.write("addObject(new Block(" + thisBlock.myImage+"),"+ object.getX()+"+offsetX,"+object.getY()+"+offsetY);\n");

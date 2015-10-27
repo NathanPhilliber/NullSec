@@ -16,6 +16,7 @@ public class LevelCreatorDisplayBlock extends LevelCreatorObject
     public static int block = 0;
 
     public static String[] blockName = {"brick.png", "BlueBrick.png","Lava.png","Lava2.png", "StandingRight.png",
+        "Portal.png",
         "cancel.png"}; //MAKE CANCEL LAST
 
     public void act() 
