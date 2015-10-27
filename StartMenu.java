@@ -2,7 +2,7 @@ import greenfoot.*;
 import java.awt.Color;
 public class StartMenu extends World
 {
-    static boolean musicToggle = true; 
+    public static boolean musicToggle = true;
     private boolean playing=false;
     GreenfootSound music = new GreenfootSound("sounds/AmbientSpace.wav");
     private Options options = new Options();

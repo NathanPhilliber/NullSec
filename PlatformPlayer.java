@@ -56,7 +56,7 @@ public class PlatformPlayer extends PlatformObject
         }
         pausePlayerHelper();
         if(playerPaused == false){
-            showDebug(true);
+            showDebug(false);
             jump();
             leftRight();
             gravity(gravity);
@@ -132,13 +132,13 @@ public class PlatformPlayer extends PlatformObject
             if (b!=null)
             { 
                 velX=0;
-                System.out.println(stepX);
+                //System.out.println(stepX);
                 setLocation(oldX,getExactY());
                 realX=oldX+w.getOffset();
-                System.out.println(realX);
+                //System.out.println(realX);
                 if (stepX==0)
                 {
-                    Greenfoot.stop();//debug on >>>>>>>>>>>>>>>>>DEBUG<<<<<<<<<<<<<<<
+                    //Greenfoot.stop();//debug on >>>>>>>>>>>>>>>>>DEBUG<<<<<<<<<<<<<<<
                 }
                 i=steps;
             }
@@ -146,15 +146,17 @@ public class PlatformPlayer extends PlatformObject
             b=getOneIntersectingObject(blockType);
             if(b!=null)
             {
-                setLocation(getExactX(),getExactY()-10);
-                realY-=10;
-                System.out.println(realY);
-                /*if(isWalkingRight){
+                setLocation(getExactX(),getExactY()-1);
+                realY-=1;
+                
+                //System.out.println(realY);
+                
+                if(isWalkingRight){
                     setLocation(getExactX() - 3, getExactY());
                 }
                 if(isWalkingLeft){
                     setLocation(getExactX() +3 , getExactY());
-                }*/
+                }
             }
         }
 
