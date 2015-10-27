@@ -1,0 +1,43 @@
+//Level Generated
+
+int offsetX = 0;
+int offsetY = 0;
+
+addObject(new LavaBlock(1),351+offsetX,189+offsetY);
+addObject(new LavaBlock(1),567+offsetX,189+offsetY);
+addObject(new LavaBlock(1),540+offsetX,162+offsetY);
+addObject(new LavaBlock(1),513+offsetX,135+offsetY);
+addObject(new LavaBlock(1),486+offsetX,135+offsetY);
+addObject(new Block(0),324+offsetX,216+offsetY);
+addObject(new Block(0),297+offsetX,270+offsetY);
+addObject(new Block(0),216+offsetX,297+offsetY);
+addObject(new Block(0),243+offsetX,297+offsetY);
+addObject(new Block(0),324+offsetX,297+offsetY);
+addObject(new Block(0),351+offsetX,324+offsetY);
+addObject(new Block(0),351+offsetX,351+offsetY);
+addObject(new Block(0),378+offsetX,351+offsetY);
+addObject(new Block(0),378+offsetX,324+offsetY);
+addObject(new Block(0),405+offsetX,324+offsetY);
+addObject(new Block(0),405+offsetX,297+offsetY);
+addObject(new Block(0),432+offsetX,297+offsetY);
+addObject(new Block(0),459+offsetX,270+offsetY);
+addObject(new Block(0),513+offsetX,270+offsetY);
+addObject(new Block(0),513+offsetX,243+offsetY);
+addObject(new Block(0),540+offsetX,243+offsetY);
+addObject(new Block(0),567+offsetX,243+offsetY);
+addObject(new Block(0),567+offsetX,216+offsetY);
+addObject(new Block(0),513+offsetX,189+offsetY);
+addObject(new Block(0),486+offsetX,162+offsetY);
+addObject(new Block(0),459+offsetX,135+offsetY);
+addObject(new Block(0),432+offsetX,135+offsetY);
+addObject(new Block(0),405+offsetX,135+offsetY);
+addObject(new Block(0),378+offsetX,135+offsetY);
+addObject(new Block(0),378+offsetX,108+offsetY);
+addObject(new Block(0),351+offsetX,108+offsetY);
+addObject(new Block(1),324+offsetX,189+offsetY);
+addObject(new Block(1),351+offsetX,216+offsetY);
+addObject(new Block(1),351+offsetX,243+offsetY);
+addObject(new Block(1),351+offsetX,297+offsetY);
+addObject(new Block(1),297+offsetX,378+offsetY);
+addObject(new Block(1),270+offsetX,405+offsetY);
+addObject(new Block(1),243+offsetX,432+offsetY);

@@ -12,12 +12,12 @@ public class Block extends NonPlayer
     
     public Block(int blockType)
     {
-        if(blockType == 1)
+        if(blockType == 0)
         {
         setImage("brick.png");
         }
         
-        if(blockType == 2)
+        if(blockType == 1)
         {
         setImage("BlueBrick.png");
         }
