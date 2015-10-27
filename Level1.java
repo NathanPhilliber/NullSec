@@ -13,8 +13,9 @@ public class Level1 extends Platformer
      * Constructor for objects of class Level1.
      * 
      */
-    public Level1()
+    public Level1(double returnX, double returnY)
     {
+        super(returnX, returnY);
         //Level Generated
 
         int offsetX = 0;
