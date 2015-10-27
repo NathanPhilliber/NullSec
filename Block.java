@@ -21,6 +21,12 @@ public class Block extends NonPlayer
         {
         setImage("BlueBrick.png");
         }
+        
+        if(blockType == 2)
+        {
+        setImage("MoonBrick.png");
+        }
+        
     }  
     protected void addedToWorld(World world)
     {
