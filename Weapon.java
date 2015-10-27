@@ -41,42 +41,55 @@ public class Weapon extends SpaceObject
     }
 
     public boolean checkCollision(){
-        if(ownedByPlayer){
-            SpaceObject obj =(SpaceObject) getOneIntersectingObject(SpaceObject.class);
-            if(obj != null){
-                if(obj instanceof Entity){
-                    if(touch(obj)){ //Don't run this disgusting function unless neceessary
-                        Entity ent = (Entity) obj;
+
+
+        List<Object> objs = getIntersectingObjects(Object.class);
+
+        if(objs.isEmpty() == false){
+
+            for( Object curObj : objs){
+
+                if(ownedByPlayer){
+                    if(curObj instanceof Entity){
+                        if(touch(curObj)){ //Don't run this disgusting function unless neceessary
+                            Entity ent = (Entity) curObj;
+                            ent.getHit(damage);
+                            scheduleRemoval();
+
+                            return true;
+                        }
+
+                    }
+                }
+                else{
+
+                    if(curObj instanceof Player){
+
+                        if(touch(curObj)){ //Don't run this disgusting function unless neceessary
+                            Player ent = (Player) curObj;
+                            ent.getHit(damage);
+                            scheduleRemoval();
+
+                            return true;
+                        }
+                    }
+                }
+
+                if (curObj instanceof Asteroid){
+                    if(touch(curObj)){ //Don't run this disgusting function unless neceessary
+                        Asteroid ent = (Asteroid) curObj;
                         ent.getHit(damage);
                         scheduleRemoval();
 
                         return true;
                     }
-
                 }
-                else if (obj instanceof Asteroid){
-                    if(touch(obj)){ //Don't run this disgusting function unless neceessary
-                        Asteroid ent = (Asteroid) obj;
-                        ent.getHit(damage);
-                        scheduleRemoval();
 
-                        return true;
-                    }
-                }
             }
+            return false;
 
         }
-        else{
-            Player obj = (Player)getOneIntersectingObject(Player.class);  
-            if(obj != null && touch(obj)){
-                obj.getHit(damage);
-                scheduleRemoval();
-
-                return true;
-            }
-        }
-
-        return false;
+        return true;
     }
 
     public void removeSelf(){

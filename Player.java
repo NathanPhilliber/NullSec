@@ -134,7 +134,7 @@ public class Player extends Object implements DamageTaker
 
     //Constructor, spawns player at x,y coord
     public Player(double x, double y){
-        setIsPlayer(true);
+        
         
         setSpaceX(x);
         setSpaceY(y);
@@ -532,7 +532,7 @@ public class Player extends Object implements DamageTaker
     private void beamChargeBar()
     {
         for (int i=1; i <= beamCharge/15; i++){
-            getWorld().addObject(new Beam(0, true, beamDamage, 400, 520),418+i*4,520);
+            getWorld().addObject(new Beam(0, true, 0, 400, 520),418+i*4,520);
         }
     }
 
@@ -541,33 +541,33 @@ public class Player extends Object implements DamageTaker
         weaponTimer++;
         if (wep==0){
             if (weaponTimer%10 == 1){
-                projectile(angle,LV,getShipLocX(),getShipLocY());
+                projectile(angle,LV,getShipLocX(),getShipLocY(), true);
             }
         }            
         if (wep==1&&!beamCD){
-            beam(angle,LV,getShipLocX(),getShipLocY(),beamCharge/30);//in object WEAPON SYSTEMS
+            beam(angle,LV,getShipLocX(),getShipLocY(),beamCharge/30, true);//in object WEAPON SYSTEMS
             beamCharge--;
             beamCharge--;
             beamCharge--;
         }
         if (wep==2){
             if (weaponTimer%35 == 1){
-                missile(angle,LV,getShipLocX(),getShipLocY());//in object WEAPON SYSTEMS
+                missile(angle,LV,getShipLocX(),getShipLocY(), true);//in object WEAPON SYSTEMS
             }
         }
         if (wep==3){
             if (weaponTimer%30 == 1){
-                mine(angle,LV,spaceX+getX(),spaceY+getY());//in object WEAPON SYSTEMS
+                mine(angle,LV,spaceX+getX(),spaceY+getY(), true);//in object WEAPON SYSTEMS
             }
         }
         if (wep==4){
             if (weaponTimer%70 == 1){
-                fireball(angle,LV,getShipLocX(),getShipLocY());//in object WEAPON SYSTEMS
+                fireball(angle,LV,getShipLocX(),getShipLocY(), true);//in object WEAPON SYSTEMS
             }
         }
         if (wep==5){
             if (weaponTimer%30 <= 4){
-                plasmaBall(angle,LV,getShipLocX(),getShipLocY());
+                plasmaBall(angle,LV,getShipLocX(),getShipLocY(), true);
             }
         }
 

@@ -318,88 +318,79 @@ public class Object extends SmoothMover
 
     protected int mineRange = 250;
 
-    private boolean isPlayer;
-    protected void setIsPlayer(boolean P)
-    {
-        isPlayer = P;
-    }
+    
 
-    protected boolean getIsPlayer()
+    protected void projectile(int angle,int LV,double X,double Y, boolean isPlayer)
     {
-        return isPlayer;
-    }
-
-    protected void projectile(int angle,int LV,double X,double Y)
-    {
-        spawnProjectile(angle,X,Y);
+        spawnProjectile(angle,X,Y, isPlayer);
         if (LV>=1)
         {
-            spawnProjectile(angle+10,X,Y);
-            spawnProjectile(angle-10,X,Y);
+            spawnProjectile(angle+10,X,Y,isPlayer);
+            spawnProjectile(angle-10,X,Y,isPlayer);
         }
         if (LV>=2)
         {
-            spawnProjectile(angle+20,X,Y);
-            spawnProjectile(angle-20,X,Y);
+            spawnProjectile(angle+20,X,Y,isPlayer);
+            spawnProjectile(angle-20,X,Y,isPlayer);
         }
         if (LV>=3)
         {
-            spawnProjectile(angle+30,X,Y);
-            spawnProjectile(angle-30,X,Y);
+            spawnProjectile(angle+30,X,Y,isPlayer);
+            spawnProjectile(angle-30,X,Y,isPlayer);
         }
     }
 
-    private void spawnProjectile(int angle,double X,double Y)
+    private void spawnProjectile(int angle,double X,double Y, boolean isPlayer)
     {
-        space.addObject(new Projectile(angle, getIsPlayer(), projectileDamage, X, Y), getX(), getY());
+        space.addObject(new Projectile(angle, isPlayer, projectileDamage, X, Y), getX(), getY());
     }
 
-    protected void beam(int angle,int LV,double X,double Y,double charge)
+    protected void beam(int angle,int LV,double X,double Y,double charge, boolean isPlayer)
     {
         for (int i=0; i<=charge*(LV+2); i++)
         {
-            space.addObject(new Beam(angle, getIsPlayer(), beamDamage, X, Y), (int)Math.round(getX()+i*8*Math.cos(angle*2*Math.PI/360)), (int)Math.round(getY()+i*8*Math.sin(angle*2*Math.PI/360)));
+            space.addObject(new Beam(angle, isPlayer, beamDamage, X, Y), (int)Math.round(getX()+i*8*Math.cos(angle*2*Math.PI/360)), (int)Math.round(getY()+i*8*Math.sin(angle*2*Math.PI/360)));
         }
     }
 
-    protected void missile(int angle,int LV,double X,double Y)
+    protected void missile(int angle,int LV,double X,double Y,boolean isPlayer)
     {
-        space.addObject(new Missile(angle, getIsPlayer(), missileDamage, X, Y), getX(), getY());
+        space.addObject(new Missile(angle, isPlayer, missileDamage, X, Y), getX(), getY());
     }
 
-    protected void mine(int angle,int LV,double X,double Y)
+    protected void mine(int angle,int LV,double X,double Y,boolean isPlayer)
     {
-        space.addObject(new Mine(angle, true, X, Y, mineDamage, mineRange), getX(), getY());
+        space.addObject(new Mine(angle, isPlayer, X, Y, mineDamage, mineRange), getX(), getY());
     }
 
-    protected void fireball(int angle,int LV,double X,double Y)
+    protected void fireball(int angle,int LV,double X,double Y,boolean isPlayer)
     {
-        space.addObject(new Fireball(angle, true, fireballDamage, X, Y), getX(), getY());
+        space.addObject(new Fireball(angle, isPlayer, fireballDamage, X, Y), getX(), getY());
     }
 
-    protected void plasmaBall(int angle,int LV,double X,double Y)
+    protected void plasmaBall(int angle,int LV,double X,double Y,boolean isPlayer)
     {
-        spawnPlasmaBall(getRotation(),X,Y);
+        spawnPlasmaBall(getRotation(),X,Y,isPlayer);
         if (LV>=1)
         {
-            spawnPlasmaBall(getRotation()+10,X,Y);
-            spawnPlasmaBall(getRotation()-10,X,Y);
+            spawnPlasmaBall(getRotation()+10,X,Y, isPlayer);
+            spawnPlasmaBall(getRotation()-10,X,Y,isPlayer);
         }
         if (LV>=2)
         {
-            spawnPlasmaBall(getRotation()+20,X,Y);
-            spawnPlasmaBall(getRotation()-20,X,Y);
+            spawnPlasmaBall(getRotation()+20,X,Y,isPlayer);
+            spawnPlasmaBall(getRotation()-20,X,Y,isPlayer);
         }
         if (LV>=3)
         {
-            spawnPlasmaBall(getRotation()+30,X,Y);
-            spawnPlasmaBall(getRotation()-30,X,Y);
+            spawnPlasmaBall(getRotation()+30,X,Y,isPlayer);
+            spawnPlasmaBall(getRotation()-30,X,Y,isPlayer);
         }
     }
 
-    private void spawnPlasmaBall(int angle,double X,double Y)
+    private void spawnPlasmaBall(int angle,double X,double Y,boolean isPlayer)
     {
-        space.addObject(new PlasmaBall(angle, true, plasmaBallDamage, X, Y), getX(), getY());
+        space.addObject(new PlasmaBall(angle, isPlayer, plasmaBallDamage, X, Y), getX(), getY());
     }
 
     private boolean rMButton = false;

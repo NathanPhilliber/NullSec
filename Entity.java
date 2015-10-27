@@ -104,7 +104,7 @@ public class Entity extends SpaceObject implements DamageTaker
     public Entity(){
         super();
 
-        setIsPlayer(false);//forWEAPONS
+        
 
         spawnX = getX();
         spawnY = getY();
@@ -114,7 +114,7 @@ public class Entity extends SpaceObject implements DamageTaker
 
     public Entity(double x, double y){
         super(x,y);
-        setIsPlayer(false);//forWEAPONS
+        
         setTargetX(x);
         setTargetY(y);
         spawnX =(int) x;
@@ -412,22 +412,22 @@ public class Entity extends SpaceObject implements DamageTaker
     public void shoot(double targetX, double targetY, int weapon){
         switch(weapon){
             case Weapon.PROJECTILE:
-            projectile(getTargetAngle(targetX,targetY),0,getSpaceX(), getSpaceY());//in object WEAPON SYSTEMS
+            projectile(getTargetAngle(targetX,targetY),0,getSpaceX(), getSpaceY(), false);//in object WEAPON SYSTEMS
             break;
             case Weapon.BEAM:
-            beam(getTargetAngle(targetX,targetY),1,getSpaceX(), getSpaceY(),10);//in object WEAPON SYSTEMS
+            beam(getTargetAngle(targetX,targetY),0,getSpaceX(), getSpaceY(),10,false);//in object WEAPON SYSTEMS
             break;
             case Weapon.MISSILE:
-            missile(getTargetAngle(targetX,targetY),0,getSpaceX(), getSpaceY());//in object WEAPON SYSTEMS
+            missile(getTargetAngle(targetX,targetY),0,getSpaceX(), getSpaceY(),false);//in object WEAPON SYSTEMS
             break;
             case Weapon.MINE:
-            mine(getTargetAngle(targetX,targetY),1,getSpaceX(), getSpaceY());//in object WEAPON SYSTEMS
+            mine(getTargetAngle(targetX,targetY),0,getSpaceX(), getSpaceY(),false);//in object WEAPON SYSTEMS
             break;
             case Weapon.FIREBALL:
-            fireball(getTargetAngle(targetX,targetY),1,getSpaceX(), getSpaceY());//in object WEAPON SYSTEMS
+            fireball(getTargetAngle(targetX,targetY),0,getSpaceX(), getSpaceY(),false);//in object WEAPON SYSTEMS
             break;  
             case Weapon.PLASMABALL:
-            plasmaBall(getTargetAngle(targetX,targetY),1,getSpaceX(), getSpaceY());//in object WEAPON SYSTEMS
+            plasmaBall(getTargetAngle(targetX,targetY),0,getSpaceX(), getSpaceY(),false);//in object WEAPON SYSTEMS
             break;
         }
     }
