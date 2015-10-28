@@ -1,6 +1,7 @@
 import greenfoot.*;
 import java.util.List;
 import java.io.*;
+import java.awt.Color;
 
 /**
  * Write a description of class LevelCreator here.
@@ -21,7 +22,7 @@ public class LevelCreator extends World
         super(4000, 540, 1); 
         setPaintOrder(LevelCreatorDisplayBlock.class, LevelCreatorBlockHover.class);
         prepare();
-        showText("Press 'e' to place block. Click top left or press q/w to toggle block. Press enter to generate file", 550,25);
+        showText("Press 'e' to place block. Click top left or press q/w to toggle block. \nPress r to place no collision background block. Press enter to generate file", 500,25);
     }
 
     public LevelCreatorBlockHover block = new LevelCreatorBlockHover(LevelCreatorDisplayBlock.block);
@@ -40,6 +41,15 @@ public class LevelCreator extends World
 
             addObject(block,0,0);
             //System.out.println("Number of Objects In Level: " + (numberOfObjects()-2));	
+        }
+        if(Greenfoot.isKeyDown("r")){
+            LevelCreatorBlock myBlock = new LevelCreatorBlock(LevelCreatorDisplayBlock.block);
+            myBlock.getImage().setColor(new Color(0,0,0,120));
+            myBlock.getImage().fill();
+            myBlock.noCollision = true; 
+            addObject(myBlock, 27*Math.round(mouse.getX()/27), 27*Math.round(mouse.getY()/27));
+            block.update(LevelCreatorDisplayBlock.block);
+            addObject(block,0,0);
         }
 
         if(Greenfoot.isKeyDown("enter")){
@@ -77,10 +87,13 @@ public class LevelCreator extends World
                     else if(thisBlock.myImage == 5){
                         writer.write("addObject(new ExitPortal(),"+ object.getX()+"+offsetX,"+object.getY()+"+offsetY);\n");
                     }
+                    else if(thisBlock.noCollision){
+                        writer.write("addObject(new BackgroundBlock(" + thisBlock.myImage+"),"+ object.getX()+"+offsetX,"+object.getY()+"+offsetY);\n");
+                    }
                     else{
                         writer.write("addObject(new Block(" + thisBlock.myImage+"),"+ object.getX()+"+offsetX,"+object.getY()+"+offsetY);\n");
                     }
-                    
+
                 }catch(IOException e){
                     System.out.println(e);
                 }

@@ -18,99 +18,91 @@ public class Level4 extends Platformer
         super(returnX, returnY);
         prepare();
     }
-    
+
     public Level4()
     {
         prepare();
     }
-    
+
     private void prepare()
     {
-        addObject(new PlatformPlayer(),300,50);
-        addObject(new ExitPortal(),4580, 412);
-        for (int i = 0; i <= 75; i++)
-        {
-            addObject(new Block(2), 27*i, 500);
-        }
+        //Level Generated
 
-        for (int i = 0; i <= 75; i++)
-        {
-            addObject(new LavaBlock(1), 27*i+2052, 500);
-        }
+        int offsetX = 0;
+        int offsetY = 0;
 
-        for (int i = 0; i <= 36; i++)
-        {
-            addObject(new Block(2), 27*i+189, 473);
-        }
+        addObject(new Block(0),54+offsetX,486+offsetY);
+        addObject(new Block(0),81+offsetX,486+offsetY);
+        addObject(new Block(0),108+offsetX,486+offsetY);
+        addObject(new Block(0),135+offsetX,486+offsetY);
+        addObject(new Block(0),162+offsetX,486+offsetY);
+        addObject(new Block(0),189+offsetX,486+offsetY);
+        addObject(new Block(0),216+offsetX,486+offsetY);
+        addObject(new Block(0),243+offsetX,486+offsetY);
+        addObject(new Block(0),270+offsetX,486+offsetY);
+        addObject(new Block(0),297+offsetX,486+offsetY);
+        addObject(new Block(0),324+offsetX,486+offsetY);
+        addObject(new Block(0),351+offsetX,486+offsetY);
+        addObject(new Block(0),378+offsetX,486+offsetY);
+        addObject(new Block(0),405+offsetX,486+offsetY);
+        addObject(new Block(0),432+offsetX,486+offsetY);
+        addObject(new Block(0),459+offsetX,486+offsetY);
+        addObject(new Block(0),486+offsetX,486+offsetY);
+        addObject(new Block(0),513+offsetX,486+offsetY);
+        addObject(new Block(0),540+offsetX,486+offsetY);
+        addObject(new Block(0),567+offsetX,486+offsetY);
+        addObject(new Block(0),594+offsetX,486+offsetY);
+        addObject(new Block(0),621+offsetX,486+offsetY);
+        addObject(new Block(0),648+offsetX,486+offsetY);
+        addObject(new Block(0),675+offsetX,486+offsetY);
+        addObject(new Block(0),702+offsetX,486+offsetY);
+        addObject(new Block(0),729+offsetX,486+offsetY);
+        addObject(new Block(0),756+offsetX,486+offsetY);
+        addObject(new BackgroundBlock(0),135+offsetX,459+offsetY);
+        addObject(new BackgroundBlock(0),135+offsetX,432+offsetY);
+        addObject(new BackgroundBlock(0),135+offsetX,405+offsetY);
+        addObject(new BackgroundBlock(0),135+offsetX,378+offsetY);
+        addObject(new BackgroundBlock(0),135+offsetX,351+offsetY);
+        addObject(new BackgroundBlock(0),162+offsetX,459+offsetY);
+        addObject(new BackgroundBlock(0),162+offsetX,432+offsetY);
+        addObject(new BackgroundBlock(0),162+offsetX,351+offsetY);
+        addObject(new BackgroundBlock(0),189+offsetX,459+offsetY);
+        addObject(new BackgroundBlock(0),189+offsetX,432+offsetY);
+        addObject(new BackgroundBlock(0),189+offsetX,405+offsetY);
+        addObject(new BackgroundBlock(0),162+offsetX,405+offsetY);
+        addObject(new BackgroundBlock(0),162+offsetX,378+offsetY);
+        addObject(new BackgroundBlock(0),189+offsetX,351+offsetY);
+        addObject(new BackgroundBlock(0),189+offsetX,378+offsetY);
+        addObject(new BackgroundBlock(0),135+offsetX,324+offsetY);
+        addObject(new BackgroundBlock(0),162+offsetX,324+offsetY);
+        addObject(new BackgroundBlock(0),189+offsetX,324+offsetY);
+        addObject(new Block(0),216+offsetX,324+offsetY);
+        addObject(new Block(0),243+offsetX,324+offsetY);
+        addObject(new Block(0),270+offsetX,324+offsetY);
+        addObject(new Block(0),297+offsetX,324+offsetY);
+        addObject(new Block(0),324+offsetX,324+offsetY);
+        addObject(new Block(0),351+offsetX,324+offsetY);
+        addObject(new Block(0),378+offsetX,324+offsetY);
+        addObject(new Block(0),405+offsetX,324+offsetY);
+        addObject(new Block(0),432+offsetX,324+offsetY);
+        addObject(new Block(0),432+offsetX,297+offsetY);
+        addObject(new Block(0),459+offsetX,297+offsetY);
+        addObject(new Block(0),486+offsetX,297+offsetY);
+        addObject(new Block(0),513+offsetX,297+offsetY);
+        addObject(new PlatformPlayer(),243+offsetX,108+offsetY);
+        addObject(new Block(16),513+offsetX,324+offsetY);
+        addObject(new Block(16),513+offsetX,351+offsetY);
+        addObject(new BackgroundBlock(16),513+offsetX,378+offsetY);
+        addObject(new BackgroundBlock(16),513+offsetX,405+offsetY);
+        addObject(new BackgroundBlock(16),513+offsetX,432+offsetY);
+        addObject(new BackgroundBlock(16),513+offsetX,459+offsetY);
+        addObject(new Block(16),540+offsetX,351+offsetY);
+        addObject(new Block(16),567+offsetX,351+offsetY);
+        addObject(new Block(16),594+offsetX,351+offsetY);
+        addObject(new Block(16),621+offsetX,351+offsetY);
+        addObject(new Block(16),648+offsetX,351+offsetY);
+        addObject(new Block(16),675+offsetX,351+offsetY);
+        addObject(new Block(16),702+offsetX,351+offsetY);
 
-        for (int i = 0; i <= 15; i++)
-        {
-            addObject(new Block(2), 27*i+1350, 473);
-        }
-
-        for (int i = 0; i <= 22; i++)
-        {
-            addObject(new Block(2), 27*i+351, 446);
-        }
-
-        for (int i = 0; i <= 8; i++)
-        {
-            addObject(new Block(2), 27*i+1404, 446);
-        }
-
-        for (int i = 0; i <= 6; i++)
-        {
-            addObject(new Block(2), 27*i+405, 419);
-        }
-
-        for (int i = 0; i <= 6; i++)
-        {
-            addObject(new Block(2), 27*i+2322, 419);
-        }
-
-        for (int i = 0; i <= 3; i++)
-        {
-            addObject(new Block(2), 27*i+2727, 392);
-        }
-
-        for (int i = 0; i <= 0; i++)
-        {
-            addObject(new Block(2), 27*i+3132, 392);
-        }
-
-        for (int i = 0; i <= 6; i++)
-        {
-            addObject(new Block(2), 27*i+3456, 446);
-        }
-
-        for (int i = 0; i <= 50; i++)
-        {
-            addObject(new Block(2), 27*i+4077, 500);
-        }
-
-        for (int i = 0; i <= 12; i++)
-        {
-            addObject(new Block(2), 27*i+4050, 473);
-        }
-
-        for (int i = 0; i <= 6; i++)
-        {
-            addObject(new Block(2), 27*i+3996, 446);
-        }
-
-        for (int i = 0; i <= 75; i++)
-        {
-            addObject(new Block(2), 27*i, 527);
-        }
-
-        for (int i = 0; i <= 75; i++)
-        {
-            addObject(new LavaBlock(2), 27*i+2052, 527);
-        }
-
-        for (int i = 0; i <= 75; i++)
-        {
-            addObject(new Block(2), 27*i+4050, 527);
-        }
     }
 }

@@ -26,9 +26,8 @@ public class PlatformPlayer extends PlatformObject
     private boolean isWalkingRight;
     private boolean isWalkingLeft;
     Platformer w;
-    
-    private boolean locked = false;
 
+    private boolean locked = false;
 
     GifImage walkRight = new GifImage("WalkingAnimation.gif");
     GifImage walkLeft = new GifImage("WalkingAnimationLeft.gif");
@@ -62,8 +61,7 @@ public class PlatformPlayer extends PlatformObject
                 leftRight();
             }
             showDebug(false);
-            
-            
+
             gravity(gravity);
             airResist();
             velocity();
@@ -75,11 +73,11 @@ public class PlatformPlayer extends PlatformObject
         }
 
     }
-    
+
     public void lockPlayerMovement(boolean lock){
         locked = lock;
     }
-    
+
     private void checkIfOffEdge(){
         if(getY() > 1500){
             kill();
@@ -116,7 +114,7 @@ public class PlatformPlayer extends PlatformObject
                 Level3 level3 = (Level3) world;
                 Greenfoot.setWorld(new Level3(level3.returnX, level3.returnY));
             }
-            
+
             if(world instanceof Level1){
                 Level1 level1 = (Level1) world;
                 Greenfoot.setWorld(new Level1(level1.returnX, level1.returnY));
@@ -157,21 +155,23 @@ public class PlatformPlayer extends PlatformObject
             Actor b=getOneIntersectingObject(blockType);
             if (b!=null)
             { 
+
                 velX=0;
                 //System.out.println(stepX);
                 setLocation(oldX,getExactY());
                 realX=oldX+w.getOffset();
-                //System.out.println(realX);
+                //System.out.println(realX);}
                 if (stepX==0)
                 {
                     //Greenfoot.stop();//debug on >>>>>>>>>>>>>>>>>DEBUG<<<<<<<<<<<<<<<
                 }
                 i=steps;
-            }
 
+            }
             b=getOneIntersectingObject(blockType);
             if(b!=null)
             {
+
                 setLocation(getExactX(),getExactY()-1);
                 realY-=1;
 
@@ -183,6 +183,7 @@ public class PlatformPlayer extends PlatformObject
                 if(isWalkingLeft){
                     setLocation(getExactX() +3 , getExactY());
                 }
+
             }
         }
 
@@ -194,6 +195,7 @@ public class PlatformPlayer extends PlatformObject
             Actor b=getOneIntersectingObject(blockType);
             if (b!=null)
             {
+
                 if (stepY>=0)
                 {
                     onBlock=true;
@@ -202,10 +204,12 @@ public class PlatformPlayer extends PlatformObject
                 setLocation(getExactX(),getExactY()-stepY);
                 realY-=stepY*(steps-i);
                 i=steps;
-            }
-            if(velY!=0)
-            {
-                onBlock=false;
+
+                if(velY!=0)
+                {
+                    onBlock=false;
+                }
+
             }
         }
     }

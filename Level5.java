@@ -8,6 +8,9 @@ import greenfoot.*;
  */
 public class Level5 extends Platformer
 {
+    public Level5(){
+        this(0,0);
+    }
 
     public Level5(double returnX, double returnY)
     {
@@ -17,7 +20,8 @@ public class Level5 extends Platformer
 
         int offsetX = 0;
         int offsetY = 15;
-
+        
+        addObject(new BackgroundBlock(13), 27, 300);
         addObject(new Block(14),27+offsetX,378+offsetY);
         addObject(new Block(14),54+offsetX,378+offsetY);
         addObject(new Block(14),81+offsetX,405+offsetY);
