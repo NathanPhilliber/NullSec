@@ -9,9 +9,10 @@ public class StartMenu extends World
     private Play play = new Play();
     private About about = new About();
     private Exit exit = new Exit();
+    
     public StartMenu()
     {    
-        super(920, 540, 1, false); 
+        super(OptionsMenu.getWorldWidth(), OptionsMenu.getWorldHeight(), 1, false); 
         createStars(100);
         prepare();
     }

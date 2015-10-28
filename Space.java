@@ -39,7 +39,6 @@ public class Space extends World
     private boolean plasmaballEnabled = true;
     
     private double spawnX, spawnY;
-
     //Contructor, spawn world
     public Space()
     {    
@@ -47,7 +46,7 @@ public class Space extends World
     }
     
     public Space(double spawnX, double spawnY){
-        super(920, 540, 1, false);
+        super(OptionsMenu.getWorldWidth(), OptionsMenu.getWorldHeight(), 1, false);
         this.spawnX = spawnX;
         this.spawnY = spawnY;
         prepare();

@@ -8,7 +8,11 @@ public class IconShip extends Menu
     {
         music=m;
     }
-
+    
+    public IconShip()
+    {
+    }
+    
     public void act()
     {
         selectionMove();
