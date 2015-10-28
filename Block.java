@@ -1,6 +1,8 @@
 import greenfoot.*;
 public class Block extends NonPlayer
 {
+    
+    
     public void act() 
     {
         super.act();
@@ -8,11 +10,13 @@ public class Block extends NonPlayer
 
     public Block()
     {
-        super();
+        this(0);
     }
 
     public Block(int blockType)
     {
+        super();
+        
         if(blockType == 0)
         {
             setImage("brick.png");
@@ -69,7 +73,6 @@ public class Block extends NonPlayer
             setImage("SandMiddle.png");
         }
         
-
     }  
 
     protected void addedToWorld(World world)

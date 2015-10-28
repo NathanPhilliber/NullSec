@@ -15,6 +15,7 @@ public class LevelCreatorBlock extends LevelCreatorObject
     public boolean isHover = true;
     
     public int myImage = 0;
+    public boolean noCollision = false;
 
     public LevelCreatorBlock(){
         setImage("brick.png");

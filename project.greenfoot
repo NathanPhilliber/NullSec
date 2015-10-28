@@ -1,5 +1,9 @@
 #Greenfoot properties
+<<<<<<< HEAD
 #Wed Oct 28 13:59:40 PDT 2015
+=======
+#Wed Oct 28 13:35:35 PDT 2015
+>>>>>>> origin/master
 target86.type=ClassTarget
 target15.width=80
 target5.height=50
@@ -184,7 +188,7 @@ dependency219.type=UsesDependency
 target8.showInterface=false
 class.InsideMP.superclass=Minimap
 class.Ball.image=Asteroid2.png
-class.HUD.superclass=
+class.HUD.superclass=Object
 dependency152.to=PlatformPlayer
 target28.name=Exit
 target91.type=ClassTarget
@@ -246,7 +250,7 @@ target50.height=50
 target12.y=2170
 target12.x=10
 target49.editor.y=43
-class.SpaceObject.superclass=
+class.SpaceObject.superclass=Object
 target49.editor.x=40
 target52.type=ClassTarget
 dependency113.from=Mine
@@ -350,6 +354,7 @@ target88.type=ClassTarget
 dependency149.from=MenuYes
 target1.typeParameters=
 target63.editor.height=700
+class.BackgroundBlock.superclass=NonPlayer
 target70.height=50
 dependency40.from=Object
 dependency67.to=Weapon
@@ -367,7 +372,7 @@ dependency63.type=UsesDependency
 class.Gold.image=gold.png
 target45.width=80
 target41.showInterface=false
-class.DamageBar.superclass=
+class.DamageBar.superclass=Object
 dependency96.type=UsesDependency
 target62.typeParameters=
 target30.typeParameters=
@@ -873,7 +878,7 @@ target65.editor.y=43
 target93.editor.y=23
 target65.editor.x=40
 target93.editor.x=40
-class.Player.superclass=
+class.Player.superclass=Object
 target44.height=50
 dependency80.type=UsesDependency
 target62.type=ClassTarget
@@ -2049,7 +2054,11 @@ target75.y=910
 target35.width=80
 target7.height=50
 target75.x=130
+<<<<<<< HEAD
 world.lastInstantiated=LevelCreator
+=======
+world.lastInstantiated=Level5
+>>>>>>> origin/master
 dependency112.to=Space
 dependency124.type=UsesDependency
 target70.name=Mine
