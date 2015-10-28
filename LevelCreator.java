@@ -21,7 +21,7 @@ public class LevelCreator extends World
         super(4000, 540, 1); 
         setPaintOrder(LevelCreatorDisplayBlock.class, LevelCreatorBlockHover.class);
         prepare();
-        showText("Press 'e' to place block. Click top left to toggle block. Press enter to generate file", 485,25);
+        showText("Press 'e' to place block. Click top left or press q/w to toggle block. Press enter to generate file", 550,25);
     }
 
     public LevelCreatorBlockHover block = new LevelCreatorBlockHover(LevelCreatorDisplayBlock.block);
