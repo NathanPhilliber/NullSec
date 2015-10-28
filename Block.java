@@ -75,8 +75,12 @@ public class Block extends NonPlayer
         if(blockType == 21){
             setImage("CrackedPurple.png");
         }
-        
-        
+        if(blockType == 22){
+            setImage("Xcrate.png");
+        }        
+        if(blockType == 23){
+            setImage("SlashCrate.png");
+        }      
     }  
 
     protected void addedToWorld(World world)
