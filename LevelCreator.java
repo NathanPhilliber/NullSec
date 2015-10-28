@@ -51,6 +51,15 @@ public class LevelCreator extends World
             block.update(LevelCreatorDisplayBlock.block);
             addObject(block,0,0);
         }
+        if(Greenfoot.isKeyDown("r")){
+            LevelCreatorBlock myBlock = new LevelCreatorBlock(LevelCreatorDisplayBlock.block);
+            myBlock.getImage().setColor(new Color(0,0,0,120));
+            myBlock.getImage().fill();
+            myBlock.noCollision = true; 
+            addObject(myBlock, 27*Math.round(mouse.getX()/27), 27*Math.round(mouse.getY()/27));
+            block.update(LevelCreatorDisplayBlock.block);
+            addObject(block,0,0);
+        }
 
         if(Greenfoot.isKeyDown("enter")){
             export();
@@ -74,6 +83,7 @@ public class LevelCreator extends World
             writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("_GeneratedLevel.txt"), "utf-8"));
             writer.write("//Level Generated\n\n");
             writer.write("int offsetX = 0;\nint offsetY = 0;\n\n");
+            writer.write("setBackground(\"" + LevelCreatorDisplayBlock.getBG().toString() + "\");\n");
         } catch (IOException ex) {
             System.out.println(ex);
         }
