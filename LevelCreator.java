@@ -132,7 +132,11 @@ public class LevelCreator extends World
             String line = br.readLine();
 
             while(line != null){
-
+                
+                if(line.contains("        ")){
+                    line = line.replace("        ","");
+                }
+                
                 if(line.contains("int offsetX")){
                     String[] parts = line.split(" ");
                     String numS = parts[3].replace(";","");
@@ -217,3 +221,4 @@ public class LevelCreator extends World
         }
     }
 }
+
