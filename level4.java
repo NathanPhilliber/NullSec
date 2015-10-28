@@ -21,6 +21,7 @@ public class Level4 extends Platformer
     
     public Level4()
     {
+        prepare();
     }
     
     private void prepare()
