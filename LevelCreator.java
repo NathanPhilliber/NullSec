@@ -40,7 +40,7 @@ public class LevelCreator extends World
             //block = new LevelCreatorBlock(LevelCreatorDisplayBlock.block);
 
             addObject(block,0,0);
-            //System.out.println("Number of Objects In Level: " + (numberOfObjects()-2));	
+            //System.out.println("Number of Objects In Level: " + (numberOfObjects()-2));   
         }
         if(Greenfoot.isKeyDown("r")){
             LevelCreatorBlock myBlock = new LevelCreatorBlock(LevelCreatorDisplayBlock.block);
@@ -54,6 +54,10 @@ public class LevelCreator extends World
 
         if(Greenfoot.isKeyDown("enter")){
             export();
+            Greenfoot.stop();
+        }
+        if(Greenfoot.isKeyDown("i")){
+            loadGenerated();
             Greenfoot.stop();
         }
     }
@@ -113,5 +117,93 @@ public class LevelCreator extends World
         addObject(levelcreatordisplayblock, 30, 28);
         addObject(block,0,0);
 
+    }
+    public void loadGenerated(){
+        removeObjects(getObjects(null));
+        prepare();
+        int offsetX = 0;
+        int offsetY = 0;
+
+        try{
+            BufferedReader br = new BufferedReader(new FileReader("_import.txt"));
+
+            String line = br.readLine();
+
+            while(line != null){
+
+                if(line.contains("int offsetX")){
+                    String[] parts = line.split(" ");
+                    String numS = parts[3].replace(";","");
+                    offsetX = Integer.parseInt(numS);
+                }
+                if(line.contains("int offsetY")){
+                    String[] parts = line.split(" ");
+                    String numS = parts[3].replace(";","");
+                    offsetY = Integer.parseInt(numS);
+                }
+
+                if(line.contains("PlatformPlayer")){
+                    String[] parts = line.split(",");
+                    String x = parts[1].replace("+offsetX","");
+                    String y = parts[2].replace("+offsetY);","");
+                    addObject(new LevelCreatorBlock(4), Integer.parseInt(x)+offsetX, Integer.parseInt(y)+offsetY);
+                }
+
+                if(line.contains("ExitPortal")){
+                    String[] parts = line.split(",");
+                    String x = parts[1].replace("+offsetX","");
+                    String y = parts[2].replace("+offsetY);","");
+                    addObject(new LevelCreatorBlock(5), Integer.parseInt(x)+offsetX, Integer.parseInt(y)+offsetY);
+                }
+
+                if(line.contains("new Block")){
+                    String[] parts = line.split(",");
+                    String x = parts[1].replace("+offsetX","");
+                    String y = parts[2].replace("+offsetY);","");
+
+                    System.out.println(parts[0]);
+                    String[] parts2 = parts[0].split("\\(");
+                    String type = parts2[2].replace(")","");
+
+                    addObject(new LevelCreatorBlock(Integer.parseInt(type)), Integer.parseInt(x)+offsetX, Integer.parseInt(y)+offsetY);
+                }
+                
+                if(line.contains("new LavaBlock")){
+                    String[] parts = line.split(",");
+                    String x = parts[1].replace("+offsetX","");
+                    String y = parts[2].replace("+offsetY);","");
+
+                    System.out.println(parts[0]);
+                    String[] parts2 = parts[0].split("\\(");
+                    String type = parts2[2].replace(")","");
+
+                    addObject(new LevelCreatorBlock(Integer.parseInt(type)+1), Integer.parseInt(x)+offsetX, Integer.parseInt(y)+offsetY);
+                }
+
+                if(line.contains("new BackgroundBlock")){
+                    String[] parts = line.split(",");
+                    String x = parts[1].replace("+offsetX","");
+                    String y = parts[2].replace("+offsetY);","");
+
+                    System.out.println(parts[0]);
+                    String[] parts2 = parts[0].split("\\(");
+                    String type = parts2[2].replace(")","");
+
+                    LevelCreatorBlock myBlock = new LevelCreatorBlock(Integer.parseInt(type));
+                    myBlock.getImage().setColor(new Color(0,0,0,120));
+                    myBlock.getImage().fill();
+                    myBlock.noCollision = true; 
+
+                    addObject(myBlock, Integer.parseInt(x)+offsetX, Integer.parseInt(y)+offsetY);
+                }
+
+                line = br.readLine();
+            }
+
+        }catch (FileNotFoundException e){
+            System.out.println(e);
+        } catch(IOException e){
+            System.out.println(e);
+        }
     }
 }
