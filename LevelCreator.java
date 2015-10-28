@@ -51,15 +51,7 @@ public class LevelCreator extends World
             block.update(LevelCreatorDisplayBlock.block);
             addObject(block,0,0);
         }
-        if(Greenfoot.isKeyDown("r")){
-            LevelCreatorBlock myBlock = new LevelCreatorBlock(LevelCreatorDisplayBlock.block);
-            myBlock.getImage().setColor(new Color(0,0,0,120));
-            myBlock.getImage().fill();
-            myBlock.noCollision = true; 
-            addObject(myBlock, 27*Math.round(mouse.getX()/27), 27*Math.round(mouse.getY()/27));
-            block.update(LevelCreatorDisplayBlock.block);
-            addObject(block,0,0);
-        }
+        
 
         if(Greenfoot.isKeyDown("enter")){
             export();
@@ -159,6 +151,14 @@ public class LevelCreator extends World
                     addObject(new LevelCreatorBlock(4), Integer.parseInt(x)+offsetX, Integer.parseInt(y)+offsetY);
                 }
 
+                
+                if(line.contains("setBackground")){
+                    String[] parts = line.split("\"");
+                    
+                    setBackground(parts[1]);
+                }
+                
+                
                 if(line.contains("ExitPortal")){
                     String[] parts = line.split(",");
                     String x = parts[1].replace("+offsetX","");

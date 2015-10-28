@@ -72,6 +72,10 @@ public class Block extends NonPlayer
         if(blockType == 20){
             setImage("SandMiddle.png");
         }
+        if(blockType == 21){
+            setImage("CrackedPurple.png");
+        }
+        
         
     }  
 
