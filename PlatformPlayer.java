@@ -16,6 +16,7 @@ public class PlatformPlayer extends PlatformObject
     private double moveSpeed = 2;
     private double jumpSpeed = 16;
     private double climbSpeed = 3;
+    private double swimSpeed = 2;
     private int sideScrollDist = 400;
     private Class blockType = Block.class;
 
@@ -112,9 +113,14 @@ public class PlatformPlayer extends PlatformObject
 
         }
         if(anyWater){
-            velY += -.25;
+            
             moveSpeed = .8;
             jumpSpeed = 6;
+            if(Greenfoot.isKeyDown("w") || Greenfoot.isKeyDown("space")){
+                velY = -swimSpeed;
+                onBlock = false;
+                System.out.println("climbing");
+            }
         }
         else if(anyClimb){
             jumpSpeed = 0;
