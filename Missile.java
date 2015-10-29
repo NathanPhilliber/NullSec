@@ -46,6 +46,7 @@ public class Missile extends Weapon implements ProjectileObject
         if(ownedByPlayer){
 
             speed += space.getShip().getSpeed();
+            
         }
     }
 

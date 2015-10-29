@@ -98,6 +98,18 @@ public class PlatformPlayer extends PlatformObject
         {
             kill();
         }
+        
+        Actor w=getOneIntersectingObject(WaterBlock.class);
+        if(w != null)
+        {
+            velY += -.25;
+            moveSpeed = .8;
+            jumpSpeed = 6;
+        }
+        else{
+            moveSpeed = 2;
+            jumpSpeed = 16;
+        }
     }
 
     private int pauseCycles = 0;
@@ -110,23 +122,37 @@ public class PlatformPlayer extends PlatformObject
             //Greenfoot.setWorld(getWorld());
 
             World world = getWorld();
-            if(world instanceof Level3){
-                Level3 level3 = (Level3) world;
-                Greenfoot.setWorld(new Level3(level3.returnX, level3.returnY));
-            }
-            if(world instanceof Level7){
-                Level7 level7 = (Level7) world;
-                Greenfoot.setWorld(new Level7(level7.returnX, level7.returnY));
-            }
-
             if(world instanceof Level1){
-                Level1 level1 = (Level1) world;
-                Greenfoot.setWorld(new Level1(level1.returnX, level1.returnY));
+                Level1 level = (Level1) world;
+                Greenfoot.setWorld(new Level1(level.returnX, level.returnY));
+            }
+            if(world instanceof Level2){
+                Level2 level = (Level2) world;
+                Greenfoot.setWorld(new Level2(level.returnX, level.returnY));
+            }
+            if(world instanceof Level3){
+                Level3 level = (Level3) world;
+                Greenfoot.setWorld(new Level3(level.returnX, level.returnY));
+            }
+            if(world instanceof Level4){
+                Level4 level = (Level4) world;
+                Greenfoot.setWorld(new Level4(level.returnX, level.returnY));
+            }
+            if(world instanceof Level5){
+                Level5 level = (Level5) world;
+                Greenfoot.setWorld(new Level5(level.returnX, level.returnY));
             }
             if(world instanceof Level6){
                 Level6 level6 = (Level6) world;
                 Greenfoot.setWorld(new Level6(level6.returnX, level6.returnY));
             }
+            if(world instanceof Level7){
+                Level7 level = (Level7) world;
+                Greenfoot.setWorld(new Level7(level.returnX, level.returnY));
+            }
+
+            
+            
             else{
                 System.out.println("ADD WORLD TO PLATFORMPLAYER");
             }
@@ -221,6 +247,8 @@ public class PlatformPlayer extends PlatformObject
             }
         }
     }
+    
+    
 
     private void sideScroll()
     {
