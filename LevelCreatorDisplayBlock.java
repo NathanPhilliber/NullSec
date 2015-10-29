@@ -21,6 +21,16 @@ public class LevelCreatorDisplayBlock extends LevelCreatorObject
             "Portal.png", "MoonBrick.png", "MoonBrickTop.png", "GooTop.png", "GooBottom.png", "WaterTop.png",  "WaterMiddle.png","WaterBottom.png",
             "Dirt.png", "Grass.png", "SingleStone.png", "StoneSquare.png", "GreyStone1.png", "GreyStone2.png",
             "SandTop.png", "SandMiddle.png", "CrackedPurple.png", "Xcrate.png", "SlashCrate.png",
+            "AlienVines.png", "Vines.png", "BlueBasicBlock.png", "BlueExtrudedBlock.png", "BlueGlassBlock.png",
+            "BlueMetal.png", "BluePlates.png", "BlueStone.png", "BlueStones.png", "BoltedMetal.png",
+            "BrownBlock.png", "BrownBlockBottom.png", "BrownWall.png", "CautionBlock.png", "CheckerBoard.png",
+            "ColorfulBlocks.png", "CoolColorBlocks.png", "CrackedPurple.png", "CrackedStone.png", "DarkBricks.png",
+            "EmeraldBlock.png", "ExtrudedBlock.png", "GlassBlockClear.png", "GreenBasicBlock.png", "GreenExtrudedBlock.png",
+            "GreenGlassBlock.png", "GreenishYellowBlocks.png", "GreenSlash.png", "GreyStone1.png", "GreyStone2.png",
+            "HellBricks.png", "IceBlock.png", "LeavesBlock.png", "Log.png", "MetalBeams.png",
+            "MetalBlock.png", "MetalLadder.png", "OrangePlates.png", "PinkBricks.png", "PinkPurpleBlocks.png",
+            "PinkStones.png", "PurpleBlock.png", "RedGlassBlock.png", "SnowBlock.png", "StoneBricks.png",
+            "WeirdBlueBlock.png", "YellowBlock.png", "YellowPlates.png", "YellowStones.png", "SnowBlock.png",
             "cancel.png"}; //MAKE CANCEL LAST
 
     public static String[] backgroundImages = {"PlanetOneBG.png", "BackgroundLevel4.png", "BackgroundImage3.png", "SpaceshipBackground1.png"};
@@ -109,5 +119,9 @@ public class LevelCreatorDisplayBlock extends LevelCreatorObject
     public static String getBG()
     {
         return backgroundImages[bgImage];
+    }
+    public static String[] getBlock()
+    {
+        return blockName;
     }
 }
