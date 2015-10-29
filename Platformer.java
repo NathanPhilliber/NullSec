@@ -4,13 +4,9 @@ public class Platformer extends World
     private double worldOffset=0;
     
     public double returnX, returnY;
-    
-    
-    
     public Platformer()
     {    
         this(0,0);
-        
     }
     
     public Platformer(double returnX, double returnY){
@@ -31,5 +27,9 @@ public class Platformer extends World
     public void setOffset(double Of)
     {
         worldOffset=Of;
+    }
+    public void addOffset(double Of)
+    {
+        worldOffset+=Of;
     }
 }

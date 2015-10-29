@@ -8,11 +8,10 @@ import greenfoot.*;
  */
 public class Level2 extends Platformer
 {
-
-    /**
-     * Constructor for objects of class Level2.
-     * 
-     */
+    public Level2()
+    {
+        this(0,0);
+    }
     public Level2(double returnX, double returnY)
     {
         super(returnX, returnY);

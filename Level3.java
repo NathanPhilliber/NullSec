@@ -1,6 +1,10 @@
 import greenfoot.*;
 public class Level3 extends Platformer
 {
+    public Level3()
+    {
+        this(0,0);
+    }
     public Level3(double returnX, double returnY)
     {
         super(returnX, returnY);

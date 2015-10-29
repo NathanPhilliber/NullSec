@@ -10,17 +10,29 @@ import java.util.List;
 public class PlatformPlayer extends PlatformObject
 {
 
-    //constants
-    private double gravity = .5; //Make final constants since we change this throughout
-    private double airResist = .25;
-    private double moveSpeed = 2;
-    private double jumpSpeed = 16;
-    private double climbSpeed = 3;
-    private double swimSpeed = 2;
-    private int sideScrollDist = 400;
-    private Class blockType = Block.class;
-
-    //varibles
+    /************************************************************************************
+     * constants
+     * DO NOT MAKE THE COSE CHANGE
+     * (you were changeing walkSpeed constant(was moveSpeed))
+     *
+     ************************************************************************************
+     */
+    static final double gravity = .5; //Make final constants since we change this throughout
+    static final double dragX = .25;
+    static final double walkSpeed = 4;
+    static final double jumpSpeedAir = 16;
+    static final double climbSpeed = 3;
+    static final double swimSpeed = 2;
+    static final int sideScrollDist = 400;
+    static final Class blockType = Block.class;
+    
+    /************************************************************************************
+     * varibles
+     * use these to change during gameplay
+     ************************************************************************************ 
+     */
+    private double jumpSpeed=jumpSpeedAir;
+    private double moveSpeed=walkSpeed;
     private boolean onBlock=false;
     private double realX;
     private double realY;
@@ -63,18 +75,13 @@ public class PlatformPlayer extends PlatformObject
                 jump();
                 leftRight();
             }
-            showDebug(false);
-
+            showDebug(true);
             gravity(gravity);
-            airResist();
-            velocity();
-
             updatePosition();
             restartWorld();
             checkIfOffEdge();
             checkSpecialCollisions();
         }
-
     }
 
     public void lockPlayerMovement(boolean lock){
@@ -127,12 +134,12 @@ public class PlatformPlayer extends PlatformObject
             if(Greenfoot.isKeyDown("w") || Greenfoot.isKeyDown("space")){
                 velY = -climbSpeed;
                 onBlock = false;
-
+                
             }
         }
         else{
-            moveSpeed = 2;
-            jumpSpeed = 16;
+            moveSpeed = walkSpeed;
+            jumpSpeed = jumpSpeedAir;
         }
 
     }
@@ -202,75 +209,67 @@ public class PlatformPlayer extends PlatformObject
         deleteMe = true;
     }
 
-    private void updatePosition()
+        private void updatePosition()
     {
-        //setLocation(realX-w.getOffset(),getExactY());
         int steps=10;
         //X check
-        double stepX = (realX-w.getOffset()-getExactX())/steps;
         for (int i=0;i<=steps-1;i++)
         {
-            double oldX=getExactX();
-            setLocation(oldX+stepX,getExactY());
+            addRealX(getVelX()/steps);
+            setLocation(getRealX()-w.getOffset(),getExactY());
             Actor b=getOneIntersectingObject(blockType);
             if (b!=null)
             { 
+                addRealX(-getVelX()/steps);
+                setLocation(getRealX()-w.getOffset(),getExactY());
                 velX=0;
-                setLocation(oldX,getExactY());
-                realX=oldX+w.getOffset();
                 i=steps;
             }
         }
-
+        double dif=getExactX()-sideScrollDist;
+        if(dif<=0&&velX<=0)
+        {
+            w.addOffset(dif);
+        }
+        dif=getExactX()+sideScrollDist-getWorld().getWidth();
+        if(dif>=0&&velX>=0)
+        {
+            w.addOffset(dif);
+        }
+        
         //Y check
-        double stepY = (realY-getExactY())/steps;
         for (int i=0;i<=steps-1;i++)
         {
-            setLocation(getExactX(),getExactY()+stepY);
+            addRealY(getVelY()/steps);
+            setLocation(getExactX(),getRealY());
             Actor b=getOneIntersectingObject(blockType);
             if (b!=null)
             {
-
-                if (stepY>=0)
-                {
-                    onBlock=true;
-                }
+                addRealY(-getVelY()/steps);
+                setLocation(getExactX(),getRealY());
                 velY=0;
-                setLocation(getExactX(),getExactY()-stepY);
-                realY-=stepY*(steps-i);
                 i=steps;
-
-                if(velY!=0)
-                {
-                    onBlock=false;
-                }
-
+                onBlock=true;
             }
-        }
-        sideScroll();
-    }
-
-    private void sideScroll()
-    {
-        if (getX()>=getWorld().getWidth()-sideScrollDist && velX>0 || getX()<= sideScrollDist && velX<0)
-        {
-            //w.setOffset(w.getOffset()+velX);
-            w.setOffset(realX-getExactX());
+            if(velY!=0)
+            {
+                onBlock=false;
+            }
         }
     }
 
     private void leftRight()
     {
-        Actor b=getOneIntersectingObject(blockType);
-        if (Greenfoot.isKeyDown("d")&&b==null)
+        slowX();
+        if (Greenfoot.isKeyDown("d"))
         {
-            velX += moveSpeed;
+            velX=moveSpeed;
             setImage(walkRight.getCurrentImage());
         }
 
-        if (Greenfoot.isKeyDown("a")&&b==null)
+        if (Greenfoot.isKeyDown("a"))
         {
-            velX -= moveSpeed;
+            velX=-moveSpeed;
             setImage(walkLeft.getCurrentImage());
         }
 
@@ -302,31 +301,24 @@ public class PlatformPlayer extends PlatformObject
         if ((Greenfoot.isKeyDown("space")||Greenfoot.isKeyDown("w")) && onBlock)
         {
             onBlock=false;
-            velY = -jumpSpeed;
+            velY-=jumpSpeed;
         }
     }
-
-    private void airResist()
+    private void slowX()
     {
-        velX -= airResist*velX;
-
-        //old
-        //velX -= airResist*velX*Math.abs(velX);
-        //velX -= airResist*velX*Math.log(Math.abs(velX)+1);
-        //velY -= airResist*velY*Math.log(Math.abs(velY)+1);
+        if (onBlock)
+        {
+            velX-=dragX*velX;
+        }
+        if(velX<=.1&&velX>=-.1)
+        {
+            velX=0;
+        }
     }
-
-    private void velocity()
-    {
-        realX += velX;
-        realY += velY;
-    }
-
     private void gravity(double grav)
     {
         velY += grav;
     }
-
     private void showDebug(boolean show)
     {
         if(show)
@@ -340,7 +332,7 @@ public class PlatformPlayer extends PlatformObject
             getWorld().showText("vY: "+String.format("%.02f", (velY)), x, 100);
         }
     }
-	    private void setRealX(double x)
+        private void setRealX(double x)
     {
         realX=x;
     }
