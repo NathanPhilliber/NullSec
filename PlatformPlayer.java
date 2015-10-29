@@ -340,4 +340,52 @@ public class PlatformPlayer extends PlatformObject
             getWorld().showText("vY: "+String.format("%.02f", (velY)), x, 100);
         }
     }
+	    private void setRealX(double x)
+    {
+        realX=x;
+    }
+    private void addRealX(double x)
+    {
+        realX+=x;
+    }
+    private double getRealX()
+    {
+        return realX;
+    }
+    private void setRealY(double y)
+    {
+        realY=y;
+    }
+    private void addRealY(double y)
+    {
+        realY+=y;
+    }
+    private double getRealY()
+    {
+        return realY;
+    }
+     private void setVelX(double x)
+    {
+        velX=x;
+    }
+    private void addVelX(double x)
+    {
+        velX+=x;
+    }
+    private double getVelX()
+    {
+        return velX;
+    }
+    private void setVelY(double y)
+    {
+        velY=y;
+    }
+    private void addVelY(double y)
+    {
+        velY+=y;
+    }
+    private double getVelY()
+    {
+        return velY;
+    }
 }
