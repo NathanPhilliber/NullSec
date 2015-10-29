@@ -124,4 +124,13 @@ public class LevelCreatorDisplayBlock extends LevelCreatorObject
     {
         return blockName;
     }
+    
+    public static void printNames(){
+        int i = 0;
+        for(String name : blockName){
+            
+            System.out.print(i + " " + name);
+            i++;
+        }
+    }
 }

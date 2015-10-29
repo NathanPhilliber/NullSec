@@ -101,6 +101,9 @@ public class LevelCreator extends World
                     else if(thisBlock.myImage == 10 || thisBlock.myImage == 11 ||thisBlock.myImage == 12){
                         writer.write("addObject(new WaterBlock(" + (thisBlock.myImage-10)+"),"+ object.getX()+"+offsetX,"+object.getY()+"+offsetY);\n");
                     }
+                    else if(thisBlock.myImage == 24 || thisBlock.myImage == 25 ||thisBlock.myImage == 60){
+                        writer.write("addObject(new ClimbBlock(" + (thisBlock.myImage)+"),"+ object.getX()+"+offsetX,"+object.getY()+"+offsetY);\n");
+                    }
                     else{
                         writer.write("addObject(new Block(" + thisBlock.myImage+"),"+ object.getX()+"+offsetX,"+object.getY()+"+offsetY);\n");
                     }
@@ -125,6 +128,8 @@ public class LevelCreator extends World
         grid.getImage().setTransparency(150);
         addObject(grid,0,0);
         addObject(block,0,0);
+        
+        //LevelCreatorDisplayBlock.printNames();
 
     }
     public void loadGenerated(){
@@ -211,6 +216,18 @@ public class LevelCreator extends World
                     String type = parts2[2].replace(")","");
 
                     addObject(new LevelCreatorBlock(Integer.parseInt(type)+10), Integer.parseInt(x)+offsetX, Integer.parseInt(y)+offsetY);
+                }
+                
+                if(line.contains("new ClimbBlock")){
+                    String[] parts = line.split(",");
+                    String x = parts[1].replace("+offsetX","");
+                    String y = parts[2].replace("+offsetY);","");
+
+                    System.out.println(parts[0]);
+                    String[] parts2 = parts[0].split("\\(");
+                    String type = parts2[2].replace(")","");
+
+                    addObject(new LevelCreatorBlock(Integer.parseInt(type)), Integer.parseInt(x)+offsetX, Integer.parseInt(y)+offsetY);
                 }
 
                 if(line.contains("new BackgroundBlock")){

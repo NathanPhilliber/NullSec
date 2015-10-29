@@ -1,7 +1,7 @@
 //Level Generated
 
-int offsetX = 0;
-int offsetY = 0;
+int offsetX = -13;
+int offsetY = -13;
 
 setBackground("SpaceshipBackground1.png");
 addObject(new Block(63),0+offsetX,378+offsetY);

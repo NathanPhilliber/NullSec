@@ -1,4 +1,5 @@
 import greenfoot.*;
+import java.util.List;
 
 /**
  * Write a description of class Player here.
@@ -14,6 +15,7 @@ public class PlatformPlayer extends PlatformObject
     private double airResist = .25;
     private double moveSpeed = 2;
     private double jumpSpeed = 16;
+    private double climbSpeed = 3;
     private int sideScrollDist = 400;
     private Class blockType = Block.class;
 
@@ -86,32 +88,48 @@ public class PlatformPlayer extends PlatformObject
 
     private void checkSpecialCollisions()
     {
-        Actor p=getOneIntersectingObject(ExitPortal.class);
-        if(p != null)
-        {
-            Platformer plat = (Platformer) getWorld();
-            Greenfoot.setWorld(new OuterSpace(plat.returnX, plat.returnY));
-        }
+        List<PlatformObject> objects = getIntersectingObjects(PlatformObject.class);
 
-        Actor l=getOneIntersectingObject(LavaBlock.class);
-        if(l != null)
-        {
-            kill();
+        boolean anyWater = false;
+        boolean anyClimb = false;
+
+        for(PlatformObject object : objects){
+
+            if(object instanceof ExitPortal){
+                Platformer plat = (Platformer) getWorld();
+                Greenfoot.setWorld(new OuterSpace(plat.returnX, plat.returnY));
+            }
+            else if(object instanceof LavaBlock){
+                kill();
+            }
+            else if(object instanceof WaterBlock){
+                anyWater = true;
+
+            }
+            else if(object instanceof ClimbBlock){
+                anyClimb = true;
+            }
+
         }
-        
-        Actor w=getOneIntersectingObject(WaterBlock.class);
-        if(w != null)
-        {
+        if(anyWater){
             velY += -.25;
             moveSpeed = .8;
             jumpSpeed = 6;
+        }
+        else if(anyClimb){
+            jumpSpeed = 0;
+            if(Greenfoot.isKeyDown("w") || Greenfoot.isKeyDown("space")){
+                velY = -climbSpeed;
+                onBlock = false;
+                System.out.println("climbing");
+            }
         }
         else{
             moveSpeed = 2;
             jumpSpeed = 16;
         }
-    }
 
+    }
     private int pauseCycles = 0;
     private boolean playerPaused = false;
     private boolean deleteMe = false;
@@ -135,8 +153,8 @@ public class PlatformPlayer extends PlatformObject
                 Greenfoot.setWorld(new Level3(level.returnX, level.returnY));
             }
             /*if(world instanceof Level4){
-                Level4 level = (Level4) world;
-                Greenfoot.setWorld(new Level4(level.returnX, level.returnY));
+            Level4 level = (Level4) world;
+            Greenfoot.setWorld(new Level4(level.returnX, level.returnY));
             }*/
             if(world instanceof Level5){
                 Level5 level = (Level5) world;
@@ -151,8 +169,6 @@ public class PlatformPlayer extends PlatformObject
                 Greenfoot.setWorld(new Level7(level.returnX, level.returnY));
             }
 
-            
-            
             else{
                 System.out.println("ADD WORLD TO PLATFORMPLAYER");
             }
@@ -220,7 +236,6 @@ public class PlatformPlayer extends PlatformObject
 
             }
         }
-        
 
         //Y check
         double stepY = (realY-getExactY())/steps;
@@ -248,8 +263,6 @@ public class PlatformPlayer extends PlatformObject
             }
         }
     }
-    
-    
 
     private void sideScroll()
     {
