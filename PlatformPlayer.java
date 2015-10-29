@@ -114,10 +114,18 @@ public class PlatformPlayer extends PlatformObject
                 Level3 level3 = (Level3) world;
                 Greenfoot.setWorld(new Level3(level3.returnX, level3.returnY));
             }
+            if(world instanceof Level7){
+                Level7 level7 = (Level7) world;
+                Greenfoot.setWorld(new Level7(level7.returnX, level7.returnY));
+            }
 
             if(world instanceof Level1){
                 Level1 level1 = (Level1) world;
                 Greenfoot.setWorld(new Level1(level1.returnX, level1.returnY));
+            }
+            if(world instanceof Level6){
+                Level6 level6 = (Level6) world;
+                Greenfoot.setWorld(new Level6(level6.returnX, level6.returnY));
             }
             else{
                 System.out.println("ADD WORLD TO PLATFORMPLAYER");

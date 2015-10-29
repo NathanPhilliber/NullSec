@@ -41,8 +41,8 @@ public class MovingEnemy extends NonPlayer
         super.act();
         gravity(gravity);
         airResist();
-        jump();
-        leftRight();
+        //jump();
+        //leftRight();
         velocity();
         updatePosition();
         checkIfOffEdge();
@@ -86,7 +86,7 @@ public class MovingEnemy extends NonPlayer
     private void updatePosition()
     {
         //setLocation(realX-w.getOffset(),getExactY());
-        int steps=10;
+        int steps=40;
         //X check
         double stepX = (realX-w.getOffset()-getExactX())/steps;
         for (int i=0;i<=steps-1;i++)
@@ -217,6 +217,19 @@ public class MovingEnemy extends NonPlayer
     private void gravity(double grav)
     {
         velY += grav;
+    }
+    private void showDebug(boolean show)
+    {
+        if(show)
+        {
+            int x = getWorld().getWidth() - 75;
+
+            getWorld().showText("X: "+String.format("%.02f", (realX)), x, 25);
+            getWorld().showText("Y: "+String.format("%.02f", (realY)), x, 50); 
+
+            getWorld().showText("vX: "+String.format("%.02f", (velX)), x, 75);
+            getWorld().showText("vY: "+String.format("%.02f", (velY)), x, 100);
+        }
     }
 
 }
