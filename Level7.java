@@ -1,22 +1,9 @@
 import greenfoot.*;
-
-/**
- * Write a description of class Level7 here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Level7 extends Platformer
 {
-
-    /**
-     * Constructor for objects of class Level7.
-     * 
-     */
     public Level7(){
         this(0,0);
     }
-
     public Level7(double x, double y)
     {
         super(x,y);

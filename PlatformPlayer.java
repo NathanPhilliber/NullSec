@@ -23,7 +23,7 @@ public class PlatformPlayer extends PlatformObject
     static final double jumpSpeedAir = 16;
     static final double climbSpeed = 3;
     static final double swimSpeed = 2;
-    static final int sideScrollDist = 400;
+    static final int sideScrollDist = 300;
     static final Class blockType = Block.class;
     
     /************************************************************************************
@@ -38,8 +38,8 @@ public class PlatformPlayer extends PlatformObject
     private double realY;
     private double velX;
     private double velY;
-    private boolean isWalkingRight;
-    private boolean isWalkingLeft;
+    private boolean isWalkingRight=true;
+    private boolean isWalkingLeft=false;
     Platformer w;
 
     private boolean locked = false;
@@ -52,6 +52,7 @@ public class PlatformPlayer extends PlatformObject
     {
         realX=getX();
         realY=getY();
+        w=(Platformer)getWorld();
     }
 
     public PlatformPlayer()
@@ -63,12 +64,6 @@ public class PlatformPlayer extends PlatformObject
 
     public void act() 
     {
-        Actor b=getOneIntersectingObject(Block.class);
-        w=(Platformer)getWorld();
-        if(b!=null)
-        {
-            //System.out.println(b);
-        }
         pausePlayerHelper();
         if(playerPaused == false){
             if(locked == false){
@@ -187,7 +182,7 @@ public class PlatformPlayer extends PlatformObject
             }
 
             else{
-                System.out.println("ADD WORLD TO PLATFORMPLAYER");
+                //System.out.println("ADD WORLD TO PLATFORMPLAYER");
             }
         }
     }
@@ -205,13 +200,14 @@ public class PlatformPlayer extends PlatformObject
     public void kill(){
         lockPlayerMovement(true);
         pauseCycles = 50;
-        setLocation(getX(), getY() -10000);
+        setLocation(getExactX(),getExactY()-10000);
         deleteMe = true;
     }
 
         private void updatePosition()
     {
         int steps=10;
+        double oldX=getExactX();
         //X check
         for (int i=0;i<=steps-1;i++)
         {
@@ -226,6 +222,19 @@ public class PlatformPlayer extends PlatformObject
                 i=steps;
             }
         }
+        if ((getExactX()>=getWorld().getWidth()-sideScrollDist&&isWalkingRight)||(getExactX()<=sideScrollDist&&isWalkingLeft))
+        {
+            System.out.println("move");
+            System.out.println(getExactX()-oldX);
+            w.addOffset(getExactX()-oldX);
+            setLocation(oldX,getExactY());
+        }
+        
+        
+        
+        
+        
+        /*
         double dif=getExactX()-sideScrollDist;
         if(dif<=0&&velX<=0)
         {
@@ -235,7 +244,7 @@ public class PlatformPlayer extends PlatformObject
         if(dif>=0&&velX>=0)
         {
             w.addOffset(dif);
-        }
+        }*/
         
         //Y check
         for (int i=0;i<=steps-1;i++)
@@ -324,12 +333,11 @@ public class PlatformPlayer extends PlatformObject
         if(show)
         {
             int x = getWorld().getWidth() - 75;
-
-            getWorld().showText("X: "+String.format("%.02f", (realX)), x, 25);
-            getWorld().showText("Y: "+String.format("%.02f", (realY)), x, 50); 
-
-            getWorld().showText("vX: "+String.format("%.02f", (velX)), x, 75);
-            getWorld().showText("vY: "+String.format("%.02f", (velY)), x, 100);
+            w.showText("X: "+String.format("%.02f", (realX)), x, 25);
+            w.showText("Y: "+String.format("%.02f", (realY)), x, 50); 
+            w.showText("vX: "+String.format("%.02f", (velX)), x, 75);
+            w.showText("vY: "+String.format("%.02f", (velY)), x, 100);
+            w.showText("wOffset: "+String.format("%.02f", (w.getOffset())), x, 125);
         }
     }
         private void setRealX(double x)

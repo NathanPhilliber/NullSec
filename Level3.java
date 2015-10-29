@@ -11,7 +11,6 @@ public class Level3 extends Platformer
         prepare();
     }
     
-    private double worldOffset=0;
     private void prepare()
     {
         addObject(new PlatformPlayer(),300,50);
@@ -100,14 +99,5 @@ public class Level3 extends Platformer
         {
             addObject(new Block(), 27*i+4050, 527);
         }
-    }
-    
-    public double getOffset()
-    {
-        return worldOffset;
-    }
-    public void setOffset(double Of)
-    {
-        worldOffset=Of;
     }
 }

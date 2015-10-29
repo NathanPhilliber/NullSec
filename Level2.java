@@ -17,8 +17,6 @@ public class Level2 extends Platformer
         super(returnX, returnY);
         prepare();
     }
-    
-    private double worldOffset = 0;
     private void prepare()
     {
         addObject(new PlatformPlayer(),540,50);
@@ -120,14 +118,5 @@ public class Level2 extends Platformer
         addObject(ball4, 333, 159);
         Ball ball5 = new Ball();
         addObject(ball5, 537, 255);
-    }
-    
-    public double getOffset()
-    {
-        return worldOffset;
-    }
-    public void setOffset(double Of)
-    {
-        worldOffset=Of;
     }
 }

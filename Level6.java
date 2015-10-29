@@ -1,19 +1,6 @@
 import greenfoot.*;
-
-/**
- * Write a description of class Level6 here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Level6 extends Platformer
 {
-
-    /**
-     * Constructor for objects of class Level6.
-     * 
-     */
-
     public Level6(){
         this(0,0);
     }
