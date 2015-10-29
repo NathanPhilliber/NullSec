@@ -1,5 +1,6 @@
 import greenfoot.*;
 import java.util.List;
+import java.lang.reflect.*;
 
 /**
  * Write a description of class Player here.
@@ -25,7 +26,7 @@ public class PlatformPlayer extends PlatformObject
     static final double swimSpeed = 2;
     static final int sideScrollDist = 300;
     static final Class blockType = Block.class;
-    
+
     /************************************************************************************
      * varibles
      * use these to change during gameplay
@@ -129,7 +130,7 @@ public class PlatformPlayer extends PlatformObject
             if(Greenfoot.isKeyDown("w") || Greenfoot.isKeyDown("space")){
                 velY = -climbSpeed;
                 onBlock = false;
-                
+
             }
         }
         else{
@@ -143,47 +144,26 @@ public class PlatformPlayer extends PlatformObject
     private boolean deleteMe = false;
 
     private void restartWorld(){
-        if(deleteMe){
 
-            //Greenfoot.setWorld(getWorld());
-
-            World world = getWorld();
-            if(world instanceof Level1){
-                Level1 level = (Level1) world;
-                Greenfoot.setWorld(new Level1(level.returnX, level.returnY));
+        World world = getWorld();
+        try{
+            if(deleteMe){
+                Class cl = world.getClass();
+                double param1 = 0;
+                double param2 = 0;
+                Constructor con = cl.getConstructor(double.class, double.class);
+                
+                java.lang.Object xyz = con.newInstance(param1, param2);
+                Greenfoot.setWorld((World) xyz);
             }
-            if(world instanceof Level2){
-                Level2 level = (Level2) world;
-                Greenfoot.setWorld(new Level2(level.returnX, level.returnY));
-            }
-            if(world instanceof Level3){
-                Level3 level = (Level3) world;
-                Greenfoot.setWorld(new Level3(level.returnX, level.returnY));
-            }
-            /*if(world instanceof Level4){
-            Level4 level = (Level4) world;
-            Greenfoot.setWorld(new Level4(level.returnX, level.returnY));
-            }*/
-            if(world instanceof Level5){
-                Level5 level = (Level5) world;
-                Greenfoot.setWorld(new Level5(level.returnX, level.returnY));
-            }
-            if(world instanceof Level6){
-                Level6 level = (Level6) world;
-                Greenfoot.setWorld(new Level6(level.returnX, level.returnY));
-            }
-            if(world instanceof Level7){
-                Level7 level = (Level7) world;
-                Greenfoot.setWorld(new Level7(level.returnX, level.returnY));
-            }
-             if(world instanceof Level8){
-                Level8 level = (Level8) world;
-                Greenfoot.setWorld(new Level8(level.returnX, level.returnY));
-            }
-
-            else{
-                //System.out.println("ADD WORLD TO PLATFORMPLAYER");
-            }
+        }
+        catch(InstantiationException e){   
+        }
+        catch(IllegalAccessException e){   
+        }
+        catch(NoSuchMethodException e){   
+        }
+        catch(InvocationTargetException e){   
         }
     }
 
@@ -204,7 +184,7 @@ public class PlatformPlayer extends PlatformObject
         deleteMe = true;
     }
 
-        private void updatePosition()
+    private void updatePosition()
     {
         int steps=10;
         double oldX=getExactX();
@@ -229,23 +209,21 @@ public class PlatformPlayer extends PlatformObject
             w.addOffset(getExactX()-oldX);
             setLocation(oldX,getExactY());
         }
-        
-        
-        
+
         
         
         /*
         double dif=getExactX()-sideScrollDist;
         if(dif<=0&&velX<=0)
         {
-            w.addOffset(dif);
+        w.addOffset(dif);
         }
         dif=getExactX()+sideScrollDist-getWorld().getWidth();
         if(dif>=0&&velX>=0)
         {
-            w.addOffset(dif);
+        w.addOffset(dif);
         }*/
-        
+
         //Y check
         for (int i=0;i<=steps-1;i++)
         {
@@ -313,6 +291,7 @@ public class PlatformPlayer extends PlatformObject
             velY-=jumpSpeed;
         }
     }
+
     private void slowX()
     {
         if (onBlock)
@@ -324,10 +303,12 @@ public class PlatformPlayer extends PlatformObject
             velX=0;
         }
     }
+
     private void gravity(double grav)
     {
         velY += grav;
     }
+
     private void showDebug(boolean show)
     {
         if(show)
@@ -340,50 +321,62 @@ public class PlatformPlayer extends PlatformObject
             w.showText("wOffset: "+String.format("%.02f", (w.getOffset())), x, 125);
         }
     }
-        private void setRealX(double x)
+
+    private void setRealX(double x)
     {
         realX=x;
     }
+
     private void addRealX(double x)
     {
         realX+=x;
     }
+
     private double getRealX()
     {
         return realX;
     }
+
     private void setRealY(double y)
     {
         realY=y;
     }
+
     private void addRealY(double y)
     {
         realY+=y;
     }
+
     private double getRealY()
     {
         return realY;
     }
-     private void setVelX(double x)
+
+    private void setVelX(double x)
     {
         velX=x;
     }
+
     private void addVelX(double x)
     {
         velX+=x;
     }
+
     private double getVelX()
     {
         return velX;
     }
+
     private void setVelY(double y)
     {
         velY=y;
     }
+
     private void addVelY(double y)
     {
         velY+=y;
     }
+
     private double getVelY()
     {
         return velY;
