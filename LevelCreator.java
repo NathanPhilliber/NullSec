@@ -26,16 +26,18 @@ public class LevelCreator extends World
     }
 
     public LevelCreatorBlockHover block = new LevelCreatorBlockHover(LevelCreatorDisplayBlock.block);
+    public LevelCreatorGrid grid = new LevelCreatorGrid();
 
     public void act(){
 
         MouseInfo mouse = Greenfoot.getMouseInfo();
         if(mouse != null){
 
-            block.setLocation(27*Math.round(mouse.getX()/27), 27*Math.round(mouse.getY()/27));
+            block.setLocation(27*Math.round(mouse.getX()/27)+13, 27*Math.round(mouse.getY()/27)+13);
+            grid.setLocation(27*Math.round(mouse.getX()/27)+13, 27*Math.round(mouse.getY()/27)+13);
         }
         if(Greenfoot.isKeyDown("e")){
-            addObject(new LevelCreatorBlock(LevelCreatorDisplayBlock.block), 27*Math.round(mouse.getX()/27), 27*Math.round(mouse.getY()/27));
+            addObject(new LevelCreatorBlock(LevelCreatorDisplayBlock.block), 27*Math.round(mouse.getX()/27)+13, 27*Math.round(mouse.getY()/27)+13);
             block.update(LevelCreatorDisplayBlock.block);
             //block = new LevelCreatorBlock(LevelCreatorDisplayBlock.block);
 
@@ -47,7 +49,7 @@ public class LevelCreator extends World
             myBlock.getImage().setColor(new Color(0,0,0,120));
             myBlock.getImage().fill();
             myBlock.noCollision = true; 
-            addObject(myBlock, 27*Math.round(mouse.getX()/27), 27*Math.round(mouse.getY()/27));
+            addObject(myBlock, 27*Math.round(mouse.getX()/27)+13, 27*Math.round(mouse.getY()/27)+13);
             block.update(LevelCreatorDisplayBlock.block);
             addObject(block,0,0);
         }
@@ -120,6 +122,8 @@ public class LevelCreator extends World
     {
         LevelCreatorDisplayBlock levelcreatordisplayblock = new LevelCreatorDisplayBlock();
         addObject(levelcreatordisplayblock, 30, 28);
+        grid.getImage().setTransparency(150);
+        addObject(grid,0,0);
         addObject(block,0,0);
 
     }
