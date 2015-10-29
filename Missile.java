@@ -27,6 +27,7 @@ public class Missile extends Weapon implements ProjectileObject
     {
         super.act();
         spaceMove(speed);
+        addMissileTrail(getSpaceX(), getSpaceY());
 
         if(ownedByPlayer){
 
@@ -46,7 +47,7 @@ public class Missile extends Weapon implements ProjectileObject
         if(ownedByPlayer){
 
             speed += space.getShip().getSpeed();
-            
+
         }
     }
 

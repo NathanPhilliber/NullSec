@@ -11,7 +11,7 @@ public class PlatformPlayer extends PlatformObject
 {
 
     //constants
-    private double gravity = .5;
+    private double gravity = .5; //Make final constants since we change this throughout
     private double airResist = .25;
     private double moveSpeed = 2;
     private double jumpSpeed = 16;
@@ -68,7 +68,7 @@ public class PlatformPlayer extends PlatformObject
             gravity(gravity);
             airResist();
             velocity();
-            sideScroll();
+
             updatePosition();
             restartWorld();
             checkIfOffEdge();
@@ -113,13 +113,13 @@ public class PlatformPlayer extends PlatformObject
 
         }
         if(anyWater){
-            
+
             moveSpeed = .8;
             jumpSpeed = 6;
             if(Greenfoot.isKeyDown("w") || Greenfoot.isKeyDown("space")){
                 velY = -swimSpeed;
                 onBlock = false;
-                System.out.println("climbing");
+
             }
         }
         else if(anyClimb){
@@ -127,7 +127,7 @@ public class PlatformPlayer extends PlatformObject
             if(Greenfoot.isKeyDown("w") || Greenfoot.isKeyDown("space")){
                 velY = -climbSpeed;
                 onBlock = false;
-                System.out.println("climbing");
+
             }
         }
         else{
@@ -211,35 +211,10 @@ public class PlatformPlayer extends PlatformObject
             Actor b=getOneIntersectingObject(blockType);
             if (b!=null)
             { 
-
                 velX=0;
-                //System.out.println(stepX);
                 setLocation(oldX,getExactY());
                 realX=oldX+w.getOffset();
-                //System.out.println(realX);}
-                if (stepX==0)
-                {
-                    //Greenfoot.stop();//debug on >>>>>>>>>>>>>>>>>DEBUG<<<<<<<<<<<<<<<
-                }
                 i=steps;
-
-            }
-            b=getOneIntersectingObject(blockType);
-            if(b!=null)
-            {
-
-                setLocation(getExactX(),getExactY()-1);
-                realY-=1;
-
-                //System.out.println(realY);
-
-                if(isWalkingRight){
-                    setLocation(getExactX() - 3, getExactY());
-                }
-                if(isWalkingLeft){
-                    setLocation(getExactX() +3 , getExactY());
-                }
-
             }
         }
 
@@ -268,6 +243,7 @@ public class PlatformPlayer extends PlatformObject
 
             }
         }
+        sideScroll();
     }
 
     private void sideScroll()

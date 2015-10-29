@@ -10,6 +10,10 @@ public class StartMenu extends World
     private About about = new About();
     private Exit exit = new Exit();
     
+    
+    
+    
+    
     public StartMenu()
     {    
         super(OptionsMenu.getWorldWidth(), OptionsMenu.getWorldHeight(), 1, false); 

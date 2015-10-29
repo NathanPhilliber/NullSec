@@ -54,12 +54,12 @@ public class Player extends Object implements DamageTaker
 
     private int asteroidSpawnChance = 90;
 
-    private boolean projectileEnabled = true; //DO NOT DIRECTLY EDIT THESE
-    private boolean missileEnabled = true;
-    private boolean beamEnabled = true;
-    private boolean mineEnabled = true;
-    private boolean fireballEnabled = true;
-    private boolean plasmaballEnabled = true;
+    private static boolean projectileEnabled = true; //DO NOT DIRECTLY EDIT THESE
+    private static boolean missileEnabled = false;
+    private static boolean beamEnabled = false;
+    private static boolean mineEnabled = false;
+    private static boolean fireballEnabled = false;
+    private static boolean plasmaballEnabled = false;
 
     private int weaponTimer = 0;
     private int weaponToggle = 0;
@@ -73,6 +73,8 @@ public class Player extends Object implements DamageTaker
     public boolean mouseAim = true;
 
     private boolean playerDisabled = false;
+
+    public static int gold = 0;
 
     /*************************************************************/
     /*********************  DEMO STUFF  **************************/
@@ -134,8 +136,7 @@ public class Player extends Object implements DamageTaker
 
     //Constructor, spawns player at x,y coord
     public Player(double x, double y){
-        
-        
+
         setSpaceX(x);
         setSpaceY(y);
 
@@ -201,8 +202,9 @@ public class Player extends Object implements DamageTaker
 
             if(obj instanceof Gold){
                 Gold ent = (Gold) obj;
+                gold += ent.value;
                 ent.pickUp();
-                goldScore.setValue(Gold.totalGold);
+                goldScore.setValue(gold);
             }
 
         }
@@ -240,11 +242,11 @@ public class Player extends Object implements DamageTaker
     private Planet currentPlanet;
     protected int planetLoadDelay = 0;
     private GreenfootImage shipImg = new GreenfootImage("images/RocketBoost.png");
-    
+
     private void delayLoadWorldHelper(){
         if(planetLoadDelay > 1){
             planetLoadDelay--;
-            
+
             addPlanetDock(getShipLocX(), getShipLocY());
 
         }
@@ -254,8 +256,6 @@ public class Player extends Object implements DamageTaker
             currentPlanet.loadWorld();
         }
     }
-
-    
 
     public void resetDockMenu(){
         dockPressed = false;
@@ -493,8 +493,13 @@ public class Player extends Object implements DamageTaker
         mineEnabled = mine;
         fireballEnabled = fire;
         plasmaballEnabled = plasma;
-        space.drawWeaponGUI(projectileEnabled, beamEnabled, missileEnabled, mineEnabled, fireballEnabled, plasmaballEnabled);
 
+        reloadWeapons();
+
+    }
+
+    public void reloadWeapons(){
+        space.drawWeaponGUI(projectileEnabled, beamEnabled, missileEnabled, mineEnabled, fireballEnabled, plasmaballEnabled);
     }
 
     private void shoot(int LV, int wep)
@@ -629,6 +634,9 @@ public class Player extends Object implements DamageTaker
         if(Greenfoot.isKeyDown("]")){
             addHealth(.5);
         }
+        if(Greenfoot.isKeyDown("\\")){
+            updateAvailableWeapons(true,true,true,true,true,true);
+        }
     }
 
     public double getHealth(){
@@ -694,7 +702,8 @@ public class Player extends Object implements DamageTaker
             damageBar = new DamageBar(this, -30, getHealth(), getMaxHealth());
             space.addObject(damageBar, 0, 0);
 
-            updateAvailableWeapons(true, false, false, false, false, false);
+            //
+            reloadWeapons();
             if(getWorld() instanceof TutorialWorld){
                 tutObj = new TutorialObjectManager();
                 space.addObject(tutObj,-10,-10);

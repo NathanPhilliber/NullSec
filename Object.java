@@ -167,6 +167,13 @@ public class Object extends SmoothMover
         }
     }
 
+    public void addMissileTrail(double x, double y){
+        Particle par = new Particle(x, y, 6, 6, 5, 2, 5, 0,"images/smoke2.png");
+        par.getImage().setTransparency(100);
+        space.addObject(par, 0, 0);
+
+    }
+
     public void scheduleRemoval(){
         deleteMe = true;
     }
@@ -317,8 +324,6 @@ public class Object extends SmoothMover
     protected double plasmaBallDamage = 4.0;
 
     protected int mineRange = 250;
-
-    
 
     protected void projectile(int angle,int LV,double X,double Y, boolean isPlayer)
     {
