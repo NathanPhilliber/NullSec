@@ -13,6 +13,10 @@ public class Level6 extends Platformer
      * Constructor for objects of class Level6.
      * 
      */
+    
+    public Level6(){
+        this(0,0);
+    }
     public Level6(double x, double y)
     {
         super (x,y);
