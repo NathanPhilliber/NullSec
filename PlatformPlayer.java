@@ -24,7 +24,7 @@ public class PlatformPlayer extends PlatformObject
     static final double jumpSpeedAir = 16;
     static final double climbSpeed = 3;
     static final double swimSpeed = 2;
-    static final int sideScrollDist = 300;
+    static final int sideScrollDist = 400;
     static final Class blockType = Block.class;
 
     /************************************************************************************
@@ -71,7 +71,7 @@ public class PlatformPlayer extends PlatformObject
                 jump();
                 leftRight();
             }
-            showDebug(true);
+            showDebug(false);
             gravity(gravity);
             updatePosition();
             restartWorld();
@@ -131,6 +131,10 @@ public class PlatformPlayer extends PlatformObject
                 velY = -climbSpeed;
                 onBlock = false;
 
+            }
+            if(Greenfoot.isKeyDown("shift")){
+                velY = -gravity;
+                onBlock = false;
             }
         }
         else{
@@ -204,8 +208,8 @@ public class PlatformPlayer extends PlatformObject
         }
         if ((getExactX()>=getWorld().getWidth()-sideScrollDist&&isWalkingRight)||(getExactX()<=sideScrollDist&&isWalkingLeft))
         {
-            System.out.println("move");
-            System.out.println(getExactX()-oldX);
+            //System.out.println("move");
+            //System.out.println(getExactX()-oldX);
             w.addOffset(getExactX()-oldX);
             setLocation(oldX,getExactY());
         }
@@ -280,6 +284,12 @@ public class PlatformPlayer extends PlatformObject
         {
             setImage(standLeft.getCurrentImage());
             isWalkingLeft = false;
+        }
+        
+        //hack
+        if(Greenfoot.isKeyDown("\\")){
+            setRealY(150);
+
         }
     }
 
