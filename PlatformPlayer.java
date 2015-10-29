@@ -143,8 +143,8 @@ public class PlatformPlayer extends PlatformObject
                 Greenfoot.setWorld(new Level5(level.returnX, level.returnY));
             }
             if(world instanceof Level6){
-                Level6 level6 = (Level6) world;
-                Greenfoot.setWorld(new Level6(level6.returnX, level6.returnY));
+                Level6 level = (Level6) world;
+                Greenfoot.setWorld(new Level6(level.returnX, level.returnY));
             }
             if(world instanceof Level7){
                 Level7 level = (Level7) world;
@@ -220,6 +220,7 @@ public class PlatformPlayer extends PlatformObject
 
             }
         }
+        
 
         //Y check
         double stepY = (realY-getExactY())/steps;
