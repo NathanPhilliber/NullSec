@@ -234,6 +234,12 @@ public class PlatformPlayer extends PlatformObject
             addRealY(getVelY()/steps);
             setLocation(getExactX(),getRealY());
             Actor b=getOneIntersectingObject(blockType);
+            
+            if(b instanceof FallingBlock){
+                FallingBlock r = (FallingBlock) b;
+                r.startFalling();
+            }
+            
             if (b!=null)
             {
                 addRealY(-getVelY()/steps);

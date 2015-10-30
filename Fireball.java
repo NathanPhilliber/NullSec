@@ -28,6 +28,7 @@ public class Fireball extends Weapon implements ProjectileObject
     public Fireball(int angle, boolean isPlayer, double damage, double startX, double startY)
     {
         super(angle, isPlayer, startX, startY, damage);
+        despawnOnTouch = false;
     }
     
     private void beam()

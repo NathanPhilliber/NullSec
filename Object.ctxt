@@ -44,6 +44,7 @@ comment25.params=
 comment25.target=void\ removeDockMenu()
 comment26.params=angle\ LV\ X\ Y\ isPlayer
 comment26.target=void\ projectile(int,\ int,\ double,\ double,\ boolean)
+comment26.text=\n\n\ WEAPON\ SYSTEMS\n\ \ \ \ \ for\n\ PLAYER\ AND\ NPC\n\ \n\ \n\ \n\n\n
 comment27.params=angle\ X\ Y\ isPlayer
 comment27.target=void\ spawnProjectile(int,\ double,\ double,\ boolean)
 comment28.params=angle\ LV\ X\ Y\ charge\ isPlayer

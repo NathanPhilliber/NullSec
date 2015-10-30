@@ -52,13 +52,13 @@ public class LevelCreatorPallet extends LevelCreatorObject
         for(int i = 0; i < LevelCreatorDisplayBlock.blockName.length; i++){
 
             if(i == 4){
-                world.addObject(new LevelCreatorPalletBlock(i), mouseX+25+row*(27+spaceBetween), 65+17+column*(27+spaceBetween));
+                world.addObject(new LevelCreatorPalletBlock(i), mouseX+25+row*(27+spaceBetween), 85+17+column*(27+spaceBetween));
             } 
             else if(i == 5){
-                world.addObject(new LevelCreatorPalletBlock(i), mouseX-10+row*(27+spaceBetween), 65+5+column*(27+spaceBetween));
+                world.addObject(new LevelCreatorPalletBlock(i), mouseX-10+row*(27+spaceBetween), 85+5+column*(27+spaceBetween));
             }
             else{
-                world.addObject(new LevelCreatorPalletBlock(i), mouseX+25+row*(27+spaceBetween), 65+column*(27+spaceBetween));
+                world.addObject(new LevelCreatorPalletBlock(i), mouseX+25+row*(27+spaceBetween), 85+column*(27+spaceBetween));
             }
             column++;
             if(column > length){

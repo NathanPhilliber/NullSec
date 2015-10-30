@@ -14,6 +14,8 @@ public class Weapon extends SpaceObject
     private double targetX;
     private double targetY;
 
+    protected boolean despawnOnTouch = true;
+
     public static final int PROJECTILE = 0;
     public static final int BEAM = 1;
     public static final int MISSILE = 2;
@@ -42,19 +44,17 @@ public class Weapon extends SpaceObject
 
     public boolean checkCollision(){
 
-
         List<Object> objs = getIntersectingObjects(Object.class);
-
         if(objs.isEmpty() == false){
-
             for( Object curObj : objs){
-
                 if(ownedByPlayer){
                     if(curObj instanceof Entity){
                         if(touch(curObj)){ //Don't run this disgusting function unless neceessary
                             Entity ent = (Entity) curObj;
                             ent.getHit(damage);
-                            scheduleRemoval();
+                            if(despawnOnTouch){
+                                scheduleRemoval();
+                            }
 
                             return true;
                         }
@@ -68,7 +68,9 @@ public class Weapon extends SpaceObject
                         if(touch(curObj)){ //Don't run this disgusting function unless neceessary
                             Player ent = (Player) curObj;
                             ent.getHit(damage);
-                            scheduleRemoval();
+                            if(despawnOnTouch){
+                                scheduleRemoval();
+                            }
 
                             return true;
                         }
@@ -79,7 +81,9 @@ public class Weapon extends SpaceObject
                     if(touch(curObj)){ //Don't run this disgusting function unless neceessary
                         Asteroid ent = (Asteroid) curObj;
                         ent.getHit(damage);
-                        scheduleRemoval();
+                        if(despawnOnTouch){
+                            scheduleRemoval();
+                        }
 
                         return true;
                     }
