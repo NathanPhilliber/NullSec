@@ -19,24 +19,24 @@ public class LevelCreator extends World
     public LevelCreator()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(7000, 540, 1); 
-        setPaintOrder(LevelCreatorDisplayBlock.class, LevelCreatorBlockHover.class);
+        super(7000, 540, 1, false); 
+        setPaintOrder(LevelCreatorPalletBlock.class, LevelCreatorDisplayBlock.class, LevelCreatorBlockHover.class);
         prepare();
-        showText("Press 'e' to place block. Click top left or press q/w to toggle block. \nPress r to place no collision background block. Press enter to generate file", 500,25);
+        showText("Press e/left mouse to place. Press r/right mouse to place no collision block\nPress enter to export. Press i to import. Press f to open menu", 500,25);
     }
 
     public LevelCreatorBlockHover block = new LevelCreatorBlockHover(LevelCreatorDisplayBlock.block);
     public LevelCreatorGrid grid = new LevelCreatorGrid();
 
     public void act(){
-
+        System.out.println(LevelCreatorPallet.numPallets);
         MouseInfo mouse = Greenfoot.getMouseInfo();
         if(mouse != null){
 
             block.setLocation(27*Math.round(mouse.getX()/27)+13, 27*Math.round(mouse.getY()/27)+13);
             grid.setLocation(27*Math.round(mouse.getX()/27)+13, 27*Math.round(mouse.getY()/27)+13);
         }
-        if(Greenfoot.isKeyDown("e")){
+        if(Greenfoot.isKeyDown("e") || (Greenfoot.mousePressed(null) && mouse.getButton() == 1 && LevelCreatorPallet.open == false)){
             addObject(new LevelCreatorBlock(LevelCreatorDisplayBlock.block), 27*Math.round(mouse.getX()/27)+13, 27*Math.round(mouse.getY()/27)+13);
             block.update(LevelCreatorDisplayBlock.block);
             //block = new LevelCreatorBlock(LevelCreatorDisplayBlock.block);
@@ -44,7 +44,7 @@ public class LevelCreator extends World
             addObject(block,0,0);
             //System.out.println("Number of Objects In Level: " + (numberOfObjects()-2));   
         }
-        if(Greenfoot.isKeyDown("r")){
+        if(Greenfoot.isKeyDown("r") || (Greenfoot.mousePressed(null) && mouse.getButton() == 3 && LevelCreatorPallet.open == false)){
             LevelCreatorBlock myBlock = new LevelCreatorBlock(LevelCreatorDisplayBlock.block);
             myBlock.getImage().setColor(new Color(0,0,0,120));
             myBlock.getImage().fill();
@@ -53,7 +53,10 @@ public class LevelCreator extends World
             block.update(LevelCreatorDisplayBlock.block);
             addObject(block,0,0);
         }
-        
+        if(Greenfoot.isKeyDown("f")){
+            LevelCreatorPallet pallet = new LevelCreatorPallet();
+            addObject(pallet,0,0);
+        }
 
         if(Greenfoot.isKeyDown("enter")){
             export();
@@ -63,6 +66,10 @@ public class LevelCreator extends World
             loadGenerated();
             Greenfoot.stop();
         }
+    }
+
+    public void update(){
+        block.update(LevelCreatorDisplayBlock.block);
     }
 
     /**
@@ -128,10 +135,11 @@ public class LevelCreator extends World
         grid.getImage().setTransparency(150);
         addObject(grid,0,0);
         addObject(block,0,0);
-        
+
         //LevelCreatorDisplayBlock.printNames();
 
     }
+
     public void loadGenerated(){
         removeObjects(getObjects(null));
         prepare();
@@ -144,11 +152,11 @@ public class LevelCreator extends World
             String line = br.readLine();
 
             while(line != null){
-                
+
                 if(line.contains("        ")){
                     line = line.replace("        ","");
                 }
-                
+
                 if(line.contains("int offsetX")){
                     String[] parts = line.split(" ");
                     String numS = parts[3].replace(";","");
@@ -167,14 +175,12 @@ public class LevelCreator extends World
                     addObject(new LevelCreatorBlock(4), Integer.parseInt(x)+offsetX, Integer.parseInt(y)+offsetY);
                 }
 
-                
                 if(line.contains("setBackground")){
                     String[] parts = line.split("\"");
-                    
+
                     setBackground(parts[1]);
                 }
-                
-                
+
                 if(line.contains("ExitPortal")){
                     String[] parts = line.split(",");
                     String x = parts[1].replace("+offsetX","");
@@ -193,7 +199,7 @@ public class LevelCreator extends World
 
                     addObject(new LevelCreatorBlock(Integer.parseInt(type)), Integer.parseInt(x)+offsetX, Integer.parseInt(y)+offsetY);
                 }
-                
+
                 if(line.contains("new LavaBlock")){
                     String[] parts = line.split(",");
                     String x = parts[1].replace("+offsetX","");
@@ -205,7 +211,7 @@ public class LevelCreator extends World
 
                     addObject(new LevelCreatorBlock(Integer.parseInt(type)+1), Integer.parseInt(x)+offsetX, Integer.parseInt(y)+offsetY);
                 }
-                
+
                 if(line.contains("new WaterBlock")){
                     String[] parts = line.split(",");
                     String x = parts[1].replace("+offsetX","");
@@ -217,7 +223,7 @@ public class LevelCreator extends World
 
                     addObject(new LevelCreatorBlock(Integer.parseInt(type)+10), Integer.parseInt(x)+offsetX, Integer.parseInt(y)+offsetY);
                 }
-                
+
                 if(line.contains("new ClimbBlock")){
                     String[] parts = line.split(",");
                     String x = parts[1].replace("+offsetX","");

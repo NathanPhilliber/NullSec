@@ -37,18 +37,18 @@ public class LevelCreatorDisplayBlock extends LevelCreatorObject
     public boolean upIsDown;
     public boolean downIsDown;
     public static int bgImage = 0;
-    
+
     public void act() 
     {
         MouseInfo m = Greenfoot.getMouseInfo();
         delay++;
         cycleBackground();
-        
+
         if(m != null){
-            
-            setLocation(m.getX(), getY());
-            
-            if((Greenfoot.mousePressed(null) && m.getButton() == 1) || (Greenfoot.isKeyDown("w")&& delay > 15)){
+
+            setLocation(m.getX(), getY()-200);
+
+            if((Greenfoot.isKeyDown("w")&& delay > 15)){
                 delay = 0;
                 block++;
                 if(block >= blockName.length){
@@ -59,7 +59,7 @@ public class LevelCreatorDisplayBlock extends LevelCreatorObject
                 objects.get(0).update(block);
             }
 
-            if((Greenfoot.mousePressed(null) && m.getButton() == 3)|| (Greenfoot.isKeyDown("q") && delay > 15)){
+            if((Greenfoot.isKeyDown("q") && delay > 15)){
                 delay = 0;
                 block--;
                 if(block < 0){
@@ -69,7 +69,7 @@ public class LevelCreatorDisplayBlock extends LevelCreatorObject
                 List<LevelCreatorBlockHover> objects = getWorld().getObjects(LevelCreatorBlockHover.class);
                 objects.get(0).update(block);
             }
-            
+
             if(Greenfoot.mousePressed(null) && m.getButton() == 2 && delay > 15)
             {
                 block = blockName.length - 1;
@@ -79,8 +79,13 @@ public class LevelCreatorDisplayBlock extends LevelCreatorObject
                 objects.get(0).update(block);
             }
         }
-    }   
-    
+    }  
+
+    public void updateBlock(){
+        setImage(blockName[block]);
+        
+    }
+
     public void cycleBackground()
     {
         if(Greenfoot.isKeyDown("UP") && !upIsDown)
@@ -88,27 +93,27 @@ public class LevelCreatorDisplayBlock extends LevelCreatorObject
             bgImage++;
 
             if(bgImage >= backgroundImages.length){
-                    bgImage = 0;
+                bgImage = 0;
             }
-            
+
             getWorld().setBackground(backgroundImages[bgImage]);
-            
+
             upIsDown = true;
         }
         if(!Greenfoot.isKeyDown("UP")&& upIsDown)
         {
             upIsDown = false;
         }
-        
+
         if(Greenfoot.isKeyDown("DOWN")&& !downIsDown)
         {
             downIsDown = true;
             bgImage--;
 
             if(bgImage < 0){
-               bgImage = backgroundImages.length - 1;
+                bgImage = backgroundImages.length - 1;
             }
-            
+
             getWorld().setBackground(backgroundImages[bgImage]);
         }
         if(!Greenfoot.isKeyDown("DOWN")&&  downIsDown)
@@ -116,19 +121,21 @@ public class LevelCreatorDisplayBlock extends LevelCreatorObject
             downIsDown = false;
         }
     }
+
     public static String getBG()
     {
         return backgroundImages[bgImage];
     }
+
     public static String[] getBlock()
     {
         return blockName;
     }
-    
+
     public static void printNames(){
         int i = 0;
         for(String name : blockName){
-            
+
             System.out.print(i + " " + name);
             i++;
         }
