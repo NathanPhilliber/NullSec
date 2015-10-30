@@ -45,6 +45,8 @@ public class PlatformPlayer extends PlatformObject
 
     private boolean locked = false;
 
+    private int ticksStuckInBlock = 0;
+
     GifImage walkRight = new GifImage("WalkingAnimation.gif");
     GifImage walkLeft = new GifImage("WalkingAnimationLeft.gif");
     GifImage standRight = new GifImage("StandingRight.png");
@@ -156,7 +158,7 @@ public class PlatformPlayer extends PlatformObject
                 double param1 = 0;
                 double param2 = 0;
                 Constructor con = cl.getConstructor(double.class, double.class);
-                
+
                 java.lang.Object xyz = con.newInstance(param1, param2);
                 Greenfoot.setWorld((World) xyz);
             }
@@ -215,7 +217,6 @@ public class PlatformPlayer extends PlatformObject
         }
 
         
-        
         /*
         double dif=getExactX()-sideScrollDist;
         if(dif<=0&&velX<=0)
@@ -234,12 +235,12 @@ public class PlatformPlayer extends PlatformObject
             addRealY(getVelY()/steps);
             setLocation(getExactX(),getRealY());
             Actor b=getOneIntersectingObject(blockType);
-            
+
             if(b instanceof FallingBlock){
                 FallingBlock r = (FallingBlock) b;
                 r.startFalling();
             }
-            
+
             if (b!=null)
             {
                 addRealY(-getVelY()/steps);
@@ -252,6 +253,21 @@ public class PlatformPlayer extends PlatformObject
             {
                 onBlock=false;
             }
+        }
+
+        //This runs if you get stuck in a block for a long time
+        //Will push you out after 75 game ticks;
+        Actor g = getOneIntersectingObject(blockType);
+        if(g != null){
+            ticksStuckInBlock++;
+            if(ticksStuckInBlock > 75){
+                addRealY(-5);
+                //setLocation(getRealX(), getExactY()-5);
+                //System.out.println("Help Me");
+            }
+        }
+        else{
+            ticksStuckInBlock = 0;
         }
     }
 
@@ -291,7 +307,7 @@ public class PlatformPlayer extends PlatformObject
             setImage(standLeft.getCurrentImage());
             isWalkingLeft = false;
         }
-        
+
         //hack
         if(Greenfoot.isKeyDown("\\")){
             setRealY(150);
