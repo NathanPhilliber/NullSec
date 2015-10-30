@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Fri Oct 30 12:16:45 PDT 2015
+#Fri Oct 30 12:54:48 PDT 2015
 dependency211.to=LevelCreatorDisplayBlock
 target33.typeParameters=
 dependency71.type=UsesDependency
@@ -216,6 +216,7 @@ target80.height=50
 target71.editor.width=995
 target98.naviview.expanded=true
 class.LevelCreator.image=BackgroundLevel4.png
+class.Level9.superclass=Platformer
 dependency103.to=DockMenu
 dependency206.to=StartMenu
 class.Asteroid2.superclass=Asteroids
@@ -560,7 +561,7 @@ target98.typeParameters=
 target79.y=1810
 target79.x=130
 dependency267.from=LevelCreatorPalletBlock
-class.FallingBlock.superclass=NonPlayer
+class.FallingBlock.superclass=Block
 dependency197.type=UsesDependency
 target47.editor.width=900
 dependency182.from=Level3
@@ -2229,7 +2230,7 @@ target40.name=AsteroidSmall
 target41.editor.height=700
 dependency55.type=UsesDependency
 dependency251.type=UsesDependency
-world.lastInstantiated=OuterSpace
+world.lastInstantiated=LevelCreator
 target77.typeParameters=
 target59.y=250
 target9.showInterface=false

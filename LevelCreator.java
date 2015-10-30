@@ -23,14 +23,14 @@ public class LevelCreator extends World
         setPaintOrder(LevelCreatorPalletBlock.class, LevelCreatorDisplayBlock.class, LevelCreatorBlockHover.class);
         prepare();
         showText("Press e/left mouse to place. Press r/right mouse to place no collision block\nPress enter to export. Press i to import. Press f to open menu"+
-        "\nHold shift to place 3x3", 500,35);
+            "\nHold shift to place 3x3", 500,35);
     }
 
     public LevelCreatorBlockHover block = new LevelCreatorBlockHover(LevelCreatorDisplayBlock.block);
     public LevelCreatorGrid grid = new LevelCreatorGrid();
 
     public void act(){
-        System.out.println(LevelCreatorPallet.numPallets);
+        //System.out.println(LevelCreatorPallet.numPallets);
         MouseInfo mouse = Greenfoot.getMouseInfo();
         if(mouse != null){
 
@@ -87,7 +87,7 @@ public class LevelCreator extends World
                 myBlock.getImage().fill();
                 myBlock.noCollision = true; 
                 addObject(myBlock, 27*Math.round(mouse.getX()/27)+13, 27*Math.round(mouse.getY()/27)+13-27);
-                
+
                 myBlock = new LevelCreatorBlock(LevelCreatorDisplayBlock.block);
                 myBlock.getImage().setColor(new Color(0,0,0,120));
                 myBlock.getImage().fill();
@@ -105,7 +105,7 @@ public class LevelCreator extends World
                 myBlock.getImage().fill();
                 myBlock.noCollision = true; 
                 addObject(myBlock, 27*Math.round(mouse.getX()/27)+13, 27*Math.round(mouse.getY()/27)+13+27);
-                
+
                 myBlock = new LevelCreatorBlock(LevelCreatorDisplayBlock.block);
                 myBlock.getImage().setColor(new Color(0,0,0,120));
                 myBlock.getImage().fill();
@@ -118,7 +118,6 @@ public class LevelCreator extends World
                 myBlock.noCollision = true; 
                 addObject(myBlock, 27*Math.round(mouse.getX()/27)+13+27, 27*Math.round(mouse.getY()/27)+13);
 
-                
 
             }
         }
@@ -179,6 +178,9 @@ public class LevelCreator extends World
                     }
                     else if(thisBlock.myImage == 24 || thisBlock.myImage == 25 ||thisBlock.myImage == 60){
                         writer.write("addObject(new ClimbBlock(" + (thisBlock.myImage)+"),"+ object.getX()+"+offsetX,"+object.getY()+"+offsetY);\n");
+                    }
+                    else if(thisBlock.myImage == 74){
+                        writer.write("addObject(new FallingBlock(" + (thisBlock.myImage)+"),"+ object.getX()+"+offsetX,"+object.getY()+"+offsetY);\n");
                     }
                     else{
                         writer.write("addObject(new Block(" + thisBlock.myImage+"),"+ object.getX()+"+offsetX,"+object.getY()+"+offsetY);\n");
@@ -294,6 +296,18 @@ public class LevelCreator extends World
                 }
 
                 if(line.contains("new ClimbBlock")){
+                    String[] parts = line.split(",");
+                    String x = parts[1].replace("+offsetX","");
+                    String y = parts[2].replace("+offsetY);","");
+
+                    System.out.println(parts[0]);
+                    String[] parts2 = parts[0].split("\\(");
+                    String type = parts2[2].replace(")","");
+
+                    addObject(new LevelCreatorBlock(Integer.parseInt(type)), Integer.parseInt(x)+offsetX, Integer.parseInt(y)+offsetY);
+                }
+
+                if(line.contains("new FallingBlock")){
                     String[] parts = line.split(",");
                     String x = parts[1].replace("+offsetX","");
                     String y = parts[2].replace("+offsetY);","");
