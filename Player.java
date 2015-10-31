@@ -52,7 +52,8 @@ public class Player extends Object implements DamageTaker
 
     public Counter goldScore;
 
-    private int asteroidSpawnChance = 90;
+    private int asteroidSpawnChance = 90; //Lower the more common
+    private int shootingStarSpawnChance = 60;
 
     private static boolean projectileEnabled = true; //DO NOT DIRECTLY EDIT THESE
     private static boolean missileEnabled = false;
@@ -165,6 +166,7 @@ public class Player extends Object implements DamageTaker
             showDebug(false);
             scrollWeapon();
             spawnAsteroid();
+            spawnShootingStar();
             lookForGold();
 
             generateStars(starDensity);
@@ -462,6 +464,14 @@ public class Player extends Object implements DamageTaker
             }
         }
 
+    }
+
+    public void spawnShootingStar(){
+        if(Greenfoot.getRandomNumber(shootingStarSpawnChance) == 0){
+            System.out.println("spawn");
+            space.addObject(new ShootingStar(ship.getShipLocX()+700*getPosNeg(),ship.getShipLocY()+700*getPosNeg(),Greenfoot.getRandomNumber(360)),-10,-10);
+           
+        }
     }
 
     public void spawnAsteroid(){

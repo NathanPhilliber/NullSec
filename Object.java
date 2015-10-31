@@ -184,6 +184,15 @@ public class Object extends SmoothMover
 
     }
 
+    public void addShootingStar(double x, double y){
+        for(int i = 0; i < 2; i++)
+            space.addObject(new Particle(x, y, 15, 6, 10, 1, 1, 0,"images/coinEffect.png"), 0, 0);
+        Particle par = new Particle(x, y, 6, 6, 5, 2, 5, 0,"images/smoke2.png");
+        par.getImage().setTransparency(100);
+        space.addObject(par, 0, 0);
+
+    }
+
     public void scheduleRemoval(){
         deleteMe = true;
     }
@@ -325,7 +334,6 @@ public class Object extends SmoothMover
      *****************************************************************************
      *****************************************************************************
      */
-
 
     protected void projectile(int angle,int LV,double X,double Y, boolean isPlayer)
     {
