@@ -14,6 +14,8 @@ public class ShieldText extends WeaponShop
      */
     public void act() 
     {
-        // Add your action code here.
+        if(Greenfoot.mousePressed(this)){
+            shop.weaponButton3.select(true);
+        }
     }    
 }

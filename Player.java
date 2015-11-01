@@ -468,7 +468,7 @@ public class Player extends Object implements DamageTaker
 
     public void spawnShootingStar(){
         if(Greenfoot.getRandomNumber(shootingStarSpawnChance) == 0){
-            System.out.println("spawn");
+
             space.addObject(new ShootingStar(ship.getShipLocX()+700*getPosNeg(),ship.getShipLocY()+700*getPosNeg(),Greenfoot.getRandomNumber(360)),-10,-10);
            
         }

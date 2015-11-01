@@ -1,22 +1,22 @@
 import greenfoot.*;
 
 /**
- * Write a description of class WeaponsText here.
+ * Write a description of class LaserText here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class WeaponsText extends WeaponShop
+public class LaserText extends WeaponShop
 {
     /**
-     * Act - do whatever the WeaponsText wants to do. This method is called whenever
+     * Act - do whatever the LaserText wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
-
+        // Add your action code here.
         if(Greenfoot.mousePressed(this)){
-            shop.weaponButton2.select(true);
+            shop.sideButton.select(true);
         }
     }    
 }

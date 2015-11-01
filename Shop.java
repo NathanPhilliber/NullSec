@@ -8,11 +8,195 @@ import greenfoot.*;
  */
 public class Shop extends World
 {
+    WeaponShopFG weaponShopFg = new WeaponShopFG();
+    ShopButton weaponButton = new ShopButton(WeaponShop.ENGINE);
+    ShopButton weaponButton2 = new ShopButton(WeaponShop.WEAPONS);
+    ShopButton weaponButton3 = new ShopButton(WeaponShop.SHIELD);
+    Ship3D ship = new Ship3D();
+    Button sideButton = new Button(0);
+    Button sideButton2 = new Button(1);
+    Button sideButton3 = new Button(2);
+    Button sideButton4 = new Button(3);
+    Button sideButton5 = new Button(4);
+    Button sideButton6 = new Button(5);
+    Button sideButton7 = new Button(6);
+    WeaponsText weaponsText = new WeaponsText();
+    EngineText engineText = new EngineText();
+    ShieldText shieldText = new ShieldText();
 
-    /**
-     * Constructor for objects of class ShopBackground.
-     * 
-     */
+    EngineText engineText2 = new EngineText();
+    WeaponsText weaponText2 = new WeaponsText();
+    ShieldText shieldText2 = new ShieldText();
+
+    LaserText lasertext = new LaserText();
+    BeamText beamtext = new BeamText();
+    MissileText missiletext = new MissileText();
+    MineText minetext = new MineText();
+    FireballText fireballtext = new FireballText();
+    PlasmaText plasmatext = new PlasmaText();
+
+    EngineBars engineBars = new EngineBars();
+
+    public int currentPanel = 0;
+    public int currentButton = 0;
+
+    public void act(){
+
+    }
+
+    public void assembleEngine(){
+        addObject(engineText2, 99, 63);
+    }
+
+    public void assembleWeapons(){
+        addObject(weaponText2, 99, 63);
+        addObject(lasertext, 74, 111);
+        addObject(beamtext, 77, 143);
+        addObject(missiletext, 74, 176);
+        addObject(minetext, 73, 209);
+        addObject(fireballtext, 78, 242);
+        addObject(plasmatext, 76, 276);
+    }
+
+    public void assembleShield(){
+        addObject(shieldText2, 99, 63);
+    }
+
+    public void setPanel(int i){
+        removeCurrentText();
+        currentPanel = i;
+        setButton(0);
+        
+        if(currentPanel == WeaponShop.ENGINE){
+            assembleEngine();
+        }
+        else if(currentPanel == WeaponShop.WEAPONS){
+            assembleWeapons();
+
+        }
+        else if(currentPanel == WeaponShop.SHIELD){
+            assembleShield();
+        }
+        
+    }
+
+    public void setButton(int i){
+        removeCurrentCenter();
+        currentButton = i;
+        setCurrentCenter(i);
+        
+    }
+
+    public void setCurrentCenter(int i){
+
+        if(currentPanel == WeaponShop.ENGINE){
+            switch(i){
+                case 0:
+                addObject(engineBars, 732, 280);
+                addObject(ship, 445, 203);
+                break;
+                case 1:
+
+                break;
+                case 2:
+
+                break;
+                case 3:
+
+                break;
+                case 4:
+
+                break;
+                case 5:
+
+                break;
+                case 6:
+
+                break;
+
+            }
+        }
+        else if(currentPanel == WeaponShop.WEAPONS){
+
+            switch(i){
+                case 0:
+
+                break;
+                case 1:
+
+                break;
+                case 2:
+
+                break;
+                case 3:
+
+                break;
+                case 4:
+
+                break;
+                case 5:
+
+                break;
+                case 6:
+
+                break;
+
+            }
+        }
+        else if(currentPanel == WeaponShop.SHIELD){
+
+            switch(i){
+                case 0:
+
+                break;
+                case 1:
+
+                break;
+                case 2:
+
+                break;
+                case 3:
+
+                break;
+                case 4:
+
+                break;
+                case 5:
+
+                break;
+                case 6:
+
+                break;
+
+            }
+        }
+    }
+
+    private void removeCurrentCenter(){
+
+        
+        removeObject(ship);
+        removeObject(engineBars);
+
+    }
+    private void removeCurrentText(){
+        if(currentPanel == WeaponShop.ENGINE){
+            removeObject(engineText2);
+        }
+        else if(currentPanel == WeaponShop.WEAPONS){
+            removeObject(weaponText2);
+            removeObject(lasertext);
+            removeObject(beamtext);
+            removeObject(missiletext);
+            removeObject(minetext);
+            removeObject(fireballtext);
+            removeObject(plasmatext);
+        }
+        else if(currentPanel == WeaponShop.SHIELD){
+            removeObject(shieldText2);
+        }
+    }
+
     public Shop()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -21,74 +205,28 @@ public class Shop extends World
         prepare();
     }
 
-    /**
-     * Prepare the world for the start of the program. That is: create the initial
-     * objects and add them to the world.
-     */
     private void prepare()
     {
-        WeaponShopFG weaponshopfg = new WeaponShopFG();
-        addObject(weaponshopfg, 461, 272);
-        weaponshopfg.setLocation(460, 272);
 
-        ShopButton weaponbutton = new ShopButton();
-        addObject(weaponbutton, 157, 475);
+        addObject(weaponShopFg, 460, 272);
 
-        ShopButton weaponbutton2 = new ShopButton();
-        addObject(weaponbutton2, 462, 475);
+        addObject(weaponButton, 157, 475);
 
-        ShopButton weaponbutton3 = new ShopButton();
-        addObject(weaponbutton3, 755, 475);
-        Ship3D ship = new Ship3D();
-        addObject(ship, 493, 202);
-        ship.setLocation(390, 201);
-        ship.setLocation(445, 203);
-        Button sidebutton = new Button();
-        addObject(sidebutton, 137, 151);
-        sidebutton.setLocation(97, 59);
-        Button sidebutton2 = new Button();
-        addObject(sidebutton2, 65, 96);
-        sidebutton2.setLocation(67, 93);
-        Button sidebutton3 = new Button();
-        addObject(sidebutton3, 62, 133);
-        sidebutton3.setLocation(67, 127);
-        Button sidebutton4 = new Button();
-        addObject(sidebutton4, 71, 178);
-        sidebutton4.setLocation(67, 306);
-        sidebutton2.setLocation(67, 240);
-        sidebutton.setLocation(67, 207);
-        Button sidebutton5 = new Button();
-        addObject(sidebutton5, 38, 148);
-        sidebutton5.setLocation(67, 174);
-        Button sidebutton6 = new Button();
-        addObject(sidebutton6, 85, 137);
-        sidebutton6.setLocation(67, 141);
-        Button sidebutton7 = new Button();
-        addObject(sidebutton7, 67, 113);
-        sidebutton7.setLocation(67, 108);
-        sidebutton6.setLocation(67, 273);
-        sidebutton3.setLocation(67, 141);
-        sidebutton7.setLocation(89, 108);
-        WeaponsText weaponstext = new WeaponsText();
-        addObject(weaponstext, 84, 48);
-        weaponstext.setLocation(427, 502);
-        EngineText enginetext = new EngineText();
-        addObject(enginetext, 129, 486);
-        enginetext.setLocation(121, 503);
-        ShieldText shieldtext = new ShieldText();
-        addObject(shieldtext, 714, 500);
-        shieldtext.setLocation(722, 501);
-        enginetext.setLocation(120, 501);
-        enginetext.setLocation(121, 501);
-        shieldtext.setLocation(721, 503);
-        EngineText enginetext2 = new EngineText();
-        addObject(enginetext2, 99, 63);
-        enginetext2.setLocation(90, 64);
-        EngineBars enginebars = new EngineBars();
-        addObject(enginebars, 660, 183);
-        enginebars.setLocation(663, 175);
-        enginebars.setLocation(728, 292);
-        enginebars.setLocation(732, 280);
+        addObject(weaponButton2, 462, 475);
+
+        addObject(weaponButton3, 755, 475);
+
+        addObject(sideButton4, 67, 207);
+        addObject(sideButton5, 67, 240);
+        addObject(sideButton2, 67, 141);
+        addObject(sideButton7, 67, 306);
+        addObject(sideButton3, 67, 174);
+        addObject(sideButton6, 67, 273);
+        addObject(sideButton, 67, 108);
+        addObject(weaponsText, 427, 502);
+        addObject(engineText, 121, 501);
+        addObject(shieldText, 721, 503);
+        setPanel(0);
 
     }
 }

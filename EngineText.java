@@ -14,6 +14,10 @@ public class EngineText extends WeaponShop
      */
     public void act() 
     {
-        // Add your action code here.
+
+        if(Greenfoot.mousePressed(this)){
+            shop.weaponButton.select(true);
+        }
+
     }    
 }

@@ -8,12 +8,50 @@ import greenfoot.*;
  */
 public class Button extends WeaponShop
 {
-    /**
-     * Act - do whatever the Button wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+
+    public boolean isSelected = false;
+    public int myFunction = 0;
+
+    public int selDistX;
+    public int distX;
+
+    public Button(int i){
+        myFunction = i;
+
+    }
+
+    public void addedToWorld(World world){
+        super.addedToWorld(world);
+        selDistX = getX() + 35;
+        distX = getX();
+        
+        
+    }
+
     public void act() 
     {
-        // Add your action code here.
-    }    
+        if(Greenfoot.mousePressed(null)){
+            if(Greenfoot.mousePressed(this)){
+                select(true);
+            }
+            else{
+                select(false);
+            }
+        }
+    }   
+
+
+    public void select(boolean sel){
+
+        isSelected = sel;
+
+        if(isSelected){
+            setLocation(selDistX, getY());
+            shop.setButton(myFunction);
+        }
+        else{
+            setLocation(distX, getY());
+        }
+
+    }
 }
