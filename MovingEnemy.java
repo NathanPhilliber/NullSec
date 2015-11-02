@@ -25,10 +25,10 @@ public class MovingEnemy extends NonPlayer
     private boolean isWalkingLeft;
     private boolean deleteMe = false;
 
-    GifImage walkRight = new GifImage("WalkingAnimation.gif");
-    GifImage walkLeft = new GifImage("WalkingAnimationLeft.gif");
-    GifImage standRight = new GifImage("StandingRight.png");
-    GifImage standLeft = new GifImage("StandingLeft.png");
+    GifImage walkRight = new GifImage("Alien1.png");
+    GifImage walkLeft = new GifImage("Alien1.png");
+    GifImage standRight = new GifImage("Alien1.png");
+    GifImage standLeft = new GifImage("Alien1.png");
 
     public MovingEnemy(){
         velX = 0;

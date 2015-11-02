@@ -13,7 +13,7 @@ public class ShopButton extends WeaponShop
 
     public ShopButton(int fun){
         myFunction = fun;
-        setImage("images/ButtonShop.png");
+        setImage("images/ButtonSHop.png");
     }
 
     public void select(boolean sel){

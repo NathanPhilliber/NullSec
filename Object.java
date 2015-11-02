@@ -423,8 +423,8 @@ public class Object extends SmoothMover
         return rMButton;
     }
 }
-
+/*
 interface DamageTaker{
     public boolean getHit(double damage); //Called when an object is hit by something
     //Return true if actually a hit
-}
+}*/

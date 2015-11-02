@@ -22,7 +22,7 @@ public class LevelCreatorDisplayBlock extends LevelCreatorObject
             "Dirt.png", "Grass.png", "SingleStone.png", "StoneSquare.png", "GreyStone1.png", "GreyStone2.png",
             "SandTop.png", "SandMiddle.png", "CrackedPurple.png", "Xcrate.png", "SlashCrate.png",
             "AlienVines.png", "Vines.png", "BlueBasicBlock.png", "BlueExtrudedBlock.png", "BlueGlassBlock.png",
-            "BlueMetal.png", "BluePlates.png", "BlueStone.png", "BlueStones.png", "BoltedMetal.png",
+            "BlueMetal.png", "BluePlates.png", "BlueStone.png", "BlueStonesTop.png", "BlueStones.png", "BoltedMetal.png",
             "BrownBlock.png", "BrownBlockBottom.png", "BrownWall.png", "CautionBlock.png", "CheckerBoard.png",
             "ColorfulBlocks.png", "CoolColorBlocks.png", "CrackedPurple.png", "CrackedStone.png", "DarkBricks.png",
             "EmeraldBlock.png", "ExtrudedBlock.png", "GlassBlockClear.png", "GreenBasicBlock.png", "GreenExtrudedBlock.png",
@@ -31,7 +31,8 @@ public class LevelCreatorDisplayBlock extends LevelCreatorObject
             "MetalBlock.png", "MetalLadder.png", "OrangePlates.png", "PinkBricks.png", "PinkPurpleBlocks.png",
             "PinkStones.png", "PurpleBlock.png", "RedGlassBlock.png", "SnowBlock.png", "StoneBricks.png",
             "WeirdBlueBlock.png", "YellowBlock.png", "YellowPlates.png", "YellowStones.png", "SnowBlock.png",
-            "FallCrate.png",
+            "FallCrate.png", "RoughStoneBricks.png", "WoodenBricksOrRoof.png", "BlueSlash.png", "RedSlash.png",
+            "YellorangeMetal.png", "SkinnyLog.png", "WoodenBricksOrRoof.png", 
             "cancel.png"}; //MAKE CANCEL LAST
 
     public static String[] backgroundImages = {"PlanetOneBG.png", "BackgroundLevel4.png", "BackgroundImage3.png", "SpaceshipBackground1.png"};
