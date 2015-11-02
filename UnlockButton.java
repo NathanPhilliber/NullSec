@@ -8,21 +8,25 @@ import greenfoot.*;
  */
 public class UnlockButton extends WeaponShop
 {
-    
+
     public int myFunction = 0;
     public boolean isSelected = false;
-    
+
     public UnlockButton(int i){
         setImage("images/UnlockButton.png");
         myFunction = i;
     }
-    
+
     public void select(boolean sel){
         isSelected = sel;
-        
-        Player.updateAvailableWeapons(myFunction, true);
-        
+
+        if(isSelected){
+            Player.updateAvailableWeapons(myFunction, true);
+            Shop shop = (Shop) getWorld();
+            shop.reloadCurrentCenter();
+        }
     }
+
     public void act() 
     {
         if(Greenfoot.mousePressed(null)){

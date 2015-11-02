@@ -42,6 +42,13 @@ public class Shop extends World
     MineText minetext = new MineText();
     FireballText fireballtext = new FireballText();
     PlasmaText plasmatext = new PlasmaText();
+    
+    LaserText lasertext2 = new LaserText();
+    BeamText beamtext2 = new BeamText();
+    MissileText missiletext2 = new MissileText();
+    MineText minetext2 = new MineText();
+    FireballText fireballtext2 = new FireballText();
+    PlasmaText plasmatext2 = new PlasmaText();
 
     EngineBars engineBars = new EngineBars();
 
@@ -96,6 +103,12 @@ public class Shop extends World
         setCurrentCenter(i);
 
     }
+    
+    public void reloadCurrentCenter(){
+        removeCurrentCenter();
+        setCurrentCenter(currentButton);
+    }
+    
 
     public void setCurrentCenter(int i){
 
@@ -130,35 +143,43 @@ public class Shop extends World
 
             switch(i){
                 case 0:
+                addObject(lasertext2, getWidth()/2+150, 70);
                 if(!Player.projectileEnabled){
-                    addObject(unlock0, getWidth()/2+150, getHeight()/2+15);
+                    addObject(unlock0, getWidth()/2+150, getHeight()/2+15); 
                 }
                 break;
                 case 1:
+                addObject(beamtext2, getWidth()/2+150, 70);
                 if(!Player.beamEnabled){
                     addObject(unlock1, getWidth()/2+150, getHeight()/2+15);
                 }
                 break;
                 case 2:
+                addObject(missiletext2, getWidth()/2+150, 70);
                 if(!Player.missileEnabled){
                     addObject(unlock2, getWidth()/2+150, getHeight()/2+15);
                 }
                 break;
                 case 3:
+                addObject(minetext2, getWidth()/2+150, 70);
                 if(!Player.mineEnabled){
                     addObject(unlock3, getWidth()/2+150, getHeight()/2+15);
                 }
                 break;
                 case 4:
+                addObject(fireballtext2, getWidth()/2+150, 70);
                 if(!Player.fireballEnabled){
                     addObject(unlock4, getWidth()/2+150, getHeight()/2+15);
                 }
                 break;
                 case 5:
+                addObject(plasmatext2, getWidth()/2+150, 70);
                 if(!Player.plasmaballEnabled){
                     addObject(unlock5, getWidth()/2+150, getHeight()/2+15);
                 }
                 break;
+                
+                
 
             }
         }
@@ -201,6 +222,12 @@ public class Shop extends World
         removeObject(unlock3);
         removeObject(unlock4);
         removeObject(unlock5);
+        removeObject(lasertext2);
+        removeObject(beamtext2);
+        removeObject(missiletext2);
+        removeObject(minetext2);
+        removeObject(fireballtext2);
+        removeObject(plasmatext2);
     }
 
     private void removeCurrentText(){
