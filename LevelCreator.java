@@ -20,7 +20,7 @@ public class LevelCreator extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(7000, 540, 1, false); 
-        setPaintOrder(LevelCreatorPalletBlock.class, LevelCreatorDisplayBlock.class, LevelCreatorBlockHover.class);
+        setPaintOrder(LevelCreatorPalletBlock.class, LevelCreatorGrid.class, LevelCreatorDisplayBlock.class, LevelCreatorBlockHover.class);
         prepare();
         showText("Press e/left mouse to place. Press r/right mouse to place no collision block\nPress enter to export. Press i to import. Press f to open menu"+
             "\nHold shift to place 3x3", 500,35);
