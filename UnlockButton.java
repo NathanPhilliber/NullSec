@@ -1,33 +1,28 @@
 import greenfoot.*;
 
 /**
- * Write a description of class ShopButton here.
+ * Write a description of class UnlockButton here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class ShopButton extends WeaponShop
+public class UnlockButton extends WeaponShop
 {
-    public boolean isSelected = false;
+    
     public int myFunction = 0;
-
-    public ShopButton(int fun){
-        myFunction = fun;
-        setImage("images/ButtonShop.png");
+    public boolean isSelected = false;
+    
+    public UnlockButton(int i){
+        setImage("images/UnlockButton.png");
+        myFunction = i;
     }
-
+    
     public void select(boolean sel){
         isSelected = sel;
-        if(isSelected){
-            setImage("images/ButtonShopHover.png");
-            shop.setPanel(myFunction);
-            
-        }
-        else{
-            setImage("images/ButtonShop.png");
-        }
+        
+        Player.updateAvailableWeapons(myFunction, true);
+        
     }
-
     public void act() 
     {
         if(Greenfoot.mousePressed(null)){
@@ -38,5 +33,6 @@ public class ShopButton extends WeaponShop
                 select(false);
             }
         }
+
     }    
 }

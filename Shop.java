@@ -20,6 +20,14 @@ public class Shop extends World
     Button sideButton5 = new Button(4);
     Button sideButton6 = new Button(5);
     Button sideButton7 = new Button(6);
+
+    UnlockButton unlock0 = new UnlockButton(0);
+    UnlockButton unlock1 = new UnlockButton(1);
+    UnlockButton unlock2 = new UnlockButton(2);
+    UnlockButton unlock3 = new UnlockButton(3);
+    UnlockButton unlock4 = new UnlockButton(4);
+    UnlockButton unlock5 = new UnlockButton(5);
+
     WeaponsText weaponsText = new WeaponsText();
     EngineText engineText = new EngineText();
     ShieldText shieldText = new ShieldText();
@@ -41,7 +49,9 @@ public class Shop extends World
     public int currentButton = 0;
 
     public void act(){
-
+        if(Greenfoot.isKeyDown("q")){
+            Greenfoot.setWorld(new OuterSpace());
+        }
     }
 
     public void assembleEngine(){
@@ -66,7 +76,7 @@ public class Shop extends World
         removeCurrentText();
         currentPanel = i;
         setButton(0);
-        
+
         if(currentPanel == WeaponShop.ENGINE){
             assembleEngine();
         }
@@ -77,14 +87,14 @@ public class Shop extends World
         else if(currentPanel == WeaponShop.SHIELD){
             assembleShield();
         }
-        
+
     }
 
     public void setButton(int i){
         removeCurrentCenter();
         currentButton = i;
         setCurrentCenter(i);
-        
+
     }
 
     public void setCurrentCenter(int i){
@@ -120,25 +130,34 @@ public class Shop extends World
 
             switch(i){
                 case 0:
-
+                if(!Player.projectileEnabled){
+                    addObject(unlock0, getWidth()/2+150, getHeight()/2+15);
+                }
                 break;
                 case 1:
-
+                if(!Player.beamEnabled){
+                    addObject(unlock1, getWidth()/2+150, getHeight()/2+15);
+                }
                 break;
                 case 2:
-
+                if(!Player.missileEnabled){
+                    addObject(unlock2, getWidth()/2+150, getHeight()/2+15);
+                }
                 break;
                 case 3:
-
+                if(!Player.mineEnabled){
+                    addObject(unlock3, getWidth()/2+150, getHeight()/2+15);
+                }
                 break;
                 case 4:
-
+                if(!Player.fireballEnabled){
+                    addObject(unlock4, getWidth()/2+150, getHeight()/2+15);
+                }
                 break;
                 case 5:
-
-                break;
-                case 6:
-
+                if(!Player.plasmaballEnabled){
+                    addObject(unlock5, getWidth()/2+150, getHeight()/2+15);
+                }
                 break;
 
             }
@@ -174,11 +193,16 @@ public class Shop extends World
 
     private void removeCurrentCenter(){
 
-        
         removeObject(ship);
         removeObject(engineBars);
-
+        removeObject(unlock0);
+        removeObject(unlock1);
+        removeObject(unlock2);
+        removeObject(unlock3);
+        removeObject(unlock4);
+        removeObject(unlock5);
     }
+
     private void removeCurrentText(){
         if(currentPanel == WeaponShop.ENGINE){
             removeObject(engineText2);

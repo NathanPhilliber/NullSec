@@ -55,12 +55,19 @@ public class Player extends Object implements DamageTaker
     private int asteroidSpawnChance = 90; //Lower the more common
     private int shootingStarSpawnChance = 60;
 
-    private static boolean projectileEnabled = true; //DO NOT DIRECTLY EDIT THESE
-    private static boolean missileEnabled = false;
-    private static boolean beamEnabled = false;
-    private static boolean mineEnabled = false;
-    private static boolean fireballEnabled = false;
-    private static boolean plasmaballEnabled = false;
+    public static boolean projectileEnabled = true; //DO NOT DIRECTLY EDIT THESE
+    public static boolean missileEnabled = false;
+    public static boolean beamEnabled = false;
+    public static boolean mineEnabled = false;
+    public static boolean fireballEnabled = false;
+    public static boolean plasmaballEnabled = false;
+    
+    public static int projectileLevel = 0;
+    public static int missileLevel = 0;
+    public static int beamLevel = 0;
+    public static int mineLevel = 0;
+    public static int fireballLevel = 0;
+    public static int plasmaLevel = 0;
 
     private int weaponTimer = 0;
     private int weaponToggle = 0;
@@ -507,6 +514,33 @@ public class Player extends Object implements DamageTaker
         reloadWeapons();
 
     }
+    
+    public static void updateAvailableWeapons(int i, boolean weapon){
+        
+        switch(i){
+            case 0:
+            projectileEnabled = weapon;
+            break;
+            case 1:
+            beamEnabled = weapon;
+            break;
+            case 2:
+            missileEnabled = weapon;
+            break;
+            case 3:
+            mineEnabled = weapon;
+            break;
+            case 4:
+            fireballEnabled = weapon;
+            break;
+            case 5:
+            plasmaballEnabled = weapon;
+            break;
+            
+        }
+        
+       
+    }
 
     public void reloadWeapons(){
         space.drawWeaponGUI(projectileEnabled, beamEnabled, missileEnabled, mineEnabled, fireballEnabled, plasmaballEnabled);
@@ -714,6 +748,7 @@ public class Player extends Object implements DamageTaker
 
             //
             reloadWeapons();
+            
             if(getWorld() instanceof TutorialWorld){
                 tutObj = new TutorialObjectManager();
                 space.addObject(tutObj,-10,-10);
