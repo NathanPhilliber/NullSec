@@ -71,6 +71,9 @@ public class Shop extends World
     LevelText leveltext = new LevelText();
     Number levelNumber = new Number("0");
     Number costNumber = new Number("0", 1);
+    Number goldNumber = new Number("0", 1);
+    
+    GoldText goldtext = new GoldText();
 
 
     public int currentPanel = 0;
@@ -160,7 +163,25 @@ public class Shop extends World
             }
         }
         else if(currentPanel == WeaponShop.WEAPONS){
-
+            
+            addObject(goldtext, 382, 30);
+            goldNumber = new Number(Player.gold + "",1);
+            addObject(goldNumber, 480, 25);
+            
+            unlock0.updateImage();
+            unlock1.updateImage();
+            unlock2.updateImage();
+            unlock3.updateImage();
+            unlock4.updateImage();
+            unlock5.updateImage();
+            
+            levelup0.updateImage();
+            levelup1.updateImage();
+            levelup2.updateImage();
+            levelup3.updateImage();
+            levelup4.updateImage();
+            levelup5.updateImage();
+            
             switch(i){
                 case 0:
                 addObject(lasertext2, getWidth()/2+150, 70);
@@ -372,6 +393,10 @@ public class Shop extends World
 
         addObject(costNumber, -100, -100); //add object because it must exist to remove it
         costNumber.remove();
+        
+        removeObject(goldtext);
+        addObject(goldNumber, -100, -100); //add object because it must exist to remove it
+        goldNumber.remove();
     }
 
     private void removeCurrentText(){

@@ -29,6 +29,30 @@ public class Weapon extends SpaceObject
     public static final int[] MINE_COST = {50,75,100,200};
     public static final int[] FIREBALL_COST = {120,400,450};
     public static final int[] PLASMA_COST = {200,400,500,600};
+    
+    public static int getWeaponCost(int weapon, int level){
+        switch(weapon){
+            case 0:
+            return PROJECTILE_COST[level];
+            
+            case 1:
+            return BEAM_COST[level];
+            
+            case 2:
+            return MISSILE_COST[level];
+            
+            case 3:
+            return MINE_COST[level];
+            
+            case 4:
+            return FIREBALL_COST[level];
+            
+            case 5:
+            return PLASMA_COST[level];
+            
+        }
+        return -1;
+    }
 
     public void act() 
     {

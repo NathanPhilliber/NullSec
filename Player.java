@@ -61,7 +61,7 @@ public class Player extends Object implements DamageTaker
     public static boolean mineEnabled = false;
     public static boolean fireballEnabled = false;
     public static boolean plasmaballEnabled = false;
-    
+
     public static int projectileLevel = 1;
     public static int missileLevel = 0;
     public static int beamLevel = 0;
@@ -82,7 +82,7 @@ public class Player extends Object implements DamageTaker
 
     private boolean playerDisabled = false;
 
-    public static int gold = 0;
+    public static int gold = 300;
 
     /*************************************************************/
     /*********************  DEMO STUFF  **************************/
@@ -477,7 +477,7 @@ public class Player extends Object implements DamageTaker
         if(Greenfoot.getRandomNumber(shootingStarSpawnChance) == 0){
 
             space.addObject(new ShootingStar(ship.getShipLocX()+700*getPosNeg(),ship.getShipLocY()+700*getPosNeg(),Greenfoot.getRandomNumber(360)),-10,-10);
-           
+
         }
     }
 
@@ -501,6 +501,31 @@ public class Player extends Object implements DamageTaker
     /******************************************************************/
     /*********************  WEAPONS SYSTEMS  **************************/
     /******************************************************************/
+
+    public static int getWeaponLevel(int weapon){
+        switch(weapon){
+            case 0:
+            return projectileLevel;
+            
+            case 1:
+            return beamLevel;
+            
+            case 2:
+            return missileLevel;
+           
+            case 3:
+            return mineLevel;
+            
+            case 4:
+            return fireballLevel;
+            
+            case 5:
+            return plasmaLevel;
+            
+        }
+        return -1;
+    }
+
     public void updateAvailableWeapons(boolean proj, boolean beam, boolean missile, boolean mine, boolean fire, boolean plasma)
     {
         space.removeWeaponGUI();
@@ -514,9 +539,9 @@ public class Player extends Object implements DamageTaker
         reloadWeapons();
 
     }
-    
+
     public static void updateAvailableWeapons(int i, boolean weapon){
-        
+
         switch(i){
             case 0:
             projectileEnabled = weapon;
@@ -536,12 +561,10 @@ public class Player extends Object implements DamageTaker
             case 5:
             plasmaballEnabled = weapon;
             break;
-            
-        }
-        
-       
-    }
 
+        }
+
+    }
     public void reloadWeapons(){
         space.drawWeaponGUI(projectileEnabled, beamEnabled, missileEnabled, mineEnabled, fireballEnabled, plasmaballEnabled);
     }
@@ -748,7 +771,7 @@ public class Player extends Object implements DamageTaker
 
             //
             reloadWeapons();
-            
+
             if(getWorld() instanceof TutorialWorld){
                 tutObj = new TutorialObjectManager();
                 space.addObject(tutObj,-10,-10);

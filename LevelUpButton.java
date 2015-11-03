@@ -14,39 +14,52 @@ public class LevelUpButton extends WeaponShop
     public LevelUpButton(int i){
         setImage("images/LevelUp.png");
         myFunction = i;
+        
     } 
     
+    public void updateImage(){
+        if(Player.gold >= Weapon.getWeaponCost(myFunction, Player.getWeaponLevel(myFunction))){
+            setImage("images/LevelUp.png");
+        }
+        else{
+            setImage("images/LevelUpGray.png");
+        }
+    }
+
     public void select(boolean sel){
         isSelected = sel;
 
         if(isSelected){
-            Player.updateAvailableWeapons(myFunction, true);
-            
-            switch(myFunction){
-                case 0:
-                Player.projectileLevel++;
-                break;
-                case 1:
-                Player.beamLevel++;
-                break;
-                case 2:
-                Player.missileLevel++;
-                break;
-                case 3:
-                Player.mineLevel++;
-                break;
-                case 4:
-                Player.fireballLevel++;
-                break;
-                case 5:
-                Player.plasmaLevel++;
-                break;
-                
+
+            if(Player.gold >= Weapon.getWeaponCost(myFunction, Player.getWeaponLevel(myFunction))){
+                Player.gold -= Weapon.getWeaponCost(myFunction, Player.getWeaponLevel(myFunction));
+                Player.updateAvailableWeapons(myFunction, true);
+
+                switch(myFunction){
+                    case 0:
+                    Player.projectileLevel++;
+                    break;
+                    case 1:
+                    Player.beamLevel++;
+                    break;
+                    case 2:
+                    Player.missileLevel++;
+                    break;
+                    case 3:
+                    Player.mineLevel++;
+                    break;
+                    case 4:
+                    Player.fireballLevel++;
+                    break;
+                    case 5:
+                    Player.plasmaLevel++;
+                    break;
+
+                }
+
+                Shop shop = (Shop) getWorld();
+                shop.reloadCurrentCenter();
             }
-            
-            Shop shop = (Shop) getWorld();
-            shop.reloadCurrentCenter();
-            
         }
     }
 

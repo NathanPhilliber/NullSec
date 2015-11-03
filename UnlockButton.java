@@ -16,35 +16,48 @@ public class UnlockButton extends WeaponShop
         setImage("images/UnlockButton.png");
         myFunction = i;
     }
+    
+    public void updateImage(){
+        if(Player.gold >= Weapon.getWeaponCost(myFunction, Player.getWeaponLevel(myFunction))){
+            setImage("images/UnlockButton.png");
+        }
+        else{
+            setImage("images/UnlockButtonGray.png");
+        }
+    }
 
     public void select(boolean sel){
         isSelected = sel;
 
         if(isSelected){
-            switch(myFunction){
-                case 0:
-                Player.projectileLevel++;
-                break;
-                case 1:
-                Player.beamLevel++;
-                break;
-                case 2:
-                Player.missileLevel++;
-                break;
-                case 3:
-                Player.mineLevel++;
-                break;
-                case 4:
-                Player.fireballLevel++;
-                break;
-                case 5:
-                Player.plasmaLevel++;
-                break;
-                
+
+            if(Player.gold >= Weapon.getWeaponCost(myFunction, Player.getWeaponLevel(myFunction))){
+                Player.gold -= Weapon.getWeaponCost(myFunction, Player.getWeaponLevel(myFunction));
+                switch(myFunction){
+                    case 0:
+                    Player.projectileLevel++;
+                    break;
+                    case 1:
+                    Player.beamLevel++;
+                    break;
+                    case 2:
+                    Player.missileLevel++;
+                    break;
+                    case 3:
+                    Player.mineLevel++;
+                    break;
+                    case 4:
+                    Player.fireballLevel++;
+                    break;
+                    case 5:
+                    Player.plasmaLevel++;
+                    break;
+
+                }
+                Player.updateAvailableWeapons(myFunction, true);
+                Shop shop = (Shop) getWorld();
+                shop.reloadCurrentCenter();
             }
-            Player.updateAvailableWeapons(myFunction, true);
-            Shop shop = (Shop) getWorld();
-            shop.reloadCurrentCenter();
         }
     }
 
