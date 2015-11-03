@@ -21,6 +21,27 @@ public class UnlockButton extends WeaponShop
         isSelected = sel;
 
         if(isSelected){
+            switch(myFunction){
+                case 0:
+                Player.projectileLevel++;
+                break;
+                case 1:
+                Player.beamLevel++;
+                break;
+                case 2:
+                Player.missileLevel++;
+                break;
+                case 3:
+                Player.mineLevel++;
+                break;
+                case 4:
+                Player.fireballLevel++;
+                break;
+                case 5:
+                Player.plasmaLevel++;
+                break;
+                
+            }
             Player.updateAvailableWeapons(myFunction, true);
             Shop shop = (Shop) getWorld();
             shop.reloadCurrentCenter();

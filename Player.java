@@ -62,7 +62,7 @@ public class Player extends Object implements DamageTaker
     public static boolean fireballEnabled = false;
     public static boolean plasmaballEnabled = false;
     
-    public static int projectileLevel = 0;
+    public static int projectileLevel = 1;
     public static int missileLevel = 0;
     public static int beamLevel = 0;
     public static int mineLevel = 0;

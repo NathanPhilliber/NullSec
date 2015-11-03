@@ -10,27 +10,39 @@ import java.util.ArrayList;
 public class Number extends Menu
 {
     ArrayList<Digit> digits = new ArrayList();
-
+    public int version = 0;
     public Number(String numbers){
-        setImage("transparent.png");
+        this(numbers,0);
+    }
 
+    public Number(String numbers, int size){
+        setImage("transparent.png");
+        version = size;
         for(int i = 0; i < numbers.length(); i++){
             char c = numbers.charAt(i); 
 
-            digits.add(new Digit((Integer)Character.getNumericValue(c)));
+            digits.add(new Digit((Integer)Character.getNumericValue(c), size));
         }
 
     }
+
     public void addedToWorld(World world){
-        for(int i = 0; i < digits.size(); i++){
-            world.addObject(digits.get(i), getX()+i*45-45, getY());
+        if(version == 1){
+            for(int i = 0; i < digits.size(); i++){
+                world.addObject(digits.get(i), getX()+i*18-18, getY());
+            }
+        }
+        else{
+            for(int i = 0; i < digits.size(); i++){
+                world.addObject(digits.get(i), getX()+i*45-45, getY());
+            }
         }
 
     }
 
     public void remove(){
         World world = getWorld();
-        
+
         world.removeObjects(digits);
 
         world.removeObject(this);

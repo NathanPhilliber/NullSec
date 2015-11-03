@@ -8,7 +8,11 @@ import greenfoot.*;
  */
 public class Digit extends Menu
 {
-    public Digit(int d){
+    public Digit(int i){
+        this(i,0);
+    }
+
+    public Digit(int d, int size){
         switch(d){
             case 0:
             setImage("Number0.png");
@@ -40,10 +44,15 @@ public class Digit extends Menu
             case 9:
             setImage("Number9.png");
             break;
-            
-            
+
+        }
+        if(size == 1){
+            GreenfootImage image = getImage();
+            image.scale(image.getWidth() - 35, image.getHeight() - 35);
+            setImage(image);
         }
     }
+
     public void act() 
     {
         // Add your action code here.

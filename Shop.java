@@ -27,7 +27,7 @@ public class Shop extends World
     UnlockButton unlock3 = new UnlockButton(3);
     UnlockButton unlock4 = new UnlockButton(4);
     UnlockButton unlock5 = new UnlockButton(5);
-    
+
     LevelUpButton levelup0 = new LevelUpButton(0);
     LevelUpButton levelup1 = new LevelUpButton(1);
     LevelUpButton levelup2 = new LevelUpButton(2);
@@ -35,9 +35,18 @@ public class Shop extends World
     LevelUpButton levelup4 = new LevelUpButton(4);
     LevelUpButton levelup5 = new LevelUpButton(5);
 
+    CostText costtext = new CostText();
+
     WeaponsText weaponsText = new WeaponsText();
     EngineText engineText = new EngineText();
     ShieldText shieldText = new ShieldText();
+
+    LaserDes laserdes = new LaserDes();
+    BeamDes beamdes = new BeamDes();
+    MissileDes missiledes = new MissileDes();
+    MineDes minedes = new MineDes();
+    FireballDes fireballdes = new FireballDes();
+    PlasmaDes plasmades = new PlasmaDes();
 
     EngineText engineText2 = new EngineText();
     WeaponsText weaponText2 = new WeaponsText();
@@ -61,8 +70,8 @@ public class Shop extends World
 
     LevelText leveltext = new LevelText();
     Number levelNumber = new Number("0");
-    
-    
+    Number costNumber = new Number("0", 1);
+
 
     public int currentPanel = 0;
     public int currentButton = 0;
@@ -151,81 +160,147 @@ public class Shop extends World
             }
         }
         else if(currentPanel == WeaponShop.WEAPONS){
-            
+
             switch(i){
                 case 0:
                 addObject(lasertext2, getWidth()/2+150, 70);
+                addObject(laserdes, 599, 153);
                 if(!Player.projectileEnabled){
                     addObject(unlock0, getWidth()/2+150, getHeight()/2+15); 
+                    addObject(costtext, 544,247);
+                    costNumber = new Number(Weapon.PROJECTILE_COST[Player.projectileLevel]+"", 1);
+                    addObject(costNumber, 610,240); 
+
                 }
                 else{
                     levelNumber = new Number(Player.projectileLevel + "");
                     addObject(levelNumber, getWidth()/2+150-50, 270);
                     addObject(leveltext, getWidth()/2+15-50, 270);
-                    addObject(levelup0, getWidth()/2+320, getHeight()/2+15);
+
+                    if(Weapon.PROJECTILE_COST.length > Player.projectileLevel){
+                        addObject(levelup0, getWidth()/2+320, getHeight()/2+15);
+                        addObject(costtext, 712,245);
+                        costNumber = new Number(Weapon.PROJECTILE_COST[Player.projectileLevel]+"", 1);
+                        addObject(costNumber, 775,240); 
+                    }
+
                 }
                 break;
                 case 1:
                 addObject(beamtext2, getWidth()/2+150, 70);
+                addObject(beamdes, 607, 157);
+
                 if(!Player.beamEnabled){
                     addObject(unlock1, getWidth()/2+150, getHeight()/2+15);
+                    addObject(costtext, 544,247);
+                    costNumber = new Number(Weapon.BEAM_COST[Player.beamLevel]+"", 1);
+                    addObject(costNumber, 610,240); 
                 }
                 else{
                     levelNumber = new Number(Player.beamLevel + "");
                     addObject(levelNumber, getWidth()/2+150-50, 270);
                     addObject(leveltext, getWidth()/2+15-50, 270);
-                    addObject(levelup1, getWidth()/2+320, getHeight()/2+15);
+                    if(Weapon.BEAM_COST.length > Player.beamLevel){
+                        addObject(levelup1, getWidth()/2+320, getHeight()/2+15);
+                        addObject(costtext, 712,245);
+                        costNumber = new Number(Weapon.BEAM_COST[Player.beamLevel]+"", 1);
+                        addObject(costNumber, 775,240); 
+                    }
+
                 }
                 break;
                 case 2:
                 addObject(missiletext2, getWidth()/2+150, 70);
+                addObject(missiledes, 607, 157);
                 if(!Player.missileEnabled){
                     addObject(unlock2, getWidth()/2+150, getHeight()/2+15);
+                    addObject(costtext, 544,247);
+                    costNumber = new Number(Weapon.MISSILE_COST[Player.missileLevel]+"", 1);
+                    addObject(costNumber, 610,240); 
                 }
                 else{
                     levelNumber = new Number(Player.missileLevel + "");
                     addObject(levelNumber, getWidth()/2+150-50, 270);
                     addObject(leveltext, getWidth()/2+15-50, 270);
-                    addObject(levelup2, getWidth()/2+320, getHeight()/2+15);
+                    
+                    if(Weapon.MISSILE_COST.length > Player.missileLevel){
+                        addObject(levelup2, getWidth()/2+320, getHeight()/2+15);
+                        addObject(costtext, 712,245);
+                        costNumber = new Number(Weapon.MISSILE_COST[Player.missileLevel]+"", 1);
+                        addObject(costNumber, 775,240); 
+                    }
+
                 }
                 break;
                 case 3:
                 addObject(minetext2, getWidth()/2+150, 70);
+                addObject(minedes, 607, 157);
                 if(!Player.mineEnabled){
                     addObject(unlock3, getWidth()/2+150, getHeight()/2+15);
+                    addObject(costtext, 544,247);
+                    costNumber = new Number(Weapon.MINE_COST[Player.mineLevel]+"", 1);
+                    addObject(costNumber, 610,240); 
                 }
                 else{
                     levelNumber = new Number(Player.mineLevel + "");
                     addObject(levelNumber, getWidth()/2+150-50, 270);
                     addObject(leveltext, getWidth()/2+15-50, 270);
-                    addObject(levelup3, getWidth()/2+320, getHeight()/2+15);
+                    
+                    if(Weapon.MINE_COST.length > Player.mineLevel){
+                        addObject(levelup3, getWidth()/2+320, getHeight()/2+15);
+                        addObject(costtext, 712,245);
+                        costNumber = new Number(Weapon.MINE_COST[Player.mineLevel]+"", 1);
+                        addObject(costNumber, 775,240); 
+                    }
+
                 }
                 break;
                 case 4:
                 addObject(fireballtext2, getWidth()/2+150, 70);
+                addObject(fireballdes, 607, 157);
                 if(!Player.fireballEnabled){
                     addObject(unlock4, getWidth()/2+150, getHeight()/2+15);
+                    addObject(costtext, 544,247);
+                    costNumber = new Number(Weapon.FIREBALL_COST[Player.fireballLevel]+"", 1);
+                    addObject(costNumber, 610,240); 
                 }
                 else{
                     levelNumber = new Number(Player.fireballLevel + "");
                     addObject(levelNumber, getWidth()/2+150-50, 270);
                     addObject(leveltext, getWidth()/2+15-50, 270);
-                    addObject(levelup4, getWidth()/2+320, getHeight()/2+15);
+                    
+                    if(Weapon.FIREBALL_COST.length > Player.fireballLevel){
+                        addObject(levelup4, getWidth()/2+320, getHeight()/2+15);
+                        addObject(costtext, 712,245);
+                        costNumber = new Number(Weapon.FIREBALL_COST[Player.fireballLevel]+"", 1);
+                        addObject(costNumber, 775,240); 
+                    }
+
                 }
                 break;
                 case 5:
                 addObject(plasmatext2, getWidth()/2+150, 70);
+                addObject(plasmades, 607, 157);
                 if(!Player.plasmaballEnabled){
                     addObject(unlock5, getWidth()/2+150, getHeight()/2+15);
+                    addObject(costtext, 544,247);
+                    costNumber = new Number(Weapon.PLASMA_COST[Player.plasmaLevel]+"", 1);
+                    addObject(costNumber, 610,240); 
                 }
                 else{
                     levelNumber = new Number(Player.plasmaLevel + "");
                     addObject(levelNumber, getWidth()/2+150-50, 270);
                     addObject(leveltext, getWidth()/2+15-50, 270);
-                    addObject(levelup5, getWidth()/2+320, getHeight()/2+15);
+                    
+                    if(Weapon.PLASMA_COST.length > Player.plasmaLevel){
+                        addObject(levelup5, getWidth()/2+320, getHeight()/2+15);
+                        addObject(costtext, 712,245);
+                        costNumber = new Number(Weapon.PLASMA_COST[Player.plasmaLevel]+"", 1);
+                        addObject(costNumber, 775,240); 
+                    }
+
                 }
                 break;
-
 
             }
         }
@@ -274,7 +349,7 @@ public class Shop extends World
         removeObject(minetext2);
         removeObject(fireballtext2);
         removeObject(plasmatext2);
-        
+
         removeObject(leveltext);
         removeObject(levelup0);
         removeObject(levelup1);
@@ -282,9 +357,21 @@ public class Shop extends World
         removeObject(levelup3);
         removeObject(levelup4);
         removeObject(levelup5);
-        
-        addObject(levelNumber, -100, -100);
+
+        removeObject(costtext);
+
+        removeObject(laserdes);
+        removeObject(beamdes);
+        removeObject(missiledes);
+        removeObject(minedes);
+        removeObject(fireballdes);
+        removeObject(plasmades);
+
+        addObject(levelNumber, -100, -100); //add object because it must exist to remove it
         levelNumber.remove();
+
+        addObject(costNumber, -100, -100); //add object because it must exist to remove it
+        costNumber.remove();
     }
 
     private void removeCurrentText(){
@@ -336,7 +423,6 @@ public class Shop extends World
         addObject(engineText, 121, 501);
         addObject(shieldText, 721, 503);
         setPanel(0);
-
 
     }
 }
