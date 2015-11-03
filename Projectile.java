@@ -32,6 +32,6 @@ public class Projectile extends Weapon implements ProjectileObject
     public Projectile(int angle, boolean isPlayer, double damage, double startX, double startY)
     {
         super(angle, isPlayer, startX, startY, damage);
-        shootSound.play();
+        //shootSound.play();
     } 
 }

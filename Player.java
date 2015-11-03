@@ -82,7 +82,7 @@ public class Player extends Object implements DamageTaker
 
     private boolean playerDisabled = false;
 
-    public static int gold = 300;
+    public static int gold = 3000;
 
     /*************************************************************/
     /*********************  DEMO STUFF  **************************/
@@ -684,8 +684,9 @@ public class Player extends Object implements DamageTaker
     }   
 
     public void weaponSystems(){
-        shoot(weaponLV, weaponType);
-        toggleWeaponLV();
+        //System.out.println(Player.getWeaponLevel(weaponType));
+        shoot(Player.getWeaponLevel(weaponType), weaponType);
+        //toggleWeaponLV(); //disable key to change
         //weaponType();
         hearth();
         blink();

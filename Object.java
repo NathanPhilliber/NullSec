@@ -338,21 +338,25 @@ public class Object extends SmoothMover
     protected void projectile(int angle,int LV,double X,double Y, boolean isPlayer)
     {
         spawnProjectile(angle,X,Y, isPlayer);
-        if (LV>=1)
-        {
-            spawnProjectile(angle+10,X,Y,isPlayer);
-            spawnProjectile(angle-10,X,Y,isPlayer);
-        }
+        
         if (LV>=2)
         {
-            spawnProjectile(angle+20,X,Y,isPlayer);
-            spawnProjectile(angle-20,X,Y,isPlayer);
+            spawnProjectile(angle+10,X,Y,isPlayer);
+            
         }
         if (LV>=3)
         {
-            spawnProjectile(angle+30,X,Y,isPlayer);
-            spawnProjectile(angle-30,X,Y,isPlayer);
+            spawnProjectile(angle-10,X,Y,isPlayer);
         }
+        if (LV>=4)
+        {
+            spawnProjectile(angle+20,X,Y,isPlayer);
+        }
+        if (LV>=5)
+        {
+            spawnProjectile(angle-20,X,Y,isPlayer);
+        }
+        
     }
 
     private void spawnProjectile(int angle,double X,double Y, boolean isPlayer)

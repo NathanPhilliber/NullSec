@@ -72,9 +72,8 @@ public class Shop extends World
     Number levelNumber = new Number("0");
     Number costNumber = new Number("0", 1);
     Number goldNumber = new Number("0", 1);
-    
-    GoldText goldtext = new GoldText();
 
+    GoldText goldtext = new GoldText();
 
     public int currentPanel = 0;
     public int currentButton = 0;
@@ -163,25 +162,29 @@ public class Shop extends World
             }
         }
         else if(currentPanel == WeaponShop.WEAPONS){
-            
+
             addObject(goldtext, 382, 30);
             goldNumber = new Number(Player.gold + "",1);
             addObject(goldNumber, 480, 25);
-            
-            unlock0.updateImage();
-            unlock1.updateImage();
-            unlock2.updateImage();
-            unlock3.updateImage();
-            unlock4.updateImage();
-            unlock5.updateImage();
-            
-            levelup0.updateImage();
-            levelup1.updateImage();
-            levelup2.updateImage();
-            levelup3.updateImage();
-            levelup4.updateImage();
-            levelup5.updateImage();
-            
+
+            try{
+                unlock0.updateImage();
+                unlock1.updateImage();
+                unlock2.updateImage();
+                unlock3.updateImage();
+                unlock4.updateImage();
+                unlock5.updateImage();
+
+                levelup0.updateImage();
+                levelup1.updateImage();
+                levelup2.updateImage();
+                levelup3.updateImage();
+                levelup4.updateImage();
+                levelup5.updateImage();
+            } catch(ArrayIndexOutOfBoundsException e){
+
+            }
+
             switch(i){
                 case 0:
                 addObject(lasertext2, getWidth()/2+150, 70);
@@ -243,7 +246,7 @@ public class Shop extends World
                     levelNumber = new Number(Player.missileLevel + "");
                     addObject(levelNumber, getWidth()/2+150-50, 270);
                     addObject(leveltext, getWidth()/2+15-50, 270);
-                    
+
                     if(Weapon.MISSILE_COST.length > Player.missileLevel){
                         addObject(levelup2, getWidth()/2+320, getHeight()/2+15);
                         addObject(costtext, 712,245);
@@ -266,7 +269,7 @@ public class Shop extends World
                     levelNumber = new Number(Player.mineLevel + "");
                     addObject(levelNumber, getWidth()/2+150-50, 270);
                     addObject(leveltext, getWidth()/2+15-50, 270);
-                    
+
                     if(Weapon.MINE_COST.length > Player.mineLevel){
                         addObject(levelup3, getWidth()/2+320, getHeight()/2+15);
                         addObject(costtext, 712,245);
@@ -289,7 +292,7 @@ public class Shop extends World
                     levelNumber = new Number(Player.fireballLevel + "");
                     addObject(levelNumber, getWidth()/2+150-50, 270);
                     addObject(leveltext, getWidth()/2+15-50, 270);
-                    
+
                     if(Weapon.FIREBALL_COST.length > Player.fireballLevel){
                         addObject(levelup4, getWidth()/2+320, getHeight()/2+15);
                         addObject(costtext, 712,245);
@@ -312,7 +315,7 @@ public class Shop extends World
                     levelNumber = new Number(Player.plasmaLevel + "");
                     addObject(levelNumber, getWidth()/2+150-50, 270);
                     addObject(leveltext, getWidth()/2+15-50, 270);
-                    
+
                     if(Weapon.PLASMA_COST.length > Player.plasmaLevel){
                         addObject(levelup5, getWidth()/2+320, getHeight()/2+15);
                         addObject(costtext, 712,245);
@@ -393,7 +396,7 @@ public class Shop extends World
 
         addObject(costNumber, -100, -100); //add object because it must exist to remove it
         costNumber.remove();
-        
+
         removeObject(goldtext);
         addObject(goldNumber, -100, -100); //add object because it must exist to remove it
         goldNumber.remove();
