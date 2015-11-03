@@ -15,7 +15,10 @@ public class PlatformObject extends Object
     }
     protected void updatePos()
     {
-        w=(Platformer)getWorld();
+        
+        if(w == null){
+           w=(Platformer)getWorld(); 
+        }
         setLocation(realX-w.getOffset(),realY);
     }
     protected void setRealX(double x)

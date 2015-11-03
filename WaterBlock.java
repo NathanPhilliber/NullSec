@@ -11,6 +11,8 @@ public class WaterBlock extends NonPlayer
         this(0);
     }
     
+    private int myImage;
+    
     public WaterBlock(int p)
     {
         super();
@@ -26,7 +28,13 @@ public class WaterBlock extends NonPlayer
         {
             setImage("WaterBottom.png");
         }
-        
+        myImage = p;
         getImage().setTransparency(150);
     } 
+    
+    public void addedToWorld(World world){
+        super.addedToWorld(world);
+        world.addObject(new WaterBlockBackground(myImage), getX(), getY());
+    }
+    
 }

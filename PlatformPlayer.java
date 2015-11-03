@@ -96,6 +96,7 @@ public class PlatformPlayer extends PlatformObject
             }
             else if(object instanceof WaterBlock){
                 anyWater = true;
+                System.out.println("SWIM!");
 
             }
             else if(object instanceof ClimbBlock){
