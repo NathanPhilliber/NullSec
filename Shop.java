@@ -27,6 +27,13 @@ public class Shop extends World
     UnlockButton unlock3 = new UnlockButton(3);
     UnlockButton unlock4 = new UnlockButton(4);
     UnlockButton unlock5 = new UnlockButton(5);
+    
+    LevelUpButton levelup0 = new LevelUpButton(0);
+    LevelUpButton levelup1 = new LevelUpButton(1);
+    LevelUpButton levelup2 = new LevelUpButton(2);
+    LevelUpButton levelup3 = new LevelUpButton(3);
+    LevelUpButton levelup4 = new LevelUpButton(4);
+    LevelUpButton levelup5 = new LevelUpButton(5);
 
     WeaponsText weaponsText = new WeaponsText();
     EngineText engineText = new EngineText();
@@ -42,7 +49,7 @@ public class Shop extends World
     MineText minetext = new MineText();
     FireballText fireballtext = new FireballText();
     PlasmaText plasmatext = new PlasmaText();
-    
+
     LaserText lasertext2 = new LaserText();
     BeamText beamtext2 = new BeamText();
     MissileText missiletext2 = new MissileText();
@@ -51,6 +58,11 @@ public class Shop extends World
     PlasmaText plasmatext2 = new PlasmaText();
 
     EngineBars engineBars = new EngineBars();
+
+    LevelText leveltext = new LevelText();
+    Number levelNumber = new Number("0");
+    
+    
 
     public int currentPanel = 0;
     public int currentButton = 0;
@@ -103,20 +115,19 @@ public class Shop extends World
         setCurrentCenter(i);
 
     }
-    
+
     public void reloadCurrentCenter(){
         removeCurrentCenter();
         setCurrentCenter(currentButton);
     }
-    
 
     public void setCurrentCenter(int i){
-
         if(currentPanel == WeaponShop.ENGINE){
             switch(i){
                 case 0:
                 addObject(engineBars, 732, 280);
                 addObject(ship, 445, 203);
+
                 break;
                 case 1:
 
@@ -140,12 +151,18 @@ public class Shop extends World
             }
         }
         else if(currentPanel == WeaponShop.WEAPONS){
-
+            
             switch(i){
                 case 0:
                 addObject(lasertext2, getWidth()/2+150, 70);
                 if(!Player.projectileEnabled){
                     addObject(unlock0, getWidth()/2+150, getHeight()/2+15); 
+                }
+                else{
+                    levelNumber = new Number(Player.projectileLevel + "");
+                    addObject(levelNumber, getWidth()/2+150-50, 270);
+                    addObject(leveltext, getWidth()/2+15-50, 270);
+                    addObject(levelup0, getWidth()/2+320, getHeight()/2+15);
                 }
                 break;
                 case 1:
@@ -153,11 +170,23 @@ public class Shop extends World
                 if(!Player.beamEnabled){
                     addObject(unlock1, getWidth()/2+150, getHeight()/2+15);
                 }
+                else{
+                    levelNumber = new Number(Player.beamLevel + "");
+                    addObject(levelNumber, getWidth()/2+150-50, 270);
+                    addObject(leveltext, getWidth()/2+15-50, 270);
+                    addObject(levelup1, getWidth()/2+320, getHeight()/2+15);
+                }
                 break;
                 case 2:
                 addObject(missiletext2, getWidth()/2+150, 70);
                 if(!Player.missileEnabled){
                     addObject(unlock2, getWidth()/2+150, getHeight()/2+15);
+                }
+                else{
+                    levelNumber = new Number(Player.missileLevel + "");
+                    addObject(levelNumber, getWidth()/2+150-50, 270);
+                    addObject(leveltext, getWidth()/2+15-50, 270);
+                    addObject(levelup2, getWidth()/2+320, getHeight()/2+15);
                 }
                 break;
                 case 3:
@@ -165,11 +194,23 @@ public class Shop extends World
                 if(!Player.mineEnabled){
                     addObject(unlock3, getWidth()/2+150, getHeight()/2+15);
                 }
+                else{
+                    levelNumber = new Number(Player.mineLevel + "");
+                    addObject(levelNumber, getWidth()/2+150-50, 270);
+                    addObject(leveltext, getWidth()/2+15-50, 270);
+                    addObject(levelup3, getWidth()/2+320, getHeight()/2+15);
+                }
                 break;
                 case 4:
                 addObject(fireballtext2, getWidth()/2+150, 70);
                 if(!Player.fireballEnabled){
                     addObject(unlock4, getWidth()/2+150, getHeight()/2+15);
+                }
+                else{
+                    levelNumber = new Number(Player.fireballLevel + "");
+                    addObject(levelNumber, getWidth()/2+150-50, 270);
+                    addObject(leveltext, getWidth()/2+15-50, 270);
+                    addObject(levelup4, getWidth()/2+320, getHeight()/2+15);
                 }
                 break;
                 case 5:
@@ -177,9 +218,14 @@ public class Shop extends World
                 if(!Player.plasmaballEnabled){
                     addObject(unlock5, getWidth()/2+150, getHeight()/2+15);
                 }
+                else{
+                    levelNumber = new Number(Player.plasmaLevel + "");
+                    addObject(levelNumber, getWidth()/2+150-50, 270);
+                    addObject(leveltext, getWidth()/2+15-50, 270);
+                    addObject(levelup5, getWidth()/2+320, getHeight()/2+15);
+                }
                 break;
-                
-                
+
 
             }
         }
@@ -228,6 +274,17 @@ public class Shop extends World
         removeObject(minetext2);
         removeObject(fireballtext2);
         removeObject(plasmatext2);
+        
+        removeObject(leveltext);
+        removeObject(levelup0);
+        removeObject(levelup1);
+        removeObject(levelup2);
+        removeObject(levelup3);
+        removeObject(levelup4);
+        removeObject(levelup5);
+        
+        addObject(levelNumber, -100, -100);
+        levelNumber.remove();
     }
 
     private void removeCurrentText(){
@@ -258,6 +315,7 @@ public class Shop extends World
 
     private void prepare()
     {
+        addObject(levelNumber, -100, -100);
 
         addObject(weaponShopFg, 460, 272);
 
@@ -278,6 +336,7 @@ public class Shop extends World
         addObject(engineText, 121, 501);
         addObject(shieldText, 721, 503);
         setPanel(0);
+
 
     }
 }
