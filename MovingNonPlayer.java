@@ -8,12 +8,14 @@ public class MovingNonPlayer extends NonPlayer
     }    
     public MovingNonPlayer()
     {
-        this(0,0);
+        
     }
-    public MovingNonPlayer(double x,double y)
-    {
-        super(x,y);
+    
+    public void addedToWorld(World world){
+        setRealX(getX());
+        setRealY(getY());
     }
+    
     protected void gravity(double y)
     {
        velY=y*10;

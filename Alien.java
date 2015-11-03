@@ -10,14 +10,11 @@ public class Alien extends MovingNonPlayer
     {
         super.act();
         gravity(gravity);
-        moveX();
+        //moveX();
     }
     public Alien()
     {
-        this(0,0);
+        super();
     }
-    public Alien(double x,double y)
-    {
-        super(x,y);
-    }
+   
 }
