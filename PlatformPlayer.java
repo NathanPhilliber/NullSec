@@ -1,13 +1,6 @@
 import greenfoot.*;
 import java.util.List;
 import java.lang.reflect.*;
-
-/**
- * Write a description of class Player here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class PlatformPlayer extends PlatformObject
 {
 
@@ -18,7 +11,6 @@ public class PlatformPlayer extends PlatformObject
      *
      ************************************************************************************
      */
-    static final double gravity = .5; 
     static final double dragX = .25;
     static final double walkSpeed = 4;
     static final double jumpSpeedAir = 16;
@@ -35,14 +27,8 @@ public class PlatformPlayer extends PlatformObject
     private double jumpSpeed=jumpSpeedAir;
     private double moveSpeed=walkSpeed;
     private boolean onBlock=false;
-    private double realX;
-    private double realY;
-    private double velX;
-    private double velY;
     private boolean isWalkingRight=true;
     private boolean isWalkingLeft=false;
-    Platformer w;
-
     private boolean locked = false;
 
     private int ticksStuckInBlock = 0;
@@ -53,9 +39,9 @@ public class PlatformPlayer extends PlatformObject
     GifImage standLeft = new GifImage("StandingLeft.png");
     public void addedToWorld(World world)
     {
-        realX=getX();
-        realY=getY();
         w=(Platformer)getWorld();
+        setRealX(getX());
+        setRealY(getY());
     }
 
     public PlatformPlayer()
@@ -354,65 +340,5 @@ public class PlatformPlayer extends PlatformObject
             w.showText("vY: "+String.format("%.02f", (velY)), x, 100);
             w.showText("wOffset: "+String.format("%.02f", (w.getOffset())), x, 125);
         }
-    }
-
-    private void setRealX(double x)
-    {
-        realX=x;
-    }
-
-    private void addRealX(double x)
-    {
-        realX+=x;
-    }
-
-    private double getRealX()
-    {
-        return realX;
-    }
-
-    private void setRealY(double y)
-    {
-        realY=y;
-    }
-
-    private void addRealY(double y)
-    {
-        realY+=y;
-    }
-
-    private double getRealY()
-    {
-        return realY;
-    }
-
-    private void setVelX(double x)
-    {
-        velX=x;
-    }
-
-    private void addVelX(double x)
-    {
-        velX+=x;
-    }
-
-    private double getVelX()
-    {
-        return velX;
-    }
-
-    private void setVelY(double y)
-    {
-        velY=y;
-    }
-
-    private void addVelY(double y)
-    {
-        velY+=y;
-    }
-
-    private double getVelY()
-    {
-        return velY;
     }
 }

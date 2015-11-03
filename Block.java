@@ -7,22 +7,14 @@ public class Block extends NonPlayer
     {
         super.act();
     }    
-
     public Block()
     {
         this(0);
     }
-
     public Block(int blockType)
     {
         super();
 
         setImage(LevelCreatorDisplayBlock.getBlock()[blockType]);
     }  
-
-    protected void addedToWorld(World world)
-    {
-        setRealX(getX());
-        setRealY(getY());
-    }
 }

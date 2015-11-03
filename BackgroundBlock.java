@@ -1,11 +1,5 @@
 import greenfoot.*;
 import java.awt.Color;
-/**
- * Write a description of class BackgroundBlock here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class BackgroundBlock extends NonPlayer
 {
     public void act() 
@@ -27,11 +21,5 @@ public class BackgroundBlock extends NonPlayer
         getImage().setColor(new Color(0,0,0,120));
         getImage().fill();
         
-    }  
-
-    protected void addedToWorld(World world)
-    {
-        setRealX(getX());
-        setRealY(getY());
     }   
 }
