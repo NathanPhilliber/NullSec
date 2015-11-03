@@ -160,7 +160,7 @@ public class Level9 extends Platformer
         addObject(new FallingBlock(74),742+offsetX,337+offsetY);
         addObject(new FallingBlock(74),769+offsetX,337+offsetY);
         addObject(new FallingBlock(74),796+offsetX,337+offsetY);
-        addObject(new PlatformPlayer(),67+offsetX,100+offsetY);
+        addObject(new PlatformPlayer(),67+offsetX,500+offsetY);
 
     }
 }

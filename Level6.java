@@ -18,16 +18,11 @@ public class Level6 extends Platformer
         {
             addObject(new Block(0), 27*i, 540);
         }
-        //Level Generated
-
-
-        setBackground("PlanetOneBG.png");
         addObject(new Block(63),13+offsetX,391+offsetY);
         addObject(new Block(63),13+offsetX,364+offsetY);
         addObject(new Block(63),40+offsetX,364+offsetY);
         addObject(new Block(63),40+offsetX,391+offsetY);
         addObject(new Block(63),40+offsetX,418+offsetY);
-        addObject(new Block(63),0+offsetX,418+offsetY);
         addObject(new Block(50),13+offsetX,445+offsetY);
         addObject(new Block(50),40+offsetX,445+offsetY);
         addObject(new Block(50),67+offsetX,445+offsetY);
@@ -51,7 +46,6 @@ public class Level6 extends Platformer
         addObject(new Block(40),148+offsetX,364+offsetY);
         addObject(new Block(40),148+offsetX,391+offsetY);
         addObject(new Block(40),40+offsetX,472+offsetY);
-        addObject(new Block(40),0+offsetX,472+offsetY);
         addObject(new Block(40),13+offsetX,499+offsetY);
         addObject(new Block(40),40+offsetX,499+offsetY);
         addObject(new Block(40),67+offsetX,499+offsetY);
@@ -224,12 +218,12 @@ public class Level6 extends Platformer
         addObject(new Block(71),850+offsetX,391+offsetY);
         addObject(new Block(71),823+offsetX,391+offsetY);
         addObject(new Block(71),796+offsetX,391+offsetY);
-        addObject(new Block(61),796+offsetX,418+offsetY);
-        addObject(new Block(61),823+offsetX,418+offsetY);
-        addObject(new Block(61),850+offsetX,418+offsetY);
-        addObject(new Block(61),850+offsetX,445+offsetY);
-        addObject(new Block(61),823+offsetX,445+offsetY);
-        addObject(new Block(61),796+offsetX,445+offsetY);
+        addObject(new ClimbBlock(61),796+offsetX,418+offsetY);
+        addObject(new ClimbBlock(61),823+offsetX,418+offsetY);
+        addObject(new ClimbBlock(61),850+offsetX,418+offsetY);
+        addObject(new ClimbBlock(61),850+offsetX,445+offsetY);
+        addObject(new ClimbBlock(61),823+offsetX,445+offsetY);
+        addObject(new ClimbBlock(61),796+offsetX,445+offsetY);
         addObject(new Block(30),796+offsetX,472+offsetY);
         addObject(new Block(30),796+offsetX,499+offsetY);
         addObject(new Block(30),823+offsetX,499+offsetY);
@@ -602,9 +596,6 @@ public class Level6 extends Platformer
         addObject(new Block(6),2632+offsetX,418+offsetY);
         addObject(new Block(6),2686+offsetX,418+offsetY);
         addObject(new Block(6),2659+offsetX,418+offsetY);
-        addObject(new ClimbBlock(60),1309+offsetX,337+offsetY);
-        addObject(new ClimbBlock(60),1309+offsetX,310+offsetY);
-        addObject(new ClimbBlock(60),1309+offsetX,283+offsetY);
         addObject(new Block(14),2092+offsetX,337+offsetY);
         addObject(new Block(14),2065+offsetX,337+offsetY);
         addObject(new Block(14),2038+offsetX,337+offsetY);
@@ -1110,10 +1101,7 @@ public class Level6 extends Platformer
         addObject(new BackgroundBlock(54),3469+offsetX,364+offsetY);
         addObject(new BackgroundBlock(54),3442+offsetX,391+offsetY);
         addObject(new BackgroundBlock(54),3469+offsetX,391+offsetY);
-        addObject(new ExitPortal(),4036+offsetX,337+offsetY);
         addObject(new PlatformPlayer(),13+offsetX,310+offsetY);
-        addObject(new ClimbBlock(60),1309+offsetX,256+offsetY);
-        addObject(new ClimbBlock(60),1309+offsetX,229+offsetY);
         addObject(new WaterBlock(0),2254+offsetX,364+offsetY);
         addObject(new WaterBlock(0),2227+offsetX,364+offsetY);
         addObject(new Block(55),2335+offsetX,364+offsetY);
@@ -1125,6 +1113,42 @@ public class Level6 extends Platformer
         addObject(new Block(55),2119+offsetX,499+offsetY);
         addObject(new Block(55),2119+offsetX,472+offsetY);
         addObject(new Block(55),2146+offsetX,499+offsetY);
+        addObject(new Block(63),13+offsetX,418+offsetY);
+        addObject(new Block(40),13+offsetX,472+offsetY);
+        addObject(new ClimbBlock(61),1309+offsetX,337+offsetY);
+        addObject(new ClimbBlock(61),1309+offsetX,310+offsetY);
+        addObject(new ClimbBlock(61),1309+offsetX,283+offsetY);
+        addObject(new ClimbBlock(61),1309+offsetX,256+offsetY);
+        addObject(new ClimbBlock(61),1309+offsetX,229+offsetY);
+        addObject(new FallingBlock(75),3739+offsetX,364+offsetY);
+        addObject(new FallingBlock(75),3766+offsetX,364+offsetY);
+        addObject(new FallingBlock(75),3793+offsetX,364+offsetY);
+        addObject(new FallingBlock(75),3820+offsetX,364+offsetY);
+        addObject(new FallingBlock(75),3847+offsetX,364+offsetY);
+        addObject(new FallingBlock(75),3874+offsetX,364+offsetY);
+        addObject(new FallingBlock(75),3901+offsetX,364+offsetY);
+        addObject(new Block(82),3685+offsetX,202+offsetY);
+        addObject(new Block(82),3712+offsetX,175+offsetY);
+        addObject(new Block(82),3739+offsetX,148+offsetY);
+        addObject(new Block(83),3766+offsetX,148+offsetY);
+        addObject(new Block(83),3793+offsetX,175+offsetY);
+        addObject(new Block(83),3820+offsetX,202+offsetY);
+        addObject(new Block(77),3739+offsetX,175+offsetY);
+        addObject(new Block(77),3766+offsetX,175+offsetY);
+        addObject(new Block(77),3793+offsetX,202+offsetY);
+        addObject(new Block(77),3766+offsetX,202+offsetY);
+        addObject(new Block(77),3739+offsetX,202+offsetY);
+        addObject(new Block(77),3712+offsetX,202+offsetY);
+        addObject(new BackgroundBlock(81),3766+offsetX,229+offsetY);
+        addObject(new BackgroundBlock(81),3766+offsetX,256+offsetY);
+        addObject(new BackgroundBlock(81),3766+offsetX,283+offsetY);
+        addObject(new BackgroundBlock(81),3766+offsetX,310+offsetY);
+        addObject(new BackgroundBlock(81),3766+offsetX,337+offsetY);
+        addObject(new BackgroundBlock(81),3739+offsetX,229+offsetY);
+        addObject(new BackgroundBlock(81),3739+offsetX,256+offsetY);
+        addObject(new BackgroundBlock(81),3739+offsetX,283+offsetY);
+        addObject(new BackgroundBlock(81),3739+offsetX,310+offsetY);
+        addObject(new BackgroundBlock(81),3739+offsetX,337+offsetY);
 
     }
 }

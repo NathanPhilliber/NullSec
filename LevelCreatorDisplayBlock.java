@@ -16,6 +16,8 @@ public class LevelCreatorDisplayBlock extends LevelCreatorObject
     public static int block = 0;
 
     private int delay = 0;
+    
+    /************** DONT FUCK WITH THE ORDER, ADD SHIT TO THE END******************/
 
     public static String[] blockName = {"brick.png", "BlueBrick.png","Lava.png","Lava2.png", "StandingRight.png",
             "Portal.png", "MoonBrick.png", "MoonBrickTop.png", "GooTop.png", "GooBottom.png", "WaterTop.png",  "WaterMiddle.png","WaterBottom.png",

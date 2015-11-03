@@ -18,7 +18,7 @@ public class PlatformPlayer extends PlatformObject
      *
      ************************************************************************************
      */
-    static final double gravity = .5; //Make final constants since we change this throughout
+    static final double gravity = .5; 
     static final double dragX = .25;
     static final double walkSpeed = 4;
     static final double jumpSpeedAir = 16;
@@ -155,8 +155,10 @@ public class PlatformPlayer extends PlatformObject
         try{
             if(deleteMe){
                 Class cl = world.getClass();
-                double param1 = 0;
-                double param2 = 0;
+                
+                Platformer p = (Platformer) getWorld();
+                double param1 = p.returnX;
+                double param2 = p.returnY;
                 Constructor con = cl.getConstructor(double.class, double.class);
 
                 java.lang.Object xyz = con.newInstance(param1, param2);

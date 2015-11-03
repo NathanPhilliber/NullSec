@@ -176,10 +176,10 @@ public class LevelCreator extends World
                     else if(thisBlock.myImage == 10 || thisBlock.myImage == 11 ||thisBlock.myImage == 12){
                         writer.write("addObject(new WaterBlock(" + (thisBlock.myImage-10)+"),"+ object.getX()+"+offsetX,"+object.getY()+"+offsetY);\n");
                     }
-                    else if(thisBlock.myImage == 24 || thisBlock.myImage == 25 ||thisBlock.myImage == 60){
+                    else if(thisBlock.myImage == 24 || thisBlock.myImage == 25 ||thisBlock.myImage == 61){
                         writer.write("addObject(new ClimbBlock(" + (thisBlock.myImage)+"),"+ object.getX()+"+offsetX,"+object.getY()+"+offsetY);\n");
                     }
-                    else if(thisBlock.myImage == 74){
+                    else if(thisBlock.myImage == 75){
                         writer.write("addObject(new FallingBlock(" + (thisBlock.myImage)+"),"+ object.getX()+"+offsetX,"+object.getY()+"+offsetY);\n");
                     }
                     else{
@@ -207,7 +207,7 @@ public class LevelCreator extends World
         addObject(grid,0,0);
         addObject(block,0,0);
 
-        //LevelCreatorDisplayBlock.printNames();
+        LevelCreatorDisplayBlock.printNames();
 
     }
 
