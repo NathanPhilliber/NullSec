@@ -1,11 +1,4 @@
 import greenfoot.*;
-
-/**
- * Write a description of class FallingBlock here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class FallingBlock extends Block
 {
     private boolean isFalling = false;
@@ -62,10 +55,8 @@ public class FallingBlock extends Block
 
     protected void addedToWorld(World world)
     {
-        setRealX(getX());
-        setRealY(getY());
+        super.addedToWorld(getWorld());
         orgX = getX();
         orgY = getY();
-
     }  
 }
