@@ -51,6 +51,11 @@ public class Digit extends Menu
             image.scale(image.getWidth() - 35, image.getHeight() - 35);
             setImage(image);
         }
+        if(size == 2){
+            GreenfootImage image = getImage();
+            image.scale(image.getWidth() - 40, image.getHeight() - 40);
+            setImage(image);
+        }
     }
 
     public void act() 

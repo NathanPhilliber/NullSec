@@ -16,4 +16,8 @@ public class GoldText extends WeaponShop
     {
         // Add your action code here.
     }    
+    
+    public void addedToWorld(World world){
+        //override weaponshop one
+    }
 }

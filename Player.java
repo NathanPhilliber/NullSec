@@ -17,18 +17,27 @@ public class Player extends Object implements DamageTaker
     //Velocity of ship
     private double velX;
     private double velY;
+    
+    public static final int TURN_SPEED = 3;
+    public static final double FLY_SPEED = .3;
+    public static final double REV_SPEED = .15;
 
     //Rate at which ship turns and accelerates
-    private int turnSpeed = 3;
-    private double flySpeed = 0.3;
-    private double revSpeed = 0.15;
+    private int turnSpeed = TURN_SPEED;
+    private double flySpeed = FLY_SPEED;
+    private double revSpeed = REV_SPEED;
+    
+    
 
     //The maximum velocity the ship can have
-    private double maxFlySpeed = 4.0;
-    private double maxFlyBoostSpeed = 10.0;
+    public static final double MAX_FLY_SPEED = 4.0;
+    public static final double MAX_FLY_BOOST_SPEED = 10.0;
+    private double maxFlySpeed = MAX_FLY_SPEED;
+    private double maxFlyBoostSpeed = MAX_FLY_BOOST_SPEED;
     //How fast the ship deccelerates 
     //Lower the number the longer it takes to stop
-    private double flyDec = .08;
+    public static final double FLY_DEC = .08;
+    private double flyDec = FLY_DEC;
 
     //How dense the stars should spawn. Higher number means more stars.
     //Number is arbitrary
@@ -38,8 +47,9 @@ public class Player extends Object implements DamageTaker
     private boolean dockPressed = false;
 
     //Health values of player
+    public static final double MAX_HEALTH = 100.0;
     private double health = 100.0;
-    private double maxHealth = 100.0;
+    private double maxHealth = MAX_HEALTH;
 
     //Damage bar for player
     private DamageBar damageBar;
@@ -51,7 +61,7 @@ public class Player extends Object implements DamageTaker
 
     private TutorialObjectManager tutObj;
 
-    public Counter goldScore;
+    //public Counter goldScore;
 
     private int asteroidSpawnChance = 90; //Lower the more common
     private int shootingStarSpawnChance = 60;
@@ -106,26 +116,7 @@ public class Player extends Object implements DamageTaker
                     numEnemiesKilled++;
                     alienCurAlive = false;
 
-                    switch(numEnemiesKilled){
-                        case 1:
-                        updateAvailableWeapons(true, true, false, false, false, false);
-                        break;
-                        case 2:
-                        updateAvailableWeapons(true, true, true, false, false, false);
-                        break;
-                        case 3:
-                        updateAvailableWeapons(true, true, true, true, false, false);
-                        break;
-                        case 4:
-                        updateAvailableWeapons(true, true, true, true, true, false);
-                        break;
-                        case 5:
-                        updateAvailableWeapons(true, true, true, true, true, true);
-                        break;
-
-                        default:
-                        break;
-                    }
+                    
                 }
             }   
         }
@@ -184,6 +175,7 @@ public class Player extends Object implements DamageTaker
             //checkDead(); //Add this back in later, make respawn
             weaponSystems();//john
             keepEnemyOnScreen();
+            updateGoldScore();
             checkDock();
         }
     } 
@@ -214,7 +206,7 @@ public class Player extends Object implements DamageTaker
                 Gold ent = (Gold) obj;
                 gold += ent.value;
                 ent.pickUp();
-                goldScore.setValue(gold);
+                //goldScore.setValue(gold);
             }
 
         }
@@ -783,10 +775,28 @@ public class Player extends Object implements DamageTaker
                 //thisIsATutorial = false;
             }
 
-            goldScore = new Counter("Space Doubloons: ");
-            getWorld().addObject(goldScore, space.getWidth()-119, space.getHeight()-22);
+            //goldScore = new Counter("Space Doubloons: ");
+            //getWorld().addObject(goldScore, space.getWidth()-119, space.getHeight()-22);
+            setUpGoldScore();
             firstTime = false;
         }
+    }
+    
+    private Number goldNumber = new Number(gold+"",2);
+    private double lastGoldCount = gold;
+    
+    private void setUpGoldScore(){
+        space.addObject(new GoldText(),762,22);
+        space.addObject(goldNumber, 855, 18);
+    }
+    
+    private void updateGoldScore(){
+        if(lastGoldCount != gold){
+            goldNumber.remove();
+            goldNumber = new Number(gold+"",2);
+            space.addObject(goldNumber, 855, 18);
+        }
+        lastGoldCount = gold;
     }
 
     //Private method used for star spawning, returns either 1.0 or -1.0

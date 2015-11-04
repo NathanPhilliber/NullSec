@@ -64,7 +64,14 @@ public class Space extends World
 
         scrollListener();
 
-        setPaintOrder(PlayerDot.class, Map.class, Counter.class, TutorialObjectManager.class, DockMenu.class, OutsideMP.class, PlayerShip.class, PlanetMP.class, EnemyShip.class, InsideMP.class, IconProjectile.class, IconFire.class, AlienShip.class, MissleIcon.class, IconPlasma.class, IconLaser.class, IconMine.class, WeaponBG.class, DamageBar.class,EnemyShip.class, Cannon.class, Beam.class,  BeamHUD.class, Projectile.class, Missile.class, Ship.class, PlasmaBall.class, Mine.class, Fireball.class, Particle.class, Asteroid.class, Planet.class, BackgroundStar.class);
+        setPaintOrder(GoldText.class, Number.class, Digit.class, PlayerDot.class, Map.class, 
+            Counter.class, TutorialObjectManager.class, DockMenu.class, OutsideMP.class, 
+            PlayerShip.class, PlanetMP.class, EnemyShip.class, InsideMP.class, IconProjectile.class, 
+            IconFire.class, MissleIcon.class, IconPlasma.class, IconLaser.class, IconMine.class, 
+            WeaponBG.class, BeamBar.class, BarOutline.class,
+            Beam.class,  BeamHUD.class, AlienShip.class, EnemyShip.class, DamageBar.class,
+            Projectile.class, Missile.class, Cannon.class, Ship.class, PlasmaBall.class, Mine.class, 
+            Fireball.class, Particle.class, Asteroid.class, Planet.class, BackgroundStar.class);
 
         PlayerShip playermp = new PlayerShip();
         addObject(playermp, 800, 405);

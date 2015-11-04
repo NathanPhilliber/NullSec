@@ -32,6 +32,11 @@ public class Number extends Menu
                 world.addObject(digits.get(i), getX()+i*18-18, getY());
             }
         }
+        if(version == 2){
+            for(int i = 0; i < digits.size(); i++){
+                world.addObject(digits.get(i), getX()+i*14-14, getY());
+            }
+        }
         else{
             for(int i = 0; i < digits.size(); i++){
                 world.addObject(digits.get(i), getX()+i*45-45, getY());

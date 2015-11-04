@@ -21,6 +21,7 @@ public class WeaponShop extends Menu
     } 
     
     public void addedToWorld(World world){
+        
         shop = (Shop) getWorld();
     }
 }

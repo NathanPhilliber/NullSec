@@ -28,7 +28,8 @@ public class Entity extends SpaceObject implements DamageTaker
     private double flySpeed = 0.3;
 
     //The maximum velocity the ship can have
-    private double maxFlySpeed = 3.0;
+    public static double MAX_FLY_SPEED = 3.0;
+    private double maxFlySpeed = MAX_FLY_SPEED;
 
     //How fast the ship deccelerates 
     //Lower the number the longer it takes to stop
@@ -90,7 +91,7 @@ public class Entity extends SpaceObject implements DamageTaker
     private int circleTargetRadius = 250;
 
     public boolean dropLoot = true;
-    
+
     public boolean isAlive = true;
 
     protected int desiredMode = EXPLORE_MODE;
@@ -104,8 +105,6 @@ public class Entity extends SpaceObject implements DamageTaker
     public Entity(){
         super();
 
-        
-
         spawnX = getX();
         spawnY = getY();
         setTargetX(getX());
@@ -114,7 +113,7 @@ public class Entity extends SpaceObject implements DamageTaker
 
     public Entity(double x, double y){
         super(x,y);
-        
+
         setTargetX(x);
         setTargetY(y);
         spawnX =(int) x;
@@ -176,7 +175,7 @@ public class Entity extends SpaceObject implements DamageTaker
 
         }
 
-        if(getMode() == EXPLORE_MODE && ship.getHealth() - getHealth() >= 5){
+        if(getMode() == EXPLORE_MODE && getMaxHealth() - getHealth() >= 5){
             setMode(ATTACK_MODE);
         }
 
@@ -198,7 +197,17 @@ public class Entity extends SpaceObject implements DamageTaker
             break;
 
             case ATTACK_MODE: /***************** ATTACK MODE */
+            if(Math.abs(ship.getShipLocX()-getSpaceX()) > 500 || Math.abs(ship.getShipLocY()-getSpaceY()) > 500){
+                clearActions();
+                maxFlySpeed = MAX_FLY_SPEED*5;
+                addAction("moveTo/"+ ((int)ship.getShipLocX()+ Greenfoot.getRandomNumber(260)-130) + "/" + ((int)ship.getShipLocY()+ Greenfoot.getRandomNumber(260)-130));
+            }
+            else{
+                maxFlySpeed = MAX_FLY_SPEED;
+            }
+
             if(hasMoreActions() == false){
+
                 if(Greenfoot.getRandomNumber(4) != 0){
                     addAction("shootPlayer/0/10/7");
                 }
@@ -482,7 +491,7 @@ public class Entity extends SpaceObject implements DamageTaker
 
     //Check if the ship is close to its' desired target
     private boolean checkClose(){
-        if(Math.abs(getTargetX()-getSpaceX()) < 3.0 && Math.abs(getTargetY()-getSpaceY()) < 3.0){
+        if(Math.abs(getTargetX()-getSpaceX()) < 1.0*maxFlySpeed && Math.abs(getTargetY()-getSpaceY()) < 1.0*maxFlySpeed){
             return true;
         }
         return false;
@@ -559,7 +568,7 @@ public class Entity extends SpaceObject implements DamageTaker
      *********************************************************/
     private void decayIfFar(){
         if(useDecay){
-            if(isOffscreen()){
+            if(isOffEdge(600)){
                 ticksAwayFromPlayer--;
                 if(ticksAwayFromPlayer < 0){
                     setHealth(0.0);
