@@ -182,44 +182,61 @@ public class Space extends World
         removeObjects(objects);
     }
 
+    private boolean pauseOnce = true;
+    private int totalEscape = 0;
+
     public void act()
     {
-
-        //System.out.println(numberOfObjects());
-        if(!readPause)
+        boolean first = true;
+        //System.out.println(totalEscape);
+        if(Greenfoot.isKeyDown("escape") && totalEscape == 0 && !isPaused)
         {
-            if(setPause == true || Greenfoot.isKeyDown("Escape"))
-                readPause = true;
+            if(first)
+            {
+                setPause = true;
+                addObject(new MenuBG(), getWidth()/2, getHeight()/2);
+                
+                
+                first = false;
+            }
         }
-        if(readPause)
+        else if (Greenfoot.isKeyDown("escape") && isPaused && totalEscape == 0)
         {
-            if(Greenfoot.isKeyDown("Escape"))
-            {
-                if(isPaused) isPaused = false;
-                else         isPaused = true;
-                readPause = false;
-            }
-            if(setPause == true)
-            {
-                isPaused = true;
-            }
-            if(setPause == false)
-            {
-                isPaused = false;
-            }
+            setPause = false;
+            first = true;
+            List<DockMenu> dockMenu = getObjects(DockMenu.class);
+            removeObjects(dockMenu);
+        }
+        if(Greenfoot.isKeyDown("escape") && pauseOnce)
+        {
+            pauseOnce = false;
+            totalEscape += 1;
+        }
+        if(!Greenfoot.isKeyDown("escape") && !pauseOnce)
+        {
+            pauseOnce = true;
+            totalEscape -= 1;
+        }
+        if(setPause == true)
+        {
+            isPaused = true;
+        }
+        if(setPause == false)
+        {
+            isPaused = false;
         }
         if(!isPaused)
         {
             getWeapon();
-            openMap();
         }
+        openMap();
     }
 
     public boolean getIsPaused()
     {
         return isPaused;
     }
-   
+
     //Return ship object
     public Ship getShip(){
         return ship;
@@ -301,40 +318,40 @@ public class Space extends World
     public void openMap()
     {
         Map map = new Map(0);
-            if(Greenfoot.isKeyDown("t") && !mapIsOpen && totalClick == 0)
+        if(Greenfoot.isKeyDown("t") && !mapIsOpen && totalClick == 0)
+        {
+            if(firstPass)
             {
-                if(firstPass)
-                {
-                    int x = (int) (ship.getSpaceX()/10) + 460;
-                    int y = (int) (ship.getSpaceY()/10) + 270;
+                int x = (int) (ship.getSpaceX()/10) + 460;
+                int y = (int) (ship.getSpaceY()/10) + 270;
 
-                    addObject(map, getWidth()/2, getHeight()/2);
-                    addObject(new PlayerIcon(), x, y);
-                    mapIsOpen = true;
-                    firstPass = false;
-                }
+                addObject(map, getWidth()/2, getHeight()/2);
+                addObject(new PlayerIcon(), x, y);
+                mapIsOpen = true;
+                setPause = true;
+                firstPass = false;
             }
-            else if(Greenfoot.isKeyDown("t") && mapIsOpen && totalClick == 0)
-            {
-                List<MapItems> m = getObjects(MapItems.class);
-                removeObjects(m);
-                mapIsOpen = false;
-                firstPass = true;
-            }
-            if(Greenfoot.isKeyDown("t") && pressOnce)
-            {
-                pressOnce = false;
-                totalClick += 1;
-            }
-            if(!Greenfoot.isKeyDown("t") && !pressOnce)
-            {
-                pressOnce = true;
-                totalClick -= 1;
-            }
+        }
+        else if(Greenfoot.isKeyDown("t") && mapIsOpen && totalClick == 0)
+        {
+            List<MapItems> m = getObjects(MapItems.class);
+            removeObjects(m);
+            mapIsOpen = false;
+            firstPass = true;
+            setPause = false;
+        }
+        if(Greenfoot.isKeyDown("t") && pressOnce)
+        {
+            pressOnce = false;
+            totalClick += 1;
+        }
+        if(!Greenfoot.isKeyDown("t") && !pressOnce)
+        {
+            pressOnce = true;
+            totalClick -= 1;
+        }
     }
 }
-
-
 
 //Classception
 class ScrollingListener implements MouseWheelListener
