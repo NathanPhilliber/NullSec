@@ -13,6 +13,7 @@ public class Player extends Object implements DamageTaker
     private double spaceX;
     private double spaceY;
 
+
     //Velocity of ship
     private double velX;
     private double velY;

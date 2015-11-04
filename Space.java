@@ -37,14 +37,14 @@ public class Space extends World
     private boolean mineEnabled = true;
     private boolean fireballEnabled = true;
     private boolean plasmaballEnabled = true;
-    
+
     private double spawnX, spawnY;
     //Contructor, spawn world
     public Space()
     {    
         this(0,0);
     }
-    
+
     public Space(double spawnX, double spawnY){
         super(OptionsMenu.getWorldWidth(), OptionsMenu.getWorldHeight(), 1, false);
         this.spawnX = spawnX;
@@ -64,7 +64,7 @@ public class Space extends World
 
         scrollListener();
 
-        setPaintOrder(Counter.class, TutorialObjectManager.class, DockMenu.class, OutsideMP.class, PlayerShip.class, PlanetMP.class, EnemyShip.class, InsideMP.class, IconProjectile.class, IconFire.class, AlienShip.class, MissleIcon.class, IconPlasma.class, IconLaser.class, IconMine.class, WeaponBG.class, DamageBar.class,EnemyShip.class, Cannon.class, Beam.class,  BeamHUD.class, Projectile.class, Missile.class, Ship.class, PlasmaBall.class, Mine.class, Fireball.class, Particle.class, Asteroid.class, Planet.class, BackgroundStar.class);
+        setPaintOrder(PlayerDot.class, Map.class, Counter.class, TutorialObjectManager.class, DockMenu.class, OutsideMP.class, PlayerShip.class, PlanetMP.class, EnemyShip.class, InsideMP.class, IconProjectile.class, IconFire.class, AlienShip.class, MissleIcon.class, IconPlasma.class, IconLaser.class, IconMine.class, WeaponBG.class, DamageBar.class,EnemyShip.class, Cannon.class, Beam.class,  BeamHUD.class, Projectile.class, Missile.class, Ship.class, PlasmaBall.class, Mine.class, Fireball.class, Particle.class, Asteroid.class, Planet.class, BackgroundStar.class);
 
         PlayerShip playermp = new PlayerShip();
         addObject(playermp, 800, 405);
@@ -205,6 +205,7 @@ public class Space extends World
         {
             clearText();
             getWeapon();
+            openMap();
         }
     }
 
@@ -248,9 +249,9 @@ public class Space extends World
     public double getWeapon()
     {
         tempWep += scroll.getScroll();
-        
+
         int numType = weaponType();
-        
+
         if (numType != -1){
             tempWep = numType;
         }
@@ -310,12 +311,35 @@ public class Space extends World
         {
             weaponType = 5;
         }
-        
+
         return weaponType;
     }
+    private boolean mapIsOpen;
+    private boolean firstPass = true;
+    public void openMap()
+    {
+        Map map = new Map(0);
+        PlayerDot pdot = new PlayerDot();
 
+        if(Greenfoot.isKeyDown("t") && !mapIsOpen)
+        {
+            if(firstPass)
+            {
+                addObject(map, getWidth()/2, getHeight()/2);
+                addObject(pdot, getWidth()/2, getHeight()/2);
+                mapIsOpen = true;
+                firstPass = false;
+            }
+        }
+        else if(!Greenfoot.isKeyDown("t") && mapIsOpen)
+        {
+            List<MapItems> m = getObjects(MapItems.class);
+            removeObjects(m);
+            mapIsOpen = false;
+            firstPass = true;
+        }
+    }
 }
-
 
 //Classception
 class ScrollingListener implements MouseWheelListener
@@ -330,7 +354,7 @@ class ScrollingListener implements MouseWheelListener
 
     public double getScroll(){
         double t = Math.round(initAmount/2);
-        
+
         initAmount = 0;
         return t;
     }
