@@ -1,6 +1,8 @@
 import greenfoot.*;
 import java.awt.Color;
 import java.awt.Graphics.*;
+import java.util.List;
+
 /**
  * Every object in space that is not related to the player will be  subclass
  * of this class. This class mainly keeps track of movement.
@@ -40,6 +42,7 @@ public class SpaceObject extends Object
             if(!space.isPaused)
             {
                 updatePosition();
+                movePlayerDot();
             }
         }
 
@@ -59,6 +62,18 @@ public class SpaceObject extends Object
         if (mpRadius>=Math.sqrt(Math.pow(x-800,2)+Math.pow(y-405,2)))
         {
             getWorld().addObject(object, x, y);
+        }
+    }
+
+    public void movePlayerDot()
+    {
+        List<Actor> playDot = getWorld().getObjects(PlayerDot.class);
+        if(!playDot.isEmpty())
+        {
+            Actor pDot = playDot.get(0);
+            int x =(int) ship.getSpaceX()/100;
+            int y = (int) ship.getSpaceX()/100;
+            pDot.setLocation(x, y);
         }
     }
 

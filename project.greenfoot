@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Tue Nov 03 15:01:59 PST 2015
+#Tue Nov 03 17:09:32 PST 2015
 dependency211.to=LevelCreatorDisplayBlock
 target33.typeParameters=
 dependency314.to=Weapon
@@ -123,6 +123,7 @@ dependency23.to=Beam
 class.BarOutline.superclass=BoostBar
 target83.editor.width=900
 target67.name=OuterSpace
+class.Map.superclass=MapItems
 dependency278.type=UsesDependency
 target79.width=110
 target42.naviview.expanded=false
@@ -615,6 +616,7 @@ target13.editor.y=66
 target13.editor.x=171
 dependency232.from=Level6
 target64.naviview.expanded=false
+class.PlayerDot.image=PlayerDot.png
 class.AsteroidLarge.image=Asteroid1.png
 target19.typeParameters=
 target18.editor.width=900
@@ -2044,6 +2046,7 @@ target103.name=Cannon
 target128.y=1270
 target128.x=10
 class.Level2.superclass=Platformer
+class.PlayerDot.superclass=MapItems
 target122.showInterface=false
 dependency217.type=UsesDependency
 target105.editor.width=900
@@ -2257,6 +2260,7 @@ target27.typeParameters=
 dependency292.from=UnlockButton
 dependency209.from=StartMenu
 target90.width=80
+class.MapItems.superclass=HUD
 class.BeamBar.superclass=BoostBar
 target126.height=50
 target81.naviview.expanded=true
@@ -2722,7 +2726,7 @@ dependency55.type=UsesDependency
 target41.editor.height=700
 class.LaserText.superclass=WeaponShop
 dependency251.type=UsesDependency
-world.lastInstantiated=LevelCreator
+world.lastInstantiated=OuterSpace
 target77.typeParameters=
 target59.y=10
 target9.showInterface=false
