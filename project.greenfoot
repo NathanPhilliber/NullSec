@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Tue Nov 03 22:17:28 PST 2015
+#Tue Nov 03 22:43:58 PST 2015
 dependency211.to=LevelCreatorDisplayBlock
 target33.typeParameters=
 dependency314.to=Weapon
@@ -353,6 +353,7 @@ dependency48.to=IconMine
 dependency83.type=UsesDependency
 target3.y=430
 target3.x=10
+class.All.superclass=greenfoot.Actor
 dependency7.from=BackgroundStar
 target113.editor.y=68
 target127.width=80
@@ -1739,6 +1740,7 @@ dependency120.type=UsesDependency
 target11.y=250
 target11.x=100
 target90.editor.width=900
+class.BulletLauncher.superclass=Block
 dependency20.to=Mine
 dependency145.from=Shop
 target37.editor.height=700
@@ -2755,7 +2757,7 @@ target40.name=MineDes
 target41.editor.height=700
 dependency55.type=UsesDependency
 dependency321.from=Level10
-world.lastInstantiated=OuterSpace
+world.lastInstantiated=Level6
 dependency251.type=UsesDependency
 class.LaserText.superclass=WeaponShop
 target77.typeParameters=

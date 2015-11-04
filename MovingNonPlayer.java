@@ -24,6 +24,11 @@ public class MovingNonPlayer extends NonPlayer
     {
         setVelX(x);
     }
+    public void move(double a)
+    {
+        setVelX(a*cosRot());
+        setVelY(a*cosRot());
+    }
     private void collision()
     {
         int steps=10;
