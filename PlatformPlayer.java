@@ -139,6 +139,10 @@ public class PlatformPlayer extends PlatformObject
             moveSpeed = walkSpeed;
             jumpSpeed = jumpSpeedAir;
         }
+        if(getY() > 800)
+        {
+            kill();
+        }
 
     }
     private int pauseCycles = 0;
