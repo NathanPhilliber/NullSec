@@ -183,6 +183,13 @@ public class Object extends SmoothMover
         space.addObject(par, 0, 0);
 
     }
+    
+    public void addExclamation(double x, double y, int imageWidth){
+        space.addObject(new Particle(x,y-imageWidth,15, 0, 5, 10, 10,0,"images/Exclamation.png"),-10,-10);
+    space.addObject(new Particle(x-imageWidth,y-imageWidth,15, 0, 5, 10, 10,0,"images/Exclamation.png"),-10,-10);
+    space.addObject(new Particle(x+imageWidth,y-imageWidth,15, 0, 5, 10, 10,0,"images/Exclamation.png"),-10,-10);
+    space.addObject(new Particle(x,y+imageWidth,15, 0, 20, 5, 10,0,"images/Exclamation.png"),-10,-10);
+    }
 
     public void addShootingStar(double x, double y){
         for(int i = 0; i < 2; i++)

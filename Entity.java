@@ -177,6 +177,7 @@ public class Entity extends SpaceObject implements DamageTaker
 
         if(getMode() == EXPLORE_MODE && getMaxHealth() - getHealth() >= 5){
             setMode(ATTACK_MODE);
+            //addExclamation(getSpaceX(), getSpaceY(), 35);
         }
 
         switch(getMode()){
