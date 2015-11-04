@@ -1,5 +1,5 @@
 import greenfoot.*;
-public class LavaBlock extends NonPlayer
+public class LavaBlock extends NoCollisionBlock
 {
     public void act() 
     {

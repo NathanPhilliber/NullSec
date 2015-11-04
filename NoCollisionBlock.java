@@ -1,11 +1,11 @@
 import greenfoot.*;
-public class ExitPortal extends NoCollisionBlock
+public class NoCollisionBlock extends NonPlayer
 {
     public void act() 
     {
         super.act();
     }    
-    public ExitPortal()
+    public NoCollisionBlock()
     {
         super();
     }

@@ -1,5 +1,5 @@
 import greenfoot.*;
-public class ClimbBlock extends NonPlayer
+public class ClimbBlock extends NoCollisionBlock
 {
     public ClimbBlock()
     {

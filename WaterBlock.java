@@ -1,5 +1,5 @@
 import greenfoot.*;
-public class WaterBlock extends NonPlayer
+public class WaterBlock extends NoCollisionBlock
 {
     public void act() 
     {

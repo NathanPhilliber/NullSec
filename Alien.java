@@ -10,7 +10,8 @@ public class Alien extends MovingNonPlayer
     {
         super.act();
         gravity(gravity);
-        //moveX();
+        moveX(1);
+        //shootPlayer();
     }
     public Alien()
     {

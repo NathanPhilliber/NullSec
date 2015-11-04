@@ -8,7 +8,7 @@ public class MovingNonPlayer extends NonPlayer
     }    
     public MovingNonPlayer()
     {
-        
+        super();
     }
     
     public void addedToWorld(World world){
@@ -20,9 +20,9 @@ public class MovingNonPlayer extends NonPlayer
     {
        velY=y*10;
     } 
-    protected void moveX()
+    protected void moveX(double x)
     {
-        setVelX(1);
+        setVelX(x);
     }
     private void collision()
     {
