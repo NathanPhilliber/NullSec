@@ -13,8 +13,14 @@ public class Level11 extends Platformer
      * Constructor for objects of class Level11.
      * 
      */
-    public Level11()
+    
+    public Level11(){
+        this(0,0);
+    }
+    public Level11(double x, double y)
+    
     {
+        super(x,y);
         //Level Generated
 
         int offsetX = 0;
