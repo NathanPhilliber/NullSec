@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Tue Nov 03 20:46:30 PST 2015
+#Tue Nov 03 21:34:07 PST 2015
 dependency211.to=LevelCreatorDisplayBlock
 target33.typeParameters=
 dependency314.to=Weapon
@@ -789,6 +789,7 @@ dependency42.type=UsesDependency
 target90.naviview.expanded=true
 dependency119.from=Player
 target69.type=ClassTarget
+class.PlayerShield.superclass=Object
 target76.height=50
 target53.editor.height=700
 target62.editor.y=43
