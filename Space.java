@@ -64,7 +64,7 @@ public class Space extends World
 
         scrollListener();
 
-        setPaintOrder(GoldText.class, PlayerDot.class, Map.class, 
+        setPaintOrder(GoldText.class, PlayerIcon.class, Map.class, 
             Counter.class, TutorialObjectManager.class, DockMenu.class, OutsideMP.class, 
             PlayerShip.class, PlanetMP.class, EnemyShip.class, InsideMP.class, IconProjectile.class, 
             IconFire.class, MissleIcon.class, IconPlasma.class, IconLaser.class, IconMine.class, 
@@ -293,32 +293,48 @@ public class Space extends World
 
         return weaponType;
     }
+
     private boolean mapIsOpen;
     private boolean firstPass = true;
+    private boolean pressOnce = true;
+    private int totalClick = 0;
     public void openMap()
     {
         Map map = new Map(0);
-        PlayerDot pdot = new PlayerDot();
-
-        if(Greenfoot.isKeyDown("t") && !mapIsOpen)
-        {
-            if(firstPass)
+            if(Greenfoot.isKeyDown("t") && !mapIsOpen && totalClick == 0)
             {
-                addObject(map, getWidth()/2, getHeight()/2);
-                addObject(pdot, getWidth()/2, getHeight()/2);
-                mapIsOpen = true;
-                firstPass = false;
+                if(firstPass)
+                {
+                    int x = (int) (ship.getSpaceX()/10) + 460;
+                    int y = (int) (ship.getSpaceY()/10) + 270;
+
+                    addObject(map, getWidth()/2, getHeight()/2);
+                    addObject(new PlayerIcon(), x, y);
+                    mapIsOpen = true;
+                    firstPass = false;
+                }
             }
-        }
-        else if(!Greenfoot.isKeyDown("t") && mapIsOpen)
-        {
-            List<MapItems> m = getObjects(MapItems.class);
-            removeObjects(m);
-            mapIsOpen = false;
-            firstPass = true;
-        }
+            else if(Greenfoot.isKeyDown("t") && mapIsOpen && totalClick == 0)
+            {
+                List<MapItems> m = getObjects(MapItems.class);
+                removeObjects(m);
+                mapIsOpen = false;
+                firstPass = true;
+            }
+            if(Greenfoot.isKeyDown("t") && pressOnce)
+            {
+                pressOnce = false;
+                totalClick += 1;
+            }
+            if(!Greenfoot.isKeyDown("t") && !pressOnce)
+            {
+                pressOnce = true;
+                totalClick -= 1;
+            }
     }
 }
+
+
 
 //Classception
 class ScrollingListener implements MouseWheelListener

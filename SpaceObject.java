@@ -42,7 +42,6 @@ public class SpaceObject extends Object
             if(!space.isPaused)
             {
                 updatePosition();
-                movePlayerDot();
             }
         }
 
@@ -62,18 +61,6 @@ public class SpaceObject extends Object
         if (mpRadius>=Math.sqrt(Math.pow(x-800,2)+Math.pow(y-405,2)))
         {
             getWorld().addObject(object, x, y);
-        }
-    }
-
-    public void movePlayerDot()
-    {
-        List<Actor> playDot = getWorld().getObjects(PlayerDot.class);
-        if(!playDot.isEmpty())
-        {
-            Actor pDot = playDot.get(0);
-            int x =(int) ship.getSpaceX()/100;
-            int y = (int) ship.getSpaceX()/100;
-            pDot.setLocation(x, y);
         }
     }
 
