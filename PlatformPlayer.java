@@ -11,9 +11,9 @@ public class PlatformPlayer extends PlatformObject
      *
      ************************************************************************************
      */
-    static final double dragX = .25;
+    static final double dragX = .45;
     static final double walkSpeed = 4;
-    static final double jumpSpeedAir = 16;
+    static final double jumpSpeedAir = 13.5;
     static final double climbSpeed = 3;
     static final double swimSpeed = 2;
     static final int sideScrollDist = 400;
@@ -51,6 +51,13 @@ public class PlatformPlayer extends PlatformObject
         setImage(standRight.getCurrentImage());
     }
 
+    public boolean isMovingX(){
+        if(velX != 0){
+            return true;
+        }
+        return false;
+    }
+
     public void act() 
     {
         pausePlayerHelper();
@@ -66,6 +73,8 @@ public class PlatformPlayer extends PlatformObject
             checkIfOffEdge();
             checkSpecialCollisions();
         }
+
+        //System.out.println(isMovingX());
     }
 
     public void lockPlayerMovement(boolean lock){
@@ -142,7 +151,7 @@ public class PlatformPlayer extends PlatformObject
         try{
             if(deleteMe){
                 Class cl = world.getClass();
-                
+
                 Platformer p = (Platformer) getWorld();
                 double param1 = p.returnX;
                 double param2 = p.returnY;
@@ -197,15 +206,26 @@ public class PlatformPlayer extends PlatformObject
                 i=steps;
             }
         }
-        if ((getExactX()>=getWorld().getWidth()-sideScrollDist&&isWalkingRight)||(getExactX()<=sideScrollDist&&isWalkingLeft))
+       
+        if ((getExactX()>=getWorld().getWidth()-sideScrollDist&&(isWalkingRight||isMovingX()))
+        ||(getExactX()<=sideScrollDist&&(isWalkingLeft||isMovingX())))
         {
             //System.out.println("move");
             //System.out.println(getExactX()-oldX);
             w.addOffset(getExactX()-oldX);
             setLocation(oldX,getExactY());
         }
-
         
+        
+        /*
+        
+        if(isMovingX()){
+            w.addOffset(getExactX()-oldX);
+            setLocation(oldX,getExactY());
+        }
+        */
+    
+
         /*
         double dif=getExactX()-sideScrollDist;
         if(dif<=0&&velX<=0)
