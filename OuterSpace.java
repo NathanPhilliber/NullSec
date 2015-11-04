@@ -42,15 +42,15 @@ public class OuterSpace extends Space
         /********  ADD YOUR SPACE OBJECT STUFF HERE  *******/
         //addObject(new AlienShip(0,0), 0,0);
         
-        Planet planetOne = new Planet(1000,-1000, new Level3(1000,-1000), "images/Planet1.png");
+        Planet planetOne = new Planet(1000,-1000, new Level3(1000,-1000), "images/Planet1.png","2");
         addObject(planetOne,3000, 0);
 
         
         
-        Planet planetOne2 = new Planet(2500,400, new Level3(2500,400), "images/Planet2.png");
+        Planet planetOne2 = new Planet(2500,400, new Level3(2500,400), "images/Planet2.png","3");
         addObject(planetOne2,3000, 0);
 
-        Planet planetTwo = new Planet(500, 1000, new Level3(500,1000), "images/Planet3.png");
+        Planet planetTwo = new Planet(500, 1000, new Level3(500,1000), "images/Planet3.png","4");
         addObject(planetTwo,3000, 0);
 
         /*

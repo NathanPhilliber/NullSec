@@ -1,8 +1,12 @@
 #BlueJ class context
-comment0.params=startX\ startY\ world\ image
-comment0.target=Planet(double,\ double,\ greenfoot.World,\ java.lang.String)
+comment0.params=startX\ startY\ world\ image\ worldNumber
+comment0.target=Planet(double,\ double,\ greenfoot.World,\ java.lang.String,\ java.lang.String)
 comment1.params=
 comment1.target=void\ act()
 comment2.params=
 comment2.target=void\ loadWorld()
-numComments=3
+comment3.params=world
+comment3.target=void\ addedToWorld(greenfoot.World)
+comment4.params=
+comment4.target=void\ tryDrawLabel()
+numComments=5
