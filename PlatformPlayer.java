@@ -30,6 +30,7 @@ public class PlatformPlayer extends PlatformObject
     private boolean isWalkingRight=true;
     private boolean isWalkingLeft=false;
     private boolean locked = false;
+    private boolean onClimb=false;
 
     private int ticksStuckInBlock = 0;
 
@@ -68,10 +69,10 @@ public class PlatformPlayer extends PlatformObject
             }
             showDebug(false);
             gravity(gravity);
-            updatePosition();
             restartWorld();
             checkIfOffEdge();
             checkSpecialCollisions();
+            updatePosition();//LAST
         }
 
         //System.out.println(isMovingX());
@@ -146,22 +147,44 @@ public class PlatformPlayer extends PlatformObject
             kill();
         }
         else if(anyClimb){
-            jumpSpeed = 0;
-            if(Greenfoot.isKeyDown("w") || Greenfoot.isKeyDown("space")){
-                velY = -climbSpeed;
-                onBlock = false;
-
+            ClimbBlock climb=(ClimbBlock)getOneIntersectingObject(ClimbBlock.class);
+            if(getRealX()<=climb.getRealX()+6&&getRealX()>=climb.getRealX()-6)
+            {
+                if(Greenfoot.isKeyDown("w")||Greenfoot.isKeyDown("space"))
+                {
+                    velX=0;
+                    onClimb=true;
+                }
+                if(onClimb)
+                {
+                    onBlock=true;
+                    jumpSpeed = 0;
+                    velY=0;
+                    if(Greenfoot.isKeyDown("w")||Greenfoot.isKeyDown("space"))
+                    {
+                        velY=-climbSpeed;
+                    }
+                    if(Greenfoot.isKeyDown("s"))
+                    {
+                        velY=climbSpeed;
+                    }
+                    if(Greenfoot.isKeyDown("shift"))
+                    {
+                        onClimb=false;
+                    }
+                }
             }
-            if(Greenfoot.isKeyDown("shift")){
-                velY = -gravity;
-                onBlock = false;
+            else
+            {
+                onClimb=false;
+                onBlock=false;
             }
         }
         else{
-            moveSpeed = walkSpeed;
-            jumpSpeed = jumpSpeedAir;
+            moveSpeed=walkSpeed;
+            jumpSpeed=jumpSpeedAir;
         }
-        if(getY() > 800)
+        if(getY()>getWorld().getHeight()+100)
         {
             kill();
         }

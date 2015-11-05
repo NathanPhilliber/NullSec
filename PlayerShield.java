@@ -1,11 +1,4 @@
 import greenfoot.*;
-
-/**
- * Write a description of class PlayerShield here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class PlayerShield extends Object
 {
     public PlayerShield(){

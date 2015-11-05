@@ -19,7 +19,4 @@ public class Ship extends Player
             setImage("RocketIdle.png");
         }
     }  
-    
-    
-    
 }

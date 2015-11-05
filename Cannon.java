@@ -1,5 +1,5 @@
 import greenfoot.*;
-public class Cannon extends Player
+public class Cannon extends Ship
 {
     public void act() 
     { 
