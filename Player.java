@@ -567,7 +567,6 @@ public class Player extends Object implements DamageTaker
         beamCharge();
         if (Greenfoot.isKeyDown("c") || rMButton())
         {
-
             if (mouseAim){
                 weaponTimer(mouseAngle(),LV,wep);
             }
@@ -575,14 +574,15 @@ public class Player extends Object implements DamageTaker
                 weaponTimer(getRotation(),LV,wep);
             }
         }
-        else{
+        else if(weaponTimer>=10000)
+        {
             weaponTimer = 0;
         }
     }
 
     private void beamCharge()
     {
-        beamChargeBar();
+        //beamChargeBar();
         if (beamCharge<300){
             beamCharge++;
         }
@@ -635,7 +635,6 @@ public class Player extends Object implements DamageTaker
                 plasmaBall(angle,LV,getShipLocX(),getShipLocY(), true);
             }
         }
-
     }
 
     private void toggleWeaponLV(){
