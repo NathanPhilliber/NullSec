@@ -12,7 +12,7 @@ public class Bullet extends MovingNonPlayer
     }  
     public Bullet(int angle)
     {
-        //super();
+        super();
         setRotation(angle);
     }
     
@@ -34,7 +34,8 @@ public class Bullet extends MovingNonPlayer
         }
     }
     
-    public void deleteMe(){
+    public void deleteMe()
+    {
         if ( deleteMe){
             w.removeObject(this);
         }

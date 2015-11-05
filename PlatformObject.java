@@ -9,13 +9,16 @@ public class PlatformObject extends Object
     protected boolean firstTime=true;
     protected Platformer w;
     static final Class blockType = Block.class;
+    protected void addedToWorld(World world)
+    {
+        w=(Platformer)world;
+    }
     public void act()
     {
         
     }
     protected void updatePos()
     {
-        
         if(w == null){
            w=(Platformer)getWorld(); 
         }

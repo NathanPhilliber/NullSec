@@ -4,7 +4,7 @@ public class NonPlayer extends PlatformObject
     protected void addedToWorld(World world)
     {
         super.addedToWorld(world);
-        setRealX(getX());
+        setRealX(getX()+w.getOffset());
         setRealY(getY());
     }
     public NonPlayer()

@@ -10,12 +10,6 @@ public class MovingNonPlayer extends NonPlayer
     {
         super();
     }
-
-    
-    public void addedToWorld(World world){
-        setRealX(getX());
-        setRealY(getY());
-    }
     
     protected void gravity(double y)
     {
