@@ -10,6 +10,7 @@ public class MovingNonPlayer extends NonPlayer
     {
         super();
     }
+
     
     public void addedToWorld(World world){
         setRealX(getX());
@@ -27,7 +28,7 @@ public class MovingNonPlayer extends NonPlayer
     public void move(double a)
     {
         setVelX(a*cosRot());
-        setVelY(a*cosRot());
+        setVelY(a*sinRot());
     }
     private void collision()
     {

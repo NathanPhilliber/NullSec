@@ -1,13 +1,32 @@
 import greenfoot.*;
 public class BulletLauncher extends Block
 {
+    public int rotation = 0;
+    private int cooldown = 0;
+
     public void act() 
     {
         super.act();
-        getWorld().addObject(new Bullet(180),getX(),getY());
+        cooldown++;
+        if(cooldown > 100){
+            cooldown = 0;
+            if(rotation == 0){
+                getWorld().addObject(new Bullet(rotation),(int)(getRealX()+27),getY());
+            }
+            else if(rotation == 180){
+                getWorld().addObject(new Bullet(rotation),(int)(getRealX()-27),getY());
+            }
+        }
+
     }   
-    public BulletLauncher()
+
+    public BulletLauncher(int blockType, int direction)
     {
-        super();
+        super(blockType);
+        rotation = direction;
+    }
+
+    public BulletLauncher(){
+        this(0,0);
     }
 }

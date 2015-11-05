@@ -119,7 +119,6 @@ public class PlatformPlayer extends PlatformObject
                 anySpike = true;
             }
 
-            
         }
         if(anyWater){
             if(anyAir){
@@ -127,7 +126,7 @@ public class PlatformPlayer extends PlatformObject
                 jumpSpeed = jumpSpeedAir/10;
             }
             else{
-                
+
                 moveSpeed = .8;
                 jumpSpeed = 6;
                 if(Greenfoot.isKeyDown("w") || Greenfoot.isKeyDown("space")){
@@ -227,16 +226,16 @@ public class PlatformPlayer extends PlatformObject
                 i=steps;
             }
         }
-
+        /*
         if ((getExactX()>=getWorld().getWidth()-sideScrollDist&&(isWalkingRight))
         ||(getExactX()<=sideScrollDist&&(isWalkingLeft)))
         {
-            //System.out.println("move");
-            //System.out.println(getExactX()-oldX);
-            w.addOffset(getExactX()-oldX);
-            setLocation(oldX,getExactY());
+        //System.out.println("move");
+        //System.out.println(getExactX()-oldX);
+        w.addOffset(getExactX()-oldX);
+        setLocation(oldX,getExactY());
         }
-
+         */
         /*
         if(isMovingX()){
         w.addOffset(getExactX()-oldX);
@@ -244,17 +243,20 @@ public class PlatformPlayer extends PlatformObject
         }
          */
 
-        /*
         double dif=getExactX()-sideScrollDist;
-        if(dif<=0&&velX<=0)
+        if(dif<=0&&velX<0&&w.getOffset()>=0)
         {
-        w.addOffset(dif);
+            w.addOffset(dif);
         }
         dif=getExactX()+sideScrollDist-getWorld().getWidth();
-        if(dif>=0&&velX>=0)
+        if(dif>=0&&velX>0)
         {
-        w.addOffset(dif);
-        }*/
+            w.addOffset(dif);
+        }
+        
+        if(w.getOffset() < 0){
+            w.setOffset(0);
+        }
 
         //Y check
         for (int i=0;i<=steps-1;i++)
@@ -273,11 +275,11 @@ public class PlatformPlayer extends PlatformObject
                 addRealY(-getVelY()/steps);
                 setLocation(getExactX(),getRealY());
                 if(velY > 0){
-                  onBlock = true;  
+                    onBlock = true;  
                 }
                 velY=0;
                 i=steps;
-                
+
             }
             if(velY!=0)
             {

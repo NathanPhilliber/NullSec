@@ -3,7 +3,7 @@ public class NonPlayer extends PlatformObject
 {
     protected void addedToWorld(World world)
     {
-        super.addedToWorld(getWorld());
+        super.addedToWorld(world);
         setRealX(getX());
         setRealY(getY());
     }
