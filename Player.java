@@ -162,7 +162,7 @@ public class Player extends Object implements DamageTaker
                 fly(); 
             }
 
-            showDebug(false);
+            showDebug(true);
             scrollWeapon();
             spawnAsteroid();
             spawnShootingStar();
@@ -293,25 +293,23 @@ public class Player extends Object implements DamageTaker
         //If spacebar or w is pressed
         if(isAccelerating()){
             int angle = getRotation();
-            //addRocketTrail(getShipLocX()-30*Math.cos(getRotation()*2*Math.PI/360), getShipLocY()-30*Math.sin(getRotation()*2*Math.PI/360));
             //Add to velocity based on what angle the ship is turned to
-            addVelX((Math.cos(Math.toRadians(angle))*getFlySpeed()));
-            addVelY((Math.sin(Math.toRadians(angle))*getFlySpeed()));
-
+            addVelX((cos(angle)*getFlySpeed()));
+            addVelY((sin(angle)*getFlySpeed()));
             //Check if ship is going too fast
             if(Greenfoot.isKeyDown("space")&&boostCD>0)//BOOST
             {
                 boostCD-=2;
-                if(Math.abs(getVelX()) >= getMaxFlyBoostSpeed()){
-                    setVelX(getMaxFlyBoostSpeed()*Integer.signum((int)getVelX()));
-                    addRocketTrail(getShipLocX()-30*cosRot(),getShipLocY()-30*sinRot());
-                }
-                if(Math.abs(getVelY()) >= getMaxFlyBoostSpeed()){
-                    setVelY(getMaxFlyBoostSpeed()*Integer.signum((int)getVelY()));
+                if(Math.sqrt(Math.pow(getVelX(),2)+Math.pow(getVelY(),2))>=getMaxFlyBoostSpeed())
+                {
+                    setVelX(getMaxFlyBoostSpeed()*cos(Math.atan2(getVelY(),getVelX())*180/Math.PI));
+                    setVelY(getMaxFlyBoostSpeed()*sin(Math.atan2(getVelY(),getVelX())*180/Math.PI));
                     addRocketTrail(getShipLocX()-30*cosRot(),getShipLocY()-30*sinRot());
                 }
             }
-            else{
+            else
+            {
+                /**>>>>>>>>>USE THE TRIG<<<<<<<<<<<<<<<**//*
                 if(Math.abs(getVelX()) >= getMaxFlySpeed()){
                     //Set velocity to maximum velocity in correct direction
                     setVelX(getMaxFlySpeed()*Integer.signum((int)getVelX()));
@@ -319,6 +317,12 @@ public class Player extends Object implements DamageTaker
                 }
                 if(Math.abs(getVelY()) >= getMaxFlySpeed()){
                     setVelY(getMaxFlySpeed()*Integer.signum((int)getVelY()));
+                    addRocketTrail(getShipLocX()-30*cosRot(),getShipLocY()-30*sinRot());
+                }*/
+                if(Math.sqrt(Math.pow(getVelX(),2)+Math.pow(getVelY(),2))>=getMaxFlySpeed())
+                {
+                    setVelX(getMaxFlySpeed()*cos(Math.atan2(getVelY(),getVelX())*180/Math.PI));
+                    setVelY(getMaxFlySpeed()*sin(Math.atan2(getVelY(),getVelX())*180/Math.PI));
                     addRocketTrail(getShipLocX()-30*cosRot(),getShipLocY()-30*sinRot());
                 }
             }
@@ -384,8 +388,8 @@ public class Player extends Object implements DamageTaker
     {
         blinkCD++;
         if (Greenfoot.isKeyDown("v") && blinkCD>=200){
-            addSpaceX(250*Math.cos(getRotation()*2*Math.PI/360));
-            addSpaceY(250*Math.sin(getRotation()*2*Math.PI/360));
+            addSpaceX(250*cosRot());
+            addSpaceY(250*sinRot());
             blinkCD=0;
         }
     }
