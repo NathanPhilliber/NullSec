@@ -93,6 +93,8 @@ public class PlatformPlayer extends PlatformObject
 
         boolean anyWater = false;
         boolean anyClimb = false;
+        boolean anyAir = false;
+        boolean anySpike = false;
 
         for(PlatformObject object : objects){
 
@@ -105,23 +107,38 @@ public class PlatformPlayer extends PlatformObject
             }
             else if(object instanceof WaterBlock){
                 anyWater = true;
-                System.out.println("SWIM!");
+                if(getOneObjectAtOffset(0,-27, WaterBlock.class) == null){
+                    anyAir = true;
+                }
 
             }
             else if(object instanceof ClimbBlock){
                 anyClimb = true;
             }
+            else if(object instanceof SpikeBlock){
+                anySpike = true;
+            }
 
+            
         }
         if(anyWater){
-
-            moveSpeed = .8;
-            jumpSpeed = 6;
-            if(Greenfoot.isKeyDown("w") || Greenfoot.isKeyDown("space")){
-                velY = -swimSpeed;
-                onBlock = false;
-
+            if(anyAir){
+                onBlock = true;
+                jumpSpeed = jumpSpeedAir/10;
             }
+            else{
+                
+                moveSpeed = .8;
+                jumpSpeed = 6;
+                if(Greenfoot.isKeyDown("w") || Greenfoot.isKeyDown("space")){
+                    velY = -swimSpeed;
+                    onBlock = false;
+
+                }
+            }
+        }
+        else if(anySpike){
+            kill();
         }
         else if(anyClimb){
             jumpSpeed = 0;
@@ -210,7 +227,7 @@ public class PlatformPlayer extends PlatformObject
                 i=steps;
             }
         }
-       
+
         if ((getExactX()>=getWorld().getWidth()-sideScrollDist&&(isWalkingRight))
         ||(getExactX()<=sideScrollDist&&(isWalkingLeft)))
         {
@@ -219,16 +236,13 @@ public class PlatformPlayer extends PlatformObject
             w.addOffset(getExactX()-oldX);
             setLocation(oldX,getExactY());
         }
-        
-        
+
         /*
-        
         if(isMovingX()){
-            w.addOffset(getExactX()-oldX);
-            setLocation(oldX,getExactY());
+        w.addOffset(getExactX()-oldX);
+        setLocation(oldX,getExactY());
         }
-        */
-    
+         */
 
         /*
         double dif=getExactX()-sideScrollDist;
@@ -258,9 +272,12 @@ public class PlatformPlayer extends PlatformObject
             {
                 addRealY(-getVelY()/steps);
                 setLocation(getExactX(),getRealY());
+                if(velY > 0){
+                  onBlock = true;  
+                }
                 velY=0;
                 i=steps;
-                onBlock=true;
+                
             }
             if(velY!=0)
             {
