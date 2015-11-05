@@ -52,9 +52,10 @@ public class Object extends SmoothMover
         }
     }
 
-    public int mouseAngle()//from center of world
+    public int getMouseAngle()//from center of world
     {
         MouseInfo m = Greenfoot.getMouseInfo();
+        Space space=(Space)getWorld();
         if(m != null)
         {
             return (int)Math.round(Math.atan2((m.getY()-space.getHeight()/2),(m.getX()-space.getWidth()/2))*360/(2*Math.PI));
@@ -351,7 +352,7 @@ public class Object extends SmoothMover
     {
         for (int i=0; i<=charge*(LV+2); i++)
         {
-            space.addObject(new Beam(angle, isPlayer, beamDamage, X, Y), (int)Math.round(getX()+i*8*Math.cos(angle*2*Math.PI/360)), (int)Math.round(getY()+i*8*Math.sin(angle*2*Math.PI/360)));
+            space.addObject(new Beam(angle, isPlayer, beamDamage, X, Y), (int)Math.round(getX()+i*8*cos(angle)), (int)Math.round(getY()+i*8*sin(angle)));
         }
     }
 

@@ -99,8 +99,8 @@ public class SpaceObject extends Object
     }
 
     public void spaceMove(double speed){
-        addSpaceX(speed*Math.cos(getRotation()*2*Math.PI/360));
-        addSpaceY(speed*Math.sin(getRotation()*2*Math.PI/360));
+        addSpaceX(speed*cosRot());
+        addSpaceY(speed*sinRot());
     }
 
 }

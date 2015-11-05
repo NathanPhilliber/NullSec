@@ -455,8 +455,8 @@ public class Entity extends SpaceObject implements DamageTaker
             turnTowards((int)(getTargetX()-ship.getSpaceX()), (int)(getTargetY()-ship.getSpaceY()));
             int angle = getRotation();
 
-            addSpaceX(Math.cos(Math.toRadians(angle))*maxFlySpeed);
-            addSpaceY(Math.sin(Math.toRadians(angle))*maxFlySpeed);
+            addSpaceX(cos(angle)*maxFlySpeed);
+            addSpaceY(sin(angle)*maxFlySpeed);
 
             if(checkClose()){
                 setReachedTarget(true);

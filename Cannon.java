@@ -6,22 +6,7 @@ public class Cannon extends Player
        Space theWorld = (Space) getWorld();
        if(!theWorld.isPaused)
        {
-           setupCannon();
+           setRotation(getMouseAngle());
        }
-    }
-    public void setupCannon()
-    {
-        MouseInfo mouse = Greenfoot.getMouseInfo();
-        Actor a = getOneIntersectingObject(Ship.class);
-        
-        if(mouse != null)
-        {
-            turnTowards(mouse.getX(), mouse.getY());
-        }
-        setLocation(a.getX(), a.getY());
-    }
-    public Cannon()
-    {
-        
     }
 }

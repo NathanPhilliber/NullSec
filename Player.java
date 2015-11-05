@@ -582,7 +582,7 @@ public class Player extends Object implements DamageTaker
         if (Greenfoot.isKeyDown("c") || rMButton())
         {
             if (mouseAim){
-                weaponTimer(mouseAngle(),LV,wep);
+                weaponTimer(getMouseAngle(),LV,wep);
             }
             else{
                 weaponTimer(getRotation(),LV,wep);
