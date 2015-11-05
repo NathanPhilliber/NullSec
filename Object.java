@@ -109,30 +109,6 @@ public class Object extends SmoothMover
             scheduleRemoval();
         }
     }
-
-    public boolean isAtEdge()
-    {
-        if (getX() <= 0)
-        {
-            return true;
-        }
-        else if (getX() >= space.getWidth()-1)
-        {
-            return true;
-        }
-        else if (getY() <= 0)
-        {
-            return true;
-        }
-        else if (getY() >= space.getHeight()-1)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
     //john end
 
     public void addExplosion(double x, double y){
