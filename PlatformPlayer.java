@@ -13,7 +13,7 @@ public class PlatformPlayer extends PlatformObject
      */
     static final double dragX = .45;
     static final double walkSpeed = 4;
-    static final double jumpSpeedAir = 13.5;
+    static final double jumpSpeedAir = 10;
     static final double climbSpeed = 3;
     static final double swimSpeed = 2;
     static final int sideScrollDist = 400;
@@ -211,8 +211,8 @@ public class PlatformPlayer extends PlatformObject
             }
         }
        
-        if ((getExactX()>=getWorld().getWidth()-sideScrollDist&&(isWalkingRight||isMovingX()))
-        ||(getExactX()<=sideScrollDist&&(isWalkingLeft||isMovingX())))
+        if ((getExactX()>=getWorld().getWidth()-sideScrollDist&&(isWalkingRight))
+        ||(getExactX()<=sideScrollDist&&(isWalkingLeft)))
         {
             //System.out.println("move");
             //System.out.println(getExactX()-oldX);
