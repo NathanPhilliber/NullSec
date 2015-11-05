@@ -8,13 +8,13 @@ public class BulletLauncher extends Block
     {
         super.act();
         cooldown++;
-        if(cooldown > 100){
+        if(cooldown > 80){
             cooldown = 0;
             if(rotation == 0){
-                getWorld().addObject(new Bullet(rotation),getX()+28,getY());
+                getWorld().addObject(new Bullet(rotation),getX()+20,getY());
             }
             else if(rotation == 180){
-                getWorld().addObject(new Bullet(rotation),getX()-28,getY());
+                getWorld().addObject(new Bullet(rotation),getX()-20,getY());
             }
         }
 

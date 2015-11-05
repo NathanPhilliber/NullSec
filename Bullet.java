@@ -8,6 +8,7 @@ public class Bullet extends MovingNonPlayer
     {
         super.act();
         move(speed);
+        deleteOnEdge();
         deleteMe();
     }  
     public Bullet(int angle)
@@ -19,7 +20,7 @@ public class Bullet extends MovingNonPlayer
     
     
     public void deleteOnEdge(){
-        if(isOffEdge(20)){
+        if(getX() > w.getWidth() || getX() < 0){
             deleteMe = true;
         }
     }

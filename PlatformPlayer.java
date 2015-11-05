@@ -95,6 +95,7 @@ public class PlatformPlayer extends PlatformObject
         boolean anyClimb = false;
         boolean anyAir = false;
         boolean anySpike = false;
+        boolean anyBullet = false;
 
         for(PlatformObject object : objects){
 
@@ -118,6 +119,9 @@ public class PlatformPlayer extends PlatformObject
             else if(object instanceof SpikeBlock){
                 anySpike = true;
             }
+            else if(object instanceof Bullet){
+                anyBullet = true;
+            }
 
         }
         if(anyWater){
@@ -137,6 +141,8 @@ public class PlatformPlayer extends PlatformObject
             }
         }
         else if(anySpike){
+            kill();
+        }else if(anyBullet){
             kill();
         }
         else if(anyClimb){

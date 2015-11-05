@@ -20,9 +20,9 @@ public class LevelCreator extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(7000, 540, 1, false); 
-        
+
         LevelCreatorDisplayBlock.printNames();
-        
+
         setPaintOrder(LevelCreatorPalletBlock.class, LevelCreatorGrid.class, LevelCreatorDisplayBlock.class, LevelCreatorBlockHover.class);
         prepare();
         showText("Press e/left mouse to place. Press r/right mouse to place no collision block\nPress enter to export. Press i to import. Press f to open menu"+
@@ -121,7 +121,6 @@ public class LevelCreator extends World
                 myBlock.noCollision = true; 
                 addObject(myBlock, 27*Math.round(mouse.getX()/27)+13+27, 27*Math.round(mouse.getY()/27)+13);
 
-
             }
         }
         if(Greenfoot.isKeyDown("f")){
@@ -187,6 +186,12 @@ public class LevelCreator extends World
                     }
                     else if(thisBlock.myImage == 84){
                         writer.write("addObject(new SpikeBlock(" + (thisBlock.myImage)+"),"+ object.getX()+"+offsetX,"+object.getY()+"+offsetY);\n");
+                    }
+                    else if(thisBlock.myImage == 85){
+                        writer.write("addObject(new BulletLauncher(" + (thisBlock.myImage)+",0),"+ object.getX()+"+offsetX,"+object.getY()+"+offsetY);\n");
+                    }
+                    else if(thisBlock.myImage == 86){
+                        writer.write("addObject(new BulletLauncher(" + (thisBlock.myImage)+",180),"+ object.getX()+"+offsetX,"+object.getY()+"+offsetY);\n");
                     }
                     else{
                         writer.write("addObject(new Block(" + thisBlock.myImage+"),"+ object.getX()+"+offsetX,"+object.getY()+"+offsetY);\n");
@@ -324,7 +329,7 @@ public class LevelCreator extends World
 
                     addObject(new LevelCreatorBlock(Integer.parseInt(type)), Integer.parseInt(x)+offsetX, Integer.parseInt(y)+offsetY);
                 }
-                
+
                 if(line.contains("new SpikeBlock")){
                     String[] parts = line.split(",");
                     String x = parts[1].replace("+offsetX","");
@@ -336,6 +341,33 @@ public class LevelCreator extends World
 
                     addObject(new LevelCreatorBlock(Integer.parseInt(type)), Integer.parseInt(x)+offsetX, Integer.parseInt(y)+offsetY);
                 }
+                
+                if(line.contains("new BulletLauncher")){
+                    if(line.contains("85,0)")){
+                        String[] parts = line.split(",");
+                        String x = parts[2].replace("+offsetX","");
+                        String y = parts[3].replace("+offsetY);","");
+
+                        System.out.println(parts[0]);
+                        String[] parts2 = parts[0].split("\\(");
+                        String type = parts2[2].replace(")","");
+
+                        addObject(new LevelCreatorBlock(85), Integer.parseInt(x)+offsetX, Integer.parseInt(y)+offsetY); 
+                    }
+                    if(line.contains("86,180")){
+                        String[] parts = line.split(",");
+                        String x = parts[2].replace("+offsetX","");
+                        String y = parts[3].replace("+offsetY);","");
+
+                        System.out.println(parts[0]);
+                        String[] parts2 = parts[0].split("\\(");
+                        String type = parts2[2].replace(")","");
+
+                        addObject(new LevelCreatorBlock(86), Integer.parseInt(x)+offsetX, Integer.parseInt(y)+offsetY); 
+                    }
+
+                }
+                
 
                 if(line.contains("new BackgroundBlock")){
                     String[] parts = line.split(",");
