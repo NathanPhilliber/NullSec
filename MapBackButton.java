@@ -1,17 +1,13 @@
 import greenfoot.*;
 
 /**
- * Write a description of class MapButton here.
+ * Write a description of class MapBackButton here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class MapButton extends Menu
+public class MapBackButton extends Menu
 {
-    /**
-     * Act - do whatever the MapButton wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     public void act() 
     {
         if(Greenfoot.mousePressed(null)){
@@ -29,5 +25,5 @@ public class MapButton extends Menu
             Space space = (Space) getWorld();
             space.openMap(true);
         }
-    }
+    }  
 }

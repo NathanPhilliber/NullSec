@@ -37,6 +37,11 @@ public class Space extends World
     private boolean mineEnabled = true;
     private boolean fireballEnabled = true;
     private boolean plasmaballEnabled = true;
+    
+    MapButton mapButton = new MapButton();
+    MapBackButton mapBackButton = new MapBackButton();
+    
+    GotoShopButton gotoShopButton = new GotoShopButton();
 
     private double spawnX, spawnY;
     //Contructor, spawn world
@@ -64,7 +69,7 @@ public class Space extends World
 
         scrollListener();
 
-        setPaintOrder(GoldText.class, PlayerIcon.class, Map.class, 
+        setPaintOrder(GotoShopButton.class, MapBackButton.class, PlayerIcon.class, Map.class, GoldText.class,
             Counter.class, TutorialObjectManager.class, DockMenu.class, OutsideMP.class, 
             PlayerShip.class, PlanetMP.class, EnemyShip.class, InsideMP.class, IconProjectile.class, 
             IconFire.class, MissleIcon.class, IconPlasma.class, IconLaser.class, IconMine.class, 
@@ -86,6 +91,10 @@ public class Space extends World
 
         addObject(new BoostBarOutside(), 460, 508);
         addObject(new BoostBarInside(), 460, 508);
+        
+        addObject(mapButton, 660,18);
+        addObject(gotoShopButton, 592, 18);
+        
         
     }
 
@@ -230,7 +239,7 @@ public class Space extends World
         {
             getWeapon();
         }
-        openMap();
+        openMap(false);
     }
 
     public boolean getIsPaused()
@@ -316,10 +325,10 @@ public class Space extends World
     private boolean firstPass = true;
     private boolean pressOnce = true;
     private int totalClick = 0;
-    public void openMap()
+    public void openMap(boolean override)
     {
         Map map = new Map(0);
-        if(Greenfoot.isKeyDown("t") && !mapIsOpen && totalClick == 0)
+        if((Greenfoot.isKeyDown("t") && !mapIsOpen && totalClick == 0) || (override && !mapIsOpen))
         {
             if(firstPass)
             {
@@ -328,15 +337,17 @@ public class Space extends World
 
                 addObject(map, getWidth()/2, getHeight()/2);
                 addObject(new PlayerIcon(), x, y);
+                addObject(mapBackButton, 471, 18);
                 mapIsOpen = true;
                 setPause = true;
                 firstPass = false;
             }
         }
-        else if(Greenfoot.isKeyDown("t") && mapIsOpen && totalClick == 0)
+        else if((Greenfoot.isKeyDown("t") && mapIsOpen && totalClick == 0) || (mapIsOpen && override))
         {
             List<MapItems> m = getObjects(MapItems.class);
             removeObjects(m);
+            removeObject(mapBackButton);
             mapIsOpen = false;
             firstPass = true;
             setPause = false;

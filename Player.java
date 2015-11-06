@@ -105,7 +105,7 @@ public class Player extends Object implements DamageTaker
     private boolean alienCurAlive = false;
 
     public void keepEnemyOnScreen(){
-        if(getWorld() instanceof OuterSpace){
+        if(space instanceof OuterSpace){
             if(alienCurAlive == false){
                 alien = new AlienShip(getShipLocX()+Greenfoot.getRandomNumber(500)-250, getShipLocY()+Greenfoot.getRandomNumber(500)-250);
                 space.addObject(alien,0,0);
@@ -162,7 +162,7 @@ public class Player extends Object implements DamageTaker
                 fly(); 
             }
 
-            showDebug(true);
+            showDebug(false);
             scrollWeapon();
             spawnAsteroid();
             spawnShootingStar();
@@ -278,7 +278,7 @@ public class Player extends Object implements DamageTaker
     private void boostChargeBar()
     {
         for (int i=1; i <= boostCD/50; i++){
-            getWorld().addObject(new BoostBarSegment(),383+i*14,518);
+            space.addObject(new BoostBarSegment(),383+i*14,518);
         }
     }
     //Checks for key presses and changes coords ("moves" ship)
@@ -424,7 +424,7 @@ public class Player extends Object implements DamageTaker
 
     //Generates stars offscreen
     private void generateStars(int density){
-        World world = getWorld();
+        World world = space;
 
         //Doesn't spawn stars every call, higher density will increase odds
         //Don't spawn more than 120 stars
@@ -453,7 +453,7 @@ public class Player extends Object implements DamageTaker
     }
 
     private void generateNebulas(int density){
-        World world = getWorld();
+        World world = space;
 
         //Doesn't spawn stars every call, higher density will increase odds
         //Don't spawn more than 120 stars
@@ -611,7 +611,7 @@ public class Player extends Object implements DamageTaker
     private void beamChargeBar()
     {
         for (int i=1; i <= beamCharge/15; i++){
-            getWorld().addObject(new Beam(0, true, 0, 400, 520),418+i*4,520);
+            space.addObject(new Beam(0, true, 0, 400, 520),418+i*4,520);
         }
     }
 
@@ -917,11 +917,11 @@ public class Player extends Object implements DamageTaker
     }
 
     public double getShipLocX(){
-        return getSpaceX()+getWorld().getWidth()/2;
+        return getSpaceX()+space.getWidth()/2;
     }
 
     public double getShipLocY(){
-        return getSpaceY()+getWorld().getHeight()/2;
+        return getSpaceY()+space.getHeight()/2;
     }
 
     private long tick = 0;

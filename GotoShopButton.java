@@ -1,17 +1,13 @@
 import greenfoot.*;
 
 /**
- * Write a description of class MapButton here.
+ * Write a description of class GotoShopButton here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class MapButton extends Menu
+public class GotoShopButton extends Menu
 {
-    /**
-     * Act - do whatever the MapButton wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     public void act() 
     {
         if(Greenfoot.mousePressed(null)){
@@ -27,7 +23,8 @@ public class MapButton extends Menu
     public void select(boolean sel){
         if(sel){
             Space space = (Space) getWorld();
-            space.openMap(true);
+            Ship ship = space.getShip();
+            Greenfoot.setWorld(new Shop(ship.getSpaceX(), ship.getSpaceY()));
         }
-    }
+    }  
 }

@@ -17,6 +17,14 @@ public class AsteroidSmall extends Asteroid
     public AsteroidSmall(double x, double y, int rotation, double speed){
         super(x,y,rotation,speed);
     }
+    public AsteroidSmall(double x, double y, int rotation, double speed, boolean noHit){
+        super(x,y,rotation,speed, noHit);
+        if(noHit){
+            damage = 0;
+        }
+        
+    }
+    
 
     public void act() 
     {

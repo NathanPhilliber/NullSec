@@ -74,14 +74,33 @@ public class Shop extends World
     Number goldNumber = new Number("0", 1);
 
     GoldText goldtext = new GoldText();
+    ShopBackButton shopBackButton = new ShopBackButton();
 
     public int currentPanel = 0;
     public int currentButton = 0;
+    
+    private double returnX, returnY;
+    
+    public Shop(){
+        this(0,0);
+    }
+    
+    public Shop(double x, double y){
+        super(OptionsMenu.getWorldWidth(), OptionsMenu.getWorldHeight(), 1, false); 
+        returnX = x;
+        returnY = y;
+        prepare();
+        
+    }
 
     public void act(){
         if(Greenfoot.isKeyDown("q")){
-            Greenfoot.setWorld(new OuterSpace());
+            exit();
         }
+    }
+    
+    public void exit(){
+        Greenfoot.setWorld(new OuterSpace(returnX, returnY));
     }
 
     public void assembleEngine(){
@@ -420,13 +439,7 @@ public class Shop extends World
         }
     }
 
-    public Shop()
-    {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(OptionsMenu.getWorldWidth(), OptionsMenu.getWorldHeight(), 1, false); 
-
-        prepare();
-    }
+    
 
     private void prepare()
     {
@@ -439,6 +452,7 @@ public class Shop extends World
         addObject(weaponButton2, 462, 475);
 
         addObject(weaponButton3, 755, 475);
+        addObject(shopBackButton,851,22);
 
         addObject(sideButton4, 67, 207);
         addObject(sideButton5, 67, 240);
