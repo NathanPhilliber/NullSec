@@ -94,6 +94,7 @@ public class Player extends Object implements DamageTaker
     private boolean playerDisabled = false;
 
     public static int gold = 3000;
+    public static int goldPotential = 0;
 
     /*************************************************************/
     /*********************  DEMO STUFF  **************************/

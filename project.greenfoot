@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Fri Nov 06 14:41:31 PST 2015
+#Fri Nov 06 15:03:16 PST 2015
 dependency211.to=LevelCreatorDisplayBlock
 target33.typeParameters=
 dependency314.to=Weapon
@@ -1675,6 +1675,7 @@ dependency228.type=UsesDependency
 target74.width=80
 dependency213.from=LevelCreator
 target85.typeParameters=
+class.Coin.image=coinEffect.png
 target8.width=80
 target62.height=50
 dependency143.type=UsesDependency
@@ -1852,6 +1853,7 @@ dependency32.to=Player
 dependency72.type=UsesDependency
 target99.type=ClassTarget
 target128.naviview.expanded=true
+class.Coin.superclass=NoCollisionBlock
 dependency97.from=Object
 target107.y=2530
 target107.x=220
@@ -3127,7 +3129,7 @@ dependency336.type=UsesDependency
 target41.editor.height=700
 dependency55.type=UsesDependency
 dependency321.from=Level10
-world.lastInstantiated=Platformer
+world.lastInstantiated=Level3
 dependency251.type=UsesDependency
 class.LaserText.superclass=WeaponShop
 target77.typeParameters=

@@ -99,10 +99,13 @@ public class PlatformPlayer extends PlatformObject
         boolean anyBullet = false;
         boolean anyElevator = false;
         boolean anySlime = false;
+        
 
         for(PlatformObject object : objects){
 
             if(object instanceof ExitPortal){
+                Player.gold += Player.goldPotential;
+                Player.goldPotential = 0;
                 Platformer plat = (Platformer) getWorld();
                 Greenfoot.setWorld(new OuterSpace(plat.returnX, plat.returnY));
             }
@@ -124,6 +127,10 @@ public class PlatformPlayer extends PlatformObject
             }
             else if(object instanceof Bullet){
                 anyBullet = true;
+            }
+            else if(object instanceof Coin){
+                Coin coin = (Coin) object;
+                coin.pickup();
             }
             else if(object instanceof ElevatorBlock){
                 if(getOneObjectAtOffset(0,20, ElevatorBlock.class) == null){
@@ -222,6 +229,9 @@ public class PlatformPlayer extends PlatformObject
         World world = getWorld();
         try{
             if(deleteMe){
+                
+                Player.goldPotential = 0;
+                
                 Class cl = world.getClass();
 
                 Platformer p = (Platformer) getWorld();
