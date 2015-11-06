@@ -13,6 +13,8 @@ public class MeltingBlock extends Block
     private int delayDelete = 0;
     private int delay = 0;
     private boolean start = false;
+    
+    public int meltDelay = 9;
 
     MeltingBlock left = null;
     MeltingBlock right = null;
@@ -37,7 +39,7 @@ public class MeltingBlock extends Block
     public void delayDelete(){
         if(deleteMe == true){
             delayDelete++;
-            if(delayDelete > 25){
+            if(delayDelete > meltDelay){
                 w.removeObject(this);
             }
         }
@@ -46,7 +48,7 @@ public class MeltingBlock extends Block
     private void delayCommand(){
         if(start){
             delay++;
-            if(delay > 25){
+            if(delay > meltDelay){
                 if(left != null){
                     left.melt(0);
                 }

@@ -250,6 +250,8 @@ public class Player extends Object implements DamageTaker
             planetLoadDelay--;
 
             addPlanetDock(getShipLocX(), getShipLocY());
+            
+            
 
         }
         else if(planetLoadDelay == 1){
@@ -258,6 +260,8 @@ public class Player extends Object implements DamageTaker
             currentPlanet.loadWorld();
         }
     }
+    
+    
 
     public void resetDockMenu(){
         dockPressed = false;

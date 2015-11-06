@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Fri Nov 06 14:19:25 PST 2015
+#Fri Nov 06 14:41:31 PST 2015
 dependency211.to=LevelCreatorDisplayBlock
 target33.typeParameters=
 dependency314.to=Weapon
@@ -1578,6 +1578,7 @@ class.Level3.image=PlanetOneBG.png
 target58.type=ClassTarget
 target55.width=90
 dependency4.to=BackgroundStar
+class.Level13.superclass=Platformer
 dependency337.from=Space
 dependency56.from=IconProjectile
 target98.height=50
@@ -3126,7 +3127,7 @@ dependency336.type=UsesDependency
 target41.editor.height=700
 dependency55.type=UsesDependency
 dependency321.from=Level10
-world.lastInstantiated=OuterSpace
+world.lastInstantiated=Platformer
 dependency251.type=UsesDependency
 class.LaserText.superclass=WeaponShop
 target77.typeParameters=

@@ -352,7 +352,7 @@ public class PlatformPlayer extends PlatformObject
         Actor g = getOneIntersectingObject(blockType);
         if(g != null){
             ticksStuckInBlock++;
-            if(ticksStuckInBlock > 75){
+            if(ticksStuckInBlock > 50){
                 addRealY(-5);
                 //setLocation(getRealX(), getExactY()-5);
                 //System.out.println("Help Me");
