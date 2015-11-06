@@ -19,104 +19,390 @@ public class Level2 extends Platformer
     }
     private void prepare()
     {
-        addObject(new PlatformPlayer(),540,50);
+        //Level Generated
 
-        addObject(new ExitPortal(),4580, 412);
+int offsetX = 0;
+int offsetY = 0;
 
-        for (int i = 0; i <= 75; i++)
-        {
-            addObject(new Block(), 27*i, 500);
-        }
+setBackground("PlanetOneBG.png");
+addObject(new MeltingBlock(89),418+offsetX,310+offsetY);
+addObject(new MeltingBlock(89),418+offsetX,337+offsetY);
+addObject(new MeltingBlock(89),445+offsetX,337+offsetY);
+addObject(new MeltingBlock(89),418+offsetX,364+offsetY);
+addObject(new MeltingBlock(89),445+offsetX,364+offsetY);
+addObject(new MeltingBlock(89),445+offsetX,391+offsetY);
+addObject(new MeltingBlock(89),364+offsetX,472+offsetY);
+addObject(new MeltingBlock(89),337+offsetX,472+offsetY);
+addObject(new MeltingBlock(89),283+offsetX,445+offsetY);
+addObject(new MeltingBlock(89),256+offsetX,472+offsetY);
+addObject(new MeltingBlock(89),283+offsetX,472+offsetY);
+addObject(new MeltingBlock(89),310+offsetX,472+offsetY);
+addObject(new MeltingBlock(89),256+offsetX,445+offsetY);
+addObject(new MeltingBlock(89),202+offsetX,445+offsetY);
+addObject(new MeltingBlock(89),175+offsetX,472+offsetY);
+addObject(new MeltingBlock(89),202+offsetX,472+offsetY);
+addObject(new MeltingBlock(89),229+offsetX,472+offsetY);
+addObject(new MeltingBlock(89),175+offsetX,445+offsetY);
+addObject(new MeltingBlock(89),229+offsetX,445+offsetY);
+addObject(new MeltingBlock(89),148+offsetX,472+offsetY);
+addObject(new MeltingBlock(89),148+offsetX,445+offsetY);
+addObject(new MeltingBlock(89),94+offsetX,445+offsetY);
+addObject(new MeltingBlock(89),67+offsetX,472+offsetY);
+addObject(new MeltingBlock(89),94+offsetX,472+offsetY);
+addObject(new MeltingBlock(89),121+offsetX,472+offsetY);
+addObject(new MeltingBlock(89),67+offsetX,445+offsetY);
+addObject(new MeltingBlock(89),121+offsetX,445+offsetY);
+addObject(new MeltingBlock(89),67+offsetX,418+offsetY);
+addObject(new MeltingBlock(89),94+offsetX,418+offsetY);
+addObject(new MeltingBlock(89),67+offsetX,391+offsetY);
+addObject(new MeltingBlock(89),94+offsetX,391+offsetY);
+addObject(new MeltingBlock(89),67+offsetX,310+offsetY);
+addObject(new MeltingBlock(89),67+offsetX,364+offsetY);
+addObject(new MeltingBlock(89),67+offsetX,337+offsetY);
+addObject(new MeltingBlock(89),94+offsetX,310+offsetY);
+addObject(new MeltingBlock(89),94+offsetX,364+offsetY);
+addObject(new MeltingBlock(89),94+offsetX,337+offsetY);
+addObject(new MeltingBlock(89),148+offsetX,337+offsetY);
+addObject(new MeltingBlock(89),175+offsetX,310+offsetY);
+addObject(new MeltingBlock(89),175+offsetX,337+offsetY);
+addObject(new MeltingBlock(89),202+offsetX,310+offsetY);
+addObject(new MeltingBlock(89),202+offsetX,337+offsetY);
+addObject(new MeltingBlock(89),229+offsetX,310+offsetY);
+addObject(new MeltingBlock(89),229+offsetX,337+offsetY);
+addObject(new MeltingBlock(89),256+offsetX,310+offsetY);
+addObject(new MeltingBlock(89),256+offsetX,337+offsetY);
+addObject(new MeltingBlock(89),283+offsetX,310+offsetY);
+addObject(new MeltingBlock(89),310+offsetX,310+offsetY);
+addObject(new MeltingBlock(89),337+offsetX,310+offsetY);
+addObject(new MeltingBlock(89),364+offsetX,310+offsetY);
+addObject(new MeltingBlock(89),364+offsetX,337+offsetY);
+addObject(new MeltingBlock(89),364+offsetX,364+offsetY);
+addObject(new MeltingBlock(89),310+offsetX,364+offsetY);
+addObject(new MeltingBlock(89),283+offsetX,337+offsetY);
+addObject(new MeltingBlock(89),310+offsetX,337+offsetY);
+addObject(new MeltingBlock(89),337+offsetX,337+offsetY);
+addObject(new MeltingBlock(89),310+offsetX,391+offsetY);
+addObject(new MeltingBlock(89),337+offsetX,364+offsetY);
+addObject(new MeltingBlock(89),283+offsetX,364+offsetY);
+addObject(new MeltingBlock(89),148+offsetX,391+offsetY);
+addObject(new MeltingBlock(89),121+offsetX,418+offsetY);
+addObject(new MeltingBlock(89),148+offsetX,418+offsetY);
+addObject(new MeltingBlock(89),175+offsetX,418+offsetY);
+addObject(new MeltingBlock(89),121+offsetX,391+offsetY);
+addObject(new MeltingBlock(89),175+offsetX,391+offsetY);
+addObject(new MeltingBlock(89),229+offsetX,391+offsetY);
+addObject(new MeltingBlock(89),202+offsetX,418+offsetY);
+addObject(new MeltingBlock(89),229+offsetX,418+offsetY);
+addObject(new MeltingBlock(89),256+offsetX,418+offsetY);
+addObject(new MeltingBlock(89),202+offsetX,391+offsetY);
+addObject(new MeltingBlock(89),337+offsetX,391+offsetY);
+addObject(new MeltingBlock(89),337+offsetX,418+offsetY);
+addObject(new MeltingBlock(89),364+offsetX,391+offsetY);
+addObject(new MeltingBlock(89),418+offsetX,391+offsetY);
+addObject(new MeltingBlock(89),364+offsetX,445+offsetY);
+addObject(new MeltingBlock(89),364+offsetX,418+offsetY);
+addObject(new MeltingBlock(89),391+offsetX,472+offsetY);
+addObject(new MeltingBlock(89),391+offsetX,445+offsetY);
+addObject(new MeltingBlock(89),418+offsetX,418+offsetY);
+addObject(new MeltingBlock(89),418+offsetX,472+offsetY);
+addObject(new MeltingBlock(89),418+offsetX,445+offsetY);
+addObject(new MeltingBlock(89),445+offsetX,418+offsetY);
+addObject(new MeltingBlock(89),445+offsetX,472+offsetY);
+addObject(new MeltingBlock(89),445+offsetX,445+offsetY);
+addObject(new MeltingBlock(89),472+offsetX,418+offsetY);
+addObject(new MeltingBlock(89),472+offsetX,472+offsetY);
+addObject(new MeltingBlock(89),472+offsetX,445+offsetY);
+addObject(new MeltingBlock(89),526+offsetX,445+offsetY);
+addObject(new MeltingBlock(89),499+offsetX,472+offsetY);
+addObject(new MeltingBlock(89),526+offsetX,472+offsetY);
+addObject(new MeltingBlock(89),499+offsetX,445+offsetY);
+addObject(new MeltingBlock(89),553+offsetX,472+offsetY);
+addObject(new MeltingBlock(89),553+offsetX,445+offsetY);
+addObject(new MeltingBlock(89),580+offsetX,472+offsetY);
+addObject(new MeltingBlock(89),580+offsetX,445+offsetY);
+addObject(new MeltingBlock(89),607+offsetX,472+offsetY);
+addObject(new MeltingBlock(89),634+offsetX,472+offsetY);
+addObject(new MeltingBlock(89),661+offsetX,472+offsetY);
+addObject(new MeltingBlock(89),688+offsetX,472+offsetY);
+addObject(new MeltingBlock(89),715+offsetX,472+offsetY);
+addObject(new MeltingBlock(89),742+offsetX,472+offsetY);
+addObject(new MeltingBlock(89),742+offsetX,445+offsetY);
+addObject(new MeltingBlock(89),688+offsetX,418+offsetY);
+addObject(new MeltingBlock(89),742+offsetX,418+offsetY);
+addObject(new MeltingBlock(89),742+offsetX,391+offsetY);
+addObject(new MeltingBlock(89),553+offsetX,337+offsetY);
+addObject(new MeltingBlock(89),472+offsetX,337+offsetY);
+addObject(new MeltingBlock(89),526+offsetX,337+offsetY);
+addObject(new MeltingBlock(89),472+offsetX,391+offsetY);
+addObject(new MeltingBlock(89),472+offsetX,364+offsetY);
+addObject(new MeltingBlock(89),526+offsetX,364+offsetY);
+addObject(new MeltingBlock(89),526+offsetX,418+offsetY);
+addObject(new MeltingBlock(89),526+offsetX,391+offsetY);
+addObject(new MeltingBlock(89),553+offsetX,364+offsetY);
+addObject(new MeltingBlock(89),553+offsetX,418+offsetY);
+addObject(new MeltingBlock(89),580+offsetX,418+offsetY);
+addObject(new MeltingBlock(89),553+offsetX,391+offsetY);
+addObject(new MeltingBlock(89),580+offsetX,337+offsetY);
+addObject(new MeltingBlock(89),580+offsetX,391+offsetY);
+addObject(new MeltingBlock(89),580+offsetX,364+offsetY);
+addObject(new MeltingBlock(89),634+offsetX,418+offsetY);
+addObject(new MeltingBlock(89),661+offsetX,418+offsetY);
+addObject(new MeltingBlock(89),634+offsetX,391+offsetY);
+addObject(new MeltingBlock(89),688+offsetX,391+offsetY);
+addObject(new MeltingBlock(89),634+offsetX,364+offsetY);
+addObject(new MeltingBlock(89),634+offsetX,337+offsetY);
+addObject(new MeltingBlock(89),688+offsetX,364+offsetY);
+addObject(new MeltingBlock(89),742+offsetX,364+offsetY);
+addObject(new MeltingBlock(89),688+offsetX,337+offsetY);
+addObject(new MeltingBlock(89),742+offsetX,337+offsetY);
+addObject(new MeltingBlock(89),742+offsetX,310+offsetY);
+addObject(new MeltingBlock(89),688+offsetX,310+offsetY);
+addObject(new MeltingBlock(89),634+offsetX,283+offsetY);
+addObject(new MeltingBlock(89),634+offsetX,310+offsetY);
+addObject(new MeltingBlock(89),580+offsetX,310+offsetY);
+addObject(new MeltingBlock(89),580+offsetX,283+offsetY);
+addObject(new MeltingBlock(89),553+offsetX,310+offsetY);
+addObject(new MeltingBlock(89),553+offsetX,283+offsetY);
+addObject(new MeltingBlock(89),526+offsetX,310+offsetY);
+addObject(new MeltingBlock(89),526+offsetX,283+offsetY);
+addObject(new MeltingBlock(89),472+offsetX,283+offsetY);
+addObject(new MeltingBlock(89),445+offsetX,310+offsetY);
+addObject(new MeltingBlock(89),472+offsetX,310+offsetY);
+addObject(new MeltingBlock(89),364+offsetX,283+offsetY);
+addObject(new MeltingBlock(89),337+offsetX,283+offsetY);
+addObject(new MeltingBlock(89),283+offsetX,256+offsetY);
+addObject(new MeltingBlock(89),283+offsetX,283+offsetY);
+addObject(new MeltingBlock(89),310+offsetX,283+offsetY);
+addObject(new MeltingBlock(89),310+offsetX,256+offsetY);
+addObject(new MeltingBlock(89),229+offsetX,283+offsetY);
+addObject(new MeltingBlock(89),256+offsetX,283+offsetY);
+addObject(new MeltingBlock(89),202+offsetX,283+offsetY);
+addObject(new MeltingBlock(89),175+offsetX,283+offsetY);
+addObject(new MeltingBlock(89),148+offsetX,283+offsetY);
+addObject(new MeltingBlock(89),67+offsetX,283+offsetY);
+addObject(new MeltingBlock(89),94+offsetX,283+offsetY);
+addObject(new MeltingBlock(89),67+offsetX,256+offsetY);
+addObject(new MeltingBlock(89),67+offsetX,229+offsetY);
+addObject(new MeltingBlock(89),94+offsetX,256+offsetY);
+addObject(new MeltingBlock(89),94+offsetX,229+offsetY);
+addObject(new MeltingBlock(89),148+offsetX,229+offsetY);
+addObject(new MeltingBlock(89),148+offsetX,256+offsetY);
+addObject(new MeltingBlock(89),175+offsetX,256+offsetY);
+addObject(new MeltingBlock(89),175+offsetX,229+offsetY);
+addObject(new MeltingBlock(89),202+offsetX,256+offsetY);
+addObject(new MeltingBlock(89),229+offsetX,256+offsetY);
+addObject(new MeltingBlock(89),256+offsetX,256+offsetY);
+addObject(new MeltingBlock(89),202+offsetX,229+offsetY);
+addObject(new MeltingBlock(89),310+offsetX,229+offsetY);
+addObject(new MeltingBlock(89),337+offsetX,256+offsetY);
+addObject(new MeltingBlock(89),337+offsetX,229+offsetY);
+addObject(new MeltingBlock(89),364+offsetX,256+offsetY);
+addObject(new MeltingBlock(89),364+offsetX,229+offsetY);
+addObject(new MeltingBlock(89),418+offsetX,256+offsetY);
+addObject(new MeltingBlock(89),445+offsetX,256+offsetY);
+addObject(new MeltingBlock(89),418+offsetX,229+offsetY);
+addObject(new MeltingBlock(89),445+offsetX,229+offsetY);
+addObject(new MeltingBlock(89),472+offsetX,256+offsetY);
+addObject(new MeltingBlock(89),472+offsetX,229+offsetY);
+addObject(new MeltingBlock(89),526+offsetX,256+offsetY);
+addObject(new MeltingBlock(89),526+offsetX,229+offsetY);
+addObject(new MeltingBlock(89),553+offsetX,256+offsetY);
+addObject(new MeltingBlock(89),553+offsetX,229+offsetY);
+addObject(new MeltingBlock(89),580+offsetX,256+offsetY);
+addObject(new MeltingBlock(89),580+offsetX,229+offsetY);
+addObject(new MeltingBlock(89),634+offsetX,256+offsetY);
+addObject(new MeltingBlock(89),661+offsetX,202+offsetY);
+addObject(new MeltingBlock(89),661+offsetX,256+offsetY);
+addObject(new MeltingBlock(89),742+offsetX,283+offsetY);
+addObject(new MeltingBlock(89),688+offsetX,256+offsetY);
+addObject(new MeltingBlock(89),715+offsetX,256+offsetY);
+addObject(new MeltingBlock(89),742+offsetX,256+offsetY);
+addObject(new MeltingBlock(89),742+offsetX,148+offsetY);
+addObject(new MeltingBlock(89),688+offsetX,202+offsetY);
+addObject(new MeltingBlock(89),715+offsetX,202+offsetY);
+addObject(new MeltingBlock(89),742+offsetX,202+offsetY);
+addObject(new MeltingBlock(89),742+offsetX,175+offsetY);
+addObject(new MeltingBlock(89),715+offsetX,121+offsetY);
+addObject(new MeltingBlock(89),715+offsetX,175+offsetY);
+addObject(new MeltingBlock(89),715+offsetX,148+offsetY);
+addObject(new MeltingBlock(89),688+offsetX,121+offsetY);
+addObject(new MeltingBlock(89),688+offsetX,175+offsetY);
+addObject(new MeltingBlock(89),688+offsetX,148+offsetY);
+addObject(new MeltingBlock(89),634+offsetX,121+offsetY);
+addObject(new MeltingBlock(89),661+offsetX,121+offsetY);
+addObject(new MeltingBlock(89),661+offsetX,175+offsetY);
+addObject(new MeltingBlock(89),661+offsetX,148+offsetY);
+addObject(new MeltingBlock(89),607+offsetX,175+offsetY);
+addObject(new MeltingBlock(89),607+offsetX,148+offsetY);
+addObject(new MeltingBlock(89),634+offsetX,148+offsetY);
+addObject(new MeltingBlock(89),607+offsetX,202+offsetY);
+addObject(new MeltingBlock(89),634+offsetX,202+offsetY);
+addObject(new MeltingBlock(89),634+offsetX,175+offsetY);
+addObject(new MeltingBlock(89),580+offsetX,148+offsetY);
+addObject(new MeltingBlock(89),580+offsetX,202+offsetY);
+addObject(new MeltingBlock(89),580+offsetX,175+offsetY);
+addObject(new MeltingBlock(89),553+offsetX,148+offsetY);
+addObject(new MeltingBlock(89),553+offsetX,202+offsetY);
+addObject(new MeltingBlock(89),553+offsetX,175+offsetY);
+addObject(new MeltingBlock(89),526+offsetX,202+offsetY);
+addObject(new MeltingBlock(89),256+offsetX,202+offsetY);
+addObject(new MeltingBlock(89),202+offsetX,202+offsetY);
+addObject(new MeltingBlock(89),229+offsetX,202+offsetY);
+addObject(new MeltingBlock(89),175+offsetX,202+offsetY);
+addObject(new MeltingBlock(89),148+offsetX,202+offsetY);
+addObject(new MeltingBlock(89),67+offsetX,202+offsetY);
+addObject(new MeltingBlock(89),94+offsetX,202+offsetY);
+addObject(new MeltingBlock(89),67+offsetX,121+offsetY);
+addObject(new MeltingBlock(89),67+offsetX,175+offsetY);
+addObject(new MeltingBlock(89),67+offsetX,148+offsetY);
+addObject(new MeltingBlock(89),94+offsetX,121+offsetY);
+addObject(new MeltingBlock(89),94+offsetX,175+offsetY);
+addObject(new MeltingBlock(89),94+offsetX,148+offsetY);
+addObject(new MeltingBlock(89),148+offsetX,148+offsetY);
+addObject(new MeltingBlock(89),121+offsetX,121+offsetY);
+addObject(new MeltingBlock(89),148+offsetX,121+offsetY);
+addObject(new MeltingBlock(89),148+offsetX,175+offsetY);
+addObject(new MeltingBlock(89),121+offsetX,148+offsetY);
+addObject(new MeltingBlock(89),175+offsetX,121+offsetY);
+addObject(new MeltingBlock(89),175+offsetX,175+offsetY);
+addObject(new MeltingBlock(89),175+offsetX,148+offsetY);
+addObject(new MeltingBlock(89),229+offsetX,148+offsetY);
+addObject(new MeltingBlock(89),202+offsetX,121+offsetY);
+addObject(new MeltingBlock(89),229+offsetX,121+offsetY);
+addObject(new MeltingBlock(89),202+offsetX,175+offsetY);
+addObject(new MeltingBlock(89),229+offsetX,175+offsetY);
+addObject(new MeltingBlock(89),202+offsetX,148+offsetY);
+addObject(new MeltingBlock(89),256+offsetX,121+offsetY);
+addObject(new MeltingBlock(89),256+offsetX,175+offsetY);
+addObject(new MeltingBlock(89),256+offsetX,148+offsetY);
+addObject(new MeltingBlock(89),283+offsetX,121+offsetY);
+addObject(new MeltingBlock(89),283+offsetX,175+offsetY);
+addObject(new MeltingBlock(89),283+offsetX,148+offsetY);
+addObject(new MeltingBlock(89),310+offsetX,121+offsetY);
+addObject(new MeltingBlock(89),337+offsetX,121+offsetY);
+addObject(new MeltingBlock(89),310+offsetX,148+offsetY);
+addObject(new MeltingBlock(89),337+offsetX,148+offsetY);
+addObject(new MeltingBlock(89),337+offsetX,202+offsetY);
+addObject(new MeltingBlock(89),337+offsetX,175+offsetY);
+addObject(new MeltingBlock(89),364+offsetX,148+offsetY);
+addObject(new MeltingBlock(89),364+offsetX,202+offsetY);
+addObject(new MeltingBlock(89),364+offsetX,175+offsetY);
+addObject(new MeltingBlock(89),418+offsetX,148+offsetY);
+addObject(new MeltingBlock(89),418+offsetX,202+offsetY);
+addObject(new MeltingBlock(89),418+offsetX,175+offsetY);
+addObject(new MeltingBlock(89),445+offsetX,175+offsetY);
+addObject(new MeltingBlock(89),472+offsetX,175+offsetY);
+addObject(new MeltingBlock(89),526+offsetX,175+offsetY);
+addObject(new MeltingBlock(89),472+offsetX,148+offsetY);
+addObject(new MeltingBlock(89),607+offsetX,121+offsetY);
+addObject(new MeltingBlock(89),580+offsetX,121+offsetY);
+addObject(new MeltingBlock(89),526+offsetX,148+offsetY);
+addObject(new MeltingBlock(89),445+offsetX,148+offsetY);
+addObject(new MeltingBlock(89),445+offsetX,121+offsetY);
+addObject(new MeltingBlock(89),472+offsetX,121+offsetY);
+addObject(new MeltingBlock(89),526+offsetX,121+offsetY);
+addObject(new MeltingBlock(89),553+offsetX,121+offsetY);
+addObject(new MeltingBlock(89),742+offsetX,121+offsetY);
+addObject(new Block(0),391+offsetX,121+offsetY);
+addObject(new Block(0),391+offsetX,148+offsetY);
+addObject(new Block(0),391+offsetX,229+offsetY);
+addObject(new Block(0),391+offsetX,256+offsetY);
+addObject(new Block(0),391+offsetX,310+offsetY);
+addObject(new Block(0),391+offsetX,337+offsetY);
+addObject(new Block(0),391+offsetX,364+offsetY);
+addObject(new Block(0),391+offsetX,391+offsetY);
+addObject(new Block(0),391+offsetX,418+offsetY);
+addObject(new Block(0),391+offsetX,175+offsetY);
+addObject(new Block(0),391+offsetX,202+offsetY);
+addObject(new Block(0),391+offsetX,283+offsetY);
+addObject(new Block(0),499+offsetX,418+offsetY);
+addObject(new Block(0),499+offsetX,391+offsetY);
+addObject(new Block(0),499+offsetX,364+offsetY);
+addObject(new Block(0),499+offsetX,337+offsetY);
+addObject(new Block(0),499+offsetX,310+offsetY);
+addObject(new Block(0),499+offsetX,283+offsetY);
+addObject(new Block(0),499+offsetX,256+offsetY);
+addObject(new Block(0),499+offsetX,229+offsetY);
+addObject(new Block(0),499+offsetX,202+offsetY);
+addObject(new Block(0),499+offsetX,175+offsetY);
+addObject(new Block(0),499+offsetX,148+offsetY);
+addObject(new Block(0),499+offsetX,121+offsetY);
+addObject(new Block(0),472+offsetX,202+offsetY);
+addObject(new Block(0),418+offsetX,283+offsetY);
+addObject(new Block(0),526+offsetX,499+offsetY);
+addObject(new Block(0),499+offsetX,499+offsetY);
+addObject(new Block(0),472+offsetX,499+offsetY);
+addObject(new Block(0),445+offsetX,499+offsetY);
+addObject(new Block(0),418+offsetX,499+offsetY);
+addObject(new Block(0),391+offsetX,499+offsetY);
+addObject(new Block(0),364+offsetX,499+offsetY);
+addObject(new Block(0),337+offsetX,499+offsetY);
+addObject(new Block(0),310+offsetX,499+offsetY);
+addObject(new Block(0),553+offsetX,499+offsetY);
+addObject(new Block(0),580+offsetX,499+offsetY);
+addObject(new Block(0),607+offsetX,499+offsetY);
+addObject(new Block(0),634+offsetX,499+offsetY);
+addObject(new Block(0),607+offsetX,418+offsetY);
+addObject(new Block(0),607+offsetX,391+offsetY);
+addObject(new Block(0),607+offsetX,364+offsetY);
+addObject(new Block(0),607+offsetX,337+offsetY);
+addObject(new Block(0),607+offsetX,310+offsetY);
+addObject(new Block(0),607+offsetX,283+offsetY);
+addObject(new Block(0),607+offsetX,256+offsetY);
+addObject(new Block(0),607+offsetX,229+offsetY);
+addObject(new Block(0),634+offsetX,229+offsetY);
+addObject(new Block(0),661+offsetX,229+offsetY);
+addObject(new Block(0),688+offsetX,229+offsetY);
+addObject(new Block(0),715+offsetX,229+offsetY);
+addObject(new Block(0),742+offsetX,229+offsetY);
+addObject(new Block(0),661+offsetX,391+offsetY);
+addObject(new Block(0),661+offsetX,364+offsetY);
+addObject(new Block(0),661+offsetX,337+offsetY);
+addObject(new Block(0),661+offsetX,310+offsetY);
+addObject(new Block(0),661+offsetX,283+offsetY);
+addObject(new Block(0),688+offsetX,283+offsetY);
+addObject(new Block(0),715+offsetX,283+offsetY);
+addObject(new Block(0),715+offsetX,310+offsetY);
+addObject(new Block(0),715+offsetX,337+offsetY);
+addObject(new Block(0),715+offsetX,364+offsetY);
+addObject(new Block(0),715+offsetX,391+offsetY);
+addObject(new Block(0),715+offsetX,418+offsetY);
+addObject(new Block(0),715+offsetX,445+offsetY);
+addObject(new Block(0),688+offsetX,445+offsetY);
+addObject(new Block(0),661+offsetX,445+offsetY);
+addObject(new Block(0),634+offsetX,445+offsetY);
+addObject(new Block(0),607+offsetX,445+offsetY);
+addObject(new Block(0),121+offsetX,175+offsetY);
+addObject(new Block(0),121+offsetX,202+offsetY);
+addObject(new Block(0),121+offsetX,229+offsetY);
+addObject(new Block(0),121+offsetX,256+offsetY);
+addObject(new Block(0),121+offsetX,337+offsetY);
+addObject(new Block(0),121+offsetX,364+offsetY);
+addObject(new Block(0),256+offsetX,364+offsetY);
+addObject(new Block(0),310+offsetX,445+offsetY);
+addObject(new Block(0),283+offsetX,418+offsetY);
+addObject(new Block(0),256+offsetX,391+offsetY);
+addObject(new Block(0),229+offsetX,364+offsetY);
+addObject(new Block(0),202+offsetX,364+offsetY);
+addObject(new Block(0),175+offsetX,364+offsetY);
+addObject(new Block(0),148+offsetX,364+offsetY);
+addObject(new Block(0),148+offsetX,310+offsetY);
+addObject(new Block(0),121+offsetX,310+offsetY);
+addObject(new Block(0),121+offsetX,283+offsetY);
+addObject(new Block(0),229+offsetX,229+offsetY);
+addObject(new Block(0),256+offsetX,229+offsetY);
+addObject(new Block(0),283+offsetX,229+offsetY);
+addObject(new Block(0),283+offsetX,202+offsetY);
+addObject(new Block(0),310+offsetX,202+offsetY);
+addObject(new Block(0),310+offsetX,175+offsetY);
+addObject(new MeltingBlock(89),445+offsetX,283+offsetY);
+addObject(new MeltingBlock(89),445+offsetX,202+offsetY);
+addObject(new MeltingBlock(89),337+offsetX,445+offsetY);
+addObject(new MeltingBlock(89),310+offsetX,418+offsetY);
+addObject(new MeltingBlock(89),283+offsetX,391+offsetY);
+addObject(new PlatformPlayer(),391+offsetX,40+offsetY);
+addObject(new Block(0),364+offsetX,121+offsetY);
+addObject(new Block(0),418+offsetX,121+offsetY);
 
-        for (int i = 0; i <= 75; i++)
-        {
-            addObject(new LavaBlock(1), 27*i+2052, 500);
-        }
-
-        for (int i = 0; i <= 36; i++)
-        {
-            addObject(new Block(), 27*i+189, 473);
-        }
-
-        for (int i = 0; i <= 15; i++)
-        {
-            addObject(new Block(), 27*i+1350, 473);
-        }
-
-        for (int i = 0; i <= 22; i++)
-        {
-            addObject(new Block(), 27*i+351, 446);
-        }
-
-        for (int i = 0; i <= 8; i++)
-        {
-            addObject(new Block(), 27*i+1404, 446);
-        }
-
-        for (int i = 0; i <= 6; i++)
-        {
-            addObject(new Block(), 27*i+405, 419);
-        }
-
-        for (int i = 0; i <= 6; i++)
-        {
-            addObject(new Block(), 27*i+2322, 419);
-        }
-
-        for (int i = 0; i <= 3; i++)
-        {
-            addObject(new Block(), 27*i+2727, 392);
-        }
-
-        for (int i = 0; i <= 0; i++)
-        {
-            addObject(new Block(), 27*i+3132, 392);
-        }
-
-        for (int i = 0; i <= 6; i++)
-        {
-            addObject(new Block(), 27*i+3456, 446);
-        }
-
-        for (int i = 0; i <= 50; i++)
-        {
-            addObject(new Block(), 27*i+4077, 500);
-        }
-
-        for (int i = 0; i <= 12; i++)
-        {
-            addObject(new Block(), 27*i+4050, 473);
-        }
-
-        for (int i = 0; i <= 6; i++)
-        {
-            addObject(new Block(), 27*i+3996, 446);
-        }
-
-        for (int i = 0; i <= 75; i++)
-        {
-            addObject(new Block(), 27*i, 527);
-        }
-
-        for (int i = 0; i <= 75; i++)
-        {
-            addObject(new LavaBlock(2), 27*i+2052, 527);
-        }
-
-        for (int i = 0; i <= 75; i++)
-        {
-            addObject(new Block(), 27*i+4050, 527);
-        }
-        
-        Ball ball = new Ball();
-        addObject(ball, 185, 126);
-        Ball ball2 = new Ball();
-        addObject(ball2, 181, 274);
-        Ball ball3 = new Ball();
-        addObject(ball3, 848, 346);
-        Ball ball4 = new Ball();
-        addObject(ball4, 333, 159);
-        Ball ball5 = new Ball();
-        addObject(ball5, 537, 255);
     }
 }

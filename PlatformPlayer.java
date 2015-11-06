@@ -272,6 +272,10 @@ public class PlatformPlayer extends PlatformObject
             Actor b=getOneIntersectingObject(blockType);
             if (b!=null)
             { 
+                if(b instanceof MeltingBlock){
+                    MeltingBlock melt = (MeltingBlock) b;
+                    melt.melt(5);
+                }
                 addRealX(-getVelX()/steps);
                 setLocation(getRealX()-w.getOffset(),getExactY());
                 velX=0;
@@ -324,6 +328,10 @@ public class PlatformPlayer extends PlatformObject
 
             if (b!=null)
             {
+                if(b instanceof MeltingBlock){
+                    MeltingBlock melt = (MeltingBlock) b;
+                    melt.melt(5);
+                }
                 addRealY(-getVelY()/steps);
                 setLocation(getExactX(),getRealY());
                 if(velY > 0){

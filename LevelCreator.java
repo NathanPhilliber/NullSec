@@ -199,6 +199,9 @@ public class LevelCreator extends World
                     else if(thisBlock.myImage == 88){
                         writer.write("addObject(new SlimeBlock(" + (thisBlock.myImage)+"),"+ object.getX()+"+offsetX,"+object.getY()+"+offsetY);\n");
                     }
+                    else if(thisBlock.myImage == 89){
+                        writer.write("addObject(new MeltingBlock(" + (thisBlock.myImage)+"),"+ object.getX()+"+offsetX,"+object.getY()+"+offsetY);\n");
+                    }
                     else{
                         writer.write("addObject(new Block(" + thisBlock.myImage+"),"+ object.getX()+"+offsetX,"+object.getY()+"+offsetY);\n");
                     }
@@ -361,6 +364,18 @@ public class LevelCreator extends World
                 }
 
                 if(line.contains("new SpikeBlock")){
+                    String[] parts = line.split(",");
+                    String x = parts[1].replace("+offsetX","");
+                    String y = parts[2].replace("+offsetY);","");
+
+                    System.out.println(parts[0]);
+                    String[] parts2 = parts[0].split("\\(");
+                    String type = parts2[2].replace(")","");
+
+                    addObject(new LevelCreatorBlock(Integer.parseInt(type)), Integer.parseInt(x)+offsetX, Integer.parseInt(y)+offsetY);
+                }
+                
+                if(line.contains("new MeltingBlock")){
                     String[] parts = line.split(",");
                     String x = parts[1].replace("+offsetX","");
                     String y = parts[2].replace("+offsetY);","");
