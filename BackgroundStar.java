@@ -15,6 +15,8 @@ public class BackgroundStar extends SpaceObject
     public BackgroundStar(double x, double y){
         super(x,y);
         addStarCount();
+        int starNo = Greenfoot.getRandomNumber(4)+1;
+        setImage("star" + starNo + ".png");
     }
     
     //Constructor, will spawn star at 0,0 and add to star count
