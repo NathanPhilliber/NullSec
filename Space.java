@@ -69,7 +69,7 @@ public class Space extends World
 
         scrollListener();
 
-        setPaintOrder(GotoShopButton.class, MapBackButton.class, PlayerIcon.class, Map.class, GoldText.class,
+        setPaintOrder( MapBackButton.class, PlayerIcon.class, Map.class, MapButton.class, GotoShopButton.class, GoldText.class,
             Counter.class, TutorialObjectManager.class, DockMenu.class, OutsideMP.class, 
             PlayerShip.class, PlanetMP.class, EnemyShip.class, InsideMP.class, IconProjectile.class, 
             IconFire.class, MissleIcon.class, IconPlasma.class, IconLaser.class, IconMine.class, 
