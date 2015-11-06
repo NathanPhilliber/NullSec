@@ -91,12 +91,13 @@ public class PlatformPlayer extends PlatformObject
     private void checkSpecialCollisions()
     {
         List<PlatformObject> objects = getIntersectingObjects(PlatformObject.class);
-
+        ElevatorBlock elevator = null;
         boolean anyWater = false;
         boolean anyClimb = false;
         boolean anyAir = false;
         boolean anySpike = false;
         boolean anyBullet = false;
+        boolean anyElevator = false;
 
         for(PlatformObject object : objects){
 
@@ -123,12 +124,18 @@ public class PlatformPlayer extends PlatformObject
             else if(object instanceof Bullet){
                 anyBullet = true;
             }
+            else if(object instanceof ElevatorBlock){
+                if(getOneObjectAtOffset(0,+20, ElevatorBlock.class) == null){
+                    anyElevator = true;
+                }
+                
+            }
 
         }
         if(anyWater){
             if(anyAir){
                 onBlock = true;
-                jumpSpeed = jumpSpeedAir/10;
+                jumpSpeed = 11;
             }
             else{
 
@@ -143,8 +150,14 @@ public class PlatformPlayer extends PlatformObject
         }
         else if(anySpike){
             kill();
-        }else if(anyBullet){
+        }
+        else if(anyBullet){
             kill();
+        }
+        else if(anyElevator){
+            
+            addRealY(-5);
+            
         }
         else if(anyClimb){
             ClimbBlock climb=(ClimbBlock)getOneIntersectingObject(ClimbBlock.class);
