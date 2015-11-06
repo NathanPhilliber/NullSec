@@ -1,19 +1,8 @@
 import greenfoot.*;
 import java.awt.Color;
 import java.util.List;
-/**
- * Write a description of class Planets here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Planet extends SpaceObject
 {
-    /**
-     * Act - do whatever the Planets wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    
     public World world;
     public PlanetLevelText label;
     private boolean labelInWorld = false;
