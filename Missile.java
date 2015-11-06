@@ -21,18 +21,16 @@ public class Missile extends Weapon implements ProjectileObject
     private boolean firstTime = true;
 
     private double speed = 6.0;
-
+    
+    Class targetClass = ownedByPlayer ? AlienShip.class : Ship.class;
+    
     private GreenfootSound shootSound = new GreenfootSound("sounds/missileLaunch.mp3");
     public void act() 
     {
         super.act();
         spaceMove(speed);
         addMissileTrail(getSpaceX(), getSpaceY());
-
-        if(ownedByPlayer){
-
-            seakTarget();//no work
-        }
+        seakTarget();
         checkRemoval();//LAST
     }  
 
@@ -40,7 +38,6 @@ public class Missile extends Weapon implements ProjectileObject
     {
         super(angle, isPlayer, startX, startY, damage);
         shootSound.play();
-
     }
 
     public void addedToWorld(){
@@ -57,10 +54,11 @@ public class Missile extends Weapon implements ProjectileObject
 
     public Actor getNearestActor()                   
     {
-        List<Actor> nearActors = getObjectsInRange(120, AlienShip.class);  
+        List<Actor> nearActors = getObjectsInRange(150, targetClass);  
         Actor nearestActor = null;  
-        double nearestDistance = 120;  
-        double distance;   
+        double nearestDistance = 150;  
+        double distance;
+        
         for (int i = 0; i < nearActors.size(); i++)  
         {  
             distance = getDistance(nearActors.get(i));  
@@ -80,7 +78,7 @@ public class Missile extends Weapon implements ProjectileObject
             int currAngle = 90 - (int) Math.toDegrees(Math.atan2(((double) getNearestActor().getX() - this.getX()), ((double) getNearestActor().getY() - this.getY())));
             int newRotation = (int) currAngle + (int) Math.ceil( -currAngle / 360 ) * 360;
             setRotation(newRotation);
-            System.out.println(currAngle);
+           // System.out.println(currAngle);
         }
     }
 
