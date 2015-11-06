@@ -28,7 +28,7 @@ public class ElevatorBlock extends Block
         super.act();
         setRealY(getRealY() + speed);
 
-        System.out.println(Math.abs(getRealY()-spawnY));
+       
         if((radius*27) <= Math.abs(getRealY()-spawnY)){
             speed *= -1;
             

@@ -11,8 +11,8 @@ public class PlatformPlayer extends PlatformObject
      *
      ************************************************************************************
      */
-    static final double dragX = .45;
-    static final double walkSpeed = 4;
+    static final double dragX = .7;
+    static final double walkSpeed = 3.3;
     static final double jumpSpeedAir = 10;
     static final double climbSpeed = 3;
     static final double swimSpeed = 2;
@@ -98,6 +98,7 @@ public class PlatformPlayer extends PlatformObject
         boolean anySpike = false;
         boolean anyBullet = false;
         boolean anyElevator = false;
+        boolean anySlime = false;
 
         for(PlatformObject object : objects){
 
@@ -125,9 +126,14 @@ public class PlatformPlayer extends PlatformObject
                 anyBullet = true;
             }
             else if(object instanceof ElevatorBlock){
-                if(getOneObjectAtOffset(0,+20, ElevatorBlock.class) == null){
+                if(getOneObjectAtOffset(0,20, ElevatorBlock.class) == null){
                     anyElevator = true;
                 }
+                
+            }
+            else if(object instanceof SlimeBlock){
+                anySlime = true;
+                System.out.println(1);
                 
             }
 
@@ -153,6 +159,10 @@ public class PlatformPlayer extends PlatformObject
         }
         else if(anyBullet){
             kill();
+        }
+        else if(anySlime){
+            velY = -velY;
+            addRealY(-3);
         }
         else if(anyElevator){
             
