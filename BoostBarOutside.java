@@ -6,7 +6,7 @@ import greenfoot.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class BarOutline extends BoostBar
+public class BoostBarOutside extends BoostBar
 {
     /**
      * Act - do whatever the BarOutline wants to do. This method is called whenever

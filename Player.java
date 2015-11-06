@@ -277,8 +277,8 @@ public class Player extends Object implements DamageTaker
     }
     private void boostChargeBar()
     {
-        for (int i=1; i <= boostCD/25; i++){
-            getWorld().addObject(new Beam(0, true, 0, 400, 520),418+i*4,520);
+        for (int i=1; i <= boostCD/50; i++){
+            getWorld().addObject(new BoostBarSegment(),383+i*14,518);
         }
     }
     //Checks for key presses and changes coords ("moves" ship)

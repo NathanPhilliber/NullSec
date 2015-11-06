@@ -68,7 +68,7 @@ public class Space extends World
             Counter.class, TutorialObjectManager.class, DockMenu.class, OutsideMP.class, 
             PlayerShip.class, PlanetMP.class, EnemyShip.class, InsideMP.class, IconProjectile.class, 
             IconFire.class, MissleIcon.class, IconPlasma.class, IconLaser.class, IconMine.class, 
-            WeaponBG.class, BeamBar.class, BarOutline.class,
+            WeaponBG.class, BoostBarInside.class, BoostBarSegment.class, BoostBarOutside.class,
             Beam.class,  BeamHUD.class, PlanetLevelText.class, Number.class, Digit.class,AlienShip.class, EnemyShip.class, DamageBar.class,
             Projectile.class, Missile.class, Cannon.class, Ship.class, PlasmaBall.class, Mine.class, 
             Fireball.class, Particle.class, Asteroid.class, Planet.class, BackgroundStar.class);
@@ -84,8 +84,9 @@ public class Space extends World
 
         addObject(new Cannon(),getWidth()/2,getHeight()/2);
 
-        addObject(new BeamHUD(), 460, 512);
-
+        addObject(new BoostBarOutside(), 460, 508);
+        addObject(new BoostBarInside(), 460, 508);
+        
     }
 
     public void drawWeaponGUI(boolean proj, boolean beam, boolean missile, boolean mine, boolean fire, boolean plasma){
