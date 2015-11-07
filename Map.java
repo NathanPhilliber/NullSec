@@ -14,6 +14,13 @@ public class Map extends MapItems
      */
     public Map(int n)
     {
-        setImage("Sector" + n + ".png");
+        if(n >= 0)
+        {
+            setImage("Sector" + n + ".png");
+        }
+        else
+        {
+            setImage("Uncharted.png");
+        }
     }
 }

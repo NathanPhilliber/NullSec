@@ -329,10 +329,16 @@ public class Space extends World
     private int totalClick = 0;
     public static int getIndexOf( int toSearch, int[] tab ){
          int i = 0;
-         while(!(tab[i] == toSearch) )
-         {  i++; }
-         
-         return i; // or return tab[i];
+         try{
+             while(!(tab[i] == toSearch) )
+             {  i++; }
+             
+             return i;
+         }
+         catch(ArrayIndexOutOfBoundsException e)
+         {
+             return -1;
+         }
     }
     public void openMap(boolean override)
     {
@@ -349,9 +355,12 @@ public class Space extends World
                 
                 int[] secArray = {0, 10, 20, 1, 11, 21, 2, 12, 22};
                 
-                int secx = (int) Math.ceil(x/getWidth());
-                int secy = (int) Math.ceil(y/getHeight());
-                String secPos =  "" + secx + secy;
+                
+                int secx = (x>0) ? (int) Math.ceil(x/getWidth()) : -1;
+                int secy = (y>0) ? (int) Math.ceil(y/getHeight()) : -1;
+                String a = secx + "" + secy;
+                String b = "-1";
+                String secPos =  (secx<0 || secy<0) ? b : a;
                 int secPosInt = Integer.parseInt(secPos);
                 
                 int sectorFake = (getIndexOf(secPosInt, secArray));
@@ -359,7 +368,7 @@ public class Space extends World
                 
                 Map map = new Map(sector);
 
-                System.out.println(sector);
+                System.out.println(secPos);
                 
                 if(x > getWidth())
                 {
