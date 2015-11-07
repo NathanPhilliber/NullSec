@@ -345,7 +345,9 @@ public class Space extends World
                 int newx = (int) (ship.getSpaceX()/10) + 460;
                 int newy = (int) (ship.getSpaceY()/10) + 270;
 
-                int[] secArray = {0, 01, 02, 10, 11, 12, 20, 21, 22};
+                //int[] secArray = {0, 1, 2, 10, 11, 12, 20, 21, 22};
+                
+                int[] secArray = {0, 10, 20, 1, 11, 21, 2, 12, 22};
                 
                 int secx = (int) Math.ceil(x/getWidth());
                 int secy = (int) Math.ceil(y/getHeight());
@@ -353,20 +355,7 @@ public class Space extends World
                 int secPosInt = Integer.parseInt(secPos);
                 
                 int sectorFake = (getIndexOf(secPosInt, secArray));
-                int sector = 0;
-                
-                if(sectorFake%3 == 0)
-                {
-                    sector = sector/3;
-                }
-                if((sectorFake-1)%3 == 0)
-                {
-                    sector = sector/3 + 3;
-                }
-                if((sectorFake-2)%3 == 0)
-                {
-                    sector = sector/3 + 6;
-                }
+                int sector = sectorFake;
                 
                 Map map = new Map(sector);
 
@@ -374,19 +363,19 @@ public class Space extends World
                 
                 if(x > getWidth())
                 {
-                    newx = x - getWidth();
+                    newx = x - getWidth()*secx;
                 }
                 if(y > getHeight())
                 {
-                    newy = y - getHeight();
+                    newy = y - getHeight()*secy;
                 }
                 if(x < 0)
                 {
-                    newx = x + getWidth();
+                    newx = x + getWidth()*secx;
                 }
                 if(y < 0)
                 {
-                    newy = y + getHeight();
+                    newy = y + getHeight()*secy;
                 }
                 addObject(map, getWidth()/2, getHeight()/2);
                 addObject(new PlayerIcon(), newx, newy);
