@@ -8,6 +8,10 @@ import greenfoot.*;
  */
 public class MapBackButton extends Menu
 {
+    public MapBackButton(){
+        super();
+        setImage("images/MapBack.png");
+    }
     public void act() 
     {
         if(Greenfoot.mousePressed(null)){

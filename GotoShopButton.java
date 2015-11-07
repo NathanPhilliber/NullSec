@@ -8,6 +8,10 @@ import greenfoot.*;
  */
 public class GotoShopButton extends Menu
 {
+    public GotoShopButton(){
+        super();
+        setImage("images/GotoShop.png");
+    }
     public void act() 
     {
         if(Greenfoot.mousePressed(null)){
