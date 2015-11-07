@@ -29,7 +29,7 @@ public class Entity extends SpaceObject implements DamageTaker
 
     //The maximum velocity the ship can have
     public static double MAX_FLY_SPEED = 3.0;
-    private double maxFlySpeed = MAX_FLY_SPEED;
+    protected double maxFlySpeed = MAX_FLY_SPEED;
 
     //How fast the ship deccelerates 
     //Lower the number the longer it takes to stop
@@ -169,73 +169,98 @@ public class Entity extends SpaceObject implements DamageTaker
 
     public void modeActions(){
 
+        
+        preMode();
+        
         if(modeChanged){
             clearActions();
             modeChanged = false;
 
         }
 
-        if(getMode() == EXPLORE_MODE && getMaxHealth() - getHealth() >= 5){
-            setMode(ATTACK_MODE);
-            //addExclamation(getSpaceX(), getSpaceY(), 35);
-        }
+        
 
         switch(getMode()){
             case EXPLORE_MODE: /***************** EXPLORE MODE */
-
-            if(hasMoreActions() == false){
-                addAction("wait/" + Greenfoot.getRandomNumber(100));
-                addAction("MoveTo/" + (Greenfoot.getRandomNumber(maxExploreLength)-(maxExploreLength/2)+spawnX) + "/" + (Greenfoot.getRandomNumber(maxExploreLength)-(maxExploreLength/2)+spawnY));    
-            }
-
+            exploreMode();
             break;
 
             case GUARD_MODE: /***************** GUARD MODE */
-            if(hasMoreActions() == false){
-                addAction("circleTarget/"+ spawnX + "/" + spawnY +"/300");
-
-            }
+            guardMode();
             break;
 
             case ATTACK_MODE: /***************** ATTACK MODE */
-            if(Math.abs(ship.getShipLocX()-getSpaceX()) > 500 || Math.abs(ship.getShipLocY()-getSpaceY()) > 500){
-                clearActions();
-                maxFlySpeed = MAX_FLY_SPEED*5;
-                addAction("moveTo/"+ ((int)ship.getShipLocX()+ Greenfoot.getRandomNumber(260)-130) + "/" + ((int)ship.getShipLocY()+ Greenfoot.getRandomNumber(260)-130));
-            }
-            else{
-                maxFlySpeed = MAX_FLY_SPEED;
-            }
-
-            if(hasMoreActions() == false){
-
-                if(Greenfoot.getRandomNumber(4) != 0){
-                    addAction("shootPlayer/0/10/7");
-                }
-                else{
-                    addAction("shootPlayer/2/10/7");
-                }
-                addAction("shootPlayer/0/10/7");
-                addAction("circleTarget/"+ (int)ship.getShipLocX() + "/" + (int)ship.getShipLocY() +"/" + Greenfoot.getRandomNumber(300)+"/80");
-
-            }
+            attackMode();
             break;
 
             case WAITFORPLAYER_MODE:
-            if(hasMoreActions() == false){
-                addAction("wait/50");
-                resetTicks();
-                if(isOffscreen() == false){
-                    setMode(desiredMode);
-                }
-
-            }
+            waitForPlayerMode();
             break;
 
             default: /***************** DEFAULT */
             System.out.println("NO MODE SPECIFIED");
             break;
 
+        }
+    }
+    
+    public void preMode(){
+        if(getMode() == EXPLORE_MODE && getMaxHealth() - getHealth() >= 5){
+            setMode(ATTACK_MODE);
+            //addExclamation(getSpaceX(), getSpaceY(), 35);
+        }
+    }
+
+    public void attackMode(){
+        catchUp();
+
+        if(hasMoreActions() == false){
+
+            if(Greenfoot.getRandomNumber(4) != 0){
+                addAction("shootPlayer/0/10/7");
+            }
+            else{
+                addAction("shootPlayer/2/10/7");
+            }
+            addAction("shootPlayer/0/10/7");
+            addAction("circleTarget/"+ (int)ship.getShipLocX() + "/" + (int)ship.getShipLocY() +"/" + Greenfoot.getRandomNumber(300)+"/80");
+
+        }
+    }
+
+    public void guardMode(){
+        if(hasMoreActions() == false){
+            addAction("circleTarget/"+ spawnX + "/" + spawnY +"/300");
+
+        }
+    }
+
+    public void exploreMode(){
+        if(hasMoreActions() == false){
+            addAction("wait/" + Greenfoot.getRandomNumber(100));
+            addAction("MoveTo/" + (Greenfoot.getRandomNumber(maxExploreLength)-(maxExploreLength/2)+spawnX) + "/" + (Greenfoot.getRandomNumber(maxExploreLength)-(maxExploreLength/2)+spawnY));    
+        }
+    }
+
+    public void waitForPlayerMode(){
+        if(hasMoreActions() == false){
+            addAction("wait/50");
+            resetTicks();
+            if(isOffscreen() == false){
+                setMode(desiredMode);
+            }
+
+        }
+    }
+    
+    public void catchUp(){
+        if(Math.abs(ship.getShipLocX()-getSpaceX()) > 500 || Math.abs(ship.getShipLocY()-getSpaceY()) > 500){
+            clearActions();
+            maxFlySpeed = MAX_FLY_SPEED*5;
+            addAction("moveTo/"+ ((int)ship.getShipLocX()+ Greenfoot.getRandomNumber(260)-130) + "/" + ((int)ship.getShipLocY()+ Greenfoot.getRandomNumber(260)-130));
+        }
+        else{
+            maxFlySpeed = MAX_FLY_SPEED;
         }
     }
 
