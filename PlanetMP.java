@@ -14,6 +14,6 @@ public class PlanetMP extends Minimap
      */
     public void act() 
     {
-        getWorld().removeObject(this);
+        space.removeObject(this);
     }    
 }

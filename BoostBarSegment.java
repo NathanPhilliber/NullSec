@@ -16,7 +16,7 @@ public class BoostBarSegment extends BoostBar implements ProjectileObject
    {
       if(delay <= 0)
       {
-          getWorld().removeObject(this);
+          space.removeObject(this);
           delay = 10;
       }
       else 

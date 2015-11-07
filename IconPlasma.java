@@ -15,8 +15,8 @@ public class IconPlasma extends HUD implements weaponGUI
     public void act() 
     {
         Actor a = getOneIntersectingObject(WeaponBG.class);
-        Space SPACE = (Space) getWorld();
-        if(SPACE.getWeapon() == 5)
+        
+        if(space.getWeapon() == 5)
         {
           a.setImage("SelectedWeapon.png");
         }

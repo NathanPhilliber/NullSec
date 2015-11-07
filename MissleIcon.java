@@ -15,8 +15,8 @@ public class MissleIcon extends HUD implements weaponGUI
     public void act() 
     {
         Actor a = getOneIntersectingObject(WeaponBG.class);
-        Space SPACE = (Space) getWorld();
-        if(SPACE.getWeapon() == 2)
+        
+        if(space.getWeapon() == 2)
         {
           a.setImage("SelectedWeapon.png");
         }

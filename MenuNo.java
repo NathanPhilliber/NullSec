@@ -16,7 +16,7 @@ public class MenuNo extends DockMenu
     {
         if(Greenfoot.mouseClicked(this))
         {
-            Space space = (Space) getWorld();
+            
             Ship ship = space.getShip();
             ship.resetDockMenu();
             removeDockMenu();

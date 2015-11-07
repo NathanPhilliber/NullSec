@@ -15,8 +15,8 @@ public class IconMine extends HUD implements weaponGUI
     public void act() 
     {
         Actor a = getOneIntersectingObject(WeaponBG.class);
-        Space s=(Space)getWorld();
-        if(s.getWeapon() == 3)
+        
+        if(space.getWeapon() == 3)
         {
             a.setImage("SelectedWeapon.png");
         }

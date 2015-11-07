@@ -13,12 +13,17 @@ public class HUD extends Object
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     private int weapon = 1;
-    
+    public Space space;
     public void act() 
     {
         super.act();
         // Add your action code here.
-    }    
+    }  
+    
+    public void addedToWorld(World world){
+        space = (Space) getWorld();
+        
+    }
 }
 interface weaponGUI{
     

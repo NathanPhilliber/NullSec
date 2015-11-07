@@ -15,8 +15,8 @@ public class IconFire extends HUD implements weaponGUI
     public void act() 
     {
         Actor a = getOneIntersectingObject(WeaponBG.class);
-        Space SPACE = (Space) getWorld();
-        if(SPACE.getWeapon() == 4)
+        
+        if(space.getWeapon() == 4)
         {
           a.setImage("SelectedWeapon.png");
         }

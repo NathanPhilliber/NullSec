@@ -24,7 +24,7 @@ public class MenuYes extends DockMenu
         if(Greenfoot.mouseClicked(this))
         {
            
-            Space space = (Space) getWorld();
+            
             space.getShip().dockWorld();
             space.setPause = false;
             space.removeObjects(space.getObjects(DockMenu.class));

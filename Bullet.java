@@ -22,7 +22,7 @@ public class Bullet extends MovingNonPlayer
         
     
     public void deleteOnEdge(){
-        if(getX() > w.getWidth() || getX() < 0){
+        if(getX() > w.getWidth()+50 || getX() < -50){
             if(imOnscreenOnce){
                 deleteMe = true;
             }

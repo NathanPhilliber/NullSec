@@ -170,6 +170,7 @@ public class PlatformPlayer extends PlatformObject
         else if(anySlime){
             velY = -velY;
             addRealY(-3);
+            onBlock = true;
         }
         else if(anyElevator){
             
@@ -413,6 +414,7 @@ public class PlatformPlayer extends PlatformObject
         //hack
         if(Greenfoot.isKeyDown("\\")){
             setRealY(150);
+            velY = 0;
 
         }
     }
