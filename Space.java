@@ -10,6 +10,8 @@ import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import java.awt.event.*;
 import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Space extends World
 {
@@ -325,18 +327,69 @@ public class Space extends World
     private boolean firstPass = true;
     private boolean pressOnce = true;
     private int totalClick = 0;
+    public static int getIndexOf( int toSearch, int[] tab ){
+         int i = 0;
+         while(!(tab[i] == toSearch) )
+         {  i++; }
+         
+         return i; // or return tab[i];
+    }
     public void openMap(boolean override)
     {
-        Map map = new Map(0);
         if((Greenfoot.isKeyDown("t") && !mapIsOpen && totalClick == 0) || (override && !mapIsOpen))
         {
             if(firstPass)
             {
                 int x = (int) (ship.getSpaceX()/10) + 460;
                 int y = (int) (ship.getSpaceY()/10) + 270;
+                int newx = (int) (ship.getSpaceX()/10) + 460;
+                int newy = (int) (ship.getSpaceY()/10) + 270;
 
+                int[] secArray = {0, 01, 02, 10, 11, 12, 20, 21, 22};
+                
+                int secx = (int) Math.ceil(x/getWidth());
+                int secy = (int) Math.ceil(y/getHeight());
+                String secPos =  "" + secx + secy;
+                int secPosInt = Integer.parseInt(secPos);
+                
+                int sectorFake = (getIndexOf(secPosInt, secArray));
+                int sector = 0;
+                
+                if(sectorFake%3 == 0)
+                {
+                    sector = sector/3;
+                }
+                if((sectorFake-1)%3 == 0)
+                {
+                    sector = sector/3 + 3;
+                }
+                if((sectorFake-2)%3 == 0)
+                {
+                    sector = sector/3 + 6;
+                }
+                
+                Map map = new Map(sector);
+
+                System.out.println(sector);
+                
+                if(x > getWidth())
+                {
+                    newx = x - getWidth();
+                }
+                if(y > getHeight())
+                {
+                    newy = y - getHeight();
+                }
+                if(x < 0)
+                {
+                    newx = x + getWidth();
+                }
+                if(y < 0)
+                {
+                    newy = y + getHeight();
+                }
                 addObject(map, getWidth()/2, getHeight()/2);
-                addObject(new PlayerIcon(), x, y);
+                addObject(new PlayerIcon(), newx, newy);
                 addObject(mapBackButton, 471, 18);
                 mapIsOpen = true;
                 setPause = true;
