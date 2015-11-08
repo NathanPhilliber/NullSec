@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Sat Nov 07 16:39:03 PST 2015
+#Sat Nov 07 17:43:24 PST 2015
 dependency211.to=LevelCreatorDisplayBlock
 target33.typeParameters=
 dependency314.to=Weapon
@@ -667,6 +667,7 @@ dependency50.type=UsesDependency
 target59.editor.width=900
 dependency24.to=Fireball
 target77.type=ClassTarget
+class.BomberShip.superclass=Entity
 target104.showInterface=false
 dependency381.to=PlatformPlayer
 dependency356.from=PlatformPlayer
@@ -1756,6 +1757,7 @@ target85.typeParameters=
 target8.width=80
 target62.height=50
 dependency143.type=UsesDependency
+class.Level14.superclass=Platformer
 target61.editor.height=700
 class.Asteroids.superclass=Object
 dependency347.type=UsesDependency
@@ -3269,7 +3271,7 @@ target41.editor.height=700
 dependency321.from=Level10
 class.LaserText.superclass=WeaponShop
 dependency251.type=UsesDependency
-world.lastInstantiated=OuterSpace
+world.lastInstantiated=LevelCreator
 target154.typeParameters=
 target77.typeParameters=
 target59.y=1690

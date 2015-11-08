@@ -1,5 +1,6 @@
 import greenfoot.*;
 import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Write a description of class LevelCreatorDisplayBlock here.
@@ -16,7 +17,7 @@ public class LevelCreatorDisplayBlock extends LevelCreatorObject
     public static int block = 0;
 
     private int delay = 0;
-    
+
     /************** DONT FUCK WITH THE ORDER, ADD SHIT TO THE END******************/
 
     public static String[] blockName = {"brick.png", "BlueBrick.png","Lava.png","Lava2.png", "StandingRight.png",
@@ -44,6 +45,22 @@ public class LevelCreatorDisplayBlock extends LevelCreatorObject
     public boolean downIsDown;
     public static int bgImage = 0;
 
+    public static ArrayList<Integer> exceptions = new ArrayList<Integer>();
+    public LevelCreatorDisplayBlock(){
+        exceptions.add(4);
+        exceptions.add(5);
+        exceptions.add(90);
+        exceptions.add(87);
+        exceptions.add(88);
+        exceptions.add(84);
+        exceptions.add(82);
+        exceptions.add(83);
+        exceptions.add(75);
+        exceptions.add(24);
+        exceptions.add(25);
+        exceptions.add(61);
+
+    }
     public void act() 
     {
         MouseInfo m = Greenfoot.getMouseInfo();
@@ -89,7 +106,7 @@ public class LevelCreatorDisplayBlock extends LevelCreatorObject
 
     public void updateBlock(){
         setImage(blockName[block]);
-        
+
     }
 
     public void cycleBackground()
