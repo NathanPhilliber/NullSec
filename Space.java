@@ -40,6 +40,10 @@ public class Space extends World
     private boolean fireballEnabled = true;
     private boolean plasmaballEnabled = true;
     
+    public int sector;
+    public int secx;
+    public int secy;
+    
     MapButton mapButton = new MapButton();
     MapBackButton mapBackButton = new MapBackButton();
     
@@ -71,7 +75,8 @@ public class Space extends World
 
         scrollListener();
 
-        setPaintOrder( MapBackButton.class, PlayerIcon.class, Map.class, MapButton.class, GotoShopButton.class, GoldText.class,
+        setPaintOrder(RespawnButton.class, RespawnMenu.class,
+            MapBackButton.class, PlayerIcon.class, Map.class, MapButton.class, GotoShopButton.class, GoldText.class,
             Counter.class, TutorialObjectManager.class, DockMenu.class, OutsideMP.class, 
             PlayerShip.class, PlanetMP.class, EnemyShip.class, InsideMP.class, IconProjectile.class, 
             IconFire.class, MissleIcon.class, IconPlasma.class, IconLaser.class, IconMine.class, 
@@ -97,7 +102,8 @@ public class Space extends World
         addObject(mapButton, 660,18);
         addObject(gotoShopButton, 592, 18);
         
-        
+        secx = (int) Math.ceil(((int) ship.getSpaceX()/10 + 460)/getWidth());
+        secy = (int) Math.ceil(((int) ship.getSpaceY()/10 + 270)/getWidth());
     }
 
     public void drawWeaponGUI(boolean proj, boolean beam, boolean missile, boolean mine, boolean fire, boolean plasma){
@@ -356,15 +362,16 @@ public class Space extends World
                 int[] secArray = {0, 10, 20, 1, 11, 21, 2, 12, 22};
                 
                 
-                int secx = (x>0) ? (int) Math.ceil(x/getWidth()) : -1;
-                int secy = (y>0) ? (int) Math.ceil(y/getHeight()) : -1;
+                secx = (x>0) ? (int) Math.ceil(x/getWidth()) : -1;
+                secy = (y>0) ? (int) Math.ceil(y/getHeight()) : -1;
+                
                 String a = secx + "" + secy;
                 String b = "-1";
                 String secPos =  (secx<0 || secy<0) ? b : a;
                 int secPosInt = Integer.parseInt(secPos);
                 
                 int sectorFake = (getIndexOf(secPosInt, secArray));
-                int sector = sectorFake;
+                sector = sectorFake;
                 
                 Map map = new Map(sector);
 
@@ -413,6 +420,15 @@ public class Space extends World
             pressOnce = true;
             totalClick -= 1;
         }
+    }
+    public int getSectorMiddleX()
+    {
+        return 9300*secx;
+    }
+    
+    public int getSectorMiddleY()
+    {
+        return 2700*secy;
     }
 }
 

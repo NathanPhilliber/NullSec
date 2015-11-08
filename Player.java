@@ -1,5 +1,6 @@
 import greenfoot.*;
 import java.lang.Math;
+import java.util.List;
 /**
  * The player class is responsible for ship control and movement behavior.
  * Spawns stars and takes player input as well.
@@ -48,7 +49,7 @@ public class Player extends Object implements DamageTaker
 
     //Health values of player
     public static final double MAX_HEALTH = 100.0;
-    private double health = 100.0;
+    private static double health = 100.0;
     private double maxHealth = MAX_HEALTH;
 
     //Damage bar for player
@@ -159,7 +160,7 @@ public class Player extends Object implements DamageTaker
         if(!space.getIsPaused())
         {
             firstTime();
-            if(playerDisabled == false){
+            if(!playerDisabled && !isDead){
                 fly(); 
             }
 
@@ -178,9 +179,95 @@ public class Player extends Object implements DamageTaker
             keepEnemyOnScreen();
             updateGoldScore();
             checkDock();
+            
+            checkDeath();
+            respawn();
         }
     } 
+ public static boolean justDied = true;
+    private int explosionAmount = Greenfoot.getRandomNumber(10) + 5;
+    private int deathDelay = 100;
+    private boolean isDead;
+    
+    public void checkDeath()
+    {
+        if(health <= 0)
+        {
+            if(justDied)
+            {
+                if(deathDelay <= 0)
+                {
+                    promptRespawn();
+                    space.setPause = true;
+                    justDied = false;
+                    deathDelay = 100;
+                }
+                else
+                {
+                    deathDelay--;
+                    deathAnimation();
+                    isDead = true;
+                }
+                System.out.println("died");
+            }
+        }
+    }
 
+    public static void resetHealth()
+    {
+        health = MAX_HEALTH;
+    }
+
+    public static boolean respawnIsPressed;
+
+    public void respawn()
+    {
+      
+        if(respawnIsPressed)
+        {
+            resetHealth();
+            setSpaceX(space.getSectorMiddleX());
+            setSpaceX(space.getSectorMiddleX());
+            respawnIsPressed = false;
+            setLocation(getWorld().getWidth()/2, getWorld().getHeight()/2);
+            List<Actor> c = getWorld().getObjects(Cannon.class);
+            for(Actor a : c)
+            {
+                a.setLocation(getWorld().getWidth()/2, getWorld().getHeight()/2);
+            }
+            explosionTimer = false;
+            isDead = false;
+        }
+    }
+    private boolean explosionTimer;
+    public void deathAnimation()
+    {
+        if(!explosionTimer)
+        {
+            explosionAmount = Greenfoot.getRandomNumber(10) + 5;
+            explosionTimer = true;
+        }
+        System.out.println(explosionAmount);
+        if(explosionAmount > 0)
+        {
+            int midX = getWorld().getWidth()/2;
+            int midY = getWorld().getHeight()/2;
+            addExplosion(getSpaceX() + midX + Greenfoot.getRandomNumber(15), getSpaceY() + midY + Greenfoot.getRandomNumber(15));  
+        }
+        setLocation(1000, 1000);
+        List<Actor> c = getWorld().getObjects(Cannon.class);
+        for(Actor a : c)
+        {
+            a.setLocation(1000, 1000);
+        }
+        explosionAmount--;
+    }
+
+    public void promptRespawn()
+    {
+        getWorld().addObject(new RespawnMenu(), getWorld().getWidth()/2, getWorld().getHeight()/2);
+        getWorld().addObject(new RespawnButton(), getWorld().getWidth()/2, getWorld().getHeight()/2 + 50);
+    }
     /*************************************************************************/
     /*********************  MOVEMENT AND COLLISION  **************************/
     /*************************************************************************/
