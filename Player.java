@@ -310,6 +310,7 @@ public class Player extends Object implements DamageTaker
                     setVelX(getMaxFlyBoostSpeed()*cos(Math.atan2(getVelY(),getVelX())*180/Math.PI));
                     setVelY(getMaxFlyBoostSpeed()*sin(Math.atan2(getVelY(),getVelX())*180/Math.PI));
                     addRocketTrail(getShipLocX()-30*cosRot(),getShipLocY()-30*sinRot());
+                    addBoost(getShipLocX(), getShipLocY());
                 }
             }
             else

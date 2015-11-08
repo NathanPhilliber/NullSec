@@ -176,6 +176,14 @@ public class Object extends SmoothMover
         space.addObject(par, 0, 0);
 
     }
+    
+    public void addBoost(double x, double y){
+        //for(int i = 0; i < 2; i++)
+            //space.addObject(new Particle(x+Greenfoot.getRandomNumber(14)-7, y+Greenfoot.getRandomNumber(14)-7, 15, 6, 10, 1, 1, 0,"images/coinEffect.png"), 0, 0);
+        Particle par = new Particle(x+Greenfoot.getRandomNumber(14)-7, y+Greenfoot.getRandomNumber(14)-7, 6, 6, 5, 2, 5, 0,"images/smoke2.png");
+        par.getImage().setTransparency(100);
+        space.addObject(par, 0, 0);
+    }
 
     public void scheduleRemoval(){
         deleteMe = true;

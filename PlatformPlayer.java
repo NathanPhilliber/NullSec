@@ -262,12 +262,18 @@ public class PlatformPlayer extends PlatformObject
         else{
             playerPaused = false;
         }
+        
+        if(deleteMe){
+            turn(10);
+            setRealY(getRealY()+2);
+            setLocation(getRealX()-w.getOffset(), getRealY()+2);
+        }
     }
 
     public void kill(){
         lockPlayerMovement(true);
         pauseCycles = 50;
-        setLocation(getExactX(),getExactY()-10000);
+        
         deleteMe = true;
     }
 
