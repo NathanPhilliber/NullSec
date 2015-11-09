@@ -16,6 +16,7 @@ public class LevelCreatorBlock extends LevelCreatorObject
 
     public int myImage = 0;
     public boolean noCollision = false;
+    private boolean deleteMe = false;
 
     public LevelCreatorBlock(){
         setImage("brick.png");
@@ -36,14 +37,22 @@ public class LevelCreatorBlock extends LevelCreatorObject
                 
             }
             else{
-                getWorld().removeObject(this);
+                deleteMe = true;
             }
         }
 
         if(LevelCreatorDisplayBlock.blockName.length -1 == myImage){
+            deleteMe = true;
+        }
+        
+        removeMe();
+    }  
+    
+    public void removeMe(){
+        if(deleteMe){
             getWorld().removeObject(this);
         }
-    }  
+    }
 
     public void addedToWorld(){
 
