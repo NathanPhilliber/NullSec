@@ -173,9 +173,7 @@ public class PlatformPlayer extends PlatformObject
             onBlock = true;
         }
         else if(anyElevator){
-            
             addRealY(-5);
-            
         }
         else if(anyClimb){
             ClimbBlock climb=(ClimbBlock)getOneIntersectingObject(ClimbBlock.class);
@@ -279,8 +277,21 @@ public class PlatformPlayer extends PlatformObject
 
     private void updatePosition()
     {
+        /**
+         * Collision Type0
+         * due to moveing blocks
+         */
+        
+        
+        
+        
+        /**
+         * Collision Type1
+         * due to player movement
+         */
         int steps=10;
-        double oldX=getExactX();
+        //double oldRealX=getRealX();
+        //double oldRealY=getRealY();
         //X check
         for (int i=0;i<=steps-1;i++)
         {
@@ -298,51 +309,17 @@ public class PlatformPlayer extends PlatformObject
                 velX=0;
                 i=steps;
             }
-        }
-        /*
-        if ((getExactX()>=getWorld().getWidth()-sideScrollDist&&(isWalkingRight))
-        ||(getExactX()<=sideScrollDist&&(isWalkingLeft)))
-        {
-        //System.out.println("move");
-        //System.out.println(getExactX()-oldX);
-        w.addOffset(getExactX()-oldX);
-        setLocation(oldX,getExactY());
-        }
-         */
-        /*
-        if(isMovingX()){
-        w.addOffset(getExactX()-oldX);
-        setLocation(oldX,getExactY());
-        }
-         */
-
-        double dif=getExactX()-sideScrollDist;
-        if(dif<=0&&velX<0&&w.getOffset()>=0)
-        {
-            w.addOffset(dif);
-        }
-        dif=getExactX()+sideScrollDist-getWorld().getWidth();
-        if(dif>=0&&velX>0)
-        {
-            w.addOffset(dif);
-        }
-        
-        if(w.getOffset() < 0){
-            w.setOffset(0);
-        }
-
+        }        
         //Y check
         for (int i=0;i<=steps-1;i++)
         {
             addRealY(getVelY()/steps);
             setLocation(getExactX(),getRealY());
             Actor b=getOneIntersectingObject(blockType);
-
             if(b instanceof FallingBlock){
-                FallingBlock r = (FallingBlock) b;
-                r.startFalling();
+                FallingBlock fall = (FallingBlock) b;
+                fall.startFalling();
             }
-
             if (b!=null)
             {
                 if(b instanceof MeltingBlock){
@@ -356,18 +333,31 @@ public class PlatformPlayer extends PlatformObject
                 }
                 velY=0;
                 i=steps;
-
             }
             if(velY!=0)
             {
                 onBlock=false;
             }
         }
-
+        /**scrolling stuff*/
+        double dif=getExactX()-sideScrollDist;
+        if(dif<=0&&velX<0&&w.getOffset()>=0)
+        {
+            w.addOffset(dif);
+        }
+        dif=getExactX()+sideScrollDist-getWorld().getWidth();
+        if(dif>=0&&velX>0)
+        {
+            w.addOffset(dif);
+        }
+        if(w.getOffset() < 0){
+            w.setOffset(0);
+        }
+        setLocation(getRealX()-w.getOffset(),getRealY());//after scroll
         //This runs if you get stuck in a block for a long time
         //Will push you out after 75 game ticks;
-        Actor g = getOneIntersectingObject(blockType);
-        if(g != null){
+        Actor b = getOneIntersectingObject(blockType);
+        if(b != null){
             ticksStuckInBlock++;
             if(ticksStuckInBlock > 50){
                 addRealY(-5);
