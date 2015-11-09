@@ -88,8 +88,11 @@ public class DamageBar extends Object
         if(((int)(getMaxHealth()-getHealth()))/interval>curImgI){
 
             curImgI++;
-            setImage(img[curImgI]);
+            try{
+                setImage(img[curImgI]);
+            } catch(ArrayIndexOutOfBoundsException e){
 
+            }
         }
 
         if(((int)(getMaxHealth()-getHealth()))/interval<curImgI){

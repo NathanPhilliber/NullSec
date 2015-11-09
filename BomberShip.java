@@ -20,6 +20,9 @@ public class BomberShip extends Entity
         missileDamage = missileDamage /2;
         
         desiredMode = ATTACK_MODE;
+        
+        setMaxHealth(50);
+        
     }
     public void act() 
     {
