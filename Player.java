@@ -179,7 +179,7 @@ public class Player extends Object implements DamageTaker
             keepEnemyOnScreen();
             updateGoldScore();
             checkDock();
-            
+            placeShield();
             checkDeath();
             respawn();
         }
@@ -1015,6 +1015,33 @@ public class Player extends Object implements DamageTaker
 
     public double getShipLocY(){
         return getSpaceY()+space.getHeight()/2;
+    }
+    
+    private boolean qIsDown;
+    
+    public void placeShield()
+    {
+        if(Greenfoot.isKeyDown("q") && qIsDown)
+        {
+            getWorld().addObject(new PlayerShield(),space.getWidth()/2, space.getHeight()/2);
+        }
+        else
+        {
+            List<PlayerShield> shield = getWorld().getObjects(PlayerShield.class);
+            
+            if(shield != null)
+            {
+                getWorld().removeObjects(shield);
+            }
+        }
+        if(Greenfoot.isKeyDown("q"))
+        {
+            qIsDown = true;
+        }
+        if(!Greenfoot.isKeyDown("q"))
+        {
+            qIsDown = false;
+        }
     }
 
     private long tick = 0;

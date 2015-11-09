@@ -11,6 +11,7 @@ public class Fireball extends Weapon implements ProjectileObject
     private int beamAngle = 0;
     
     private double speed = 1.0;
+
     
     /**
      * Act - do whatever the Fireball wants to do. This method is called whenever

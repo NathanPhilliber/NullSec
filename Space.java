@@ -375,7 +375,7 @@ public class Space extends World
                 
                 Map map = new Map(sector);
 
-                System.out.println(secPos);
+                //System.out.println(secPos);
                 
                 if(x > getWidth())
                 {
@@ -423,12 +423,12 @@ public class Space extends World
     }
     public int getSectorMiddleX()
     {
-        return 9300*secx;
+        return 9400*secx;
     }
     
     public int getSectorMiddleY()
     {
-        return 2700*secy;
+        return 4200*secy;
     }
 }
 
