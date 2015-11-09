@@ -13,7 +13,7 @@ public class ShopButton extends WeaponShop
 
     public ShopButton(int fun){
         myFunction = fun;
-        setImage("images/ButtonShop.png");
+        setImage("images/ButtonShopNormal.png");
     }
 
     public void select(boolean sel){
@@ -24,7 +24,7 @@ public class ShopButton extends WeaponShop
             
         }
         else{
-            setImage("images/ButtonShop.png");
+            setImage("images/ButtonShopNormal.png");
         }
     }
 
