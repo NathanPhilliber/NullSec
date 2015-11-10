@@ -72,13 +72,13 @@ public class OuterSpace extends Space
         
         
         //Sector 2
-        Planet planet8 = new Planet(11220, 1000,  new Level7(500,1000), "images/Planet9.png", "8");
+        Planet planet8 = new Planet(11220, 1000,  new Level15(500,1000), "images/Planet9.png", "8");
         addObject(planet8,3000, 0);
 
-        Planet planet9 = new Planet(20160, 630,  new Level7(500,1000), "images/Planet10.png", "11");
+        Planet planet9 = new Planet(20160, 630,  new Level15(500,1000), "images/Planet10.png", "11");
         addObject(planet9,3000, 0);
         
-        Planet planet10 = new Planet(18150, 590,  new Level7(500,1000), "images/Planet11.png", "10");
+        Planet planet10 = new Planet(18150, 590,  new Level15(500,1000), "images/Planet11.png", "10");
         addObject(planet10,3000, 0);
         
         Planet planet11 = new Planet(19200, 2280,  new Level7(500,1000), "images/Planet12.png", "12");

@@ -1,4 +1,26 @@
-//Level Generated
+import greenfoot.*;
+
+/**
+ * Write a description of class Level15 here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class Level15 extends Platformer
+{
+
+    /**
+     * Constructor for objects of class Level15.
+     * 
+     */
+    public Level15(){
+        this(0,0);
+    }
+    public Level15(double x, double y)
+    {
+        super(x,y);
+        
+        //Level Generated
 
 int offsetX = 0;
 int offsetY = 0;
@@ -1995,3 +2017,6 @@ addObject(new Coin(90),5791+offsetX,445+offsetY);
 addObject(new Coin(90),5791+offsetX,418+offsetY);
 addObject(new Coin(90),5818+offsetX,391+offsetY);
 addObject(new Coin(90),5791+offsetX,391+offsetY);
+
+    }
+}

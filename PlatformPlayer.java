@@ -18,8 +18,9 @@ public class PlatformPlayer extends PlatformObject
     static final double swimSpeed = 2;
     static final int sideScrollDist = 400;
     static final Class blockType = Block.class;
-    
+
     private final int ladderRadius = 9;
+    private boolean hansMode = false;
 
     /************************************************************************************
      * varibles
@@ -101,10 +102,8 @@ public class PlatformPlayer extends PlatformObject
         boolean anyBullet = false;
         boolean anyElevator = false;
         boolean anySlime = false;
-        
 
         for(PlatformObject object : objects){
-
             if(object instanceof ExitPortal){
                 Player.gold += Player.goldPotential;
                 Player.goldPotential = 0;
@@ -138,12 +137,12 @@ public class PlatformPlayer extends PlatformObject
                 if(getOneObjectAtOffset(0,20, ElevatorBlock.class) == null){
                     anyElevator = true;
                 }
-                
+
             }
             else if(object instanceof SlimeBlock){
                 anySlime = true;
                 System.out.println(1);
-                
+
             }
 
         }
@@ -178,7 +177,7 @@ public class PlatformPlayer extends PlatformObject
             addRealY(-5);
         }
         else if(anyClimb){
-            
+
             ClimbBlock climb=(ClimbBlock)getOneIntersectingObject(ClimbBlock.class);
             if(getRealX()<=climb.getRealX()+ladderRadius&&getRealX()>=climb.getRealX()-ladderRadius)
             {
@@ -228,12 +227,11 @@ public class PlatformPlayer extends PlatformObject
 
     private void restartWorld(){
 
-        World world = getWorld();
         try{
-            if(deleteMe){
-                
+            if(deleteMe && !hansMode){
+
                 Player.goldPotential = 0;
-                
+                World world = getWorld();
                 Class cl = world.getClass();
 
                 Platformer p = (Platformer) getWorld();
@@ -263,7 +261,7 @@ public class PlatformPlayer extends PlatformObject
         else{
             playerPaused = false;
         }
-        
+
         if(deleteMe){
             turn(10);
             setRealY(getRealY()+2);
@@ -272,10 +270,16 @@ public class PlatformPlayer extends PlatformObject
     }
 
     public void kill(){
-        lockPlayerMovement(true);
-        pauseCycles = 50;
-        
-        deleteMe = true;
+        if(hansMode){
+
+        }
+        else{
+
+            lockPlayerMovement(true);
+            pauseCycles = 50;
+
+            deleteMe = true;
+        }
     }
 
     private void updatePosition()
@@ -284,9 +288,7 @@ public class PlatformPlayer extends PlatformObject
          * Collision Type0
          * due to moveing blocks
          */
-        
-        
-        
+
         
         /**
          * Collision Type1
@@ -415,6 +417,14 @@ public class PlatformPlayer extends PlatformObject
             setRealY(150);
             velY = 0;
 
+        }
+
+        if(Greenfoot.isKeyDown("]")){
+            deleteMe = false;
+            hansMode = true;
+        }
+        else{
+            hansMode = false;
         }
     }
 
