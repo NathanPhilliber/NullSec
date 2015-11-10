@@ -1,11 +1,6 @@
 import greenfoot.*;
 
-/**
- * Write a description of class AntIcon here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+//Written by Trace
 public class IconProjectile extends HUD implements weaponGUI
 {
     /**

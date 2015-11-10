@@ -2,11 +2,9 @@ import greenfoot.*;
 import java.util.List;
 import java.util.ArrayList;
 
-/**
- * Write a description of class Minimap here.
+/*
+ * All subclasses written by John and Trace
  * 
- * @author (your name) 
- * @version (a version number or a date)
  */
 public class Minimap extends HUD
 {

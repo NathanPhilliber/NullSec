@@ -1,11 +1,6 @@
 import greenfoot.*;
 
-/**
- * Write a description of class Slime here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+//Written by Trace
 public class SlimeBlock extends NoCollisionBlock
 {
     private boolean playGif;

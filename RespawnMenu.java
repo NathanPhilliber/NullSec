@@ -1,9 +1,5 @@
-/**
- * Write a description of class RespawnMenu here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+import greenfoot.*;
+//Written by Trace
 public class RespawnMenu extends HUD 
 {
     // instance variables - replace the example below with your own

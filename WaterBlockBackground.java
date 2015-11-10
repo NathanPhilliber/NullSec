@@ -1,4 +1,7 @@
 import greenfoot.*;
+
+//Written by Nathan
+
 public class WaterBlockBackground extends NoCollisionBlock
 {
     public WaterBlockBackground(int p){

@@ -1,10 +1,6 @@
 import greenfoot.*;
-/**
- * Write a description of class RespawnButton here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+//Written by Trace
+
 public class RespawnButton extends RespawnMenu 
 {
     // instance variables - replace the example below with your own

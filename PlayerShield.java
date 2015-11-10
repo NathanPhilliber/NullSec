@@ -1,4 +1,7 @@
 import greenfoot.*;
+
+//Written by Nathan
+
 public class PlayerShield extends Object
 {
     public PlayerShield(){

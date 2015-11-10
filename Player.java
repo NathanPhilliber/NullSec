@@ -5,7 +5,7 @@ import java.util.List;
  * The player class is responsible for ship control and movement behavior.
  * Spawns stars and takes player input as well.
  * 
- * Written by Nathan Philliber
+ * Written by Nathan, Trace, John
  */
 public class Player extends Object implements DamageTaker
 {
@@ -96,10 +96,13 @@ public class Player extends Object implements DamageTaker
     public static int gold = 5000;
     public static int goldPotential = 0;
 
+    public static boolean respawnIsPressed;
+    private boolean explosionTimer;
+
     /*************************************************************/
     /*********************  DEMO STUFF  **************************/
     /*************************************************************/
-
+    //Written by Nathan
     private int numEnemiesKilled = 0;
     private Entity alien;
 
@@ -190,94 +193,17 @@ public class Player extends Object implements DamageTaker
     private int deathDelay = 100;
     private boolean isDead;
 
-    public void checkDeath()
-    {
-        if(health <= 0)
-        {
-            if(justDied)
-            {
-                if(deathDelay <= 0)
-                {
-                    promptRespawn();
-                    space.setPause = true;
-                    justDied = false;
-                    deathDelay = 100;
-                }
-                else
-                {
-                    deathDelay--;
-                    deathAnimation();
-                    isDead = true;
-                }
-                //System.out.println("died");
-            }
-        }
-    }
-
-    public static void resetHealth()
-    {
-        health = MAX_HEALTH;
-    }
-
-    public static boolean respawnIsPressed;
-
-    public void respawn()
-    {
-
-        if(respawnIsPressed)
-        {
-            resetHealth();
-            setSpaceX(space.getSectorMiddleX());
-            setSpaceX(space.getSectorMiddleX());
-            respawnIsPressed = false;
-            setLocation(getWorld().getWidth()/2, getWorld().getHeight()/2);
-            List<Actor> c = getWorld().getObjects(Cannon.class);
-            for(Actor a : c)
-            {
-                a.setLocation(getWorld().getWidth()/2, getWorld().getHeight()/2);
-            }
-            explosionTimer = false;
-            isDead = false;
-        }
-    }
-    private boolean explosionTimer;
-    public void deathAnimation()
-    {
-        if(!explosionTimer)
-        {
-            explosionAmount = Greenfoot.getRandomNumber(10) + 5;
-            explosionTimer = true;
-        }
-        //System.out.println(explosionAmount);
-        if(explosionAmount > 0)
-        {
-            int midX = getWorld().getWidth()/2;
-            int midY = getWorld().getHeight()/2;
-            addExplosion(getSpaceX() + midX + Greenfoot.getRandomNumber(15), getSpaceY() + midY + Greenfoot.getRandomNumber(15));  
-        }
-        setLocation(1000, 1000);
-        List<Actor> c = getWorld().getObjects(Cannon.class);
-        for(Actor a : c)
-        {
-            a.setLocation(1000, 1000);
-        }
-        explosionAmount--;
-    }
-
-    public void promptRespawn()
-    {
-        getWorld().addObject(new RespawnMenu(), getWorld().getWidth()/2, getWorld().getHeight()/2);
-        getWorld().addObject(new RespawnButton(), getWorld().getWidth()/2, getWorld().getHeight()/2 + 50);
-    }
     /*************************************************************************/
     /*********************  MOVEMENT AND COLLISION  **************************/
     /*************************************************************************/
 
+    //Written by Nathan
     public void lockPlayer(boolean lock){
         playerDisabled = lock;
 
     }
 
+    //Written by Nathan
     public boolean isMoving(){
         if(getVelX() != 0 || getVelY() != 0){
 
@@ -286,6 +212,7 @@ public class Player extends Object implements DamageTaker
         return false;
     }
 
+    //Written by Nathan
     public void lookForGold(){
         //COLLISION AND CALL PICKUP
         SpaceObject obj =(SpaceObject) getOneIntersectingObject(SpaceObject.class);
@@ -301,6 +228,7 @@ public class Player extends Object implements DamageTaker
         }
     }
 
+    //Written by Trace
     public void checkDock(){
         if(Greenfoot.isKeyDown("e")){
             if(touch(Planet.class) && dockPressed == false){
@@ -312,6 +240,7 @@ public class Player extends Object implements DamageTaker
         delayLoadWorldHelper();
     }
 
+    //Written by Nathan
     public void dockWorld(){
         //Planet planet = (Planet)getOneIntersectingObject(Planet.class);
         //planet.loadWorld();
@@ -334,12 +263,12 @@ public class Player extends Object implements DamageTaker
     protected int planetLoadDelay = 0;
     private GreenfootImage shipImg = new GreenfootImage("images/RocketBoost.png");
 
+    //Written by Nathan
     private void delayLoadWorldHelper(){
         if(planetLoadDelay > 1){
             planetLoadDelay--;
 
             addPlanetDock(getShipLocX(), getShipLocY());
-
 
         }
         else if(planetLoadDelay == 1){
@@ -349,17 +278,19 @@ public class Player extends Object implements DamageTaker
         }
     }
 
-
+    //Written by Trace
     public void resetDockMenu(){
         dockPressed = false;
     }
 
+    //Written by Nathan
     public boolean getHit(double damage){
         addHealth(-damage);
         return true;
-        //ADD DEATH AND RESPAWN
+
     }
 
+    //Written by Nathan
     public boolean isAccelerating(){
         if(Greenfoot.isKeyDown("w")){
             return true;
@@ -367,6 +298,7 @@ public class Player extends Object implements DamageTaker
         return false;
     }
 
+    //Written by Trace
     private void boostChargeBar()
     {
         for (int i=1; i <= boostCD/50; i++){
@@ -374,6 +306,7 @@ public class Player extends Object implements DamageTaker
         }
     }
     //Checks for key presses and changes coords ("moves" ship)
+    //Written by Nathan
     private void fly()
     {
         boostChargeBar();
@@ -453,6 +386,7 @@ public class Player extends Object implements DamageTaker
         addSpaceY(getVelY());
     }
 
+    //Written by Nathan
     private void reverseThruster(){
         if (Greenfoot.isKeyDown("s"))
         {
@@ -473,10 +407,12 @@ public class Player extends Object implements DamageTaker
 
     }
 
+    //Written by Nathan
     public double getSpeed(){
         return Math.sqrt(Math.pow(getVelX(),2)+Math.pow(getVelY(),2));
     }
 
+    //Written by John
     private void blink()
     {
         blinkCD++;
@@ -487,6 +423,7 @@ public class Player extends Object implements DamageTaker
         }
     }
 
+    //Written by John
     private void hearth(){
         if (Greenfoot.isKeyDown("b")){
             hearthTimer++;
@@ -506,6 +443,7 @@ public class Player extends Object implements DamageTaker
     /*********************  OBJECT GENERATION  **************************/
     /********************************************************************/
 
+    //Written by Nathan
     private void initialStarSpawn(int density){
         for(int i = 0; i < 7*density; i++){
             space.addObject(new BackgroundStar(
@@ -516,6 +454,7 @@ public class Player extends Object implements DamageTaker
     }
 
     //Generates stars offscreen
+    //Written by Nathan
     private void generateStars(int density){
         World world = space;
 
@@ -545,6 +484,7 @@ public class Player extends Object implements DamageTaker
 
     }
 
+    //Written by Trace
     private void generateNebulas(int density){
         World world = space;
 
@@ -573,6 +513,7 @@ public class Player extends Object implements DamageTaker
 
     }
 
+    //Written by Nathan
     public void spawnShootingStar(){
         if(Greenfoot.getRandomNumber(shootingStarSpawnChance) == 0){
 
@@ -581,6 +522,7 @@ public class Player extends Object implements DamageTaker
         }
     }
 
+    //Written by Nathan
     public void spawnAsteroid(){
         if(Greenfoot.getRandomNumber(asteroidSpawnChance) == 0){
             switch(Greenfoot.getRandomNumber(3)){
@@ -602,6 +544,7 @@ public class Player extends Object implements DamageTaker
     /*********************  WEAPONS SYSTEMS  **************************/
     /******************************************************************/
 
+    //Written by Nathan
     public static int getWeaponLevel(int weapon){
         switch(weapon){
             case 0:
@@ -626,6 +569,7 @@ public class Player extends Object implements DamageTaker
         return -1;
     }
 
+    //Written by Nathan
     public void updateAvailableWeapons(boolean proj, boolean beam, boolean missile, boolean mine, boolean fire, boolean plasma)
     {
         space.removeWeaponGUI();
@@ -640,6 +584,7 @@ public class Player extends Object implements DamageTaker
 
     }
 
+    //Written by Nathan
     public static void updateAvailableWeapons(int i, boolean weapon){
 
         switch(i){
@@ -666,10 +611,12 @@ public class Player extends Object implements DamageTaker
 
     }
 
+    //Written by Nathan
     public void reloadWeapons(){
         space.drawWeaponGUI(projectileEnabled, beamEnabled, missileEnabled, mineEnabled, fireballEnabled, plasmaballEnabled);
     }
 
+    //Written by John
     private void shoot(int LV, int wep)
     {
         beamCharge();
@@ -688,6 +635,7 @@ public class Player extends Object implements DamageTaker
         }
     }
 
+    //Written by John
     private void beamCharge()
     {
         //beamChargeBar();
@@ -702,6 +650,7 @@ public class Player extends Object implements DamageTaker
         }
     }
 
+    //Written by John
     private void beamChargeBar()
     {
         for (int i=1; i <= beamCharge/15; i++){
@@ -709,6 +658,7 @@ public class Player extends Object implements DamageTaker
         }
     }
 
+    //Written by John
     private void weaponTimer(int angle,int LV,int wep)
     {
         weaponTimer++;
@@ -745,6 +695,7 @@ public class Player extends Object implements DamageTaker
         }
     }
 
+    //Written by John
     private void toggleWeaponLV(){
         if (Greenfoot.isKeyDown("=")){
             if (weaponToggle==0)
@@ -779,10 +730,12 @@ public class Player extends Object implements DamageTaker
         }
     }
 
+    //Written by Trace
     private void scrollWeapon(){
         weaponType = (int) space.getWeapon();
     }   
 
+    //Written by John
     public void weaponSystems(){
         //System.out.println(Player.getWeaponLevel(weaponType));
         shoot(Player.getWeaponLevel(weaponType), weaponType);
@@ -795,6 +748,89 @@ public class Player extends Object implements DamageTaker
     /****************************************************************/
     /*********************  HEALTH SYSTEM  **************************/
     /****************************************************************/
+    //Written by Trace
+    public void checkDeath()
+    {
+        if(health <= 0)
+        {
+            if(justDied)
+            {
+                if(deathDelay <= 0)
+                {
+                    promptRespawn();
+                    space.setPause = true;
+                    justDied = false;
+                    deathDelay = 100;
+                }
+                else
+                {
+                    deathDelay--;
+                    deathAnimation();
+                    isDead = true;
+                }
+                //System.out.println("died");
+            }
+        }
+    }
+
+    //Written by Trace
+    public static void resetHealth()
+    {
+        health = MAX_HEALTH;
+    }
+
+    //Written by Trace
+    public void respawn()
+    {
+
+        if(respawnIsPressed)
+        {
+            resetHealth();
+            setSpaceX(space.getSectorMiddleX());
+            setSpaceX(space.getSectorMiddleX());
+            respawnIsPressed = false;
+            setLocation(getWorld().getWidth()/2, getWorld().getHeight()/2);
+            List<Actor> c = getWorld().getObjects(Cannon.class);
+            for(Actor a : c)
+            {
+                a.setLocation(getWorld().getWidth()/2, getWorld().getHeight()/2);
+            }
+            explosionTimer = false;
+            isDead = false;
+        }
+    }
+    //Written by Trace
+    public void deathAnimation()
+    {
+        if(!explosionTimer)
+        {
+            explosionAmount = Greenfoot.getRandomNumber(10) + 5;
+            explosionTimer = true;
+        }
+        //System.out.println(explosionAmount);
+        if(explosionAmount > 0)
+        {
+            int midX = getWorld().getWidth()/2;
+            int midY = getWorld().getHeight()/2;
+            addExplosion(getSpaceX() + midX + Greenfoot.getRandomNumber(15), getSpaceY() + midY + Greenfoot.getRandomNumber(15));  
+        }
+        setLocation(1000, 1000);
+        List<Actor> c = getWorld().getObjects(Cannon.class);
+        for(Actor a : c)
+        {
+            a.setLocation(1000, 1000);
+        }
+        explosionAmount--;
+    }
+
+    //Written by Trace
+    public void promptRespawn()
+    {
+        getWorld().addObject(new RespawnMenu(), getWorld().getWidth()/2, getWorld().getHeight()/2);
+        getWorld().addObject(new RespawnButton(), getWorld().getWidth()/2, getWorld().getHeight()/2 + 50);
+    }
+
+    //Written by Nathan
     private void debugHealthHack(){
         if(Greenfoot.isKeyDown("[")){
             addHealth(-.5);
@@ -807,6 +843,7 @@ public class Player extends Object implements DamageTaker
         }
     }
 
+    //Written by Nathan
     public double getHealth(){
         return health;
     }
@@ -816,7 +853,7 @@ public class Player extends Object implements DamageTaker
     }
 
     //Set the health, makes sure you're not setting health over the maximum or under 0
-
+    //Written by Nathan
     public void setHealth(double health){
         if(health > getMaxHealth()){
             this.health = getMaxHealth();
@@ -834,6 +871,7 @@ public class Player extends Object implements DamageTaker
     }
 
     //Set maximum health, makes sure you're not setting it under current health
+    //Written by Nathan
     public void setMaxHealth(double health){
         if(getHealth() > health){
             setHealth(health);
@@ -844,6 +882,7 @@ public class Player extends Object implements DamageTaker
 
     }
 
+    //Written by Nathan
     public void addHealth(double add){
         setHealth(getHealth()+add);
 
@@ -853,16 +892,14 @@ public class Player extends Object implements DamageTaker
         return damageBar;
     }
 
-    public void checkDead(){
-        if(getHealth() <= 0.0){
-            addExplosion(getShipLocX(), getShipLocY());
-        }
-    }
+
     /*******************************************************/
     /*********************  MISC  **************************/
     /*******************************************************/
     //Called during the first tick only
     //Some methods require the ship to alrady be spawned to work
+    
+    //Written by Nathan
     private void firstTime(){
         if(firstTime){
 
@@ -892,11 +929,13 @@ public class Player extends Object implements DamageTaker
     private Number goldNumber = new Number(gold+"",2);
     private double lastGoldCount = gold;
 
+    //Written by Nathan
     private void setUpGoldScore(){
         space.addObject(new GoldText(),762,22);
         space.addObject(goldNumber, 855, 18);
     }
 
+    //Written by Nathan
     private void updateGoldScore(){
         if(lastGoldCount != gold){
             goldNumber.remove();
@@ -907,6 +946,7 @@ public class Player extends Object implements DamageTaker
     }
 
     //Private method used for star spawning, returns either 1.0 or -1.0
+    //Written by Nathan
     private double getPosNeg(){
         if(Greenfoot.getRandomNumber(2) ==0){
             return 1.0;
@@ -1020,6 +1060,7 @@ public class Player extends Object implements DamageTaker
 
     private boolean qIsDown;
 
+    //Written by Trace
     public void placeShield()
     {
         if(Greenfoot.isKeyDown("q") && qIsDown)

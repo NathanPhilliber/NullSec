@@ -1,9 +1,7 @@
-/**
- * Write a description of class BeamBar here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+import greenfoot.*;
+
+//Written by Trace
+
 public class BoostBarSegment extends BoostBar implements ProjectileObject
 {
    private int delay = 100;

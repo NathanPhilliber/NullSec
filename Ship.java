@@ -1,4 +1,5 @@
 import greenfoot.*;
+//Written by Nathan
 public class Ship extends Player
 {
     public Ship(){

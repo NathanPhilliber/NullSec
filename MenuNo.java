@@ -1,11 +1,6 @@
 import greenfoot.*;
 import java.util.List;
-/**
- * Write a description of class MenuNo here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+//Written by Trace
 public class MenuNo extends DockMenu
 {
     /**

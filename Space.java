@@ -91,7 +91,7 @@ public class Space extends World
             MapBackButton.class, PlayerIcon.class, Map.class, MapButton.class, GotoShopButton.class, GoldText.class,
             Counter.class, TutorialObjectManager.class, DockMenu.class, OutsideMP.class, 
             PlayerShip.class, PlanetMP.class, EnemyShip.class, InsideMP.class, IconProjectile.class, 
-            IconFire.class, MissleIcon.class, IconPlasma.class, IconLaser.class, IconMine.class, 
+            IconFire.class, MissileIcon.class, IconPlasma.class, IconLaser.class, IconMine.class, 
             WeaponBG.class, BoostBarInside.class, BoostBarSegment.class, BoostBarOutside.class,
             Beam.class,  BeamHUD.class, PlanetLevelText.class, Number.class, Digit.class,AlienShip.class, EnemyShip.class, DamageBar.class,
             Projectile.class, Missile.class, Cannon.class, Ship.class, PlasmaBall.class, Mine.class, 
@@ -162,9 +162,9 @@ public class Space extends World
             WeaponBG weaponbg3 = new WeaponBG();        
             addObject(weaponbg3, 48, 220);
 
-            MissleIcon missleicon = new MissleIcon();
+            MissileIcon missleicon = new MissileIcon();
             addObject(missleicon, 46, 53);
-            MissleIcon missleicon2 = new MissleIcon();
+            MissileIcon missleicon2 = new MissileIcon();
             addObject(missleicon2, 44, 63);
             missleicon.setLocation(49, 50);
             missleicon2.setLocation(41, 64);
