@@ -15,6 +15,12 @@ import java.util.Arrays;
 
 public class Space extends World
 {
+    
+    /*
+     * This class is the base for the outer space exploration world. The tutorial and main map extends this
+     * 
+     * Written by Nathan, Trace
+     */
 
     private Ship ship;
     boolean isDown = false;
@@ -50,12 +56,16 @@ public class Space extends World
     GotoShopButton gotoShopButton = new GotoShopButton();
 
     private double spawnX, spawnY;
+    
     //Contructor, spawn world
-    public Space()
+    //Written by Nathan
+    public Space() 
     {    
         this(0,0);
     }
 
+    //Constructor with coords to return player to
+    //Written by Nathan
     public Space(double spawnX, double spawnY){
         super(OptionsMenu.getWorldWidth(), OptionsMenu.getWorldHeight(), 1, false);
         this.spawnX = spawnX;
@@ -63,11 +73,13 @@ public class Space extends World
         prepare();
     }
 
+    //Written by Trace
     public void scrollListener()
     {
         panel.addMouseWheelListener(scroll);
     }
 
+    //Written by Trace
     protected void prepare()
     {
         isPaused=false;
@@ -106,6 +118,7 @@ public class Space extends World
         secy = (int) Math.ceil(((int) ship.getSpaceY()/10 + 270)/getWidth());
     }
 
+    //Written by Nathan and Trace
     public void drawWeaponGUI(boolean proj, boolean beam, boolean missile, boolean mine, boolean fire, boolean plasma){
         projectileEnabled = proj;
         missileEnabled = missile;
@@ -188,6 +201,7 @@ public class Space extends World
 
     }
 
+    //Written by Nathan
     public void removeWeaponGUI(){
         List objects = getObjects(HUD.class);
 
@@ -203,6 +217,7 @@ public class Space extends World
     private boolean pauseOnce = true;
     private int totalEscape = 0;
 
+    //Written by Trace
     public void act()
     {
         boolean first = true;
@@ -250,16 +265,19 @@ public class Space extends World
         openMap(false);
     }
 
+    //Written by Trace
     public boolean getIsPaused()
     {
         return isPaused;
     }
 
     //Return ship object
+    //Written by Nathan
     public Ship getShip(){
         return ship;
     }
 
+    //Written by Nathan
     public double getWeapon()
     {
         tempWep += scroll.getScroll();
@@ -298,6 +316,7 @@ public class Space extends World
         return tempWep;
     } 
 
+    //Written by John
     private int weaponType()
     {
         int weaponType = -1;
@@ -333,6 +352,8 @@ public class Space extends World
     private boolean firstPass = true;
     private boolean pressOnce = true;
     private int totalClick = 0;
+    
+    //Written by Trace
     public static int getIndexOf( int toSearch, int[] tab ){
          int i = 0;
          try{
@@ -346,6 +367,7 @@ public class Space extends World
              return -1;
          }
     }
+    //Written by Trace
     public void openMap(boolean override)
     {
         if((Greenfoot.isKeyDown("t") && !mapIsOpen && totalClick == 0) || (override && !mapIsOpen))
@@ -421,11 +443,13 @@ public class Space extends World
             totalClick -= 1;
         }
     }
+    //Written by Trace
     public int getSectorMiddleX()
     {
         return 9400*secx;
     }
     
+    //Written by Trace
     public int getSectorMiddleY()
     {
         return 4200*secy;
@@ -433,6 +457,7 @@ public class Space extends World
 }
 
 //Classception
+//Written by Trace
 class ScrollingListener implements MouseWheelListener
 {
     double aftAmount = 0;

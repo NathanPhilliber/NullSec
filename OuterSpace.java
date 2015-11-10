@@ -13,15 +13,9 @@ import java.util.List;
 
 public class OuterSpace extends Space
 {
-
-    //World worldOne = new WorldOne();
-    //World shop = new Shop();
-    //Contructor, spawn world
-
-    private Level3 level3 = new Level3(0,0);
     
     
-
+    
     public OuterSpace()
     {    
         this(0,0);
@@ -54,8 +48,6 @@ public class OuterSpace extends Space
         Planet planet3 = new Planet(-2000, 130,  new Level14(500,1000), "images/Planet4.png", "3");
         addObject(planet3,3000, 0);
 
-        
-        
         Planet planet4 = new Planet(-110, 1300,  new Level14(500,1000), "images/Planet5.png", "4");
         addObject(planet4,3000, 0);
         
