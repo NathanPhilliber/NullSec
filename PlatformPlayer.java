@@ -293,8 +293,8 @@ public class PlatformPlayer extends PlatformObject
          * due to player movement
          */
         int steps=10;
-        double oldRealX=getRealX();//Type2
-        double oldOffset=w.getOffset();//Type2
+        //double oldRealX=getRealX();//Type2
+        //double oldOffset=w.getOffset();//Type2
         //X check
         for (int i=0;i<=steps-1;i++)
         {
@@ -348,14 +348,15 @@ public class PlatformPlayer extends PlatformObject
          * Collision Type2
          * catch all
          * reverts scroll()
-         */
+         * very broken
+        
         Actor b=getOneIntersectingObject(blockType);
         if (b!=null)
         {
             w.setOffset(oldOffset);
             setRealX(oldRealX);
             setLocation(getRealX()-w.getOffset(),getRealY());
-        }
+        }*/
         
         
         //This runs if you get stuck in a block for a long time
