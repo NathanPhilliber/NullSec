@@ -15,17 +15,19 @@ public class OuterSpace extends Space
 {
     
     
-    
+    //Written by Nathan
     public OuterSpace()
     {    
         this(0,0);
     }
     
+    //Written by Nathan
     public OuterSpace(double spawnX, double spawnY){
         super(spawnX, spawnY);
         prepareObjects();
     }
 
+    //Written by Trace
     private void prepareObjects()
     {
         super.prepare();
@@ -83,6 +85,7 @@ public class OuterSpace extends Space
         
     }
 
+    
     public void act()
     {
         super.act();

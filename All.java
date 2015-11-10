@@ -1,4 +1,7 @@
-import greenfoot.*;/**>>>>John<<<<**/
+import greenfoot.*;
+
+//Written by John
+
 public class All extends Actor
 {
     protected double cos(double angle)

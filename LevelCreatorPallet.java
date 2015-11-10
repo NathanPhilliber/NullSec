@@ -1,17 +1,10 @@
 import greenfoot.*;
 
-/**
- * Write a description of class LevelCreatorPallet here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+//Written by Nathan
+
 public class LevelCreatorPallet extends LevelCreatorObject
 {
-    /**
-     * Act - do whatever the LevelCreatorPallet wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+
     public int width = 25;
     public int length = 13; //height of pallet
     public int spaceBetween = 3;

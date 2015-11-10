@@ -1,4 +1,7 @@
 import greenfoot.*;
+
+//Written by Nathan
+
 public class Level7 extends Platformer
 {
     public Level7(){

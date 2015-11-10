@@ -1,4 +1,7 @@
 import greenfoot.*;
+
+//Written by John
+
 public class OptionsMenu extends World
 {
     private Actor back=new Back();
@@ -31,7 +34,8 @@ public class OptionsMenu extends World
         super(920,540,1); 
         prepare();
     }   
-    
+    
+
     private void prepare()
     {
         addObject(soundToggle,870,490);
@@ -54,7 +58,8 @@ public class OptionsMenu extends World
         resolution4.setLocation(252, 214);
         resolution3.setLocation(238, 157);
         resolution.setLocation(209, 34);
-    }
+    }
+
 
     public void act()
     {

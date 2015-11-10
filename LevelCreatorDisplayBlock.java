@@ -2,23 +2,16 @@ import greenfoot.*;
 import java.util.List;
 import java.util.ArrayList;
 
-/**
- * Write a description of class LevelCreatorDisplayBlock here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+//Written by Nathan and Trace
+
 public class LevelCreatorDisplayBlock extends LevelCreatorObject
 {
-    /**
-     * Act - do whatever the LevelCreatorDisplayBlock wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+
     public static int block = 0;
 
     private int delay = 0;
 
-    /************** DONT FUCK WITH THE ORDER, ADD SHIT TO THE END******************/
+    /************** DONT MESS WITH THE ORDER, ADD SHIT TO THE END******************/
 
     public static String[] blockName = {"brick.png", "BlueBrick.png","Lava.png","Lava2.png", "StandingRight.png",
             "Portal.png", "MoonBrick.png", "MoonBrickTop.png", "GooTop.png", "GooBottom.png", "WaterTop.png",  "WaterMiddle.png","WaterBottom.png",
@@ -45,6 +38,7 @@ public class LevelCreatorDisplayBlock extends LevelCreatorObject
     public boolean downIsDown;
     public static int bgImage = 0;
 
+    //Written by Nathan
     public static ArrayList<Integer> exceptions = new ArrayList<Integer>();
     public LevelCreatorDisplayBlock(){
         exceptions.add(4);
@@ -61,6 +55,8 @@ public class LevelCreatorDisplayBlock extends LevelCreatorObject
         exceptions.add(61);
 
     }
+    
+    //Written by Nathan and Trace
     public void act() 
     {
         MouseInfo m = Greenfoot.getMouseInfo();
@@ -104,11 +100,13 @@ public class LevelCreatorDisplayBlock extends LevelCreatorObject
         }
     }  
 
+    //Written by Nathan
     public void updateBlock(){
         setImage(blockName[block]);
 
     }
 
+    //Written by Trace
     public void cycleBackground()
     {
         if(Greenfoot.isKeyDown("UP") && !upIsDown)
@@ -145,16 +143,19 @@ public class LevelCreatorDisplayBlock extends LevelCreatorObject
         }
     }
 
+    //Written by Trace
     public static String getBG()
     {
         return backgroundImages[bgImage];
     }
 
+    //Written by Nathan
     public static String[] getBlock()
     {
         return blockName;
     }
 
+    //Written by Nathan
     public static void printNames(){
         int i = 0;
         for(String name : blockName){

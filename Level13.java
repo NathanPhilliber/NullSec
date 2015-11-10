@@ -1,18 +1,10 @@
 import greenfoot.*;
 
-/**
- * Write a description of class Level13 here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+//Written by Nathan 
+
 public class Level13 extends Platformer
 {
 
-    /**
-     * Constructor for objects of class Level13.
-     * 
-     */
     public Level13(){
         this(0,0);
     }

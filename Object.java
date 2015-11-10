@@ -2,12 +2,7 @@ import greenfoot.*;
 import java.util.List;
 import java.util.ArrayList;
 
-/**
- * Write a description of class Object here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+
 public class Object extends SmoothMover
 {
 
@@ -25,6 +20,7 @@ public class Object extends SmoothMover
 
     protected int mineRange = 250;
 
+    //Written by Nathan
     public void act() 
     {
         if(space == null){
@@ -33,12 +29,8 @@ public class Object extends SmoothMover
         }
     } 
 
-    /**
-     * 
-     * 
-     * john start
-     * 
-     */
+    
+    //Written by John
     //from 0 to 360 to -180 to 180 
     public int angleRange(int angle)
     {
@@ -52,6 +44,7 @@ public class Object extends SmoothMover
         }
     }
 
+    //Written by John
     public int getMouseAngle()//from center of world
     {
         MouseInfo m = Greenfoot.getMouseInfo();
@@ -63,6 +56,7 @@ public class Object extends SmoothMover
         return 0;
     }
 
+    //Written by John
     public void setRemovalOffEdge(int dist) 
     {
         if (isOffEdge(dist))
@@ -71,6 +65,7 @@ public class Object extends SmoothMover
         }
     }
 
+    //Written by John
     public boolean isOffEdge(int dist)
     {
         if (getX() <= -dist)
@@ -96,6 +91,7 @@ public class Object extends SmoothMover
 
     }
 
+    //Written by John
     public boolean isOffscreen(){
         if((getX() < 0 || getX() > space.getWidth()) || (getY() < 0 || getY() > space.getHeight())){
             return true;
@@ -103,6 +99,7 @@ public class Object extends SmoothMover
         return false;
     }
 
+    //Written by John
     public void setRemovalAtEdge() 
     {
         if (isAtEdge())
@@ -110,8 +107,8 @@ public class Object extends SmoothMover
             scheduleRemoval();
         }
     }
-    //john end
-
+    
+    //Written by Nathan
     public void addExplosion(double x, double y){
 
         for (int i = 0; i<13; i++)
@@ -125,6 +122,7 @@ public class Object extends SmoothMover
         explodeSound.play();
     }
 
+    //Written by Nathan
     public void addRocketTrail(double x, double y){
 
         space.addObject(new Particle(x, y, 10, 6, 7, 6, 10, 95, "images/spark1.png"), 0, 0);
@@ -132,22 +130,26 @@ public class Object extends SmoothMover
         //double startX, double startY, int straightness, double radius, int lifetime, double particleSpeed, int lifetimeRandom,int angle, String image)
     }
 
+    //Written by Nathan
     public void addFire(double x, double y){
 
         space.addObject(new Particle(x, y, 10, 6, 5, 3, 15, 50,"images/firesparks.png"), 0, 0);
     }
 
+    //Written by Nathan
     public void addMineTicker(double x, double y){
 
         space.addObject(new Particle(x, y, 10, 6, 5, 3, 15, 95,"images/spark1.png"), 0, 0);
     }
 
+    //Written by Nathan
     public void addCoinPickup(double x, double y){
         for(int i = 0; i < 30; i++){
             space.addObject(new Particle(x, y, 15, 6, 5, 5, 10, 0,"images/coinEffect.png"), 0, 0);
         }
     }
 
+    //Written by Nathan
     public void addPlanetDock(double x, double y){
         for(int i = 0; i < 30; i++){
             space.addObject(new Particle(x, y, 6, 6, 10, 2, 20, 0,"images/smoke2.png"), 0, 0);

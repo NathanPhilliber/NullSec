@@ -3,11 +3,10 @@ import java.util.List;
 import java.io.*;
 import java.awt.Color;
 
-/**
- * Write a description of class LevelCreator here.
+/*
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Written by Nathan
+ * 
  */
 public class LevelCreator extends World
 {

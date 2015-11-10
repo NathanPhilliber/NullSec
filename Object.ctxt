@@ -3,7 +3,6 @@ comment0.params=
 comment0.target=void\ act()
 comment1.params=angle
 comment1.target=int\ angleRange(int)
-comment1.text=\n\ \n\ \n\ john\ start\n\ \n
 comment10.params=x\ y
 comment10.target=void\ addMineTicker(double,\ double)
 comment11.params=x\ y

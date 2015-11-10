@@ -1,11 +1,10 @@
 import greenfoot.*;
 
-/**
- * Write a description of class Shop here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+/*
+ * Written by Nathan
+ * Graphics by Trace
  */
+
 public class Shop extends World
 {
     WeaponShopFG weaponShopFg = new WeaponShopFG();

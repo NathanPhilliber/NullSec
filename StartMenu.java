@@ -1,5 +1,8 @@
 import greenfoot.*;
 import java.awt.Color;
+
+//Written by Trace and John
+
 public class StartMenu extends World
 {
     public static boolean musicToggle = true;
@@ -10,16 +13,14 @@ public class StartMenu extends World
     private About about = new About();
     private Exit exit = new Exit();
     
-    
-    
-    
-    
+    //Written by Trace
     public StartMenu()
     {    
         super(OptionsMenu.getWorldWidth(), OptionsMenu.getWorldHeight(), 1, false); 
         createStars(100);
         prepare();
     }
+    //Written by Trace
     private void prepare()
     {
         Logo logo = new Logo();
@@ -32,6 +33,7 @@ public class StartMenu extends World
         
         addObject(new IconShip(music), 325, 280);
     }
+    
     //http://www.greenfoot.org/topics/730
     public void createStars(int number)
     {
@@ -46,11 +48,13 @@ public class StartMenu extends World
             background.fillOval(Greenfoot.getRandomNumber(getWidth()), Greenfoot.getRandomNumber(getHeight()), Greenfoot.getRandomNumber(3)+1,Greenfoot.getRandomNumber(3)+1);
         }
     }
+    //Written by John
     public void act()
     {
         musicTogggle();
         mouseMenu();
     }
+    //Written by John
     private void mouseMenu()
     {       
         if(Greenfoot.mouseClicked(options))
@@ -67,6 +71,7 @@ public class StartMenu extends World
             Greenfoot.stop();
         }
     }
+    //Written by John
     private void musicTogggle()
     {
         if(StartMenu.musicToggle&&(!playing))

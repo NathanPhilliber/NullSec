@@ -1,12 +1,8 @@
 import greenfoot.*;
 import java.util.List;
 
-/**
- * Write a description of class LevelCreatorPalletBlock here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+//Written by Nathan
+
 public class LevelCreatorPalletBlock extends LevelCreatorObject
 {
     public int myImage = 0;
