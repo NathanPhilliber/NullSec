@@ -15,7 +15,7 @@ import java.util.Arrays;
 
 public class Space extends World
 {
-    
+
     /*
      * This class is the base for the outer space exploration world. The tutorial and main map extends this
      * 
@@ -45,18 +45,18 @@ public class Space extends World
     private boolean mineEnabled = true;
     private boolean fireballEnabled = true;
     private boolean plasmaballEnabled = true;
-    
+
     public int sector;
     public int secx;
     public int secy;
-    
+
     MapButton mapButton = new MapButton();
     MapBackButton mapBackButton = new MapBackButton();
-    
+
     GotoShopButton gotoShopButton = new GotoShopButton();
 
     private double spawnX, spawnY;
-    
+
     //Contructor, spawn world
     //Written by Nathan
     public Space() 
@@ -110,9 +110,7 @@ public class Space extends World
 
         addObject(new BoostBarOutside(), 460, 508);
         addObject(new BoostBarInside(), 460, 508);
-        
-        addObject(mapButton, 660,18);
-        addObject(gotoShopButton, 592, 18);
+
         
         secx = (int) Math.ceil(((int) ship.getSpaceX()/10 + 460)/getWidth());
         secy = (int) Math.ceil(((int) ship.getSpaceY()/10 + 270)/getWidth());
@@ -228,8 +226,7 @@ public class Space extends World
             {
                 setPause = true;
                 addObject(new MenuBG(), getWidth()/2, getHeight()/2);
-                
-                
+
                 first = false;
             }
         }
@@ -352,20 +349,20 @@ public class Space extends World
     private boolean firstPass = true;
     private boolean pressOnce = true;
     private int totalClick = 0;
-    
+
     //Written by Trace
     public static int getIndexOf( int toSearch, int[] tab ){
-         int i = 0;
-         try{
-             while(!(tab[i] == toSearch) )
-             {  i++; }
-             
-             return i;
-         }
-         catch(ArrayIndexOutOfBoundsException e)
-         {
-             return -1;
-         }
+        int i = 0;
+        try{
+            while(!(tab[i] == toSearch) )
+            {  i++; }
+
+            return i;
+        }
+        catch(ArrayIndexOutOfBoundsException e)
+        {
+            return -1;
+        }
     }
     //Written by Trace
     public void openMap(boolean override)
@@ -380,25 +377,24 @@ public class Space extends World
                 int newy = (int) (ship.getSpaceY()/10) + 270;
 
                 //int[] secArray = {0, 1, 2, 10, 11, 12, 20, 21, 22};
-                
+
                 int[] secArray = {0, 10, 20, 1, 11, 21, 2, 12, 22};
-                
-                
+
                 secx = (x>0) ? (int) Math.ceil(x/getWidth()) : -1;
                 secy = (y>0) ? (int) Math.ceil(y/getHeight()) : -1;
-                
+
                 String a = secx + "" + secy;
                 String b = "-1";
                 String secPos =  (secx<0 || secy<0) ? b : a;
                 int secPosInt = Integer.parseInt(secPos);
-                
+
                 int sectorFake = (getIndexOf(secPosInt, secArray));
                 sector = sectorFake;
-                
+
                 Map map = new Map(sector);
 
                 //System.out.println(secPos);
-                
+
                 if(x > getWidth())
                 {
                     newx = x - getWidth()*secx;
@@ -448,7 +444,7 @@ public class Space extends World
     {
         return 9400*secx;
     }
-    
+
     //Written by Trace
     public int getSectorMiddleY()
     {
