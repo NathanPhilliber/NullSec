@@ -5,10 +5,8 @@ public class PlatformPlayer extends PlatformObject
 {
 
     /************************************************************************************
-     * constants
-     * DO NOT MAKE THE COSE CHANGE
-     * (you were changeing walkSpeed constant(was moveSpeed))
-     *
+     *    *****CONSTANTS*****
+     * DO NOT MAKE THE CODE CHANGE
      ************************************************************************************
      */
     static final double dragX = .7;
@@ -295,8 +293,8 @@ public class PlatformPlayer extends PlatformObject
          * due to player movement
          */
         int steps=10;
-        //double oldRealX=getRealX();
-        //double oldRealY=getRealY();
+        double oldRealX=getRealX();
+        double oldRealY=getRealY();
         //X check
         for (int i=0;i<=steps-1;i++)
         {
@@ -345,6 +343,38 @@ public class PlatformPlayer extends PlatformObject
             }
         }
         /**scrolling stuff*/
+        scroll();//sets location
+        /**
+         * Collision Type2
+         * catch all (bugs)
+         * reverts movement
+         */
+        Actor b=getOneIntersectingObject(blockType);
+        if (b!=null)
+        {
+            setRealX(oldRealX);
+            setRealY(oldRealY);
+            scroll();
+        }
+        
+        
+        //This runs if you get stuck in a block for a long time
+        //Will push you out after 75 game ticks;
+        b = getOneIntersectingObject(blockType);
+        if(b != null){
+            ticksStuckInBlock++;
+            if(ticksStuckInBlock > 50){
+                addRealY(-5);
+                //setLocation(getRealX(), getExactY()-5);
+                //System.out.println("Help Me");
+            }
+        }
+        else{
+            ticksStuckInBlock = 0;
+        }
+    }
+    private void scroll()//called in update player method
+    {
         double dif=getExactX()-sideScrollDist;
         if(dif<=0&&velX<0&&w.getOffset()>=0)
         {
@@ -358,21 +388,7 @@ public class PlatformPlayer extends PlatformObject
         if(w.getOffset() < 0){
             w.setOffset(0);
         }
-        setLocation(getRealX()-w.getOffset(),getRealY());//after scroll
-        //This runs if you get stuck in a block for a long time
-        //Will push you out after 75 game ticks;
-        Actor b = getOneIntersectingObject(blockType);
-        if(b != null){
-            ticksStuckInBlock++;
-            if(ticksStuckInBlock > 50){
-                addRealY(-5);
-                //setLocation(getRealX(), getExactY()-5);
-                //System.out.println("Help Me");
-            }
-        }
-        else{
-            ticksStuckInBlock = 0;
-        }
+        setLocation(getRealX()-w.getOffset(),getRealY());//end of scroll
     }
 
     private void leftRight()
