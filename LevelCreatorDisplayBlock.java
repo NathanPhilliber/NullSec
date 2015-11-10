@@ -40,7 +40,7 @@ public class LevelCreatorDisplayBlock extends LevelCreatorObject
             "coin.png",
             "cancel.png"}; //MAKE CANCEL LAST
 
-    public static String[] backgroundImages = {"PlanetOneBG.png", "BackgroundLevel4.png", "BackgroundImage3.png", "SpaceshipBackground1.png"};
+    public static String[] backgroundImages = {"PlanetOneBG.png", "BackgroundLevel4.png", "BackgroundImage3.png", "SpaceshipBackground1.png","MetalBackground.png"};
     public boolean upIsDown;
     public boolean downIsDown;
     public static int bgImage = 0;

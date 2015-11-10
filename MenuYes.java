@@ -26,6 +26,7 @@ public class MenuYes extends DockMenu
            
             
             space.getShip().dockWorld();
+            space.getShip().resetDockMenu();
             space.setPause = false;
             space.removeObjects(space.getObjects(DockMenu.class));
         }
