@@ -293,8 +293,7 @@ public class PlatformPlayer extends PlatformObject
          * due to player movement
          */
         int steps=10;
-        double oldRealX=getRealX();
-        double oldRealY=getRealY();
+        double oldOffset=w.getOffset();//Type2
         //X check
         for (int i=0;i<=steps-1;i++)
         {
@@ -347,14 +346,13 @@ public class PlatformPlayer extends PlatformObject
         /**
          * Collision Type2
          * catch all (bugs)
-         * reverts movement
+         * reverts scroll()
          */
         Actor b=getOneIntersectingObject(blockType);
         if (b!=null)
         {
-            setRealX(oldRealX);
-            setRealY(oldRealY);
-            scroll();
+            w.setOffset(oldOffset);
+            setLocation(getRealX()-w.getOffset(),getRealY());
         }
         
         
