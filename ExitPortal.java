@@ -1,4 +1,7 @@
 import greenfoot.*;
+
+//Written by Trace
+
 public class ExitPortal extends NoCollisionBlock
 {
     public void act() 

@@ -1,4 +1,7 @@
 import greenfoot.*;
+
+//Written by Nathan
+
 public class BulletLauncher extends Block
 {
     public int rotation = 0;

@@ -1,4 +1,7 @@
 import greenfoot.*;
+
+//Written by John
+
 public class NonPlayer extends PlatformObject
 {
     protected void addedToWorld(World world)

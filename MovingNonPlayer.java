@@ -1,4 +1,7 @@
 import greenfoot.*;
+
+//Written by John
+
 public class MovingNonPlayer extends NonPlayer
 {
     public void act() 

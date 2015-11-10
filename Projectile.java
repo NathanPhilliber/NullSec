@@ -1,20 +1,10 @@
 import greenfoot.*;
 
-/**
- * Write a description of class Projectile here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+//Written by John
+
 public class Projectile extends Weapon implements ProjectileObject
 {
-    /**
-     * Works
-     * feel free to change immage or move speed
-     * shooting speed is changed in Player.shoot()
-     * add colisions as nessary
-     * 
-     */
+
     
     private boolean firstTime = true;
     private int angleChange = 0;

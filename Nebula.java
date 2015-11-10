@@ -1,17 +1,10 @@
 import greenfoot.*;
 
-/**
- * Write a description of class Nebula here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+//Written by Trace
+
 public class Nebula extends SpaceObject
 {
-    /**
-     * Act - do whatever the Nebula wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+
     public void act() 
     {
        super.act();

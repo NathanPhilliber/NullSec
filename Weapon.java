@@ -1,11 +1,8 @@
 import greenfoot.*;
 import java.util.List;
-/**
- * Write a description of class Weapon here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+
+//Written by John and Nathan
+
 public class Weapon extends SpaceObject
 {
     protected boolean ownedByPlayer;
@@ -16,6 +13,7 @@ public class Weapon extends SpaceObject
 
     protected boolean despawnOnTouch = true;
 
+    
     public static final int PROJECTILE = 0;
     public static final int BEAM = 1;
     public static final int MISSILE = 2;
@@ -23,6 +21,7 @@ public class Weapon extends SpaceObject
     public static final int FIREBALL = 4;
     public static final int PLASMABALL = 5;
     
+    //Written by Nathan
     public static final int[] PROJECTILE_COST = {0,200,300,400,500,600,700};
     public static final int[] BEAM_COST = {100,200,300,400,500,600,700};
     public static final int[] MISSILE_COST = {200,250,350,450,550,650};
@@ -30,6 +29,7 @@ public class Weapon extends SpaceObject
     public static final int[] FIREBALL_COST = {200,400,600,800};
     public static final int[] PLASMA_COST = {300,450,600,750,900};
     
+    //Written by Nathan
     public static int getWeaponCost(int weapon, int level){
         switch(weapon){
             case 0:
@@ -61,6 +61,7 @@ public class Weapon extends SpaceObject
         setRemovalOffEdge(100);
     }  
 
+    //Written by John
     public Weapon(int angle, boolean isPlayer, double startX, double startY, double damage){
         super(startX, startY);
         setRotation(angle);
@@ -68,11 +69,13 @@ public class Weapon extends SpaceObject
         this.damage = damage;
     }
 
+    //Written by John
     public int angleTowards(double yourX,double yourY,double targetX, double targetY)
     {
         return (int)Math.round(Math.atan2((targetY-yourY),(targetX-yourX))*360/(2*Math.PI)); 
     }
 
+    //Written by Nathan
     public boolean checkCollision(){
 
         List<Object> objs = getIntersectingObjects(Object.class);
@@ -152,6 +155,7 @@ public class Weapon extends SpaceObject
     }
 }
 
+//Written by Nathan
 interface ProjectileObject{
     //public boolean checkCollision();
 }

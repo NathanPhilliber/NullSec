@@ -1,11 +1,7 @@
 import greenfoot.*;
 
-/**
- * Write a description of class PlasmaBall here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+//Written by John
+
 public class PlasmaBall extends Weapon implements ProjectileObject
 {
     private double straightX;
@@ -15,10 +11,7 @@ public class PlasmaBall extends Weapon implements ProjectileObject
     private double speed = 7.0;
     
     
-    /**
-     * Act - do whatever the PlasmaBall wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+
     public void act() 
     {
         super.act();
@@ -35,10 +28,7 @@ public class PlasmaBall extends Weapon implements ProjectileObject
 
     private void waveMove(double distance)
     {
-        //straightX = getExactX() + Math.cos(Math.toRadians(getRotation())) * distance;
-        //straightY = getExactY() + Math.sin(Math.toRadians(getRotation())) * distance;
-        
-        
+               
         double ang = getRotation()*2*Math.PI/360;
         double r = Math.sqrt((step)^2 + ((int)Math.round(100*step*Math.sin(step))^2)/10000);
         double theta = Math.atan(Math.sin(step));

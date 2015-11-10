@@ -1,11 +1,12 @@
 import greenfoot.*;
 import java.util.LinkedList;
 import java.util.List;
+
 /**
  * Subclass of other objects that will interact with the player directly.
  * 
  * Written by Nathan Philliber
- * 
+ * 3 Circle Methods Written by John
  */
 public class Entity extends SpaceObject implements DamageTaker
 {
@@ -351,6 +352,7 @@ public class Entity extends SpaceObject implements DamageTaker
      * 
      *********************************************************/
 
+     //Written by John
     public void circleTarget(int x, int y, int numOfCycles, int radius){
         currentlyCircling = true;
         circleTargetX = x;
@@ -359,10 +361,12 @@ public class Entity extends SpaceObject implements DamageTaker
         circleTargetRadius = radius;
     }
 
+    //Written by John
     public void circleTarget(int x, int y, int numOfCycles){
         circleTarget(x,y,numOfCycles,250);
     }
 
+    //Written by John
     public void circleTargetHelper(int x, int y)
     {
         if(currentlyCircling){
@@ -394,6 +398,7 @@ public class Entity extends SpaceObject implements DamageTaker
 
     }
 
+    //Written by John
     public int getTargetAngle(double targetX,double targetY)
     {
         return (int)Math.round(Math.atan2((targetY-getSpaceY()),(targetX-getSpaceX()))*360/(2*Math.PI));

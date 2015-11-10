@@ -1,11 +1,7 @@
 import greenfoot.*;
 
-/**
- * Write a description of class ShootingStar here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+//Written by Nathan
+
 public class ShootingStar extends SpaceObject
 {
     public double speed = 14.0;

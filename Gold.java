@@ -1,11 +1,8 @@
 import greenfoot.*;
 import java.util.List;
-/**
- * Write a description of class Gold here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+
+//Written by Nathan
+
 public class Gold extends SpaceObject
 {
     /**

@@ -1,4 +1,7 @@
 import greenfoot.*;
+
+//Written by Nathan
+
 public class WaterBlock extends NoCollisionBlock
 {
     public void act() 

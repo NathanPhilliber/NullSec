@@ -1,10 +1,16 @@
 import greenfoot.*;
+
+//Written by John, Nathan
+
 public class Bullet extends MovingNonPlayer
 {
+    
     private double speed=5;
     private boolean deleteMe = false;
     private boolean imOnscreenOnce = false;
     private double lastX = -1;
+    
+    //Written by John
     public void act() 
     {
         super.act();
@@ -12,7 +18,8 @@ public class Bullet extends MovingNonPlayer
         deleteOnEdge();
         deleteMe();
     }  
-
+    
+    //Written by John
     public Bullet(int angle)
     {
         super();
@@ -20,7 +27,7 @@ public class Bullet extends MovingNonPlayer
     }
 
         
-    
+    //Written by Nathan
     public void deleteOnEdge(){
         if(getX() > w.getWidth()+50 || getX() < -50){
             if(imOnscreenOnce){
@@ -39,6 +46,7 @@ public class Bullet extends MovingNonPlayer
 
     
 
+    //Written by Nathan
     public void deleteMe()
     {
         if ( deleteMe){

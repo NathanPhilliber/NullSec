@@ -1,6 +1,9 @@
 import greenfoot.*;
 import java.awt.Color;
 import java.util.List;
+
+//Written by Nathan
+
 public class Planet extends SpaceObject
 {
     public World world;

@@ -1,17 +1,10 @@
 import greenfoot.*;
 
-/**
- * Write a description of class Particle here.
- * 
- * Juan Manuel Jimenez Ramos 
- * @version (a version number or a date)
- */
+//Written by Manny
+
 public class Particle extends SpaceObject
 {
-    /**
-     * Act - do whatever the Particle wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+
     private int straightness;
     private double radius;
     private int lifetime;

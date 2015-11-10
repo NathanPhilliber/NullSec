@@ -1,20 +1,11 @@
 import greenfoot.*;
 import java.util.List;
-/**
- * Write a description of class Missle here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+
+//Written by Trace
+
 public class Missile extends Weapon implements ProjectileObject
 {
-    /**
-     * Not fully implamented
-     * feel free to change immage
-     * add colisions as nessary
-     * will eventualy seak targets 
-     * 
-     */
+
 
     private int turn;
     private int time;

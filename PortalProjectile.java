@@ -1,4 +1,8 @@
 import greenfoot.*;
+
+//Written by Trace
+
+
 public class PortalProjectile extends PortalWorld
 {
     public void act() 

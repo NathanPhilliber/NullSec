@@ -1,6 +1,10 @@
 import greenfoot.*;
 import java.util.List;
 import java.lang.reflect.*;
+
+/*
+ * Written by John, Trace and Nathan
+ */
 public class PlatformPlayer extends PlatformObject
 {
 
@@ -35,17 +39,20 @@ public class PlatformPlayer extends PlatformObject
 
     private int ticksStuckInBlock = 0;
 
+    //Written by Trace
     GifImage walkRight = new GifImage("WalkingAnimation.gif");
     GifImage walkLeft = new GifImage("WalkingAnimationLeft.gif");
     GifImage standRight = new GifImage("StandingRight.png");
     GifImage standLeft = new GifImage("StandingLeft.png");
+    
+    //Written by John
     public void addedToWorld(World world)
     {
         w=(Platformer)getWorld();
         setRealX(getX());
         setRealY(getY());
     }
-
+    //Written by John
     public PlatformPlayer()
     {
         velX = 0;
@@ -53,6 +60,7 @@ public class PlatformPlayer extends PlatformObject
         setImage(standRight.getCurrentImage());
     }
 
+    //Written by Nathan
     public boolean isMovingX(){
         if(velX != 0){
             return true;
@@ -60,6 +68,7 @@ public class PlatformPlayer extends PlatformObject
         return false;
     }
 
+    
     public void act() 
     {
         pausePlayerHelper();
@@ -79,16 +88,19 @@ public class PlatformPlayer extends PlatformObject
         //System.out.println(isMovingX());
     }
 
+    //Written by Nathan
     public void lockPlayerMovement(boolean lock){
         locked = lock;
     }
 
+    //Written by Nathan
     private void checkIfOffEdge(){
         if(getY() > 1500){
             kill();
         }
     }
 
+    //Written by Nathan
     private void checkSpecialCollisions()
     {
         List<PlatformObject> objects = getIntersectingObjects(PlatformObject.class);
@@ -175,7 +187,9 @@ public class PlatformPlayer extends PlatformObject
             addRealY(-5);
         }
         else if(anyClimb){
-
+            
+            //Written by John
+            
             ClimbBlock climb=(ClimbBlock)getOneIntersectingObject(ClimbBlock.class);
             if(getRealX()<=climb.getRealX()+ladderRadius&&getRealX()>=climb.getRealX()-ladderRadius)
             {
@@ -223,6 +237,7 @@ public class PlatformPlayer extends PlatformObject
     private boolean playerPaused = false;
     private boolean deleteMe = false;
 
+    //Written by Trace
     private void restartWorld(){
 
         try{
@@ -250,7 +265,8 @@ public class PlatformPlayer extends PlatformObject
         catch(InvocationTargetException e){   
         }
     }
-
+    
+    //Written by Nathan
     private void pausePlayerHelper(){
         pauseCycles--;
         if(pauseCycles > 0){
@@ -267,6 +283,7 @@ public class PlatformPlayer extends PlatformObject
         }
     }
 
+    //Written by Nathan
     public void kill(){
         if(hansMode){
 
@@ -280,6 +297,7 @@ public class PlatformPlayer extends PlatformObject
         }
     }
 
+    //Written by John
     private void updatePosition()
     {
         /**
@@ -361,7 +379,7 @@ public class PlatformPlayer extends PlatformObject
         
         //This runs if you get stuck in a block for a long time
         //Will push you out after 75 game ticks;
-        b = getOneIntersectingObject(blockType);
+        Actor b = getOneIntersectingObject(blockType);
         if(b != null){
             ticksStuckInBlock++;
             if(ticksStuckInBlock > 50){
@@ -374,6 +392,8 @@ public class PlatformPlayer extends PlatformObject
             ticksStuckInBlock = 0;
         }
     }
+    
+    //Written by John
     private void scroll()//called in update player method
     {
         double dif=getExactX()-sideScrollDist;
@@ -392,6 +412,7 @@ public class PlatformPlayer extends PlatformObject
         setLocation(getRealX()-w.getOffset(),getRealY());//end of scroll
     }
 
+    //Written by John, Trace
     private void leftRight()
     {
         slowX();
@@ -445,6 +466,7 @@ public class PlatformPlayer extends PlatformObject
         }
     }
 
+    //Written by John
     private void jump()
     {
         if ((Greenfoot.isKeyDown("space")||Greenfoot.isKeyDown("w")) && onBlock)
@@ -454,6 +476,7 @@ public class PlatformPlayer extends PlatformObject
         }
     }
 
+    //Written by John
     private void slowX()
     {
         if (onBlock)
@@ -466,11 +489,13 @@ public class PlatformPlayer extends PlatformObject
         }
     }
 
+    //Written by John
     private void gravity(double grav)
     {
         velY += grav;
     }
 
+    //Written by John
     private void showDebug(boolean show)
     {
         if(show)

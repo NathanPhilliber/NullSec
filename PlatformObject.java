@@ -1,4 +1,7 @@
 import greenfoot.*;
+
+//Written by John
+
 public class PlatformObject extends Object
 {
     protected double realX;

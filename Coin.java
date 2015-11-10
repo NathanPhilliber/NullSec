@@ -1,11 +1,7 @@
 import greenfoot.*;
 
-/**
- * Write a description of class Coin here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+//Written by Nathan
+
 public class Coin extends NoCollisionBlock
 {
     

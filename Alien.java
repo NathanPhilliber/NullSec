@@ -1,4 +1,8 @@
 import greenfoot.*;
+
+//Written by John
+
+
 public class Alien extends MovingNonPlayer
 {
     

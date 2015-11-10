@@ -1,5 +1,8 @@
 import greenfoot.*;
 import java.awt.Color;
+
+//Written by Nathan
+
 public class BackgroundBlock extends NoCollisionBlock
 {
     public void act() 

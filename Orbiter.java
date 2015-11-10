@@ -1,4 +1,7 @@
 import greenfoot.*;
+
+//Written by John
+
 public class Orbiter extends SpaceObject 
 {
     private double centerX;

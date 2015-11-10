@@ -1,4 +1,7 @@
 import greenfoot.*;
+
+//Written by Trace
+
 public class LavaBlock extends NoCollisionBlock
 {
     public void act() 

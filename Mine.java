@@ -1,21 +1,12 @@
 import greenfoot.*;
 import java.util.List;
-/**
- * Write a description of class Mine here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+
+//Written by Nathan
+
 public class Mine extends Weapon implements ProjectileObject
 {
 
-    /**
-     * currently broken
-     * Not fully implamented
-     * feel free to change immage
-     * add colisions as nessary
-     * 
-     */
+
     private int timer=0;
     private int range;
     private boolean isPlayer;
