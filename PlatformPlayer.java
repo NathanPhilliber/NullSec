@@ -18,6 +18,8 @@ public class PlatformPlayer extends PlatformObject
     static final double swimSpeed = 2;
     static final int sideScrollDist = 400;
     static final Class blockType = Block.class;
+    
+    private final int ladderRadius = 9;
 
     /************************************************************************************
      * varibles
@@ -176,8 +178,9 @@ public class PlatformPlayer extends PlatformObject
             addRealY(-5);
         }
         else if(anyClimb){
+            
             ClimbBlock climb=(ClimbBlock)getOneIntersectingObject(ClimbBlock.class);
-            if(getRealX()<=climb.getRealX()+6&&getRealX()>=climb.getRealX()-6)
+            if(getRealX()<=climb.getRealX()+ladderRadius&&getRealX()>=climb.getRealX()-ladderRadius)
             {
                 if(Greenfoot.isKeyDown("w")||Greenfoot.isKeyDown("space"))
                 {

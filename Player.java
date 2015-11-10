@@ -14,11 +14,10 @@ public class Player extends Object implements DamageTaker
     private double spaceX;
     private double spaceY;
 
-
     //Velocity of ship
     private double velX;
     private double velY;
-    
+
     public static final int TURN_SPEED = 2;
     public static final double FLY_SPEED = .3;
     public static final double REV_SPEED = .15;
@@ -27,7 +26,7 @@ public class Player extends Object implements DamageTaker
     private int turnSpeed = TURN_SPEED;
     private double flySpeed = FLY_SPEED;
     private double revSpeed = REV_SPEED;
-    
+
     private int boostCD=0;
 
     //The maximum velocity the ship can have
@@ -94,7 +93,7 @@ public class Player extends Object implements DamageTaker
 
     private boolean playerDisabled = false;
 
-    public static int gold = 3000;
+    public static int gold = 5000;
     public static int goldPotential = 0;
 
     /*************************************************************/
@@ -102,14 +101,17 @@ public class Player extends Object implements DamageTaker
     /*************************************************************/
 
     private int numEnemiesKilled = 0;
-    private AlienShip alien;
+    private Entity alien;
 
     private boolean alienCurAlive = false;
 
     public void keepEnemyOnScreen(){
         if(space instanceof OuterSpace){
             if(alienCurAlive == false){
-                alien = new AlienShip(getShipLocX()+Greenfoot.getRandomNumber(500)-250, getShipLocY()+Greenfoot.getRandomNumber(500)-250);
+                alien = new AlienShip(getShipLocX()+Greenfoot.getRandomNumber(1000)-500, getShipLocY()+Greenfoot.getRandomNumber(1000)-500);
+                if(Greenfoot.getRandomNumber(2) == 1){
+                    alien = new BomberShip(getShipLocX()+Greenfoot.getRandomNumber(1000)-500, getShipLocY()+Greenfoot.getRandomNumber(1000)-500);
+                }
                 space.addObject(alien,0,0);
                 alienCurAlive = true;
             }
@@ -118,7 +120,6 @@ public class Player extends Object implements DamageTaker
                     numEnemiesKilled++;
                     alienCurAlive = false;
 
-                    
                 }
             }   
         }
@@ -184,11 +185,11 @@ public class Player extends Object implements DamageTaker
             respawn();
         }
     } 
- public static boolean justDied = true;
+    public static boolean justDied = true;
     private int explosionAmount = Greenfoot.getRandomNumber(10) + 5;
     private int deathDelay = 100;
     private boolean isDead;
-    
+
     public void checkDeath()
     {
         if(health <= 0)
@@ -208,7 +209,7 @@ public class Player extends Object implements DamageTaker
                     deathAnimation();
                     isDead = true;
                 }
-                System.out.println("died");
+                //System.out.println("died");
             }
         }
     }
@@ -222,7 +223,7 @@ public class Player extends Object implements DamageTaker
 
     public void respawn()
     {
-      
+
         if(respawnIsPressed)
         {
             resetHealth();
@@ -247,7 +248,7 @@ public class Player extends Object implements DamageTaker
             explosionAmount = Greenfoot.getRandomNumber(10) + 5;
             explosionTimer = true;
         }
-        System.out.println(explosionAmount);
+        //System.out.println(explosionAmount);
         if(explosionAmount > 0)
         {
             int midX = getWorld().getWidth()/2;
@@ -338,8 +339,7 @@ public class Player extends Object implements DamageTaker
             planetLoadDelay--;
 
             addPlanetDock(getShipLocX(), getShipLocY());
-            
-            
+
 
         }
         else if(planetLoadDelay == 1){
@@ -348,8 +348,7 @@ public class Player extends Object implements DamageTaker
             currentPlanet.loadWorld();
         }
     }
-    
-    
+
 
     public void resetDockMenu(){
         dockPressed = false;
@@ -367,6 +366,7 @@ public class Player extends Object implements DamageTaker
         }
         return false;
     }
+
     private void boostChargeBar()
     {
         for (int i=1; i <= boostCD/50; i++){
@@ -404,13 +404,13 @@ public class Player extends Object implements DamageTaker
             {
                 /**>>>>>>>>>USE THE TRIG<<<<<<<<<<<<<<<**//*
                 if(Math.abs(getVelX()) >= getMaxFlySpeed()){
-                    //Set velocity to maximum velocity in correct direction
-                    setVelX(getMaxFlySpeed()*Integer.signum((int)getVelX()));
-                    addRocketTrail(getShipLocX()-30*cosRot(),getShipLocY()-30*sinRot());
+                //Set velocity to maximum velocity in correct direction
+                setVelX(getMaxFlySpeed()*Integer.signum((int)getVelX()));
+                addRocketTrail(getShipLocX()-30*cosRot(),getShipLocY()-30*sinRot());
                 }
                 if(Math.abs(getVelY()) >= getMaxFlySpeed()){
-                    setVelY(getMaxFlySpeed()*Integer.signum((int)getVelY()));
-                    addRocketTrail(getShipLocX()-30*cosRot(),getShipLocY()-30*sinRot());
+                setVelY(getMaxFlySpeed()*Integer.signum((int)getVelY()));
+                addRocketTrail(getShipLocX()-30*cosRot(),getShipLocY()-30*sinRot());
                 }*/
                 if(Math.sqrt(Math.pow(getVelX(),2)+Math.pow(getVelY(),2))>=getMaxFlySpeed())
                 {
@@ -606,22 +606,22 @@ public class Player extends Object implements DamageTaker
         switch(weapon){
             case 0:
             return projectileLevel;
-            
+
             case 1:
             return beamLevel;
-            
+
             case 2:
             return missileLevel;
-           
+
             case 3:
             return mineLevel;
-            
+
             case 4:
             return fireballLevel;
-            
+
             case 5:
             return plasmaLevel;
-            
+
         }
         return -1;
     }
@@ -665,6 +665,7 @@ public class Player extends Object implements DamageTaker
         }
 
     }
+
     public void reloadWeapons(){
         space.drawWeaponGUI(projectileEnabled, beamEnabled, missileEnabled, mineEnabled, fireballEnabled, plasmaballEnabled);
     }
@@ -887,15 +888,15 @@ public class Player extends Object implements DamageTaker
             firstTime = false;
         }
     }
-    
+
     private Number goldNumber = new Number(gold+"",2);
     private double lastGoldCount = gold;
-    
+
     private void setUpGoldScore(){
         space.addObject(new GoldText(),762,22);
         space.addObject(goldNumber, 855, 18);
     }
-    
+
     private void updateGoldScore(){
         if(lastGoldCount != gold){
             goldNumber.remove();
@@ -1016,9 +1017,9 @@ public class Player extends Object implements DamageTaker
     public double getShipLocY(){
         return getSpaceY()+space.getHeight()/2;
     }
-    
+
     private boolean qIsDown;
-    
+
     public void placeShield()
     {
         if(Greenfoot.isKeyDown("q") && qIsDown)
@@ -1028,7 +1029,7 @@ public class Player extends Object implements DamageTaker
         else
         {
             List<PlayerShield> shield = getWorld().getObjects(PlayerShield.class);
-            
+
             if(shield != null)
             {
                 getWorld().removeObjects(shield);
