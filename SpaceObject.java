@@ -7,7 +7,7 @@ import java.util.List;
  * Every object in space that is not related to the player will be  subclass
  * of this class. This class mainly keeps track of movement.
  * 
- * Written by Nathan Philliber
+ * Written by Nathan, John, Trace
  */
 public class SpaceObject extends Object
 {
@@ -19,11 +19,14 @@ public class SpaceObject extends Object
     protected Ship ship;
 
     private boolean firstTime = true;
+
+    //Written by Nathan
     //Default constructor, spawns object at 0,0
     public SpaceObject(){
         this(0.0,0.0);
     }
 
+    //Written by Nathan
     //Constructor, spawns object at given x and y
     public SpaceObject(double spawnX, double spawnY){
         setSpaceX(spawnX);
@@ -31,6 +34,7 @@ public class SpaceObject extends Object
         //Space SPACE = (Space) getWorld();
     }
 
+    //Written by Nathan
     //Called every tick, updates object position relative to ship coords
     public void act(){
         super.act();
@@ -47,12 +51,14 @@ public class SpaceObject extends Object
 
     }   
 
+    //Written by Trace
     //Minimap Vars
     private double mpRatio = 10;
     private double mpRatioX = 5.5*mpRatio;
     private double mpRatioY = 3.23*mpRatio;
     private int mpRadius = 90;
-
+    
+    //Written by John
     protected void miniMap(Actor object)
     {
 
@@ -65,39 +71,47 @@ public class SpaceObject extends Object
     }
 
     //Moves the objects according to the ship's coords
+    //Written by Nathan
     public void updatePosition(){
 
         setLocation(getSpaceX() - ship.getSpaceX(), getSpaceY() - ship.getSpaceY());
     }
 
     //Set object's X coord
+    //Written by Nathan
     public void setSpaceX(double x){
         spaceX = x;
     }
 
     //Set object's Y coord
+    //Written by Nathan
     public void setSpaceY(double y){
         spaceY = y;
     }
 
     //Return object's X coord as a double
+    //Written by Nathan
     public double getSpaceX(){
         return spaceX;
     }
 
     //Return object's Y coord as a double
+    //Written by Nathan
     public double getSpaceY(){
         return spaceY;
     }
 
+    //Written by Nathan
     public void addSpaceX(double x){
         setSpaceX(getSpaceX()+x);
     }
 
+    //Written by Nathan
     public void addSpaceY(double y){
         setSpaceY(getSpaceY()+y);
     }
-
+    
+    //Written by John
     public void spaceMove(double speed){
         addSpaceX(speed*cosRot());
         addSpaceY(speed*sinRot());

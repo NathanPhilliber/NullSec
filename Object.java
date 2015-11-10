@@ -122,7 +122,7 @@ public class Object extends SmoothMover
         explodeSound.play();
     }
 
-    //Written by Nathan
+    //Written by Manny
     public void addRocketTrail(double x, double y){
 
         space.addObject(new Particle(x, y, 10, 6, 7, 6, 10, 95, "images/spark1.png"), 0, 0);
@@ -130,7 +130,7 @@ public class Object extends SmoothMover
         //double startX, double startY, int straightness, double radius, int lifetime, double particleSpeed, int lifetimeRandom,int angle, String image)
     }
 
-    //Written by Nathan
+    //Written by Manny
     public void addFire(double x, double y){
 
         space.addObject(new Particle(x, y, 10, 6, 5, 3, 15, 50,"images/firesparks.png"), 0, 0);
@@ -156,6 +156,7 @@ public class Object extends SmoothMover
         }
     }
 
+    //Written by Nathan
     public void addMissileTrail(double x, double y){
         Particle par = new Particle(x, y, 6, 6, 5, 2, 5, 0,"images/smoke2.png");
         par.getImage().setTransparency(100);
@@ -163,6 +164,7 @@ public class Object extends SmoothMover
 
     }
     
+    //Written by Nathan
     public void addExclamation(double x, double y, int imageWidth){
         space.addObject(new Particle(x,y-imageWidth,15, 0, 5, 10, 10,0,"images/Exclamation.png"),-10,-10);
     space.addObject(new Particle(x-imageWidth,y-imageWidth,15, 0, 5, 10, 10,0,"images/Exclamation.png"),-10,-10);
@@ -170,6 +172,7 @@ public class Object extends SmoothMover
     space.addObject(new Particle(x,y+imageWidth,15, 0, 20, 5, 10,0,"images/Exclamation.png"),-10,-10);
     }
 
+    //Written by Nathan
     public void addShootingStar(double x, double y){
         for(int i = 0; i < 2; i++)
             space.addObject(new Particle(x, y, 15, 6, 10, 1, 1, 0,"images/coinEffect.png"), 0, 0);
@@ -179,6 +182,7 @@ public class Object extends SmoothMover
 
     }
     
+    //Written by Nathan
     public void addBoost(double x, double y){
         //for(int i = 0; i < 2; i++)
             //space.addObject(new Particle(x+Greenfoot.getRandomNumber(14)-7, y+Greenfoot.getRandomNumber(14)-7, 15, 6, 10, 1, 1, 0,"images/coinEffect.png"), 0, 0);
@@ -187,25 +191,19 @@ public class Object extends SmoothMover
         space.addObject(par, 0, 0);
     }
 
+    //Written by Nathan
     public void scheduleRemoval(){
         deleteMe = true;
     }
 
-    public static GreenfootImage scale(GreenfootImage gi_Image,int i_width,int i_height)
-    {
-        java.awt.Image image_=gi_Image.getAwtImage().getScaledInstance(i_width,i_height,java.awt.Image.SCALE_SMOOTH);
-
-        gi_Image=new GreenfootImage(i_width,i_height);
-        gi_Image.getAwtImage().createGraphics().drawImage(image_,0,0,null);
-        return gi_Image;
-    }
-
+    //Written by Nathan
     public void checkRemoval(){
         if(deleteMe){
             space.removeObject(this);
         }
     }
 
+    //Written by Nathan
     public boolean isScheduledForRemoval(){
         return deleteMe;
     }
@@ -283,6 +281,7 @@ public class Object extends SmoothMover
         return !b;
     }
 
+    //Written by Trace
     public void pause(boolean isPaused)
     {
 
@@ -297,6 +296,7 @@ public class Object extends SmoothMover
         }
     }
 
+    //Written by Trace
     public void dockMenu()
     {
 
@@ -308,6 +308,7 @@ public class Object extends SmoothMover
 
     }
 
+    //Written by Trace
     public void removeDockMenu()
     {
         space = (Space) getWorld(); 
@@ -317,18 +318,7 @@ public class Object extends SmoothMover
 
     }
 
-    /*****************************************************************************
-     *****************************************************************************
-     * WEAPON SYSTEMS
-     *     for
-     * PLAYER AND NPC
-     * 
-     * 
-     * 
-     *****************************************************************************
-     *****************************************************************************
-     */
-
+    //Written by John
     protected void projectile(int angle,int LV,double X,double Y, boolean isPlayer)
     {
         spawnProjectile(angle,X,Y, isPlayer);
@@ -353,11 +343,13 @@ public class Object extends SmoothMover
         
     }
 
+    //Written by John
     private void spawnProjectile(int angle,double X,double Y, boolean isPlayer)
     {
         space.addObject(new Projectile(angle, isPlayer, projectileDamage, X, Y), getX(), getY());
     }
 
+    //Written by John
     protected void beam(int angle,int LV,double X,double Y,double charge, boolean isPlayer)
     {
         for (int i=0; i<=charge*(LV+2); i++)
@@ -366,21 +358,25 @@ public class Object extends SmoothMover
         }
     }
 
+    //Written by John
     protected void missile(int angle,int LV,double X,double Y,boolean isPlayer)
     {
         space.addObject(new Missile(angle, isPlayer, missileDamage, X, Y), getX(), getY());
     }
 
+    //Written by John
     protected void mine(int angle,int LV,double X,double Y,boolean isPlayer)
     {
         space.addObject(new Mine(angle, isPlayer, X, Y, mineDamage, mineRange), getX(), getY());
     }
 
+    //Written by John
     protected void fireball(int angle,int LV,double X,double Y,boolean isPlayer)
     {
         space.addObject(new Fireball(angle, isPlayer, fireballDamage, X, Y), getX(), getY());
     }
 
+    //Written by John
     protected void plasmaBall(int angle,int LV,double X,double Y,boolean isPlayer)
     {
         spawnPlasmaBall(getRotation(),X,Y,isPlayer);
@@ -401,15 +397,17 @@ public class Object extends SmoothMover
         }
     }
 
+    //Written by John
     private void spawnPlasmaBall(int angle,double X,double Y,boolean isPlayer)
     {
         space.addObject(new PlasmaBall(angle, isPlayer, plasmaBallDamage, X, Y), getX(), getY());
     }
 
+    //Written by John
     private boolean rMButton = false;
     public boolean rMButton()
     {
-        MouseInfo mi = Greenfoot.getMouseInfo();
+
         if (Greenfoot.mousePressed(null))
         {
             rMButton = true;
@@ -421,8 +419,9 @@ public class Object extends SmoothMover
         return rMButton;
     }
 }
-/*
+
+//Written by Nathan
 interface DamageTaker{
     public boolean getHit(double damage); //Called when an object is hit by something
     //Return true if actually a hit
-}*/
+}
