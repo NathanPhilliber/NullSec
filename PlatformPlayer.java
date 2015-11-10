@@ -297,14 +297,31 @@ public class PlatformPlayer extends PlatformObject
         }
     }
 
-    //Written by John
+    //Written by John (fourth rewrite)
     private void updatePosition()
     {
         /**
-         * Collision Type0
+         * Collision Type2
          * due to moveing blocks
          */
-
+        //if moving block
+        {
+            //move with
+        }
+        
+        /**
+         * Collision Type2
+         * worst case catch all
+         * reverts scroll()
+         * sould work but dosent
+        
+        Actor b=getOneIntersectingObject(blockType);
+        if (b!=null)
+        {
+            w.setOffset(oldOffset);
+            setRealX(oldRealX);
+            setLocation(getRealX()-w.getOffset(),getRealY());
+        }*/
         
         /**
          * Collision Type1
@@ -362,20 +379,6 @@ public class PlatformPlayer extends PlatformObject
         }
         /**scrolling stuff*/
         scroll();//sets location
-        /**
-         * Collision Type2
-         * catch all
-         * reverts scroll()
-         * very broken
-        
-        Actor b=getOneIntersectingObject(blockType);
-        if (b!=null)
-        {
-            w.setOffset(oldOffset);
-            setRealX(oldRealX);
-            setLocation(getRealX()-w.getOffset(),getRealY());
-        }*/
-        
         
         //This runs if you get stuck in a block for a long time
         //Will push you out after 75 game ticks;
