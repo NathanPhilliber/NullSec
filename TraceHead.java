@@ -33,8 +33,7 @@ public class TraceHead extends Block
         super.act();
         
         if(timeSince > 10 && distanceFromOrg > 0){
-            addRealY(speed);
-            neck.addRealY(speed);
+            
             distanceFromOrg -= speed;
             if(distanceFromOrg%27==0){
                 if(necks.size()>0){
@@ -42,6 +41,8 @@ public class TraceHead extends Block
                     necks.remove(necks.size()-1);
                 }
             }
+            addRealY(speed);
+            neck.addRealY(speed);
         }
         
         
@@ -55,6 +56,7 @@ public class TraceHead extends Block
     }
 
     public void grow(){
+        
         timeSince = 0;
         addRealY(-speed);
 

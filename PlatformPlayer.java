@@ -371,6 +371,8 @@ public class PlatformPlayer extends PlatformObject
                     t.grow();
 
                 }
+                
+                
                 addRealY(-getVelY()/steps);
                 setLocation(getExactX(),getRealY());
                 if(velY > 0){
