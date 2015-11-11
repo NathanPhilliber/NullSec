@@ -6,20 +6,23 @@ import greenfoot.*;
 public class Alien extends MovingNonPlayer
 {
     
-    GifImage walkRight = new GifImage("Alien1.png");
-    GifImage walkLeft = new GifImage("Alien1.png");
-    GifImage standRight = new GifImage("Alien1.png");
-    GifImage standLeft = new GifImage("Alien1.png");
+    
+    
+    
     public void act()
     {
         super.act();
         gravity(gravity);
-        moveX(1);
+        
         //shootPlayer();
     }
     public Alien()
     {
         super();
+        moveBackAndForth(true); //Makes the alien walk until it hits something then turns around.
+        walkSpeed = 1; 
+        setHasGif(true); //Sets variable in moving player to change image depending on velocity etc. Will override images in this class eventually.
+        setJump(true); //Makes the alien jump when hitting a wall
     }
    
 }
