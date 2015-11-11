@@ -95,7 +95,7 @@ public class PlatformPlayer extends PlatformObject
 
     //Written by Nathan
     private void checkIfOffEdge(){
-        if(getY() > 1500){
+        if(getY() > 1500 || getY() < -200){
             kill();
         }
     }
@@ -112,6 +112,7 @@ public class PlatformPlayer extends PlatformObject
         boolean anyBullet = false;
         boolean anyElevator = false;
         boolean anySlime = false;
+        
 
         for(PlatformObject object : objects){
             if(object instanceof ExitPortal){
@@ -151,7 +152,7 @@ public class PlatformPlayer extends PlatformObject
             }
             else if(object instanceof SlimeBlock){
                 anySlime = true;
-                System.out.println(1);
+                
 
             }
 
@@ -179,7 +180,7 @@ public class PlatformPlayer extends PlatformObject
             kill();
         }
         else if(anySlime){
-            velY = -velY;
+            velY = -velY*.97;
             addRealY(-3);
             onBlock = true;
         }
@@ -363,6 +364,12 @@ public class PlatformPlayer extends PlatformObject
                 if(b instanceof MeltingBlock){
                     MeltingBlock melt = (MeltingBlock) b;
                     melt.melt(5);
+                }
+                if(b instanceof TraceHead){
+                    TraceHead t = (TraceHead) b;
+                    addRealY(-1);
+                    t.grow();
+
                 }
                 addRealY(-getVelY()/steps);
                 setLocation(getExactX(),getRealY());

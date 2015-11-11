@@ -1,4 +1,26 @@
-//Level Generated
+import greenfoot.*;
+
+/**
+ * Write a description of class Level16 here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class Level16 extends Platformer
+{
+
+    /**
+     * Constructor for objects of class Level16.
+     * 
+     */
+    public Level16(){
+        this(0,0);
+    }
+    public Level16(double x, double y)
+    {
+        super(x,y);
+        
+        //Level Generated
 
 int offsetX = 0;
 int offsetY = 0;
@@ -152,3 +174,6 @@ addObject(new Block(51),1174+offsetX,499+offsetY);
 addObject(new Block(51),1120+offsetX,472+offsetY);
 addObject(new Block(51),1174+offsetX,472+offsetY);
 addObject(new ExitPortal(),1120+offsetX,364+offsetY);
+
+    }
+}
