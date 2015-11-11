@@ -62,9 +62,9 @@ public class SpaceObject extends Object
     protected void miniMap(Actor object)
     {
 
-        int x = (int)(800+(getSpaceX() - ship.getSpaceX()-540)/mpRatioX);
-        int y = (int)(405+(getSpaceY() - ship.getSpaceY()-270)/mpRatioY);
-        if (mpRadius>=Math.sqrt(Math.pow(x-800,2)+Math.pow(y-405,2)))
+        int x = (int)((space.getWidth()-120)+(getSpaceX() - ship.getSpaceX()-(space.getWidth()-380))/mpRatioX);
+        int y = (int)((space.getHeight()-135)+(getSpaceY() - ship.getSpaceY()-(space.getHeight()/2))/mpRatioY);
+        if (mpRadius>=Math.sqrt(Math.pow(x-(space.getWidth()-120),2)+Math.pow(y-(space.getHeight()-135),2)))
         {
             getWorld().addObject(object, x, y);
         }

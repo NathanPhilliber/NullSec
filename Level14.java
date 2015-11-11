@@ -19,7 +19,7 @@ public class Level14 extends Platformer
         //Level Generated
 
         int offsetX = 0;
-        int offsetY = 0;
+        int offsetY = OptionsMenu.getWorldHeight()/4;
 
         setBackground("MetalBackground.png");
         addObject(new Block(38),148+offsetX,364+offsetY);

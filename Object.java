@@ -301,7 +301,9 @@ public class Object extends SmoothMover
     {
 
         space.setPause = true;
-        space.addObject(new MenuBG(), space.getWidth()/2, space.getHeight()/2);
+        MenuBG menubg = new MenuBG();
+        space.addObject(menubg, space.getWidth()/2, space.getHeight()/2);
+        menubg.getImage().scale(OptionsMenu.getWorldWidth(), OptionsMenu.getWorldHeight());
         space.addObject(new MenuMain(), space.getWidth()/2, space.getHeight()/2);
         space.addObject(new MenuYes(), space.getWidth()/2 - 100, space.getHeight()/2);
         space.addObject(new MenuNo(), space.getWidth()/2+100, space.getHeight()/2);

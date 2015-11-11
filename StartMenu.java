@@ -24,14 +24,14 @@ public class StartMenu extends World
     private void prepare()
     {
         Logo logo = new Logo();
-        addObject(logo, 460, 150);
+        addObject(logo, getWidth()/2, 150);
         
-        addObject(play, 460, 280);
-        addObject(options, 460, 330);       
-        addObject(about, 460, 380);
-        addObject(exit, 460, 430);
+        addObject(play, getWidth()/2, 280);
+        addObject(options, getWidth()/2, 330);       
+        addObject(about, getWidth()/2, 380);
+        addObject(exit, getWidth()/2, 430);
         
-        addObject(new IconShip(music), 325, 280);
+        addObject(new IconShip(music), (getWidth()/2) - 135, 280);
     }
     
     //http://www.greenfoot.org/topics/730

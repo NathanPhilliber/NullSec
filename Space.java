@@ -87,7 +87,7 @@ public class Space extends World
 
         scrollListener();
 
-        setPaintOrder(RespawnButton.class, RespawnMenu.class,
+        setPaintOrder(RespawnButton.class, RespawnMenu.class, RespawnMenuBG.class,
             MapBackButton.class, PlayerIcon.class, Map.class, MapButton.class, GotoShopButton.class, GoldText.class,
             Counter.class, TutorialObjectManager.class, DockMenu.class, OutsideMP.class, 
             PlayerShip.class, PlanetMP.class, EnemyShip.class, InsideMP.class, IconProjectile.class, 
@@ -98,18 +98,18 @@ public class Space extends World
             Fireball.class, Particle.class, Asteroid.class, Planet.class, BackgroundStar.class);
 
         PlayerShip playermp = new PlayerShip();
-        addObject(playermp, 800, 405);
+        addObject(playermp, getWidth()-120, getHeight()-135);
 
         InsideMP insidemp = new InsideMP();
-        addObject(insidemp, 800, 405);
+        addObject(insidemp, getWidth()-120, getHeight()-135);
 
         OutsideMP outsidemp = new OutsideMP();
-        addObject(outsidemp, 800, 405);
+        addObject(outsidemp, getWidth()-120, getHeight()-135);
 
         addObject(new Cannon(),getWidth()/2,getHeight()/2);
 
-        addObject(new BoostBarOutside(), 460, 508);
-        addObject(new BoostBarInside(), 460, 508);
+        addObject(new BoostBarOutside(), getWidth()/2, getHeight()-32);
+        addObject(new BoostBarInside(), getWidth()/2, getHeight()-32);
 
         
         secx = (int) Math.ceil(((int) ship.getSpaceX()/10 + 460)/getWidth());
@@ -225,7 +225,9 @@ public class Space extends World
             if(first)
             {
                 setPause = true;
-                addObject(new MenuBG(), getWidth()/2, getHeight()/2);
+                MenuBG menubg = new MenuBG();
+                addObject(menubg, getWidth()/2, getHeight()/2);
+                menubg.getImage().scale(OptionsMenu.getWorldWidth(), OptionsMenu.getWorldHeight());
 
                 first = false;
             }
@@ -412,6 +414,7 @@ public class Space extends World
                     newy = y + getHeight()*secy;
                 }
                 addObject(map, getWidth()/2, getHeight()/2);
+                map.getImage().scale(OptionsMenu.getWorldWidth(), OptionsMenu.getWorldHeight());
                 addObject(new PlayerIcon(), newx, newy);
                 addObject(mapBackButton, 471, 18);
                 mapIsOpen = true;

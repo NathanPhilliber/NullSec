@@ -9,8 +9,8 @@ public class OptionsMenu extends World
     private boolean playing=false;
     private GreenfootSound music=new GreenfootSound("AmbientSpace.wav");
     
-    private static int worldWidth = 920;
-    private static int worldHeight = 540;
+    private static int worldWidth = 1280;
+    private static int worldHeight = 720;
     
     public OptionsMenu(GreenfootSound m)
     {    

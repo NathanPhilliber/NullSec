@@ -34,8 +34,8 @@ public class OuterSpace extends Space
 
         super.prepare();
         
-        addObject(mapButton, 660,18);
-        addObject(gotoShopButton, 592, 18);
+        addObject(mapButton, getWidth()-260,18);
+        addObject(gotoShopButton, getWidth()-328, 18);
         
         
         addObject(getShip(), (int)getWidth()/2, (int)getHeight()/2);
@@ -71,10 +71,10 @@ public class OuterSpace extends Space
         Planet planet7 = new Planet(10240, -730,  new Level3(500,1000), "images/Planet8.png", "7");
         addObject(planet7,3000, 0);
 
-        //Sector 2
         Planet planet8 = new Planet(11220, 1000,  new Level15(500,1000), "images/Planet9.png", "8");
         addObject(planet8,3000, 0);
 
+        //Sector 2
         Planet planet9 = new Planet(20160, 630,  new Level15(500,1000), "images/Planet10.png", "11");
         addObject(planet9,3000, 0);
 

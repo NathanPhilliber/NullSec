@@ -302,7 +302,7 @@ public class Player extends Object implements DamageTaker
     private void boostChargeBar()
     {
         for (int i=1; i <= boostCD/50; i++){
-            space.addObject(new BoostBarSegment(),383+i*14,518);
+            space.addObject(new BoostBarSegment(),(space.getWidth()/2-77)+i*14,space.getHeight()-22);
         }
     }
     //Checks for key presses and changes coords ("moves" ship)
@@ -496,8 +496,8 @@ public class Player extends Object implements DamageTaker
             if(Greenfoot.getRandomNumber(2)==1){
                 //If the ship is going fast enough left/right, spawn a star on one of those sides
                 if(Math.abs(getVelX()) > 1.0){ 
-                    world.addObject(new Nebula((getSpaceX() + world.getWidth()/2)+((world.getWidth()+2000)*getPosNeg()),
-                            (getSpaceY() + world.getHeight()/2)+Greenfoot.getRandomNumber(world.getHeight())),1000*(int)getPosNeg(),-1000*(int)getPosNeg());
+                    world.addObject(new Nebula((getSpaceX() + world.getWidth()/2)+((world.getWidth()+10000)*getPosNeg()),
+                            (getSpaceY() + world.getHeight()/2)+Greenfoot.getRandomNumber(world.getHeight())),4000*(int)getPosNeg(),-4000*(int)getPosNeg());
                 }
 
             }   
@@ -505,7 +505,7 @@ public class Player extends Object implements DamageTaker
                 //If the ship is going fast enough up/down, spawn a star on one of those sides
                 if(Math.abs(getVelY()) > 1.0){
                     world.addObject(new Nebula((getSpaceX() + world.getWidth()/2)+Greenfoot.getRandomNumber(world.getWidth()),
-                            (getSpaceY() + world.getHeight()/2)+((world.getHeight()+2000)*getPosNeg())),1000*(int)getPosNeg(),1000*(int)getPosNeg());
+                            (getSpaceY() + world.getHeight()/2)+((world.getHeight()+10000)*getPosNeg())),4000*(int)getPosNeg(),4000*(int)getPosNeg());
 
                 }
             }
@@ -828,6 +828,9 @@ public class Player extends Object implements DamageTaker
     {
         getWorld().addObject(new RespawnMenu(), getWorld().getWidth()/2, getWorld().getHeight()/2);
         getWorld().addObject(new RespawnButton(), getWorld().getWidth()/2, getWorld().getHeight()/2 + 50);
+        RespawnMenuBG menubg = new RespawnMenuBG();
+        space.addObject(menubg, space.getWidth()/2, space.getHeight()/2);
+        menubg.getImage().scale(OptionsMenu.getWorldWidth(), OptionsMenu.getWorldHeight());
     }
 
     //Written by Nathan
@@ -932,8 +935,8 @@ public class Player extends Object implements DamageTaker
 
     //Written by Nathan
     private void setUpGoldScore(){
-        space.addObject(new GoldText(),762,22);
-        space.addObject(goldNumber, 855, 18);
+        space.addObject(new GoldText(),space.getWidth()-158,22);
+        space.addObject(goldNumber, space.getWidth()-65, 18);
     }
 
     //Written by Nathan
@@ -941,7 +944,7 @@ public class Player extends Object implements DamageTaker
         if(lastGoldCount != gold){
             goldNumber.remove();
             goldNumber = new Number(gold+"",2);
-            space.addObject(goldNumber, 855, 18);
+            space.addObject(goldNumber, space.getWidth()-65, 18);
         }
         lastGoldCount = gold;
     }
