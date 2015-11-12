@@ -51,6 +51,25 @@ public class PlatformPlayer extends PlatformObject
     GifImage walkLeft = new GifImage("WalkingAnimationLeft.gif");
     GifImage standRight = new GifImage("StandingRight.png");
     GifImage standLeft = new GifImage("StandingLeft.png");
+    
+    private Number goldNumber = new Number(Player.gold+"",2);
+    private double lastGoldCount = Player.goldPotential;
+    
+    //Written by Nathan
+    private void setUpGoldScore(){
+        w.addObject(new GoldText(),w.getWidth()-158,22);
+        w.addObject(goldNumber, w.getWidth()-65, 18);
+    }
+
+    //Written by Nathan
+    private void updateGoldScore(){
+        if(lastGoldCount != Player.goldPotential){
+            goldNumber.remove();
+            goldNumber = new Number((Player.gold+Player.goldPotential)+"",2);
+            w.addObject(goldNumber, w.getWidth()-65, 18);
+        }
+        lastGoldCount = Player.goldPotential;
+    }
 
     //Written by John
     public void addedToWorld(World world)
@@ -58,6 +77,7 @@ public class PlatformPlayer extends PlatformObject
         w=(Platformer)getWorld();
         setRealX(getX());
         setRealY(getY());
+        setUpGoldScore();
     }
     //Written by John
     public PlatformPlayer()
@@ -88,6 +108,7 @@ public class PlatformPlayer extends PlatformObject
             restartWorld();
             checkIfOffEdge();
             checkSpecialCollisions();
+            updateGoldScore();
             updatePosition();//LAST
         }
 
@@ -201,9 +222,11 @@ public class PlatformPlayer extends PlatformObject
         }
         else if(anyElevator){
             addRealY(-5);
+            setLocation(getRealX()-w.getXOffset(),getRealY()-w.getYOffset());
         }
         else if(anyCart){
             addRealY(-2);
+            setLocation(getRealX()-w.getXOffset(),getRealY()-w.getYOffset());
         }
         else if(anyGravity && gravityToggle == false){
             gravity *= -1;
