@@ -18,7 +18,8 @@ public class PlatformPlayer extends PlatformObject
     static final double jumpSpeedAir = 10;
     static final double climbSpeed = 3;
     static final double swimSpeed = 2;
-    static final int sideScrollDist = 400;
+    static final int sideScrollDistX = 400;
+    static final int sideScrollDistY = 200;
     static final Class blockType = Block.class;
 
     private final int ladderRadius = 9;
@@ -444,18 +445,33 @@ public class PlatformPlayer extends PlatformObject
     //Written by John
     private void scroll()//called in update player method
     {
-        double dif=getExactX()-sideScrollDist;
+        //x
+        double dif=getExactX()-sideScrollDistX;
         if(dif<=0&&velX<0&&w.getXOffset()>=0)
         {
             w.addXOffset(dif);
         }
-        dif=getExactX()+sideScrollDist-getWorld().getWidth();
+        dif=getExactX()+sideScrollDistX-getWorld().getWidth();
         if(dif>=0&&velX>0)
         {
             w.addXOffset(dif);
         }
         if(w.getXOffset() < 0){
             w.setXOffset(0);
+        }
+        //y
+        dif=getExactY()-sideScrollDistY;
+        if(dif<=0&&velY<0&&w.getYOffset()>=0)
+        {
+            w.addYOffset(dif);
+        }
+        dif=getExactY()+sideScrollDistY-getWorld().getWidth();
+        if(dif>=0&&velY>0)
+        {
+            w.addYOffset(dif);
+        }
+        if(w.getYOffset() < 0){
+            w.setYOffset(0);
         }
         setLocation(getRealX()-w.getXOffset(),getRealY()-w.getYOffset());//end of scroll
     }

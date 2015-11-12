@@ -12,7 +12,8 @@ public class GravityBlock extends NoCollisionBlock
         this(95);
     }
     public GravityBlock(int blockType){
-        
+        super();
+        setImage(LevelCreatorDisplayBlock.getBlock()[blockType]);
     }
     public void act() 
     {
