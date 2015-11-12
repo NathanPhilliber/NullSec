@@ -29,6 +29,9 @@ public class LevelCreatorBlock extends LevelCreatorObject
         LevelCreatorBlock block = (LevelCreatorBlock) getOneIntersectingObject(LevelCreatorBlock.class);
         //System.out.println(LevelCreatorDisplayBlock.exceptions.contains(myImage));
         if(block != null){
+            if(block.myImage == LevelCreatorDisplayBlock.blockName.length-1){
+                deleteMe = true;
+            }
             if((block.noCollision != noCollision) && (LevelCreatorDisplayBlock.exceptions.contains(block.myImage) || LevelCreatorDisplayBlock.exceptions.contains(myImage))){
                 
             }

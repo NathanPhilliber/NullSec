@@ -112,6 +112,7 @@ public class PlatformPlayer extends PlatformObject
         boolean anyBullet = false;
         boolean anyElevator = false;
         boolean anySlime = false;
+        boolean anyCart = false;
         
 
         for(PlatformObject object : objects){
@@ -147,6 +148,12 @@ public class PlatformPlayer extends PlatformObject
             else if(object instanceof ElevatorBlock){
                 if(getOneObjectAtOffset(0,20, ElevatorBlock.class) == null){
                     anyElevator = true;
+                }
+
+            }
+            else if(object instanceof Cart){
+                if(getOneObjectAtOffset(0,20, Cart.class) == null){
+                    anyCart = true;
                 }
 
             }
@@ -186,6 +193,9 @@ public class PlatformPlayer extends PlatformObject
         }
         else if(anyElevator){
             addRealY(-5);
+        }
+        else if(anyCart){
+            addRealY(-2);
         }
         else if(anyClimb){
             
@@ -343,6 +353,7 @@ public class PlatformPlayer extends PlatformObject
                     MeltingBlock melt = (MeltingBlock) b;
                     melt.melt(5);
                 }
+                
                 addRealX(-getVelX()/steps);
                 setLocation(getRealX()-w.getOffset(),getExactY());
                 velX=0;
@@ -370,6 +381,10 @@ public class PlatformPlayer extends PlatformObject
                     addRealY(-1);
                     t.grow();
 
+                }
+                if(b instanceof Cart){
+                    Cart c = (Cart)b;
+                    addRealY(-c.speed);
                 }
                 
                 

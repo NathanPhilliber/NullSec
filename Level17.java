@@ -1,4 +1,21 @@
-//Level Generated
+import greenfoot.*;
+
+/**
+ * Write a description of class Level17 here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class Level17 extends Platformer
+{
+
+    public Level17(){
+        this(0,0);
+    }
+    public Level17(double x, double y)
+    {
+        super(x,y);
+        //Level Generated
 
 int offsetX = 0;
 int offsetY = 0;
@@ -223,3 +240,6 @@ addObject(new Track(93),337+offsetX,148+offsetY);
 addObject(new Track(93),283+offsetX,148+offsetY);
 addObject(new Track(93),310+offsetX,148+offsetY);
 addObject(new Cart(94),364+offsetX,202+offsetY);
+
+    }
+}
