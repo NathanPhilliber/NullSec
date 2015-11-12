@@ -360,6 +360,10 @@ public class PlatformPlayer extends PlatformObject
                     MeltingBlock melt = (MeltingBlock) b;
                     melt.melt(5);
                 }
+                if(b instanceof GravityBlock){
+                    GravityBlock melt = (GravityBlock) b;
+                    gravity *= -1;
+                }
                 
                 addRealX(-getVelX()/steps);
                 setLocation(getRealX()-w.getXOffset(),getExactY());
@@ -392,6 +396,10 @@ public class PlatformPlayer extends PlatformObject
                 if(b instanceof Cart){
                     Cart c = (Cart)b;
                     addRealY(-c.speed);
+                }
+                if(b instanceof GravityBlock){
+                    GravityBlock melt = (GravityBlock) b;
+                    gravity *= -1;
                 }
                 
                 

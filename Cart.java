@@ -9,8 +9,8 @@ public class Cart extends Block
     public Track up;
     public Track down;
 
-    public int lastDirection = 0;
-    public int currentDirection = 0;
+    public int lastDirection = -1;
+    public int currentDirection = -1;
 
     private int moves = 0;
 
@@ -62,15 +62,7 @@ public class Cart extends Block
 
         boolean notNothing = true;
 
-        if(right != null && currentDirection != 2){
-            currentDirection = 0;
-            notNothing = false;
-        }
-        else if(up != null && currentDirection != 3){
-            currentDirection = 1;
-            notNothing = false;
-        }
-        else if(left != null && currentDirection != 0){
+        if(left != null && currentDirection != 0){
             currentDirection = 2;
             notNothing = false;
         }
@@ -78,6 +70,16 @@ public class Cart extends Block
             currentDirection = 3;
             notNothing = false;
         }
+        else if(right != null && currentDirection != 2){
+            currentDirection = 0;
+            notNothing = false;
+        }
+        else if(up != null && currentDirection != 3){
+            currentDirection = 1;
+            notNothing = false;
+        }
+        
+        
 
         if(notNothing == false){
             moves = 27;

@@ -18,7 +18,7 @@ public class Platformer extends World
     public Platformer(double returnX, double returnY){
         super(OptionsMenu.getWorldWidth(), OptionsMenu.getWorldHeight(), 1, false); //ORIGINAL SIZE 920 540 ALWAYS CHANGE BACK TO THIS WHEN DONE
         
-        setPaintOrder(Coin.class, ElevatorBlock.class,WaterBlock.class, PlatformPlayer.class, WaterBlockBackground.class);
+        setPaintOrder(Coin.class, Cart.class, ElevatorBlock.class,WaterBlock.class, PlatformPlayer.class, WaterBlockBackground.class);
         
         this.returnX = returnX - getWidth()/2;
         this.returnY = returnY - getHeight()/2;

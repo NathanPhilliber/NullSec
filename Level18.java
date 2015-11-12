@@ -1,4 +1,21 @@
-//Level Generated
+import greenfoot.*;
+
+/**
+ * Write a description of class Level18 here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class Level18 extends Platformer
+{
+
+    public Level18(){
+        this(0,0);
+    }
+    public Level18(double x, double y)
+    {
+        super(x,y);
+        //Level Generated
 
 int offsetX = 0;
 int offsetY = 0;
@@ -517,3 +534,6 @@ addObject(new ClimbBlock(61),1714+offsetX,256+offsetY);
 addObject(new ClimbBlock(61),1714+offsetX,229+offsetY);
 addObject(new ClimbBlock(61),1714+offsetX,202+offsetY);
 addObject(new ClimbBlock(61),1714+offsetX,175+offsetY);
+
+    }
+}
