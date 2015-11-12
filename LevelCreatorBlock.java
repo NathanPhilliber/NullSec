@@ -59,7 +59,9 @@ public class LevelCreatorBlock extends LevelCreatorObject
 
             }
             removeMe();
+            
         }
+        
         cooldown++;
     }  
 
@@ -84,5 +86,9 @@ public class LevelCreatorBlock extends LevelCreatorObject
                 }
             }
         }
+        
+        if(myImage == LevelCreatorDisplayBlock.blockName.length-1){
+                        deleteMe = true;
+                    }
     }
 }
