@@ -295,7 +295,7 @@ public class PlatformPlayer extends PlatformObject
         if(deleteMe){
             turn(10);
             setRealY(getRealY()+2);
-            setLocation(getRealX()-w.getOffset(), getRealY()+2);
+            setLocation(getRealX()-w.getXOffset(), getRealY()+2);
         }
     }
 
@@ -334,11 +334,11 @@ public class PlatformPlayer extends PlatformObject
         Actor b=getOneIntersectingObject(blockType);
         if (b!=null)
         {
-            w.setOffset(oldOffset);
+            w.setXOffset(oldOffset);
             setRealX(oldRealX);
-            setLocation(getRealX()-w.getOffset(),getRealY());
+            setLocation(getRealX()-w.getXOffset(),getRealY());
         }
-        oldOffset = w.getOffset();
+        oldOffset = w.getXOffset();
         oldRealX = getRealX();
         
         /**
@@ -352,7 +352,7 @@ public class PlatformPlayer extends PlatformObject
         for (int i=0;i<=steps-1;i++)
         {
             addRealX(getVelX()/steps);
-            setLocation(getRealX()-w.getOffset(),getExactY());
+            setLocation(getRealX()-w.getXOffset(),getExactY());
             b=getOneIntersectingObject(blockType);
             if (b!=null)
             { 
@@ -362,7 +362,7 @@ public class PlatformPlayer extends PlatformObject
                 }
                 
                 addRealX(-getVelX()/steps);
-                setLocation(getRealX()-w.getOffset(),getExactY());
+                setLocation(getRealX()-w.getXOffset(),getExactY());
                 velX=0;
                 i=steps;
             }
@@ -431,19 +431,19 @@ public class PlatformPlayer extends PlatformObject
     private void scroll()//called in update player method
     {
         double dif=getExactX()-sideScrollDist;
-        if(dif<=0&&velX<0&&w.getOffset()>=0)
+        if(dif<=0&&velX<0&&w.getXOffset()>=0)
         {
-            w.addOffset(dif);
+            w.addXOffset(dif);
         }
         dif=getExactX()+sideScrollDist-getWorld().getWidth();
         if(dif>=0&&velX>0)
         {
-            w.addOffset(dif);
+            w.addXOffset(dif);
         }
-        if(w.getOffset() < 0){
-            w.setOffset(0);
+        if(w.getXOffset() < 0){
+            w.setXOffset(0);
         }
-        setLocation(getRealX()-w.getOffset(),getRealY());//end of scroll
+        setLocation(getRealX()-w.getXOffset(),getRealY());//end of scroll
     }
 
     //Written by John, Trace
@@ -539,7 +539,7 @@ public class PlatformPlayer extends PlatformObject
             w.showText("Y: "+String.format("%.02f", (realY)), x, 50); 
             w.showText("vX: "+String.format("%.02f", (velX)), x, 75);
             w.showText("vY: "+String.format("%.02f", (velY)), x, 100);
-            w.showText("wOffset: "+String.format("%.02f", (w.getOffset())), x, 125);
+            w.showText("wOffset: "+String.format("%.02f", (w.getXOffset())), x, 125);
         }
     }
 }

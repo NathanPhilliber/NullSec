@@ -25,7 +25,7 @@ public class PlatformObject extends Object
         if(w == null){
            w=(Platformer)getWorld(); 
         }
-        setLocation(realX-w.getOffset(),realY);
+        setLocation(realX-w.getXOffset(),realY);
     }
     protected void setRealX(double x)
     {
