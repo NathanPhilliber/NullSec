@@ -24,6 +24,7 @@ public class PlatformPlayer extends PlatformObject
 
     private final int ladderRadius = 9;
     private boolean hansMode = false;
+    private boolean gravityToggle = false;
 
     /************************************************************************************
      * varibles
@@ -37,9 +38,7 @@ public class PlatformPlayer extends PlatformObject
     private boolean isWalkingLeft=false;
     private boolean locked = false;
     private boolean onClimb=false;
-    
-    
-    
+
     //antistuck
     private double oldXOffset;
     private double oldYOffset;
@@ -52,7 +51,7 @@ public class PlatformPlayer extends PlatformObject
     GifImage walkLeft = new GifImage("WalkingAnimationLeft.gif");
     GifImage standRight = new GifImage("StandingRight.png");
     GifImage standLeft = new GifImage("StandingLeft.png");
-    
+
     //Written by John
     public void addedToWorld(World world)
     {
@@ -76,7 +75,6 @@ public class PlatformPlayer extends PlatformObject
         return false;
     }
 
-    
     public void act() 
     {
         pausePlayerHelper();
@@ -121,7 +119,7 @@ public class PlatformPlayer extends PlatformObject
         boolean anyElevator = false;
         boolean anySlime = false;
         boolean anyCart = false;
-        
+        boolean anyGravity = false;
 
         for(PlatformObject object : objects){
             if(object instanceof ExitPortal){
@@ -149,6 +147,10 @@ public class PlatformPlayer extends PlatformObject
             else if(object instanceof Bullet){
                 anyBullet = true;
             }
+            else if(object instanceof GravityBlock){
+                anyGravity = true;
+
+            }
             else if(object instanceof Coin){
                 Coin coin = (Coin) object;
                 coin.pickup();
@@ -167,10 +169,8 @@ public class PlatformPlayer extends PlatformObject
             }
             else if(object instanceof SlimeBlock){
                 anySlime = true;
-                
 
             }
-
         }
         if(anyWater){
             if(anyAir){
@@ -205,10 +205,15 @@ public class PlatformPlayer extends PlatformObject
         else if(anyCart){
             addRealY(-2);
         }
+        else if(anyGravity && gravityToggle == false){
+            gravity *= -1;
+
+            gravityToggle = true;
+        }
         else if(anyClimb){
-            
+
             //Written by John
-            
+
             ClimbBlock climb=(ClimbBlock)getOneIntersectingObject(ClimbBlock.class);
             if(getRealX()<=climb.getRealX()+ladderRadius&&getRealX()>=climb.getRealX()-ladderRadius)
             {
@@ -245,6 +250,10 @@ public class PlatformPlayer extends PlatformObject
         else{
             moveSpeed=walkSpeed;
             jumpSpeed=jumpSpeedAir;
+            if(anyGravity == false){
+                gravityToggle = false;
+            }
+
         }
         if(getY()>getWorld().getHeight()+100)
         {
@@ -284,7 +293,7 @@ public class PlatformPlayer extends PlatformObject
         catch(InvocationTargetException e){   
         }
     }
-    
+
     //Written by Nathan
     private void pausePlayerHelper(){
         pauseCycles--;
@@ -327,13 +336,13 @@ public class PlatformPlayer extends PlatformObject
         {
             //move with
         }
-        
+
         /**
          * Collision Type2
          * worst case catch all
          * reverts scroll()
          * sould work but dosent
-        */
+         */
         Actor b=getOneIntersectingObject(blockType);
         if (b!=null)
         {
@@ -347,7 +356,7 @@ public class PlatformPlayer extends PlatformObject
         oldYOffset = w.getYOffset();
         oldRealX = getRealX();
         oldRealY = getRealY();
-        
+
         /**
          * Collision Type1
          * due to player movement
@@ -367,11 +376,7 @@ public class PlatformPlayer extends PlatformObject
                     MeltingBlock melt = (MeltingBlock) b;
                     melt.melt(5);
                 }
-                if(b instanceof GravityBlock){
-                    GravityBlock melt = (GravityBlock) b;
-                    gravity *= -1;
-                }
-                
+
                 addRealX(-getVelX()/steps);
                 setLocation(getRealX()-w.getXOffset(),getExactY());
                 velX=0;
@@ -404,15 +409,13 @@ public class PlatformPlayer extends PlatformObject
                     Cart c = (Cart)b;
                     addRealY(-c.speed);
                 }
-                if(b instanceof GravityBlock){
-                    GravityBlock melt = (GravityBlock) b;
-                    gravity *= -1;
-                }
-                
-                
+
                 addRealY(-getVelY()/steps);
                 setLocation(getExactX(),getRealY()-w.getYOffset());
-                if(velY > 0){
+                if(velY > 0 && gravity > 0){
+                    onBlock = true;  
+                }
+                if(velY < 0 && gravity < 0){
                     onBlock = true;  
                 }
                 velY=0;
@@ -425,7 +428,7 @@ public class PlatformPlayer extends PlatformObject
         }
         /**scrolling stuff*/
         scroll();//sets location
-        
+
         //This runs if you get stuck in a block for a long time
         //Will push you out after 75 game ticks;
         b = getOneIntersectingObject(blockType);
@@ -441,7 +444,7 @@ public class PlatformPlayer extends PlatformObject
             ticksStuckInBlock = 0;
         }
     }
-    
+
     //Written by John
     private void scroll()//called in update player method
     {
@@ -536,7 +539,12 @@ public class PlatformPlayer extends PlatformObject
         if ((Greenfoot.isKeyDown("space")||Greenfoot.isKeyDown("w")) && onBlock)
         {
             onBlock=false;
-            velY-=jumpSpeed;
+            if(gravity > 0){
+                velY-=jumpSpeed;
+            }
+            if(gravity < 0){
+                velY+=jumpSpeed;
+            }
         }
     }
 
