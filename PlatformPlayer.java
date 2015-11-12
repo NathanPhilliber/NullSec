@@ -36,7 +36,12 @@ public class PlatformPlayer extends PlatformObject
     private boolean isWalkingLeft=false;
     private boolean locked = false;
     private boolean onClimb=false;
-
+    
+    
+    
+    //antistuck
+    private double oldRealX;
+    private double oldOffset;
     private int ticksStuckInBlock = 0;
 
     //Written by Trace
@@ -325,14 +330,16 @@ public class PlatformPlayer extends PlatformObject
          * worst case catch all
          * reverts scroll()
          * sould work but dosent
-        
+        */
         Actor b=getOneIntersectingObject(blockType);
         if (b!=null)
         {
             w.setOffset(oldOffset);
             setRealX(oldRealX);
             setLocation(getRealX()-w.getOffset(),getRealY());
-        }*/
+        }
+        oldOffset = w.getOffset();
+        oldRealX = getRealX();
         
         /**
          * Collision Type1
@@ -346,7 +353,7 @@ public class PlatformPlayer extends PlatformObject
         {
             addRealX(getVelX()/steps);
             setLocation(getRealX()-w.getOffset(),getExactY());
-            Actor b=getOneIntersectingObject(blockType);
+            b=getOneIntersectingObject(blockType);
             if (b!=null)
             { 
                 if(b instanceof MeltingBlock){
@@ -365,7 +372,7 @@ public class PlatformPlayer extends PlatformObject
         {
             addRealY(getVelY()/steps);
             setLocation(getExactX(),getRealY());
-            Actor b=getOneIntersectingObject(blockType);
+            b=getOneIntersectingObject(blockType);
             if(b instanceof FallingBlock){
                 FallingBlock fall = (FallingBlock) b;
                 fall.startFalling();
@@ -406,7 +413,7 @@ public class PlatformPlayer extends PlatformObject
         
         //This runs if you get stuck in a block for a long time
         //Will push you out after 75 game ticks;
-        Actor b = getOneIntersectingObject(blockType);
+        b = getOneIntersectingObject(blockType);
         if(b != null){
             ticksStuckInBlock++;
             if(ticksStuckInBlock > 50){
