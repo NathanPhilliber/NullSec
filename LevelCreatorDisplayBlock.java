@@ -42,23 +42,25 @@ public class LevelCreatorDisplayBlock extends LevelCreatorObject
     public static ArrayList<Integer> exceptions = new ArrayList<Integer>();
     public LevelCreatorDisplayBlock(){
         exceptions.add(4);
-        exceptions.add(5);
-        exceptions.add(90);
-        exceptions.add(87);
-        exceptions.add(88);
-        exceptions.add(84);
-        exceptions.add(82);
-        exceptions.add(83);
-        exceptions.add(75);
+        exceptions.add(5);       
         exceptions.add(24);
         exceptions.add(25);
         exceptions.add(61);
+        exceptions.add(75);
+        exceptions.add(82);
+        exceptions.add(83);
+        exceptions.add(85);
+        exceptions.add(86);
+        exceptions.add(87);
+        exceptions.add(88);
+        exceptions.add(89);
+        exceptions.add(90);
         exceptions.add(91);
         exceptions.add(93);
         exceptions.add(94);
 
     }
-    
+
     //Written by Nathan and Trace
     public void act() 
     {

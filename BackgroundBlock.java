@@ -18,11 +18,16 @@ public class BackgroundBlock extends NoCollisionBlock
     public BackgroundBlock(int blockType)
     {
         super();
-  
+
         setImage(LevelCreatorDisplayBlock.getBlock()[blockType]);
         //getImage().setTransparency(200);
-        getImage().setColor(new Color(0,0,0,120));
-        getImage().fill();
-        
+        if(blockType == 81){
+            //^^^ add blocks you don't want darkened up there
+        }
+        else{
+            getImage().setColor(new Color(0,0,0,120));
+            getImage().fill();
+        }
+
     }   
 }

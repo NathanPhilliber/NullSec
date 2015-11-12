@@ -34,7 +34,7 @@ public class MovingNonPlayer extends NonPlayer
 
     protected void gravity(double y)
     {
-        velY += gravity;
+        velY += gravity/5;
     } 
 
     protected void moveX(double x)

@@ -63,63 +63,69 @@ public class LevelCreator extends World
             //System.out.println("Number of Objects In Level: " + (numberOfObjects()-2));   
         }
         if(Greenfoot.isKeyDown("r") || (Greenfoot.mousePressed(null) && mouse.getButton() == 3 && LevelCreatorPallet.open == false)){
-            LevelCreatorBlock myBlock = new LevelCreatorBlock(LevelCreatorDisplayBlock.block);
-            myBlock.getImage().setColor(new Color(0,0,0,120));
-            myBlock.getImage().fill();
-            myBlock.noCollision = true; 
-            addObject(myBlock, 27*Math.round(mouse.getX()/27)+13, 27*Math.round(mouse.getY()/27)+13);
-            block.update(LevelCreatorDisplayBlock.block);
-            addObject(block,0,0);
+            if(LevelCreatorDisplayBlock.exceptions.contains(LevelCreatorDisplayBlock.block)){
 
-            if(Greenfoot.isKeyDown("shift")){
-                myBlock = new LevelCreatorBlock(LevelCreatorDisplayBlock.block);
+            }
+            else{
+
+                LevelCreatorBlock myBlock = new LevelCreatorBlock(LevelCreatorDisplayBlock.block);
                 myBlock.getImage().setColor(new Color(0,0,0,120));
                 myBlock.getImage().fill();
                 myBlock.noCollision = true; 
-                addObject(myBlock, 27*Math.round(mouse.getX()/27)+13-27, 27*Math.round(mouse.getY()/27)+13-27);
+                addObject(myBlock, 27*Math.round(mouse.getX()/27)+13, 27*Math.round(mouse.getY()/27)+13);
+                block.update(LevelCreatorDisplayBlock.block);
+                addObject(block,0,0);
 
-                myBlock = new LevelCreatorBlock(LevelCreatorDisplayBlock.block);
-                myBlock.getImage().setColor(new Color(0,0,0,120));
-                myBlock.getImage().fill();
-                myBlock.noCollision = true; 
-                addObject(myBlock, 27*Math.round(mouse.getX()/27)+13+27, 27*Math.round(mouse.getY()/27)+13-27);
+                if(Greenfoot.isKeyDown("shift")){
+                    myBlock = new LevelCreatorBlock(LevelCreatorDisplayBlock.block);
+                    myBlock.getImage().setColor(new Color(0,0,0,120));
+                    myBlock.getImage().fill();
+                    myBlock.noCollision = true; 
+                    addObject(myBlock, 27*Math.round(mouse.getX()/27)+13-27, 27*Math.round(mouse.getY()/27)+13-27);
 
-                myBlock = new LevelCreatorBlock(LevelCreatorDisplayBlock.block);
-                myBlock.getImage().setColor(new Color(0,0,0,120));
-                myBlock.getImage().fill();
-                myBlock.noCollision = true; 
-                addObject(myBlock, 27*Math.round(mouse.getX()/27)+13, 27*Math.round(mouse.getY()/27)+13-27);
+                    myBlock = new LevelCreatorBlock(LevelCreatorDisplayBlock.block);
+                    myBlock.getImage().setColor(new Color(0,0,0,120));
+                    myBlock.getImage().fill();
+                    myBlock.noCollision = true; 
+                    addObject(myBlock, 27*Math.round(mouse.getX()/27)+13+27, 27*Math.round(mouse.getY()/27)+13-27);
 
-                myBlock = new LevelCreatorBlock(LevelCreatorDisplayBlock.block);
-                myBlock.getImage().setColor(new Color(0,0,0,120));
-                myBlock.getImage().fill();
-                myBlock.noCollision = true; 
-                addObject(myBlock, 27*Math.round(mouse.getX()/27)+13-27, 27*Math.round(mouse.getY()/27)+13+27);
+                    myBlock = new LevelCreatorBlock(LevelCreatorDisplayBlock.block);
+                    myBlock.getImage().setColor(new Color(0,0,0,120));
+                    myBlock.getImage().fill();
+                    myBlock.noCollision = true; 
+                    addObject(myBlock, 27*Math.round(mouse.getX()/27)+13, 27*Math.round(mouse.getY()/27)+13-27);
 
-                myBlock = new LevelCreatorBlock(LevelCreatorDisplayBlock.block);
-                myBlock.getImage().setColor(new Color(0,0,0,120));
-                myBlock.getImage().fill();
-                myBlock.noCollision = true; 
-                addObject(myBlock, 27*Math.round(mouse.getX()/27)+13+27, 27*Math.round(mouse.getY()/27)+13+27);
+                    myBlock = new LevelCreatorBlock(LevelCreatorDisplayBlock.block);
+                    myBlock.getImage().setColor(new Color(0,0,0,120));
+                    myBlock.getImage().fill();
+                    myBlock.noCollision = true; 
+                    addObject(myBlock, 27*Math.round(mouse.getX()/27)+13-27, 27*Math.round(mouse.getY()/27)+13+27);
 
-                myBlock = new LevelCreatorBlock(LevelCreatorDisplayBlock.block);
-                myBlock.getImage().setColor(new Color(0,0,0,120));
-                myBlock.getImage().fill();
-                myBlock.noCollision = true; 
-                addObject(myBlock, 27*Math.round(mouse.getX()/27)+13, 27*Math.round(mouse.getY()/27)+13+27);
+                    myBlock = new LevelCreatorBlock(LevelCreatorDisplayBlock.block);
+                    myBlock.getImage().setColor(new Color(0,0,0,120));
+                    myBlock.getImage().fill();
+                    myBlock.noCollision = true; 
+                    addObject(myBlock, 27*Math.round(mouse.getX()/27)+13+27, 27*Math.round(mouse.getY()/27)+13+27);
 
-                myBlock = new LevelCreatorBlock(LevelCreatorDisplayBlock.block);
-                myBlock.getImage().setColor(new Color(0,0,0,120));
-                myBlock.getImage().fill();
-                myBlock.noCollision = true; 
-                addObject(myBlock, 27*Math.round(mouse.getX()/27)+13-27, 27*Math.round(mouse.getY()/27)+13);
+                    myBlock = new LevelCreatorBlock(LevelCreatorDisplayBlock.block);
+                    myBlock.getImage().setColor(new Color(0,0,0,120));
+                    myBlock.getImage().fill();
+                    myBlock.noCollision = true; 
+                    addObject(myBlock, 27*Math.round(mouse.getX()/27)+13, 27*Math.round(mouse.getY()/27)+13+27);
 
-                myBlock = new LevelCreatorBlock(LevelCreatorDisplayBlock.block);
-                myBlock.getImage().setColor(new Color(0,0,0,120));
-                myBlock.getImage().fill();
-                myBlock.noCollision = true; 
-                addObject(myBlock, 27*Math.round(mouse.getX()/27)+13+27, 27*Math.round(mouse.getY()/27)+13);
+                    myBlock = new LevelCreatorBlock(LevelCreatorDisplayBlock.block);
+                    myBlock.getImage().setColor(new Color(0,0,0,120));
+                    myBlock.getImage().fill();
+                    myBlock.noCollision = true; 
+                    addObject(myBlock, 27*Math.round(mouse.getX()/27)+13-27, 27*Math.round(mouse.getY()/27)+13);
 
+                    myBlock = new LevelCreatorBlock(LevelCreatorDisplayBlock.block);
+                    myBlock.getImage().setColor(new Color(0,0,0,120));
+                    myBlock.getImage().fill();
+                    myBlock.noCollision = true; 
+                    addObject(myBlock, 27*Math.round(mouse.getX()/27)+13+27, 27*Math.round(mouse.getY()/27)+13);
+
+                }
             }
         }
         if(Greenfoot.isKeyDown("f")){
@@ -337,7 +343,7 @@ public class LevelCreator extends World
 
                     addObject(new LevelCreatorBlock(Integer.parseInt(type)), Integer.parseInt(x)+offsetX, Integer.parseInt(y)+offsetY);
                 }
-                
+
                 if(line.contains("new ElevatorBlock")){
                     String[] parts = line.split(",");
                     String x = parts[1].replace("+offsetX","");
@@ -349,7 +355,7 @@ public class LevelCreator extends World
 
                     addObject(new LevelCreatorBlock(Integer.parseInt(type)), Integer.parseInt(x)+offsetX, Integer.parseInt(y)+offsetY);
                 }
-                
+
                 if(line.contains("new SlimeBlock")){
                     String[] parts = line.split(",");
                     String x = parts[1].replace("+offsetX","");
@@ -385,7 +391,7 @@ public class LevelCreator extends World
 
                     addObject(new LevelCreatorBlock(Integer.parseInt(type)), Integer.parseInt(x)+offsetX, Integer.parseInt(y)+offsetY);
                 }
-                
+
                 if(line.contains("new MeltingBlock")){
                     String[] parts = line.split(",");
                     String x = parts[1].replace("+offsetX","");
@@ -397,7 +403,7 @@ public class LevelCreator extends World
 
                     addObject(new LevelCreatorBlock(Integer.parseInt(type)), Integer.parseInt(x)+offsetX, Integer.parseInt(y)+offsetY);
                 }
-                
+
                 if(line.contains("new Track")){
                     String[] parts = line.split(",");
                     String x = parts[1].replace("+offsetX","");
@@ -409,7 +415,7 @@ public class LevelCreator extends World
 
                     addObject(new LevelCreatorBlock(Integer.parseInt(type)), Integer.parseInt(x)+offsetX, Integer.parseInt(y)+offsetY);
                 }
-                
+
                 if(line.contains("new Cart")){
                     String[] parts = line.split(",");
                     String x = parts[1].replace("+offsetX","");
@@ -421,7 +427,7 @@ public class LevelCreator extends World
 
                     addObject(new LevelCreatorBlock(Integer.parseInt(type)), Integer.parseInt(x)+offsetX, Integer.parseInt(y)+offsetY);
                 }
-                
+
                 if(line.contains("new Coin")){
                     String[] parts = line.split(",");
                     String x = parts[1].replace("+offsetX","");
@@ -433,7 +439,7 @@ public class LevelCreator extends World
 
                     addObject(new LevelCreatorBlock(Integer.parseInt(type)), Integer.parseInt(x)+offsetX, Integer.parseInt(y)+offsetY);
                 }
-                
+
                 if(line.contains("new TraceHead")){
                     String[] parts = line.split(",");
                     String x = parts[1].replace("+offsetX","");
@@ -445,7 +451,7 @@ public class LevelCreator extends World
 
                     addObject(new LevelCreatorBlock(Integer.parseInt(type)), Integer.parseInt(x)+offsetX, Integer.parseInt(y)+offsetY);
                 }
-                
+
                 if(line.contains("new BulletLauncher")){
                     if(line.contains("85,0)")){
                         String[] parts = line.split(",");
@@ -471,7 +477,6 @@ public class LevelCreator extends World
                     }
 
                 }
-                
 
                 if(line.contains("new BackgroundBlock")){
                     String[] parts = line.split(",");

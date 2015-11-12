@@ -3,7 +3,7 @@
 int offsetX = 0;
 int offsetY = 0;
 
-setBackground("SpaceshipBackground1.png");
+setBackground("PlanetOneBG.png");
 addObject(new Block(49),94+offsetX,229+offsetY);
 addObject(new Block(49),121+offsetX,229+offsetY);
 addObject(new Block(49),148+offsetX,229+offsetY);
@@ -222,4 +222,6 @@ addObject(new Track(93),337+offsetX,175+offsetY);
 addObject(new Track(93),337+offsetX,148+offsetY);
 addObject(new Track(93),283+offsetX,148+offsetY);
 addObject(new Track(93),310+offsetX,148+offsetY);
-addObject(new Cart(94),364+offsetX,202+offsetY);
+addObject(new Cart(94),310+offsetX,148+offsetY);
+addObject(new Cart(94),337+offsetX,148+offsetY);
+addObject(new Cart(94),283+offsetX,148+offsetY);
