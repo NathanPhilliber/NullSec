@@ -16,7 +16,7 @@ public class Level15 extends Platformer
         //Level Generated
 
         int offsetX = 0;
-        int offsetY = OptionsMenu.getWorldHeight()/4;
+        int offsetY = 0;
         
         GreenfootImage background = new GreenfootImage("PlanetOneBG.png");
         background.scale(OptionsMenu.getWorldWidth(),  OptionsMenu.getWorldHeight());

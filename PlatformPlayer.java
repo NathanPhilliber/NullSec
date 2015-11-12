@@ -40,8 +40,10 @@ public class PlatformPlayer extends PlatformObject
     
     
     //antistuck
+    private double oldXOffset;
+    private double oldYOffset;
     private double oldRealX;
-    private double oldOffset;
+    private double oldRealY;
     private int ticksStuckInBlock = 0;
 
     //Written by Trace
@@ -334,12 +336,16 @@ public class PlatformPlayer extends PlatformObject
         Actor b=getOneIntersectingObject(blockType);
         if (b!=null)
         {
-            w.setXOffset(oldOffset);
+            w.setXOffset(oldXOffset);
+            w.setYOffset(oldYOffset);
             setRealX(oldRealX);
-            setLocation(getRealX()-w.getXOffset(),getRealY());
+            setRealY(oldRealY);
+            setLocation(getRealX()-w.getXOffset(),getRealY()-w.getYOffset());
         }
-        oldOffset = w.getXOffset();
+        oldXOffset = w.getXOffset();
+        oldYOffset = w.getYOffset();
         oldRealX = getRealX();
+        oldRealY = getRealY();
         
         /**
          * Collision Type1
@@ -352,7 +358,7 @@ public class PlatformPlayer extends PlatformObject
         for (int i=0;i<=steps-1;i++)
         {
             addRealX(getVelX()/steps);
-            setLocation(getRealX()-w.getXOffset(),getExactY());
+            setLocation(getRealX()-w.getXOffset(),getExactY()-w.getYOffset());
             b=getOneIntersectingObject(blockType);
             if (b!=null)
             { 
@@ -375,7 +381,7 @@ public class PlatformPlayer extends PlatformObject
         for (int i=0;i<=steps-1;i++)
         {
             addRealY(getVelY()/steps);
-            setLocation(getExactX(),getRealY());
+            setLocation(getExactX(),getRealY()-w.getYOffset());
             b=getOneIntersectingObject(blockType);
             if(b instanceof FallingBlock){
                 FallingBlock fall = (FallingBlock) b;
@@ -404,7 +410,7 @@ public class PlatformPlayer extends PlatformObject
                 
                 
                 addRealY(-getVelY()/steps);
-                setLocation(getExactX(),getRealY());
+                setLocation(getExactX(),getRealY()-w.getYOffset());
                 if(velY > 0){
                     onBlock = true;  
                 }
@@ -451,7 +457,7 @@ public class PlatformPlayer extends PlatformObject
         if(w.getXOffset() < 0){
             w.setXOffset(0);
         }
-        setLocation(getRealX()-w.getXOffset(),getRealY());//end of scroll
+        setLocation(getRealX()-w.getXOffset(),getRealY()-w.getYOffset());//end of scroll
     }
 
     //Written by John, Trace

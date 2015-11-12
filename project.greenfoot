@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Thu Nov 12 10:10:44 PST 2015
+#Thu Nov 12 10:22:26 PST 2015
 dependency211.to=LevelCreatorBlockHover
 target33.typeParameters=
 dependency314.to=ElevatorBlock
@@ -3057,6 +3057,7 @@ target153.editor.x=40
 dependency404.type=UsesDependency
 dependency108.to=Mine
 target162.type=ClassTarget
+class.Level19.superclass=Platformer
 class.IconLaser.image=Laster.png
 class.Shop.superclass=greenfoot.World
 target63.name=Projectile
@@ -3396,7 +3397,7 @@ dependency336.type=UsesDependency
 target41.editor.height=700
 dependency55.type=UsesDependency
 dependency321.from=PlatformPlayer
-world.lastInstantiated=Level18
+world.lastInstantiated=LevelCreator
 dependency251.type=UsesDependency
 class.LaserText.superclass=WeaponShop
 target154.typeParameters=
