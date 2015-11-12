@@ -4,7 +4,8 @@ import greenfoot.*;
 
 public class Platformer extends World
 {
-    private double worldOffset=0;
+    private double worldXOffset=0;
+    private double worldYOffset=0;
     public double returnX, returnY;
     
     //Written by Nathan
@@ -25,18 +26,28 @@ public class Platformer extends World
     
     
     //Written by John
-    public double getOffset()
+    public double getXOffset()
     {
-        return worldOffset;
+        return worldXOffset;
     }
-    //Written by John
-    public void setOffset(double Of)
+    public void setXOffset(double Of)
     {
-        worldOffset=Of;
+        worldXOffset=Of;
     }
-    //Written by John
-    public void addOffset(double Of)
+    public void addXOffset(double Of)
     {
-        worldOffset+=Of;
+        worldXOffset+=Of;
+    }
+    public double getYOffset()
+    {
+        return worldYOffset;
+    }
+    public void setYOffset(double Of)
+    {
+        worldYOffset=Of;
+    }
+    public void addYOffset(double Of)
+    {
+        worldYOffset+=Of;
     }
 }
