@@ -18,8 +18,8 @@ public class PlatformPlayer extends PlatformObject
     static final double jumpSpeedAir = 10;
     static final double climbSpeed = 3;
     static final double swimSpeed = 2;
-    static final int sideScrollDistX = 400;
-    static final int sideScrollDistY = 200;
+    static final int scrollDistX = 400;
+    static final int scrollDistY = 200; //>>MUST<< BE LESS THAN 250
     static final Class blockType = Block.class;
 
     private final int ladderRadius = 9;
@@ -103,7 +103,7 @@ public class PlatformPlayer extends PlatformObject
                 jump();
                 leftRight();
             }
-            showDebug(false);
+            showDebug(true);
             gravity(gravity);
             restartWorld();
             checkIfOffEdge();
@@ -373,10 +373,10 @@ public class PlatformPlayer extends PlatformObject
         }
 
         /**
-         * Collision Type2
+         * Collision Type0
          * worst case catch all
-         * reverts scroll()
-         * sould work but dosent
+         * reverts cycle
+         *
          */
         Actor b=getOneIntersectingObject(blockType);
         if (b!=null)
@@ -403,7 +403,7 @@ public class PlatformPlayer extends PlatformObject
         for (int i=0;i<=steps-1;i++)
         {
             addRealX(getVelX()/steps);
-            setLocation(getRealX()-w.getXOffset(),getExactY()-w.getYOffset());
+            setLocation(getRealX()-w.getXOffset(),getExactY());
             b=getOneIntersectingObject(blockType);
             if (b!=null)
             { 
@@ -411,7 +411,6 @@ public class PlatformPlayer extends PlatformObject
                     MeltingBlock melt = (MeltingBlock) b;
                     melt.melt(5);
                 }
-
                 addRealX(-getVelX()/steps);
                 setLocation(getRealX()-w.getXOffset(),getExactY());
                 velX=0;
@@ -484,12 +483,12 @@ public class PlatformPlayer extends PlatformObject
     private void scroll()//called in update player method
     {
         //x
-        double dif=getExactX()-sideScrollDistX;
+        double dif=getExactX()-scrollDistX;
         if(dif<=0&&velX<0&&w.getXOffset()>=0)
         {
             w.addXOffset(dif);
         }
-        dif=getExactX()+sideScrollDistX-getWorld().getWidth();
+        dif=getExactX()+scrollDistX-getWorld().getWidth();
         if(dif>=0&&velX>0)
         {
             w.addXOffset(dif);
@@ -498,17 +497,17 @@ public class PlatformPlayer extends PlatformObject
             w.setXOffset(0);
         }
         //y
-        dif=getExactY()-sideScrollDistY;
-        if(dif<=0&&velY<0&&w.getYOffset()>=0)
+        dif=getExactY()-scrollDistY;
+        if(dif<=0&&velY<0&&w.getYOffset()<=0)
         {
             w.addYOffset(dif);
         }
-        dif=getExactY()+sideScrollDistY-getWorld().getWidth();
+        dif=getExactY()+scrollDistY-getWorld().getHeight();
         if(dif>=0&&velY>0)
         {
             w.addYOffset(dif);
         }
-        if(w.getYOffset() < 0){
+        if(w.getYOffset() > 0){
             w.setYOffset(0);
         }
         setLocation(getRealX()-w.getXOffset(),getRealY()-w.getYOffset());//end of scroll
@@ -612,7 +611,8 @@ public class PlatformPlayer extends PlatformObject
             w.showText("Y: "+String.format("%.02f", (realY)), x, 50); 
             w.showText("vX: "+String.format("%.02f", (velX)), x, 75);
             w.showText("vY: "+String.format("%.02f", (velY)), x, 100);
-            w.showText("wOffset: "+String.format("%.02f", (w.getXOffset())), x, 125);
+            w.showText("XOffset: "+String.format("%.02f", (w.getXOffset())), x, 125);
+            w.showText("YOffset: "+String.format("%.02f", (w.getYOffset())), x, 150);
         }
     }
 }

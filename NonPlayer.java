@@ -8,7 +8,7 @@ public class NonPlayer extends PlatformObject
     {
         super.addedToWorld(world);
         setRealX(getX()+w.getXOffset());
-        setRealY(getY());
+        setRealY(getY()+w.getYOffset());
     }
     public NonPlayer()
     {
@@ -23,4 +23,11 @@ public class NonPlayer extends PlatformObject
     {
         updatePos();
     }   
+        protected void updatePos()
+    {
+        if(w == null){
+           w=(Platformer)getWorld(); 
+        }
+        setLocation(getRealX()-w.getXOffset(),getRealY()-w.getYOffset());
+    }
 }

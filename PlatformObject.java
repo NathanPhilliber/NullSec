@@ -20,13 +20,6 @@ public class PlatformObject extends Object
     {
         
     }
-    protected void updatePos()
-    {
-        if(w == null){
-           w=(Platformer)getWorld(); 
-        }
-        setLocation(realX-w.getXOffset(),realY);
-    }
     protected void setRealX(double x)
     {
         realX=x;
