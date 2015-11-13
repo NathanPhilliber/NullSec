@@ -9,10 +9,11 @@ import java.awt.Color;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Wire extends NoCollisionBlock
+public class Wire extends WireActivator
 {
     private int wireTypeInt = 0;
     private boolean firstTime = true;
+    private boolean isOn;
 
     public Wire(){
         this(0);
@@ -27,6 +28,7 @@ public class Wire extends NoCollisionBlock
         super.act();
         setCorrectImage();
         checkActivator();
+        activateWires();
     }
 
     public void checkActivator()
@@ -48,7 +50,7 @@ public class Wire extends NoCollisionBlock
             {
                 if(a instanceof WireButtonDown)
                 {
-                    activateWires();
+                    activateMe();
                 }
             }
         }
@@ -56,25 +58,26 @@ public class Wire extends NoCollisionBlock
 
     public void activateWires()
     {
-        Actor wireUp = getOneObjectAtOffset(0, -27, Wire.class);
-        Actor wireDown = getOneObjectAtOffset(0, 27, Wire.class);
-        Actor wireLeft = getOneObjectAtOffset(-27, 0, Wire.class);
-        Actor wireRight = getOneObjectAtOffset(27, 0, Wire.class);
+        try{
+            Actor wU = getOneObjectAtOffset(0, -27, WireOn.class);
+            Actor wD = getOneObjectAtOffset(0, 27, WireOn.class);
+            Actor wL = getOneObjectAtOffset(-27, 0,WireOn.class);
+            Actor wR = getOneObjectAtOffset(27, 0, WireOn.class);
 
-        List<Actor> wires = getWorld().getObjects(Wire.class);
-        for(Actor a : wires)
-        {
-            for(int y = 0; y < a.getImage().getHeight(); y++)
+            if(wU != null || wD != null || wL != null || wR != null)
             {
-                for(int x = 0; x < a.getImage().getWidth(); x++)
-                {
-                    if(a.getImage().getColorAt(x, y).getAlpha() == 255)
-                    {
-                        a.getImage().setColorAt(x, y, Color.RED);
-                    }
-                }
+                activateMe();
             }
         }
+        catch(IllegalStateException e)
+        {
+        }
+    }
+
+    public void activateMe()
+    {
+        getWorld().addObject(new WireOn(), getX(), getY());
+        getWorld().removeObject(this);
     }
 
     public int getWireType()
@@ -177,5 +180,10 @@ public class Wire extends NoCollisionBlock
                 setRotation(90);
             }
         }
+    }
+
+    public void getUpWire()
+    {
+
     }
 }

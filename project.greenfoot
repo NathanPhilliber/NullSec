@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Fri Nov 13 00:41:03 PST 2015
+#Fri Nov 13 13:45:12 PST 2015
 dependency437.type=UsesDependency
 dependency211.to=LevelCreatorBlockHover
 target33.typeParameters=
@@ -888,6 +888,7 @@ target162.y=2290
 target47.editor.width=900
 target162.x=10
 dependency182.from=Level3
+class.WireOn.image=Wire+On.png
 target119.name=WeaponBG
 target86.editor.height=700
 target3.name=MenuMain
@@ -1737,6 +1738,7 @@ class.EngineBars.image=Bars.png
 target145.x=110
 class.PlanetOne.superclass=Planet
 target5.type=ClassTarget
+class.WireOn.superclass=WireActivator
 target121.naviview.expanded=true
 dependency361.type=UsesDependency
 dependency80.type=UsesDependency
@@ -3160,7 +3162,7 @@ target122.editor.height=700
 target119.editor.x=40
 target143.height=50
 class.WireButton.image=LevelButton.png
-class.Wire.superclass=NoCollisionBlock
+class.Wire.superclass=WireActivator
 target118.width=80
 target113.type=ClassTarget
 target12.editor.height=700
