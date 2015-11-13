@@ -8,10 +8,8 @@ import greenfoot.*;
  */
 public class WireButtonDown extends WireActivator
 {
-    /**
-     * Act - do whatever the WireButtonOff wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    private int delay = 150;
+    
     public WireButtonDown(){
         this(0);
     }
@@ -22,5 +20,13 @@ public class WireButtonDown extends WireActivator
     public void act()
     {
         super.act();
-    }  
+        if(delay <= 0)
+        {
+            Actor butt = new WireButton();
+            getWorld().addObject(butt, getX(), getY());
+
+            getWorld().removeObject(this);
+        }
+        delay--;
+    }
 }

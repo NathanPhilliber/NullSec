@@ -18,5 +18,18 @@ public class WireButton extends WireActivator
     public void act()
     {
         super.act();
+        pressDown();
+    }
+    public void pressDown()
+    {
+        Actor a = getOneIntersectingObject(PlatformPlayer.class);
+       
+        if(a != null)
+        {
+            Actor buttDown = new WireButtonDown();
+            getWorld().addObject(buttDown, getX(), getY());
+
+            getWorld().removeObject(this);
+        }
     }
 }

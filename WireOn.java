@@ -1,5 +1,5 @@
 import greenfoot.*;
-
+import java.util.ArrayList;
 /**
  * Write a description of class WireOn here.
  * 
@@ -16,9 +16,61 @@ public class WireOn extends WireActivator
      */
     public void act() 
     {
+        super.act();
         setCorrectImage();
+        checkDeactivator();
+        deactivateWires();
     }
 
+    public void checkDeactivator()
+    {
+        Actor actUp = getOneObjectAtOffset(0, -27, WireActivator.class);
+        Actor actDown = getOneObjectAtOffset(0, 27, WireActivator.class);
+        Actor actLeft = getOneObjectAtOffset(-27, 0, WireActivator.class);
+        Actor actRight = getOneObjectAtOffset(27, 0, WireActivator.class);
+
+        ArrayList<Actor> acts =  new ArrayList<Actor>();
+        acts.add(actUp);
+        acts.add(actDown);
+        acts.add(actLeft);
+        acts.add(actRight);
+
+        if(acts != null)
+        {
+            for(Actor a: acts)
+            {
+                if(a instanceof WireButton)
+                {
+                    deactivateMe();
+                }
+            }
+        }
+    }
+    
+    public void deactivateMe()
+    {
+        getWorld().addObject(new Wire(), getX(), getY());
+        getWorld().removeObject(this);
+    }
+    
+    public void deactivateWires()
+    {
+        try{
+            Actor wU = getOneObjectAtOffset(0, -27, Wire.class);
+            Actor wD = getOneObjectAtOffset(0, 27, Wire.class);
+            Actor wL = getOneObjectAtOffset(-27, 0,Wire.class);
+            Actor wR = getOneObjectAtOffset(27, 0, Wire.class);
+
+            if(wU != null || wD != null || wL != null || wR != null)
+            {
+                deactivateMe();
+            }
+        }
+        catch(IllegalStateException e)
+        {
+        }
+    }
+    
     public void setCorrectImage()
     {
         Actor wireUp = getOneObjectAtOffset(0, -27, WireOn.class);
