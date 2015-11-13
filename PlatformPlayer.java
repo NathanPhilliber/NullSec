@@ -141,6 +141,7 @@ public class PlatformPlayer extends PlatformObject
         boolean anySlime = false;
         boolean anyCart = false;
         boolean anyGravity = false;
+        boolean anyButton = false;
 
         for(PlatformObject object : objects){
             if(object instanceof ExitPortal){
@@ -192,6 +193,10 @@ public class PlatformPlayer extends PlatformObject
                 anySlime = true;
 
             }
+            else if(object instanceof WireButton){
+                anyButton = true;
+
+            }
         }
         if(anyWater){
             if(anyAir){
@@ -228,6 +233,13 @@ public class PlatformPlayer extends PlatformObject
             addRealY(-2);
             setLocation(getRealX()-w.getXOffset(),getRealY()-w.getYOffset());
         }
+        else if(anyButton){
+            Actor butt = getOneIntersectingObject(WireButton.class);
+            Actor buttDown = new WireButtonDown();
+            getWorld().addObject(buttDown, butt.getX(), butt.getY());
+            
+            getWorld().removeObject(butt);
+        } 
         else if(anyGravity && gravityToggle == false){
             gravity *= -1;
 
