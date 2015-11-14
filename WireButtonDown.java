@@ -23,9 +23,9 @@ public class WireButtonDown extends WireActivator
         if(delay <= 0)
         {
             Actor butt = new WireButton();
-            getWorld().addObject(butt, getX(), getY());
+            w.addObject(butt, getX(), getY());
 
-            getWorld().removeObject(this);
+            w.removeObject(this);
         }
         delay--;
     }

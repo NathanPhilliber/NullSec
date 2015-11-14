@@ -103,7 +103,7 @@ public class PlatformPlayer extends PlatformObject
                 jump();
                 leftRight();
             }
-            showDebug(true);
+            showDebug(false);
             gravity(gravity);
             restartWorld();
             checkIfOffEdge();

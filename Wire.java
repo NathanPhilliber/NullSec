@@ -76,8 +76,8 @@ public class Wire extends WireActivator
 
     public void activateMe()
     {
-        getWorld().addObject(new WireOn(), getX(), getY());
-        getWorld().removeObject(this);
+        w.addObject(new WireOn(), getX(), getY());
+        w.removeObject(this);
     }
 
     public int getWireType()

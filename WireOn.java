@@ -49,8 +49,8 @@ public class WireOn extends WireActivator
     
     public void deactivateMe()
     {
-        getWorld().addObject(new Wire(), getX(), getY());
-        getWorld().removeObject(this);
+        w.addObject(new Wire(), getX(), getY());
+        w.removeObject(this);
     }
     
     public void deactivateWires()
