@@ -31,7 +31,7 @@ public class LevelCreatorDisplayBlock extends LevelCreatorObject
             "YellorangeMetal.png", "SkinnyLog.png", "WoodenRoofLeft.png", "WoodenRoofRight.png","spikes.png",
             "BulletLauncherRight.png","BulletLauncherLeft.png","Elevator.png","BounceBlock.png","melt.png",
             "coin.png","TraceBlock.png","NeckBlock.png","Track.png","Cart.png","GravityBlock.png", "Wire+.png", 
-            "LevelButton.png",
+            "LevelButton.png", "LaunchBlock.png",
             "cancel.png"}; //MAKE CANCEL LAST
 
     public static String[] backgroundImages = {"PlanetOneBG.png", "BackgroundLevel4.png", "BackgroundImage3.png", "SpaceshipBackground1.png","MetalBackground.png"};
