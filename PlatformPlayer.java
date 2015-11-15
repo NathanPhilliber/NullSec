@@ -103,7 +103,7 @@ public class PlatformPlayer extends PlatformObject
                 jump();
                 leftRight();
             }
-            showDebug(true);
+            showDebug(false);
             gravity(gravity);
             restartWorld();
             checkIfOffEdge();
@@ -236,9 +236,9 @@ public class PlatformPlayer extends PlatformObject
         else if(anyButton){
             Actor butt = getOneIntersectingObject(WireButton.class);
             Actor buttDown = new WireButtonDown();
-            getWorld().addObject(buttDown, butt.getX(), butt.getY());
+            w.addObject(buttDown, butt.getX(), butt.getY());
             
-            getWorld().removeObject(butt);
+            w.removeObject(butt);
         } 
         else if(anyGravity && gravityToggle == false){
             gravity *= -1;
@@ -290,7 +290,7 @@ public class PlatformPlayer extends PlatformObject
             }
 
         }
-        if(getY()>getWorld().getHeight()+100)
+        if(getY()>w.getHeight()+100)
         {
             kill();
         }
@@ -488,7 +488,7 @@ public class PlatformPlayer extends PlatformObject
         {
             w.addXOffset(dif);
         }
-        dif=getExactX()+scrollDistX-getWorld().getWidth();
+        dif=getExactX()+scrollDistX-w.getWidth();
         if(dif>=0&&velX>0)
         {
             w.addXOffset(dif);
@@ -502,7 +502,7 @@ public class PlatformPlayer extends PlatformObject
         {
             w.addYOffset(dif);
         }
-        dif=getExactY()+scrollDistY-getWorld().getHeight();
+        dif=getExactY()+scrollDistY-w.getHeight();
         if(dif>=0&&velY>0)
         {
             w.addYOffset(dif);
@@ -606,7 +606,7 @@ public class PlatformPlayer extends PlatformObject
     {
         if(show)
         {
-            int x = getWorld().getWidth() - 75;
+            int x = w.getWidth() - 75;
             w.showText("X: "+String.format("%.02f", (realX)), x, 25);
             w.showText("Y: "+String.format("%.02f", (realY)), x, 50); 
             w.showText("vX: "+String.format("%.02f", (velX)), x, 75);
