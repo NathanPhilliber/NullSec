@@ -142,8 +142,7 @@ public class PlatformPlayer extends PlatformObject
         boolean anyCart = false;
         boolean anyGravity = false;
         boolean anyButton = false;
-        boolean anyLaunch = false;
-        
+
         for(PlatformObject object : objects){
             if(object instanceof ExitPortal){
                 Player.gold += Player.goldPotential;
@@ -199,10 +198,6 @@ public class PlatformPlayer extends PlatformObject
 
             }
         }
-        if(getOneObjectAtOffset(0, 27, LaunchBlock.class) != null)
-        {
-            anyLaunch = true;
-        }
         if(anyWater){
             if(anyAir){
                 onBlock = true;
@@ -239,12 +234,11 @@ public class PlatformPlayer extends PlatformObject
             setLocation(getRealX()-w.getXOffset(),getRealY()-w.getYOffset());
         }
         else if(anyButton){
-
-        } 
-        else if(anyLaunch){
-            velY = -18;
-            velX = 15;
-            System.out.println("launch");
+            Actor butt = getOneIntersectingObject(WireButton.class);
+            Actor buttDown = new WireButtonDown();
+            getWorld().addObject(buttDown, butt.getX(), butt.getY());
+            
+            getWorld().removeObject(butt);
         } 
         else if(anyGravity && gravityToggle == false){
             gravity *= -1;

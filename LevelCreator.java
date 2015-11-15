@@ -264,9 +264,6 @@ public class LevelCreator extends World
                     else if(thisBlock.myImage == 97){
                         writer.write("addObject(new WireButton(" + (thisBlock.myImage)+"),"+ object.getX()+"+offsetX,"+object.getY()+"+offsetY);\n");
                     }
-                    else if(thisBlock.myImage == 98){
-                        writer.write("addObject(new LaunchBlock(" + (thisBlock.myImage)+"),"+ object.getX()+"+offsetX,"+object.getY()+"+offsetY);\n");
-                    }
                     else{
                         writer.write("addObject(new Block(" + thisBlock.myImage+"),"+ object.getX()+"+offsetX,"+object.getY()+"+offsetY);\n");
                     }
