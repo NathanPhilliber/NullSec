@@ -799,6 +799,8 @@ public class Player extends Object implements DamageTaker
             isDead = false;
         }
     }
+    
+    
     //Written by Trace
     public void deathAnimation()
     {
