@@ -20,7 +20,6 @@ public class MovingNonPlayer extends NonPlayer
     public double jumpSpeed = 12;
     public void act() 
     {
-
         super.act();
         collision();
         moveBackAndForthHelper();

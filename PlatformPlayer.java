@@ -378,9 +378,11 @@ public class PlatformPlayer extends PlatformObject
          * Collision Type2
          * due to moveing blocks
          */
-        //if moving block
+        ElevatorBlock e=(ElevatorBlock)getOneIntersectingObject(ElevatorBlock.class);
+        if(e!=null)
         {
-            //move with
+            addVelX(e.getVelX());
+            addVelY(e.getVelY());
         }
 
         /**
@@ -395,17 +397,26 @@ public class PlatformPlayer extends PlatformObject
             if (b!=null)
             {
                 w.setXOffset(oldXOffset);
-                w.setYOffset(oldYOffset);
                 setRealX(oldRealX);
+                setLocation(getRealX()-w.getXOffset(),getRealY()-w.getYOffset());
+            }
+            b=getOneIntersectingObject(blockType);
+            if (b!=null)
+            {
+                w.setYOffset(oldYOffset);
                 setRealY(oldRealY);
                 setLocation(getRealX()-w.getXOffset(),getRealY()-w.getYOffset());
             }
         }
-        oldXOffset = w.getXOffset();
-        oldYOffset = w.getYOffset();
-        oldRealX = getRealX();
-        oldRealY = getRealY();
-
+        b=getOneIntersectingObject(blockType);
+        if(b==null)
+        {
+            oldXOffset = w.getXOffset();
+            oldYOffset = w.getYOffset();
+            oldRealX = getRealX();
+            oldRealY = getRealY();
+        }
+        
         /**
          * Collision Type1
          * due to player movement
@@ -513,7 +524,7 @@ public class PlatformPlayer extends PlatformObject
         {
             w.addXOffset(dif);
         }
-        if(w.getXOffset() < 0){
+        if(w.getXOffset()<0){
             w.setXOffset(0);
         }
         //y
@@ -529,7 +540,7 @@ public class PlatformPlayer extends PlatformObject
             {
                 w.addYOffset(dif);
             }
-            if(w.getYOffset() > 0){
+            if(w.getYOffset()>0){
                 w.setYOffset(0);
             }
         }
