@@ -102,6 +102,7 @@ public class Player extends Object implements DamageTaker
     /*************************************************************/
     /*********************  DEMO STUFF  **************************/
     /*************************************************************/
+    /*
     //Written by Nathan
     private int numEnemiesKilled = 0;
     private Entity alien;
@@ -109,32 +110,103 @@ public class Player extends Object implements DamageTaker
     private boolean alienCurAlive = false;
 
     public void keepEnemyOnScreen(){
-        if(space instanceof OuterSpace){
-            if(alienCurAlive == false){
-                alien = new AlienShip(getShipLocX()+Greenfoot.getRandomNumber(1000)-500, getShipLocY()+Greenfoot.getRandomNumber(1000)-500);
-                if(Greenfoot.getRandomNumber(2) == 1){
-                    alien = new BomberShip(getShipLocX()+Greenfoot.getRandomNumber(1000)-500, getShipLocY()+Greenfoot.getRandomNumber(1000)-500);
-                }
-                space.addObject(alien,0,0);
-                alienCurAlive = true;
-            }
-            else{
-                if(alien.isAlive == false){
-                    numEnemiesKilled++;
-                    alienCurAlive = false;
-
-                }
-            }   
-        }
+    if(space instanceof OuterSpace){
+    if(alienCurAlive == false){
+    alien = new AlienShip(getShipLocX()+Greenfoot.getRandomNumber(1000)-500, getShipLocY()+Greenfoot.getRandomNumber(1000)-500);
+    if(Greenfoot.getRandomNumber(2) == 1){
+    alien = new BomberShip(getShipLocX()+Greenfoot.getRandomNumber(1000)-500, getShipLocY()+Greenfoot.getRandomNumber(1000)-500);
+    }
+    space.addObject(alien,0,0);
+    alienCurAlive = true;
+    }
+    else{
+    if(alien.isAlive == false){
+    numEnemiesKilled++;
+    alienCurAlive = false;
 
     }
+    }   
+    }
 
+    }
+     */
     /******* DELETE LATER********/
 
     /***************************************************************/
     /*********************  CONSTRUCTORS  **************************/
     /***************************************************************/
 
+    //Look for ship types in entity
+    //Difficulty is number 1-100, 100 is really hard.
+    //Ships auto-agro at 25
+
+    public void spawnFleet(int numberShips, int type, int difficulty){
+
+        int x = 0;
+        int y = 0;
+
+        if(Greenfoot.getRandomNumber(2) == 1){ //up down
+            if(Greenfoot.getRandomNumber(2) == 1){
+                x = (int)getShipLocX() + Greenfoot.getRandomNumber(space.getWidth()*2) - space.getWidth();
+                y = (int)getShipLocY() + space.getHeight() + Greenfoot.getRandomNumber(750) + 1500;
+            }
+            else{
+                x = (int)getShipLocX() + Greenfoot.getRandomNumber(space.getWidth()*2) - space.getWidth();
+                y = (int)getShipLocY() - space.getHeight() - Greenfoot.getRandomNumber(750) - 1500;
+            }
+        }
+        else{ //left right
+            if(Greenfoot.getRandomNumber(2) == 1){
+                y = (int)getShipLocY() + Greenfoot.getRandomNumber(space.getHeight()*2) - space.getHeight();
+                x = (int)getShipLocX() + space.getWidth() + Greenfoot.getRandomNumber(750) + 1500;
+            }
+            else{
+                y = (int)getShipLocY() + Greenfoot.getRandomNumber(space.getHeight()*2) - space.getHeight();
+                x = (int)getShipLocX() - space.getWidth() - Greenfoot.getRandomNumber(750) - 1500;
+            }
+
+            for(int i = 0; i < numberShips; i++){
+                spawnSetupShip(type, difficulty, x, y);
+            }
+        }
+    }
+
+    private void spawnSetupShip(int type, int difficulty, int x, int y){
+        Entity ship = null;
+        switch(type){
+            case Entity.ANY_SHIP:
+            spawnSetupShip(Greenfoot.getRandomNumber(Entity.NUMBER_SHIP_TYPES)+1, difficulty, x, y);
+            //System.out.println("Any Ship");
+            break;
+
+            case Entity.ALIEN_SHIP:
+            ship = new AlienShip(x+Greenfoot.getRandomNumber(1000)-500, y+Greenfoot.getRandomNumber(1000)-500);
+            //System.out.println("Alien");
+            break;
+
+            case Entity.BOMBER_SHIP:
+            ship = new BomberShip(x+Greenfoot.getRandomNumber(1000)-500, y+Greenfoot.getRandomNumber(1000)-500);
+            //System.out.println("Bomber");
+            break;
+
+            default:
+            System.out.println("ERROR, NO ACCEPTABLE SHIP TYPE GIVEN TO SPAWN FLEET");
+            break;
+        }
+
+        if(type != Entity.ANY_SHIP){
+            if(difficulty >= 25){
+                ship.desiredMode = Entity.ATTACK_MODE;
+            }
+            
+            if(difficulty >= 50){
+                
+            }
+            
+            space.addObject(ship, -20, -20);
+        }
+
+    }
     //Constructor, spawns player at 0,0
     public Player(){
         this(0,0);
@@ -180,7 +252,12 @@ public class Player extends Object implements DamageTaker
             debugHealthHack(); //Allows to add health via '[']' DELETE THIS BEFORE PUBLISH
             //checkDead(); //Add this back in later, make respawn
             weaponSystems();//john
-            keepEnemyOnScreen();
+            //keepEnemyOnScreen();
+
+            if(Greenfoot.getRandomNumber(1300) == 0){
+                spawnFleet(Greenfoot.getRandomNumber(6)+1, Entity.ANY_SHIP, 30);
+            }
+
             updateGoldScore();
             checkDock();
             placeShield();
@@ -799,8 +876,7 @@ public class Player extends Object implements DamageTaker
             isDead = false;
         }
     }
-    
-    
+
     //Written by Trace
     public void deathAnimation()
     {
@@ -897,13 +973,12 @@ public class Player extends Object implements DamageTaker
         return damageBar;
     }
 
-
     /*******************************************************/
     /*********************  MISC  **************************/
     /*******************************************************/
     //Called during the first tick only
     //Some methods require the ship to alrady be spawned to work
-    
+
     //Written by Nathan
     private void firstTime(){
         if(firstTime){
@@ -919,7 +994,7 @@ public class Player extends Object implements DamageTaker
                 tutObj = new TutorialObjectManager();
                 space.addObject(tutObj,-10,-10);
                 updateAvailableWeapons(true, false, false, false, false, false);
-                
+
             }
             else{
                 //thisIsATutorial = false;

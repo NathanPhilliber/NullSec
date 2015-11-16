@@ -69,6 +69,11 @@ public class Entity extends SpaceObject implements DamageTaker
     public static final int GUARD_MODE = 1;
     public static final int ATTACK_MODE = 2;
     public static final int WAITFORPLAYER_MODE = 3;
+    
+    public static final int ANY_SHIP = 0;
+    public static final int ALIEN_SHIP = 1;
+    public static final int BOMBER_SHIP = 2;
+    public static final int NUMBER_SHIP_TYPES = 2; //update this, ANY_SHIP doesnt count.
 
     protected int maxExploreLength = 1000;
 
@@ -647,7 +652,7 @@ public class Entity extends SpaceObject implements DamageTaker
 
     public void dropCoins(){
         if(dropLoot){
-            int numCoins = Greenfoot.getRandomNumber(10) + 1;
+            int numCoins = Greenfoot.getRandomNumber(20) + 1;
             for(int i = 0; i < numCoins; i++){
                 space.addObject(new Gold(getSpaceX()+Greenfoot.getRandomNumber(30)-15, getSpaceY()+Greenfoot.getRandomNumber(30)-15, 1),-10,-10);
             }
