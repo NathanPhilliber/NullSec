@@ -38,6 +38,7 @@ public class PlatformPlayer extends PlatformObject
     private boolean isWalkingLeft=false;
     private boolean locked = false;
     private boolean onClimb=false;
+    private boolean scrollYOn=true;
 
     //antistuck
     private double oldXOffset;
@@ -86,7 +87,12 @@ public class PlatformPlayer extends PlatformObject
         velY = 0;
         setImage(standRight.getCurrentImage());
     }
-
+    //Written by John
+    public PlatformPlayer(boolean scrollY)
+    {
+        this();
+        scrollYOn=scrollY;
+    }
     //Written by Nathan
     public boolean isMovingX(){
         if(velX != 0){
@@ -505,18 +511,21 @@ public class PlatformPlayer extends PlatformObject
             w.setXOffset(0);
         }
         //y
-        dif=getExactY()-scrollDistY;
-        if(dif<=0&&velY<0&&w.getYOffset()<=0)
+        if(scrollYOn)
         {
-            w.addYOffset(dif);
-        }
-        dif=getExactY()+scrollDistY-w.getHeight();
-        if(dif>=0&&velY>0)
-        {
-            w.addYOffset(dif);
-        }
-        if(w.getYOffset() > 0){
-            w.setYOffset(0);
+            dif=getExactY()-scrollDistY;
+            if(dif<=0&&velY<0&&w.getYOffset()<=0)
+            {
+                w.addYOffset(dif);
+            }
+            dif=getExactY()+scrollDistY-w.getHeight();
+            if(dif>=0&&velY>0)
+            {
+                w.addYOffset(dif);
+            }
+            if(w.getYOffset() > 0){
+                w.setYOffset(0);
+            }
         }
         setLocation(getRealX()-w.getXOffset(),getRealY()-w.getYOffset());//end of scroll
     }
