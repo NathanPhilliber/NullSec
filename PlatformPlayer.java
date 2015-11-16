@@ -372,6 +372,8 @@ public class PlatformPlayer extends PlatformObject
     //Written by John (fourth rewrite)
     private void updatePosition()
     {
+        Actor b;
+        
         /**
          * Collision Type2
          * due to moveing blocks
@@ -387,14 +389,17 @@ public class PlatformPlayer extends PlatformObject
          * reverts cycle
          *
          */
-        Actor b=getOneIntersectingObject(blockType);
-        if (b!=null)
+        if (ticksStuckInBlock<=1)
         {
-            w.setXOffset(oldXOffset);
-            w.setYOffset(oldYOffset);
-            setRealX(oldRealX);
-            setRealY(oldRealY);
-            setLocation(getRealX()-w.getXOffset(),getRealY()-w.getYOffset());
+            b=getOneIntersectingObject(blockType);
+            if (b!=null)
+            {
+                w.setXOffset(oldXOffset);
+                w.setYOffset(oldYOffset);
+                setRealX(oldRealX);
+                setRealY(oldRealY);
+                setLocation(getRealX()-w.getXOffset(),getRealY()-w.getYOffset());
+            }
         }
         oldXOffset = w.getXOffset();
         oldYOffset = w.getYOffset();
@@ -471,16 +476,17 @@ public class PlatformPlayer extends PlatformObject
         }
         /**scrolling stuff*/
         scroll();//sets location
-
-        //This runs if you get stuck in a block for a long time
-        //Will push you out after 75 game ticks;
+        
+        /**
+         * Collision Type-1
+         * if broken
+         * moves player after 50 cycles
+         */
         b = getOneIntersectingObject(blockType);
         if(b != null){
             ticksStuckInBlock++;
             if(ticksStuckInBlock > 50){
                 addRealY(-5);
-                //setLocation(getRealX(), getExactY()-5);
-                //System.out.println("Help Me");
             }
         }
         else{
