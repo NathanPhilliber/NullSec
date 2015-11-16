@@ -51,10 +51,10 @@ public class PlatformPlayer extends PlatformObject
     GifImage walkLeft = new GifImage("WalkingAnimationLeft.gif");
     GifImage standRight = new GifImage("StandingRight.png");
     GifImage standLeft = new GifImage("StandingLeft.png");
-    
+
     private Number goldNumber = new Number(Player.gold+"",2);
     private double lastGoldCount = Player.goldPotential;
-    
+
     //Written by Nathan
     private void setUpGoldScore(){
         w.addObject(new GoldText(),w.getWidth()-158,22);
@@ -197,6 +197,9 @@ public class PlatformPlayer extends PlatformObject
                 anyButton = true;
 
             }
+            else if(object instanceof PushButton){
+                setVelX(velX/2);
+            }
         }
         if(anyWater){
             if(anyAir){
@@ -237,7 +240,7 @@ public class PlatformPlayer extends PlatformObject
             Actor butt = getOneIntersectingObject(WireButton.class);
             Actor buttDown = new WireButtonDown();
             w.addObject(buttDown, butt.getX(), butt.getY());
-            
+
             w.removeObject(butt);
         } 
         else if(anyGravity && gravityToggle == false){
@@ -479,6 +482,11 @@ public class PlatformPlayer extends PlatformObject
         }
     }
 
+    public double getPlayerVelX()
+    {
+        double thisVelX = velX;
+        return thisVelX;
+    }
     //Written by John
     private void scroll()//called in update player method
     {
