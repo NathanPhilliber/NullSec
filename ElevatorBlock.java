@@ -17,28 +17,21 @@ public class ElevatorBlock extends Block
 
     public ElevatorBlock(int blockType){
         super(blockType);
-
     }
 
     public void act(){
         super.act();
         setRealY(getRealY() + speed);
-
-       
         if((radius*27) <= Math.abs(getRealY()-spawnY)){
             speed *= -1;
-            
-            
         }
         
     }
 
     public void addedToWorld(World world){
         super.addedToWorld(world);
-
         spawnX = getRealX();
         spawnY = getRealY();
-
     }
 
 }

@@ -391,7 +391,7 @@ public class PlatformPlayer extends PlatformObject
          * reverts cycle
          *
          */
-        if (ticksStuckInBlock<=1)
+        if (ticksStuckInBlock==0)
         {
             b=getOneIntersectingObject(blockType);
             if (b!=null)
