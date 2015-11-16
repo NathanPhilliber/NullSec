@@ -19,7 +19,7 @@ public class PlatformPlayer extends PlatformObject
     static final double climbSpeed = 3;
     static final double swimSpeed = 2;
     static final int scrollDistX = 400;
-    static final int scrollDistY = 200; //>>MUST<< BE LESS THAN 250
+    static final int scrollDistY = 249; //>>MUST<< BE LESS THAN 250
     static final Class blockType = Block.class;
 
     private final int ladderRadius = 9;
