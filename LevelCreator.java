@@ -194,7 +194,7 @@ public class LevelCreator extends World
         try {
             writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("_GeneratedLevel.txt"), "utf-8"));
             writer.write("//Level Generated\n\n");
-            writer.write("int offsetX = 0;\nint offsetY = 0;\n\n");
+            writer.write("int offsetX = 0;\nint offsetY = (getHeight()-540)/2;\n\n");
             writer.write("setBackground(\"" + LevelCreatorDisplayBlock.getBG().toString() + "\");\n");
         } catch (IOException ex) {
             System.out.println(ex);
