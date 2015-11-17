@@ -19,7 +19,7 @@ public class PlatformPlayer extends PlatformObject
     static final double climbSpeed = 3;
     static final double swimSpeed = 2;
     static final int scrollDistX = 400;
-    static final int scrollDistY = 249; //>>MUST<< BE LESS THAN 250
+    static final int scrollDistY = 200; //>>MUST<< BE LESS THAN 250
     static final Class blockType = Block.class;
 
     private final int ladderRadius = 9;
@@ -38,7 +38,7 @@ public class PlatformPlayer extends PlatformObject
     private boolean isWalkingLeft=false;
     private boolean locked = false;
     private boolean onClimb=false;
-    private boolean scrollYOn=false;
+    private int scrollYType=1; /**0 is off 1 is with scroll threshold 2 is locked on player*/
     private int delay = 100;
     private Actor port;
     private boolean anyPortal = false;
@@ -92,10 +92,23 @@ public class PlatformPlayer extends PlatformObject
         setImage(standRight.getCurrentImage());
     }
     //Written by John
+    public PlatformPlayer(int scrollY)
+    {
+        this();
+        scrollYType=scrollY;
+    }
+    //Written by John
     public PlatformPlayer(boolean scrollY)
     {
         this();
-        scrollYOn=scrollY;
+        if(scrollY)
+        { 
+            scrollYType=1;
+        }
+        else
+        {
+            scrollYType=0;
+        }
     }
     //Written by Nathan
     public boolean isMovingX(){
@@ -563,33 +576,37 @@ public class PlatformPlayer extends PlatformObject
         double dif=getExactX()-scrollDistX;
         if(dif<=0&&velX<0&&w.getXOffset()>=0)
         {
-            w.addXOffset(dif);
+            w.addXOffset((int)dif);
         }
         dif=getExactX()+scrollDistX-w.getWidth();
         if(dif>=0&&velX>0)
         {
-            w.addXOffset(dif);
+            w.addXOffset((int)dif);
         }
         if(w.getXOffset()<0){
             w.setXOffset(0);
         }
         //y
-        if(scrollYOn)
+        if(scrollYType==1)
         {
             dif=getExactY()-scrollDistY;
             if(dif<=0&&velY<0&&w.getYOffset()<=0)
             {
-                w.addYOffset(dif);
+                w.addYOffset((int)dif);
             }
             dif=getExactY()+scrollDistY-w.getHeight();
             if(dif>=0&&velY>0)
             {
-                w.addYOffset(dif);
-            }
-            if(w.getYOffset()>0){
-                w.setYOffset(0);
+                w.addYOffset((int)dif);
             }
         }
+        else if(scrollYType==2)
+        {
+            w.setYOffset((int)(w.getYOffset()+getExactY()-w.getHeight()/2));
+        }
+        if(w.getYOffset()>0){
+                w.setYOffset(0);
+            }
         setLocation(getRealX()-w.getXOffset(),getRealY()-w.getYOffset());//end of scroll
     }
 
