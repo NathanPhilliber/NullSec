@@ -26,12 +26,8 @@ public class Fireball extends Weapon implements ProjectileObject
     
     private void beam()
     {
-        
-        
-        
-        
         beamAngle++;
-        for (int i=0; i<=5; i++)
+        for (int i=0; i<=10; i++)
         {
             space.addObject(new Beam(beamAngle, true, 3.0, ship.getShipLocX(), ship.getShipLocY()), (int)Math.round(getX()+i*8*Math.cos(beamAngle*2*Math.PI/360)), (int)Math.round(getY()+i*8*Math.sin(beamAngle*2*Math.PI/360)));
         }
