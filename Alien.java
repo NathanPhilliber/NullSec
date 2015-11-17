@@ -5,16 +5,10 @@ import greenfoot.*;
 
 public class Alien extends MovingNonPlayer
 {
-    
-    
-    
-    
     public void act()
     {
         super.act();
         gravity(gravity);
-        
-        //shootPlayer();
     }
     public Alien()
     {
@@ -24,5 +18,4 @@ public class Alien extends MovingNonPlayer
         setHasGif(true); //Sets variable in moving player to change image depending on velocity etc. Will override images in this class eventually.
         setJump(true); //Makes the alien jump when hitting a wall
     }
-   
 }

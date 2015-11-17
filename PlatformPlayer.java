@@ -154,7 +154,10 @@ public class PlatformPlayer extends PlatformObject
         boolean anyButton = false;
 
         for(PlatformObject object : objects){
-            if(object instanceof ExitPortal){
+            if(object instanceof Alien){
+                kill();
+            }
+            else if(object instanceof ExitPortal){
                 Player.gold += Player.goldPotential;
                 Player.goldPotential = 0;
                 Platformer plat = (Platformer) getWorld();
