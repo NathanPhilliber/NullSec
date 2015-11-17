@@ -258,6 +258,9 @@ public class PlatformPlayer extends PlatformObject
             onBlock = true;
         }
         else if(anyElevator){
+            /*ElevatorBlock e=(ElevatorBlock)getOneIntersectingObject(ElevatorBlock.class);
+            addRealX(e.getVelX());
+            addRealY(e.getVelY());*/
             addRealY(-5);
             setLocation(getRealX()-w.getXOffset(),getRealY()-w.getYOffset());
         }
