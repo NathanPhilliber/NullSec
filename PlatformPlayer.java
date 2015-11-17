@@ -59,6 +59,8 @@ public class PlatformPlayer extends PlatformObject
 
     private Number goldNumber = new Number(Player.gold+"",2);
     private double lastGoldCount = Player.goldPotential;
+    
+    private boolean firstAct = true;
 
     //Written by Nathan
     private void setUpGoldScore(){
@@ -120,6 +122,7 @@ public class PlatformPlayer extends PlatformObject
 
     public void act() 
     {
+        firstAct();
         pausePlayerHelper();
         if(playerPaused == false){
             if(locked == false){
@@ -136,6 +139,15 @@ public class PlatformPlayer extends PlatformObject
         }
 
         //System.out.println(isMovingX());
+    }
+    
+    public void firstAct(){
+        if(firstAct){
+            firstAct = false;
+            if(Player.aboutToPlayCompletedLevel){
+                w.removeObjects(w.getObjects(Coin.class));
+            }
+        }
     }
 
     //Written by Nathan

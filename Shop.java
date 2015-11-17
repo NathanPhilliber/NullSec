@@ -34,6 +34,10 @@ public class Shop extends World
     LevelUpButton levelup4 = new LevelUpButton(4);
     LevelUpButton levelup5 = new LevelUpButton(5);
 
+    LevelUpButton levelupengine0 = new LevelUpButton(0, 1);
+    LevelUpButton levelupengine1 = new LevelUpButton(1, 1);
+    LevelUpButton levelupengine2 = new LevelUpButton(2, 1);
+
     CostText costtext = new CostText();
 
     WeaponsText weaponsText = new WeaponsText();
@@ -51,12 +55,20 @@ public class Shop extends World
     WeaponsText weaponText2 = new WeaponsText();
     ShieldText shieldText2 = new ShieldText();
 
+    SpeedText speedtext = new SpeedText();
+    TurnSpeedText turnspeedtext = new TurnSpeedText();
+    BoostBarText boostbartext = new BoostBarText();
+
     LaserText lasertext = new LaserText();
     BeamText beamtext = new BeamText();
     MissileText missiletext = new MissileText();
     MineText minetext = new MineText();
     FireballText fireballtext = new FireballText();
     PlasmaText plasmatext = new PlasmaText();
+
+    SpeedDes speeddes = new SpeedDes();
+    TurnSpeedDes turnspeeddes = new TurnSpeedDes();
+    BoostBarDes boostbardes = new BoostBarDes();
 
     LaserText lasertext2 = new LaserText();
     BeamText beamtext2 = new BeamText();
@@ -77,13 +89,13 @@ public class Shop extends World
 
     public int currentPanel = 0;
     public int currentButton = 0;
-    
+
     private double returnX, returnY;
-    
+
     public Shop(){
         this(0,0);
     }
-    
+
     public Shop(double x, double y){
         super(OptionsMenu.getWorldWidth(), OptionsMenu.getWorldHeight(), 1, false); 
         returnX = x;
@@ -92,7 +104,7 @@ public class Shop extends World
         GreenfootImage background = new GreenfootImage("Background.png");
         background.scale(OptionsMenu.getWorldWidth(),  OptionsMenu.getWorldHeight());
         setBackground(background);
-        
+
     }
 
     public void act(){
@@ -100,13 +112,16 @@ public class Shop extends World
             exit();
         }
     }
-    
+
     public void exit(){
         Greenfoot.setWorld(new OuterSpace(returnX, returnY));
     }
 
     public void assembleEngine(){
         addObject(engineText2, 99, 63);
+        addObject(speedtext, 73, 111);
+        addObject(turnspeedtext, 75, 142);
+        addObject(boostbartext, 75, 176);
     }
 
     public void assembleWeapons(){
@@ -154,17 +169,56 @@ public class Shop extends World
     }
 
     public void setCurrentCenter(int i){
+        addObject(goldtext, getWidth()-538, 30);
+        goldNumber = new Number(Player.gold + "",1);
+        addObject(goldNumber,  getWidth()-440, 25);
         if(currentPanel == WeaponShop.ENGINE){
+
+            try{
+
+                levelupengine0.updateImage();
+                levelupengine1.updateImage();
+                levelupengine2.updateImage();
+
+            } catch(ArrayIndexOutOfBoundsException e){
+
+            }
+
             switch(i){
                 case 0:
 
-                addObject(ship, (getWidth()/2)-80, 250);
+                addObject(ship, (getWidth()/2)-45, 195);
+                addObject(speeddes, (getWidth()/2)+60, 210);
+
+                addObject(costtext, 544,247);
+                costNumber = new Number(Player.SPEED_COST[Player.speedLevel]+"", 1);
+                addObject(costNumber, 610,240); 
+
+                addObject(levelupengine0, getWidth()/2+320, getHeight()/2+15);
 
                 break;
                 case 1:
 
+                addObject(ship, (getWidth()/2)-45, 195);
+                addObject(turnspeeddes, (getWidth()/2)+60, 210);
+
+                addObject(costtext, 544,247);
+                costNumber = new Number(Player.TURN_SPEED_COST[Player.turnSpeedLevel]+"", 1);
+                addObject(costNumber, 610,240);
+
+                addObject(levelupengine1, getWidth()/2+320, getHeight()/2+15);
+
                 break;
                 case 2:
+
+                addObject(ship, (getWidth()/2)-45, 195);
+                addObject(boostbardes, (getWidth()/2)+170, 130);
+
+                addObject(costtext, 544,247);
+                costNumber = new Number(Player.BOOST_BAR_COST[Player.boostBarLevel]+"", 1);
+                addObject(costNumber, 610,240); 
+
+                addObject(levelupengine2, getWidth()/2+320, getHeight()/2+15);
 
                 break;
                 case 3:
@@ -184,9 +238,6 @@ public class Shop extends World
         }
         else if(currentPanel == WeaponShop.WEAPONS){
 
-            addObject(goldtext, getWidth()-538, 30);
-            goldNumber = new Number(Player.gold + "",1);
-            addObject(goldNumber,  getWidth()-440, 25);
 
             try{
                 unlock0.updateImage();
@@ -380,6 +431,10 @@ public class Shop extends World
 
     private void removeCurrentCenter(){
 
+        removeObject(speeddes);
+        removeObject(turnspeeddes);
+        removeObject(boostbardes);
+
         removeObject(ship);
         removeObject(engineBars);
         removeObject(unlock0);
@@ -402,6 +457,10 @@ public class Shop extends World
         removeObject(levelup3);
         removeObject(levelup4);
         removeObject(levelup5);
+
+        removeObject(levelupengine0);
+        removeObject(levelupengine1);
+        removeObject(levelupengine2);
 
         removeObject(costtext);
 
@@ -426,6 +485,9 @@ public class Shop extends World
     private void removeCurrentText(){
         if(currentPanel == WeaponShop.ENGINE){
             removeObject(engineText2);
+            removeObject(speedtext);
+            removeObject(turnspeedtext);
+            removeObject(boostbartext);
         }
         else if(currentPanel == WeaponShop.WEAPONS){
             removeObject(weaponText2);
@@ -441,12 +503,10 @@ public class Shop extends World
         }
     }
 
-    
-
     private void prepare()
     {
         addObject(levelNumber, -100, -100);
-        
+
         weaponShopFg.getImage().scale(getWidth(), getHeight());
         addObject(weaponShopFg, getWidth()/2, getHeight()/2);
 
@@ -464,7 +524,7 @@ public class Shop extends World
         addObject(sideButton3, 67, 174);
         addObject(sideButton6, 67, 273);
         addObject(sideButton, 67, 108);
-        
+
         addObject(weaponsText, (getWidth()/2) -20, getHeight()-40);
         addObject(engineText, (int) Math.round(getWidth()*0.17)-20, getHeight()-40);
         addObject(shieldText, (int) Math.round(getWidth()*.8)-20, getHeight()-40);

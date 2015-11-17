@@ -79,6 +79,14 @@ public class Player extends Object implements DamageTaker
     public static int mineLevel = 0;
     public static int fireballLevel = 0;
     public static int plasmaLevel = 0;
+    
+    public static int[] SPEED_COST = {10,20,30,40,50};
+    public static int[] TURN_SPEED_COST = {10,20,30,40,50};
+    public static int[] BOOST_BAR_COST = {10,20,30,40,50};
+    
+    public static int speedLevel = 0;
+    public static int turnSpeedLevel = 0;
+    public static int boostBarLevel = 0;
 
     private int weaponTimer = 0;
     private int weaponToggle = 0;
@@ -93,7 +101,7 @@ public class Player extends Object implements DamageTaker
 
     private boolean playerDisabled = false;
 
-    public static int gold = 0;
+    public static int gold = 200;
     public static int goldPotential = 0;
 
     public static boolean respawnIsPressed;
@@ -107,7 +115,25 @@ public class Player extends Object implements DamageTaker
     public boolean inWrongSector = false;
 
     private int actDelay = 0;
+    
+    public static boolean aboutToPlayCompletedLevel = false;
 
+    public static int getNextEngineCost(int i){
+        switch(i){
+            case 0:
+            return SPEED_COST[speedLevel];
+            
+            case 1:
+            return TURN_SPEED_COST[speedLevel];
+
+            
+            case 2:
+            return BOOST_BAR_COST[speedLevel];
+
+        }
+        
+        return -1;
+    }
 
     /***************************************************************/
     /*********************  CONSTRUCTORS  **************************/

@@ -55,6 +55,13 @@ public class Planet extends SpaceObject
         //add check for what world is beaten. Going to have to store it in player or some shit because this variable will
         //be overwritten when outerspace is reloaded every time. 
         //Add check to make sure you dont run off the player.levelsbeaten array.
+        
+        if(Player.levelsBeaten[sectorLevel][space.getSector(this)]){
+            Player.aboutToPlayCompletedLevel = true;
+        }
+        else{
+            Player.aboutToPlayCompletedLevel = false;
+        }
 
         Player.levelsBeaten[sectorLevel][space.getSector(this)] = true;
         

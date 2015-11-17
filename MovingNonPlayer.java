@@ -24,6 +24,8 @@ public class MovingNonPlayer extends NonPlayer
         collision();
         moveBackAndForthHelper();
         updateImage();
+        
+        //Add die out of world method
     }    
     public MovingNonPlayer()
     {
