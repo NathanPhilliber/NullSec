@@ -10,6 +10,7 @@ public class Planet extends SpaceObject
     public PlanetLevelText label;
     private boolean labelInWorld = false;
     String worldNumber;
+    public boolean isBeaten = false;
     
     //public static boolean firstPass = true;
     public Planet(double startX, double startY, World world, String image, String worldNumber){
@@ -29,7 +30,16 @@ public class Planet extends SpaceObject
         //checkDock();
     }
     
+   
+    
     public void loadWorld(){
+        
+        //add check for what world is beaten. Going to have to store it in player or some shit because this variable will
+        //be overwritten when outerspace is reloaded every time. 
+        //Add check to make sure you dont run off the player.levelsbeaten array.
+        
+        Player.levelsBeaten[Player.getNextIncompleteLevel(space.getSector(this))][space.getSector(this)] = true;
+       
         Greenfoot.setWorld(world);
     }
     
@@ -54,6 +64,7 @@ public class Planet extends SpaceObject
                 {
                     space.addObject(label, getX(), getY()-25);
                     labelInWorld = true;
+                    
                     //space.showText("Planet 1", getX(), getY()-50);
                 }
             }

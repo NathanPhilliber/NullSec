@@ -38,7 +38,7 @@ public class PlatformPlayer extends PlatformObject
     private boolean isWalkingLeft=false;
     private boolean locked = false;
     private boolean onClimb=false;
-    private boolean scrollYOn=true;
+    private boolean scrollYOn=false;
     private int delay = 100;
     private Actor port;
     private boolean anyPortal = false;

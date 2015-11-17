@@ -20,7 +20,7 @@ public class Level19 extends Platformer
 //Level Generated
 
 int offsetX = 0;
-int offsetY = 0;
+int offsetY = (540-getHeight())/4;
 
 setBackground("PlanetOneBG.png");
 addObject(new Block(36),40+offsetX,499+offsetY);

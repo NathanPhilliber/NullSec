@@ -111,7 +111,6 @@ public class Space extends World
         addObject(new BoostBarOutside(), getWidth()/2, getHeight()-32);
         addObject(new BoostBarInside(), getWidth()/2, getHeight()-32);
 
-        
         secx = (int) Math.ceil(((int) ship.getSpaceX()/10 + 460)/getWidth());
         secy = (int) Math.ceil(((int) ship.getSpaceY()/10 + 270)/getWidth());
     }
@@ -373,29 +372,14 @@ public class Space extends World
         {
             if(firstPass)
             {
+
+                Map map = new Map(getSector(ship));
+
+                //System.out.println(secPos);
                 int x = (int) (ship.getSpaceX()/10) + 460;
                 int y = (int) (ship.getSpaceY()/10) + 270;
                 int newx = (int) (ship.getSpaceX()/10) + 460;
                 int newy = (int) (ship.getSpaceY()/10) + 270;
-
-                //int[] secArray = {0, 1, 2, 10, 11, 12, 20, 21, 22};
-
-                int[] secArray = {0, 10, 20, 1, 11, 21, 2, 12, 22};
-
-                secx = (x>0) ? (int) Math.ceil(x/getWidth()) : -1;
-                secy = (y>0) ? (int) Math.ceil(y/getHeight()) : -1;
-
-                String a = secx + "" + secy;
-                String b = "-1";
-                String secPos =  (secx<0 || secy<0) ? b : a;
-                int secPosInt = Integer.parseInt(secPos);
-
-                int sectorFake = (getIndexOf(secPosInt, secArray));
-                sector = sectorFake;
-
-                Map map = new Map(sector);
-
-                //System.out.println(secPos);
 
                 if(x > getWidth())
                 {
@@ -452,6 +436,50 @@ public class Space extends World
     public int getSectorMiddleY()
     {
         return 4200*secy;
+    }
+
+    public int getSector(SpaceObject ship)
+    {
+        int x = (int) (ship.getSpaceX()/10) + 460;
+        int y = (int) (ship.getSpaceY()/10) + 270;
+
+        //int[] secArray = {0, 1, 2, 10, 11, 12, 20, 21, 22};
+        int[] secArray = {0, 10, 20, 1, 11, 21, 2, 12, 22};
+        secx = (x>0) ? (int) Math.ceil(x/getWidth()) : -1;
+        secy = (y>0) ? (int) Math.ceil(y/getHeight()) : -1;
+
+        String a = secx + "" + secy;
+        String b = "-1";
+        String secPos =  (secx<0 || secy<0) ? b : a;
+        int secPosInt = Integer.parseInt(secPos);
+
+        int sectorFake = (getIndexOf(secPosInt, secArray));
+        sector = sectorFake;
+        return sector;
+    }
+
+    public int getSector(Ship ship)
+    {
+        int x = (int) (ship.getSpaceX()/10) + 460;
+        int y = (int) (ship.getSpaceY()/10) + 270;
+        int newx = (int) (ship.getSpaceX()/10) + 460;
+        int newy = (int) (ship.getSpaceY()/10) + 270;
+
+        //int[] secArray = {0, 1, 2, 10, 11, 12, 20, 21, 22};
+
+        int[] secArray = {0, 10, 20, 1, 11, 21, 2, 12, 22};
+
+        secx = (x>0) ? (int) Math.ceil(x/getWidth()) : -1;
+        secy = (y>0) ? (int) Math.ceil(y/getHeight()) : -1;
+
+        String a = secx + "" + secy;
+        String b = "-1";
+        String secPos =  (secx<0 || secy<0) ? b : a;
+        int secPosInt = Integer.parseInt(secPos);
+
+        int sectorFake = (getIndexOf(secPosInt, secArray));
+        sector = sectorFake;
+        return sector;
     }
 }
 

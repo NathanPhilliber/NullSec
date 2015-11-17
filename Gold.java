@@ -12,6 +12,10 @@ public class Gold extends SpaceObject
     public static int totalGold = 0;
 
     public int value;
+    
+    private int killGold = 1500;
+    
+    private boolean deleteMe = false;
 
     public Gold(double x, double y, int value){
         super(x,y);
@@ -21,12 +25,24 @@ public class Gold extends SpaceObject
     public void act() 
     {
         super.act();
+        killGold--;
+        if(killGold < 0){
+            deleteMe = true;
+        }
+        
+        deleteMe();
     }   
 
     public void pickUp(){
         addCoinPickup(getSpaceX(), getSpaceY());
         totalGold += value; 
-        getWorld().removeObject(this);
+        deleteMe = true;
+    }
+    
+    public void deleteMe(){
+        if(deleteMe){
+            space.removeObject(this);
+        }
     }
 
     

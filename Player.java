@@ -93,44 +93,54 @@ public class Player extends Object implements DamageTaker
 
     private boolean playerDisabled = false;
 
-    public static int gold = 5000;
+    public static int gold = 0;
     public static int goldPotential = 0;
 
     public static boolean respawnIsPressed;
     private boolean explosionTimer;
 
-    /*************************************************************/
-    /*********************  DEMO STUFF  **************************/
-    /*************************************************************/
-    /*
-    //Written by Nathan
-    private int numEnemiesKilled = 0;
-    private Entity alien;
+    public static boolean[][] levelsBeaten = new boolean[4][9]; //level , sector
 
-    private boolean alienCurAlive = false;
+    public static void printLevels(){
 
-    public void keepEnemyOnScreen(){
-    if(space instanceof OuterSpace){
-    if(alienCurAlive == false){
-    alien = new AlienShip(getShipLocX()+Greenfoot.getRandomNumber(1000)-500, getShipLocY()+Greenfoot.getRandomNumber(1000)-500);
-    if(Greenfoot.getRandomNumber(2) == 1){
-    alien = new BomberShip(getShipLocX()+Greenfoot.getRandomNumber(1000)-500, getShipLocY()+Greenfoot.getRandomNumber(1000)-500);
-    }
-    space.addObject(alien,0,0);
-    alienCurAlive = true;
-    }
-    else{
-    if(alien.isAlive == false){
-    numEnemiesKilled++;
-    alienCurAlive = false;
-
-    }
-    }   
+             
+        for(int y = 0; y < levelsBeaten.length; y++){
+            for(int x = 0; x < levelsBeaten[y].length; x++){
+                System.out.print(levelsBeaten[y][x] + " ");
+            }
+            System.out.println("");
+        }
     }
 
+    public static boolean isSectorComplete(int sector){
+        boolean com = true;
+        for(int y = 0; y < levelsBeaten.length; y++){
+            for(int x = 0; x < levelsBeaten[y].length; x++){
+                if(x == sector){
+                    if(levelsBeaten[y][x] == false){
+                        com = false;
+                    }
+                }
+            }
+
+        }
+        return com;
     }
-     */
-    /******* DELETE LATER********/
+
+    public static int getNextIncompleteLevel(int sector){
+
+        for(int y = 0; y < levelsBeaten.length; y++){
+            for(int x = 0; x < levelsBeaten[y].length; x++){
+                if(x == sector){
+                    if(levelsBeaten[y][x] == false){
+                        return y;
+                    }
+                }
+            }
+
+        }
+        return -1;
+    }
 
     /***************************************************************/
     /*********************  CONSTRUCTORS  **************************/
@@ -198,11 +208,11 @@ public class Player extends Object implements DamageTaker
             if(difficulty >= 25){
                 ship.desiredMode = Entity.ATTACK_MODE;
             }
-            
+
             if(difficulty >= 50){
-                
+
             }
-            
+
             space.addObject(ship, -20, -20);
         }
 
@@ -222,7 +232,6 @@ public class Player extends Object implements DamageTaker
         setVelY(0.0);
 
     }
-
     /******************************************************/
     /*********************  ACT  **************************/
     /******************************************************/
@@ -302,6 +311,13 @@ public class Player extends Object implements DamageTaker
                 //goldScore.setValue(gold);
             }
 
+        }
+        List<Gold> objects = getObjectsInRange(250, Gold.class);
+
+        for(Gold curObj : objects)
+        {
+            curObj.turnTowards(space.getWidth()/2, space.getHeight()/2);
+            curObj.spaceMove(1);
         }
     }
 
@@ -983,6 +999,7 @@ public class Player extends Object implements DamageTaker
     private void firstTime(){
         if(firstTime){
 
+            
             initialStarSpawn(starDensity);
             damageBar = new DamageBar(this, -30, getHealth(), getMaxHealth());
             space.addObject(damageBar, 0, 0);

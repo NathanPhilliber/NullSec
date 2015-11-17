@@ -26,19 +26,18 @@ public class Fireball extends Weapon implements ProjectileObject
     
     private void beam()
     {
-        Space space = (Space) getWorld();
-        Ship ship = space.getShip();
+        
         
         
         
         beamAngle++;
         for (int i=0; i<=5; i++)
         {
-            getWorld().addObject(new Beam(beamAngle, true, 3.0, ship.getShipLocX(), ship.getShipLocY()), (int)Math.round(getX()+i*8*Math.cos(beamAngle*2*Math.PI/360)), (int)Math.round(getY()+i*8*Math.sin(beamAngle*2*Math.PI/360)));
+            space.addObject(new Beam(beamAngle, true, 3.0, ship.getShipLocX(), ship.getShipLocY()), (int)Math.round(getX()+i*8*Math.cos(beamAngle*2*Math.PI/360)), (int)Math.round(getY()+i*8*Math.sin(beamAngle*2*Math.PI/360)));
         }
         for (int i=0; i<=5; i++)
         {
-            getWorld().addObject(new Beam(beamAngle+180, true, 3.0, ship.getShipLocX(), ship.getShipLocY()), (int)Math.round(getX()+i*8*Math.cos((beamAngle+180)*2*Math.PI/360)), (int)Math.round(getY()+i*8*Math.sin((beamAngle+180)*2*Math.PI/360)));
+            space.addObject(new Beam(beamAngle+180, true, 3.0, ship.getShipLocX(), ship.getShipLocY()), (int)Math.round(getX()+i*8*Math.cos((beamAngle+180)*2*Math.PI/360)), (int)Math.round(getY()+i*8*Math.sin((beamAngle+180)*2*Math.PI/360)));
         }
     }
     
