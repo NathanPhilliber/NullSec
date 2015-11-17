@@ -39,7 +39,11 @@ public class PlatformPlayer extends PlatformObject
     private boolean locked = false;
     private boolean onClimb=false;
     private boolean scrollYOn=true;
-
+    private int delay = 100;
+    private Actor port;
+    private boolean anyPortal = false;
+    private boolean firstTime = true;
+    
     //antistuck
     private double oldXOffset;
     private double oldYOffset;
@@ -154,7 +158,10 @@ public class PlatformPlayer extends PlatformObject
                 Player.gold += Player.goldPotential;
                 Player.goldPotential = 0;
                 Platformer plat = (Platformer) getWorld();
-                Greenfoot.setWorld(new OuterSpace(plat.returnX, plat.returnY));
+                anyPortal = true;
+                velX = 0;
+                velY = 0;
+                lockPlayerMovement(true);
             }
             else if(object instanceof LavaBlock){
                 kill();
@@ -253,6 +260,42 @@ public class PlatformPlayer extends PlatformObject
             gravity *= -1;
 
             gravityToggle = true;
+        }
+        else if(anyPortal){
+            delay--;
+            if(delay > 45)
+            {
+                double scaleToMax = (delay)*.01;
+                double width = getImage().getWidth();
+                double height = getImage().getHeight();
+                List<PlatformObject> port = w.getObjects(ExitPortal.class);
+                if(getImage().getWidth() > 1)
+                {
+                    getImage().scale((int) Math.ceil(width*scaleToMax),(int)  Math.ceil(height*scaleToMax));
+                }
+                for(PlatformObject p : port)
+                {
+                    addRealX((p.getRealX()-getRealX())/10);
+                    addRealY((p.getRealY()-getRealY())/10);
+                }
+            }
+            if(delay < 45)
+            {
+                if(firstTime)
+                {
+                    List<Actor> port = w.getObjects(ExitPortal.class);
+                    for(Actor p : port)
+                    {
+                        w.addObject(new RocketLaunch(), p.getX(), p.getY() - 220);
+                        w.removeObject(p);
+                    }
+                }
+                firstTime = false;
+            }
+            if(delay <= 0)
+            {
+                Greenfoot.setWorld(new OuterSpace(w.returnX, w.returnY));
+            }
         }
         else if(anyClimb){
 
@@ -373,7 +416,7 @@ public class PlatformPlayer extends PlatformObject
     private void updatePosition()
     {
         Actor b;
-        
+
         /**
          * Collision Type2
          * due to moveing blocks
@@ -416,7 +459,7 @@ public class PlatformPlayer extends PlatformObject
             oldRealX = getRealX();
             oldRealY = getRealY();
         }
-        
+
         /**
          * Collision Type1
          * due to player movement
@@ -487,7 +530,7 @@ public class PlatformPlayer extends PlatformObject
         }
         /**scrolling stuff*/
         scroll();//sets location
-        
+
         /**
          * Collision Type-1
          * if broken
