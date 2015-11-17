@@ -14,6 +14,11 @@ import java.util.List;
 public class OuterSpace extends Space
 {
 
+    GreenfootSound calmMusic = new GreenfootSound("sounds/Devoid_Presence.mp3");
+    GreenfootSound activeMusic = new GreenfootSound("sounds/Infected_Euphoria.mp3");
+    private boolean firstPass = true;
+    private boolean fadeInFirst = true;
+    private int delayIn;
     //Written by Nathan
     public OuterSpace()
     {    
@@ -30,18 +35,12 @@ public class OuterSpace extends Space
     private void prepareObjects()
     {
 
-        
-
         super.prepare();
-        
         addObject(mapButton, getWidth()-260,18);
         addObject(gotoShopButton, getWidth()-328, 18);
-        
-        
+
         addObject(getShip(), (int)getWidth()/2, (int)getHeight()/2);
-
         //addObject(new AlienShip(1000,1000), 1000,1000);
-
         /********  ADD YOUR SPACE OBJECT STUFF HERE  *******/
         //addObject(new AlienShip(0,0), 0,0);
 
@@ -94,6 +93,50 @@ public class OuterSpace extends Space
     public void act()
     {
         super.act();
+        //playAmbientMusic();
     }
 
+    /*
+    public void playAmbientMusic()
+    {
+        List<Actor> aliens = getObjects(Entity.class);
+        if(aliens.size() > 3)
+        {                
+            fadeIn(activeMusic);
+        }
+    }
+
+    public void fadeOut(GreenfootSound music)
+    {
+        int delay = 100;
+        if(delay > 0)
+        {
+            music.setVolume(delay);
+            delay--;
+        }
+        if(delay == 0)
+        {
+            music.stop();
+        }
+    }
+
+    public void fadeIn(GreenfootSound music)
+    {
+        if(fadeInFirst)
+        {
+            delayIn = 0;
+            fadeInFirst = false;
+        }
+        if(delayIn == 0)
+        {
+            music.playLoop();
+        }
+        if(delayIn < 100)
+        {
+            music.setVolume(delayIn);
+            delayIn++;
+        }
+        System.out.println(delayIn);
+    }
+    */
 }
