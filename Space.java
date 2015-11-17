@@ -376,10 +376,10 @@ public class Space extends World
                 Map map = new Map(getSector(ship));
 
                 //System.out.println(secPos);
-                int x = (int) (ship.getSpaceX()/10) + 460;
-                int y = (int) (ship.getSpaceY()/10) + 270;
-                int newx = (int) (ship.getSpaceX()/10) + 460;
-                int newy = (int) (ship.getSpaceY()/10) + 270;
+                int x = (int) (ship.getSpaceX()/10) +  getWidth()/2;
+                int y = (int) (ship.getSpaceY()/10) + getHeight()/2;
+                int newx = (int) (ship.getSpaceX()/10) +  getWidth()/2;
+                int newy = (int) (ship.getSpaceY()/10) + getHeight()/2;
 
                 if(x > getWidth())
                 {
@@ -427,26 +427,38 @@ public class Space extends World
         }
     }
     //Written by Trace
-    public int getSectorMiddleX()
+    public int getSectorMiddleX(int sector)
     {
-        return 9400*secx;
+        int sectorX = 0;
+        
+        if(sector == 0 || sector == 3 || sector == 6) { sectorX = 0; }
+        if(sector == 1 || sector == 4 || sector == 7) { sectorX = 1; }
+        if(sector == 2 || sector == 5 || sector == 8) { sectorX = 2; }
+       
+        return (sectorX)*(getWidth()*10);
     }
 
     //Written by Trace
-    public int getSectorMiddleY()
+    public int getSectorMiddleY(int sector)
     {
-        return 4200*secy;
+        int sectorY = 0;
+        
+        if(sector == 0 || sector == 1 || sector == 2) { sectorY = 0; }
+        if(sector == 3 || sector == 4 || sector == 5) { sectorY = 1; }
+        if(sector == 6 || sector == 7 || sector == 8) { sectorY = 2; }
+        
+        return (sectorY)*(getHeight()*10);
     }
 
     public int getSector(SpaceObject ship)
     {
-        int x = (int) (ship.getSpaceX()/10) + 460;
-        int y = (int) (ship.getSpaceY()/10) + 270;
+        int x = (int) (ship.getSpaceX()/10) + getWidth()/2;
+        int y = (int) (ship.getSpaceY()/10) + getHeight()/2;
 
         //int[] secArray = {0, 1, 2, 10, 11, 12, 20, 21, 22};
         int[] secArray = {0, 10, 20, 1, 11, 21, 2, 12, 22};
-        secx = (x>0) ? (int) Math.ceil(x/getWidth()) : -1;
-        secy = (y>0) ? (int) Math.ceil(y/getHeight()) : -1;
+        secx = (x>0) ? (int) Math.floor(x/getWidth()) : -1;
+        secy = (y>0) ? (int) Math.floor(y/getHeight()) : -1;
 
         String a = secx + "" + secy;
         String b = "-1";
@@ -460,17 +472,15 @@ public class Space extends World
 
     public int getSector(Player ship)
     {
-        int x = (int) (ship.getSpaceX()/10) + 460;
-        int y = (int) (ship.getSpaceY()/10) + 270;
-        int newx = (int) (ship.getSpaceX()/10) + 460;
-        int newy = (int) (ship.getSpaceY()/10) + 270;
+        int x = (int) (ship.getSpaceX()/10) +  getWidth()/2;
+        int y = (int) (ship.getSpaceY()/10) + getHeight()/2;
 
         //int[] secArray = {0, 1, 2, 10, 11, 12, 20, 21, 22};
 
         int[] secArray = {0, 10, 20, 1, 11, 21, 2, 12, 22};
 
-        secx = (x>0) ? (int) Math.ceil(x/getWidth()) : -1;
-        secy = (y>0) ? (int) Math.ceil(y/getHeight()) : -1;
+        secx = (x>0) ? (int) Math.floor(x/getWidth()) : -1;
+        secy = (y>0) ? (int) Math.floor(y/getHeight()) : -1;
 
         String a = secx + "" + secy;
         String b = "-1";

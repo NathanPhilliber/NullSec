@@ -19,10 +19,13 @@ public class OuterSpace extends Space
     private boolean firstPass = true;
     private boolean fadeInFirst = true;
     private int delayIn;
+    private boolean fadeOutFirst = true;
+    private int delayOut;
     //Written by Nathan
     public OuterSpace()
     {    
         this(0,0);
+        calmMusic.playLoop();
     }
 
     //Written by Nathan
@@ -96,27 +99,45 @@ public class OuterSpace extends Space
         //playAmbientMusic();
     }
 
-    /*
     public void playAmbientMusic()
     {
+        boolean toggleMusic = false;
         List<Actor> aliens = getObjects(Entity.class);
         if(aliens.size() > 3)
-        {                
-            fadeIn(activeMusic);
+        {
+            toggleMusic = true;
+            if(toggleMusic)
+            {
+                fadeIn(activeMusic);
+                fadeOut(calmMusic);
+            }
+        }
+        else if(aliens.size() <= 1)
+        {
+            toggleMusic = true;
+            if(toggleMusic)
+            {
+                fadeIn(calmMusic);
+                fadeOut(activeMusic);
+            }
         }
     }
 
     public void fadeOut(GreenfootSound music)
     {
-        int delay = 100;
-        if(delay > 0)
+        if(fadeOutFirst)
         {
-            music.setVolume(delay);
-            delay--;
+            delayOut = 100;
+            fadeOutFirst = false;
         }
-        if(delay == 0)
+        if(delayOut == 0)
         {
             music.stop();
+        }
+        if(delayOut > 0)
+        {
+            music.setVolume(delayOut);
+            delayOut--;
         }
     }
 
@@ -138,5 +159,5 @@ public class OuterSpace extends Space
         }
         System.out.println(delayIn);
     }
-    */
+
 }

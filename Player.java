@@ -904,8 +904,8 @@ public class Player extends Object implements DamageTaker
         if(respawnIsPressed)
         {
             resetHealth();
-            setSpaceX(space.getSectorMiddleX());
-            setSpaceX(space.getSectorMiddleX());
+            setSpaceX(space.getSectorMiddleX(workingSector));
+            setSpaceY(space.getSectorMiddleY(workingSector));
             respawnIsPressed = false;
             setLocation(getWorld().getWidth()/2, getWorld().getHeight()/2);
             List<Actor> c = getWorld().getObjects(Cannon.class);
