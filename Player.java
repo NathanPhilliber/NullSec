@@ -100,91 +100,19 @@ public class Player extends Object implements DamageTaker
     private boolean explosionTimer;
 
     public static boolean[][] levelsBeaten = new boolean[4][9]; //level , sector
-    
+
     public static int workingSector = 0;
-    
+
     public int currentSector = 0;
     public boolean inWrongSector = false;
-    
+
     private int actDelay = 0;
 
-    
 
     /***************************************************************/
     /*********************  CONSTRUCTORS  **************************/
     /***************************************************************/
 
-    //Look for ship types in entity
-    //Difficulty is number 1-100, 100 is really hard.
-    //Ships auto-agro at 25
-
-    public void spawnFleet(int numberShips, int type, int difficulty){
-
-        int x = 0;
-        int y = 0;
-
-        if(Greenfoot.getRandomNumber(2) == 1){ //up down
-            if(Greenfoot.getRandomNumber(2) == 1){
-                x = (int)getShipLocX() + Greenfoot.getRandomNumber(space.getWidth()*2) - space.getWidth();
-                y = (int)getShipLocY() + space.getHeight() + Greenfoot.getRandomNumber(750) + 1500;
-            }
-            else{
-                x = (int)getShipLocX() + Greenfoot.getRandomNumber(space.getWidth()*2) - space.getWidth();
-                y = (int)getShipLocY() - space.getHeight() - Greenfoot.getRandomNumber(750) - 1500;
-            }
-        }
-        else{ //left right
-            if(Greenfoot.getRandomNumber(2) == 1){
-                y = (int)getShipLocY() + Greenfoot.getRandomNumber(space.getHeight()*2) - space.getHeight();
-                x = (int)getShipLocX() + space.getWidth() + Greenfoot.getRandomNumber(750) + 1500;
-            }
-            else{
-                y = (int)getShipLocY() + Greenfoot.getRandomNumber(space.getHeight()*2) - space.getHeight();
-                x = (int)getShipLocX() - space.getWidth() - Greenfoot.getRandomNumber(750) - 1500;
-            }
-
-            for(int i = 0; i < numberShips; i++){
-                spawnSetupShip(type, difficulty, x, y);
-            }
-        }
-    }
-
-    private void spawnSetupShip(int type, int difficulty, int x, int y){
-        Entity ship = null;
-        switch(type){
-            case Entity.ANY_SHIP:
-            spawnSetupShip(Greenfoot.getRandomNumber(Entity.NUMBER_SHIP_TYPES)+1, difficulty, x, y);
-            //System.out.println("Any Ship");
-            break;
-
-            case Entity.ALIEN_SHIP:
-            ship = new AlienShip(x+Greenfoot.getRandomNumber(1000)-500, y+Greenfoot.getRandomNumber(1000)-500);
-            //System.out.println("Alien");
-            break;
-
-            case Entity.BOMBER_SHIP:
-            ship = new BomberShip(x+Greenfoot.getRandomNumber(1000)-500, y+Greenfoot.getRandomNumber(1000)-500);
-            //System.out.println("Bomber");
-            break;
-
-            default:
-            System.out.println("ERROR, NO ACCEPTABLE SHIP TYPE GIVEN TO SPAWN FLEET");
-            break;
-        }
-
-        if(type != Entity.ANY_SHIP){
-            if(difficulty >= 25){
-                ship.desiredMode = Entity.ATTACK_MODE;
-            }
-
-            if(difficulty >= 50){
-
-            }
-
-            space.addObject(ship, -20, -20);
-        }
-
-    }
     //Constructor, spawns player at 0,0
     public Player(){
         this(0,0);
@@ -206,12 +134,11 @@ public class Player extends Object implements DamageTaker
     //Called every tick
     //Allows ship to "move" (changes coords), displays debug info and spawns stars
     //Updates health
-    
+
     public void actEvery100(){
-        
+
         currentSector = space.getSector(this);
-        
-        
+
     }
     public void act() 
     {
@@ -229,9 +156,9 @@ public class Player extends Object implements DamageTaker
             spawnAsteroid();
             spawnShootingStar();
             lookForGold();
-            
+
             actEvery100();
-            
+
             destroyPlayerInWrongSector();
 
             generateStars(starDensity);
@@ -262,7 +189,6 @@ public class Player extends Object implements DamageTaker
     /*********************  MOVEMENT AND COLLISION  **************************/
     /*************************************************************************/
 
-    
     public void destroyPlayerInWrongSector(){
         inWrongSector = currentSector > workingSector;
         if(inWrongSector){
@@ -523,7 +449,77 @@ public class Player extends Object implements DamageTaker
     /********************************************************************/
     /*********************  OBJECT GENERATION  **************************/
     /********************************************************************/
+    //Look for ship types in entity
+    //Difficulty is number 1-100, 100 is really hard.
+    //Ships auto-agro at 25
 
+    public void spawnFleet(int numberShips, int type, int difficulty){
+
+        int x = 0;
+        int y = 0;
+
+        if(Greenfoot.getRandomNumber(2) == 1){ //up down
+            if(Greenfoot.getRandomNumber(2) == 1){
+                x = (int)getShipLocX() + Greenfoot.getRandomNumber(space.getWidth()*2) - space.getWidth();
+                y = (int)getShipLocY() + space.getHeight() + Greenfoot.getRandomNumber(750) + 1500;
+            }
+            else{
+                x = (int)getShipLocX() + Greenfoot.getRandomNumber(space.getWidth()*2) - space.getWidth();
+                y = (int)getShipLocY() - space.getHeight() - Greenfoot.getRandomNumber(750) - 1500;
+            }
+        }
+        else{ //left right
+            if(Greenfoot.getRandomNumber(2) == 1){
+                y = (int)getShipLocY() + Greenfoot.getRandomNumber(space.getHeight()*2) - space.getHeight();
+                x = (int)getShipLocX() + space.getWidth() + Greenfoot.getRandomNumber(750) + 1500;
+            }
+            else{
+                y = (int)getShipLocY() + Greenfoot.getRandomNumber(space.getHeight()*2) - space.getHeight();
+                x = (int)getShipLocX() - space.getWidth() - Greenfoot.getRandomNumber(750) - 1500;
+            }
+
+            for(int i = 0; i < numberShips; i++){
+                spawnSetupShip(type, difficulty, x, y);
+            }
+        }
+    }
+
+    private void spawnSetupShip(int type, int difficulty, int x, int y){
+        Entity ship = null;
+        switch(type){
+            case Entity.ANY_SHIP:
+            spawnSetupShip(Greenfoot.getRandomNumber(Entity.NUMBER_SHIP_TYPES)+1, difficulty, x, y);
+            //System.out.println("Any Ship");
+            break;
+
+            case Entity.ALIEN_SHIP:
+            ship = new AlienShip(x+Greenfoot.getRandomNumber(1000)-500, y+Greenfoot.getRandomNumber(1000)-500);
+            //System.out.println("Alien");
+            break;
+
+            case Entity.BOMBER_SHIP:
+            ship = new BomberShip(x+Greenfoot.getRandomNumber(1000)-500, y+Greenfoot.getRandomNumber(1000)-500);
+            //System.out.println("Bomber");
+            break;
+
+            default:
+            System.out.println("ERROR, NO ACCEPTABLE SHIP TYPE GIVEN TO SPAWN FLEET");
+            break;
+        }
+
+        if(type != Entity.ANY_SHIP){
+            if(difficulty >= 25){
+                ship.desiredMode = Entity.ATTACK_MODE;
+            }
+
+            if(difficulty >= 50){
+
+            }
+
+            space.addObject(ship, -20, -20);
+        }
+
+    }
     //Written by Nathan
     private void initialStarSpawn(int density){
         for(int i = 0; i < 7*density; i++){
@@ -980,10 +976,9 @@ public class Player extends Object implements DamageTaker
     /*******************************************************/
     /*********************  MISC  **************************/
     /*******************************************************/
-    
+
     public static void printLevels(){
 
-             
         for(int y = 0; y < levelsBeaten.length; y++){
             for(int x = 0; x < levelsBeaten[y].length; x++){
                 System.out.print(levelsBeaten[y][x] + " ");
@@ -1021,8 +1016,7 @@ public class Player extends Object implements DamageTaker
         }
         return -1;
     }
-    
-    
+
     //Called during the first tick only
     //Some methods require the ship to alrady be spawned to work
 
@@ -1030,7 +1024,6 @@ public class Player extends Object implements DamageTaker
     private void firstTime(){
         if(firstTime){
 
-            
             initialStarSpawn(starDensity);
             damageBar = new DamageBar(this, -30, getHealth(), getMaxHealth());
             space.addObject(damageBar, 0, 0);
