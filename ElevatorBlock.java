@@ -21,11 +21,11 @@ public class ElevatorBlock extends Block
 
     public void act(){
         super.act();
-        setRealY(getRealY() + speed);
         if((radius*27) <= Math.abs(getRealY()-spawnY)){
-            speed *= -1;
+            speed*=-1;
         }
-        
+        setVelY(speed);
+        updateBlock();
     }
 
     public void addedToWorld(World world){

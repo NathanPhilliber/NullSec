@@ -19,4 +19,10 @@ public class Block extends NonPlayer
 
         setImage(LevelCreatorDisplayBlock.getBlock()[blockType]);
     }  
+    //john
+    protected void updateBlock()
+    {
+        setRealX(getRealX()+getVelX());
+        setRealY(getRealY()+getVelY());
+    }
 }
