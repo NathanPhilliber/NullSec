@@ -108,8 +108,8 @@ public class Space extends World
 
         addObject(new Cannon(),getWidth()/2,getHeight()/2);
 
-        addObject(new BoostBarOutside(), getWidth()/2, getHeight()-32);
-        addObject(new BoostBarInside(), getWidth()/2, getHeight()-32);
+        
+        
 
         secx = (int) Math.ceil(((int) ship.getSpaceX()/10 + 460)/getWidth());
         secy = (int) Math.ceil(((int) ship.getSpaceY()/10 + 270)/getWidth());

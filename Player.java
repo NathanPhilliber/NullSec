@@ -79,11 +79,11 @@ public class Player extends Object implements DamageTaker
     public static int mineLevel = 0;
     public static int fireballLevel = 0;
     public static int plasmaLevel = 0;
-    
-    public static int[] SPEED_COST = {10,20,30,40,50};
-    public static int[] TURN_SPEED_COST = {10,20,30,40,50};
-    public static int[] BOOST_BAR_COST = {10,20,30,40,50};
-    
+
+    public static int[] SPEED_COST = {10,20,30,40,50,9999};
+    public static int[] TURN_SPEED_COST = {10,20,30,40,50,9999};
+    public static int[] BOOST_BAR_COST = {10,20,30,40,50,9999};
+
     public static int speedLevel = 0;
     public static int turnSpeedLevel = 0;
     public static int boostBarLevel = 0;
@@ -115,23 +115,22 @@ public class Player extends Object implements DamageTaker
     public boolean inWrongSector = false;
 
     private int actDelay = 0;
-    
+
     public static boolean aboutToPlayCompletedLevel = false;
 
     public static int getNextEngineCost(int i){
         switch(i){
             case 0:
             return SPEED_COST[speedLevel];
-            
-            case 1:
-            return TURN_SPEED_COST[speedLevel];
 
-            
+            case 1:
+            return TURN_SPEED_COST[turnSpeedLevel];
+
             case 2:
-            return BOOST_BAR_COST[speedLevel];
+            return BOOST_BAR_COST[boostBarLevel];
 
         }
-        
+
         return -1;
     }
 
@@ -153,6 +152,9 @@ public class Player extends Object implements DamageTaker
         setVelX(0.0);
         setVelY(0.0);
 
+        maxFlySpeed += (maxFlySpeed*speedLevel)*.25;
+        turnSpeed += (turnSpeed*turnSpeedLevel)*.25;
+
     }
     /******************************************************/
     /*********************  ACT  **************************/
@@ -166,6 +168,7 @@ public class Player extends Object implements DamageTaker
         currentSector = space.getSector(this);
 
     }
+
     public void act() 
     {
         super.act();
@@ -334,8 +337,10 @@ public class Player extends Object implements DamageTaker
     //Written by Trace
     private void boostChargeBar()
     {
-        for (int i=1; i <= boostCD/50; i++){
-            space.addObject(new BoostBarSegment(),(space.getWidth()/2-77)+i*14,space.getHeight()-22);
+        if(boostBarLevel > 0){
+            for (int i=1; i <= boostCD/50; i++){
+                space.addObject(new BoostBarSegment(),(space.getWidth()/2-77)+i*14,space.getHeight()-22);
+            }
         }
     }
     //Checks for key presses and changes coords ("moves" ship)
@@ -355,16 +360,20 @@ public class Player extends Object implements DamageTaker
             addVelX((cos(angle)*getFlySpeed()));
             addVelY((sin(angle)*getFlySpeed()));
             //Check if ship is going too fast
-            if(Greenfoot.isKeyDown("space")&&boostCD>0)//BOOST
+            if((Greenfoot.isKeyDown("space")&&boostCD>0) && (boostBarLevel > 0))//BOOST
             {
+
                 boostCD-=2;
-                if(Math.sqrt(Math.pow(getVelX(),2)+Math.pow(getVelY(),2))>=getMaxFlyBoostSpeed())
+                if(Math.sqrt(Math.pow(getVelX(),2)+Math.pow(getVelY(),2))>=getMaxFlyBoostSpeed() && (boostBarLevel > 0))
                 {
+
                     setVelX(getMaxFlyBoostSpeed()*cos(Math.atan2(getVelY(),getVelX())*180/Math.PI));
                     setVelY(getMaxFlyBoostSpeed()*sin(Math.atan2(getVelY(),getVelX())*180/Math.PI));
                     addRocketTrail(getShipLocX()-30*cosRot(),getShipLocY()-30*sinRot());
                     addBoost(getShipLocX(), getShipLocY());
+
                 }
+
             }
             else
             {
@@ -1049,6 +1058,11 @@ public class Player extends Object implements DamageTaker
     //Written by Nathan
     private void firstTime(){
         if(firstTime){
+            
+            if(boostBarLevel > 0){
+                space.addObject(new BoostBarOutside(), space.getWidth()/2, space.getHeight()-32);
+        space.addObject(new BoostBarInside(), space.getWidth()/2, space.getHeight()-32);
+            }
 
             initialStarSpawn(starDensity);
             damageBar = new DamageBar(this, -30, getHealth(), getMaxHealth());

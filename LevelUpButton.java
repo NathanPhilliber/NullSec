@@ -84,6 +84,7 @@ public class LevelUpButton extends WeaponShop
             }
             else if(type == ENGINE){
                 try{
+                    
                     if(Player.gold >= Player.getNextEngineCost(myFunction)){
                         Player.gold -= Player.getNextEngineCost(myFunction);
 
