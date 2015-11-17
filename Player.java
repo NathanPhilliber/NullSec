@@ -80,9 +80,9 @@ public class Player extends Object implements DamageTaker
     public static int fireballLevel = 0;
     public static int plasmaLevel = 0;
 
-    public static int[] SPEED_COST = {10,20,30,40,50,9999};
-    public static int[] TURN_SPEED_COST = {10,20,30,40,50,9999};
-    public static int[] BOOST_BAR_COST = {10,20,30,40,50,9999};
+    public static int[] SPEED_COST = {50,55,65,70,75,80,85,90,95,100,150,200,250,300,500,1000,2000,3000,5000,10000};
+    public static int[] TURN_SPEED_COST = {50,55,65,70,75,80,85,90,95,100,150,200,250,300,500,1000,2000,3000,5000,10000};
+    public static int[] BOOST_BAR_COST = {50,55,65,70,75,80,85,90,95,100,150,200,250,300,500,1000,2000,3000,5000,10000};
 
     public static int speedLevel = 0;
     public static int turnSpeedLevel = 0;
@@ -101,7 +101,7 @@ public class Player extends Object implements DamageTaker
 
     private boolean playerDisabled = false;
 
-    public static int gold = 200;
+    public static int gold = 0;
     public static int goldPotential = 0;
 
     public static boolean respawnIsPressed;
@@ -113,6 +113,8 @@ public class Player extends Object implements DamageTaker
 
     public int currentSector = 0;
     public boolean inWrongSector = false;
+    
+    
 
     private int actDelay = 0;
 
@@ -222,7 +224,7 @@ public class Player extends Object implements DamageTaker
         inWrongSector = currentSector > workingSector;
         if(inWrongSector){
             if(Greenfoot.getRandomNumber(200) == 0){
-                spawnFleet(Greenfoot.getRandomNumber(6)+1, Entity.ANY_SHIP, 60);
+                spawnFleet(Greenfoot.getRandomNumber(6)+1, Entity.ANY_SHIP, 75);
             }
         }
     }
@@ -549,6 +551,10 @@ public class Player extends Object implements DamageTaker
 
             if(difficulty >= 50){
 
+            }
+            
+            if(difficulty >= 75){
+                ship.setMode(Entity.ATTACK_MODE);
             }
 
             space.addObject(ship, -20, -20);
@@ -909,6 +915,11 @@ public class Player extends Object implements DamageTaker
             }
             explosionTimer = false;
             isDead = false;
+            
+            List<Entity> entities = space.getObjects(Entity.class);
+            for(Entity entity : entities){
+                entity.setHealth(0.0);
+            }
         }
     }
 
@@ -923,9 +934,9 @@ public class Player extends Object implements DamageTaker
         //System.out.println(explosionAmount);
         if(explosionAmount > 0)
         {
-            int midX = getWorld().getWidth()/2;
-            int midY = getWorld().getHeight()/2;
-            addExplosion(getSpaceX() + midX + Greenfoot.getRandomNumber(15), getSpaceY() + midY + Greenfoot.getRandomNumber(15));  
+            int midX = space.getWidth()/2;
+            int midY = space.getHeight()/2;
+            addExplosion(getSpaceX() + midX + Greenfoot.getRandomNumber(15), getSpaceY() + midY + Greenfoot.getRandomNumber(15), true);  
         }
         setLocation(1000, 1000);
         List<Actor> c = getWorld().getObjects(Cannon.class);
@@ -956,6 +967,10 @@ public class Player extends Object implements DamageTaker
         }
         if(Greenfoot.isKeyDown("\\")){
             updateAvailableWeapons(true,true,true,true,true,true);
+        }
+        if(Greenfoot.isKeyDown("l")){
+            gold+=100;
+            updateGoldScore();
         }
     }
 

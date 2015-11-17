@@ -2,7 +2,6 @@ import greenfoot.*;
 import java.util.List;
 import java.util.ArrayList;
 
-
 public class Object extends SmoothMover
 {
 
@@ -29,7 +28,6 @@ public class Object extends SmoothMover
         }
     } 
 
-    
     //Written by John
     //from 0 to 360 to -180 to 180 
     public int angleRange(int angle)
@@ -107,9 +105,9 @@ public class Object extends SmoothMover
             scheduleRemoval();
         }
     }
-    
+
     //Written by Nathan
-    public void addExplosion(double x, double y){
+    public void addExplosion(double x, double y, boolean playSound){
 
         for (int i = 0; i<13; i++)
         {
@@ -118,8 +116,11 @@ public class Object extends SmoothMover
             space.addObject(new Particle(x, y, 10, 6, 7, 6, 10, 95, "images/spark1.png"), 0, 0);
             space.addObject(new Particle(x, y, 10, 6, 7, 6, 10, 95, "images/smoke1.png"), 0, 0);
         }
-        GreenfootSound explodeSound = new GreenfootSound("sounds/explode1.mp3");
-        explodeSound.play();
+        if(playSound){
+            GreenfootSound explodeSound = new GreenfootSound("sounds/explode1.mp3");
+            explodeSound.play();
+        }
+        
     }
 
     //Written by Manny
@@ -163,13 +164,13 @@ public class Object extends SmoothMover
         space.addObject(par, 0, 0);
 
     }
-    
+
     //Written by Nathan
     public void addExclamation(double x, double y, int imageWidth){
         space.addObject(new Particle(x,y-imageWidth,15, 0, 5, 10, 10,0,"images/Exclamation.png"),-10,-10);
-    space.addObject(new Particle(x-imageWidth,y-imageWidth,15, 0, 5, 10, 10,0,"images/Exclamation.png"),-10,-10);
-    space.addObject(new Particle(x+imageWidth,y-imageWidth,15, 0, 5, 10, 10,0,"images/Exclamation.png"),-10,-10);
-    space.addObject(new Particle(x,y+imageWidth,15, 0, 20, 5, 10,0,"images/Exclamation.png"),-10,-10);
+        space.addObject(new Particle(x-imageWidth,y-imageWidth,15, 0, 5, 10, 10,0,"images/Exclamation.png"),-10,-10);
+        space.addObject(new Particle(x+imageWidth,y-imageWidth,15, 0, 5, 10, 10,0,"images/Exclamation.png"),-10,-10);
+        space.addObject(new Particle(x,y+imageWidth,15, 0, 20, 5, 10,0,"images/Exclamation.png"),-10,-10);
     }
 
     //Written by Nathan
@@ -181,11 +182,11 @@ public class Object extends SmoothMover
         space.addObject(par, 0, 0);
 
     }
-    
+
     //Written by Nathan
     public void addBoost(double x, double y){
         //for(int i = 0; i < 2; i++)
-            //space.addObject(new Particle(x+Greenfoot.getRandomNumber(14)-7, y+Greenfoot.getRandomNumber(14)-7, 15, 6, 10, 1, 1, 0,"images/coinEffect.png"), 0, 0);
+        //space.addObject(new Particle(x+Greenfoot.getRandomNumber(14)-7, y+Greenfoot.getRandomNumber(14)-7, 15, 6, 10, 1, 1, 0,"images/coinEffect.png"), 0, 0);
         Particle par = new Particle(x+Greenfoot.getRandomNumber(14)-7, y+Greenfoot.getRandomNumber(14)-7, 6, 6, 5, 2, 5, 0,"images/smoke2.png");
         par.getImage().setTransparency(100);
         space.addObject(par, 0, 0);
@@ -324,11 +325,11 @@ public class Object extends SmoothMover
     protected void projectile(int angle,int LV,double X,double Y, boolean isPlayer)
     {
         spawnProjectile(angle,X,Y, isPlayer);
-        
+
         if (LV>=2)
         {
             spawnProjectile(angle+10,X,Y,isPlayer);
-            
+
         }
         if (LV>=3)
         {
@@ -342,7 +343,7 @@ public class Object extends SmoothMover
         {
             spawnProjectile(angle-20,X,Y,isPlayer);
         }
-        
+
     }
 
     //Written by John

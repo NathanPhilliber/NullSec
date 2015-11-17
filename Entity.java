@@ -101,6 +101,8 @@ public class Entity extends SpaceObject implements DamageTaker
     public boolean isAlive = true;
 
     protected int desiredMode = EXPLORE_MODE;
+    
+    public static int numberEntities = 0;
 
     /**********************************************************
      * 
@@ -109,12 +111,7 @@ public class Entity extends SpaceObject implements DamageTaker
      *********************************************************/
 
     public Entity(){
-        super();
-
-        spawnX = getX();
-        spawnY = getY();
-        setTargetX(getX());
-        setTargetY(getY());
+        this(0,0);
     }
 
     public Entity(double x, double y){
@@ -124,8 +121,10 @@ public class Entity extends SpaceObject implements DamageTaker
         setTargetY(y);
         spawnX =(int) x;
         spawnY =(int) y;
+        
+        numberEntities++;
 
-        setMode(WAITFORPLAYER_MODE); //delete this
+        setMode(WAITFORPLAYER_MODE); 
     }
 
     /**********************************************************
@@ -159,7 +158,8 @@ public class Entity extends SpaceObject implements DamageTaker
             miniMap(new EnemyShip());
 
             if(isScheduledForRemoval()){
-                addExplosion(getSpaceX(), getSpaceY());
+                
+                addExplosion(getSpaceX(), getSpaceY(), !isOffscreen());
                 isAlive = false;
                 dropCoins();
             }
@@ -250,7 +250,7 @@ public class Entity extends SpaceObject implements DamageTaker
 
     public void waitForPlayerMode(){
         if(hasMoreActions() == false){
-            addAction("wait/50");
+            addAction("wait/15");
             resetTicks();
             if(isOffscreen() == false){
                 setMode(desiredMode);
@@ -560,6 +560,7 @@ public class Entity extends SpaceObject implements DamageTaker
         if(getHealth() <= 0.0){
             damageBar.scheduleRemoval();
             scheduleRemoval();
+            numberEntities--;
         }
     }
 

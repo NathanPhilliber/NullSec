@@ -57,7 +57,7 @@ public class Mine extends Weapon implements ProjectileObject
             }
         }
 
-        addExplosion(getSpaceX(), getSpaceY());
+        addExplosion(getSpaceX(), getSpaceY(), !isOffscreen());
         scheduleRemoval();
     }
     
