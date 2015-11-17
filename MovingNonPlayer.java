@@ -14,10 +14,10 @@ public class MovingNonPlayer extends NonPlayer
     private boolean hitRight = false;
     private boolean walkBackAndForth = false;
     private boolean isWalker = false;
-    private boolean canJump = false;
+    private boolean onBlock = true;
 
     public double walkSpeed = 1;
-    public double jumpSpeed = 12;
+    public double jumpSpeed = 4;
     public void act() 
     {
         super.act();
@@ -25,30 +25,21 @@ public class MovingNonPlayer extends NonPlayer
         moveBackAndForthHelper();
         updateImage();
     }    
-
     public MovingNonPlayer()
     {
         super();
     }
-
     protected void gravity(double y)
     {
         velY += gravity/5;
     } 
-
     protected void moveX(double x)
     {
         setVelX(x);
     }
-
-    public void setJump(boolean d){
-        canJump = d;
-    }
-
     public void moveBackAndForth(boolean d){
         walkBackAndForth = d;
     }
-
     public void setHasGif(boolean d){
         isWalker = d;
     }
@@ -70,12 +61,10 @@ public class MovingNonPlayer extends NonPlayer
     private void moveBackAndForthHelper(){
         if(walkBackAndForth){
             if(hitLeft){
-
                 setVelX(walkSpeed);
-                
             }
-            if(hitRight){
-                setVelX(-walkSpeed);
+            if(hitRight&&onBlock){
+                //setVelX(-walkSpeed);
             }
         }
     }
@@ -88,47 +77,53 @@ public class MovingNonPlayer extends NonPlayer
 
     private void collision()
     {
-        
         int steps=10;
         //x
         for (int i=0;i<=steps-1;i++)
         {
-            setLocation(getExactX()+velX/steps,getExactY());
             addRealX(velX/steps);
+            setLocation(getRealX()-w.getXOffset(),getExactY());
             Actor b=getOneIntersectingObject(blockType);
             if (b!=null)
             {
-                if(canJump){
-                    setVelY(jumpSpeed);
-                    
-                }
                 if(velX > 0){
                     hitRight = true;    
                     hitLeft = false;
+                    if(onBlock)
+                    {
+                        setVelY(-jumpSpeed);
+                    }
                 }
                 if(velX < 0){
                     hitLeft = true;
                     hitRight = false;
                 }
-
-                setLocation(getExactX()-velY/steps,getExactY());
                 addRealX(-velX/steps);
+                setLocation(getRealX()-w.getXOffset(),getExactY());
                 i=steps;
-
             }
         }
         //y
         for (int i=0;i<=steps-1;i++)
         {
-            setLocation(getExactX(),getExactY()+velY/steps);
             addRealY(velY/steps);
+            setLocation(getExactX(),getRealY()-w.getYOffset());
             Actor b=getOneIntersectingObject(blockType);
             if (b!=null)
             {
-                setLocation(getExactX(),getExactY()-velY/steps);
+                if(getVelY()>0)
+                {
+                    onBlock=true;
+                }
                 addRealY(-velY/steps);
+                setLocation(getExactX(),getRealY()-w.getYOffset());
                 i=steps;
+                setVelY(0);
             }
+        }
+        if(getVelY()!=0)
+        {
+            onBlock=false;
         }
     }
 }
