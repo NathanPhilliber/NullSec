@@ -83,25 +83,29 @@ public class LevelUpButton extends WeaponShop
                 }
             }
             else if(type == ENGINE){
-                if(Player.gold >= Player.getNextEngineCost(myFunction)){
-                    Player.gold -= Player.getNextEngineCost(myFunction);
-                    
-                    switch(myFunction){
-                        case 0:
-                        Player.speedLevel++;
-                        break;
+                try{
+                    if(Player.gold >= Player.getNextEngineCost(myFunction)){
+                        Player.gold -= Player.getNextEngineCost(myFunction);
 
-                        case 1:
-                        Player.turnSpeedLevel++;
-                        break;
+                        switch(myFunction){
+                            case 0:
+                            Player.speedLevel++;
+                            break;
 
-                        case 2:
-                        Player.boostBarLevel++;
-                        break;
+                            case 1:
+                            Player.turnSpeedLevel++;
+                            break;
+
+                            case 2:
+                            Player.boostBarLevel++;
+                            break;
+                        }
+
+                        Shop shop = (Shop) getWorld();
+                        shop.reloadCurrentCenter();
                     }
-
-                    Shop shop = (Shop) getWorld();
-                    shop.reloadCurrentCenter();
+                } catch(ArrayIndexOutOfBoundsException e){
+                    
                 }
             }
         }
