@@ -100,47 +100,15 @@ public class Player extends Object implements DamageTaker
     private boolean explosionTimer;
 
     public static boolean[][] levelsBeaten = new boolean[4][9]; //level , sector
+    
+    public static int workingSector = 0;
+    
+    public int currentSector = 0;
+    public boolean inWrongSector = false;
+    
+    private int actDelay = 0;
 
-    public static void printLevels(){
-
-             
-        for(int y = 0; y < levelsBeaten.length; y++){
-            for(int x = 0; x < levelsBeaten[y].length; x++){
-                System.out.print(levelsBeaten[y][x] + " ");
-            }
-            System.out.println("");
-        }
-    }
-
-    public static boolean isSectorComplete(int sector){
-        boolean com = true;
-        for(int y = 0; y < levelsBeaten.length; y++){
-            for(int x = 0; x < levelsBeaten[y].length; x++){
-                if(x == sector){
-                    if(levelsBeaten[y][x] == false){
-                        com = false;
-                    }
-                }
-            }
-
-        }
-        return com;
-    }
-
-    public static int getNextIncompleteLevel(int sector){
-
-        for(int y = 0; y < levelsBeaten.length; y++){
-            for(int x = 0; x < levelsBeaten[y].length; x++){
-                if(x == sector){
-                    if(levelsBeaten[y][x] == false){
-                        return y;
-                    }
-                }
-            }
-
-        }
-        return -1;
-    }
+    
 
     /***************************************************************/
     /*********************  CONSTRUCTORS  **************************/
@@ -238,6 +206,13 @@ public class Player extends Object implements DamageTaker
     //Called every tick
     //Allows ship to "move" (changes coords), displays debug info and spawns stars
     //Updates health
+    
+    public void actEvery100(){
+        
+        currentSector = space.getSector(this);
+        
+        
+    }
     public void act() 
     {
         super.act();
@@ -254,6 +229,10 @@ public class Player extends Object implements DamageTaker
             spawnAsteroid();
             spawnShootingStar();
             lookForGold();
+            
+            actEvery100();
+            
+            destroyPlayerInWrongSector();
 
             generateStars(starDensity);
             generateNebulas(nebulaDensity); //Cant shoot in nebulas
@@ -283,6 +262,15 @@ public class Player extends Object implements DamageTaker
     /*********************  MOVEMENT AND COLLISION  **************************/
     /*************************************************************************/
 
+    
+    public void destroyPlayerInWrongSector(){
+        inWrongSector = currentSector > workingSector;
+        if(inWrongSector){
+            if(Greenfoot.getRandomNumber(200) == 0){
+                spawnFleet(Greenfoot.getRandomNumber(6)+1, Entity.ANY_SHIP, 60);
+            }
+        }
+    }
     //Written by Nathan
     public void lockPlayer(boolean lock){
         playerDisabled = lock;
@@ -992,6 +980,49 @@ public class Player extends Object implements DamageTaker
     /*******************************************************/
     /*********************  MISC  **************************/
     /*******************************************************/
+    
+    public static void printLevels(){
+
+             
+        for(int y = 0; y < levelsBeaten.length; y++){
+            for(int x = 0; x < levelsBeaten[y].length; x++){
+                System.out.print(levelsBeaten[y][x] + " ");
+            }
+            System.out.println("");
+        }
+    }
+
+    public static boolean isSectorComplete(int sector){
+        boolean com = true;
+        for(int y = 0; y < levelsBeaten.length; y++){
+            for(int x = 0; x < levelsBeaten[y].length; x++){
+                if(x == sector){
+                    if(levelsBeaten[y][x] == false){
+                        com = false;
+                    }
+                }
+            }
+
+        }
+        return com;
+    }
+
+    public static int getNextIncompleteLevel(int sector){
+
+        for(int y = 0; y < levelsBeaten.length; y++){
+            for(int x = 0; x < levelsBeaten[y].length; x++){
+                if(x == sector){
+                    if(levelsBeaten[y][x] == false){
+                        return y;
+                    }
+                }
+            }
+
+        }
+        return -1;
+    }
+    
+    
     //Called during the first tick only
     //Some methods require the ship to alrady be spawned to work
 

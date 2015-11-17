@@ -1,6 +1,6 @@
 #BlueJ class context
-comment0.params=startX\ startY\ world\ image\ worldNumber
-comment0.target=Planet(double,\ double,\ greenfoot.World,\ java.lang.String,\ java.lang.String)
+comment0.params=startX\ startY\ world\ image\ worldNumber\ sectorLevel
+comment0.target=Planet(double,\ double,\ greenfoot.World,\ java.lang.String,\ java.lang.String,\ int)
 comment1.params=
 comment1.target=void\ act()
 comment2.params=

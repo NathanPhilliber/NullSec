@@ -88,9 +88,9 @@ public class Space extends World
         scrollListener();
 
         setPaintOrder(RespawnButton.class, RespawnMenu.class, RespawnMenuBG.class,
-            MapBackButton.class, PlayerIcon.class, Map.class, MapButton.class, GotoShopButton.class, GoldText.class,
+            MapBackButton.class, CompletedLabel.class, PlayerIcon.class, Map.class, MapButton.class, GotoShopButton.class, GoldText.class,
             Counter.class, TutorialObjectManager.class, DockMenu.class, OutsideMP.class, 
-            PlayerShip.class, PlanetMP.class, EnemyShip.class, InsideMP.class, IconProjectile.class, 
+            PlayerShip.class, PlanetMP.class, PlanetCompletedMP.class, EnemyShip.class, InsideMP.class, IconProjectile.class, 
             IconFire.class, MissileIcon.class, IconPlasma.class, IconLaser.class, IconMine.class, 
             WeaponBG.class, BoostBarInside.class, BoostBarSegment.class, BoostBarOutside.class,
             Beam.class,  BeamHUD.class, PlanetLevelText.class, Number.class, Digit.class,AlienShip.class, EnemyShip.class, DamageBar.class,
@@ -458,7 +458,7 @@ public class Space extends World
         return sector;
     }
 
-    public int getSector(Ship ship)
+    public int getSector(Player ship)
     {
         int x = (int) (ship.getSpaceX()/10) + 460;
         int y = (int) (ship.getSpaceY()/10) + 270;

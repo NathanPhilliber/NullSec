@@ -413,6 +413,14 @@ public class PlatformPlayer extends PlatformObject
             setLocation(getRealX()-w.getXOffset(), getRealY()+2);
         }
     }
+    
+    public void teleportToEnd(){
+        List<ExitPortal> objects = w.getObjects(ExitPortal.class);
+        
+        setRealX(objects.get(0).getX());
+        setRealY(objects.get(0).getY());
+        setLocation(getRealX(), getRealY());
+    }
 
     //Written by Nathan
     public void kill(){
@@ -661,6 +669,10 @@ public class PlatformPlayer extends PlatformObject
         }
         else{
             hansMode = false;
+        }
+        
+        if(Greenfoot.isKeyDown("[")){
+            teleportToEnd();
         }
     }
 
