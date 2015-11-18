@@ -318,7 +318,14 @@ public class Player extends Object implements DamageTaker
                     Planet planet = (Planet) obj;
                     lockPlayer(true);
                     currentPlanet = planet;
-                    planetLoadDelay = 100;
+                    if(!inWrongSector)
+                    {
+                        planetLoadDelay = 100;
+                    }
+                    else
+                    {
+                        planetLoadDelay = 800;
+                    }
 
                 }
             }

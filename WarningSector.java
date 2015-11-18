@@ -8,12 +8,12 @@ import greenfoot.*;
  */
 public class WarningSector extends RespawnMenu
 {
-    /**
-     * Act - do whatever the WarningSector wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+     private int delay = 10;
+    
     public void act() 
     {
-        // Add your action code here.
-    }    
+        delay--;
+        if(delay  == 0)
+        space.removeObject(this);
+    }      
 }
