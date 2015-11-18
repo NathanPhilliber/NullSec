@@ -171,8 +171,12 @@ public class Player extends Object implements DamageTaker
     //Updates health
 
     public void actEvery100(){
-
-        currentSector = space.getSector(this);
+        actDelay++;
+        if(actDelay > 100){
+            actDelay = 0;
+            currentSector = space.getSector(this);
+            addHealth(1.0);
+        }
 
     }
 
