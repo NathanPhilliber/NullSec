@@ -113,13 +113,11 @@ public class Player extends Object implements DamageTaker
 
     public int currentSector = 0;
     public boolean inWrongSector = false;
-    
-    
+
+    private int flash = 0;
 
     private int actDelay = 0;
-
     public static boolean aboutToPlayCompletedLevel = false;
-
     public static int getNextEngineCost(int i){
         switch(i){
             case 0:
@@ -209,6 +207,7 @@ public class Player extends Object implements DamageTaker
             placeShield();
             checkDeath();
             respawn();
+            flashWrongSector();
         }
     } 
     public static boolean justDied = true;
@@ -262,7 +261,36 @@ public class Player extends Object implements DamageTaker
         for(Gold curObj : objects)
         {
             curObj.turnTowards(space.getWidth()/2, space.getHeight()/2);
-            curObj.spaceMove(1);
+            curObj.spaceMove(10);
+        }
+    }
+
+    public boolean isInCorrectSector()
+    {
+        return space.getSector(this) == workingSector;
+    }
+
+    public void flashWrongSector()
+    {
+        if(!isInCorrectSector())
+        {
+            flashRed();
+        }
+        else
+        {
+            space.removeObjects(space.getObjects(WarningSector.class));
+        }
+    }
+
+    public void flashRed()
+    {
+        WarningSector warning = new WarningSector();
+        WarningBG respawnBG = new WarningBG();
+        flash++;
+        if(flash%20 == 0)
+        {
+            space.addObject(warning, space.getWidth()/2, space.getHeight()/2);
+            space.addObject(respawnBG, space.getWidth()/2, space.getHeight()/2);
         }
     }
 
@@ -552,7 +580,7 @@ public class Player extends Object implements DamageTaker
             if(difficulty >= 50){
 
             }
-            
+
             if(difficulty >= 75){
                 ship.setMode(Entity.ATTACK_MODE);
             }
@@ -915,7 +943,7 @@ public class Player extends Object implements DamageTaker
             }
             explosionTimer = false;
             isDead = false;
-            
+
             List<Entity> entities = space.getObjects(Entity.class);
             for(Entity entity : entities){
                 entity.setHealth(0.0);
@@ -1073,10 +1101,10 @@ public class Player extends Object implements DamageTaker
     //Written by Nathan
     private void firstTime(){
         if(firstTime){
-            
+
             if(boostBarLevel > 0){
                 space.addObject(new BoostBarOutside(), space.getWidth()/2, space.getHeight()-32);
-        space.addObject(new BoostBarInside(), space.getWidth()/2, space.getHeight()-32);
+                space.addObject(new BoostBarInside(), space.getWidth()/2, space.getHeight()-32);
             }
 
             initialStarSpawn(starDensity);
