@@ -13,12 +13,14 @@ public class Ship extends Player
     public void act() 
     {
         super.act();
-
-        if(isAccelerating()){
-            setImage("RocketBoost.png");
-        }
-        else{
-            setImage("RocketIdle.png");
+        if(!playerDisabled)
+        {
+            if(isAccelerating()){
+                setImage("RocketBoost.png");
+            }
+            else{
+                setImage("RocketIdle.png");
+            }
         }
     }  
 }

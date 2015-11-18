@@ -22,6 +22,9 @@ public class Player extends Object implements DamageTaker
     public static final double FLY_SPEED = .3;
     public static final double REV_SPEED = .15;
 
+    public static final double planetDelay = 100;
+    public static final double wrongPlanetDelay = 800;
+
     //Rate at which ship turns and accelerates
     private int turnSpeed = TURN_SPEED;
     private double flySpeed = FLY_SPEED;
@@ -99,7 +102,7 @@ public class Player extends Object implements DamageTaker
     private boolean beamCD = false;
     public boolean mouseAim = true;
 
-    private boolean playerDisabled = false;
+    public boolean playerDisabled = false;
 
     public static int gold = 0;
     public static int goldPotential = 0;
@@ -115,6 +118,10 @@ public class Player extends Object implements DamageTaker
     public boolean inWrongSector = false;
 
     private int flash = 0;
+
+    private boolean shrinkingShort;
+    private boolean shrinkingLong;
+    private boolean shouldBeDocking = true;
 
     private int actDelay = 0;
     public static boolean aboutToPlayCompletedLevel = false;
@@ -320,11 +327,15 @@ public class Player extends Object implements DamageTaker
                     currentPlanet = planet;
                     if(!inWrongSector)
                     {
-                        planetLoadDelay = 100;
+                        planetLoadDelay =  (int) planetDelay;
+                        shrinkingLong = false;
+                        shrinkingShort = true;
                     }
                     else
                     {
-                        planetLoadDelay = 800;
+                        planetLoadDelay = (int) wrongPlanetDelay;
+                        shrinkingLong = true;
+                        shrinkingShort = false;
                     }
 
                 }
@@ -338,16 +349,36 @@ public class Player extends Object implements DamageTaker
 
     //Written by Nathan
     private void delayLoadWorldHelper(){
-        if(planetLoadDelay > 1){
-            planetLoadDelay--;
+        if(shouldBeDocking)
+        {
+            if(planetLoadDelay > 1){
+                planetLoadDelay--;
 
-            addPlanetDock(getShipLocX(), getShipLocY());
+                addPlanetDock(getShipLocX(), getShipLocY());
+                Actor cannon = getOneIntersectingObject(Cannon.class);
+                if(shrinkingLong)
+                {
+                    if(planetLoadDelay > 10)
+                    {
+                        getImage().scale((int)((planetLoadDelay/wrongPlanetDelay)*95), (int) ((planetLoadDelay/wrongPlanetDelay)*40));
+                        space.removeObject(cannon);
+                    }
+                }
+                if(shrinkingShort)
+                {
+                    if(planetLoadDelay > 10)
+                    {
+                        getImage().scale((int) ((planetLoadDelay*.01)*95),(int) ((planetLoadDelay*.01)*40));
+                        space.removeObject(cannon);
+                    }
+                }
 
-        }
-        else if(planetLoadDelay == 1){
-            planetLoadDelay--;
+            }
+            else if(planetLoadDelay == 1){
+                planetLoadDelay--;
 
-            currentPlanet.loadWorld();
+                currentPlanet.loadWorld();
+            }
         }
     }
 
@@ -955,6 +986,7 @@ public class Player extends Object implements DamageTaker
             for(Entity entity : entities){
                 entity.setHealth(0.0);
             }
+            shouldBeDocking = true;
         }
     }
 
@@ -979,6 +1011,7 @@ public class Player extends Object implements DamageTaker
         {
             a.setLocation(1000, 1000);
         }
+        shouldBeDocking = false;
         explosionAmount--;
     }
 
