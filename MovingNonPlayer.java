@@ -5,10 +5,10 @@ import greenfoot.*;
 public class MovingNonPlayer extends NonPlayer
 {
 
-    GifImage walkRight = new GifImage("WalkingAnimation.gif");
-    GifImage walkLeft = new GifImage("WalkingAnimationLeft.gif");
-    GifImage standRight = new GifImage("StandingRight.png");
-    GifImage standLeft = new GifImage("StandingLeft.png");
+    GifImage walkRight = new GifImage("Alien1WalkingRight.gif");
+    GifImage walkLeft = new GifImage("Alien1WalkingLeft.gif");
+    GifImage standRight = new GifImage("Alien1StandRight.png");
+    GifImage standLeft = new GifImage("Alien1StandLeft.png");
 
     private boolean hitLeft = true;
     private boolean hitRight = false;
