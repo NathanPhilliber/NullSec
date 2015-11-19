@@ -19,13 +19,15 @@ public class FireShip extends Entity
         maxFlySpeed *= 4;
         MAX_FLY_SPEED *= 3;
         missileDamage = missileDamage /2;
-        fireballDamage /= 2;
+        fireballDamage /= 8;
 
         desiredMode = ATTACK_MODE;
 
         setMaxHealth(40);
 
         catchUpDis = 12000;
+        
+        maxCoins = 30;
 
     }
 

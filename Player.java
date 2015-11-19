@@ -122,8 +122,14 @@ public class Player extends Object implements DamageTaker
     private boolean shrinkingShort;
     private boolean shrinkingLong;
 
+    public boolean justHit = false;
+
+    public static int levelImOn = -1;
+
     private int actDelay = 0;
     public static boolean aboutToPlayCompletedLevel = false;
+
+    public static Planet planetImGoingTo = null;
     public static int getNextEngineCost(int i){
         switch(i){
             case 0:
@@ -171,10 +177,10 @@ public class Player extends Object implements DamageTaker
 
     public void actEvery100(){
         actDelay++;
-        if(actDelay > 100){
+        if(actDelay > 25){
             actDelay = 0;
             currentSector = space.getSector(this);
-            if(!(health <= 0.0)	){
+            if(!(health <= 0.0) ){
                 addHealth(1.0);
             }
         }
@@ -220,12 +226,27 @@ public class Player extends Object implements DamageTaker
             checkDeath();
             respawn();
             flashWrongSector();
+            justHit = false;
         }
     } 
     public static boolean justDied = true;
     private int explosionAmount = Greenfoot.getRandomNumber(10) + 5;
     private int deathDelay = 10;
     private boolean isDead;
+
+    public void checkQuitWorld(){
+
+        if(PlatformPlayer.quitting){
+            System.out.println("Quitting");
+            PlatformPlayer.quitting = false;
+
+            if(planetImGoingTo != null){
+                System.out.println("Resetting World to Incomplete");
+                planetImGoingTo.exitWorldWithoutWinning();
+            }
+
+        }
+    }
 
     /*************************************************************************/
     /*********************  MOVEMENT AND COLLISION  **************************/
@@ -352,6 +373,11 @@ public class Player extends Object implements DamageTaker
     protected int planetLoadDelay = 0;
     private GreenfootImage shipImg = new GreenfootImage("images/RocketBoost.png");
 
+    public void cancelDock(){
+        planetLoadDelay = 0;
+        dockPressed = false;
+        lockPlayer(false);
+    }
     //Written by Nathan
     private void delayLoadWorldHelper(){
 
@@ -364,7 +390,16 @@ public class Player extends Object implements DamageTaker
             {
                 if(planetLoadDelay > 10)
                 {
-                    getImage().scale((int)((planetLoadDelay/wrongPlanetDelay)*95), (int) ((planetLoadDelay/wrongPlanetDelay)*40));
+                    int i = (int)((planetLoadDelay/wrongPlanetDelay)*95);
+                    int j = (int) ((planetLoadDelay/wrongPlanetDelay)*40);
+
+                    if(i < 1){
+                        i = 1;
+                    }
+                    if(j < 1){
+                        j = 1;
+                    }
+                    getImage().scale(i,j );
                     space.removeObject(cannon);
                 }
             }
@@ -394,6 +429,7 @@ public class Player extends Object implements DamageTaker
     //Written by Nathan
     public boolean getHit(double damage){
         addHealth(-damage);
+        cancelDock();
         return true;
 
     }
@@ -608,6 +644,20 @@ public class Player extends Object implements DamageTaker
 
             case Entity.BOMBER_SHIP:
             ship = new BomberShip(x+Greenfoot.getRandomNumber(1000)-500, y+Greenfoot.getRandomNumber(1000)-500);
+            //System.out.println("Bomber");
+            break;
+
+            case Entity.FIRE_SHIP:
+            ship = new FireShip(x+Greenfoot.getRandomNumber(1000)-500, y+Greenfoot.getRandomNumber(1000)-500);
+            //System.out.println("Bomber");
+            break;
+
+            case Entity.PLASMA_SHIP:
+            ship = new PlasmaShip(x+Greenfoot.getRandomNumber(1000)-500, y+Greenfoot.getRandomNumber(1000)-500);
+            //System.out.println("Bomber");
+            break;
+            case Entity.CARGO_SHIP:
+            ship = new CargoShip(x+Greenfoot.getRandomNumber(1000)-500, y+Greenfoot.getRandomNumber(1000)-500);
             //System.out.println("Bomber");
             break;
 
@@ -1161,6 +1211,7 @@ public class Player extends Object implements DamageTaker
     private void firstTime(){
         if(firstTime){
 
+            checkQuitWorld();
             if(boostBarLevel > 0){
                 space.addObject(new BoostBarOutside(), space.getWidth()/2, space.getHeight()-32);
                 space.addObject(new BoostBarInside(), space.getWidth()/2, space.getHeight()-32);

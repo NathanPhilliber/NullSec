@@ -8,12 +8,35 @@ import greenfoot.*;
  */
 public class CargoShip extends Entity
 {
-    /**
-     * Act - do whatever the CargoShip wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    public CargoShip(){
+        this(0,0);
+    }
+
+    public CargoShip(double x, double y){
+        super(x,y);
+        desiredMode = EXPLORE_MODE;
+        maxFlySpeed *= 1.5;
+        MAX_FLY_SPEED *= 1.5;
+
+        maxCoins = 80;
+    }
+
     public void act() 
     {
-        // Add your action code here.
+        super.act();
     }    
+
+    public void attackMode(){
+
+        if(hasMoreActions() == false){
+            if(Greenfoot.getRandomNumber(5) != 0){
+                addAction("moveTo/"+(getSpaceX()+(getSpaceX()-ship.getShipLocX()))+"/"+(getSpaceY()+(getSpaceY()-ship.getShipLocY())));
+            }
+            else{
+                addAction("shootPlayer/0/10/2");
+            }
+
+
+        }
+    }
 }

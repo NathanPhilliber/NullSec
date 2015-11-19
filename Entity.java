@@ -69,14 +69,17 @@ public class Entity extends SpaceObject implements DamageTaker
     public static final int GUARD_MODE = 1;
     public static final int ATTACK_MODE = 2;
     public static final int WAITFORPLAYER_MODE = 3;
-    
+
     public static final int ANY_SHIP = 0;
     public static final int ALIEN_SHIP = 1;
     public static final int BOMBER_SHIP = 2;
-    public static final int NUMBER_SHIP_TYPES = 2; //update this, ANY_SHIP doesnt count.
+    public static final int FIRE_SHIP = 3;
+    public static final int PLASMA_SHIP = 4;
+    public static final int CARGO_SHIP = 5;
+    public static final int NUMBER_SHIP_TYPES = 5; //update this, ANY_SHIP doesnt count.
 
     protected int maxExploreLength = 1000;
-    
+
     public int catchUpDis = 700;
 
     private int currentMode = -1;
@@ -103,8 +106,10 @@ public class Entity extends SpaceObject implements DamageTaker
     public boolean isAlive = true;
 
     protected int desiredMode = EXPLORE_MODE;
-    
+
     public static int numberEntities = 0;
+
+    public int maxCoins = 20;
 
     /**********************************************************
      * 
@@ -123,7 +128,7 @@ public class Entity extends SpaceObject implements DamageTaker
         setTargetY(y);
         spawnX =(int) x;
         spawnY =(int) y;
-        
+
         numberEntities++;
 
         setMode(WAITFORPLAYER_MODE); 
@@ -160,7 +165,7 @@ public class Entity extends SpaceObject implements DamageTaker
             miniMap(new EnemyShip());
 
             if(isScheduledForRemoval()){
-                
+
                 addExplosion(getSpaceX(), getSpaceY(), !isOffscreen());
                 isAlive = false;
                 dropCoins();
@@ -177,16 +182,13 @@ public class Entity extends SpaceObject implements DamageTaker
 
     public void modeActions(){
 
-        
         preMode();
-        
         if(modeChanged){
             clearActions();
             modeChanged = false;
 
         }
 
-        
 
         switch(getMode()){
             case EXPLORE_MODE: /***************** EXPLORE MODE */
@@ -211,7 +213,7 @@ public class Entity extends SpaceObject implements DamageTaker
 
         }
     }
-    
+
     public void preMode(){
         if(getMode() == EXPLORE_MODE && getMaxHealth() - getHealth() >= 5){
             setMode(ATTACK_MODE);
@@ -252,7 +254,7 @@ public class Entity extends SpaceObject implements DamageTaker
 
     public void waitForPlayerMode(){
         if(hasMoreActions() == false){
-            addAction("wait/15");
+            addAction("wait/5");
             resetTicks();
             if(isOffscreen() == false){
                 setMode(desiredMode);
@@ -260,7 +262,7 @@ public class Entity extends SpaceObject implements DamageTaker
 
         }
     }
-    
+
     public void catchUp(){
         if(Math.abs(ship.getShipLocX()-getSpaceX()) > catchUpDis || Math.abs(ship.getShipLocY()-getSpaceY()) > catchUpDis){
             clearActions();
@@ -359,7 +361,7 @@ public class Entity extends SpaceObject implements DamageTaker
      * 
      *********************************************************/
 
-     //Written by John
+    //Written by John
     public void circleTarget(int x, int y, int numOfCycles, int radius){
         currentlyCircling = true;
         circleTargetX = x;
@@ -656,7 +658,7 @@ public class Entity extends SpaceObject implements DamageTaker
 
     public void dropCoins(){
         if(dropLoot){
-            int numCoins = Greenfoot.getRandomNumber(20) + 1;
+            int numCoins = Greenfoot.getRandomNumber(maxCoins) + 1;
             for(int i = 0; i < numCoins; i++){
                 space.addObject(new Gold(getSpaceX()+Greenfoot.getRandomNumber(30)-15, getSpaceY()+Greenfoot.getRandomNumber(30)-15, 1),-10,-10);
             }

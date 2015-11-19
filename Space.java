@@ -90,10 +90,10 @@ public class Space extends World
         setPaintOrder(RespawnButton.class, RespawnMenu.class, RespawnMenuBG.class,
             MapBackButton.class, PlayerIcon.class, Map.class, MapButton.class, GotoShopButton.class, GoldText.class,
             Counter.class, TutorialObjectManager.class, DockMenu.class, OutsideMP.class, 
-            PlayerShip.class, PlanetMP.class, PlanetCompletedMP.class, EnemyShip.class, InsideMP.class, CompletedLabel.class, IconProjectile.class, 
+            PlayerShip.class, PlanetMP.class, PlanetCompletedMP.class,EnemyShip.class, InsideMP.class, CompletedLabel.class, IconProjectile.class, 
             IconFire.class, MissileIcon.class, IconPlasma.class, IconLaser.class, IconMine.class, 
             WeaponBG.class, BoostBarInside.class, BoostBarSegment.class, BoostBarOutside.class,
-            Beam.class,  BeamHUD.class, PlanetLevelText.class, Number.class, Digit.class,AlienShip.class, EnemyShip.class, DamageBar.class,
+            Beam.class,  BeamHUD.class, PlanetLevelText.class, Number.class, Digit.class, Entity.class, DamageBar.class,
             Projectile.class, Missile.class, Cannon.class, Ship.class, PlasmaBall.class, Mine.class, 
             Fireball.class, Particle.class, Asteroid.class, Planet.class, BackgroundStar.class);
 

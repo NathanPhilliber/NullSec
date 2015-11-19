@@ -27,6 +27,8 @@ public class PlasmaShip extends Entity
         setHealth(200);
 
         catchUpDis = 12000;
+        
+        maxCoins = 30;
 
     }
 

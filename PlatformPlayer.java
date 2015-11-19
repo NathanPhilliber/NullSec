@@ -43,7 +43,7 @@ public class PlatformPlayer extends PlatformObject
     private Actor port;
     private boolean anyPortal = false;
     private boolean firstTime = true;
-    
+
     //antistuck
     private double oldXOffset;
     private double oldYOffset;
@@ -59,8 +59,14 @@ public class PlatformPlayer extends PlatformObject
 
     private Number goldNumber = new Number(Player.gold+"",2);
     private double lastGoldCount = Player.goldPotential;
-    
+
     private boolean firstAct = true;
+
+    private boolean escDown = false;
+    private boolean escUp = true;
+    
+    public static boolean pauseEverything = false;
+    public static boolean quitting = false;
 
     //Written by Nathan
     private void setUpGoldScore(){
@@ -92,6 +98,9 @@ public class PlatformPlayer extends PlatformObject
         velX = 0;
         velY = 0;
         setImage(standRight.getCurrentImage());
+        pauseEverything = false;
+        
+
     }
     //Written by John
     public PlatformPlayer(int scrollY)
@@ -124,7 +133,9 @@ public class PlatformPlayer extends PlatformObject
     {
         firstAct();
         pausePlayerHelper();
-        if(playerPaused == false){
+        checkEsc();
+        
+        if(playerPaused == false && pauseEverything == false){
             if(locked == false){
                 jump();
                 leftRight();
@@ -140,7 +151,42 @@ public class PlatformPlayer extends PlatformObject
 
         //System.out.println(isMovingX());
     }
+
+    public void checkEsc(){
+        
+        if(!Greenfoot.isKeyDown("escape")){
+            escUp = true;
+
+        }
+        if(Greenfoot.isKeyDown("escape")){
+            if(escUp && !escDown)
+                escDown = true;
+
+        }
+
+        if(escDown && escUp){
+
+            escDown = false;
+            escUp = false;
+
+            if(pauseEverything){
+                pauseEverything = false;
+            }
+            else{
+                pauseEverything = true; 
+                returnToSpace();//CHANGE THIS LATER ADD A BUTTON
+            }
+
+        }
+
+    }
     
+    public void returnToSpace(){
+        quitting = true;
+        System.out.println(quitting);
+        Greenfoot.setWorld(new OuterSpace(w.returnX, w.returnY));
+    }
+
     public void firstAct(){
         if(firstAct){
             firstAct = false;
@@ -325,6 +371,7 @@ public class PlatformPlayer extends PlatformObject
             }
             if(delay <= 0)
             {
+                quitting = false;
                 Greenfoot.setWorld(new OuterSpace(w.returnX, w.returnY));
             }
         }
@@ -428,10 +475,10 @@ public class PlatformPlayer extends PlatformObject
             setLocation(getRealX()-w.getXOffset(), getRealY()+2);
         }
     }
-    
+
     public void teleportToEnd(){
         List<ExitPortal> objects = w.getObjects(ExitPortal.class);
-        
+
         setRealX(objects.get(0).getX());
         setRealY(objects.get(0).getY());
         setLocation(getRealX(), getRealY());
@@ -628,8 +675,8 @@ public class PlatformPlayer extends PlatformObject
             w.setYOffset((int)(w.getYOffset()+getExactY()-w.getHeight()/2));
         }
         if(w.getYOffset()>0){
-                w.setYOffset(0);
-            }
+            w.setYOffset(0);
+        }
         setLocation(getRealX()-w.getXOffset(),getRealY()-w.getYOffset());//end of scroll
     }
 
@@ -685,7 +732,7 @@ public class PlatformPlayer extends PlatformObject
         else{
             hansMode = false;
         }
-        
+
         if(Greenfoot.isKeyDown("[")){
             teleportToEnd();
         }

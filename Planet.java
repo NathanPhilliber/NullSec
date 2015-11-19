@@ -34,7 +34,6 @@ public class Planet extends SpaceObject
         else{
             miniMap(new PlanetMP());
         }
-        
 
         tryDrawLabel();
         if(firstTime){
@@ -51,22 +50,35 @@ public class Planet extends SpaceObject
         //checkDock();
     }
 
+    public void exitWorldWithoutWinning(){
+        System.out.println(Player.aboutToPlayCompletedLevel);
+        if(Player.aboutToPlayCompletedLevel == false){
+            System.out.println("IM FUCKING HERE");
+            Player.levelsBeaten[sectorLevel][space.getSector(this)] = false;
+            isBeaten = false;
+        }
+    }
+
     public void loadWorld(){
         //add check for what world is beaten. Going to have to store it in player or some shit because this variable will
         //be overwritten when outerspace is reloaded every time. 
         //Add check to make sure you dont run off the player.levelsbeaten array.
-        
+
+        Player.planetImGoingTo = this;
+
         if(Player.levelsBeaten[sectorLevel][space.getSector(this)]){
             Player.aboutToPlayCompletedLevel = true;
+            System.out.println("THIS LEVEL IS ALREADY FUCKING DONE");
         }
         else{
             Player.aboutToPlayCompletedLevel = false;
+            System.out.println("THIS LEVEL IS FUCKING NEW");
         }
 
         Player.levelsBeaten[sectorLevel][space.getSector(this)] = true;
-        
+
         if(!isBeaten){
-            if(Player.isSectorComplete(Player.workingSector)){
+            if(Player.isSectorComplete(Player.workingSector)){ //RESET THIS BULLSHIT FUCK YOU TRACE ILL DO THIS LATER
                 Player.workingSector++;
             }
         }

@@ -1,5 +1,5 @@
 #Greenfoot properties
-#Thu Nov 19 08:22:02 PST 2015
+#Thu Nov 19 09:22:19 PST 2015
 dependency507.from=Planet
 dependency437.type=UsesDependency
 target33.typeParameters=
@@ -1254,7 +1254,7 @@ target80.editor.width=900
 dependency452.type=UsesDependency
 target127.type=ClassTarget
 target146.editor.height=700
-mainWindow.y=108
+mainWindow.y=23
 dependency140.to=ShopButton
 dependency243.to=LevelCreatorDisplayBlock
 target112.editor.y=23
@@ -1410,7 +1410,7 @@ target124.y=3730
 target124.x=10
 target145.name=DockMenu
 dependency3.to=Ship
-mainWindow.height=688
+mainWindow.height=773
 target48.name=TraceHead
 dependency329.from=Shop
 target83.y=1570
