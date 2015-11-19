@@ -1,5 +1,9 @@
 #Greenfoot properties
+<<<<<<< HEAD
 #Wed Nov 18 22:16:02 PST 2015
+=======
+#Wed Nov 18 21:57:48 PST 2015
+>>>>>>> origin/master
 dependency507.from=Planet
 dependency437.type=UsesDependency
 target33.typeParameters=
@@ -520,7 +524,11 @@ class.All.superclass=greenfoot.Actor
 dependency7.from=BackgroundStar
 target127.width=140
 target113.editor.y=23
+<<<<<<< HEAD
 target113.editor.x=150
+=======
+target113.editor.x=74
+>>>>>>> origin/master
 target87.editor.width=900
 dependency389.from=Level15
 target87.naviview.expanded=true
@@ -579,7 +587,11 @@ target6.editor.y=43
 target17.height=50
 target6.editor.x=40
 dependency206.type=UsesDependency
+<<<<<<< HEAD
 target82.editor.y=554
+=======
+target82.editor.y=23
+>>>>>>> origin/master
 dependency121.type=UsesDependency
 target82.editor.x=0
 target102.showInterface=false
@@ -1254,11 +1266,19 @@ target80.editor.width=900
 dependency452.type=UsesDependency
 target127.type=ClassTarget
 target146.editor.height=700
+<<<<<<< HEAD
 mainWindow.y=108
 dependency140.to=ShopButton
 dependency243.to=LevelCreatorDisplayBlock
 target112.editor.y=23
 mainWindow.x=0
+=======
+mainWindow.y=-8
+dependency140.to=ShopButton
+dependency243.to=LevelCreatorDisplayBlock
+target112.editor.y=23
+mainWindow.x=-8
+>>>>>>> origin/master
 target112.editor.x=0
 dependency346.to=Space
 dependency449.to=WireButtonDown
@@ -1410,7 +1430,11 @@ target124.y=3730
 target124.x=10
 target145.name=DockMenu
 dependency3.to=Ship
+<<<<<<< HEAD
 mainWindow.height=688
+=======
+mainWindow.height=1056
+>>>>>>> origin/master
 target48.name=TraceHead
 dependency329.from=Shop
 target83.y=1570
@@ -1558,7 +1582,11 @@ dependency298.to=Digit
 dependency93.from=Planet
 target175.editor.y=43
 target175.editor.x=40
+<<<<<<< HEAD
 target82.editor.height=223
+=======
+target82.editor.height=773
+>>>>>>> origin/master
 target143.type=ClassTarget
 target46.type=ClassTarget
 target102.editor.y=43
@@ -2495,7 +2523,11 @@ dependency33.type=UsesDependency
 class.DamageBar.image=DamageBar_100.png
 target122.width=100
 class.Orbiter.superclass=SpaceObject
+<<<<<<< HEAD
 target113.editor.width=1130
+=======
+target113.editor.width=1280
+>>>>>>> origin/master
 dependency339.from=Level6
 dependency58.from=IconLaser
 target33.y=3850
@@ -3114,7 +3146,11 @@ target65.x=100
 target140.type=ClassTarget
 target62.width=80
 dependency108.type=UsesDependency
+<<<<<<< HEAD
 target82.editor.width=399
+=======
+target82.editor.width=1280
+>>>>>>> origin/master
 target43.type=ClassTarget
 target169.editor.width=900
 class.Ball.image=Asteroid2.png
@@ -4076,7 +4112,11 @@ dependency336.type=UsesDependency
 target41.editor.height=700
 dependency55.type=UsesDependency
 dependency321.from=PlatformPlayer
+<<<<<<< HEAD
 world.lastInstantiated=Shop
+=======
+world.lastInstantiated=OuterSpace
+>>>>>>> origin/master
 dependency251.type=UsesDependency
 class.LaserText.superclass=WeaponShop
 target154.typeParameters=
@@ -4358,7 +4398,11 @@ class.Block.superclass=NonPlayer
 target112.height=50
 dependency22.from=Player
 target65.showInterface=false
+<<<<<<< HEAD
 mainWindow.width=1280
+=======
+mainWindow.width=1936
+>>>>>>> origin/master
 target187.width=80
 target68.editor.y=23
 target68.editor.x=0
