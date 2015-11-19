@@ -38,7 +38,8 @@ public class PlatformPlayer extends PlatformObject
     private boolean isWalkingLeft=false;
     private boolean locked = false;
     private boolean onClimb=false;
-    private int scrollYType=1; /**0 is off 1 is with scroll threshold 2 is locked on player*/
+    private int scrollYType=0; /**0 is off 1 is with scroll threshold 2 is locked on player*/
+    private double maxYScroll=0;
     private int delay = 100;
     private Actor port;
     private boolean anyPortal = false;
@@ -94,10 +95,11 @@ public class PlatformPlayer extends PlatformObject
         setImage(standRight.getCurrentImage());
     }
     //Written by John
-    public PlatformPlayer(int scrollY)
+    public PlatformPlayer(int scrollY, double maxY)
     {
         this();
         scrollYType=scrollY;
+        maxYScroll=maxY;
     }
     //Written by John
     public PlatformPlayer(boolean scrollY)
@@ -627,7 +629,7 @@ public class PlatformPlayer extends PlatformObject
         {
             w.setYOffset((int)(w.getYOffset()+getExactY()-w.getHeight()/2));
         }
-        if(w.getYOffset()>0){
+        if(w.getYOffset()>maxYScroll){
                 w.setYOffset(0);
             }
         setLocation(getRealX()-w.getXOffset(),getRealY()-w.getYOffset());//end of scroll
