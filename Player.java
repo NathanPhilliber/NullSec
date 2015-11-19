@@ -205,6 +205,7 @@ public class Player extends Object implements DamageTaker
             lookForGold();
 
             actEvery100();
+            addSmokeWhenLow();
 
             destroyPlayerInWrongSector();
 
@@ -536,6 +537,24 @@ public class Player extends Object implements DamageTaker
         //Add velocity to coordinates, thereby "moving" the ship
         addSpaceX(getVelX());
         addSpaceY(getVelY());
+    }
+    
+    public void addSmokeWhenLow()
+    {
+        if(health/maxHealth < .5)
+        {
+            addRocketTrail(getShipLocX(), getShipLocY());
+        }
+        if(health/maxHealth < .25)
+        {
+            addRocketTrail(getShipLocX(), getShipLocY());
+            addFire(getShipLocX(), getShipLocY());
+        }
+        if(health/maxHealth < .08)
+        {
+            addRocketTrail(getShipLocX(), getShipLocY());
+            addFire(getShipLocX(), getShipLocY());
+        }
     }
 
     //Written by Nathan

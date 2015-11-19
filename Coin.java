@@ -4,20 +4,19 @@ import greenfoot.*;
 
 public class Coin extends NoCollisionBlock
 {
-    
+    private GifImage coinAnimation = new GifImage("coinAnimation.gif");
     public Coin(){
         this(90);
     }
     
     public Coin(int blockType){
         super();
-
-        setImage(LevelCreatorDisplayBlock.getBlock()[blockType]);
     }
     
     public void act() 
     {
         super.act();
+        setImage(coinAnimation.getCurrentImage());
     }  
     
     public void pickup(){

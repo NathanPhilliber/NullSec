@@ -676,15 +676,15 @@ public class PlatformPlayer extends PlatformObject
         {
             w.setYOffset((int)(w.getYOffset()+getExactY()-w.getHeight()/2));
         }
-<<<<<<< HEAD
+
         if(w.getYOffset()>0){
             w.setYOffset(0);
         }
-=======
+
         if(w.getYOffset()>maxYScroll){
                 w.setYOffset(maxYScroll);
             }
->>>>>>> origin/master
+
         setLocation(getRealX()-w.getXOffset(),getRealY()-w.getYOffset());//end of scroll
     }
 
