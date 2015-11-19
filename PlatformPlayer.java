@@ -44,6 +44,8 @@ public class PlatformPlayer extends PlatformObject
     private boolean anyPortal = false;
     private boolean firstTime = true;
     
+    private boolean gravIsReversed;
+    
     //antistuck
     private double oldXOffset;
     private double oldYOffset;
@@ -135,7 +137,8 @@ public class PlatformPlayer extends PlatformObject
             checkIfOffEdge();
             checkSpecialCollisions();
             updateGoldScore();
-            updatePosition();//LAST
+            flipMe();
+            updatePosition();//LAST 
         }
 
         //System.out.println(isMovingX());
@@ -205,7 +208,11 @@ public class PlatformPlayer extends PlatformObject
                 anyClimb = true;
             }
             else if(object instanceof SpikeBlock){
-                anySpike = true;
+                List<Actor> spike = getObjectsInRange(25, SpikeBlock.class);
+                if(!spike.isEmpty())
+                {                
+                    anySpike = true;
+                }
             }
             else if(object instanceof Bullet){
                 anyBullet = true;
@@ -289,8 +296,8 @@ public class PlatformPlayer extends PlatformObject
         } 
         else if(anyGravity && gravityToggle == false){
             gravity *= -1;
-
             gravityToggle = true;
+            gravIsReversed = !gravIsReversed;
         }
         else if(anyPortal){
             delay--;
@@ -378,6 +385,35 @@ public class PlatformPlayer extends PlatformObject
             kill();
         }
 
+    }
+    
+    private int turnDelay = 10;
+    
+    public void flipMe()
+    {
+        System.out.println(turnDelay);
+        if(gravIsReversed)
+        {
+            if(turnDelay == 0)
+            {
+                turn(180);
+            }
+            if(turnDelay >= 0)
+            {
+                turnDelay--;
+            }
+        }
+        if(!gravIsReversed)
+        {
+            if(turnDelay == 9)
+            {
+                turn(180);
+            }
+            if(turnDelay <= 9)
+            {
+                turnDelay++;
+            }
+        }
     }
     private int pauseCycles = 0;
     private boolean playerPaused = false;
@@ -636,17 +672,24 @@ public class PlatformPlayer extends PlatformObject
     //Written by John, Trace
     private void leftRight()
     {
+        boolean isTurnt = (getRotation() == 180);
         slowX();
         if (Greenfoot.isKeyDown("d"))
         {
             velX=moveSpeed;
+            if(!isTurnt)
             setImage(walkRight.getCurrentImage());
+            if(isTurnt)
+            setImage(walkLeft.getCurrentImage());
         }
 
         if (Greenfoot.isKeyDown("a"))
         {
             velX=-moveSpeed;
+            if(!isTurnt)
             setImage(walkLeft.getCurrentImage());
+            if(isTurnt)
+            setImage(walkRight.getCurrentImage());
         }
 
         if (Greenfoot.isKeyDown("d")&&!isWalkingRight)
@@ -656,8 +699,11 @@ public class PlatformPlayer extends PlatformObject
 
         if(!Greenfoot.isKeyDown("d")&&isWalkingRight)
         {
-            setImage(standRight.getCurrentImage());
             isWalkingRight = false;
+            if(!isTurnt)
+            setImage(standRight.getCurrentImage());
+            if(isTurnt)
+            setImage(standLeft.getCurrentImage());
         }
 
         if (Greenfoot.isKeyDown("a")&&!isWalkingLeft)
@@ -667,8 +713,11 @@ public class PlatformPlayer extends PlatformObject
 
         if(!Greenfoot.isKeyDown("a")&&isWalkingLeft)
         {
-            setImage(standLeft.getCurrentImage());
             isWalkingLeft = false;
+            if(!isTurnt)
+            setImage(standLeft.getCurrentImage());
+            if(isTurnt)
+            setImage(standRight.getCurrentImage());
         }
 
         //hack
