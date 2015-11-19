@@ -6,11 +6,12 @@ import java.util.List;
 public class Mine extends Weapon implements ProjectileObject
 {
 
-
     private int timer=0;
+    public int MAX_TIME = 100;
     private int range;
     private boolean isPlayer;
 
+            
     public void act() 
     {
         super.act();
@@ -29,9 +30,21 @@ public class Mine extends Weapon implements ProjectileObject
 
     private void time()
     {
-        if (timer >= 100)
+        if (timer >= MAX_TIME)
         {
             explode();
+        }
+        if(!isOffEdge(100)){
+            if((MAX_TIME-timer <= MAX_TIME/2) && timer%5 == 0){
+                GreenfootSound beep6 = new GreenfootSound("sounds/beep6.mp3");
+                beep6.setVolume(25);
+                beep6.play();
+            }
+            else if((MAX_TIME-timer > MAX_TIME/2) && timer%10 == 0){
+                GreenfootSound beep7 = new GreenfootSound("sounds/beep7.mp3");
+                beep7.setVolume(25);
+                beep7.play();
+            }
         }
         timer++;
     }
@@ -60,7 +73,7 @@ public class Mine extends Weapon implements ProjectileObject
         addExplosion(getSpaceX(), getSpaceY(), !isOffscreen());
         scheduleRemoval();
     }
-    
+
     public boolean checkCollision(){
         return false;
     }

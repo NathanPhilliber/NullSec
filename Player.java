@@ -425,7 +425,6 @@ public class Player extends Object implements DamageTaker
             int change = boostBarLevel;
             boostCD += change;
 
-            
         }
         //System.out.println(getShipLocX() + "  " + getShipLocY());
         //If spacebar or w is pressed
@@ -952,7 +951,12 @@ public class Player extends Object implements DamageTaker
                     space.setPause = true;
                     justDied = false;
                     deathDelay = 10;
-                    gold =- 50;//amanda
+                    if(gold-50<0){
+                        gold = 0;
+                    }
+                    else{
+                        gold -= 50;//amanda
+                    }
                 }
                 else
                 {
@@ -1199,6 +1203,7 @@ public class Player extends Object implements DamageTaker
     private void updateGoldScore(){
         if(lastGoldCount != gold){
             goldNumber.remove();
+            //System.out.println(gold);
             goldNumber = new Number(gold+"",2);
             space.addObject(goldNumber, space.getWidth()-65, 18);
         }
