@@ -232,7 +232,7 @@ public class Player extends Object implements DamageTaker
     /*************************************************************************/
 
     public void destroyPlayerInWrongSector(){
-        inWrongSector = currentSector > workingSector;
+        inWrongSector = currentSector > workingSector || currentSector == -1;
         if(inWrongSector){
             if(Greenfoot.getRandomNumber(200) == 0){
                 spawnFleet(Greenfoot.getRandomNumber(6)+1, Entity.ANY_SHIP, 75);

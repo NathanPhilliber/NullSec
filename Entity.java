@@ -29,7 +29,7 @@ public class Entity extends SpaceObject implements DamageTaker
     private double flySpeed = 0.3;
 
     //The maximum velocity the ship can have
-    public static double MAX_FLY_SPEED = 3.0;
+    public double MAX_FLY_SPEED = 3.0;
     protected double maxFlySpeed = MAX_FLY_SPEED;
 
     //How fast the ship deccelerates 
