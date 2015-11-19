@@ -17,12 +17,15 @@ public class FireShip extends Entity
 
         mineDamage = mineDamage / 2;
         maxFlySpeed *= 4;
-        MAX_FLY_SPEED *= 4;
+        MAX_FLY_SPEED *= 3;
         missileDamage = missileDamage /2;
+        fireballDamage /= 2;
 
         desiredMode = ATTACK_MODE;
 
         setMaxHealth(40);
+
+        catchUpDis = 12000;
 
     }
 
@@ -35,12 +38,23 @@ public class FireShip extends Entity
         catchUp();
 
         if(hasMoreActions() == false){
-            addAction("moveTo/"+ (int)(ship.getShipLocX()-800) + "/" + (int)(ship.getShipLocY()-800));
-            addAction("moveTo/"+ (int)(ship.getShipLocX()) + "/" + (int)(ship.getShipLocY()));
-            addAction("shootPlayer/5/1/1");
-            addAction("moveTo/"+ (int)(ship.getShipLocX()+800) + "/" + (int)(ship.getShipLocY()+800));
-            addAction("moveTo/"+ (int)(ship.getShipLocX()) + "/" + (int)(ship.getShipLocY()));
-            addAction("shootPlayer/5/1/1");
+            if(Greenfoot.getRandomNumber(2)==0){
+                addAction("moveTo/"+ (int)(ship.getShipLocX()-400) + "/" + (int)(ship.getShipLocY()-400));
+                addAction("moveTo/"+ (int)(ship.getShipLocX()) + "/" + (int)(ship.getShipLocY()));
+                addAction("shootPlayer/4/1/1");
+                addAction("moveTo/"+ (int)(ship.getShipLocX()+400) + "/" + (int)(ship.getShipLocY()+400));
+                addAction("moveTo/"+ (int)(ship.getShipLocX()) + "/" + (int)(ship.getShipLocY()));
+                addAction("shootPlayer/4/1/1");
+            }
+            else{
+                addAction("moveTo/"+ (int)(ship.getShipLocX()+400) + "/" + (int)(ship.getShipLocY()-400));
+                addAction("moveTo/"+ (int)(ship.getShipLocX()) + "/" + (int)(ship.getShipLocY()));
+                addAction("shootPlayer/4/1/1");
+                addAction("moveTo/"+ (int)(ship.getShipLocX()+400) + "/" + (int)(ship.getShipLocY()-400));
+                addAction("moveTo/"+ (int)(ship.getShipLocX()) + "/" + (int)(ship.getShipLocY()));
+                addAction("shootPlayer/4/1/1");
+            }
+
         }
     }
 }

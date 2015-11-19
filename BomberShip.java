@@ -14,7 +14,7 @@ public class BomberShip extends Entity
         mineDamage = mineDamage / 2;
         maxFlySpeed *= 2;
         missileDamage = missileDamage /2;
-        
+        MAX_FLY_SPEED *= 2;
         desiredMode = ATTACK_MODE;
         
         setMaxHealth(50);

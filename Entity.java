@@ -76,6 +76,8 @@ public class Entity extends SpaceObject implements DamageTaker
     public static final int NUMBER_SHIP_TYPES = 2; //update this, ANY_SHIP doesnt count.
 
     protected int maxExploreLength = 1000;
+    
+    public int catchUpDis = 700;
 
     private int currentMode = -1;
 
@@ -260,7 +262,7 @@ public class Entity extends SpaceObject implements DamageTaker
     }
     
     public void catchUp(){
-        if(Math.abs(ship.getShipLocX()-getSpaceX()) > 500 || Math.abs(ship.getShipLocY()-getSpaceY()) > 500){
+        if(Math.abs(ship.getShipLocX()-getSpaceX()) > catchUpDis || Math.abs(ship.getShipLocY()-getSpaceY()) > catchUpDis){
             clearActions();
             maxFlySpeed = MAX_FLY_SPEED*5;
             addAction("moveTo/"+ ((int)ship.getShipLocX()+ Greenfoot.getRandomNumber(260)-130) + "/" + ((int)ship.getShipLocY()+ Greenfoot.getRandomNumber(260)-130));
@@ -472,6 +474,7 @@ public class Entity extends SpaceObject implements DamageTaker
             fireball(getTargetAngle(targetX,targetY),0,getSpaceX(), getSpaceY(),false);//in object WEAPON SYSTEMS
             break;  
             case Weapon.PLASMABALL:
+            turnTowards(ship.getX(), ship.getY());
             plasmaBall(getTargetAngle(targetX,targetY),0,getSpaceX(), getSpaceY(),false);//in object WEAPON SYSTEMS
             break;
         }
