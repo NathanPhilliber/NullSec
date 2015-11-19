@@ -952,6 +952,7 @@ public class Player extends Object implements DamageTaker
                     space.setPause = true;
                     justDied = false;
                     deathDelay = 10;
+                    gold =- 50;//amanda
                 }
                 else
                 {
