@@ -14,7 +14,7 @@ public class Gold extends SpaceObject
     public int value;
     
     private int killGold = 1500;
-    
+    private GifImage coinAnimation = new GifImage("coinAnimation.gif");
     private boolean deleteMe = false;
 
     public Gold(double x, double y, int value){
@@ -29,7 +29,7 @@ public class Gold extends SpaceObject
         if(killGold < 0){
             deleteMe = true;
         }
-        
+        setImage(coinAnimation.getCurrentImage());
         deleteMe();
     }   
 

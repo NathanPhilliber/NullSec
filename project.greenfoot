@@ -1749,6 +1749,7 @@ dependency53.type=UsesDependency
 dependency530.from=Level1
 dependency530.to=PlatformPlayer
 dependency530.type=UsesDependency
+<<<<<<< HEAD
 dependency531.from=Player
 dependency531.to=FireShip
 dependency531.type=UsesDependency
@@ -1775,11 +1776,40 @@ dependency538.to=ElevatorBlock
 dependency538.type=UsesDependency
 dependency539.from=Level2
 dependency539.to=SlimeBlock
+=======
+dependency531.from=Space
+dependency531.to=Entity
+dependency531.type=UsesDependency
+dependency532.from=Level2
+dependency532.to=Block
+dependency532.type=UsesDependency
+dependency533.from=Level2
+dependency533.to=FallingBlock
+dependency533.type=UsesDependency
+dependency534.from=Level2
+dependency534.to=ElevatorBlock
+dependency534.type=UsesDependency
+dependency535.from=Level2
+dependency535.to=SlimeBlock
+dependency535.type=UsesDependency
+dependency536.from=Level2
+dependency536.to=ExitPortal
+dependency536.type=UsesDependency
+dependency537.from=Level2
+dependency537.to=PlatformPlayer
+dependency537.type=UsesDependency
+dependency538.from=Level2
+dependency538.to=TraceHead
+dependency538.type=UsesDependency
+dependency539.from=Level2
+dependency539.to=ClimbBlock
+>>>>>>> origin/master
 dependency539.type=UsesDependency
 dependency54.from=Space
 dependency54.to=IconProjectile
 dependency54.type=UsesDependency
 dependency540.from=Level2
+<<<<<<< HEAD
 dependency540.to=ExitPortal
 dependency540.type=UsesDependency
 dependency541.from=Level2
@@ -1794,6 +1824,25 @@ dependency543.type=UsesDependency
 dependency544.from=Level2
 dependency544.to=SpikeBlock
 dependency544.type=UsesDependency
+=======
+dependency540.to=SpikeBlock
+dependency540.type=UsesDependency
+dependency541.from=Player
+dependency541.to=FireShip
+dependency541.type=UsesDependency
+dependency542.from=Player
+dependency542.to=PlasmaShip
+dependency542.type=UsesDependency
+dependency543.from=Player
+dependency543.to=CargoShip
+dependency543.type=UsesDependency
+dependency544.from=Player
+dependency544.to=PlatformPlayer
+dependency544.type=UsesDependency
+dependency545.from=Coin
+dependency545.to=GifImage
+dependency545.type=UsesDependency
+>>>>>>> origin/master
 dependency55.from=Cannon
 dependency55.to=Ship
 dependency55.type=UsesDependency
@@ -1941,11 +1990,19 @@ dependency98.type=UsesDependency
 dependency99.from=Cannon
 dependency99.to=Space
 dependency99.type=UsesDependency
+<<<<<<< HEAD
 mainWindow.height=979
 mainWindow.width=1394
 mainWindow.x=-292
 mainWindow.y=-1057
 package.numDependencies=544
+=======
+mainWindow.height=1084
+mainWindow.width=1936
+mainWindow.x=-978
+mainWindow.y=281
+package.numDependencies=545
+>>>>>>> origin/master
 package.numTargets=192
 project.charset=UTF-8
 simulation.speed=49
@@ -2055,8 +2112,13 @@ target105.x=10
 target105.y=1570
 target106.editor.height=773
 target106.editor.width=1103
+<<<<<<< HEAD
 target106.editor.x=526
 target106.editor.y=-944
+=======
+target106.editor.x=0
+target106.editor.y=23
+>>>>>>> origin/master
 target106.height=50
 target106.name=PlatformPlayer
 target106.naviview.expanded=true
@@ -2391,10 +2453,17 @@ target129.typeParameters=
 target129.width=110
 target129.x=140
 target129.y=3430
+<<<<<<< HEAD
 target13.editor.height=773
 target13.editor.width=1280
 target13.editor.x=0
 target13.editor.y=23
+=======
+target13.editor.height=1056
+target13.editor.width=1934
+target13.editor.x=-1928
+target13.editor.y=-8
+>>>>>>> origin/master
 target13.height=50
 target13.name=Space
 target13.naviview.expanded=true
@@ -2653,8 +2722,13 @@ target147.x=140
 target147.y=3250
 target148.editor.height=754
 target148.editor.width=1130
+<<<<<<< HEAD
 target148.editor.x=462
 target148.editor.y=-870
+=======
+target148.editor.x=150
+target148.editor.y=23
+>>>>>>> origin/master
 target148.height=50
 target148.name=Player
 target148.naviview.expanded=true
@@ -3342,11 +3416,19 @@ target21.x=190
 target21.y=2830
 target22.editor.height=700
 target22.editor.width=900
+<<<<<<< HEAD
 target22.editor.x=0
 target22.editor.y=96
 target22.height=50
 target22.name=Trapdoor
 target22.naviview.expanded=true
+=======
+target22.editor.x=40
+target22.editor.y=20
+target22.height=50
+target22.name=Trapdoor
+target22.naviview.expanded=false
+>>>>>>> origin/master
 target22.showInterface=false
 target22.type=ClassTarget
 target22.typeParameters=
@@ -3366,10 +3448,17 @@ target23.typeParameters=
 target23.width=80
 target23.x=220
 target23.y=1810
+<<<<<<< HEAD
 target24.editor.height=773
 target24.editor.width=1280
 target24.editor.x=0
 target24.editor.y=23
+=======
+target24.editor.height=1056
+target24.editor.width=1934
+target24.editor.x=-1928
+target24.editor.y=-8
+>>>>>>> origin/master
 target24.height=50
 target24.name=Level2
 target24.naviview.expanded=true
@@ -3377,7 +3466,11 @@ target24.showInterface=false
 target24.type=ClassTarget
 target24.typeParameters=
 target24.width=80
+<<<<<<< HEAD
 target24.x=220
+=======
+target24.x=100
+>>>>>>> origin/master
 target24.y=3910
 target25.editor.height=700
 target25.editor.width=900
@@ -3616,15 +3709,26 @@ target40.y=2110
 target41.editor.height=700
 target41.editor.width=900
 target41.editor.x=40
+<<<<<<< HEAD
 target41.editor.y=43
 target41.height=50
 target41.name=OpenTrapdoor
 target41.naviview.expanded=false
+=======
+target41.editor.y=20
+target41.height=50
+target41.name=OpenTrapdoor
+target41.naviview.expanded=true
+>>>>>>> origin/master
 target41.showInterface=false
 target41.type=ClassTarget
 target41.typeParameters=
 target41.width=110
+<<<<<<< HEAD
 target41.x=100
+=======
+target41.x=190
+>>>>>>> origin/master
 target41.y=3910
 target42.editor.height=700
 target42.editor.width=900
@@ -3743,10 +3847,17 @@ target5.typeParameters=
 target5.width=90
 target5.x=190
 target5.y=430
+<<<<<<< HEAD
 target50.editor.height=700
 target50.editor.width=900
 target50.editor.x=0
 target50.editor.y=23
+=======
+target50.editor.height=1056
+target50.editor.width=1936
+target50.editor.x=-1928
+target50.editor.y=-8
+>>>>>>> origin/master
 target50.height=50
 target50.name=Coin
 target50.naviview.expanded=true
@@ -4382,8 +4493,13 @@ target94.x=190
 target94.y=1570
 target95.editor.height=700
 target95.editor.width=900
+<<<<<<< HEAD
 target95.editor.x=183
 target95.editor.y=-841
+=======
+target95.editor.x=40
+target95.editor.y=43
+>>>>>>> origin/master
 target95.height=50
 target95.name=Planet
 target95.naviview.expanded=false
@@ -4446,4 +4562,8 @@ target99.width=100
 target99.x=10
 target99.y=3550
 version=2.7.1
+<<<<<<< HEAD
 world.lastInstantiated=Level6
+=======
+world.lastInstantiated=Level14
+>>>>>>> origin/master
