@@ -36,7 +36,6 @@ public class Planet extends SpaceObject
             miniMap(new PlanetMP());
         }
 
-        
 
         tryDrawLabel();
         if(firstTime){
@@ -61,7 +60,8 @@ public class Planet extends SpaceObject
         if(Player.aboutToPlayCompletedLevel == false){
             boolean com = true;
             for(int i = 0; i < 4; i++){
-                if(Player.levelsBeaten[sectorLevel][space.getSector(this)] != true){
+                
+                if(Player.levelsBeaten[i][space.getSector(this)] == false){
                     com = false;
                 }
             }
@@ -72,8 +72,7 @@ public class Planet extends SpaceObject
             Player.levelsBeaten[sectorLevel][space.getSector(this)] = false;
 
             isBeaten = false;
-            
-            
+
 
         }
     }
