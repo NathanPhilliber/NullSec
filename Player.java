@@ -226,6 +226,7 @@ public class Player extends Object implements DamageTaker
             checkDeath();
             respawn();
             flashWrongSector();
+            
             justHit = false;
         }
     } 
@@ -237,12 +238,15 @@ public class Player extends Object implements DamageTaker
     public void checkQuitWorld(){
 
         if(PlatformPlayer.quitting){
-            System.out.println("Quitting");
+
             PlatformPlayer.quitting = false;
 
             if(planetImGoingTo != null){
-                System.out.println("Resetting World to Incomplete");
+
+
                 planetImGoingTo.exitWorldWithoutWinning();
+                planetImGoingTo.isBeaten = false;
+
             }
 
         }
@@ -300,7 +304,7 @@ public class Player extends Object implements DamageTaker
 
     public boolean isInCorrectSector()
     {
-        return space.getSector(this) == workingSector;
+        return !inWrongSector;
     }
 
     public void flashWrongSector()
@@ -330,6 +334,7 @@ public class Player extends Object implements DamageTaker
     //Written by Trace
     public void checkDock(){
         if(Greenfoot.isKeyDown("e")){
+
             if(touch(Planet.class) && dockPressed == false){
                 dockPressed = true;
                 dockMenu();
@@ -1107,7 +1112,8 @@ public class Player extends Object implements DamageTaker
             updateGoldScore();
         }
         if(Greenfoot.isKeyDown("o")){
-            System.out.println(health);
+            System.out.println("Health: " +health);
+            System.out.println("WorkingSector: " +workingSector);
         }
     }
 
@@ -1210,7 +1216,6 @@ public class Player extends Object implements DamageTaker
     //Written by Nathan
     private void firstTime(){
         if(firstTime){
-
             checkQuitWorld();
             if(boostBarLevel > 0){
                 space.addObject(new BoostBarOutside(), space.getWidth()/2, space.getHeight()-32);

@@ -13,6 +13,7 @@ public class Planet extends SpaceObject
     String worldNumber;
     public boolean isBeaten = false;
     public int sectorLevel; //use a number 0-4
+    public int sector;
 
     private boolean firstTime = true;
 
@@ -35,10 +36,13 @@ public class Planet extends SpaceObject
             miniMap(new PlanetMP());
         }
 
+        
+
         tryDrawLabel();
         if(firstTime){
             firstTime = false;
-            if(Player.levelsBeaten[sectorLevel][space.getSector(this)]){
+            sector = space.getSector(this);
+            if(Player.levelsBeaten[sectorLevel][sector]){
                 //GreenfootImage image=getImage();
                 //image.setColor(Color.WHITE);
                 //image.fill();
@@ -47,15 +51,30 @@ public class Planet extends SpaceObject
                 isBeaten = true;
             }
         }
+
+        isBeaten = Player.levelsBeaten[sectorLevel][sector];
         //checkDock();
     }
 
     public void exitWorldWithoutWinning(){
-        System.out.println(Player.aboutToPlayCompletedLevel);
+
         if(Player.aboutToPlayCompletedLevel == false){
-            System.out.println("IM FUCKING HERE");
+            boolean com = true;
+            for(int i = 0; i < 4; i++){
+                if(Player.levelsBeaten[sectorLevel][space.getSector(this)] != true){
+                    com = false;
+                }
+            }
+            if(com){
+                Player.workingSector--;
+            }
+
             Player.levelsBeaten[sectorLevel][space.getSector(this)] = false;
+
             isBeaten = false;
+            
+            
+
         }
     }
 
@@ -68,11 +87,11 @@ public class Planet extends SpaceObject
 
         if(Player.levelsBeaten[sectorLevel][space.getSector(this)]){
             Player.aboutToPlayCompletedLevel = true;
-            System.out.println("THIS LEVEL IS ALREADY FUCKING DONE");
+
         }
         else{
             Player.aboutToPlayCompletedLevel = false;
-            System.out.println("THIS LEVEL IS FUCKING NEW");
+
         }
 
         Player.levelsBeaten[sectorLevel][space.getSector(this)] = true;
@@ -102,19 +121,19 @@ public class Planet extends SpaceObject
                 label.remove();
                 labelInWorld = false;
 
-                if(isBeaten){
-                    space.removeObject(complete);
-                }
+                space.removeObject(complete);
             }
             List<Actor> objects = getWorld().getObjectsAt(mouse.getX(), mouse.getY(), Planet.class);
             for (Actor object : objects)
             {
                 if (object == this)
                 {
+
                     space.addObject(label, getX(), getY()-25);
                     labelInWorld = true;
 
                     if(isBeaten){
+
                         space.addObject(complete, getX()+10, getY()+25);
                     }
 
