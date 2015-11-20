@@ -65,7 +65,7 @@ public class PlatformPlayer extends PlatformObject
 
     private boolean escDown = false;
     private boolean escUp = true;
-    
+
     public static boolean pauseEverything = false;
     public static boolean quitting = false;
 
@@ -100,7 +100,6 @@ public class PlatformPlayer extends PlatformObject
         velY = 0;
         setImage(standRight.getCurrentImage());
         pauseEverything = false;
-        
 
     }
     //Written by John
@@ -136,7 +135,7 @@ public class PlatformPlayer extends PlatformObject
         firstAct();
         pausePlayerHelper();
         checkEsc();
-        
+
         if(playerPaused == false && pauseEverything == false){
             if(locked == false){
                 jump();
@@ -155,7 +154,7 @@ public class PlatformPlayer extends PlatformObject
     }
 
     public void checkEsc(){
-        
+
         if(!Greenfoot.isKeyDown("escape")){
             escUp = true;
 
@@ -182,7 +181,7 @@ public class PlatformPlayer extends PlatformObject
         }
 
     }
-    
+
     public void returnToSpace(){
         quitting = true;
         System.out.println(quitting);
@@ -240,6 +239,8 @@ public class PlatformPlayer extends PlatformObject
                 lockPlayerMovement(true);
             }
             else if(object instanceof LavaBlock){
+                GreenfootSound chime = new GreenfootSound("sounds/lavasizzle.wav");
+                chime.play();
                 kill();
             }
             else if(object instanceof WaterBlock){
@@ -307,6 +308,8 @@ public class PlatformPlayer extends PlatformObject
             }
         }
         else if(anySpike){
+            GreenfootSound chime = new GreenfootSound("sounds/spikehit.wav");
+            chime.play();
             kill();
         }
         else if(anyBullet){
@@ -682,8 +685,8 @@ public class PlatformPlayer extends PlatformObject
         }
 
         if(w.getYOffset()>maxYScroll){
-                w.setYOffset(maxYScroll);
-            }
+            w.setYOffset(maxYScroll);
+        }
 
         setLocation(getRealX()-w.getXOffset(),getRealY()-w.getYOffset());//end of scroll
     }

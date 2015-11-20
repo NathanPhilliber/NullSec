@@ -19,6 +19,11 @@ public class BulletLauncher extends Block
             else if(rotation == 180){
                 getWorld().addObject(new Bullet(rotation),getX()-20,getY());
             }
+
+            if((getX()>0&&getX()<w.getWidth())&&(getY()>0&&getY()<w.getHeight())){
+                GreenfootSound chime = new GreenfootSound("sounds/turretshoot.wav");
+                chime.play();
+            }
         }
 
     }   
@@ -28,6 +33,7 @@ public class BulletLauncher extends Block
         super(blockType);
         rotation = direction;
     }
+
     public BulletLauncher()
     {
         this(0,0);

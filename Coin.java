@@ -30,6 +30,8 @@ public class Coin extends NoCollisionBlock
 
     public void pickup(){
         Player.goldPotential++;
+        GreenfootSound chime = new GreenfootSound("sounds/goldchime.wav");
+        chime.play();
         w.removeObject(this);
     }
 }

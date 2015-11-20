@@ -2,7 +2,6 @@ import greenfoot.*;
 
 //Written by Nathan
 
-
 public class FallingBlock extends Block
 {
     private boolean isFalling = false;
@@ -35,6 +34,7 @@ public class FallingBlock extends Block
 
     public void startFalling(){
         if(isFalling == false){
+
             isFalling = true;
             curDelay = delayToFall;
         }
@@ -46,7 +46,11 @@ public class FallingBlock extends Block
                 curDelay--;
             }
             else{
-
+                if(curDelay==0){
+                    GreenfootSound chime = new GreenfootSound("sounds/fallblock.wav");
+                    chime.play();
+                    curDelay--;
+                }
                 setRealY(getRealY()+fallSpeed);
                 if(getY() > 1200){
                     isFalling = false;
