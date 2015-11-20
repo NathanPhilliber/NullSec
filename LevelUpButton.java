@@ -48,6 +48,7 @@ public class LevelUpButton extends WeaponShop
     }
 
     public void select(boolean sel){
+        
         isSelected = sel;
 
         if(isSelected){

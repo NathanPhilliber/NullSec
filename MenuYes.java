@@ -19,8 +19,9 @@ public class MenuYes extends DockMenu
     {
         if(Greenfoot.mouseClicked(this))
         {
-           
-            
+
+            GreenfootSound ding = new GreenfootSound("sounds/buttonSound.wav");
+            ding.play();
             space.getShip().dockWorld();
             space.getShip().resetDockMenu();
             space.setPause = false;

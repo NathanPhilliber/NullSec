@@ -25,6 +25,8 @@ public class MapBackButton extends Menu
     }   
     
     public void select(boolean sel){
+        GreenfootSound ding = new GreenfootSound("sounds/buttonSound.wav");
+            ding.play();
         if(sel){
             Space space = (Space) getWorld();
             space.openMap(true);

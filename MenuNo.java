@@ -11,7 +11,8 @@ public class MenuNo extends DockMenu
     {
         if(Greenfoot.mouseClicked(this))
         {
-            
+            GreenfootSound ding = new GreenfootSound("sounds/buttonSound.wav");
+            ding.play();
             Ship ship = space.getShip();
             ship.resetDockMenu();
             removeDockMenu();

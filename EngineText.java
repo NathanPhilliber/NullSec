@@ -17,6 +17,7 @@ public class EngineText extends WeaponShop
 
         if(Greenfoot.mousePressed(this)){
             shop.weaponButton.select(true);
+            
         }
 
     }    

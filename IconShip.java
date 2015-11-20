@@ -53,6 +53,8 @@ public class IconShip extends Menu
     {
         if(Greenfoot.isKeyDown("ENTER"))
         {
+            GreenfootSound ding = new GreenfootSound("sounds/buttonSound.wav");
+            ding.play();
             if(getY() == 280)
             {
                 music.stop();

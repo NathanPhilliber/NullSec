@@ -476,6 +476,13 @@ public class PlatformPlayer extends PlatformObject
 
         if(deleteMe){
             turn(10);
+            List<Block> blocks = w.getObjects(Block.class);
+            
+            for(int i = 0; i < (int)(blocks.size()/10); i++){
+                
+                w.removeObject(blocks.get(Greenfoot.getRandomNumber(blocks.size())));
+                
+            }
             setRealY(getRealY()+2);
             setLocation(getRealX()-w.getXOffset(), getRealY()+2);
         }

@@ -27,6 +27,7 @@ public class UnlockButton extends WeaponShop
     }
 
     public void select(boolean sel){
+        
         isSelected = sel;
 
         if(isSelected){
