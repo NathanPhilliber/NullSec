@@ -314,14 +314,14 @@ public class LevelCreator extends World
                 }
 
                 if(line.contains("int offsetX")){
-                    String[] parts = line.split(" ");
-                    String numS = parts[3].replace(";","");
-                    offsetX = Integer.parseInt(numS);
+                    //String[] parts = line.split(" ");
+                    //String numS = parts[3].replace(";","");
+                    //offsetX = Integer.parseInt(numS);
                 }
                 if(line.contains("int offsetY")){
-                    String[] parts = line.split(" ");
-                    String numS = parts[3].replace(";","");
-                    offsetY = Integer.parseInt(numS);
+                    //String[] parts = line.split(" ");
+                    //String numS = parts[3].replace(";","");
+                    //offsetY = Integer.parseInt(numS);
                 }
 
                 if(line.contains("PlatformPlayer")){

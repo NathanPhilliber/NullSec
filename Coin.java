@@ -11,12 +11,13 @@ public class Coin extends NoCollisionBlock
     
     public Coin(int blockType){
         super();
+        setImage(coinAnimation.getCurrentImage());
     }
     
     public void act() 
     {
         super.act();
-        setImage(coinAnimation.getCurrentImage());
+        //setImage(coinAnimation.getCurrentImage());
     }  
     
     public void pickup(){
