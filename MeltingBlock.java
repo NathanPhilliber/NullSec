@@ -9,7 +9,7 @@ public class MeltingBlock extends Block
     private int delayDelete = 0;
     private int delay = 0;
     private boolean start = false;
-    
+
     public int meltDelay = 9;
 
     MeltingBlock left = null;
@@ -62,6 +62,8 @@ public class MeltingBlock extends Block
     }
 
     public void melt(int f){
+
+        
 
         deleteMe = true;
         start = true;
