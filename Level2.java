@@ -1150,7 +1150,7 @@ addObject(new Block(0),1552+offsetX,310+offsetY);
 addObject(new Block(0),1498+offsetX,283+offsetY);
 addObject(new Block(0),1552+offsetX,283+offsetY);
 addObject(new ExitPortal(),1525+offsetX,175+offsetY);
-addObject(new PlatformPlayer(1,2000-540),67+offsetX,121+offsetY);
+addObject(new PlatformPlayer(1,0,2000),67+offsetX,121+offsetY);
 addObject(new TraceHead(91),1552+offsetX,1309+offsetY);
 addObject(new TraceHead(91),1525+offsetX,1309+offsetY);
 addObject(new TraceHead(91),1498+offsetX,1309+offsetY);
