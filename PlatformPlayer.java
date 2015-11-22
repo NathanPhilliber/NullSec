@@ -93,6 +93,7 @@ public class PlatformPlayer extends PlatformObject
         setRealX(getX());
         setRealY(getY());
         setUpGoldScore();
+        locked = false;
     }
     //Written by John
     public PlatformPlayer()
@@ -194,6 +195,7 @@ public class PlatformPlayer extends PlatformObject
     public void firstAct(){
         if(firstAct){
             firstAct = false;
+            locked = false;
             if(Player.aboutToPlayCompletedLevel){
                 w.removeObjects(w.getObjects(Coin.class));
             }

@@ -10,11 +10,11 @@ public class MovingNonPlayer extends NonPlayer
     GifImage standRight = new GifImage("Alien1StandRight.png");
     GifImage standLeft = new GifImage("Alien1StandLeft.png");
 
-    private boolean hitLeft = true;
-    private boolean hitRight = false;
+    protected boolean hitLeft = true;
+    protected boolean hitRight = false;
     private boolean walkBackAndForth = false;
     private boolean isWalker = false;
-    private boolean onBlock = true;
+    protected boolean onBlock = true;
 
     public double walkSpeed = 1;
     public double jumpSpeed = 4;
