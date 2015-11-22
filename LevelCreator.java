@@ -267,6 +267,9 @@ public class LevelCreator extends World
                     else if(thisBlock.myImage == 98){
                         writer.write("addObject(new Trapdoor(" + (thisBlock.myImage)+"),"+ object.getX()+"+offsetX,"+object.getY()+"+offsetY);\n");
                     }
+                    else if(thisBlock.myImage == 99){
+                        writer.write("addObject(new Alien(),"+ object.getX()+"+offsetX,"+object.getY()+"+offsetY);\n");
+                    }
                     else{
                         writer.write("addObject(new Block(" + thisBlock.myImage+"),"+ object.getX()+"+offsetX,"+object.getY()+"+offsetY);\n");
                     }
@@ -473,6 +476,17 @@ public class LevelCreator extends World
                     String type = parts2[2].replace(")","");
 
                     addObject(new LevelCreatorBlock(Integer.parseInt(type)), Integer.parseInt(x)+offsetX, Integer.parseInt(y)+offsetY);
+                }
+                if(line.contains("new Alien")){
+                    String[] parts = line.split(",");
+                    String x = parts[1].replace("+offsetX","");
+                    String y = parts[2].replace("+offsetY);","");
+
+                    System.out.println(parts[0]);
+                    String[] parts2 = parts[0].split("\\(");
+                    String type = parts2[2].replace(")","");
+
+                    addObject(new LevelCreatorBlock(99), Integer.parseInt(x)+offsetX, Integer.parseInt(y)+offsetY);
                 }
 
                 if(line.contains("new Cart")){

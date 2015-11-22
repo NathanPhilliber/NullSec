@@ -50,6 +50,9 @@ public class LevelCreatorPallet extends LevelCreatorObject
             else if(i == 5){
                 world.addObject(new LevelCreatorPalletBlock(i), mouseX-10+row*(27+spaceBetween), 85+5+column*(27+spaceBetween));
             }
+            else if(i == 99){
+                world.addObject(new LevelCreatorPalletBlock(i), mouseX-220+row*(27+spaceBetween), 85+5+column*(27+spaceBetween));
+            }
             else{
                 world.addObject(new LevelCreatorPalletBlock(i), mouseX+25+row*(27+spaceBetween), 85+column*(27+spaceBetween));
             }
