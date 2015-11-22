@@ -50,6 +50,7 @@ public class LevelCreatorDisplayBlock extends LevelCreatorObject
         exceptions.add(75);
         exceptions.add(82);
         exceptions.add(83);
+        exceptions.add(84);
         exceptions.add(85);
         exceptions.add(86);
         exceptions.add(87);

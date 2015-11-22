@@ -4,11 +4,11 @@ import greenfoot.*;
 //Level designed by: 
 
 
-public class Level$ extends Platformer{
-public Level$(){
+public class Level26 extends Platformer{
+public Level26(){
 this(0,0);
 }
-public Level$(double x, double y){
+public Level26(double x, double y){
 	super(x,y);
 
 
@@ -16,6 +16,8 @@ public Level$(double x, double y){
 
 int offsetX = 0;
 int offsetY = (getHeight()-540)/2;
+
+
 
 setBackground("PlanetOneBG.png");
 addObject(new Block(40),13+offsetX,148+offsetY);
@@ -563,18 +565,8 @@ addObject(new Block(40),2011+offsetX,553+offsetY);
 addObject(new Block(40),2038+offsetX,553+offsetY);
 addObject(new Block(40),2065+offsetX,553+offsetY);
 addObject(new Block(40),2065+offsetX,526+offsetY);
-addObject(new BackgroundBlock(40),2065+offsetX,472+offsetY);
-addObject(new BulletLauncher(85,0),2065+offsetX,472+offsetY);
-addObject(new BackgroundBlock(40),2038+offsetX,445+offsetY);
-addObject(new BulletLauncher(85,0),2038+offsetX,445+offsetY);
-addObject(new BackgroundBlock(40),2065+offsetX,445+offsetY);
 addObject(new BackgroundBlock(40),2065+offsetX,391+offsetY);
 addObject(new BulletLauncher(85,0),2065+offsetX,391+offsetY);
-addObject(new BackgroundBlock(40),2011+offsetX,310+offsetY);
-addObject(new BulletLauncher(85,0),2011+offsetX,310+offsetY);
-addObject(new BackgroundBlock(40),2011+offsetX,229+offsetY);
-addObject(new BulletLauncher(85,0),2011+offsetX,229+offsetY);
-addObject(new BackgroundBlock(40),2038+offsetX,229+offsetY);
 addObject(new BackgroundBlock(40),1957+offsetX,121+offsetY);
 addObject(new BulletLauncher(85,0),1957+offsetX,121+offsetY);
 addObject(new BackgroundBlock(40),1984+offsetX,121+offsetY);
@@ -650,11 +642,9 @@ addObject(new Block(40),3010+offsetX,310+offsetY);
 addObject(new Block(40),3010+offsetX,283+offsetY);
 addObject(new Block(40),2929+offsetX,310+offsetY);
 addObject(new Block(40),2956+offsetX,310+offsetY);
-addObject(new Block(40),2929+offsetX,283+offsetY);
 addObject(new Block(40),2956+offsetX,256+offsetY);
 addObject(new Block(40),2983+offsetX,256+offsetY);
 addObject(new Block(40),2929+offsetX,175+offsetY);
-addObject(new Block(40),2929+offsetX,202+offsetY);
 addObject(new Block(40),2956+offsetX,175+offsetY);
 addObject(new Block(40),2956+offsetX,229+offsetY);
 addObject(new Block(40),2983+offsetX,175+offsetY);
@@ -756,9 +746,6 @@ addObject(new BackgroundBlock(40),3982+offsetX,121+offsetY);
 addObject(new BackgroundBlock(40),4009+offsetX,121+offsetY);
 addObject(new BackgroundBlock(40),4009+offsetX,175+offsetY);
 addObject(new BackgroundBlock(40),4009+offsetX,148+offsetY);
-addObject(new BackgroundBlock(40),4036+offsetX,121+offsetY);
-addObject(new BackgroundBlock(40),4090+offsetX,121+offsetY);
-addObject(new BackgroundBlock(40),4063+offsetX,121+offsetY);
 addObject(new BackgroundBlock(40),4090+offsetX,148+offsetY);
 addObject(new BackgroundBlock(40),4063+offsetX,148+offsetY);
 addObject(new BackgroundBlock(40),4063+offsetX,175+offsetY);
@@ -780,19 +767,13 @@ addObject(new BackgroundBlock(40),4171+offsetX,553+offsetY);
 addObject(new BackgroundBlock(40),4225+offsetX,553+offsetY);
 addObject(new BackgroundBlock(40),4198+offsetX,553+offsetY);
 addObject(new BackgroundBlock(40),4225+offsetX,526+offsetY);
-addObject(new BackgroundBlock(40),3955+offsetX,391+offsetY);
-addObject(new BulletLauncher(86,180),3955+offsetX,391+offsetY);
 addObject(new BackgroundBlock(40),3955+offsetX,364+offsetY);
-addObject(new BackgroundBlock(40),3982+offsetX,391+offsetY);
-addObject(new BackgroundBlock(40),4009+offsetX,337+offsetY);
-addObject(new BulletLauncher(86,180),4009+offsetX,337+offsetY);
 addObject(new BackgroundBlock(40),4009+offsetX,391+offsetY);
 addObject(new BackgroundBlock(40),4036+offsetX,391+offsetY);
 addObject(new BackgroundBlock(40),4090+offsetX,391+offsetY);
 addObject(new BackgroundBlock(40),4063+offsetX,391+offsetY);
 addObject(new BackgroundBlock(40),4036+offsetX,364+offsetY);
 addObject(new BackgroundBlock(40),4063+offsetX,364+offsetY);
-addObject(new BackgroundBlock(40),4036+offsetX,337+offsetY);
 addObject(new BackgroundBlock(40),4063+offsetX,337+offsetY);
 addObject(new BackgroundBlock(40),3955+offsetX,229+offsetY);
 addObject(new BackgroundBlock(40),3955+offsetX,256+offsetY);
@@ -810,8 +791,6 @@ addObject(new BackgroundBlock(40),3982+offsetX,256+offsetY);
 addObject(new BackgroundBlock(40),4036+offsetX,229+offsetY);
 addObject(new BackgroundBlock(40),4063+offsetX,229+offsetY);
 addObject(new BackgroundBlock(40),4090+offsetX,202+offsetY);
-addObject(new BackgroundBlock(40),4117+offsetX,202+offsetY);
-addObject(new BulletLauncher(86,180),4117+offsetX,202+offsetY);
 addObject(new BackgroundBlock(40),4144+offsetX,202+offsetY);
 addObject(new BackgroundBlock(40),4198+offsetX,310+offsetY);
 addObject(new BackgroundBlock(40),4090+offsetX,364+offsetY);
@@ -867,8 +846,6 @@ addObject(new SlimeBlock(88),4441+offsetX,391+offsetY);
 addObject(new SlimeBlock(88),4468+offsetX,391+offsetY);
 addObject(new SlimeBlock(88),4495+offsetX,391+offsetY);
 addObject(new BulletLauncher(85,0),4144+offsetX,202+offsetY);
-addObject(new BulletLauncher(85,0),4036+offsetX,337+offsetY);
-addObject(new BulletLauncher(85,0),3982+offsetX,391+offsetY);
 addObject(new BulletLauncher(85,0),3982+offsetX,283+offsetY);
 addObject(new BulletLauncher(85,0),4306+offsetX,121+offsetY);
 addObject(new Block(40),4819+offsetX,553+offsetY);
@@ -1095,8 +1072,6 @@ addObject(new Block(41),1876+offsetX,445+offsetY);
 addObject(new Block(41),1849+offsetX,445+offsetY);
 addObject(new Block(41),1849+offsetX,418+offsetY);
 addObject(new Block(41),1822+offsetX,418+offsetY);
-addObject(new BackgroundBlock(41),2065+offsetX,310+offsetY);
-addObject(new BackgroundBlock(41),2038+offsetX,310+offsetY);
 addObject(new Block(41),2011+offsetX,148+offsetY);
 addObject(new Block(41),2011+offsetX,175+offsetY);
 addObject(new Block(41),1984+offsetX,175+offsetY);
@@ -1125,8 +1100,6 @@ addObject(new Block(41),2713+offsetX,472+offsetY);
 addObject(new Block(41),3010+offsetX,202+offsetY);
 addObject(new Block(41),2983+offsetX,202+offsetY);
 addObject(new Block(41),2956+offsetX,202+offsetY);
-addObject(new Block(41),2929+offsetX,229+offsetY);
-addObject(new Block(41),2929+offsetX,256+offsetY);
 addObject(new Block(41),2956+offsetX,283+offsetY);
 addObject(new Block(41),2983+offsetX,283+offsetY);
 addObject(new Block(41),2983+offsetX,310+offsetY);
@@ -1457,5 +1430,75 @@ addObject(new Coin(90),715+offsetX,202+offsetY);
 addObject(new Coin(90),256+offsetX,67+offsetY);
 addObject(new Coin(90),229+offsetX,67+offsetY);
 addObject(new Coin(90),202+offsetX,67+offsetY);
+addObject(new Block(40),3739+offsetX,337+offsetY);
+addObject(new Block(40),3739+offsetX,310+offsetY);
+addObject(new Block(40),3739+offsetX,283+offsetY);
+addObject(new Block(40),3739+offsetX,256+offsetY);
+addObject(new Block(40),3739+offsetX,229+offsetY);
+addObject(new Block(40),3739+offsetX,202+offsetY);
+addObject(new Block(40),3739+offsetX,175+offsetY);
+addObject(new Block(40),3739+offsetX,148+offsetY);
+addObject(new Block(40),3739+offsetX,121+offsetY);
+addObject(new Block(40),3739+offsetX,94+offsetY);
+addObject(new Block(40),2875+offsetX,202+offsetY);
+addObject(new Block(40),2902+offsetX,202+offsetY);
+addObject(new Block(40),2929+offsetX,202+offsetY);
+addObject(new Block(40),2929+offsetX,229+offsetY);
+addObject(new Block(40),2929+offsetX,283+offsetY);
+addObject(new Block(40),2929+offsetX,256+offsetY);
+addObject(new Block(40),2848+offsetX,229+offsetY);
+addObject(new Block(40),2902+offsetX,229+offsetY);
+addObject(new Block(40),2902+offsetX,256+offsetY);
+addObject(new Block(40),2902+offsetX,310+offsetY);
+addObject(new Block(40),2902+offsetX,283+offsetY);
+addObject(new Block(40),2821+offsetX,256+offsetY);
+addObject(new Block(40),2848+offsetX,256+offsetY);
+addObject(new Block(40),2821+offsetX,283+offsetY);
+addObject(new Block(40),2848+offsetX,283+offsetY);
+addObject(new Block(40),2848+offsetX,337+offsetY);
+addObject(new Block(40),2821+offsetX,364+offsetY);
+addObject(new Block(40),2848+offsetX,364+offsetY);
+addObject(new Block(40),2875+offsetX,364+offsetY);
+addObject(new Block(40),2875+offsetX,337+offsetY);
+addObject(new Block(40),2794+offsetX,364+offsetY);
+addObject(new Block(40),2794+offsetX,337+offsetY);
+addObject(new Block(40),2848+offsetX,391+offsetY);
+addObject(new Block(41),2821+offsetX,310+offsetY);
+addObject(new Block(41),2821+offsetX,337+offsetY);
+addObject(new Block(41),2848+offsetX,310+offsetY);
+addObject(new Block(41),2875+offsetX,310+offsetY);
+addObject(new Block(41),2875+offsetX,283+offsetY);
+addObject(new Block(41),2875+offsetX,256+offsetY);
+addObject(new Block(41),2875+offsetX,229+offsetY);
+addObject(new Block(40),2038+offsetX,445+offsetY);
+addObject(new Block(40),2065+offsetX,445+offsetY);
+addObject(new Block(40),2065+offsetX,472+offsetY);
+addObject(new Block(40),2065+offsetX,310+offsetY);
+addObject(new Block(40),2038+offsetX,310+offsetY);
+addObject(new Block(40),2011+offsetX,310+offsetY);
+addObject(new Block(40),2038+offsetX,229+offsetY);
+addObject(new Block(40),2011+offsetX,229+offsetY);
+addObject(new Block(40),4630+offsetX,202+offsetY);
+addObject(new Block(40),4576+offsetX,121+offsetY);
+addObject(new BackgroundBlock(40),4603+offsetX,121+offsetY);
+addObject(new BackgroundBlock(40),4630+offsetX,148+offsetY);
+addObject(new BackgroundBlock(40),4630+offsetX,175+offsetY);
+addObject(new BackgroundBlock(40),4603+offsetX,175+offsetY);
+addObject(new BackgroundBlock(40),4603+offsetX,202+offsetY);
+addObject(new BackgroundBlock(40),4630+offsetX,229+offsetY);
+addObject(new BackgroundBlock(40),4657+offsetX,229+offsetY);
+addObject(new BackgroundBlock(40),4657+offsetX,256+offsetY);
+addObject(new BackgroundBlock(40),4630+offsetX,256+offsetY);
+addObject(new BackgroundBlock(40),4657+offsetX,283+offsetY);
+addObject(new BackgroundBlock(40),4684+offsetX,283+offsetY);
+addObject(new BackgroundBlock(40),4684+offsetX,310+offsetY);
+addObject(new BackgroundBlock(40),4684+offsetX,337+offsetY);
+addObject(new BackgroundBlock(40),4036+offsetX,337+offsetY);
+addObject(new BackgroundBlock(40),4009+offsetX,337+offsetY);
+addObject(new BackgroundBlock(40),4117+offsetX,202+offsetY);
+addObject(new BackgroundBlock(40),4198+offsetX,337+offsetY);
+addObject(new BackgroundBlock(40),4090+offsetX,121+offsetY);
+addObject(new BackgroundBlock(40),4063+offsetX,121+offsetY);
+addObject(new BackgroundBlock(40),4036+offsetX,121+offsetY);
 }
 }

@@ -429,6 +429,42 @@ public class LevelCreator extends World
 
                     addObject(new LevelCreatorBlock(Integer.parseInt(type)), Integer.parseInt(x)+offsetX, Integer.parseInt(y)+offsetY);
                 }
+                
+                if(line.contains("new Wire")){
+                    String[] parts = line.split(",");
+                    String x = parts[1].replace("+offsetX","");
+                    String y = parts[2].replace("+offsetY);","");
+
+                    System.out.println(parts[0]);
+                    String[] parts2 = parts[0].split("\\(");
+                    String type = parts2[2].replace(")","");
+
+                    addObject(new LevelCreatorBlock(Integer.parseInt(type)), Integer.parseInt(x)+offsetX, Integer.parseInt(y)+offsetY);
+                }
+                
+                if(line.contains("new TrapDoor")){
+                    String[] parts = line.split(",");
+                    String x = parts[1].replace("+offsetX","");
+                    String y = parts[2].replace("+offsetY);","");
+
+                    System.out.println(parts[0]);
+                    String[] parts2 = parts[0].split("\\(");
+                    String type = parts2[2].replace(")","");
+
+                    addObject(new LevelCreatorBlock(Integer.parseInt(type)), Integer.parseInt(x)+offsetX, Integer.parseInt(y)+offsetY);
+                }
+                
+                if(line.contains("new WireButton")){
+                    String[] parts = line.split(",");
+                    String x = parts[1].replace("+offsetX","");
+                    String y = parts[2].replace("+offsetY);","");
+
+                    System.out.println(parts[0]);
+                    String[] parts2 = parts[0].split("\\(");
+                    String type = parts2[2].replace(")","");
+
+                    addObject(new LevelCreatorBlock(Integer.parseInt(type)), Integer.parseInt(x)+offsetX, Integer.parseInt(y)+offsetY);
+                }
 
                 if(line.contains("new FallingBlock")){
                     String[] parts = line.split(",");
