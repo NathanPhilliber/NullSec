@@ -90,6 +90,26 @@ public class OuterSpace extends Space
         addObject(planet12,3000, 0);
         //Planet shopPlanet = new Planet(0,2000, new Shop(), "images/PlanetShop.png");
         //addObject(shopPlanet, 3000, 0); 
+        
+        
+        //Sector 3
+        Planet planet13 = new Planet(-1097, 3765,  new Level15(20160,630), "images/Planet14.png", "11", 0);
+        addObject(planet13,3000, 0);
+        
+
+        Planet planet14 = new Planet(-2071, 5466,  new Level15(18150,590), "images/Planet16.png", "10", 1);
+        addObject(planet14,3000, 0);
+        //green planet
+
+        Planet planet15 = new Planet(-131, 5466,  new Level7(19200,2280), "images/Planet15.png", "12", 2);
+        addObject(planet15,3000, 0);
+        //white planet
+
+        Planet planet16 = new Planet(1690, 5433,  new Level7(17185,1150), "images/Planet9.png", "9", 3);
+        addObject(planet16,3000, 0);
+        //brown planet
+        
+      
 
     }
 
