@@ -1,4 +1,21 @@
-//Level Generated
+import greenfoot.*;
+
+/**
+ * Write a description of class Level40 here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class Level40 extends Platformer
+{
+
+    public Level40(){
+        this(0,0);
+    }
+
+    public Level40(double x, double y)
+    {
+      //Level Generated
 
 int offsetX = 0;
 int offsetY = (getHeight()-540)/2;
@@ -144,10 +161,6 @@ addObject(new Block(49),40+offsetX,229+offsetY);
 addObject(new Block(49),67+offsetX,229+offsetY);
 addObject(new Block(49),13+offsetX,202+offsetY);
 addObject(new Block(49),67+offsetX,202+offsetY);
-addObject(new Trapdoor(98),283+offsetX,175+offsetY);
-addObject(new Trapdoor(98),310+offsetX,175+offsetY);
-addObject(new Trapdoor(98),337+offsetX,175+offsetY);
-addObject(new Trapdoor(98),364+offsetX,175+offsetY);
 addObject(new Block(49),391+offsetX,283+offsetY);
 addObject(new Block(49),418+offsetX,283+offsetY);
 addObject(new Block(49),445+offsetX,283+offsetY);
@@ -428,9 +441,6 @@ addObject(new Wire(96),1039+offsetX,364+offsetY);
 addObject(new Block(49),1066+offsetX,391+offsetY);
 addObject(new Block(49),1066+offsetX,364+offsetY);
 addObject(new Block(49),1066+offsetX,337+offsetY);
-addObject(new Trapdoor(98),1093+offsetX,256+offsetY);
-addObject(new Trapdoor(98),1120+offsetX,256+offsetY);
-addObject(new Trapdoor(98),1147+offsetX,256+offsetY);
 addObject(new Block(27),1174+offsetX,256+offsetY);
 addObject(new Block(27),1201+offsetX,256+offsetY);
 addObject(new Block(27),1174+offsetX,229+offsetY);
@@ -578,10 +588,6 @@ addObject(new Block(49),1579+offsetX,337+offsetY);
 addObject(new Block(49),1525+offsetX,310+offsetY);
 addObject(new Block(49),1579+offsetX,310+offsetY);
 addObject(new Block(49),1552+offsetX,310+offsetY);
-addObject(new Trapdoor(98),1606+offsetX,283+offsetY);
-addObject(new Trapdoor(98),1633+offsetX,283+offsetY);
-addObject(new Trapdoor(98),1660+offsetX,283+offsetY);
-addObject(new Trapdoor(98),1687+offsetX,283+offsetY);
 addObject(new Block(27),1714+offsetX,283+offsetY);
 addObject(new Block(27),1741+offsetX,283+offsetY);
 addObject(new Block(27),1768+offsetX,283+offsetY);
@@ -918,11 +924,6 @@ addObject(new Block(49),2173+offsetX,229+offsetY);
 addObject(new Block(49),2119+offsetX,202+offsetY);
 addObject(new Block(49),2173+offsetX,202+offsetY);
 addObject(new WireButton(97),1876+offsetX,445+offsetY);
-addObject(new Trapdoor(98),2092+offsetX,175+offsetY);
-addObject(new Trapdoor(98),2065+offsetX,175+offsetY);
-addObject(new Trapdoor(98),2038+offsetX,175+offsetY);
-addObject(new Trapdoor(98),2011+offsetX,175+offsetY);
-addObject(new Trapdoor(98),1984+offsetX,175+offsetY);
 addObject(new Block(49),1903+offsetX,175+offsetY);
 addObject(new Block(49),1930+offsetX,175+offsetY);
 addObject(new Block(49),1957+offsetX,175+offsetY);
@@ -1069,7 +1070,6 @@ addObject(new Wire(96),1849+offsetX,499+offsetY);
 addObject(new Wire(96),1822+offsetX,499+offsetY);
 addObject(new Wire(96),1795+offsetX,499+offsetY);
 addObject(new Wire(96),1768+offsetX,499+offsetY);
-addObject(new Wire(96),1714+offsetX,499+offsetY);
 addObject(new Wire(96),1741+offsetX,499+offsetY);
 addObject(new Wire(96),1741+offsetX,472+offsetY);
 addObject(new Wire(96),1741+offsetX,445+offsetY);
@@ -1082,7 +1082,6 @@ addObject(new Wire(96),1741+offsetX,283+offsetY);
 addObject(new Wire(96),1741+offsetX,256+offsetY);
 addObject(new Wire(96),1741+offsetX,229+offsetY);
 addObject(new Wire(96),1741+offsetX,202+offsetY);
-addObject(new Wire(96),1741+offsetX,148+offsetY);
 addObject(new Wire(96),1741+offsetX,175+offsetY);
 addObject(new Wire(96),1768+offsetX,175+offsetY);
 addObject(new Wire(96),1795+offsetX,175+offsetY);
@@ -1092,6 +1091,114 @@ addObject(new Wire(96),1876+offsetX,175+offsetY);
 addObject(new Wire(96),1903+offsetX,175+offsetY);
 addObject(new Wire(96),1930+offsetX,175+offsetY);
 addObject(new Wire(96),1957+offsetX,175+offsetY);
+addObject(new ExitPortal(),2200+offsetX,94+offsetY);
+addObject(new Trapdoor(98),283+offsetX,175+offsetY);
+addObject(new Trapdoor(98),310+offsetX,175+offsetY);
+addObject(new Trapdoor(98),337+offsetX,175+offsetY);
+addObject(new Trapdoor(98),364+offsetX,175+offsetY);
+addObject(new Trapdoor(98),1093+offsetX,256+offsetY);
+addObject(new Trapdoor(98),1120+offsetX,256+offsetY);
+addObject(new Trapdoor(98),1147+offsetX,256+offsetY);
+addObject(new Trapdoor(98),1984+offsetX,175+offsetY);
+addObject(new Trapdoor(98),2011+offsetX,175+offsetY);
+addObject(new Trapdoor(98),2038+offsetX,175+offsetY);
+addObject(new Trapdoor(98),2065+offsetX,175+offsetY);
+addObject(new Trapdoor(98),2092+offsetX,175+offsetY);
+addObject(new Trapdoor(98),1606+offsetX,283+offsetY);
+addObject(new Trapdoor(98),1633+offsetX,283+offsetY);
+addObject(new Trapdoor(98),1660+offsetX,283+offsetY);
+addObject(new Trapdoor(98),1687+offsetX,283+offsetY);
 addObject(new Block(49),1714+offsetX,499+offsetY);
 addObject(new Block(27),1741+offsetX,148+offsetY);
-addObject(new ExitPortal(),2200+offsetX,94+offsetY);
+addObject(new SpikeBlock(84),850+offsetX,229+offsetY);
+addObject(new Coin(90),796+offsetX,175+offsetY);
+addObject(new Coin(90),823+offsetX,175+offsetY);
+addObject(new Coin(90),850+offsetX,175+offsetY);
+addObject(new Coin(90),877+offsetX,175+offsetY);
+addObject(new Coin(90),904+offsetX,175+offsetY);
+addObject(new Coin(90),1120+offsetX,364+offsetY);
+addObject(new Coin(90),1147+offsetX,364+offsetY);
+addObject(new Coin(90),1147+offsetX,391+offsetY);
+addObject(new Coin(90),1120+offsetX,391+offsetY);
+addObject(new Coin(90),1093+offsetX,391+offsetY);
+addObject(new Coin(90),1093+offsetX,364+offsetY);
+addObject(new Coin(90),1093+offsetX,337+offsetY);
+addObject(new Coin(90),1120+offsetX,337+offsetY);
+addObject(new Coin(90),1147+offsetX,337+offsetY);
+addObject(new Coin(90),1363+offsetX,283+offsetY);
+addObject(new Coin(90),1363+offsetX,256+offsetY);
+addObject(new Coin(90),1363+offsetX,229+offsetY);
+addObject(new Coin(90),1363+offsetX,202+offsetY);
+addObject(new Coin(90),1471+offsetX,283+offsetY);
+addObject(new Coin(90),1471+offsetX,256+offsetY);
+addObject(new Coin(90),1471+offsetX,229+offsetY);
+addObject(new Coin(90),1471+offsetX,202+offsetY);
+addObject(new Coin(90),310+offsetX,391+offsetY);
+addObject(new Coin(90),337+offsetX,391+offsetY);
+addObject(new Coin(90),364+offsetX,391+offsetY);
+addObject(new Coin(90),526+offsetX,391+offsetY);
+addObject(new Coin(90),553+offsetX,391+offsetY);
+addObject(new Coin(90),580+offsetX,391+offsetY);
+addObject(new Coin(90),472+offsetX,391+offsetY);
+addObject(new Coin(90),445+offsetX,391+offsetY);
+addObject(new Coin(90),418+offsetX,391+offsetY);
+addObject(new Coin(90),337+offsetX,310+offsetY);
+addObject(new Coin(90),337+offsetX,283+offsetY);
+addObject(new Coin(90),337+offsetX,256+offsetY);
+addObject(new Coin(90),337+offsetX,229+offsetY);
+addObject(new Coin(90),310+offsetX,229+offsetY);
+addObject(new Coin(90),310+offsetX,256+offsetY);
+addObject(new Coin(90),310+offsetX,283+offsetY);
+addObject(new Coin(90),310+offsetX,310+offsetY);
+addObject(new Coin(90),310+offsetX,121+offsetY);
+addObject(new Coin(90),337+offsetX,121+offsetY);
+addObject(new Coin(90),1876+offsetX,337+offsetY);
+addObject(new Coin(90),1876+offsetX,310+offsetY);
+addObject(new Coin(90),1903+offsetX,310+offsetY);
+addObject(new Coin(90),1930+offsetX,310+offsetY);
+addObject(new Coin(90),1957+offsetX,310+offsetY);
+addObject(new Coin(90),1957+offsetX,337+offsetY);
+addObject(new Coin(90),1984+offsetX,391+offsetY);
+addObject(new Coin(90),1957+offsetX,391+offsetY);
+addObject(new Coin(90),1930+offsetX,391+offsetY);
+addObject(new Coin(90),1903+offsetX,391+offsetY);
+addObject(new Coin(90),1876+offsetX,391+offsetY);
+addObject(new Coin(90),1876+offsetX,364+offsetY);
+addObject(new Coin(90),1903+offsetX,364+offsetY);
+addObject(new Coin(90),1903+offsetX,337+offsetY);
+addObject(new Coin(90),1930+offsetX,337+offsetY);
+addObject(new Coin(90),1930+offsetX,364+offsetY);
+addObject(new Coin(90),1957+offsetX,364+offsetY);
+addObject(new Coin(90),1984+offsetX,364+offsetY);
+addObject(new Coin(90),1984+offsetX,337+offsetY);
+addObject(new Coin(90),1984+offsetX,310+offsetY);
+addObject(new Coin(90),2200+offsetX,364+offsetY);
+addObject(new Coin(90),2173+offsetX,391+offsetY);
+addObject(new Coin(90),2200+offsetX,391+offsetY);
+addObject(new Coin(90),2227+offsetX,391+offsetY);
+addObject(new Coin(90),2173+offsetX,364+offsetY);
+addObject(new Coin(90),2227+offsetX,364+offsetY);
+addObject(new Coin(90),2200+offsetX,310+offsetY);
+addObject(new Coin(90),2173+offsetX,283+offsetY);
+addObject(new Coin(90),2200+offsetX,283+offsetY);
+addObject(new Coin(90),2227+offsetX,283+offsetY);
+addObject(new Coin(90),2173+offsetX,337+offsetY);
+addObject(new Coin(90),2200+offsetX,337+offsetY);
+addObject(new Coin(90),2227+offsetX,337+offsetY);
+addObject(new Coin(90),2173+offsetX,310+offsetY);
+addObject(new Coin(90),2227+offsetX,310+offsetY);
+addObject(new Coin(90),1390+offsetX,202+offsetY);
+addObject(new Coin(90),1417+offsetX,202+offsetY);
+addObject(new Coin(90),1444+offsetX,202+offsetY);
+addObject(new Coin(90),1444+offsetX,175+offsetY);
+addObject(new Coin(90),1417+offsetX,175+offsetY);
+addObject(new Coin(90),1390+offsetX,175+offsetY);
+addObject(new Coin(90),796+offsetX,391+offsetY);
+addObject(new Coin(90),823+offsetX,391+offsetY);
+addObject(new Coin(90),850+offsetX,391+offsetY);
+addObject(new Coin(90),904+offsetX,391+offsetY);
+addObject(new Coin(90),931+offsetX,391+offsetY);
+addObject(new Coin(90),958+offsetX,391+offsetY);
+
+    }
+}

@@ -8,7 +8,7 @@ import greenfoot.*;
  */
 public class WireButtonDown extends WireActivator
 {
-    private int delay = 150;
+    private int delay = 200;
     
     public WireButtonDown(){
         this(0);
