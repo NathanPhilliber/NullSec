@@ -36,7 +36,9 @@ public class MeltingBlock extends Block
         if(deleteMe == true){
             delayDelete++;
             if(delayDelete > meltDelay){
-                w.removeObject(this);
+                if(PlatformPlayer.locked == false){
+                    w.removeObject(this);
+                }
             }
         }
     }
@@ -63,29 +65,29 @@ public class MeltingBlock extends Block
 
     public void melt(int f){
 
-        
+        if(PlatformPlayer.locked == false){
+            deleteMe = true;
+            start = true;
 
-        deleteMe = true;
-        start = true;
+            left = (MeltingBlock)getOneObjectAtOffset(-27,0, MeltingBlock.class);
+            right = (MeltingBlock)getOneObjectAtOffset(27,0, MeltingBlock.class);
+            up = (MeltingBlock)getOneObjectAtOffset(0,-27, MeltingBlock.class);
+            down = (MeltingBlock)getOneObjectAtOffset(0,27, MeltingBlock.class);
 
-        left = (MeltingBlock)getOneObjectAtOffset(-27,0, MeltingBlock.class);
-        right = (MeltingBlock)getOneObjectAtOffset(27,0, MeltingBlock.class);
-        up = (MeltingBlock)getOneObjectAtOffset(0,-27, MeltingBlock.class);
-        down = (MeltingBlock)getOneObjectAtOffset(0,27, MeltingBlock.class);
-
-        switch(f){
-            case 0:
-            right = null;
-            break;
-            case 1:
-            left = null;
-            break;
-            case 2:
-            down = null;
-            break;
-            case 3: 
-            up = null;
-            break;
+            switch(f){
+                case 0:
+                right = null;
+                break;
+                case 1:
+                left = null;
+                break;
+                case 2:
+                down = null;
+                break;
+                case 3: 
+                up = null;
+                break;
+            }
         }
 
     }

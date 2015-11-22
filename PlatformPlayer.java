@@ -36,7 +36,7 @@ public class PlatformPlayer extends PlatformObject
     private boolean onBlock=false;
     private boolean isWalkingRight=true;
     private boolean isWalkingLeft=false;
-    private boolean locked = false;
+    public static boolean locked = false;
     private boolean onClimb=false;
     private int scrollYType=0; /**0 is off 1 is with scroll threshold 2 is locked on player*/
     private double maxYScroll=0;
@@ -100,6 +100,7 @@ public class PlatformPlayer extends PlatformObject
         velY = 0;
         setImage(standRight.getCurrentImage());
         pauseEverything = false;
+        locked = false;
 
     }
     //Written by John
