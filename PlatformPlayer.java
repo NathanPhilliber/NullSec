@@ -677,7 +677,7 @@ public class PlatformPlayer extends PlatformObject
         if(scrollYType==1)
         {
             dif=getExactY()-scrollDistY;
-            if(dif<=0&&velY<0&&w.getYOffset()<=0)
+            if(dif<=0&&velY<=0)
             {
                 w.addYOffset((int)dif);
             }
