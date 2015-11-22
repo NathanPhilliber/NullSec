@@ -18,7 +18,7 @@ public class LevelCreator extends World
     public LevelCreator()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(7000, 540, 1, false); 
+        super(7000, 800, 1, false); //7000,540
 
         LevelCreatorDisplayBlock.printNames();
 
