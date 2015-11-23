@@ -780,8 +780,6 @@ addObject(new BackgroundBlock(40),3955+offsetX,256+offsetY);
 addObject(new BackgroundBlock(40),3955+offsetX,310+offsetY);
 addObject(new BackgroundBlock(40),4009+offsetX,310+offsetY);
 addObject(new BackgroundBlock(40),3982+offsetX,310+offsetY);
-addObject(new BackgroundBlock(40),3955+offsetX,283+offsetY);
-addObject(new BulletLauncher(86,180),3955+offsetX,283+offsetY);
 addObject(new BackgroundBlock(40),4009+offsetX,256+offsetY);
 addObject(new BackgroundBlock(40),3982+offsetX,229+offsetY);
 addObject(new BackgroundBlock(40),4009+offsetX,229+offsetY);
@@ -1500,5 +1498,6 @@ addObject(new BackgroundBlock(40),4198+offsetX,337+offsetY);
 addObject(new BackgroundBlock(40),4090+offsetX,121+offsetY);
 addObject(new BackgroundBlock(40),4063+offsetX,121+offsetY);
 addObject(new BackgroundBlock(40),4036+offsetX,121+offsetY);
+addObject(new BackgroundBlock(40),3955+offsetX,283+offsetY);
 }
 }
