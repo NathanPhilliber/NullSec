@@ -13,7 +13,7 @@ public class RocketLaunch extends NonPlayer
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     GifImage rocketLaunch = new GifImage("RocketLaunch.gif");
-    private int delay = 38;
+    private int delay = 34;
     
     public void act() 
     {
