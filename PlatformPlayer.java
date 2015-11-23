@@ -191,7 +191,7 @@ public class PlatformPlayer extends PlatformObject
 
     public void returnToSpace(){
         quitting = true;
-        System.out.println(quitting);
+        //System.out.println(quitting);
         Greenfoot.setWorld(new OuterSpace(w.returnX, w.returnY));
     }
 
@@ -451,7 +451,7 @@ public class PlatformPlayer extends PlatformObject
 
     public void flipMe()
     {
-        System.out.println(turnDelay);
+        //System.out.println(turnDelay);
         if(gravIsReversed)
         {
             if(turnDelay == 0)

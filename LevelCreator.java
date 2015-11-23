@@ -442,7 +442,7 @@ public class LevelCreator extends World
                     addObject(new LevelCreatorBlock(Integer.parseInt(type)), Integer.parseInt(x)+offsetX, Integer.parseInt(y)+offsetY);
                 }
                 
-                if(line.contains("new TrapDoor")){
+                if(line.contains("new Trapdoor")){
                     String[] parts = line.split(",");
                     String x = parts[1].replace("+offsetX","");
                     String y = parts[2].replace("+offsetY);","");
