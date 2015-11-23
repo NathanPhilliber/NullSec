@@ -46,6 +46,7 @@ public class OuterSpace extends Space
         //addObject(new AlienShip(1000,1000), 1000,1000);
         /********  ADD YOUR SPACE OBJECT STUFF HERE  *******/
         //addObject(new AlienShip(0,0), 0,0);
+        //amanda
 
         Planet planet0 = new Planet(-1200,-1480, new Level14(-1200,-1480), "images/Planet1.png", "0", 0);
         addObject(planet0, 3000, 0);
@@ -62,7 +63,7 @@ public class OuterSpace extends Space
         //Planet planet4 = new Planet(-110, 1300,  new Level14(-110,1300), "images/Planet5.png", "4");
         //addObject(planet4,3000, 0);
 
-        //Sector 1
+        //Sector 1  done
 
         Planet planet5 = new Planet(7220, 880,  new Level3(7220,880), "images/Planet6.png", "5", 0);
         addObject(planet5,3000, 0);
@@ -76,7 +77,7 @@ public class OuterSpace extends Space
         Planet planet8 = new Planet(11220, 1000,  new Level15(11220,1000), "images/Planet9.png", "8", 3);
         addObject(planet8,3000, 0);
 
-        //Sector 2
+        //Sector 2  done
         Planet planet9 = new Planet(20160, 630,  new Level15(20160,630), "images/Planet10.png", "11", 0);
         addObject(planet9,3000, 0);
 
@@ -92,23 +93,117 @@ public class OuterSpace extends Space
         //addObject(shopPlanet, 3000, 0); 
         
         
-        //Sector 3
+        //Sector 3  done mostly
         Planet planet13 = new Planet(-1097, 3765,  new Level15(20160,630), "images/Planet14.png", "11", 0);
         addObject(planet13,3000, 0);
         
 
-        Planet planet14 = new Planet(-2071, 5466,  new Level15(18150,590), "images/Planet16.png", "10", 1);
+        Planet planet14 = new Planet(-2057, 5490,  new Level15(18150,590), "images/Planet16.png", "10", 1);
         addObject(planet14,3000, 0);
         //green planet
 
-        Planet planet15 = new Planet(-131, 5466,  new Level7(19200,2280), "images/Planet15.png", "12", 2);
+        Planet planet15 = new Planet(-179, 5490,  new Level7(19200,2280), "images/Planet15.png", "12", 2);
         addObject(planet15,3000, 0);
         //white planet
 
-        Planet planet16 = new Planet(1690, 5433,  new Level7(17185,1150), "images/Planet9.png", "9", 3);
+        Planet planet16 = new Planet(1649, 5467,  new Level7(17185,1150), "images/Planet9.png", "9", 3);
         addObject(planet16,3000, 0);
         //brown planet
         
+        //Sector 4 done
+         
+         Planet planet17 = new Planet(6959, 4213,  new Level15(20160,630), "images/Planet35.png", "11", 0);
+        addObject(planet17,3000, 0);
+        //blue
+        
+
+        Planet planet18 = new Planet(7674, 5698,  new Level15(18150,590), "images/Planet37.png", "10", 1);
+        addObject(planet18,3000, 0);
+        //purple
+        
+        Planet planet19 = new Planet(8745, 5259,  new Level7(19200,2280), "images/Planet18.png", "12", 2);
+        addObject(planet19,3000, 0);
+        //rainbow
+
+        Planet planet20 = new Planet(10300, 6152,  new Level7(17185,1150), "images/Planet36.png", "9", 3);
+        addObject(planet20,3000, 0);
+        //green
+        
+        /*
+       
+       //Sector 5  21-24
+        Planet planet21 = new Planet(-1097, 3765,  new Level15(20160,630), "images/Planet14.png", "11", 0);
+        addObject(planet13,3000, 0);
+        
+
+        Planet planet22 = new Planet(-2057, 5490,  new Level15(18150,590), "images/Planet16.png", "10", 1);
+        addObject(planet14,3000, 0);
+        //green planet
+
+        Planet planet23 = new Planet(-179, 5490,  new Level7(19200,2280), "images/Planet15.png", "12", 2);
+        addObject(planet15,3000, 0);
+        //white planet
+
+        Planet planet24 = new Planet(1649, 5467,  new Level7(17185,1150), "images/Planet9.png", "9", 3);
+        addObject(planet16,3000, 0);
+        
+        */
+       
+       //*****************************************************************
+        
+        //Sector 6   done 
+        Planet planet25 = new Planet(-2138, 11144,  new Level15(20160,630), "images/Planet25.png", "11", 0);
+        addObject(planet25,3000, 0);
+        //black planet
+        
+
+        Planet planet26 = new Planet(716, 11624,  new Level15(18150,590), "images/Planet26.png", "10", 1);
+        addObject(planet26,3000, 0);
+        //brown planet
+
+        Planet planet27 = new Planet(-226, 10002,  new Level7(19200,2280), "images/Planet23.png", "12", 2);
+        addObject(planet27,3000, 0);
+        //blue planet
+
+        Planet planet28 = new Planet(2536, 9563,  new Level7(17185,1150), "images/Planet24.png", "9", 3);
+        addObject(planet28,3000, 0);
+        //green
+        
+         //************************************************************************
+         
+        //Sector 7
+        Planet planet29 = new Planet(-1097, 3765,  new Level15(20160,630), "images/Planet14.png", "11", 0);
+        addObject(planet29,3000, 0);
+        
+
+        Planet planet30 = new Planet(-2057, 5490,  new Level15(18150,590), "images/Planet16.png", "10", 1);
+        addObject(planet30,3000, 0);
+        //green planet
+
+        Planet planet31 = new Planet(-179, 5490,  new Level7(19200,2280), "images/Planet15.png", "12", 2);
+        addObject(planet31,3000, 0);
+        //white planet
+
+        Planet planet32 = new Planet(1649, 5467,  new Level7(17185,1150), "images/Planet9.png", "9", 3);
+        addObject(planet32,3000, 0);
+        
+        // ******************************************************************************//
+        //Sector 8
+        Planet planet33 = new Planet(-1097, 3765,  new Level15(20160,630), "images/Planet14.png", "11", 0);
+        addObject(planet33,3000, 0);
+        
+
+        Planet planet34 = new Planet(-2057, 5490,  new Level15(18150,590), "images/Planet16.png", "10", 1);
+        addObject(planet34,3000, 0);
+        //green planet
+
+        Planet planet35 = new Planet(-179, 5490,  new Level7(19200,2280), "images/Planet15.png", "12", 2);
+        addObject(planet35,3000, 0);
+        //white planet
+
+        Planet planet36 = new Planet(1649, 5467,  new Level7(17185,1150), "images/Planet9.png", "9", 3);
+        addObject(planet36,3000, 0);
+       
       
 
     }
