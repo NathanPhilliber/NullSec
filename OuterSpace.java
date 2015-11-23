@@ -93,7 +93,7 @@ public class OuterSpace extends Space
         //addObject(shopPlanet, 3000, 0); 
         
         
-        //Sector 3  done mostly
+        //Sector 3  will fix ???????
         Planet planet13 = new Planet(-1097, 3765,  new Level15(20160,630), "images/Planet14.png", "11", 0);
         addObject(planet13,3000, 0);
         
@@ -129,25 +129,25 @@ public class OuterSpace extends Space
         addObject(planet20,3000, 0);
         //green
         
-        /*
+        
        
-       //Sector 5  21-24
-        Planet planet21 = new Planet(-1097, 3765,  new Level15(20160,630), "images/Planet14.png", "11", 0);
-        addObject(planet13,3000, 0);
+       //Sector 5  done 
+        Planet planet21 = new Planet(15946, 6644,  new Level15(20160,630), "images/Planet21re.png", "11", 0);
+        addObject(planet21,3000, 0);
+        //purple
         
 
-        Planet planet22 = new Planet(-2057, 5490,  new Level15(18150,590), "images/Planet16.png", "10", 1);
-        addObject(planet14,3000, 0);
-        //green planet
+        Planet planet22 = new Planet(16882, 6206,  new Level15(18150,590), "images/planet19.png", "10", 1);
+        addObject(planet22,3000, 0);
+        //blue
 
-        Planet planet23 = new Planet(-179, 5490,  new Level7(19200,2280), "images/Planet15.png", "12", 2);
-        addObject(planet15,3000, 0);
-        //white planet
-
-        Planet planet24 = new Planet(1649, 5467,  new Level7(17185,1150), "images/Planet9.png", "9", 3);
-        addObject(planet16,3000, 0);
+        Planet planet23 = new Planet(18745, 6045,  new Level7(19200,2280), "images/Planet20.png", "12", 2);
+        addObject(planet23,3000, 0);
+        //white 
+        Planet planet24 = new Planet(18745, 3927,  new Level7(17185,1150), "images/Planet22.png", "9", 3);
+        addObject(planet24,3000, 0);
+        //green/white
         
-        */
        
        //*****************************************************************
         
@@ -189,20 +189,22 @@ public class OuterSpace extends Space
         
         // ******************************************************************************//
         //Sector 8
-        Planet planet33 = new Planet(-1097, 3765,  new Level15(20160,630), "images/Planet14.png", "11", 0);
+        Planet planet33 = new Planet(19562, 10304,  new Level15(20160,630), "images/Planet33.png", "11", 0);
         addObject(planet33,3000, 0);
+        //pink
         
 
-        Planet planet34 = new Planet(-2057, 5490,  new Level15(18150,590), "images/Planet16.png", "10", 1);
+        Planet planet34 = new Planet(16887, 10999,  new Level15(18150,590), "images/Planet34.png", "10", 1);
         addObject(planet34,3000, 0);
-        //green planet
+        //blue with circles
 
-        Planet planet35 = new Planet(-179, 5490,  new Level7(19200,2280), "images/Planet15.png", "12", 2);
+        Planet planet35 = new Planet(15920, 9333,  new Level7(19200,2280), "images/Planet31.png", "12", 2);
         addObject(planet35,3000, 0);
-        //white planet
+        //green and blue
 
-        Planet planet36 = new Planet(1649, 5467,  new Level7(17185,1150), "images/Planet9.png", "9", 3);
+        Planet planet36 = new Planet(14893, 10957,  new Level7(17185,1150), "images/Planet32.png", "9", 3);
         addObject(planet36,3000, 0);
+        //brown
        
       
 
