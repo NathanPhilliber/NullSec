@@ -70,6 +70,8 @@ public class PlatformPlayer extends PlatformObject
     public static boolean pauseEverything = false;
     public static boolean quitting = false;
 
+    private boolean gravIsReversed;
+
     //Written by Nathan
     private void setUpGoldScore(){
         w.addObject(new GoldText(),w.getWidth()-158,22);
@@ -151,6 +153,7 @@ public class PlatformPlayer extends PlatformObject
             checkIfOffEdge();
             checkSpecialCollisions();
             updateGoldScore();
+            flipMe();
             updatePosition();//LAST
         }
 
@@ -259,7 +262,11 @@ public class PlatformPlayer extends PlatformObject
                 anyClimb = true;
             }
             else if(object instanceof SpikeBlock){
-                anySpike = true;
+                List<Actor> spike = getObjectsInRange(25, SpikeBlock.class);
+                if(!spike.isEmpty())
+                {                
+                    anySpike = true;
+                }
             }
             else if(object instanceof Bullet){
                 anyBullet = true;
@@ -345,7 +352,7 @@ public class PlatformPlayer extends PlatformObject
         } 
         else if(anyGravity && gravityToggle == false){
             gravity *= -1;
-
+            gravIsReversed = !gravIsReversed;
             gravityToggle = true;
         }
         else if(anyPortal){
@@ -439,6 +446,35 @@ public class PlatformPlayer extends PlatformObject
     private int pauseCycles = 0;
     private boolean playerPaused = false;
     private boolean deleteMe = false;
+
+    private int turnDelay = 10;
+
+    public void flipMe()
+    {
+        System.out.println(turnDelay);
+        if(gravIsReversed)
+        {
+            if(turnDelay == 0)
+            {
+                turn(180);
+            }
+            if(turnDelay >= 0)
+            {
+                turnDelay--;
+            }
+        }
+        if(!gravIsReversed)
+        {
+            if(turnDelay == 9)
+            {
+                turn(180);
+            }
+            if(turnDelay <= 9)
+            {
+                turnDelay++;
+            }
+        }
+    }
 
     //Written by Trace
     private void restartWorld(){
@@ -708,17 +744,25 @@ public class PlatformPlayer extends PlatformObject
     //Written by John, Trace
     private void leftRight()
     {
+        boolean isTurnt = (getRotation() == 180);
         slowX();
         if (Greenfoot.isKeyDown("d"))
         {
             velX=moveSpeed;
-            setImage(walkRight.getCurrentImage());
+            if(!isTurnt)
+                setImage(walkRight.getCurrentImage());
+            if(isTurnt)
+                setImage(walkLeft.getCurrentImage());
+
         }
 
         if (Greenfoot.isKeyDown("a"))
         {
             velX=-moveSpeed;
-            setImage(walkLeft.getCurrentImage());
+            if(!isTurnt)
+                setImage(walkLeft.getCurrentImage());
+            if(isTurnt)
+                setImage(walkRight.getCurrentImage());
         }
 
         if (Greenfoot.isKeyDown("d")&&!isWalkingRight)
@@ -728,7 +772,11 @@ public class PlatformPlayer extends PlatformObject
 
         if(!Greenfoot.isKeyDown("d")&&isWalkingRight)
         {
-            setImage(standRight.getCurrentImage());
+            if(!isTurnt)
+                setImage(standRight.getCurrentImage());
+            if(isTurnt)
+                setImage(standLeft.getCurrentImage());
+
             isWalkingRight = false;
         }
 
@@ -739,7 +787,10 @@ public class PlatformPlayer extends PlatformObject
 
         if(!Greenfoot.isKeyDown("a")&&isWalkingLeft)
         {
-            setImage(standLeft.getCurrentImage());
+            if(!isTurnt)
+                setImage(standLeft.getCurrentImage());
+            if(isTurnt)
+                setImage(standRight.getCurrentImage());
             isWalkingLeft = false;
         }
 
