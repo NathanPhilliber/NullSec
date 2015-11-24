@@ -49,13 +49,13 @@ public class OuterSpace extends Space
         
         //amanda
 
-        Planet planet0 = new Planet(-1200,-1480, new Level89(-1200,-1480), "images/Planet1.png", "1", 0);
+        Planet planet0 = new Planet(-1200,-1480, new Level14(-1200,-1480), "images/Planet1.png", "1", 0);
         addObject(planet0, 3000, 0);
 
-        Planet planet1 = new Planet(2800,-1400, new Level80(2800,-1400), "images/Planet2.png", "2", 1);
+        Planet planet1 = new Planet(2800,-1400, new Level14(2800,-1400), "images/Planet2.png", "2", 1);
         addObject(planet1,3000, 0);
 
-        Planet planet2 = new Planet(1860, 180, new Level81(1860,180), "images/Planet3.png", "3", 2);
+        Planet planet2 = new Planet(1860, 180, new Level14(1860,180), "images/Planet3.png", "3", 2);
         addObject(planet2,3000, 0);
 
         Planet planet3 = new Planet(-2000, 130,  new Level14(-2000,130), "images/Planet4.png", "4", 3);
@@ -68,15 +68,19 @@ public class OuterSpace extends Space
 
         Planet planet5 = new Planet(7220, 880,  new Level15(7220,880), "images/Planet6.png", "5", 0);
         addObject(planet5,3000, 0);
+        //yellow 15
 
-        Planet planet6 = new Planet(8220, 383,  new Level22(8220,383), "images/Planet7.png", "6", 1);
+        Planet planet6 = new Planet(8220, 383,  new Level91(8220,383), "images/Planet7.png", "6", 1);
         addObject(planet6,3000, 0);
+        //pink 91
 
         Planet planet7 = new Planet(10240, -730,  new Level93(10240,-730), "images/Planet8.png", "7", 2);
         addObject(planet7,3000, 0);
+        //blue 93
 
-        Planet planet8 = new Planet(11220, 1000,  new Level91(11220,1000), "images/Planet9.png", "8", 3);
+        Planet planet8 = new Planet(11220, 1000,  new Level22(11220,1000), "images/Planet9.png", "8", 3);
         addObject(planet8,3000, 0);
+        //brown - 22
 
         //Sector 2  done
         Planet planet9 = new Planet(20160, 630,  new Level2(20160,630), "images/Planet10.png", "9", 0);
@@ -133,19 +137,19 @@ public class OuterSpace extends Space
         
        
        //Sector 5  done 
-        Planet planet21 = new Planet(15946, 6644,  new Level13(15946,6644), "images/Planet21re.png", "22", 0);
+        Planet planet21 = new Planet(15946, 6644,  new Level94(15946,6644), "images/Planet21re.png", "22", 0);
         addObject(planet21,3000, 0);
         //purple
         
 
-        Planet planet22 = new Planet(16882, 6206,  new Level37(16882,6206), "images/planet19.png", "23", 1);
+        Planet planet22 = new Planet(16882, 6206,  new Level92(16882,6206), "images/planet19.png", "23", 1);
         addObject(planet22,3000, 0);
-        //blue
+        //blue - 92
 
-        Planet planet23 = new Planet(18745, 6045,  new Level92(18745,6045), "images/Planet20.png", "24", 2);
+        Planet planet23 = new Planet(18745, 6045,  new Level13(18745,6045), "images/Planet20.png", "24", 2);
         addObject(planet23,3000, 0);
         //white 
-        Planet planet24 = new Planet(18745, 3927,  new Level94(18745,3927), "images/Planet22.png", "25", 3);
+        Planet planet24 = new Planet(18745, 3927,  new Level37(18745,3927), "images/Planet22.png", "25", 3);
         addObject(planet24,3000, 0);
         //green/white
         
@@ -193,20 +197,20 @@ public class OuterSpace extends Space
         
         // ******************************************************************************//
         //Sector 8  done
-        Planet planet33 = new Planet(19562, 10304,  new Level5(20160,630), "images/Planet33.png", "34", 0);
+        Planet planet33 = new Planet(19562, 10304,  new Level5(19562, 10304), "images/Planet33.png", "34", 0);
         addObject(planet33,3000, 0);
         //pink
         
 
-        Planet planet34 = new Planet(16887, 10999,  new Level15(18150,590), "images/Planet34.png", "35", 1);
+        Planet planet34 = new Planet(16887, 10999,  new Level15(16887, 10999), "images/Planet34.png", "35", 1);
         addObject(planet34,3000, 0);
         //blue with circles
 
-        Planet planet35 = new Planet(15920, 9333,  new Level7(19200,2280), "images/Planet31.png", "36", 2);
+        Planet planet35 = new Planet(15920, 9333,  new Level7(15920, 9333), "images/Planet31.png", "36", 2);
         addObject(planet35,3000, 0);
         //green and blue
 
-        Planet planet36 = new Planet(14893, 10957,  new Level7(17185,1150), "images/Planet32.png", "37", 3);
+        Planet planet36 = new Planet(14893, 10957,  new Level7(14893, 10957), "images/Planet32.png", "37", 3);
         addObject(planet36,3000, 0);
         //brown
        
