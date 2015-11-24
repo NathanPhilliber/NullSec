@@ -46,6 +46,7 @@ public class OuterSpace extends Space
         //addObject(new AlienShip(1000,1000), 1000,1000);
         /********  ADD YOUR SPACE OBJECT STUFF HERE  *******/
         //addObject(new AlienShip(0,0), 0,0);
+        
         //amanda
 
         Planet planet0 = new Planet(-1200,-1480, new Level14(-1200,-1480), "images/Planet1.png", "0", 0);
@@ -93,20 +94,20 @@ public class OuterSpace extends Space
         //addObject(shopPlanet, 3000, 0); 
         
         
-        //Sector 3  will fix ???????
-        Planet planet13 = new Planet(-1097, 3765,  new Level15(20160,630), "images/Planet14.png", "11", 0);
+        //Sector 3  done
+        Planet planet13 = new Planet(-828, 4146,  new Level15(20160,630), "images/Planet14.png", "11", 0);
         addObject(planet13,3000, 0);
-        
+        //purple
 
-        Planet planet14 = new Planet(-2057, 5490,  new Level15(18150,590), "images/Planet16.png", "10", 1);
+        Planet planet14 = new Planet(-1643, 5733,  new Level15(18150,590), "images/Planet16.png", "10", 1);
         addObject(planet14,3000, 0);
         //green planet
 
-        Planet planet15 = new Planet(-179, 5490,  new Level7(19200,2280), "images/Planet15.png", "12", 2);
+        Planet planet15 = new Planet(-5, 5621,  new Level7(19200,2280), "images/Planet15.png", "12", 2);
         addObject(planet15,3000, 0);
         //white planet
 
-        Planet planet16 = new Planet(1649, 5467,  new Level7(17185,1150), "images/Planet9.png", "9", 3);
+        Planet planet16 = new Planet(2143, 5782,  new Level7(17185,1150), "images/Planet9.png", "9", 3);
         addObject(planet16,3000, 0);
         //brown planet
         
@@ -125,7 +126,7 @@ public class OuterSpace extends Space
         addObject(planet19,3000, 0);
         //rainbow
 
-        Planet planet20 = new Planet(10300, 6152,  new Level7(17185,1150), "images/Planet36.png", "9", 3);
+        Planet planet20 = new Planet(10242, 6102,  new Level7(17185,1150), "images/Planet36.png", "9", 3);
         addObject(planet20,3000, 0);
         //green
         
@@ -171,24 +172,27 @@ public class OuterSpace extends Space
         
          //************************************************************************
          
-        //Sector 7
-        Planet planet29 = new Planet(-1097, 3765,  new Level15(20160,630), "images/Planet14.png", "11", 0);
+        //Sector 7  done
+        Planet planet29 = new Planet(9310, 11979,  new Level15(20160,630), "images/Planet28.png", "11", 0);
         addObject(planet29,3000, 0);
+        //red 
         
 
-        Planet planet30 = new Planet(-2057, 5490,  new Level15(18150,590), "images/Planet16.png", "10", 1);
+        Planet planet30 = new Planet(10371, 10235,  new Level15(18150,590), "images/Planet30.png", "10", 1);
         addObject(planet30,3000, 0);
-        //green planet
+        //orange
 
-        Planet planet31 = new Planet(-179, 5490,  new Level7(19200,2280), "images/Planet15.png", "12", 2);
+        Planet planet31 = new Planet(8432, 10083,  new Level7(19200,2280), "images/Planet29.png", "12", 2);
         addObject(planet31,3000, 0);
-        //white planet
-
-        Planet planet32 = new Planet(1649, 5467,  new Level7(17185,1150), "images/Planet9.png", "9", 3);
+        //blue
+        
+        
+        Planet planet32 = new Planet(6634, 10167,  new Level7(17185,1150), "images/Planet27.png", "9", 3);
         addObject(planet32,3000, 0);
+        //peach
         
         // ******************************************************************************//
-        //Sector 8
+        //Sector 8  done
         Planet planet33 = new Planet(19562, 10304,  new Level15(20160,630), "images/Planet33.png", "11", 0);
         addObject(planet33,3000, 0);
         //pink
@@ -206,7 +210,7 @@ public class OuterSpace extends Space
         addObject(planet36,3000, 0);
         //brown
        
-      
+      //amanda
 
     }
 

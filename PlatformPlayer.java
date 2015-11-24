@@ -357,7 +357,7 @@ public class PlatformPlayer extends PlatformObject
         }
         else if(anyPortal){
             delay--;
-            if(delay > 45)
+            if(delay > 30)
             {
                 double scaleToMax = (delay)*.01;
                 double width = getImage().getWidth();
@@ -373,7 +373,7 @@ public class PlatformPlayer extends PlatformObject
                     addRealY((p.getRealY()-getRealY())/10);
                 }
             }
-            if(delay < 45)
+            if(delay < 30)
             {
                 if(firstTime)
                 {
