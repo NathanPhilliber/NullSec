@@ -200,7 +200,7 @@ public class Player extends Object implements DamageTaker
 
             showDebug(false);
             scrollWeapon();
-            //spawnAsteroid();  adding planets
+            spawnAsteroid();  
             spawnShootingStar();
             lookForGold();
 
@@ -226,7 +226,7 @@ public class Player extends Object implements DamageTaker
             placeShield();
             checkDeath();
             respawn();
-            //flashWrongSector();
+            flashWrongSector();
             
             justHit = false;
         }
@@ -261,7 +261,7 @@ public class Player extends Object implements DamageTaker
         inWrongSector = currentSector > workingSector || currentSector == -1;
         if(inWrongSector){
             if(Greenfoot.getRandomNumber(200) == 0){
-                //spawnFleet(Greenfoot.getRandomNumber(6)+1, Entity.ANY_SHIP, 75);   adding planet
+                spawnFleet(Greenfoot.getRandomNumber(6)+1, Entity.ANY_SHIP, 75);  
             }
         }
     }
