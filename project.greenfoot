@@ -1,5 +1,9 @@
 #Greenfoot properties
+<<<<<<< HEAD
 #Tue Nov 24 09:33:48 PST 2015
+=======
+#Tue Nov 24 09:37:37 PST 2015
+>>>>>>> origin/master
 target188.naviview.expanded=true
 target187.naviview.expanded=true
 dependency598.type=UsesDependency
@@ -1124,6 +1128,10 @@ target178.typeParameters=
 target156.editor.height=700
 dependency610.from=Level40
 dependency62.type=UsesDependency
+<<<<<<< HEAD
+=======
+class.Level83.superclass=Platformer
+>>>>>>> origin/master
 target176.naviview.expanded=false
 target68.editor.height=700
 target212.y=1510
@@ -4672,6 +4680,11 @@ dependency420.from=Level18
 dependency298.to=Digit
 target86.showInterface=false
 target176.editor.y=43
+<<<<<<< HEAD
+=======
+class.PlatformObject.superclass=Object
+target23.editor.height=700
+>>>>>>> origin/master
 target176.editor.x=40
 target23.editor.height=700
 class.PlatformObject.superclass=Object
@@ -4695,8 +4708,12 @@ target97.name=WaterBlockBackground
 class.RespawnButton.superclass=RespawnMenu
 dependency691.from=Level80
 dependency585.from=Level32
+<<<<<<< HEAD
 target31.editor.width=900
 world.lastInstantiated=OuterSpace
+=======
+world.lastInstantiated=LevelCreator
+>>>>>>> origin/master
 target108.type=ClassTarget
 dependency90.type=UsesDependency
 target213.typeParameters=
