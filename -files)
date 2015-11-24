@@ -1,0 +1,1004 @@
+ .gitignore                               |    4 [32m+[m
+ About.class                              |  Bin [31m0[m -> [32m291[m bytes
+ About.ctxt                               |    5 [32m+[m
+ About.java                               |   19 [32m+[m
+ Alien.class                              |  Bin [31m0[m -> [32m453[m bytes
+ Alien.java                               |   19 [32m+[m
+ AlienShip.class                          |  Bin [31m0[m -> [32m689[m bytes
+ AlienShip.ctxt                           |   10 [32m+[m
+ AlienShip.java                           |   34 [32m+[m
+ All.class                                |  Bin [31m0[m -> [32m831[m bytes
+ All.java                                 |   35 [32m+[m
+ Asteroid.class                           |  Bin [31m0[m -> [32m2168[m bytes
+ Asteroid.java                            |   75 [32m+[m
+ AsteroidLarge.class                      |  Bin [31m0[m -> [32m1955[m bytes
+ AsteroidLarge.java                       |   54 [32m+[m
+ AsteroidMedium.class                     |  Bin [31m0[m -> [32m1892[m bytes
+ AsteroidMedium.java                      |   52 [32m+[m
+ AsteroidSmall.class                      |  Bin [31m0[m -> [32m1473[m bytes
+ AsteroidSmall.java                       |   44 [32m+[m
+ Back.class                               |  Bin [31m0[m -> [32m476[m bytes
+ Back.java                                |   11 [32m+[m
+ BackgroundBlock.class                    |  Bin [31m0[m -> [32m865[m bytes
+ BackgroundBlock.java                     |   33 [32m+[m
+ BackgroundStar.class                     |  Bin [31m0[m -> [32m1721[m bytes
+ BackgroundStar.ctxt                      |   18 [32m+[m
+ BackgroundStar.java                      |   67 [32m+[m
+ Ball.class                               |  Bin [31m0[m -> [32m831[m bytes
+ Ball.java                                |   30 [32m+[m
+ Beam.class                               |  Bin [31m0[m -> [32m531[m bytes
+ Beam.ctxt                                |    6 [32m+[m
+ Beam.java                                |   21 [32m+[m
+ BeamDes.class                            |  Bin [31m0[m -> [32m386[m bytes
+ BeamDes.java                             |   23 [32m+[m
+ BeamHUD.class                            |  Bin [31m0[m -> [32m296[m bytes
+ BeamHUD.java                             |   15 [32m+[m
+ BeamText.class                           |  Bin [31m0[m -> [32m540[m bytes
+ BeamText.java                            |   22 [32m+[m
+ BlackBar.class                           |  Bin [31m0[m -> [32m299[m bytes
+ BlackBar.java                            |   19 [32m+[m
+ Block.class                              |  Bin [31m0[m -> [32m802[m bytes
+ Block.java                               |   28 [32m+[m
+ Blocks/AlienVines.png                    |  Bin [31m0[m -> [32m18515[m bytes
+ Blocks/BlueBasicBlock.png                |  Bin [31m0[m -> [32m18781[m bytes
+ Blocks/BlueBrick.png                     |  Bin [31m0[m -> [32m17109[m bytes
+ Blocks/BlueExtrudedBlock.png             |  Bin [31m0[m -> [32m17756[m bytes
+ Blocks/BlueGlassBlock.png                |  Bin [31m0[m -> [32m17829[m bytes
+ Blocks/BlueMetal.png                     |  Bin [31m0[m -> [32m18110[m bytes
+ Blocks/BluePlates.png                    |  Bin [31m0[m -> [32m17834[m bytes
+ Blocks/BlueStone.png                     |  Bin [31m0[m -> [32m18933[m bytes
+ Blocks/BlueStones.png                    |  Bin [31m0[m -> [32m19441[m bytes
+ Blocks/BoltedMetal.png                   |  Bin [31m0[m -> [32m18074[m bytes
+ Blocks/BrownBlock.png                    |  Bin [31m0[m -> [32m18566[m bytes
+ Blocks/BrownBlockBottom.png              |  Bin [31m0[m -> [32m18520[m bytes
+ Blocks/BrownWall.png                     |  Bin [31m0[m -> [32m17555[m bytes
+ Blocks/CautionBlock.png                  |  Bin [31m0[m -> [32m17957[m bytes
+ Blocks/CheckerBoard.png                  |  Bin [31m0[m -> [32m17567[m bytes
+ Blocks/ColorfulBlocks.png                |  Bin [31m0[m -> [32m18027[m bytes
+ Blocks/CoolColorBlocks.png               |  Bin [31m0[m -> [32m17974[m bytes
+ Blocks/CrackedPurple.png                 |  Bin [31m0[m -> [32m18586[m bytes
+ Blocks/CrackedStone.png                  |  Bin [31m0[m -> [32m18652[m bytes
+ Blocks/DarkBricks.png                    |  Bin [31m0[m -> [32m18367[m bytes
+ Blocks/Dirt.png                          |  Bin [31m0[m -> [32m18498[m bytes
+ Blocks/EmeraldBlock.png                  |  Bin [31m0[m -> [32m17969[m bytes
+ Blocks/ExtrudedBlock.png                 |  Bin [31m0[m -> [32m17716[m bytes
+ Blocks/FallCrate.png                     |  Bin [31m0[m -> [32m3337[m bytes
+ Blocks/GlassBlockClear.png               |  Bin [31m0[m -> [32m17833[m bytes
+ Blocks/GooBottom.png                     |  Bin [31m0[m -> [32m17328[m bytes
+ Blocks/GooTop.png                        |  Bin [31m0[m -> [32m17349[m bytes
+ Blocks/Grass.png                         |  Bin [31m0[m -> [32m18713[m bytes
+ Blocks/GreenBasicBlock.png               |  Bin [31m0[m -> [32m18772[m bytes
+ Blocks/GreenExtrudedBlock.png            |  Bin [31m0[m -> [32m17760[m bytes
+ Blocks/GreenGlassBlock.png               |  Bin [31m0[m -> [32m17833[m bytes
+ Blocks/GreenSlash.png                    |  Bin [31m0[m -> [32m17972[m bytes
+ Blocks/GreenishYellowBlocks.png          |  Bin [31m0[m -> [32m17987[m bytes
+ Blocks/GreyStone1.png                    |  Bin [31m0[m -> [32m17752[m bytes
+ Blocks/GreyStone2.png                    |  Bin [31m0[m -> [32m17652[m bytes
+ Blocks/HellBricks.png                    |  Bin [31m0[m -> [32m17922[m bytes
+ Blocks/IceBlock.png                      |  Bin [31m0[m -> [32m17578[m bytes
+ Blocks/Lava.png                          |  Bin [31m0[m -> [32m16859[m bytes
+ Blocks/Lava2.png                         |  Bin [31m0[m -> [32m16844[m bytes
+ Blocks/LeavesBlock.png                   |  Bin [31m0[m -> [32m18427[m bytes
+ Blocks/Log.png                           |  Bin [31m0[m -> [32m17962[m bytes
+ Blocks/MetalBeams.png                    |  Bin [31m0[m -> [32m18362[m bytes
+ Blocks/MetalBlock.png                    |  Bin [31m0[m -> [32m18134[m bytes
+ Blocks/MetalLadder.png                   |  Bin [31m0[m -> [32m17552[m bytes
+ Blocks/MoonBrick.png                     |  Bin [31m0[m -> [32m18907[m bytes
+ Blocks/MoonBrickTop.png                  |  Bin [31m0[m -> [32m18835[m bytes
+ Blocks/OrangePlates.png                  |  Bin [31m0[m -> [32m17834[m bytes
+ Blocks/PinkBricks.png                    |  Bin [31m0[m -> [32m17884[m bytes
+ Blocks/PinkPurpleBlocks.png              |  Bin [31m0[m -> [32m18004[m bytes
+ Blocks/PinkStones.png                    |  Bin [31m0[m -> [32m19494[m bytes
+ Blocks/PurpleBlock.png                   |  Bin [31m0[m -> [32m18743[m bytes
+ Blocks/RedGlassBlock.png                 |  Bin [31m0[m -> [32m17834[m bytes
+ Blocks/SandMiddle.png                    |  Bin [31m0[m -> [32m18630[m bytes
+ Blocks/SandTop.png                       |  Bin [31m0[m -> [32m18893[m bytes
+ Blocks/SingleStone.png                   |  Bin [31m0[m -> [32m18716[m bytes
+ Blocks/SlashCrate.png                    |  Bin [31m0[m -> [32m17838[m bytes
+ Blocks/SnowBlock.png                     |  Bin [31m0[m -> [32m18186[m bytes
+ Blocks/StoneBricks.png                   |  Bin [31m0[m -> [32m18487[m bytes
+ Blocks/StoneSquare.png                   |  Bin [31m0[m -> [32m18087[m bytes
+ Blocks/Vines.png                         |  Bin [31m0[m -> [32m18467[m bytes
+ Blocks/WaterBottom.png                   |  Bin [31m0[m -> [32m17322[m bytes
+ Blocks/WaterMiddle.png                   |  Bin [31m0[m -> [32m17328[m bytes
+ Blocks/WaterTop.png                      |  Bin [31m0[m -> [32m17349[m bytes
+ Blocks/WeirdBlueBlock.png                |  Bin [31m0[m -> [32m19504[m bytes
+ Blocks/WoddenLadder.png                  |  Bin [31m0[m -> [32m17555[m bytes
+ Blocks/Xcrate.png                        |  Bin [31m0[m -> [32m18111[m bytes
+ Blocks/YellowBlock.png                   |  Bin [31m0[m -> [32m17543[m bytes
+ Blocks/YellowPlates.png                  |  Bin [31m0[m -> [32m17834[m bytes
+ Blocks/YellowStones.png                  |  Bin [31m0[m -> [32m19517[m bytes
+ Blocks/brick.jpg                         |  Bin [31m0[m -> [32m1281[m bytes
+ Blocks/brick.png                         |  Bin [31m0[m -> [32m17700[m bytes
+ BomberShip.class                         |  Bin [31m0[m -> [32m1479[m bytes
+ BomberShip.java                          |   48 [32m+[m
+ BoostBar.class                           |  Bin [31m0[m -> [32m299[m bytes
+ BoostBar.java                            |   14 [32m+[m
+ BoostBarDes.class                        |  Bin [31m0[m -> [32m399[m bytes
+ BoostBarDes.java                         |   22 [32m+[m
+ BoostBarInside.class                     |  Bin [31m0[m -> [32m322[m bytes
+ BoostBarInside.java                      |   12 [32m+[m
+ BoostBarOutside.class                    |  Bin [31m0[m -> [32m325[m bytes
+ BoostBarOutside.java                     |   15 [32m+[m
+ BoostBarSegment.class                    |  Bin [31m0[m -> [32m638[m bytes
+ BoostBarSegment.java                     |   25 [32m+[m
+ BoostBarText.class                       |  Bin [31m0[m -> [32m640[m bytes
+ BoostBarText.java                        |   21 [32m+[m
+ Bouncey/Fire1.png                        |  Bin [31m0[m -> [32m21159[m bytes
+ Bouncey/Fire10.png                       |  Bin [31m0[m -> [32m21589[m bytes
+ Bouncey/Fire11.png                       |  Bin [31m0[m -> [32m21231[m bytes
+ Bouncey/Fire2.png                        |  Bin [31m0[m -> [32m21265[m bytes
+ Bouncey/Fire3.png                        |  Bin [31m0[m -> [32m21210[m bytes
+ Bouncey/Fire4.png                        |  Bin [31m0[m -> [32m21221[m bytes
+ Bouncey/Fire5.png                        |  Bin [31m0[m -> [32m21214[m bytes
+ Bouncey/Fire6.png                        |  Bin [31m0[m -> [32m21584[m bytes
+ Bouncey/Fire7.png                        |  Bin [31m0[m -> [32m21206[m bytes
+ Bouncey/Fire8.png                        |  Bin [31m0[m -> [32m21128[m bytes
+ Bouncey/Fire9.png                        |  Bin [31m0[m -> [32m21197[m bytes
+ Bullet.class                             |  Bin [31m0[m -> [32m1361[m bytes
+ Bullet.java                              |   59 [32m+[m
+ BulletLauncher.class                     |  Bin [31m0[m -> [32m1206[m bytes
+ BulletLauncher.java                      |   41 [32m+[m
+ Button.class                             |  Bin [31m0[m -> [32m1108[m bytes
+ Button.java                              |   58 [32m+[m
+ Cannon.class                             |  Bin [31m0[m -> [32m535[m bytes
+ Cannon.ctxt                              |    4 [32m+[m
+ Cannon.java                              |   16 [32m+[m
+ CargoShip.class                          |  Bin [31m0[m -> [32m1309[m bytes
+ CargoShip.java                           |   42 [32m+[m
+ Cart.class                               |  Bin [31m0[m -> [32m1490[m bytes
+ Cart.java                                |  105 [32m+[m
+ Checkpoint.class                         |  Bin [31m0[m -> [32m708[m bytes
+ Checkpoint.java                          |   35 [32m+[m
+ Climamble.class                          |  Bin [31m0[m -> [32m104[m bytes
+ ClimbBlock.class                         |  Bin [31m0[m -> [32m501[m bytes
+ ClimbBlock.java                          |   18 [32m+[m
+ Coin.class                               |  Bin [31m0[m -> [32m1062[m bytes
+ Coin.java                                |   37 [32m+[m
+ CompletedLabel.class                     |  Bin [31m0[m -> [32m403[m bytes
+ CompletedLabel.java                      |   19 [32m+[m
+ CostText.class                           |  Bin [31m0[m -> [32m306[m bytes
+ CostText.java                            |   19 [32m+[m
+ Counter.class                            |  Bin [31m0[m -> [32m2126[m bytes
+ Counter.java                             |  128 [32m+[m
+ Cutscene.class                           |  Bin [31m0[m -> [32m667[m bytes
+ Cutscene.java                            |   30 [32m+[m
+ CutsceneA.class                          |  Bin [31m0[m -> [32m2563[m bytes
+ CutsceneA.java                           |  113 [32m+[m
+ CutsceneObject.class                     |  Bin [31m0[m -> [32m986[m bytes
+ CutsceneObject.java                      |   33 [32m+[m
+ DamageBar.class                          |  Bin [31m0[m -> [32m3625[m bytes
+ DamageBar.ctxt                           |   32 [32m+[m
+ DamageBar.java                           |  149 [32m+[m
+ DamageTaker.class                        |  Bin [31m0[m -> [32m122[m bytes
+ Digit.class                              |  Bin [31m0[m -> [32m1271[m bytes
+ Digit.java                               |   65 [32m+[m
+ DockMenu.class                           |  Bin [31m0[m -> [32m299[m bytes
+ DockMenu.java                            |   19 [32m+[m
+ ElevatorBlock.class                      |  Bin [31m0[m -> [32m999[m bytes
+ ElevatorBlock.java                       |   37 [32m+[m
+ EnemyShip.class                          |  Bin [31m0[m -> [32m405[m bytes
+ EnemyShip.java                           |   15 [32m+[m
+ EngineBars.class                         |  Bin [31m0[m -> [32m312[m bytes
+ EngineBars.java                          |   19 [32m+[m
+ EngineText.class                         |  Bin [31m0[m -> [32m555[m bytes
+ EngineText.java                          |   24 [32m+[m
+ Entity.class                             |  Bin [31m0[m -> [32m12704[m bytes
+ Entity.ctxt                              |  114 [32m+[m
+ Entity.java                              |  668 [32m++++[m
+ Exit.class                               |  Bin [31m0[m -> [32m288[m bytes
+ Exit.ctxt                                |    4 [32m+[m
+ Exit.java                                |    8 [32m+[m
+ ExitPortal.class                         |  Bin [31m0[m -> [32m340[m bytes
+ ExitPortal.java                          |   15 [32m+[m
+ FallingBlock.class                       |  Bin [31m0[m -> [32m1582[m bytes
+ FallingBlock.java                        |   70 [32m+[m
+ FireShip.class                           |  Bin [31m0[m -> [32m1931[m bytes
+ FireShip.java                            |   62 [32m+[m
+ Fireball.class                           |  Bin [31m0[m -> [32m1625[m bytes
+ Fireball.ctxt                            |    8 [32m+[m
+ Fireball.java                            |   46 [32m+[m
+ FireballDes.class                        |  Bin [31m0[m -> [32m402[m bytes
+ FireballDes.java                         |   22 [32m+[m
+ FireballText.class                       |  Bin [31m0[m -> [32m552[m bytes
+ FireballText.java                        |   22 [32m+[m
+ GifImage$1.class                         |  Bin [31m0[m -> [32m172[m bytes
+ GifImage$GifDecoder$GifFrame.class       |  Bin [31m0[m -> [32m901[m bytes
+ GifImage$GifDecoder.class                |  Bin [31m0[m -> [32m11897[m bytes
+ GifImage.class                           |  Bin [31m0[m -> [32m3029[m bytes
+ GifImage.java                            |  956 [32m++++++[m
+ Gold.class                               |  Bin [31m0[m -> [32m1281[m bytes
+ Gold.java                                |   49 [32m+[m
+ GoldText.class                           |  Bin [31m0[m -> [32m439[m bytes
+ GoldText.java                            |   23 [32m+[m
+ GotoShopButton.class                     |  Bin [31m0[m -> [32m1143[m bytes
+ GotoShopButton.java                      |   36 [32m+[m
+ GravityBlock.class                       |  Bin [31m0[m -> [32m589[m bytes
+ GravityBlock.java                        |   22 [32m+[m
+ HUD.class                                |  Bin [31m0[m -> [32m543[m bytes
+ HUD.ctxt                                 |    6 [32m+[m
+ HUD.java                                 |   27 [32m+[m
+ IconFire.class                           |  Bin [31m0[m -> [32m706[m bytes
+ IconFire.java                            |   23 [32m+[m
+ IconLaser.class                          |  Bin [31m0[m -> [32m698[m bytes
+ IconLaser.ctxt                           |    5 [32m+[m
+ IconLaser.java                           |   23 [32m+[m
+ IconMine.class                           |  Bin [31m0[m -> [32m706[m bytes
+ IconMine.ctxt                            |    4 [32m+[m
+ IconMine.java                            |   21 [32m+[m
+ IconPlasma.class                         |  Bin [31m0[m -> [32m712[m bytes
+ IconPlasma.ctxt                          |    5 [32m+[m
+ IconPlasma.java                          |   24 [32m+[m
+ IconProjectile.class                     |  Bin [31m0[m -> [32m713[m bytes
+ IconProjectile.java                      |   25 [32m+[m
+ IconShip.class                           |  Bin [31m0[m -> [32m1574[m bytes
+ IconShip.java                            |   73 [32m+[m
+ InsideMP.class                           |  Bin [31m0[m -> [32m303[m bytes
+ InsideMP.ctxt                            |    5 [32m+[m
+ InsideMP.java                            |   19 [32m+[m
+ LaserDes.class                           |  Bin [31m0[m -> [32m306[m bytes
+ LaserDes.java                            |   19 [32m+[m
+ LaserText.class                          |  Bin [31m0[m -> [32m542[m bytes
+ LaserText.java                           |   22 [32m+[m
+ LavaBlock.class                          |  Bin [31m0[m -> [32m513[m bytes
+ LavaBlock.java                           |   23 [32m+[m
+ Level1                                   |  519 [32m+++[m
+ Level1.class                             |  Bin [31m0[m -> [32m56071[m bytes
+ Level1.java                              | 1800 [32m++++++++++[m
+ Level10.class                            |  Bin [31m0[m -> [32m51189[m bytes
+ Level10.java                             | 1786 [32m++++++++++[m
+ Level13.class                            |  Bin [31m0[m -> [32m62547[m bytes
+ Level13.java                             | 2162 [32m++++++++++++[m
+ Level14.class                            |  Bin [31m0[m -> [32m75210[m bytes
+ Level14.java                             | 2627 [32m+++++++++++++++[m
+ Level15.class                            |  Bin [31m0[m -> [32m60573[m bytes
+ Level15.java                             | 2097 [32m++++++++++++[m
+ Level16.class                            |  Bin [31m0[m -> [32m4912[m bytes
+ Level16.java                             |  180 [32m+[m
+ Level17.class                            |  Bin [31m0[m -> [32m6989[m bytes
+ Level17.java                             |  247 [32m++[m
+ Level18.class                            |  Bin [31m0[m -> [32m15387[m bytes
+ Level18.java                             |  539 [32m+++[m
+ Level19.class                            |  Bin [31m0[m -> [32m45029[m bytes
+ Level19.java                             | 1558 [32m+++++++++[m
+ Level2.class                             |  Bin [31m0[m -> [32m40956[m bytes
+ Level2.java                              | 1458 [32m++++++++[m
+ Level20.class                            |  Bin [31m0[m -> [32m18708[m bytes
+ Level20.java                             |  645 [32m++++[m
+ Level21.class                            |  Bin [31m0[m -> [32m44516[m bytes
+ Level21.java                             | 1554 [32m+++++++++[m
+ Level22.class                            |  Bin [31m0[m -> [32m65766[m bytes
+ Level22.java                             | 2382 [32m++++++++++++++[m
+ Level24.class                            |  Bin [31m0[m -> [32m88079[m bytes
+ Level24.java                             | 2676 [32m+++++++++++++++[m
+ Level25.class                            |  Bin [31m0[m -> [32m46734[m bytes
+ Level25.java                             | 1616 [32m+++++++++[m
+ Level26.class                            |  Bin [31m0[m -> [32m43537[m bytes
+ Level26.java                             | 1503 [32m+++++++++[m
+ Level3.class                             |  Bin [31m0[m -> [32m6321[m bytes
+ Level3.java                              |  231 [32m++[m
+ Level30.class                            |  Bin [31m0[m -> [32m19636[m bytes
+ Level30.java                             |  679 [32m++++[m
+ Level31.class                            |  Bin [31m0[m -> [32m55522[m bytes
+ Level31.java                             | 1953 [32m+++++++++++[m
+ Level32.class                            |  Bin [31m0[m -> [32m38937[m bytes
+ Level32.java                             | 1348 [32m++++++++[m
+ Level33.class                            |  Bin [31m0[m -> [32m54742[m bytes
+ Level33.java                             | 1906 [32m+++++++++++[m
+ Level37.class                            |  Bin [31m0[m -> [32m65040[m bytes
+ Level37.java                             | 2261 [32m+++++++++++++[m
+ Level4.class                             |  Bin [31m0[m -> [32m32169[m bytes
+ Level4.java                              | 1156 [32m+++++++[m
+ Level40.class                            |  Bin [31m0[m -> [32m34718[m bytes
+ Level40.java                             | 1204 [32m+++++++[m
+ Level41.class                            |  Bin [31m0[m -> [32m45287[m bytes
+ Level41.java                             | 1563 [32m+++++++++[m
+ Level5.class                             |  Bin [31m0[m -> [32m50900[m bytes
+ Level5.java                              | 1770 [32m++++++++++[m
+ Level6.class                             |  Bin [31m0[m -> [32m47278[m bytes
+ Level6.java                              | 1631 [32m+++++++++[m
+ Level60.class                            |  Bin [31m0[m -> [32m42927[m bytes
+ Level60.java                             | 1477 [32m+++++++++[m
+ Level61.class                            |  Bin [31m0[m -> [32m54917[m bytes
+ Level61.java                             | 1892 [32m+++++++++++[m
+ Level7.class                             |  Bin [31m0[m -> [32m15679[m bytes
+ Level7.java                              |  548 [32m+++[m
+ Level8.class                             |  Bin [31m0[m -> [32m27943[m bytes
+ Level8.java                              |  965 [32m++++++[m
+ Level80.class                            |  Bin [31m0[m -> [32m34498[m bytes
+ Level80.java                             | 1075 [32m++++++[m
+ Level81.class                            |  Bin [31m0[m -> [32m24367[m bytes
+ Level81.java                             |  759 [32m+++++[m
+ Level91.class                            |  Bin [31m0[m -> [32m41854[m bytes
+ Level91.java                             | 1480 [32m+++++++++[m
+ Level92.class                            |  Bin [31m0[m -> [32m74813[m bytes
+ Level92.java                             | 2609 [32m+++++++++++++++[m
+ Level93.class                            |  Bin [31m0[m -> [32m55651[m bytes
+ Level93.java                             | 1959 [32m+++++++++++[m
+ Level94.class                            |  Bin [31m0[m -> [32m62575[m bytes
+ Level94.java                             | 2185 [32m++++++++++++[m
+ LevelCreator.class                       |  Bin [31m0[m -> [32m15534[m bytes
+ LevelCreator.java                        |  617 [32m++++[m
+ LevelCreatorBlock.class                  |  Bin [31m0[m -> [32m2431[m bytes
+ LevelCreatorBlock.java                   |   94 [32m+[m
+ LevelCreatorBlockHover.class             |  Bin [31m0[m -> [32m704[m bytes
+ LevelCreatorBlockHover.java              |   25 [32m+[m
+ LevelCreatorDisplayBlock.class           |  Bin [31m0[m -> [32m6320[m bytes
+ LevelCreatorDisplayBlock.java            |  174 [32m+[m
+ LevelCreatorGrid.class                   |  Bin [31m0[m -> [32m427[m bytes
+ LevelCreatorGrid.java                    |   16 [32m+[m
+ LevelCreatorObject.class                 |  Bin [31m0[m -> [32m329[m bytes
+ LevelCreatorObject.java                  |    7 [32m+[m
+ LevelCreatorPallet.class                 |  Bin [31m0[m -> [32m1841[m bytes
+ LevelCreatorPallet.java                  |   67 [32m+[m
+ LevelCreatorPalletBlock.class            |  Bin [31m0[m -> [32m1408[m bytes
+ LevelCreatorPalletBlock.java             |   35 [32m+[m
+ LevelCreatorText.class                   |  Bin [31m0[m -> [32m324[m bytes
+ LevelCreatorText.java                    |   19 [32m+[m
+ LevelText.class                          |  Bin [31m0[m -> [32m309[m bytes
+ LevelText.java                           |   19 [32m+[m
+ LevelUpButton.class                      |  Bin [31m0[m -> [32m2351[m bytes
+ LevelUpButton.java                       |  128 [32m+[m
+ Logo.class                               |  Bin [31m0[m -> [32m288[m bytes
+ Logo.ctxt                                |    4 [32m+[m
+ Logo.java                                |    7 [32m+[m
+ Map.class                                |  Bin [31m0[m -> [32m631[m bytes
+ Map.java                                 |   24 [32m+[m
+ MapBackButton.class                      |  Bin [31m0[m -> [32m945[m bytes
+ MapBackButton.java                       |   35 [32m+[m
+ MapButton.class                          |  Bin [31m0[m -> [32m874[m bytes
+ MapButton.java                           |   35 [32m+[m
+ MapItems.class                           |  Bin [31m0[m -> [32m365[m bytes
+ MapItems.java                            |   26 [32m+[m
+ MeltingBlock.class                       |  Bin [31m0[m -> [32m1676[m bytes
+ MeltingBlock.java                        |   94 [32m+[m
+ Menu.class                               |  Bin [31m0[m -> [32m287[m bytes
+ Menu.ctxt                                |    4 [32m+[m
+ Menu.java                                |   14 [32m+[m
+ MenuBG.class                             |  Bin [31m0[m -> [32m298[m bytes
+ MenuBG.java                              |   19 [32m+[m
+ MenuMain.class                           |  Bin [31m0[m -> [32m304[m bytes
+ MenuMain.java                            |   19 [32m+[m
+ MenuNo.class                             |  Bin [31m0[m -> [32m809[m bytes
+ MenuNo.java                              |   24 [32m+[m
+ MenuYes.class                            |  Bin [31m0[m -> [32m1008[m bytes
+ MenuYes.java                             |   31 [32m+[m
+ Mine.class                               |  Bin [31m0[m -> [32m2328[m bytes
+ Mine.ctxt                                |   12 [32m+[m
+ Mine.java                                |   81 [32m+[m
+ MineDes.class                            |  Bin [31m0[m -> [32m386[m bytes
+ MineDes.java                             |   23 [32m+[m
+ MineText.class                           |  Bin [31m0[m -> [32m540[m bytes
+ MineText.java                            |   22 [32m+[m
+ Minimap.class                            |  Bin [31m0[m -> [32m364[m bytes
+ Minimap.ctxt                             |    7 [32m+[m
+ Minimap.java                             |   23 [32m+[m
+ Missile.class                            |  Bin [31m0[m -> [32m2802[m bytes
+ Missile.ctxt                             |   16 [32m+[m
+ Missile.java                             |   80 [32m+[m
+ MissileDes.class                         |  Bin [31m0[m -> [32m398[m bytes
+ MissileDes.java                          |   23 [32m+[m
+ MissileIcon.class                        |  Bin [31m0[m -> [32m715[m bytes
+ MissileIcon.java                         |   21 [32m+[m
+ MissileText.class                        |  Bin [31m0[m -> [32m549[m bytes
+ MissileText.java                         |   22 [32m+[m
+ MovingNonPlayer.class                    |  Bin [31m0[m -> [32m3140[m bytes
+ MovingNonPlayer.java                     |  131 [32m+[m
+ Nebula.class                             |  Bin [31m0[m -> [32m1321[m bytes
+ Nebula.java                              |   60 [32m+[m
+ NoCollisionBlock.class                   |  Bin [31m0[m -> [32m351[m bytes
+ NoCollisionBlock.java                    |   15 [32m+[m
+ NonPlayer.class                          |  Bin [31m0[m -> [32m1111[m bytes
+ NonPlayer.java                           |   33 [32m+[m
+ Number.class                             |  Bin [31m0[m -> [32m2010[m bytes
+ Number.java                              |   61 [32m+[m
+ Object.class                             |  Bin [31m0[m -> [32m10698[m bytes
+ Object.ctxt                              |   78 [32m+[m
+ Object.java                              |  430 [32m+++[m
+ OpenTrapdoor.class                       |  Bin [31m0[m -> [32m1451[m bytes
+ OpenTrapdoor.java                        |   35 [32m+[m
+ Options.class                            |  Bin [31m0[m -> [32m297[m bytes
+ Options.ctxt                             |    4 [32m+[m
+ Options.java                             |    8 [32m+[m
+ OptionsMenu.class                        |  Bin [31m0[m -> [32m2413[m bytes
+ OptionsMenu.java                         |  105 [32m+[m
+ Orbiter.class                            |  Bin [31m0[m -> [32m742[m bytes
+ Orbiter.java                             |   29 [32m+[m
+ OuterSpace.class                         |  Bin [31m0[m -> [32m6713[m bytes
+ OuterSpace.java                          |  284 [32m++[m
+ OutsideMP.class                          |  Bin [31m0[m -> [32m306[m bytes
+ OutsideMP.ctxt                           |    5 [32m+[m
+ OutsideMP.java                           |   19 [32m+[m
+ Particle.class                           |  Bin [31m0[m -> [32m1674[m bytes
+ Particle.ctxt                            |   12 [32m+[m
+ Particle.java                            |   65 [32m+[m
+ Planet.class                             |  Bin [31m0[m -> [32m3253[m bytes
+ Planet.ctxt                              |   14 [32m+[m
+ Planet.java                              |  145 [32m+[m
+ PlanetCompletedMP.class                  |  Bin [31m0[m -> [32m429[m bytes
+ PlanetCompletedMP.java                   |   15 [32m+[m
+ PlanetLevelText.class                    |  Bin [31m0[m -> [32m1049[m bytes
+ PlanetLevelText.java                     |   33 [32m+[m
+ PlanetMP.class                           |  Bin [31m0[m -> [32m402[m bytes
+ PlanetMP.java                            |   19 [32m+[m
+ PlasmaBall.class                         |  Bin [31m0[m -> [32m1241[m bytes
+ PlasmaBall.ctxt                          |    8 [32m+[m
+ PlasmaBall.java                          |   42 [32m+[m
+ PlasmaDes.class                          |  Bin [31m0[m -> [32m394[m bytes
+ PlasmaDes.java                           |   22 [32m+[m
+ PlasmaShip.class                         |  Bin [31m0[m -> [32m1581[m bytes
+ PlasmaShip.java                          |   59 [32m+[m
+ PlasmaText.class                         |  Bin [31m0[m -> [32m546[m bytes
+ PlasmaText.java                          |   22 [32m+[m
+ PlatformObject.class                     |  Bin [31m0[m -> [32m1850[m bytes
+ PlatformObject.java                      |   73 [32m+[m
+ PlatformPlayer.class                     |  Bin [31m0[m -> [32m16131[m bytes
+ PlatformPlayer.java                      |  869 [32m+++++[m
+ Platformer.class                         |  Bin [31m0[m -> [32m1502[m bytes
+ Platformer.java                          |   53 [32m+[m
+ Play.class                               |  Bin [31m0[m -> [32m288[m bytes
+ Play.ctxt                                |    4 [32m+[m
+ Play.java                                |    7 [32m+[m
+ Player.class                             |  Bin [31m0[m -> [32m26348[m bytes
+ Player.ctxt                              |  193 [32m++[m
+ Player.java                              | 1456 [32m++++++++[m
+ PlayerIcon.class                         |  Bin [31m0[m -> [32m251[m bytes
+ PlayerIcon.java                          |   14 [32m+[m
+ PlayerShield.class                       |  Bin [31m0[m -> [32m547[m bytes
+ PlayerShield.java                        |   17 [32m+[m
+ PlayerShip.class                         |  Bin [31m0[m -> [32m309[m bytes
+ PlayerShip.java                          |   19 [32m+[m
+ PortalBlue.class                         |  Bin [31m0[m -> [32m331[m bytes
+ PortalBlue.java                          |   11 [32m+[m
+ PortalOrange.class                       |  Bin [31m0[m -> [32m337[m bytes
+ PortalOrange.java                        |   11 [32m+[m
+ PortalProjectile.class                   |  Bin [31m0[m -> [32m1162[m bytes
+ PortalProjectile.java                    |   39 [32m+[m
+ PortalWorld.class                        |  Bin [31m0[m -> [32m367[m bytes
+ PortalWorld.java                         |   13 [32m+[m
+ Projectile.class                         |  Bin [31m0[m -> [32m844[m bytes
+ Projectile.ctxt                          |    6 [32m+[m
+ Projectile.java                          |   27 [32m+[m
+ ProjectileObject.class                   |  Bin [31m0[m -> [32m103[m bytes
+ PushButton.class                         |  Bin [31m0[m -> [32m8274[m bytes
+ PushButton.java                          |  438 [32m+++[m
+ README.TXT                               |    4 [32m+[m
+ Resolution.class                         |  Bin [31m0[m -> [32m533[m bytes
+ Resolution.java                          |   34 [32m+[m
+ RespawnButton.class                      |  Bin [31m0[m -> [32m922[m bytes
+ RespawnButton.java                       |   31 [32m+[m
+ RespawnMenu.class                        |  Bin [31m0[m -> [32m374[m bytes
+ RespawnMenu.java                         |   26 [32m+[m
+ RespawnMenuBG.class                      |  Bin [31m0[m -> [32m322[m bytes
+ RespawnMenuBG.java                       |   19 [32m+[m
+ RocketLaunch.class                       |  Bin [31m0[m -> [32m787[m bytes
+ RocketLaunch.java                        |   31 [32m+[m
+ RocketLaunch/Alien0.png                  |  Bin [31m0[m -> [32m21383[m bytes
+ RocketLaunch/Alien1.png                  |  Bin [31m0[m -> [32m21435[m bytes
+ RocketLaunch/Alien2.png                  |  Bin [31m0[m -> [32m21565[m bytes
+ ScrollingListener.class                  |  Bin [31m0[m -> [32m837[m bytes
+ ShieldText.class                         |  Bin [31m0[m -> [32m556[m bytes
+ ShieldText.java                          |   21 [32m+[m
+ Ship.class                               |  Bin [31m0[m -> [32m650[m bytes
+ Ship.ctxt                                |    8 [32m+[m
+ Ship.java                                |   26 [32m+[m
+ Ship3D.class                             |  Bin [31m0[m -> [32m557[m bytes
+ Ship3D.java                              |   20 [32m+[m
+ ShootingStar.class                       |  Bin [31m0[m -> [32m930[m bytes
+ ShootingStar.java                        |   32 [32m+[m
+ Shop.class                               |  Bin [31m0[m -> [32m12536[m bytes
+ Shop.java                                |  534 [32m+++[m
+ ShopBackButton.class                     |  Bin [31m0[m -> [32m941[m bytes
+ ShopBackButton.java                      |   36 [32m+[m
+ ShopButton.class                         |  Bin [31m0[m -> [32m923[m bytes
+ ShopButton.java                          |   42 [32m+[m
+ SlimeBlock.class                         |  Bin [31m0[m -> [32m1265[m bytes
+ SlimeBlock.java                          |   42 [32m+[m
+ SmoothMover.class                        |  Bin [31m0[m -> [32m1154[m bytes
+ SmoothMover.ctxt                         |   20 [32m+[m
+ SmoothMover.java                         |   77 [32m+[m
+ SoundToggle.class                        |  Bin [31m0[m -> [32m309[m bytes
+ SoundToggle.java                         |    8 [32m+[m
+ Space.class                              |  Bin [31m0[m -> [32m10829[m bytes
+ Space.ctxt                               |   36 [32m+[m
+ Space.java                               |  514 [32m+++[m
+ SpaceObject.class                        |  Bin [31m0[m -> [32m2465[m bytes
+ SpaceObject.ctxt                         |   26 [32m+[m
+ SpaceObject.java                         |  120 [32m+[m
+ SpeedDes.class                           |  Bin [31m0[m -> [32m390[m bytes
+ SpeedDes.java                            |   22 [32m+[m
+ SpeedText.class                          |  Bin [31m0[m -> [32m627[m bytes
+ SpeedText.java                           |   25 [32m+[m
+ SpikeBlock.class                         |  Bin [31m0[m -> [32m582[m bytes
+ SpikeBlock.java                          |   23 [32m+[m
+ StartMenu.class                          |  Bin [31m0[m -> [32m2618[m bytes
+ StartMenu.ctxt                           |   14 [32m+[m
+ StartMenu.java                           |   88 [32m+[m
+ TraceHead.class                          |  Bin [31m0[m -> [32m1746[m bytes
+ TraceHead.java                           |   72 [32m+[m
+ Track.class                              |  Bin [31m0[m -> [32m567[m bytes
+ Track.java                               |   27 [32m+[m
+ Trapdoor.class                           |  Bin [31m0[m -> [32m1552[m bytes
+ Trapdoor.java                            |   40 [32m+[m
+ TurnSpeedDes.class                       |  Bin [31m0[m -> [32m401[m bytes
+ TurnSpeedDes.java                        |   22 [32m+[m
+ TurnSpeedText.class                      |  Bin [31m0[m -> [32m644[m bytes
+ TurnSpeedText.java                       |   21 [32m+[m
+ TutorialObjectManager.class              |  Bin [31m0[m -> [32m2084[m bytes
+ TutorialObjectManager.java               |   89 [32m+[m
+ TutorialWorld.class                      |  Bin [31m0[m -> [32m818[m bytes
+ TutorialWorld.java                       |   43 [32m+[m
+ UnlockButton.class                       |  Bin [31m0[m -> [32m1610[m bytes
+ UnlockButton.java                        |   77 [32m+[m
+ WarningBG.class                          |  Bin [31m0[m -> [32m499[m bytes
+ WarningBG.java                           |   23 [32m+[m
+ WarningSector.class                      |  Bin [31m0[m -> [32m511[m bytes
+ WarningSector.java                       |   19 [32m+[m
+ WaterBlock.class                         |  Bin [31m0[m -> [32m1121[m bytes
+ WaterBlock.java                          |   43 [32m+[m
+ WaterBlockBackground.class               |  Bin [31m0[m -> [32m596[m bytes
+ WaterBlockBackground.java                |   30 [32m+[m
+ Weapon.class                             |  Bin [31m0[m -> [32m3716[m bytes
+ Weapon.ctxt                              |   24 [32m+[m
+ Weapon.java                              |  160 [32m+[m
+ WeaponBG.class                           |  Bin [31m0[m -> [32m316[m bytes
+ WeaponBG.ctxt                            |    5 [32m+[m
+ WeaponBG.java                            |   19 [32m+[m
+ WeaponShop.class                         |  Bin [31m0[m -> [32m652[m bytes
+ WeaponShop.java                          |   27 [32m+[m
+ WeaponShopFG.class                       |  Bin [31m0[m -> [32m318[m bytes
+ WeaponShopFG.java                        |   19 [32m+[m
+ WeaponsText.class                        |  Bin [31m0[m -> [32m559[m bytes
+ WeaponsText.java                         |   22 [32m+[m
+ Wire.class                               |  Bin [31m0[m -> [32m3274[m bytes
+ Wire.java                                |  189 [32m++[m
+ WireActivator.class                      |  Bin [31m0[m -> [32m345[m bytes
+ WireActivator.java                       |   19 [32m+[m
+ WireButton.class                         |  Bin [31m0[m -> [32m1022[m bytes
+ WireButton.java                          |   35 [32m+[m
+ WireButtonDown.class                     |  Bin [31m0[m -> [32m846[m bytes
+ WireButtonDown.java                      |   32 [32m+[m
+ WireOn.class                             |  Bin [31m0[m -> [32m3027[m bytes
+ WireOn.java                              |  170 [32m+[m
+ _Extras/Asteroid.png                     |  Bin [31m0[m -> [32m25814[m bytes
+ _Extras/AsteroidBig.png                  |  Bin [31m0[m -> [32m23899[m bytes
+ _Extras/AsteroidMed.png                  |  Bin [31m0[m -> [32m23044[m bytes
+ _Extras/AsteroidSmall.png                |  Bin [31m0[m -> [32m20663[m bytes
+ _Extras/BGPlanet1.png                    |  Bin [31m0[m -> [32m340141[m bytes
+ _Extras/BlackSpace.png                   |  Bin [31m0[m -> [32m149[m bytes
+ _Extras/FloorPlanetOne.png               |  Bin [31m0[m -> [32m115759[m bytes
+ _Extras/InsideMP.png                     |  Bin [31m0[m -> [32m22619[m bytes
+ _Extras/Laser.png                        |  Bin [31m0[m -> [32m18511[m bytes
+ _Extras/OutsideMP.png                    |  Bin [31m0[m -> [32m33398[m bytes
+ _Extras/Planet2.png                      |  Bin [31m0[m -> [32m148672[m bytes
+ _Extras/Planet3.png                      |  Bin [31m0[m -> [32m89401[m bytes
+ _Extras/RocketBoost.png                  |  Bin [31m0[m -> [32m7987[m bytes
+ _Extras/SmallPlanet.png                  |  Bin [31m0[m -> [32m17901[m bytes
+ _Extras/Star.png                         |  Bin [31m0[m -> [32m17766[m bytes
+ _Extras/ball.png                         |  Bin [31m0[m -> [32m1823[m bytes
+ _Extras/button-red.png                   |  Bin [31m0[m -> [32m2321[m bytes
+ _Extras/fire.gif                         |  Bin [31m0[m -> [32m35089[m bytes
+ _Extras/planet1.png                      |  Bin [31m0[m -> [32m38933[m bytes
+ _Extras/rocket.png                       |  Bin [31m0[m -> [32m7209[m bytes
+ _Extras/steel-ball.png                   |  Bin [31m0[m -> [32m9608[m bytes
+ _GeneratedLevel.txt                      | 2607 [32m+++++++++++++++[m
+ _Level.txt                               |  309 [32m++[m
+ _import.txt                              | 3607 [32m++++++++++++++++++++[m
+ hs_err_pid11323.log                      |  657 [32m++++[m
+ images/1280x720.png                      |  Bin [31m0[m -> [32m18843[m bytes
+ images/1920x1080.png                     |  Bin [31m0[m -> [32m18828[m bytes
+ images/920x540.png                       |  Bin [31m0[m -> [32m18813[m bytes
+ images/About.png                         |  Bin [31m0[m -> [32m18179[m bytes
+ images/Aesthetics.png                    |  Bin [31m0[m -> [32m523354[m bytes
+ images/AirBlock.png                      |  Bin [31m0[m -> [32m17964[m bytes
+ images/Alein2.png                        |  Bin [31m0[m -> [32m21435[m bytes
+ images/Alien1.png                        |  Bin [31m0[m -> [32m21296[m bytes
+ images/Alien1StandLeft.png               |  Bin [31m0[m -> [32m21836[m bytes
+ images/Alien1StandRight.png              |  Bin [31m0[m -> [32m21825[m bytes
+ images/Alien1WalkingLeft.gif             |  Bin [31m0[m -> [32m5437[m bytes
+ images/Alien1WalkingRight.gif            |  Bin [31m0[m -> [32m5440[m bytes
+ images/AlienBomber.png                   |  Bin [31m0[m -> [32m20368[m bytes
+ images/AlienShip.png                     |  Bin [31m0[m -> [32m18731[m bytes
+ images/AlienVines.png                    |  Bin [31m0[m -> [32m18515[m bytes
+ images/Asteroid1.png                     |  Bin [31m0[m -> [32m26201[m bytes
+ images/Asteroid2.png                     |  Bin [31m0[m -> [32m22565[m bytes
+ images/Asteroid3.png                     |  Bin [31m0[m -> [32m19252[m bytes
+ images/Background.jpeg                   |  Bin [31m0[m -> [32m1301[m bytes
+ images/Background.png                    |  Bin [31m0[m -> [32m333728[m bytes
+ images/BackgroundFront.png               |  Bin [31m0[m -> [32m22207[m bytes
+ images/BackgroundImage3.png              |  Bin [31m0[m -> [32m109024[m bytes
+ images/BackgroundLevel4.png              |  Bin [31m0[m -> [32m68549[m bytes
+ images/Bars.png                          |  Bin [31m0[m -> [32m21485[m bytes
+ images/BeamText.png                      |  Bin [31m0[m -> [32m3249[m bytes
+ images/BigBullet.png                     |  Bin [31m0[m -> [32m18456[m bytes
+ images/BlackSpace.png                    |  Bin [31m0[m -> [32m149[m bytes
+ images/Blackbar.png                      |  Bin [31m0[m -> [32m17793[m bytes
+ images/BlueBasicBlock.png                |  Bin [31m0[m -> [32m18781[m bytes
+ images/BlueBrick.png                     |  Bin [31m0[m -> [32m17109[m bytes
+ images/BlueExtrudedBlock.png             |  Bin [31m0[m -> [32m17756[m bytes
+ images/BlueGlassBlock.png                |  Bin [31m0[m -> [32m17829[m bytes
+ images/BlueMetal.png                     |  Bin [31m0[m -> [32m18110[m bytes
+ images/BluePlates.png                    |  Bin [31m0[m -> [32m17834[m bytes
+ images/BlueSlash.png                     |  Bin [31m0[m -> [32m18019[m bytes
+ images/BlueStone.png                     |  Bin [31m0[m -> [32m18933[m bytes
+ images/BlueStones.png                    |  Bin [31m0[m -> [32m19441[m bytes
+ images/BlueStonesTop.png                 |  Bin [31m0[m -> [32m19408[m bytes
+ images/BoltedMetal.png                   |  Bin [31m0[m -> [32m18074[m bytes
+ images/BoostBarInside.png                |  Bin [31m0[m -> [32m27073[m bytes
+ images/BoostBarOutside.png               |  Bin [31m0[m -> [32m19137[m bytes
+ images/BoostBarSegment.png               |  Bin [31m0[m -> [32m18528[m bytes
+ images/BoostBarText.png                  |  Bin [31m0[m -> [32m3258[m bytes
+ images/BoostDes.png                      |  Bin [31m0[m -> [32m3708[m bytes
+ images/BounceBlock.png                   |  Bin [31m0[m -> [32m19207[m bytes
+ images/BouncyGif.gif                     |  Bin [31m0[m -> [32m4118[m bytes
+ images/BrownBlock.png                    |  Bin [31m0[m -> [32m18566[m bytes
+ images/BrownBlockBottom.png              |  Bin [31m0[m -> [32m18520[m bytes
+ images/BrownWall.png                     |  Bin [31m0[m -> [32m17555[m bytes
+ images/BulletLauncherLeft.png            |  Bin [31m0[m -> [32m18381[m bytes
+ images/BulletLauncherRight.png           |  Bin [31m0[m -> [32m18821[m bytes
+ images/Button.png                        |  Bin [31m0[m -> [32m18533[m bytes
+ images/ButtonNo.png                      |  Bin [31m0[m -> [32m18289[m bytes
+ images/ButtonShopHover.png               |  Bin [31m0[m -> [32m19762[m bytes
+ images/ButtonShopNormal.png              |  Bin [31m0[m -> [32m5775[m bytes
+ images/ButtonYes.png                     |  Bin [31m0[m -> [32m18410[m bytes
+ images/Cannon.png                        |  Bin [31m0[m -> [32m18526[m bytes
+ images/Cart.png                          |  Bin [31m0[m -> [32m3263[m bytes
+ images/CautionBlock.png                  |  Bin [31m0[m -> [32m17957[m bytes
+ images/CheckerBoard.png                  |  Bin [31m0[m -> [32m17567[m bytes
+ images/Checkpoint.png                    |  Bin [31m0[m -> [32m18742[m bytes
+ images/CoinAnimation.gif                 |  Bin [31m0[m -> [32m24199[m bytes
+ images/ColorfulBlocks.png                |  Bin [31m0[m -> [32m18027[m bytes
+ images/Completed.png                     |  Bin [31m0[m -> [32m4187[m bytes
+ images/CoolColorBlocks.png               |  Bin [31m0[m -> [32m17974[m bytes
+ images/CostText.png                      |  Bin [31m0[m -> [32m3188[m bytes
+ images/Counter.png                       |  Bin [31m0[m -> [32m4155[m bytes
+ images/CrackedPurple.png                 |  Bin [31m0[m -> [32m18586[m bytes
+ images/CrackedStone.png                  |  Bin [31m0[m -> [32m18652[m bytes
+ images/DamageBar_0.png                   |  Bin [31m0[m -> [32m2808[m bytes
+ images/DamageBar_10.png                  |  Bin [31m0[m -> [32m2842[m bytes
+ images/DamageBar_100.png                 |  Bin [31m0[m -> [32m2961[m bytes
+ images/DamageBar_15.png                  |  Bin [31m0[m -> [32m2845[m bytes
+ images/DamageBar_20.png                  |  Bin [31m0[m -> [32m2839[m bytes
+ images/DamageBar_25.png                  |  Bin [31m0[m -> [32m2839[m bytes
+ images/DamageBar_30.png                  |  Bin [31m0[m -> [32m2839[m bytes
+ images/DamageBar_35.png                  |  Bin [31m0[m -> [32m2847[m bytes
+ images/DamageBar_40.png                  |  Bin [31m0[m -> [32m2840[m bytes
+ images/DamageBar_45.png                  |  Bin [31m0[m -> [32m2888[m bytes
+ images/DamageBar_5.png                   |  Bin [31m0[m -> [32m2842[m bytes
+ images/DamageBar_50.png                  |  Bin [31m0[m -> [32m2892[m bytes
+ images/DamageBar_55.png                  |  Bin [31m0[m -> [32m2931[m bytes
+ images/DamageBar_60.png                  |  Bin [31m0[m -> [32m2931[m bytes
+ images/DamageBar_65.png                  |  Bin [31m0[m -> [32m2948[m bytes
+ images/DamageBar_70.png                  |  Bin [31m0[m -> [32m2937[m bytes
+ images/DamageBar_75.png                  |  Bin [31m0[m -> [32m2940[m bytes
+ images/DamageBar_80.png                  |  Bin [31m0[m -> [32m2950[m bytes
+ images/DamageBar_85.png                  |  Bin [31m0[m -> [32m2952[m bytes
+ images/DamageBar_90.png                  |  Bin [31m0[m -> [32m2937[m bytes
+ images/DamageBar_95.png                  |  Bin [31m0[m -> [32m2958[m bytes
+ images/DarkBricks.png                    |  Bin [31m0[m -> [32m18367[m bytes
+ images/Dirt.png                          |  Bin [31m0[m -> [32m18498[m bytes
+ images/Elevator.png                      |  Bin [31m0[m -> [32m17624[m bytes
+ images/EmeraldBlock.png                  |  Bin [31m0[m -> [32m17969[m bytes
+ images/EnemyShipIcon.png                 |  Bin [31m0[m -> [32m17795[m bytes
+ images/EngineText.png                    |  Bin [31m0[m -> [32m18898[m bytes
+ images/Exclamation.png                   |  Bin [31m0[m -> [32m2903[m bytes
+ images/Exit.png                          |  Bin [31m0[m -> [32m18291[m bytes
+ images/ExitPortal.png                    |  Bin [31m0[m -> [32m21130[m bytes
+ images/ExtrudedBlock.png                 |  Bin [31m0[m -> [32m17716[m bytes
+ images/FallCrate.png                     |  Bin [31m0[m -> [32m17597[m bytes
+ images/FireBall.gif                      |  Bin [31m0[m -> [32m15458[m bytes
+ images/FireBall.png                      |  Bin [31m0[m -> [32m21601[m bytes
+ images/FireballIcon.png                  |  Bin [31m0[m -> [32m20485[m bytes
+ images/FireballText.png                  |  Bin [31m0[m -> [32m3180[m bytes
+ images/GlassBlockClear.png               |  Bin [31m0[m -> [32m17833[m bytes
+ images/GoldText.png                      |  Bin [31m0[m -> [32m3353[m bytes
+ images/GooBottom.png                     |  Bin [31m0[m -> [32m17328[m bytes
+ images/GooTop.png                        |  Bin [31m0[m -> [32m17349[m bytes
+ images/GotoShop.png                      |  Bin [31m0[m -> [32m3240[m bytes
+ images/Grass.png                         |  Bin [31m0[m -> [32m18713[m bytes
+ images/GravityBlock.png                  |  Bin [31m0[m -> [32m5543[m bytes
+ images/GreenBasicBlock.png               |  Bin [31m0[m -> [32m18772[m bytes
+ images/GreenExtrudedBlock.png            |  Bin [31m0[m -> [32m17760[m bytes
+ images/GreenGlassBlock.png               |  Bin [31m0[m -> [32m17833[m bytes
+ images/GreenSlash.png                    |  Bin [31m0[m -> [32m17972[m bytes
+ images/GreenishYellowBlocks.png          |  Bin [31m0[m -> [32m17987[m bytes
+ images/GreyStone1.png                    |  Bin [31m0[m -> [32m17752[m bytes
+ images/GreyStone2.png                    |  Bin [31m0[m -> [32m17652[m bytes
+ images/GridHighlight.png                 |  Bin [31m0[m -> [32m3688[m bytes
+ images/HUD1.png                          |  Bin [31m0[m -> [32m20657[m bytes
+ images/HellBricks.png                    |  Bin [31m0[m -> [32m17922[m bytes
+ images/IceBlock.png                      |  Bin [31m0[m -> [32m17578[m bytes
+ images/IconShip.png                      |  Bin [31m0[m -> [32m18035[m bytes
+ images/InsideMP.png                      |  Bin [31m0[m -> [32m22619[m bytes
+ images/Laser.png                         |  Bin [31m0[m -> [32m15505[m bytes
+ images/LaserDes.png                      |  Bin [31m0[m -> [32m5203[m bytes
+ images/LaserText.png                     |  Bin [31m0[m -> [32m3140[m bytes
+ images/Laster.png                        |  Bin [31m0[m -> [32m19129[m bytes
+ images/Lava.png                          |  Bin [31m0[m -> [32m16859[m bytes
+ images/Lava2.png                         |  Bin [31m0[m -> [32m16844[m bytes
+ images/LeavesBlock.png                   |  Bin [31m0[m -> [32m18427[m bytes
+ images/LevelBox.png                      |  Bin [31m0[m -> [32m17728[m bytes
+ images/LevelBoxFilled.png                |  Bin [31m0[m -> [32m17713[m bytes
+ images/LevelButton.png                   |  Bin [31m0[m -> [32m18152[m bytes
+ images/LevelButtonDown.png               |  Bin [31m0[m -> [32m18050[m bytes
+ images/LevelCreator.png                  |  Bin [31m0[m -> [32m19085[m bytes
+ images/LevelText.png                     |  Bin [31m0[m -> [32m3119[m bytes
+ images/LevelUp.png                       |  Bin [31m0[m -> [32m1178[m bytes
+ images/LevelUpGray.png                   |  Bin [31m0[m -> [32m1167[m bytes
+ images/Log.png                           |  Bin [31m0[m -> [32m17962[m bytes
+ images/Logo.png                          |  Bin [31m0[m -> [32m73584[m bytes
+ images/MapBack.png                       |  Bin [31m0[m -> [32m3328[m bytes
+ images/MapButton.png                     |  Bin [31m0[m -> [32m3118[m bytes
+ images/MenuBG.png                        |  Bin [31m0[m -> [32m20393[m bytes
+ images/MenuMain.png                      |  Bin [31m0[m -> [32m24519[m bytes
+ images/MessageBoxBLANK.png               |  Bin [31m0[m -> [32m6213[m bytes
+ images/MetalBackground.png               |  Bin [31m0[m -> [32m34624[m bytes
+ images/MetalBeams.png                    |  Bin [31m0[m -> [32m18362[m bytes
+ images/MetalBlock.png                    |  Bin [31m0[m -> [32m18134[m bytes
+ images/MetalLadder.png                   |  Bin [31m0[m -> [32m17552[m bytes
+ images/Mine.png                          |  Bin [31m0[m -> [32m19871[m bytes
+ images/MineText.png                      |  Bin [31m0[m -> [32m3120[m bytes
+ images/MissileText.png                   |  Bin [31m0[m -> [32m3201[m bytes
+ images/MoonBrick.png                     |  Bin [31m0[m -> [32m18907[m bytes
+ images/MoonBrickTop.png                  |  Bin [31m0[m -> [32m18835[m bytes
+ images/MsgBox_Allis_.psd                 |  Bin [31m0[m -> [32m479323[m bytes
+ images/MsgBox_Allis_1.png                |  Bin [31m0[m -> [32m35834[m bytes
+ images/MsgBox_Allis_2.png                |  Bin [31m0[m -> [32m38634[m bytes
+ images/MsgBox_Jebediah_.psd              |  Bin [31m0[m -> [32m536701[m bytes
+ images/MsgBox_Jebediah_1.png             |  Bin [31m0[m -> [32m13186[m bytes
+ images/MsgBox_Jebediah_2.png             |  Bin [31m0[m -> [32m10411[m bytes
+ images/MsgBox_Luther_.psd                |  Bin [31m0[m -> [32m318137[m bytes
+ images/MsgBox_Luther_1.png               |  Bin [31m0[m -> [32m12411[m bytes
+ images/MsgBox_Maximo_.psd                |  Bin [31m0[m -> [32m603649[m bytes
+ images/MsgBox_Rosa_.psd                  |  Bin [31m0[m -> [32m288305[m bytes
+ images/NeckBlock.png                     |  Bin [31m0[m -> [32m17705[m bytes
+ images/Number0.png                       |  Bin [31m0[m -> [32m2995[m bytes
+ images/Number1.png                       |  Bin [31m0[m -> [32m2906[m bytes
+ images/Number2.png                       |  Bin [31m0[m -> [32m2984[m bytes
+ images/Number3.png                       |  Bin [31m0[m -> [32m2980[m bytes
+ images/Number4.png                       |  Bin [31m0[m -> [32m2971[m bytes
+ images/Number5.png                       |  Bin [31m0[m -> [32m2970[m bytes
+ images/Number6.png                       |  Bin [31m0[m -> [32m2980[m bytes
+ images/Number7.png                       |  Bin [31m0[m -> [32m2913[m bytes
+ images/Number8.png                       |  Bin [31m0[m -> [32m2980[m bytes
+ images/Number9.png                       |  Bin [31m0[m -> [32m2988[m bytes
+ images/OpenTrapdoor.png                  |  Bin [31m0[m -> [32m17934[m bytes
+ images/OpenTrapdoorLeft.png              |  Bin [31m0[m -> [32m17987[m bytes
+ images/OpenTrapdoorRight.png             |  Bin [31m0[m -> [32m17973[m bytes
+ images/Options.png                       |  Bin [31m0[m -> [32m18233[m bytes
+ images/OrangePlates.png                  |  Bin [31m0[m -> [32m17834[m bytes
+ images/OutsideMP.png                     |  Bin [31m0[m -> [32m33398[m bytes
+ images/Outspace/Background.jpeg          |  Bin [31m0[m -> [32m1301[m bytes
+ images/Outspace/Ship/Spaceship_idle.png  |  Bin [31m0[m -> [32m8384[m bytes
+ images/Outspace/Stars/star1.png          |  Bin [31m0[m -> [32m633[m bytes
+ images/Outspace/Thumbs.db                |  Bin [31m0[m -> [32m4608[m bytes
+ images/PinkBricks.png                    |  Bin [31m0[m -> [32m17884[m bytes
+ images/PinkPurpleBlocks.png              |  Bin [31m0[m -> [32m18004[m bytes
+ images/PinkStones.png                    |  Bin [31m0[m -> [32m19494[m bytes
+ images/Placeholder.png                   |  Bin [31m0[m -> [32m17504[m bytes
+ images/Planet1.png                       |  Bin [31m0[m -> [32m114268[m bytes
+ images/Planet10.png                      |  Bin [31m0[m -> [32m128532[m bytes
+ images/Planet11.png                      |  Bin [31m0[m -> [32m112976[m bytes
+ images/Planet12.png                      |  Bin [31m0[m -> [32m145817[m bytes
+ images/Planet13.png                      |  Bin [31m0[m -> [32m57611[m bytes
+ images/Planet14.png                      |  Bin [31m0[m -> [32m302649[m bytes
+ images/Planet15.png                      |  Bin [31m0[m -> [32m66659[m bytes
+ images/Planet16.png                      |  Bin [31m0[m -> [32m110293[m bytes
+ images/Planet17.png                      |  Bin [31m0[m -> [32m121729[m bytes
+ images/Planet18.png                      |  Bin [31m0[m -> [32m381553[m bytes
+ images/Planet2.png                       |  Bin [31m0[m -> [32m323215[m bytes
+ images/Planet20.png                      |  Bin [31m0[m -> [32m85837[m bytes
+ images/Planet21.png                      |  Bin [31m0[m -> [32m164762[m bytes
+ images/Planet21re.png                    |  Bin [31m0[m -> [32m128079[m bytes
+ images/Planet22.png                      |  Bin [31m0[m -> [32m1402260[m bytes
+ images/Planet23.png                      |  Bin [31m0[m -> [32m107545[m bytes
+ images/Planet24.png                      |  Bin [31m0[m -> [32m86534[m bytes
+ images/Planet25.png                      |  Bin [31m0[m -> [32m55549[m bytes
+ images/Planet26.png                      |  Bin [31m0[m -> [32m119592[m bytes
+ images/Planet27.png                      |  Bin [31m0[m -> [32m297920[m bytes
+ images/Planet28.png                      |  Bin [31m0[m -> [32m133039[m bytes
+ images/Planet29.png                      |  Bin [31m0[m -> [32m84259[m bytes
+ images/Planet3.png                       |  Bin [31m0[m -> [32m121535[m bytes
+ images/Planet30.png                      |  Bin [31m0[m -> [32m150367[m bytes
+ images/Planet31.png                      |  Bin [31m0[m -> [32m213219[m bytes
+ images/Planet32.png                      |  Bin [31m0[m -> [32m212678[m bytes
+ images/Planet33.png                      |  Bin [31m0[m -> [32m153769[m bytes
+ images/Planet34.png                      |  Bin [31m0[m -> [32m209212[m bytes
+ images/Planet35.png                      |  Bin [31m0[m -> [32m109123[m bytes
+ images/Planet36.png                      |  Bin [31m0[m -> [32m80652[m bytes
+ images/Planet37.png                      |  Bin [31m0[m -> [32m90928[m bytes
+ images/Planet4.png                       |  Bin [31m0[m -> [32m250533[m bytes
+ images/Planet5.png                       |  Bin [31m0[m -> [32m49343[m bytes
+ images/Planet6.png                       |  Bin [31m0[m -> [32m190163[m bytes
+ images/Planet7.png                       |  Bin [31m0[m -> [32m50429[m bytes
+ images/Planet8.png                       |  Bin [31m0[m -> [32m82374[m bytes
+ images/Planet9.png                       |  Bin [31m0[m -> [32m100091[m bytes
+ images/PlanetCompletedMP.png             |  Bin [31m0[m -> [32m3007[m bytes
+ images/PlanetMP.png                      |  Bin [31m0[m -> [32m17795[m bytes
+ images/PlanetOneBG.png                   |  Bin [31m0[m -> [32m173646[m bytes
+ images/PlanetOneFG.png                   |  Bin [31m0[m -> [32m412806[m bytes
+ images/PlanetShop.png                    |  Bin [31m0[m -> [32m192200[m bytes
+ images/Plasma.png                        |  Bin [31m0[m -> [32m3276[m bytes
+ images/PlasmaBall.png                    |  Bin [31m0[m -> [32m20410[m bytes
+ images/PlasmaBallProj.png                |  Bin [31m0[m -> [32m19073[m bytes
+ images/PlasmaShip.png                    |  Bin [31m0[m -> [32m22344[m bytes
+ images/PlasmaText.png                    |  Bin [31m0[m -> [32m3276[m bytes
+ images/Play.png                          |  Bin [31m0[m -> [32m18256[m bytes
+ images/PlayerDot.png                     |  Bin [31m0[m -> [32m18411[m bytes
+ images/PlayerHitBox.png                  |  Bin [31m0[m -> [32m17975[m bytes
+ images/PlayerLeft.png                    |  Bin [31m0[m -> [32m5457[m bytes
+ images/PlayerRight.png                   |  Bin [31m0[m -> [32m5446[m bytes
+ images/PlayerShipIcon.png                |  Bin [31m0[m -> [32m17788[m bytes
+ images/Portal.png                        |  Bin [31m0[m -> [32m21130[m bytes
+ images/PurpleBlock.png                   |  Bin [31m0[m -> [32m18743[m bytes
+ images/PushBlock.png                     |  Bin [31m0[m -> [32m18717[m bytes
+ images/RedGlassBlock.png                 |  Bin [31m0[m -> [32m17834[m bytes
+ images/RedSlash.png                      |  Bin [31m0[m -> [32m17987[m bytes
+ images/ResoltionSelect.png               |  Bin [31m0[m -> [32m18667[m bytes
+ images/RespawnButton.png                 |  Bin [31m0[m -> [32m19155[m bytes
+ images/RespawnMenu.png                   |  Bin [31m0[m -> [32m25099[m bytes
+ images/RespawnMenuBG.png                 |  Bin [31m0[m -> [32m21284[m bytes
+ images/RocketBoost.png                   |  Bin [31m0[m -> [32m21323[m bytes
+ images/RocketIdle.png                    |  Bin [31m0[m -> [32m20658[m bytes
+ images/RocketLaunch.gif                  |  Bin [31m0[m -> [32m186406[m bytes
+ images/RoughStoneBricks.png              |  Bin [31m0[m -> [32m18818[m bytes
+ images/SandMiddle.png                    |  Bin [31m0[m -> [32m18630[m bytes
+ images/SandTop.png                       |  Bin [31m0[m -> [32m18893[m bytes
+ images/SavedCheckpoint.png               |  Bin [31m0[m -> [32m18858[m bytes
+ images/Sector0.png                       |  Bin [31m0[m -> [32m179375[m bytes
+ images/Sector1.png                       |  Bin [31m0[m -> [32m189366[m bytes
+ images/Sector2.png                       |  Bin [31m0[m -> [32m218560[m bytes
+ images/Sector3.png                       |  Bin [31m0[m -> [32m222189[m bytes
+ images/Sector4.png                       |  Bin [31m0[m -> [32m208733[m bytes
+ images/Sector5.png                       |  Bin [31m0[m -> [32m230925[m bytes
+ images/Sector6.png                       |  Bin [31m0[m -> [32m221165[m bytes
+ images/Sector7.png                       |  Bin [31m0[m -> [32m227430[m bytes
+ images/Sector8.png                       |  Bin [31m0[m -> [32m228816[m bytes
+ images/SectorBasic.png                   |  Bin [31m0[m -> [32m152217[m bytes
+ images/SectorBasic.psd                   |  Bin [31m0[m -> [32m908654[m bytes
+ images/SelectedWeapon.png                |  Bin [31m0[m -> [32m21668[m bytes
+ images/ShieldText.png                    |  Bin [31m0[m -> [32m18846[m bytes
+ images/ShipAnimation.gif                 |  Bin [31m0[m -> [32m975608[m bytes
+ images/ShipGif.gif                       |  Bin [31m0[m -> [32m1754707[m bytes
+ images/ShootingStar copy.png             |  Bin [31m0[m -> [32m4855[m bytes
+ images/ShootingStar.png                  |  Bin [31m0[m -> [32m19514[m bytes
+ images/SingleStone.png                   |  Bin [31m0[m -> [32m18716[m bytes
+ images/SkinnyLog.png                     |  Bin [31m0[m -> [32m17710[m bytes
+ images/SlashCrate.png                    |  Bin [31m0[m -> [32m17838[m bytes
+ images/Slime.png                         |  Bin [31m0[m -> [32m3528[m bytes
+ images/SnowBlock.png                     |  Bin [31m0[m -> [32m18186[m bytes
+ images/SpaceshipBackground1.png          |  Bin [31m0[m -> [32m40350[m bytes
+ images/Spaceship_idle.png                |  Bin [31m0[m -> [32m8384[m bytes
+ images/SpeedDes.png                      |  Bin [31m0[m -> [32m5000[m bytes
+ images/SpeedText.png                     |  Bin [31m0[m -> [32m3148[m bytes
+ images/StandingLeft.png                  |  Bin [31m0[m -> [32m20504[m bytes
+ images/StandingRight.png                 |  Bin [31m0[m -> [32m20504[m bytes
+ images/StoneBricks.png                   |  Bin [31m0[m -> [32m18487[m bytes
+ images/StoneSquare.png                   |  Bin [31m0[m -> [32m18087[m bytes
+ images/Thumbs.db                         |  Bin [31m0[m -> [32m357888[m bytes
+ images/TraceBlock.png                    |  Bin [31m0[m -> [32m18695[m bytes
+ images/Track.png                         |  Bin [31m0[m -> [32m2898[m bytes
+ images/TrapDoor.png                      |  Bin [31m0[m -> [32m18078[m bytes
+ images/TurnDes.png                       |  Bin [31m0[m -> [32m5105[m bytes
+ images/TurnSpeedText.png                 |  Bin [31m0[m -> [32m3316[m bytes
+ images/TutorialSlide.psd                 |  Bin [31m0[m -> [32m153603[m bytes
+ images/TutorialSlide1.png                |  Bin [31m0[m -> [32m11115[m bytes
+ images/TutorialSlide2.png                |  Bin [31m0[m -> [32m9078[m bytes
+ images/TutorialSlide3.png                |  Bin [31m0[m -> [32m8853[m bytes
+ images/TutorialSlide4.png                |  Bin [31m0[m -> [32m10314[m bytes
+ images/TutorialSlide5.png                |  Bin [31m0[m -> [32m8830[m bytes
+ images/TutorialSlide6.png                |  Bin [31m0[m -> [32m9796[m bytes
+ images/TutorialSlide7.png                |  Bin [31m0[m -> [32m7855[m bytes
+ images/TutorialSlide8.png                |  Bin [31m0[m -> [32m8272[m bytes
+ images/Uncharted.png                     |  Bin [31m0[m -> [32m146483[m bytes
+ images/UnlockButton.png                  |  Bin [31m0[m -> [32m3580[m bytes
+ images/UnlockButtonGray.png              |  Bin [31m0[m -> [32m1602[m bytes
+ images/Vines.png                         |  Bin [31m0[m -> [32m18467[m bytes
+ images/WalkingAnimation.gif              |  Bin [31m0[m -> [32m8354[m bytes
+ images/WalkingAnimationLeft.gif          |  Bin [31m0[m -> [32m8393[m bytes
+ images/WalkingAnimationLeftMirror.gif    |  Bin [31m0[m -> [32m8306[m bytes
+ images/WalkingAnimationRIght.gif         |  Bin [31m0[m -> [32m8354[m bytes
+ images/WalkingAnimationRIghtMirrored.gif |  Bin [31m0[m -> [32m8335[m bytes
+ images/WarningSector.png                 |  Bin [31m0[m -> [32m19186[m bytes
+ images/WaterBottom.png                   |  Bin [31m0[m -> [32m17322[m bytes
+ images/WaterMiddle.png                   |  Bin [31m0[m -> [32m17328[m bytes
+ images/WaterTop.png                      |  Bin [31m0[m -> [32m17349[m bytes
+ images/WeaponsText.png                   |  Bin [31m0[m -> [32m18975[m bytes
+ images/WeirdBlueBlock.png                |  Bin [31m0[m -> [32m19504[m bytes
+ images/Wire+.png                         |  Bin [31m0[m -> [32m18029[m bytes
+ images/Wire+On.png                       |  Bin [31m0[m -> [32m18024[m bytes
+ images/WireIntersect.png                 |  Bin [31m0[m -> [32m18029[m bytes
+ images/WireL.png                         |  Bin [31m0[m -> [32m18030[m bytes
+ images/WireLOn.png                       |  Bin [31m0[m -> [32m18016[m bytes
+ images/WireLine.png                      |  Bin [31m0[m -> [32m17988[m bytes
+ images/WireLineOn.png                    |  Bin [31m0[m -> [32m17988[m bytes
+ images/WireT.png                         |  Bin [31m0[m -> [32m18463[m bytes
+ images/WireTOn.png                       |  Bin [31m0[m -> [32m18467[m bytes
+ images/WoodenBricksOrRoof.png            |  Bin [31m0[m -> [32m18762[m bytes
+ images/WoodenLadder.png                  |  Bin [31m0[m -> [32m17555[m bytes
+ images/WoodenRoofLeft.png                |  Bin [31m0[m -> [32m18800[m bytes
+ images/WoodenRoofRight.png               |  Bin [31m0[m -> [32m18882[m bytes
+ images/WorldLevelText.png                |  Bin [31m0[m -> [32m3223[m bytes
+ images/WorldOneFG.png                    |  Bin [31m0[m -> [32m243142[m bytes
+ images/Xcrate.png                        |  Bin [31m0[m -> [32m18111[m bytes
+ images/YellorangeMetal.png               |  Bin [31m0[m -> [32m18108[m bytes
+ images/YellowBlock.png                   |  Bin [31m0[m -> [32m17543[m bytes
+ images/YellowPlates.png                  |  Bin [31m0[m -> [32m17834[m bytes
+ images/YellowStones.png                  |  Bin [31m0[m -> [32m19517[m bytes
+ images/ant.png                           |  Bin [31m0[m -> [32m906[m bytes
+ images/barOutline.png                    |  Bin [31m0[m -> [32m20602[m bytes
+ images/beamBar.png                       |  Bin [31m0[m -> [32m18742[m bytes
+ images/beamdes.png                       |  Bin [31m0[m -> [32m4830[m bytes
+ images/brick.jpg                         |  Bin [31m0[m -> [32m1281[m bytes
+ images/brick.png                         |  Bin [31m0[m -> [32m17700[m bytes
+ images/bulletBlue.png                    |  Bin [31m0[m -> [32m17719[m bytes
+ images/bulletOrange.png                  |  Bin [31m0[m -> [32m17704[m bytes
+ images/cancel.png                        |  Bin [31m0[m -> [32m5128[m bytes
+ images/coin.png                          |  Bin [31m0[m -> [32m3944[m bytes
+ images/coinEffect.png                    |  Bin [31m0[m -> [32m14788[m bytes
+ images/dabloon.png                       |  Bin [31m0[m -> [32m44339[m bytes
+ images/enteringnullsec.png               |  Bin [31m0[m -> [32m3763[m bytes
+ images/exPart1.png                       |  Bin [31m0[m -> [32m19718[m bytes
+ images/exPart2.png                       |  Bin [31m0[m -> [32m18085[m bytes
+ images/fire1.png                         |  Bin [31m0[m -> [32m1470[m bytes
+ images/fireballdes.png                   |  Bin [31m0[m -> [32m5413[m bytes
+ images/fireballdes.psd                   |  Bin [31m0[m -> [32m109364[m bytes
+ images/firesparks.png                    |  Bin [31m0[m -> [32m972[m bytes
+ images/flameything1.png                  |  Bin [31m0[m -> [32m952116[m bytes
+ images/gold.png                          |  Bin [31m0[m -> [32m18873[m bytes
+ images/melt.png                          |  Bin [31m0[m -> [32m19127[m bytes
+ images/minedes.png                       |  Bin [31m0[m -> [32m5495[m bytes
+ images/missile.png                       |  Bin [31m0[m -> [32m14775[m bytes
+ images/missiledes.png                    |  Bin [31m0[m -> [32m5085[m bytes
+ images/planet19.png                      |  Bin [31m0[m -> [32m101011[m bytes
+ images/plasmades.png                     |  Bin [31m0[m -> [32m6096[m bytes
+ images/portalBlue.png                    |  Bin [31m0[m -> [32m17714[m bytes
+ images/portalOrange.png                  |  Bin [31m0[m -> [32m19092[m bytes
+ images/rocket.png                        |  Bin [31m0[m -> [32m5282[m bytes
+ images/shield0 copy.png                  |  Bin [31m0[m -> [32m21047[m bytes
+ images/shield0.png                       |  Bin [31m0[m -> [32m32727[m bytes
+ images/shockwave.png                     |  Bin [31m0[m -> [32m839418[m bytes
+ images/smoke1.png                        |  Bin [31m0[m -> [32m786[m bytes
+ images/smoke2.png                        |  Bin [31m0[m -> [32m1190[m bytes
+ images/soundOff.png                      |  Bin [31m0[m -> [32m7945[m bytes
+ images/soundOn.png                       |  Bin [31m0[m -> [32m7432[m bytes
+ images/spark1.png                        |  Bin [31m0[m -> [32m602[m bytes
+ images/spikes.png                        |  Bin [31m0[m -> [32m18885[m bytes
+ images/star1.png                         |  Bin [31m0[m -> [32m15271[m bytes
+ images/star2.png                         |  Bin [31m0[m -> [32m18047[m bytes
+ images/star3.png                         |  Bin [31m0[m -> [32m18684[m bytes
+ images/star4.png                         |  Bin [31m0[m -> [32m18421[m bytes
+ images/transparent.png                   |  Bin [31m0[m -> [32m623[m bytes
+ images/tux.png                           |  Bin [31m0[m -> [32m5161[m bytes
+ project.greenfoot                        | 5300 [32m++++++++++++++++++++++++++++++[m
+ soundindex.list                          |    7 [32m+[m
+ sounds/Adrenaline.mp3                    |  Bin [31m0[m -> [32m5428210[m bytes
+ sounds/AmbientSpace.wav                  |  Bin [31m0[m -> [32m9226406[m bytes
+ sounds/Buried_Conduit.mp3                |  Bin [31m0[m -> [32m8673876[m bytes
+ sounds/Cat01.wav                         |  Bin [31m0[m -> [32m76044[m bytes
+ sounds/Devoid_Presence.mp3               |  Bin [31m0[m -> [32m8339499[m bytes
+ sounds/Dungeon.mp3                       |  Bin [31m0[m -> [32m6228602[m bytes
+ sounds/Forgotten_Passage.mp3             |  Bin [31m0[m -> [32m5564336[m bytes
+ sounds/Infected_Euphoria.mp3             |  Bin [31m0[m -> [32m6930438[m bytes
+ sounds/Luminous_Pixels.mp3               |  Bin [31m0[m -> [32m7556796[m bytes
+ sounds/beep6.mp3                         |  Bin [31m0[m -> [32m8826[m bytes
+ sounds/beep7.mp3                         |  Bin [31m0[m -> [32m6318[m bytes
+ sounds/bulletbreak.wav                   |  Bin [31m0[m -> [32m92576[m bytes
+ sounds/burp-1.mp3                        |  Bin [31m0[m -> [32m27732[m bytes
+ sounds/button-12.mp3                     |  Bin [31m0[m -> [32m11334[m bytes
+ sounds/buttonSound.wav                   |  Bin [31m0[m -> [32m43014[m bytes
+ sounds/ding1.wav                         |  Bin [31m0[m -> [32m203308[m bytes
+ sounds/ding2.wav                         |  Bin [31m0[m -> [32m249900[m bytes
+ sounds/explode1.mp3                      |  Bin [31m0[m -> [32m29603[m bytes
+ sounds/fallblock.wav                     |  Bin [31m0[m -> [32m22620[m bytes
+ sounds/goldchime.wav                     |  Bin [31m0[m -> [32m334936[m bytes
+ sounds/laser1.wav                        |  Bin [31m0[m -> [32m6268[m bytes
+ sounds/lavasizzle.wav                    |  Bin [31m0[m -> [32m353628[m bytes
+ sounds/missileLaunch.mp3                 |  Bin [31m0[m -> [32m36697[m bytes
+ sounds/rocks1.wav                        |  Bin [31m0[m -> [32m351236[m bytes
+ sounds/spikehit.wav                      |  Bin [31m0[m -> [32m133088[m bytes
+ sounds/turretshoot.wav                   |  Bin [31m0[m -> [32m169992[m bytes
+ weaponGUI.class                          |  Bin [31m0[m -> [32m93[m bytes
+ 1001 files changed, 82830 insertions(+)
+warning: LF will be replaced by CRLF in Level40.java.
+The file will have its original line endings in your working directory.

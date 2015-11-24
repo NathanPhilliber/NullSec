@@ -12,10 +12,19 @@ public class Level3 extends Platformer
     public Level3(double returnX, double returnY)
     {
         super(returnX, returnY);
-        prepare();
+    }
+    
+    private boolean firstPass = true;
+    public void act()
+    {
+        if(firstPass)
+        {
+            prepare();
+            firstPass = false;
+        }
     }
 
-    private void prepare()
+    public void prepare()
     {
         //Level Generated
 

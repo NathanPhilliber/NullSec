@@ -3,8 +3,26 @@ public class Level1 extends Platformer
 {
     public Level1(){
         this(0,0);
+
+        prepare();
     }
+
     public Level1(double x, double y)
+    {
+        super(x, y);
+    }
+
+    private boolean firstPass = true;
+    public void act()
+    {
+        if(firstPass)
+        {
+            prepare();
+            firstPass = false;
+        }
+    }
+
+    public void prepare()
     {
         int offsetX = 0;
         int offsetY = (getHeight()-540)/2;
@@ -1797,4 +1815,5 @@ public class Level1 extends Platformer
         addObject(new Block(36),3496+offsetX+offsetZ,418+offsetY);
 
     }
+
 }

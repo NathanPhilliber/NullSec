@@ -22,7 +22,20 @@ public class Level83 extends Platformer
     public Level83(double x, double y)
     {
         super(x,y);
+    }
 
+    private boolean firstPass = true;
+    public void act()
+    {
+        if(firstPass)
+        {
+            prepare();
+            firstPass = false;
+        }
+    }
+
+    public void prepare()
+    {
         setBackground("PlanetOneBG.png");
         addObject(new Block(63),-14+offsetX,472+offsetY);
         addObject(new Block(63),-14+offsetX,526+offsetY);

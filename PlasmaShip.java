@@ -8,6 +8,8 @@ import greenfoot.*;
  */
 public class PlasmaShip extends Entity
 {
+    World w;
+    
     public PlasmaShip(){
         this(0,0);
     }
@@ -35,6 +37,7 @@ public class PlasmaShip extends Entity
     public void act() 
     {
         super.act();
+        addTrail();
     }    
 
     public void attackMode(){
@@ -55,5 +58,13 @@ public class PlasmaShip extends Entity
 
 
         }
+    }
+    public void addedToWorld(World world)
+    {
+        World w = getWorld();
+    }
+    public void addTrail()
+    {
+        w.addObject(new PlasmaTrail(), getX(), getY());
     }
 }

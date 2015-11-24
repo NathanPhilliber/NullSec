@@ -7,9 +7,24 @@ public class Level7 extends Platformer
     public Level7(){
         this(0,0);
     }
+
     public Level7(double x, double y)
     {
         super(x,y);
+    }
+
+    private boolean firstPass = true;
+    public void act()
+    {
+        if(firstPass)
+        {
+            prepare();
+            firstPass = false;
+        }
+    }
+
+    public void prepare()
+    {
         //Level Generated
 
         int offsetX = 0;

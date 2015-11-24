@@ -13,6 +13,20 @@ public class Level8 extends Platformer
     {
         super(x,y);    
         //Level Generated
+    }
+
+    private boolean firstPass = true;
+    public void act()
+    {
+        if(firstPass)
+        {
+            prepare();
+            firstPass = false;
+        }
+    }
+
+    public void prepare()
+    {
 
         int offsetX = 0;
         int offsetY = 0;

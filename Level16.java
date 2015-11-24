@@ -20,7 +20,20 @@ public class Level16 extends Platformer
     public Level16(double x, double y)
     {
         super(x,y);
+    }
 
+    private boolean firstPass = true;
+    public void act()
+    {
+        if(firstPass)
+        {
+            prepare();
+            firstPass = false;
+        }
+    }
+
+    public void prepare()
+    {
         //Level Generated
 
         int offsetX = 0;

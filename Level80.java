@@ -24,7 +24,20 @@ public class Level80 extends Platformer
     {
         super(x,y);
 
+    }
 
+    private boolean firstPass = true;
+    public void act()
+    {
+        if(firstPass)
+        {
+            prepare();
+            firstPass = false;
+        }
+    }
+
+    public void prepare()
+    {
         setBackground("PlanetOneBG.png");
         addObject(new Block(76),-14+offsetX,499+offsetY);
         addObject(new Block(76),-14+offsetX,553+offsetY);

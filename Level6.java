@@ -11,7 +11,20 @@ public class Level6 extends Platformer
     public Level6(double x, double y)
     {
         super (x,y);
+    }
 
+    private boolean firstPass = true;
+    public void act()
+    {
+        if(firstPass)
+        {
+            prepare();
+            firstPass = false;
+        }
+    }
+
+    public void prepare()
+    {
         //Level Generated
 
         int offsetX = 0;
