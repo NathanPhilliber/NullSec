@@ -218,7 +218,7 @@ public class Player extends Object implements DamageTaker
             //keepEnemyOnScreen();
 
             if(Greenfoot.getRandomNumber(1300) == 0){
-                //spawnFleet(Greenfoot.getRandomNumber(6)+1, Entity.ANY_SHIP, 30);
+                spawnFleet(Greenfoot.getRandomNumber(6)+1, Entity.ANY_SHIP, 30); 
             }
 
             updateGoldScore();
@@ -261,7 +261,7 @@ public class Player extends Object implements DamageTaker
         inWrongSector = currentSector > workingSector || currentSector == -1;
         if(inWrongSector){
             if(Greenfoot.getRandomNumber(200) == 0){
-                spawnFleet(Greenfoot.getRandomNumber(6)+1, Entity.ANY_SHIP, 75);  
+                spawnFleet(Greenfoot.getRandomNumber(6)+1, Entity.ANY_SHIP, 75);    
             }
         }
     }

@@ -103,7 +103,7 @@ public class OuterSpace extends Space
         addObject(planet14,3000, 0);
         //green planet
 
-        Planet planet15 = new Planet(-5, 5621,  new Level7(19200,2280), "images/Planet15.png", "12", 2);
+        Planet planet15 = new Planet(0, 5621,  new Level7(19200,2280), "images/Planet15.png", "12", 2);
         addObject(planet15,3000, 0);
         //white planet
 
@@ -118,7 +118,7 @@ public class OuterSpace extends Space
         //blue
         
 
-        Planet planet18 = new Planet(7674, 5698,  new Level15(18150,590), "images/Planet37.png", "10", 1);
+        Planet planet18 = new Planet(7704, 5698,  new Level15(18150,590), "images/Planet37.png", "10", 1);
         addObject(planet18,3000, 0);
         //purple
         
@@ -126,7 +126,7 @@ public class OuterSpace extends Space
         addObject(planet19,3000, 0);
         //rainbow
 
-        Planet planet20 = new Planet(10242, 6102,  new Level7(17185,1150), "images/Planet36.png", "9", 3);
+        Planet planet20 = new Planet(10192, 6102,  new Level7(17185,1150), "images/Planet36.png", "9", 3);
         addObject(planet20,3000, 0);
         //green
         
