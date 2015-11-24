@@ -182,6 +182,10 @@ public class PlatformPlayer extends PlatformObject
             }
             else{
                 pauseEverything = true; 
+                /*
+                 * Call this method in the menu to go to space
+                 * 
+                 */
                 returnToSpace();//CHANGE THIS LATER ADD A BUTTON
             }
 
