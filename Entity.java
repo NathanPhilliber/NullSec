@@ -108,7 +108,7 @@ public class Entity extends SpaceObject implements DamageTaker
     protected int desiredMode = EXPLORE_MODE;
 
     public static int numberEntities = 0;
-    public static final int entityCap = 20;
+    public static final int entityCap = 15;
 
     public int maxCoins = 20;
     
