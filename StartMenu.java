@@ -66,6 +66,11 @@ public class StartMenu extends World
             music.stop();
             Greenfoot.setWorld(new TutorialWorld());
         } 
+        if(Greenfoot.mouseClicked(about))
+        {
+            music.stop();
+            Greenfoot.setWorld(new Credits(new StartMenu()));
+        } 
         if(Greenfoot.mouseClicked(exit))
         {
             Greenfoot.stop();

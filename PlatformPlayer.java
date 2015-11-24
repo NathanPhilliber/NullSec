@@ -708,7 +708,7 @@ public class PlatformPlayer extends PlatformObject
             w.addXOffset((int)dif);
         }
         dif=getExactX()+scrollDistX-w.getWidth();
-        if(dif>=0&&velX>0)
+        if(dif>=0&&velX>=0)
         {
             w.addXOffset((int)dif);
         }

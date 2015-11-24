@@ -8,17 +8,17 @@ public class IconShip extends Menu
     {
         music=m;
     }
-    
+
     public IconShip()
     {
     }
-    
+
     public void act()
     {
         selectionMove();
         selectOption();
     }
-    
+
     public void selectionMove()
     {
         if(delay <= 0)
@@ -68,6 +68,11 @@ public class IconShip extends Menu
             {
                 Greenfoot.setWorld(new OptionsMenu(music));
             }
+            if(getY() == 380)
+            {
+                music.stop();
+                Greenfoot.setWorld(new Credits(new StartMenu()));
+            } 
         }
     }
 }

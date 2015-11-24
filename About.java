@@ -14,6 +14,6 @@ public class About extends Menu
      */
     public void act() 
     {
-        // Add your action code here.
+        
     }    
 }
