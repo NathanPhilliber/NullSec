@@ -49,13 +49,13 @@ public class OuterSpace extends Space
         
         //amanda
 
-        Planet planet0 = new Planet(-1200,-1480, new Level14(-1200,-1480), "images/Planet1.png", "1", 0);
+        Planet planet0 = new Planet(-1200,-1480, new Level89(-1200,-1480), "images/Planet1.png", "1", 0);
         addObject(planet0, 3000, 0);
 
-        Planet planet1 = new Planet(2800,-1400, new Level14(2800,-1400), "images/Planet2.png", "2", 1);
+        Planet planet1 = new Planet(2800,-1400, new Level80(2800,-1400), "images/Planet2.png", "2", 1);
         addObject(planet1,3000, 0);
 
-        Planet planet2 = new Planet(1860, 180, new Level14(1860,180), "images/Planet3.png", "3", 2);
+        Planet planet2 = new Planet(1860, 180, new Level81(1860,180), "images/Planet3.png", "3", 2);
         addObject(planet2,3000, 0);
 
         Planet planet3 = new Planet(-2000, 130,  new Level14(-2000,130), "images/Planet4.png", "4", 3);

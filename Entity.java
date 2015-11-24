@@ -108,8 +108,10 @@ public class Entity extends SpaceObject implements DamageTaker
     protected int desiredMode = EXPLORE_MODE;
 
     public static int numberEntities = 0;
+    public static final int entityCap = 20;
 
     public int maxCoins = 20;
+    
 
     /**********************************************************
      * 
@@ -170,7 +172,9 @@ public class Entity extends SpaceObject implements DamageTaker
                 isAlive = false;
                 dropCoins();
             }
-            checkRemoval();
+            if(checkRemoval()){
+                numberEntities--;
+            }
         }
     }
 

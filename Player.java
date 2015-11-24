@@ -623,7 +623,7 @@ public class Player extends Object implements DamageTaker
     //Ships auto-agro at 25
 
     public void spawnFleet(int numberShips, int type, int difficulty){
-
+        
         int x = 0;
         int y = 0;
 
@@ -648,6 +648,7 @@ public class Player extends Object implements DamageTaker
             }
 
             for(int i = 0; i < numberShips; i++){
+                if(Entity.numberEntities < Entity.entityCap)
                 spawnSetupShip(type, difficulty, x, y);
             }
         }

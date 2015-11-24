@@ -198,10 +198,12 @@ public class Object extends SmoothMover
     }
 
     //Written by Nathan
-    public void checkRemoval(){
+    public boolean checkRemoval(){
         if(deleteMe){
             space.removeObject(this);
+            return true;
         }
+        return false;
     }
 
     //Written by Nathan
