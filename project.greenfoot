@@ -1,4 +1,5 @@
 #Greenfoot properties
+<<<<<<< Updated upstream
 #Tue Nov 24 20:08:17 PST 2015
 target188.naviview.expanded=false
 target187.naviview.expanded=true
@@ -11,15 +12,35 @@ dependency742.to=ExitPortal
 dependency39.from=Space
 target130.editor.y=43
 target130.editor.x=40
+=======
+#Tue Nov 24 22:52:30 PST 2015
+target188.naviview.expanded=true
+target187.naviview.expanded=false
+dependency598.type=UsesDependency
+target85.height=50
+dependency651.type=UsesDependency
+target187.y=3190
+target187.x=10
+dependency742.to=ExitPortal
+dependency39.from=Space
+target130.editor.y=23
+target130.editor.x=0
+>>>>>>> Stashed changes
 dependency471.from=PushButton
 class.CutsceneA.image=BlackSpace.png
 dependency678.to=ElevatorBlock
 target149.width=100
 target35.width=80
 target63.editor.y=23
+<<<<<<< Updated upstream
 dependency760.type=UsesDependency
 target33.y=3910
 target63.editor.x=0
+=======
+target63.editor.x=0
+target33.y=3910
+dependency760.type=UsesDependency
+>>>>>>> Stashed changes
 target33.x=100
 target191.editor.height=700
 target92.name=Digit
@@ -30,7 +51,11 @@ target192.height=50
 target103.type=ClassTarget
 target177.showInterface=false
 dependency355.from=GotoShopButton
+<<<<<<< Updated upstream
 dependency837.to=FallingBlock
+=======
+dependency837.to=Coin
+>>>>>>> Stashed changes
 dependency249.from=LevelCreatorPalletBlock
 target201.typeParameters=
 dependency302.from=Player
@@ -43,7 +68,11 @@ dependency538.type=UsesDependency
 target159.type=ClassTarget
 target137.height=50
 target212.type=ClassTarget
+<<<<<<< Updated upstream
 target165.y=1750
+=======
+target165.y=190
+>>>>>>> Stashed changes
 dependency264.to=Shop
 target165.x=10
 dependency464.from=Level19
@@ -51,16 +80,27 @@ target67.editor.width=995
 target220.showInterface=false
 project.charset=UTF-8
 target36.editor.width=900
+<<<<<<< Updated upstream
 dependency753.type=UsesDependency
 target92.editor.width=900
 target143.width=100
+=======
+target92.editor.width=900
+dependency753.type=UsesDependency
+target143.width=90
+>>>>>>> Stashed changes
 dependency59.to=Space
 target85.name=DockMenu
 target193.typeParameters=
 target11.y=430
 target11.x=100
+<<<<<<< Updated upstream
 dependency573.from=Level30
 target61.editor.width=1934
+=======
+target61.editor.width=1934
+dependency573.from=Level30
+>>>>>>> Stashed changes
 dependency423.to=PlatformPlayer
 target168.editor.height=700
 target30.editor.width=900
@@ -73,8 +113,13 @@ target205.type=ClassTarget
 class.IconPlasma.superclass=HUD
 dependency81.type=UsesDependency
 class.IconShip.superclass=Menu
+<<<<<<< Updated upstream
 target143.y=2590
 target143.x=10
+=======
+target143.y=3610
+target143.x=120
+>>>>>>> Stashed changes
 target74.showInterface=false
 dependency404.from=Object
 class.ShieldText.image=ShieldText.png
@@ -95,17 +140,28 @@ dependency291.type=UsesDependency
 target13.typeParameters=
 target69.naviview.expanded=true
 dependency675.from=Level5
+<<<<<<< Updated upstream
 target212.editor.y=23
 target212.editor.x=0
+=======
+target212.editor.y=43
+target212.editor.x=40
+>>>>>>> Stashed changes
 target153.editor.height=700
 dependency825.to=PlatformPlayer
 dependency74.type=UsesDependency
 dependency104.to=PlasmaBall
 class.BulletLauncher.superclass=Block
 target65.editor.height=655
+<<<<<<< Updated upstream
 target121.y=3850
 dependency784.from=Level91
 target121.x=240
+=======
+target121.y=1870
+dependency784.from=Level91
+target121.x=110
+>>>>>>> Stashed changes
 target49.height=50
 dependency175.type=UsesDependency
 dependency252.to=MissileText
@@ -113,16 +169,26 @@ target197.naviview.expanded=true
 target196.naviview.expanded=true
 target62.type=ClassTarget
 target18.name=Level93
+<<<<<<< Updated upstream
 target192.name=UnlockButton
+=======
+target192.name=WaterBlock
+>>>>>>> Stashed changes
 target61.width=80
 dependency188.to=Level3
 dependency506.from=Planet
 class.Level32.superclass=Platformer
 dependency47.to=PlasmaBall
 target28.editor.y=23
+<<<<<<< Updated upstream
 target212.height=50
 target28.editor.x=40
 target201.width=100
+=======
+target28.editor.x=40
+target212.height=50
+target201.width=110
+>>>>>>> Stashed changes
 dependency284.type=UsesDependency
 dependency11.type=UsesDependency
 target66.typeParameters=
@@ -135,20 +201,34 @@ dependency67.type=UsesDependency
 dependency393.type=UsesDependency
 dependency777.from=Level91
 dependency495.to=Block
+<<<<<<< Updated upstream
 target154.editor.y=23
 target154.editor.x=0
+=======
+target154.editor.y=43
+target154.editor.x=40
+>>>>>>> Stashed changes
 target1.showInterface=false
 dependency830.from=StartMenu
 dependency115.type=UsesDependency
 target94.height=50
 target50.editor.height=700
 target87.editor.y=43
+<<<<<<< Updated upstream
 target10.naviview.expanded=true
 target87.editor.x=40
 dependency506.to=CompletedLabel
 target99.width=80
 target114.typeParameters=
 target132.name=WireButton
+=======
+target87.editor.x=40
+target10.naviview.expanded=true
+dependency506.to=CompletedLabel
+target99.width=80
+target114.typeParameters=
+target132.name=Cart
+>>>>>>> Stashed changes
 dependency277.type=UsesDependency
 dependency654.to=ClimbBlock
 dependency330.type=UsesDependency
@@ -156,7 +236,11 @@ dependency9.type=UsesDependency
 target39.height=50
 target58.type=ClassTarget
 class.MapButton.image=MapButton.png
+<<<<<<< Updated upstream
 target188.name=SpikeBlock
+=======
+target188.name=Level22
+>>>>>>> Stashed changes
 dependency608.from=Level33
 dependency150.from=Ship3D
 class.BackgroundStar.superclass=SpaceObject
@@ -173,7 +257,11 @@ dependency749.to=Level0
 dependency495.type=UsesDependency
 target178.showInterface=false
 target146.height=50
+<<<<<<< Updated upstream
 target125.name=MenuYes
+=======
+target125.name=Object
+>>>>>>> Stashed changes
 dependency240.to=PlatformPlayer
 target43.typeParameters=
 dependency42.from=Entity
@@ -193,8 +281,14 @@ dependency326.type=UsesDependency
 dependency199.from=OptionsMenu
 dependency335.to=GifImage
 target15.editor.width=900
+<<<<<<< Updated upstream
 dependency252.from=Shop
 target71.editor.width=900
+=======
+class.WarningSector.superclass=RespawnMenu
+target71.editor.width=900
+dependency252.from=Shop
+>>>>>>> Stashed changes
 target79.naviview.expanded=false
 target78.naviview.expanded=true
 dependency488.type=UsesDependency
@@ -206,17 +300,30 @@ class.BackgroundBlock.superclass=NoCollisionBlock
 target96.typeParameters=
 dependency819.from=Level89
 dependency361.from=Player
+<<<<<<< Updated upstream
 target138.width=110
 dependency597.type=UsesDependency
 target81.y=2710
 target28.y=1990
 target81.x=10
+=======
+target138.width=80
+dependency597.type=UsesDependency
+target81.y=2710
+target81.x=10
+target28.y=1990
+>>>>>>> Stashed changes
 target28.x=190
 dependency650.type=UsesDependency
 target1.y=910
 dependency642.to=ClimbBlock
+<<<<<<< Updated upstream
 target1.x=10
 target75.showInterface=false
+=======
+target75.showInterface=false
+target1.x=10
+>>>>>>> Stashed changes
 dependency38.from=Fireball
 dependency470.from=PushButton
 target111.editor.y=23
@@ -243,6 +350,7 @@ target58.height=50
 target154.editor.height=700
 dependency301.from=Player
 target6.editor.y=23
+<<<<<<< Updated upstream
 dependency643.type=UsesDependency
 target6.editor.x=0
 target132.width=90
@@ -250,6 +358,15 @@ dependency537.type=UsesDependency
 target158.type=ClassTarget
 target170.editor.y=42
 target170.editor.x=150
+=======
+target6.editor.x=0
+dependency643.type=UsesDependency
+target132.width=80
+dependency537.type=UsesDependency
+target158.type=ClassTarget
+target170.editor.y=23
+target170.editor.x=40
+>>>>>>> Stashed changes
 target211.type=ClassTarget
 dependency164.to=Gold
 dependency463.from=Level19
@@ -264,6 +381,7 @@ dependency572.from=Level30
 target165.height=50
 target73.typeParameters=
 dependency323.to=BoostBarSegment
+<<<<<<< Updated upstream
 target214.y=3670
 target214.x=10
 target191.y=4030
@@ -271,6 +389,15 @@ target114.showInterface=false
 target138.y=3370
 target191.x=10
 target138.x=140
+=======
+target214.y=1510
+target214.x=120
+target191.y=2770
+target114.showInterface=false
+target138.y=790
+target191.x=10
+target138.x=10
+>>>>>>> Stashed changes
 dependency259.to=Shop
 dependency471.to=PlatformObject
 dependency681.from=Level5
@@ -284,8 +411,13 @@ dependency403.from=Space
 dependency418.to=BackgroundBlock
 dependency630.to=SpikeBlock
 dependency790.from=Level94
+<<<<<<< Updated upstream
 dependency639.type=UsesDependency
 target51.editor.height=700
+=======
+target51.editor.height=700
+dependency639.type=UsesDependency
+>>>>>>> Stashed changes
 target121.typeParameters=
 dependency181.type=UsesDependency
 class.LevelCreator.superclass=greenfoot.World
@@ -303,7 +435,11 @@ dependency725.to=BackgroundBlock
 target87.naviview.expanded=true
 dependency73.type=UsesDependency
 target155.height=50
+<<<<<<< Updated upstream
 target164.width=110
+=======
+target164.width=120
+>>>>>>> Stashed changes
 target50.width=80
 target11.showInterface=false
 dependency783.from=Level91
@@ -317,13 +453,20 @@ dependency11.to=Space
 target61.type=ClassTarget
 target17.name=Level94
 target149.typeParameters=
+<<<<<<< Updated upstream
 target191.name=Level24
+=======
+target191.name=UnlockButton
+>>>>>>> Stashed changes
 dependency505.from=PlatformPlayer
 target28.editor.height=700
 dependency10.type=UsesDependency
 dependency283.type=UsesDependency
 dependency95.to=MenuYes
+<<<<<<< Updated upstream
 target222.showInterface=false
+=======
+>>>>>>> Stashed changes
 dependency311.to=SpikeBlock
 class.AlienShip.superclass=Entity
 dependency720.from=Level22
@@ -332,6 +475,7 @@ dependency247.to=LevelCreatorPalletBlock
 dependency66.type=UsesDependency
 class.Shop.image=Background.png
 dependency392.type=UsesDependency
+<<<<<<< Updated upstream
 class.PlasmaShip.superclass=Entity
 target88.width=80
 dependency776.from=Level92
@@ -354,6 +498,30 @@ target57.type=ClassTarget
 target76.showInterface=false
 class.LevelCreatorText.superclass=Menu
 target187.name=Level20
+=======
+target88.width=80
+class.PlasmaShip.superclass=Entity
+dependency776.from=Level92
+dependency395.to=MapBackButton
+target135.editor.y=56
+target50.editor.width=900
+target135.editor.x=73
+dependency114.type=UsesDependency
+dependency406.to=OptionsMenu
+target90.editor.height=700
+target131.name=WireButton
+target164.showInterface=false
+dependency276.type=UsesDependency
+target204.editor.y=96
+target204.editor.x=380
+dependency554.to=Block
+class.GravityBlock.superclass=NoCollisionBlock
+dependency8.type=UsesDependency
+target76.showInterface=false
+target57.type=ClassTarget
+class.LevelCreatorText.superclass=Menu
+target187.name=SpikeBlock
+>>>>>>> Stashed changes
 dependency607.from=Level33
 dependency385.type=UsesDependency
 target12.editor.y=23
@@ -365,6 +533,7 @@ target100.naviview.expanded=true
 target151.typeParameters=
 dependency713.to=BackgroundBlock
 target98.y=2470
+<<<<<<< Updated upstream
 target67.height=50
 target98.x=10
 dependency716.from=Level22
@@ -373,6 +542,15 @@ dependency649.to=Block
 target222.width=80
 dependency494.type=UsesDependency
 target124.name=PlatformPlayer
+=======
+target98.x=10
+target67.height=50
+dependency716.from=Level22
+dependency107.type=UsesDependency
+dependency649.to=Block
+dependency494.type=UsesDependency
+target124.name=MenuYes
+>>>>>>> Stashed changes
 dependency140.to=ShopButton
 dependency797.to=ExitPortal
 target155.editor.height=700
@@ -381,8 +559,13 @@ target212.typeParameters=
 dependency825.from=Level89
 dependency216.type=UsesDependency
 target71.editor.y=43
+<<<<<<< Updated upstream
 dependency142.from=Shop
 target71.editor.x=40
+=======
+target71.editor.x=40
+dependency142.from=Shop
+>>>>>>> Stashed changes
 dependency808.to=FallingBlock
 dependency97.from=Object
 target174.height=50
@@ -390,8 +573,13 @@ dependency83.to=PlasmaBall
 dependency431.type=UsesDependency
 dependency325.type=UsesDependency
 dependency198.from=SoundToggle
+<<<<<<< Updated upstream
 dependency235.to=PlatformPlayer
 target80.typeParameters=
+=======
+target80.typeParameters=
+dependency235.to=PlatformPlayer
+>>>>>>> Stashed changes
 dependency709.from=Level37
 target2.editor.width=900
 dependency251.from=Shop
@@ -411,15 +599,25 @@ dependency818.from=Level89
 dependency360.from=Space
 dependency209.type=UsesDependency
 dependency596.type=UsesDependency
+<<<<<<< Updated upstream
 target140.editor.height=700
 target3.showInterface=false
+=======
+target3.showInterface=false
+target140.editor.height=700
+>>>>>>> Stashed changes
 target7.height=50
 dependency542.to=PlasmaShip
 target169.naviview.expanded=true
 dependency37.from=Fireball
 target168.naviview.expanded=true
+<<<<<<< Updated upstream
 dependency318.type=UsesDependency
 target52.editor.height=700
+=======
+target52.editor.height=700
+dependency318.type=UsesDependency
+>>>>>>> Stashed changes
 target21.height=50
 dependency478.to=SpikeBlock
 dependency690.to=ElevatorBlock
@@ -430,7 +628,11 @@ target38.showInterface=false
 target54.y=3910
 target54.x=190
 dependency701.to=Coin
+<<<<<<< Updated upstream
 target121.width=90
+=======
+target121.width=140
+>>>>>>> Stashed changes
 target204.height=50
 dependency427.type=UsesDependency
 target24.typeParameters=
@@ -448,19 +650,32 @@ target12.showInterface=false
 target210.type=ClassTarget
 dependency462.from=Level19
 target181.typeParameters=
+<<<<<<< Updated upstream
 target209.y=1210
 target209.x=100
 target186.y=2230
 dependency698.type=UsesDependency
 target117.editor.height=700
 target186.x=260
+=======
+target209.y=2710
+target209.x=240
+target186.y=3070
+dependency698.type=UsesDependency
+target117.editor.height=700
+target186.x=250
+>>>>>>> Stashed changes
 target86.height=50
 dependency751.type=UsesDependency
 target83.name=Cannon
 dependency71.to=Play
 target29.editor.height=700
 target220.editor.y=23
+<<<<<<< Updated upstream
 target220.editor.x=0
+=======
+target220.editor.x=40
+>>>>>>> Stashed changes
 dependency571.from=Level30
 target159.editor.y=43
 target159.editor.x=40
@@ -479,12 +694,21 @@ target103.editor.x=40
 target203.type=ClassTarget
 dependency349.from=Level13
 dependency402.from=MovingNonPlayer
+<<<<<<< Updated upstream
 dependency318.to=SlimeBlock
 target36.editor.y=43
 dependency530.to=PlatformPlayer
 target36.editor.x=40
 target164.y=2050
 target164.x=160
+=======
+target36.editor.y=43
+dependency318.to=SlimeBlock
+target36.editor.x=40
+dependency530.to=PlatformPlayer
+target164.y=1750
+target164.x=10
+>>>>>>> Stashed changes
 dependency638.type=UsesDependency
 dependency180.type=UsesDependency
 target138.height=50
@@ -496,9 +720,15 @@ target165.showInterface=false
 dependency511.from=Shop
 target8.name=MovingNonPlayer
 target10.y=790
+<<<<<<< Updated upstream
 target153.width=80
 target10.x=100
 target77.showInterface=false
+=======
+target153.width=100
+target77.showInterface=false
+target10.x=100
+>>>>>>> Stashed changes
 dependency747.type=UsesDependency
 target14.editor.height=700
 target79.name=LevelCreatorDisplayBlock
@@ -510,6 +740,7 @@ target95.editor.x=-1928
 dependency773.to=Coin
 dependency782.from=Level91
 dependency173.type=UsesDependency
+<<<<<<< Updated upstream
 target142.y=850
 target142.x=200
 target16.name=Level91
@@ -517,6 +748,15 @@ target60.type=ClassTarget
 class.Mine.image=Mine.png
 target54.typeParameters=
 target190.name=Level25
+=======
+target142.y=2590
+target142.x=10
+target60.type=ClassTarget
+target16.name=Level91
+target54.typeParameters=
+class.Mine.image=Mine.png
+target190.name=Level24
+>>>>>>> Stashed changes
 target183.height=50
 dependency504.from=Level21
 target29.typeParameters=
@@ -526,13 +766,20 @@ dependency282.type=UsesDependency
 target77.width=90
 dependency211.to=LevelCreatorBlockHover
 target128.height=50
+<<<<<<< Updated upstream
 target217.width=80
+=======
+target217.width=100
+>>>>>>> Stashed changes
 target204.editor.width=900
 dependency613.from=Level40
 dependency147.to=Platformer
 dependency65.type=UsesDependency
 target62.showInterface=false
+<<<<<<< Updated upstream
 dependency849.type=UsesDependency
+=======
+>>>>>>> Stashed changes
 dependency391.type=UsesDependency
 dependency775.from=Level92
 dependency295.to=MapItems
@@ -540,6 +787,7 @@ dependency669.from=Level4
 target102.typeParameters=
 target79.editor.height=700
 dependency113.type=UsesDependency
+<<<<<<< Updated upstream
 target120.y=4510
 target120.x=190
 dependency306.to=Bullet
@@ -558,6 +806,26 @@ target185.width=110
 target56.type=ClassTarget
 target71.width=90
 target186.name=Level21
+=======
+target120.y=3850
+target120.x=240
+dependency306.to=Bullet
+target178.editor.width=900
+class.ExitPortal.image=Portal.png
+target130.name=Menu
+target30.height=50
+dependency275.type=UsesDependency
+dependency169.type=UsesDependency
+dependency454.to=Wire
+dependency7.type=UsesDependency
+target3.typeParameters=
+target141.editor.height=700
+dependency222.type=UsesDependency
+target185.width=80
+target56.type=ClassTarget
+target71.width=90
+target186.name=Level20
+>>>>>>> Stashed changes
 dependency606.from=Level33
 target53.editor.height=691
 target211.width=80
@@ -573,7 +841,11 @@ dependency106.type=UsesDependency
 dependency549.to=Wire
 dependency761.to=Level94
 dependency493.type=UsesDependency
+<<<<<<< Updated upstream
 target123.name=Shop
+=======
+target123.name=PlatformPlayer
+>>>>>>> Stashed changes
 dependency697.to=BulletLauncher
 class.Menu.superclass=All
 dependency40.from=Object
@@ -584,7 +856,11 @@ class.LevelCreator.image=BackgroundLevel4.png
 dependency215.type=UsesDependency
 target95.height=50
 target49.type=ClassTarget
+<<<<<<< Updated upstream
 target179.name=TutorialWorld
+=======
+target179.name=IconFire
+>>>>>>> Stashed changes
 class.LaserText.image=LaserText.png
 dependency708.to=SlimeBlock
 dependency96.from=Object
@@ -593,19 +869,33 @@ target52.editor.x=0
 class.Level13.superclass=Platformer
 target118.editor.height=700
 dependency430.type=UsesDependency
+<<<<<<< Updated upstream
 target127.editor.y=88
 dependency324.type=UsesDependency
 target127.editor.x=204
+=======
+target127.editor.y=43
+dependency324.type=UsesDependency
+target127.editor.x=40
+>>>>>>> Stashed changes
 dependency197.from=Play
 dependency708.from=Level37
 dependency135.to=TutorialObjectManager
 dependency250.from=Shop
 dependency486.type=UsesDependency
+<<<<<<< Updated upstream
 dependency283.to=GifImage
 target59.typeParameters=
 target6.editor.height=700
 dependency817.from=Level13
 target59.naviview.expanded=false
+=======
+target59.typeParameters=
+dependency283.to=GifImage
+target6.editor.height=700
+target59.naviview.expanded=false
+dependency817.from=Level13
+>>>>>>> Stashed changes
 dependency208.type=UsesDependency
 dependency78.to=Beam
 dependency595.type=UsesDependency
@@ -645,33 +935,55 @@ dependency29.from=Projectile
 class.OptionsMenu.image=BlackSpace.png
 dependency461.from=Level19
 target80.y=1390
+<<<<<<< Updated upstream
 target27.y=1450
 target80.x=10
+=======
+target80.x=10
+target27.y=1450
+>>>>>>> Stashed changes
 target27.x=200
 dependency697.type=UsesDependency
 target61.typeParameters=
 dependency750.type=UsesDependency
 target98.editor.width=900
 target82.name=Options
+<<<<<<< Updated upstream
 dependency844.to=GravityBlock
 dependency570.from=Level30
 dependency419.type=UsesDependency
 target201.editor.y=43
 target201.editor.x=40
+=======
+dependency570.from=Level30
+dependency419.type=UsesDependency
+target201.editor.y=87
+target201.editor.x=204
+>>>>>>> Stashed changes
 dependency123.to=Ship
 target151.showInterface=false
 dependency239.from=Level8
 class.Level5.superclass=Platformer
 dependency271.to=Shop
 target214.editor.width=900
+<<<<<<< Updated upstream
 target159.y=3430
 target159.x=260
+=======
+target159.y=1990
+target159.x=100
+>>>>>>> Stashed changes
 target63.showInterface=false
 class.MenuMain.superclass=DockMenu
 dependency528.type=UsesDependency
 target149.type=ClassTarget
+<<<<<<< Updated upstream
 target209.editor.y=69
 target209.editor.x=146
+=======
+target209.editor.y=43
+target209.editor.x=40
+>>>>>>> Stashed changes
 target202.type=ClassTarget
 dependency66.to=Cannon
 dependency348.from=Level13
@@ -679,7 +991,11 @@ target59.height=50
 dependency401.from=Level16
 dependency218.to=Block
 dependency430.to=PlatformPlayer
+<<<<<<< Updated upstream
 target142.width=80
+=======
+target142.width=100
+>>>>>>> Stashed changes
 dependency637.type=UsesDependency
 target89.typeParameters=
 target188.editor.width=900
@@ -688,13 +1004,17 @@ dependency366.to=BulletLauncher
 target22.name=Level7
 dependency457.from=WireButtonDown
 target211.editor.height=700
+<<<<<<< Updated upstream
 target222.height=50
+=======
+>>>>>>> Stashed changes
 dependency799.type=UsesDependency
 dependency510.from=Space
 target157.editor.width=900
 target7.name=EngineText
 target142.editor.height=700
 dependency746.type=UsesDependency
+<<<<<<< Updated upstream
 target126.editor.width=900
 target78.name=SpeedDes
 dependency672.from=Level4
@@ -712,6 +1032,25 @@ dependency525.to=WaterBlock
 dependency71.type=UsesDependency
 target137.typeParameters=
 target76.editor.y=43
+=======
+target78.name=SpeedDes
+target126.editor.width=900
+dependency672.from=Level4
+target213.y=3670
+target213.x=10
+target143.editor.y=20
+target143.editor.x=40
+target190.y=4030
+class.WeaponShopFG.superclass=WeaponShop
+target128.showInterface=false
+target137.y=3370
+target190.x=10
+target137.x=140
+dependency525.to=WaterBlock
+dependency71.type=UsesDependency
+target76.editor.y=43
+target137.typeParameters=
+>>>>>>> Stashed changes
 target76.editor.x=40
 dependency673.to=Block
 dependency781.from=Level91
@@ -739,7 +1078,10 @@ class.CompletedLabel.superclass=Menu
 target115.y=430
 target115.x=10
 class.LevelCreatorGrid.superclass=LevelCreatorObject
+<<<<<<< Updated upstream
 dependency848.type=UsesDependency
+=======
+>>>>>>> Stashed changes
 dependency390.type=UsesDependency
 target91.typeParameters=
 dependency774.from=Level92
@@ -754,7 +1096,11 @@ target25.showInterface=false
 target60.width=80
 dependency206.to=LevelCreatorDisplayBlock
 class.CostText.image=CostText.png
+<<<<<<< Updated upstream
 target200.width=120
+=======
+target200.width=100
+>>>>>>> Stashed changes
 class.MissileDes.superclass=WeaponShop
 dependency274.type=UsesDependency
 class.ShopButton.superclass=WeaponShop
@@ -763,7 +1109,11 @@ dependency168.type=UsesDependency
 dependency6.type=UsesDependency
 dependency221.type=UsesDependency
 target55.type=ClassTarget
+<<<<<<< Updated upstream
 target185.name=WeaponBG
+=======
+target185.name=Level21
+>>>>>>> Stashed changes
 dependency605.from=Level33
 dependency383.type=UsesDependency
 target106.width=80
@@ -777,15 +1127,25 @@ dependency449.to=WireButtonDown
 dependency661.to=Cart
 dependency492.type=UsesDependency
 target98.width=170
+<<<<<<< Updated upstream
 target122.name=LevelCreatorObject
+=======
+target122.name=Shop
+>>>>>>> Stashed changes
 dependency597.to=Block
 dependency823.from=Level89
 class.Orbiter.image=tux.png
 dependency214.type=UsesDependency
 target100.editor.y=23
+<<<<<<< Updated upstream
 target100.editor.x=40
 target48.type=ClassTarget
 target178.name=TurnSpeedDes
+=======
+target48.type=ClassTarget
+target100.editor.x=40
+target178.name=TutorialWorld
+>>>>>>> Stashed changes
 dependency608.to=FallingBlock
 dependency820.to=LavaBlock
 dependency95.from=Object
@@ -803,11 +1163,19 @@ dependency485.type=UsesDependency
 dependency379.type=UsesDependency
 dependency183.to=Block
 target152.showInterface=false
+<<<<<<< Updated upstream
 target46.editor.width=900
 target97.y=2950
 class.Asteroids.superclass=Object
 class.Bullet.superclass=MovingNonPlayer
 target97.x=10
+=======
+target97.y=2950
+target46.editor.width=900
+class.Asteroids.superclass=Object
+target97.x=10
+class.Bullet.superclass=MovingNonPlayer
+>>>>>>> Stashed changes
 dependency42.to=Projectile
 target92.width=80
 target68.height=50
@@ -817,13 +1185,21 @@ dependency207.type=UsesDependency
 dependency594.type=UsesDependency
 target77.naviview.expanded=false
 target76.naviview.expanded=true
+<<<<<<< Updated upstream
 target169.editor.height=700
+=======
+target169.editor.height=754
+>>>>>>> Stashed changes
 dependency88.from=Nebula
 target162.type=ClassTarget
 dependency342.to=Coin
 dependency35.from=Missile
 target167.editor.y=23
+<<<<<<< Updated upstream
 target167.editor.x=40
+=======
+target167.editor.x=0
+>>>>>>> Stashed changes
 class.Level20.superclass=Platformer
 dependency316.type=UsesDependency
 dependency278.to=CostText
@@ -863,8 +1239,13 @@ dependency309.type=UsesDependency
 dependency696.type=UsesDependency
 dependency129.from=AsteroidMedium
 target8.height=50
+<<<<<<< Updated upstream
 target205.typeParameters=
 target81.name=LevelCreatorText
+=======
+target81.name=LevelCreatorText
+target205.typeParameters=
+>>>>>>> Stashed changes
 dependency744.to=Level22
 target66.editor.height=700
 target22.height=50
@@ -876,20 +1257,29 @@ dependency171.to=Space
 target191.showInterface=false
 dependency30.to=PlasmaBall
 target205.height=50
+<<<<<<< Updated upstream
 target131.width=80
+=======
+target131.width=90
+>>>>>>> Stashed changes
 dependency527.type=UsesDependency
 target148.type=ClassTarget
 target197.typeParameters=
 target40.editor.height=700
 target201.type=ClassTarget
 dependency347.from=Level13
+<<<<<<< Updated upstream
 dependency839.to=ExitPortal
+=======
+dependency839.to=WireButton
+>>>>>>> Stashed changes
 dependency400.from=Level16
 target8.editor.height=700
 dependency118.to=PlanetMP
 dependency330.to=Space
 target26.showInterface=false
 dependency636.type=UsesDependency
+<<<<<<< Updated upstream
 target208.y=130
 target208.x=190
 dependency562.from=Level30
@@ -897,6 +1287,15 @@ target185.y=10
 dependency266.to=Digit
 target21.name=Level6
 target185.x=160
+=======
+target208.y=1210
+target208.x=100
+dependency562.from=Level30
+target185.y=2230
+dependency266.to=Digit
+target21.name=Level6
+target185.x=260
+>>>>>>> Stashed changes
 dependency456.from=WireButton
 dependency798.type=UsesDependency
 target6.name=ShopBackButton
@@ -909,7 +1308,11 @@ dependency671.from=Level4
 target31.x=220
 class.Asteroid3.image=Asteroid3.png
 dependency425.to=ClimbBlock
+<<<<<<< Updated upstream
 target124.editor.y=23
+=======
+target124.editor.y=96
+>>>>>>> Stashed changes
 target124.editor.x=0
 dependency70.type=UsesDependency
 target105.editor.height=700
@@ -919,12 +1322,18 @@ dependency780.from=Level91
 dependency629.type=UsesDependency
 target17.typeParameters=
 dependency171.type=UsesDependency
+<<<<<<< Updated upstream
 target14.name=PlanetMP
 target86.naviview.expanded=true
+=======
+target86.naviview.expanded=true
+target14.name=PlanetMP
+>>>>>>> Stashed changes
 target85.naviview.expanded=true
 dependency449.from=Wire
 target193.editor.height=700
 dependency502.from=Level21
+<<<<<<< Updated upstream
 target163.y=1450
 target163.x=100
 dependency738.type=UsesDependency
@@ -932,16 +1341,31 @@ dependency732.to=ElevatorBlock
 dependency280.type=UsesDependency
 target183.editor.y=96
 target183.editor.x=380
+=======
+target163.y=2050
+target163.x=160
+dependency738.type=UsesDependency
+dependency732.to=ElevatorBlock
+dependency280.type=UsesDependency
+target183.editor.y=43
+target183.editor.x=40
+>>>>>>> Stashed changes
 dependency558.from=Level24
 dependency668.to=Coin
 target159.naviview.expanded=true
 target158.naviview.expanded=true
 dependency611.from=Level40
 dependency63.type=UsesDependency
+<<<<<<< Updated upstream
 target163.width=90
 dependency847.type=UsesDependency
 dependency773.from=Level92
 target77.height=50
+=======
+target163.width=110
+target77.height=50
+dependency773.from=Level92
+>>>>>>> Stashed changes
 target87.editor.width=900
 dependency667.from=Level4
 target153.showInterface=false
@@ -949,6 +1373,7 @@ dependency827.to=Level80
 target56.editor.width=399
 dependency111.type=UsesDependency
 dependency106.to=Projectile
+<<<<<<< Updated upstream
 target25.editor.width=900
 target60.editor.y=70
 target60.editor.x=60
@@ -958,12 +1383,27 @@ target141.x=200
 dependency273.type=UsesDependency
 mainWindow.y=0
 mainWindow.x=-8
+=======
+target60.editor.y=70
+target25.editor.width=900
+target60.editor.x=60
+target81.editor.width=900
+target141.y=850
+target141.x=200
+dependency273.type=UsesDependency
+mainWindow.y=23
+mainWindow.x=0
+>>>>>>> Stashed changes
 dependency167.type=UsesDependency
 dependency254.to=FireballText
 dependency5.type=UsesDependency
 dependency220.type=UsesDependency
 target54.type=ClassTarget
+<<<<<<< Updated upstream
 target184.name=Resolution
+=======
+target184.name=WeaponBG
+>>>>>>> Stashed changes
 dependency604.from=Level33
 target184.height=50
 target68.editor.y=43
@@ -983,7 +1423,11 @@ dependency59.type=UsesDependency
 dependency561.to=OptionsMenu
 target146.editor.width=900
 dependency491.type=UsesDependency
+<<<<<<< Updated upstream
 target121.name=CargoShip
+=======
+target121.name=LevelCreatorObject
+>>>>>>> Stashed changes
 dependency769.from=Level92
 dependency497.to=Coin
 target115.editor.width=900
@@ -993,7 +1437,11 @@ target19.width=80
 dependency213.type=UsesDependency
 target47.type=ClassTarget
 target140.editor.width=900
+<<<<<<< Updated upstream
 target177.name=PlasmaShip
+=======
+target177.name=TurnSpeedDes
+>>>>>>> Stashed changes
 target50.showInterface=false
 dependency508.to=Player
 dependency94.from=Object
@@ -1004,14 +1452,23 @@ dependency269.type=UsesDependency
 dependency656.to=ElevatorBlock
 target47.typeParameters=
 dependency322.type=UsesDependency
+<<<<<<< Updated upstream
 target195.width=80
+=======
+target195.width=90
+>>>>>>> Stashed changes
 dependency195.from=Ship
 target81.width=80
 target67.editor.height=691
 dependency706.from=Level37
 target8.editor.width=900
+<<<<<<< Updated upstream
 target214.height=50
 target221.width=80
+=======
+target221.width=80
+target214.height=50
+>>>>>>> Stashed changes
 dependency484.type=UsesDependency
 dependency378.type=UsesDependency
 dependency815.to=SpikeBlock
@@ -1019,7 +1476,11 @@ dependency815.from=Level13
 dependency206.type=UsesDependency
 dependency90.to=Nebula
 dependency593.type=UsesDependency
+<<<<<<< Updated upstream
 target127.width=80
+=======
+target127.width=110
+>>>>>>> Stashed changes
 target13.width=110
 dependency87.from=Nebula
 target115.showInterface=false
@@ -1030,9 +1491,15 @@ target94.naviview.expanded=true
 dependency34.from=Weapon
 target27.showInterface=false
 dependency315.type=UsesDependency
+<<<<<<< Updated upstream
 target148.editor.y=70
 target96.height=50
 target148.editor.x=60
+=======
+target148.editor.y=23
+target96.height=50
+target148.editor.x=380
+>>>>>>> Stashed changes
 dependency178.to=Level3
 dependency390.to=SpikeBlock
 dependency37.to=Space
@@ -1041,7 +1508,11 @@ dependency401.to=ExitPortal
 target167.naviview.expanded=true
 target217.editor.y=23
 dependency424.type=UsesDependency
+<<<<<<< Updated upstream
 target217.editor.x=40
+=======
+target217.editor.x=0
+>>>>>>> Stashed changes
 dependency808.from=Level81
 dependency350.from=Level13
 dependency337.to=MeltingBlock
@@ -1060,6 +1531,7 @@ dependency695.type=UsesDependency
 dependency589.type=UsesDependency
 target148.height=50
 target48.y=670
+<<<<<<< Updated upstream
 dependency128.from=AsteroidLarge
 target48.x=190
 target194.editor.height=700
@@ -1069,6 +1541,17 @@ dependency644.to=TraceHead
 target209.typeParameters=
 target151.editor.y=93
 target151.editor.x=253
+=======
+target48.x=190
+dependency128.from=AsteroidLarge
+target194.editor.height=700
+target219.name=TutorialObjectManager
+target80.name=SoundToggle
+dependency644.to=TraceHead
+target209.typeParameters=
+target151.editor.y=23
+target151.editor.x=40
+>>>>>>> Stashed changes
 dependency417.type=UsesDependency
 dependency792.to=MeltingBlock
 dependency237.from=Level8
@@ -1101,8 +1584,13 @@ target20.name=Level8
 dependency455.from=WireButton
 dependency25.to=Beam
 dependency797.type=UsesDependency
+<<<<<<< Updated upstream
 target5.name=Level89
 target60.editor.width=900
+=======
+target60.editor.width=900
+target5.name=Level89
+>>>>>>> Stashed changes
 dependency744.type=UsesDependency
 target76.name=MapItems
 dependency670.from=Level4
@@ -1112,8 +1600,13 @@ dependency519.type=UsesDependency
 dependency325.to=Shop
 dependency339.from=Level6
 target214.editor.height=700
+<<<<<<< Updated upstream
 target158.y=1030
 target158.x=10
+=======
+target158.y=3430
+target158.x=260
+>>>>>>> Stashed changes
 dependency473.to=ExitPortal
 class.BlackBar.image=Blackbar.png
 dependency628.type=UsesDependency
@@ -1124,8 +1617,13 @@ dependency448.from=Wire
 target125.editor.width=900
 target181.editor.width=900
 class.ShootingStar.superclass=SpaceObject
+<<<<<<< Updated upstream
 dependency501.from=Level21
 target49.naviview.expanded=true
+=======
+target49.naviview.expanded=true
+dependency501.from=Level21
+>>>>>>> Stashed changes
 target40.height=50
 class.BoostBar.superclass=HUD
 target152.width=80
@@ -1141,6 +1639,7 @@ target178.typeParameters=
 target156.editor.height=700
 dependency610.from=Level40
 dependency62.type=UsesDependency
+<<<<<<< Updated upstream
 dependency846.type=UsesDependency
 class.Level83.superclass=Platformer
 target176.naviview.expanded=true
@@ -1150,6 +1649,16 @@ target212.x=240
 target175.naviview.expanded=true
 target136.y=3190
 target136.x=200
+=======
+class.Level83.superclass=Platformer
+target68.editor.height=700
+target176.naviview.expanded=false
+target212.y=2890
+target212.x=240
+target175.naviview.expanded=true
+target136.y=2530
+target136.x=120
+>>>>>>> Stashed changes
 dependency772.from=Level92
 dependency666.from=Level4
 dependency727.to=BulletLauncher
@@ -1168,7 +1677,11 @@ dependency13.to=Space
 target116.editor.y=23
 target53.type=AbstractTarget
 target116.editor.x=40
+<<<<<<< Updated upstream
 target183.name=RocketLaunch
+=======
+target183.name=Resolution
+>>>>>>> Stashed changes
 dependency603.from=Level33
 dependency839.type=UsesDependency
 dependency381.type=UsesDependency
@@ -1189,20 +1702,35 @@ dependency58.type=UsesDependency
 dependency249.to=LevelCreatorPallet
 dependency461.to=BackgroundBlock
 dependency490.type=UsesDependency
+<<<<<<< Updated upstream
 target120.name=PlasmaTrail
 dependency768.from=Level92
 dependency397.to=TraceHead
 target175.editor.y=23
 target175.editor.x=0
+=======
+target120.name=CargoShip
+dependency768.from=Level92
+dependency397.to=TraceHead
+target175.editor.y=23
+target175.editor.x=40
+>>>>>>> Stashed changes
 dependency159.type=UsesDependency
 dependency821.from=Level89
 target155.typeParameters=
 dependency212.type=UsesDependency
 target157.height=50
+<<<<<<< Updated upstream
 target184.width=90
 target46.type=ClassTarget
 target70.width=80
 target176.name=BomberShip
+=======
+target184.width=110
+target46.type=ClassTarget
+target70.width=80
+target176.name=PlasmaShip
+>>>>>>> Stashed changes
 dependency408.to=OptionsMenu
 dependency620.to=Cart
 dependency93.from=Planet
@@ -1224,10 +1752,16 @@ dependency814.from=Level13
 dependency205.type=UsesDependency
 target39.type=ClassTarget
 target84.typeParameters=
+<<<<<<< Updated upstream
 target169.name=Level32
 dependency592.type=UsesDependency
 dependency86.from=Space
 target222.name=Track
+=======
+target169.name=Player
+dependency592.type=UsesDependency
+dependency86.from=Space
+>>>>>>> Stashed changes
 target160.type=ClassTarget
 target116.name=WireActivator
 dependency142.to=Button
@@ -1273,26 +1807,43 @@ target28.typeParameters=
 dependency694.type=UsesDependency
 dependency588.type=UsesDependency
 dependency127.from=Weapon
+<<<<<<< Updated upstream
 target218.name=WeaponShop
+=======
+target218.name=PlanetCompletedMP
+>>>>>>> Stashed changes
 target191.editor.width=900
 target140.showInterface=false
 dependency544.to=PlatformPlayer
 target160.editor.width=900
 dependency416.type=UsesDependency
 target52.showInterface=false
+<<<<<<< Updated upstream
 target132.editor.y=116
 target132.editor.x=-1510
 dependency692.to=PlatformPlayer
 target148.width=80
+=======
+target132.editor.y=43
+target132.editor.x=40
+dependency692.to=PlatformPlayer
+target148.width=100
+>>>>>>> Stashed changes
 target185.typeParameters=
 target34.width=80
 dependency236.from=Level7
 target157.editor.height=700
 target176.height=50
 target74.y=1390
+<<<<<<< Updated upstream
 dependency703.to=Trapdoor
 dependency525.type=UsesDependency
 target74.x=120
+=======
+target74.x=120
+dependency703.to=Trapdoor
+dependency525.type=UsesDependency
+>>>>>>> Stashed changes
 target146.type=ClassTarget
 target69.editor.height=700
 class.Missile.image=missile.png
@@ -1304,8 +1855,13 @@ target200.editor.height=700
 dependency130.to=Player
 dependency787.to=BackgroundBlock
 dependency634.type=UsesDependency
+<<<<<<< Updated upstream
 target191.editor.y=23
 target191.editor.x=40
+=======
+target191.editor.y=41
+target191.editor.x=150
+>>>>>>> Stashed changes
 dependency560.from=Level24
 dependency454.from=WireOn
 target4.name=MenuMain
@@ -1316,8 +1872,13 @@ target75.name=LaserText
 dependency73.to=Options
 target17.editor.y=43
 target17.editor.x=40
+<<<<<<< Updated upstream
 target199.editor.y=41
 target199.editor.x=258
+=======
+target199.editor.y=43
+target199.editor.x=40
+>>>>>>> Stashed changes
 class.PlasmaBall.superclass=Weapon
 dependency518.type=UsesDependency
 dependency225.to=WaterBlock
@@ -1326,13 +1887,19 @@ target52.x=100
 dependency338.from=Level6
 target5.showInterface=false
 dependency373.to=FallingBlock
+<<<<<<< Updated upstream
 dependency627.type=UsesDependency
 target54.editor.height=700
+=======
+target54.editor.height=700
+dependency627.type=UsesDependency
+>>>>>>> Stashed changes
 target166.height=50
 target12.name=Button
 dependency447.from=Wire
 target162.typeParameters=
 dependency500.from=Level21
+<<<<<<< Updated upstream
 target207.y=550
 target207.x=100
 dependency736.type=UsesDependency
@@ -1342,6 +1909,17 @@ target67.naviview.expanded=true
 target184.x=10
 target66.naviview.expanded=false
 target68.name=IconPlasma
+=======
+target207.y=130
+target207.x=190
+dependency736.type=UsesDependency
+dependency532.to=Block
+target184.y=10
+target67.naviview.expanded=true
+target184.x=160
+target68.name=IconPlasma
+target66.naviview.expanded=false
+>>>>>>> Stashed changes
 dependency556.from=Level24
 dependency468.to=Cart
 dependency680.to=PlatformPlayer
@@ -1350,12 +1928,19 @@ target102.showInterface=false
 target206.width=80
 dependency61.type=UsesDependency
 target58.typeParameters=
+<<<<<<< Updated upstream
 dependency845.type=UsesDependency
+=======
+>>>>>>> Stashed changes
 target30.y=3910
 target30.x=10
 target14.showInterface=false
 dependency771.from=Level92
+<<<<<<< Updated upstream
 target139.naviview.expanded=true
+=======
+target139.naviview.expanded=false
+>>>>>>> Stashed changes
 class.FireballText.superclass=WeaponShop
 dependency665.from=Level4
 class.MenuMain.image=MenuMain.png
@@ -1367,13 +1952,20 @@ dependency627.to=Cart
 target13.height=50
 class.StartMenu.superclass=greenfoot.World
 dependency775.to=SlimeBlock
+<<<<<<< Updated upstream
 target219.naviview.expanded=false
 dependency729.type=UsesDependency
 target218.naviview.expanded=true
+=======
+target219.naviview.expanded=true
+dependency729.type=UsesDependency
+target218.naviview.expanded=false
+>>>>>>> Stashed changes
 dependency271.type=UsesDependency
 dependency165.type=UsesDependency
 dependency3.type=UsesDependency
 target106.typeParameters=
+<<<<<<< Updated upstream
 target162.y=2470
 dependency549.from=OpenTrapdoor
 target109.y=3850
@@ -1381,12 +1973,25 @@ target162.x=190
 target109.x=10
 target52.type=ClassTarget
 target182.name=Block
+=======
+target162.y=1450
+dependency549.from=OpenTrapdoor
+target109.y=3850
+target162.x=100
+target109.x=10
+target52.type=ClassTarget
+target182.name=RocketLaunch
+>>>>>>> Stashed changes
 dependency602.from=Level33
 dependency838.type=UsesDependency
 dependency61.to=Space
 dependency380.type=UsesDependency
 class.WeaponsText.superclass=WeaponShop
 target120.height=50
+<<<<<<< Updated upstream
+=======
+class.WarningSector.image=WarningSector.png
+>>>>>>> Stashed changes
 dependency658.from=Level41
 dependency213.to=OptionsMenu
 target80.editor.width=900
@@ -1394,7 +1999,11 @@ dependency711.from=Level37
 target7.typeParameters=
 target181.editor.height=700
 dependency102.type=UsesDependency
+<<<<<<< Updated upstream
 target173.width=100
+=======
+target173.width=80
+>>>>>>> Stashed changes
 dependency149.to=Shop
 dependency57.type=UsesDependency
 dependency361.to=Ship
@@ -1405,6 +2014,7 @@ target167.showInterface=false
 dependency297.to=Number
 dependency158.type=UsesDependency
 dependency820.from=Level89
+<<<<<<< Updated upstream
 target156.editor.y=91
 target156.editor.x=194
 dependency211.type=UsesDependency
@@ -1415,6 +2025,18 @@ target175.name=IconShip
 target35.typeParameters=
 target140.y=190
 target140.x=230
+=======
+target156.editor.y=43
+target156.editor.x=40
+dependency211.type=UsesDependency
+class.Missile.superclass=Weapon
+target79.showInterface=false
+target45.type=ClassTarget
+target175.name=BomberShip
+target35.typeParameters=
+target140.y=1030
+target140.x=200
+>>>>>>> Stashed changes
 dependency308.to=MenuBG
 dependency92.from=Space
 dependency520.to=Entity
@@ -1439,11 +2061,19 @@ dependency813.from=Level13
 dependency204.type=UsesDependency
 target38.type=ClassTarget
 dependency591.type=UsesDependency
+<<<<<<< Updated upstream
 target168.name=PlanetLevelText
 dependency763.to=Level25
 dependency85.from=Space
 target88.typeParameters=
 target221.name=IconProjectile
+=======
+target168.name=Level32
+dependency763.to=Level25
+target88.typeParameters=
+dependency85.from=Space
+target221.name=Track
+>>>>>>> Stashed changes
 target115.name=Exit
 dependency699.to=BackgroundBlock
 dependency32.from=PlasmaBall
@@ -1451,9 +2081,15 @@ target201.editor.height=700
 target29.width=120
 dependency313.type=UsesDependency
 dependency190.to=OuterSpace
+<<<<<<< Updated upstream
 dependency133.from=TutorialObjectManager
 target75.naviview.expanded=true
 target92.editor.y=35
+=======
+target92.editor.y=35
+target75.naviview.expanded=true
+dependency133.from=TutorialObjectManager
+>>>>>>> Stashed changes
 target92.editor.x=380
 target32.height=50
 target1.editor.width=900
@@ -1467,26 +2103,46 @@ dependency137.to=TutorialObjectManager
 target136.typeParameters=
 dependency242.from=BackgroundBlock
 target215.height=50
+<<<<<<< Updated upstream
 target148.naviview.expanded=true
 dependency478.type=UsesDependency
 class.Logo.superclass=Menu
 dependency285.to=Block
 target143.editor.height=700
 target6.showInterface=false
+=======
+target148.naviview.expanded=false
+dependency478.type=UsesDependency
+class.Logo.superclass=Menu
+dependency285.to=Block
+target6.showInterface=false
+target143.editor.height=700
+>>>>>>> Stashed changes
 dependency531.type=UsesDependency
 target152.type=ClassTarget
 target108.name=Fireball
 dependency25.from=Fireball
 dependency298.from=Space
+<<<<<<< Updated upstream
 dependency306.type=UsesDependency
 target55.editor.height=700
 dependency693.type=UsesDependency
 target137.width=90
+=======
+target55.editor.height=700
+dependency306.type=UsesDependency
+dependency693.type=UsesDependency
+target137.width=110
+>>>>>>> Stashed changes
 target23.width=80
 dependency587.type=UsesDependency
 class.MissleIcon.image=missile.png
 dependency126.from=Weapon
+<<<<<<< Updated upstream
 target217.name=Missile
+=======
+target217.name=WeaponShop
+>>>>>>> Stashed changes
 dependency444.to=SpikeBlock
 target69.y=2650
 target69.x=10
@@ -1511,6 +2167,7 @@ dependency687.to=Block
 dependency633.type=UsesDependency
 target8.editor.y=43
 target8.editor.x=40
+<<<<<<< Updated upstream
 target172.editor.y=23
 dependency453.from=Wire
 target172.editor.x=40
@@ -1519,13 +2176,26 @@ target113.typeParameters=
 target47.x=10
 dependency689.type=UsesDependency
 target3.name=CutsceneObject
+=======
+target172.editor.y=56
+dependency453.from=Wire
+target172.editor.x=73
+target47.y=2350
+target47.x=10
+target113.typeParameters=
+target3.name=CutsceneObject
+dependency689.type=UsesDependency
+>>>>>>> Stashed changes
 target149.height=50
 dependency228.from=PlatformPlayer
 dependency742.type=UsesDependency
 class.AsteroidLarge.image=Asteroid1.png
 class.TurnSpeedDes.superclass=WeaponShop
 target74.name=About
+<<<<<<< Updated upstream
 dependency846.to=Trapdoor
+=======
+>>>>>>> Stashed changes
 dependency517.type=UsesDependency
 <<<<<<<=HEAD
 dependency125.to=AsteroidSmall
@@ -1533,7 +2203,11 @@ dependency337.from=Level6
 dependency273.to=BeamDes
 target182.editor.height=700
 class.MissileIcon.superclass=HUD
+<<<<<<< Updated upstream
 target179.y=1810
+=======
+target179.y=1210
+>>>>>>> Stashed changes
 target179.x=10
 dependency626.type=UsesDependency
 target169.width=80
@@ -1548,11 +2222,19 @@ target42.typeParameters=
 target25.y=4210
 target8.width=130
 target25.x=100
+<<<<<<< Updated upstream
 dependency432.to=ExitPortal
 target57.editor.y=43
 dependency735.type=UsesDependency
 class.Projectile.superclass=Weapon
 target57.editor.x=40
+=======
+target57.editor.y=43
+dependency432.to=ExitPortal
+dependency735.type=UsesDependency
+target57.editor.x=40
+class.Projectile.superclass=Weapon
+>>>>>>> Stashed changes
 target17.editor.height=700
 target67.name=BoostBarOutside
 target194.height=50
@@ -1565,6 +2247,7 @@ target84.naviview.expanded=true
 target83.naviview.expanded=false
 target211.showInterface=false
 dependency60.type=UsesDependency
+<<<<<<< Updated upstream
 dependency844.type=UsesDependency
 target139.height=50
 dependency770.from=Level92
@@ -1575,6 +2258,17 @@ dependency527.to=ClimbBlock
 class.IconLaser.superclass=HUD
 target157.naviview.expanded=false
 target156.naviview.expanded=true
+=======
+target139.height=50
+dependency770.from=Level92
+dependency664.from=Level41
+target157.y=1030
+target157.x=10
+dependency527.to=ClimbBlock
+class.IconLaser.superclass=HUD
+target157.naviview.expanded=true
+target156.naviview.expanded=false
+>>>>>>> Stashed changes
 dependency439.from=Level20
 class.PushBlock.image=PushBlock.png
 dependency675.to=BulletLauncher
@@ -1587,17 +2281,26 @@ target2.width=80
 dependency2.type=UsesDependency
 dependency548.from=OpenTrapdoor
 target51.type=ClassTarget
+<<<<<<< Updated upstream
 target181.name=LevelCreatorPallet
+=======
+target181.name=Block
+>>>>>>> Stashed changes
 dependency601.from=Level33
 target41.height=50
 target65.showInterface=false
 dependency837.type=UsesDependency
 target203.editor.width=900
+<<<<<<< Updated upstream
 dependency834.to=PlatformPlayer
+=======
+dependency834.to=Block
+>>>>>>> Stashed changes
 dependency657.from=Level41
 dependency113.to=Object
 class.LevelText.image=LevelText.png
 dependency710.from=Level37
+<<<<<<< Updated upstream
 target211.y=2530
 target211.x=10
 dependency101.type=UsesDependency
@@ -1606,11 +2309,22 @@ target143.typeParameters=
 target135.y=1690
 dependency261.to=UnlockButton
 target135.x=10
+=======
+target211.y=1690
+target211.x=240
+dependency101.type=UsesDependency
+dependency56.type=UsesDependency
+target143.typeParameters=
+target135.y=3190
+dependency261.to=UnlockButton
+target135.x=200
+>>>>>>> Stashed changes
 class.Minimap.superclass=HUD
 dependency766.from=OuterSpace
 dependency197.to=TutorialWorld
 dependency157.type=UsesDependency
 dependency56.to=WeaponBG
+<<<<<<< Updated upstream
 target144.editor.height=700
 target7.showInterface=false
 dependency210.type=UsesDependency
@@ -1618,6 +2332,15 @@ target137.editor.y=96
 target44.type=ClassTarget
 target137.editor.x=276
 target174.name=Level37
+=======
+target7.showInterface=false
+target144.editor.height=773
+dependency210.type=UsesDependency
+target44.type=ClassTarget
+target137.editor.y=23
+target137.editor.x=0
+target174.name=IconShip
+>>>>>>> Stashed changes
 target204.typeParameters=
 dependency208.to=LevelCreatorBlock
 dependency420.to=Cart
@@ -1626,8 +2349,13 @@ target56.editor.height=223
 dependency266.type=UsesDependency
 dependency356.to=RespawnMenu
 dependency192.from=Missile
+<<<<<<< Updated upstream
 target206.editor.y=96
 target206.editor.x=38
+=======
+target206.editor.y=43
+target206.editor.x=40
+>>>>>>> Stashed changes
 dependency703.from=Level60
 dependency49.type=UsesDependency
 dependency481.type=UsesDependency
@@ -1648,10 +2376,17 @@ dependency812.from=Level81
 class.PlayerShield.superclass=Object
 dependency203.type=UsesDependency
 target37.type=ClassTarget
+<<<<<<< Updated upstream
 target167.name=Level30
 dependency590.type=UsesDependency
 dependency663.to=Wire
 target220.name=TutorialObjectManager
+=======
+target167.name=PlanetLevelText
+dependency590.type=UsesDependency
+dependency663.to=Wire
+target220.name=IconProjectile
+>>>>>>> Stashed changes
 target114.name=LevelCreatorBlock
 dependency599.to=PlatformPlayer
 dependency31.from=PlasmaBall
@@ -1659,7 +2394,11 @@ dependency259.type=UsesDependency
 target192.showInterface=false
 target158.height=50
 dependency312.type=UsesDependency
+<<<<<<< Updated upstream
 target140.editor.y=43
+=======
+target140.editor.y=23
+>>>>>>> Stashed changes
 target140.editor.x=40
 target194.width=80
 target80.width=100
@@ -1668,6 +2407,7 @@ target120.typeParameters=
 class.MineText.superclass=WeaponShop
 dependency132.from=TutorialObjectManager
 dependency822.to=Coin
+<<<<<<< Updated upstream
 target220.width=150
 target73.editor.y=23
 target39.naviview.expanded=true
@@ -1678,6 +2418,18 @@ dependency368.type=UsesDependency
 target9.editor.height=700
 dependency101.to=Space
 target93.naviview.expanded=true
+=======
+target220.width=80
+target73.editor.y=23
+target73.editor.x=40
+target39.naviview.expanded=true
+target38.naviview.expanded=true
+class.Level89.superclass=Platformer
+dependency368.type=UsesDependency
+target9.editor.height=700
+target93.naviview.expanded=true
+dependency101.to=Space
+>>>>>>> Stashed changes
 target92.naviview.expanded=false
 dependency421.type=UsesDependency
 dependency758.to=Level13
@@ -1689,8 +2441,13 @@ target126.width=80
 target16.typeParameters=
 target12.width=80
 dependency477.type=UsesDependency
+<<<<<<< Updated upstream
 dependency185.to=Space
 target60.height=50
+=======
+target60.height=50
+dependency185.to=Space
+>>>>>>> Stashed changes
 target107.name=LevelCreatorBlockHover
 dependency530.type=UsesDependency
 target151.type=ClassTarget
@@ -1706,7 +2463,11 @@ dependency586.type=UsesDependency
 dependency125.from=Player
 target169.showInterface=false
 target173.typeParameters=
+<<<<<<< Updated upstream
 target216.name=Logo
+=======
+target216.name=Missile
+>>>>>>> Stashed changes
 dependency344.to=LevelCreatorDisplayBlock
 dependency414.type=UsesDependency
 target18.editor.height=700
@@ -1725,15 +2486,24 @@ dependency343.from=PlatformPlayer
 dependency439.to=Block
 dependency651.to=TraceHead
 dependency579.type=UsesDependency
+<<<<<<< Updated upstream
 target209.name=OptionsMenu
+=======
+target209.name=Level18
+>>>>>>> Stashed changes
 dependency587.to=WaterBlock
 dependency632.type=UsesDependency
 dependency399.from=Level16
 dependency7.to=Ship
 target50.height=50
 dependency452.from=Level19
+<<<<<<< Updated upstream
 target219.editor.width=900
 target80.editor.height=700
+=======
+target80.editor.height=700
+target219.editor.width=900
+>>>>>>> Stashed changes
 dependency688.type=UsesDependency
 target2.name=Entity
 dependency810.to=Coin
@@ -1744,15 +2514,23 @@ dependency746.to=Level2
 target66.showInterface=false
 dependency516.type=UsesDependency
 target213.editor.width=900
+<<<<<<< Updated upstream
 target222.editor.y=43
 target222.editor.x=40
+=======
+>>>>>>> Stashed changes
 target158.width=80
 class.MovingEnemy.superclass=NonPlayer
 target44.width=110
 dependency336.from=SlimeBlock
 target73.y=310
+<<<<<<< Updated upstream
 dependency173.to=HUD
 target73.x=120
+=======
+target73.x=120
+dependency173.to=HUD
+>>>>>>> Stashed changes
 target150.typeParameters=
 dependency625.type=UsesDependency
 dependency32.to=Player
@@ -1762,7 +2540,11 @@ target105.editor.y=43
 target105.editor.x=40
 target102.height=50
 target187.editor.width=900
+<<<<<<< Updated upstream
 target145.editor.height=773
+=======
+target145.editor.height=700
+>>>>>>> Stashed changes
 target211.typeParameters=
 dependency734.type=UsesDependency
 dependency332.to=AsteroidLarge
@@ -1774,6 +2556,7 @@ dependency268.to=LevelText
 dependency480.to=GravityBlock
 target48.naviview.expanded=true
 target47.naviview.expanded=true
+<<<<<<< Updated upstream
 dependency843.type=UsesDependency
 dependency663.from=Level41
 target51.y=550
@@ -1785,6 +2568,18 @@ dependency438.from=Platformer
 dependency575.to=TraceHead
 target97.editor.y=43
 target174.naviview.expanded=false
+=======
+target51.y=550
+dependency663.from=Level41
+target51.x=190
+target164.editor.y=57
+target164.editor.x=288
+dependency427.to=GravityBlock
+dependency438.from=Platformer
+target97.editor.y=43
+dependency575.to=TraceHead
+target174.naviview.expanded=true
+>>>>>>> Stashed changes
 target97.editor.x=40
 dependency727.type=UsesDependency
 target167.height=50
@@ -1792,6 +2587,7 @@ dependency163.type=UsesDependency
 dependency1.type=UsesDependency
 dependency547.from=Trapdoor
 target50.type=ClassTarget
+<<<<<<< Updated upstream
 target180.name=IconFire
 target193.showInterface=false
 target206.y=1270
@@ -1799,6 +2595,15 @@ dependency600.from=Level33
 target206.x=240
 target183.y=3490
 target183.x=130
+=======
+target180.name=LevelCreatorPallet
+target193.showInterface=false
+target206.y=550
+dependency600.from=Level33
+target206.x=100
+target183.y=3310
+target183.x=10
+>>>>>>> Stashed changes
 dependency836.type=UsesDependency
 dependency734.to=ExitPortal
 target42.editor.height=700
@@ -1806,8 +2611,13 @@ target76.width=90
 dependency656.from=Level41
 target216.width=80
 dependency100.type=UsesDependency
+<<<<<<< Updated upstream
 dependency55.type=UsesDependency
 target28.showInterface=false
+=======
+target28.showInterface=false
+dependency55.type=UsesDependency
+>>>>>>> Stashed changes
 dependency161.to=Counter
 dependency20.to=Mine
 target23.typeParameters=
@@ -1816,6 +2626,7 @@ dependency156.type=UsesDependency
 dependency829.to=CutsceneObject
 target14.height=50
 target43.type=ClassTarget
+<<<<<<< Updated upstream
 target173.name=ShopButton
 dependency108.to=Mine
 dependency90.from=Player
@@ -1823,6 +2634,15 @@ dependency320.to=FallingBlock
 target161.y=1930
 target108.y=250
 target161.x=10
+=======
+target173.name=Level37
+dependency108.to=Mine
+dependency90.from=Player
+dependency320.to=FallingBlock
+target161.y=2470
+target108.y=250
+target161.x=190
+>>>>>>> Stashed changes
 target180.typeParameters=
 target108.x=100
 dependency265.type=UsesDependency
@@ -1843,9 +2663,15 @@ dependency415.to=ExitPortal
 dependency149.type=UsesDependency
 dependency811.from=Level81
 dependency202.type=UsesDependency
+<<<<<<< Updated upstream
 target183.width=110
 target36.type=ClassTarget
 target166.name=BackgroundStar
+=======
+target183.width=90
+target36.type=ClassTarget
+target166.name=Level30
+>>>>>>> Stashed changes
 dependency563.to=PlatformPlayer
 target79.height=50
 target113.name=EnemyShip
@@ -1854,7 +2680,11 @@ dependency30.from=Player
 dependency258.type=UsesDependency
 dependency311.type=UsesDependency
 class.Alien.superclass=MovingNonPlayer
+<<<<<<< Updated upstream
 target121.editor.y=23
+=======
+target121.editor.y=43
+>>>>>>> Stashed changes
 target121.editor.x=40
 dependency131.from=TutorialObjectManager
 dependency722.to=Block
@@ -1868,8 +2698,13 @@ target56.naviview.expanded=true
 dependency187.from=Platformer
 dependency804.from=Level93
 target186.height=50
+<<<<<<< Updated upstream
 target129.editor.y=43
 target67.showInterface=false
+=======
+target67.showInterface=false
+target129.editor.y=43
+>>>>>>> Stashed changes
 target129.editor.x=40
 dependency240.from=Level8
 dependency476.type=UsesDependency
@@ -1889,7 +2724,11 @@ dependency92.to=Planet
 dependency585.type=UsesDependency
 dependency124.from=Player
 dependency79.from=Object
+<<<<<<< Updated upstream
 target215.name=WeaponShopFG
+=======
+target215.name=Logo
+>>>>>>> Stashed changes
 target215.editor.height=700
 dependency244.to=LevelCreatorDisplayBlock
 target197.editor.width=900
@@ -1925,40 +2764,69 @@ target199.type=ClassTarget
 target101.typeParameters=
 target65.editor.y=122
 target65.editor.x=0
+<<<<<<< Updated upstream
 target208.name=Level15
+=======
+target208.name=OptionsMenu
+>>>>>>> Stashed changes
 dependency487.to=FallingBlock
 dependency631.type=UsesDependency
 dependency398.from=Level16
 dependency451.from=PlatformPlayer
+<<<<<<< Updated upstream
 target147.width=110
+=======
+target147.width=80
+>>>>>>> Stashed changes
 target33.width=80
 dependency687.type=UsesDependency
 target1.name=Ball
 dependency710.to=PlatformPlayer
 dependency226.from=PlatformPlayer
 target68.y=610
+<<<<<<< Updated upstream
 dependency740.type=UsesDependency
 target68.x=10
 target194.showInterface=false
 target72.name=MissileIcon
 target2.typeParameters=
 target131.editor.height=700
+=======
+target68.x=10
+dependency740.type=UsesDependency
+target194.showInterface=false
+target72.name=MissileIcon
+target2.typeParameters=
+target131.editor.height=773
+>>>>>>> Stashed changes
 dependency646.to=PlatformPlayer
 dependency515.type=UsesDependency
 dependency409.type=UsesDependency
 target43.editor.height=700
 dependency796.type=UsesDependency
 dependency794.to=ClimbBlock
+<<<<<<< Updated upstream
 target203.editor.y=43
 target203.editor.x=40
+=======
+target203.editor.y=96
+target203.editor.x=106
+>>>>>>> Stashed changes
 dependency335.from=SlimeBlock
 target9.height=50
 target29.showInterface=false
 dependency624.type=UsesDependency
+<<<<<<< Updated upstream
 target23.height=50
 target139.type=ClassTarget
 dependency805.to=Block
 target30.typeParameters=
+=======
+target30.typeParameters=
+target23.height=50
+target139.type=ClassTarget
+dependency805.to=Block
+>>>>>>> Stashed changes
 target129.typeParameters=
 dependency444.from=Level20
 dependency80.to=Missile
@@ -1970,8 +2838,13 @@ target206.height=50
 target141.width=80
 target65.name=Coin
 target46.y=610
+<<<<<<< Updated upstream
 class.MineDes.superclass=WeaponShop
 target46.x=200
+=======
+target46.x=200
+class.MineDes.superclass=WeaponShop
+>>>>>>> Stashed changes
 dependency553.from=PlatformPlayer
 dependency168.to=TutorialWorld
 dependency380.to=BomberShip
@@ -1981,7 +2854,10 @@ dependency789.type=UsesDependency
 dependency27.to=Entity
 target130.height=50
 target108.editor.height=700
+<<<<<<< Updated upstream
 dependency842.type=UsesDependency
+=======
+>>>>>>> Stashed changes
 target65.naviview.expanded=true
 target64.naviview.expanded=true
 dependency662.from=Level41
@@ -1990,17 +2866,30 @@ target83.typeParameters=
 dependency327.to=MapBackButton
 target145.editor.y=23
 dependency437.from=Platformer
+<<<<<<< Updated upstream
 target145.editor.x=0
 target88.height=50
 target196.editor.height=700
 target178.y=3730
+=======
+target145.editor.x=40
+target88.height=50
+target196.editor.height=700
+target178.y=1810
+>>>>>>> Stashed changes
 target178.x=10
 dependency475.to=LavaBlock
 dependency726.type=UsesDependency
 class.PlayerShip.superclass=Minimap
+<<<<<<< Updated upstream
 target138.naviview.expanded=false
 dependency162.type=UsesDependency
 target179.width=110
+=======
+target138.naviview.expanded=true
+dependency162.type=UsesDependency
+target179.width=80
+>>>>>>> Stashed changes
 target192.naviview.expanded=true
 target65.width=80
 target191.naviview.expanded=true
@@ -2009,12 +2898,21 @@ target24.y=1210
 target24.x=210
 target205.width=80
 dependency835.type=UsesDependency
+<<<<<<< Updated upstream
 target170.editor.height=754
 dependency634.to=GravityBlock
 target217.naviview.expanded=true
 target131.typeParameters=
 target195.height=50
 target22.editor.y=23
+=======
+target170.editor.height=700
+dependency634.to=GravityBlock
+target217.naviview.expanded=true
+target131.typeParameters=
+target22.editor.y=23
+target195.height=50
+>>>>>>> Stashed changes
 target22.editor.x=0
 dependency655.from=Level41
 dependency782.to=FallingBlock
@@ -2024,27 +2922,45 @@ class.IconMine.superclass=HUD
 dependency54.type=UsesDependency
 target68.showInterface=false
 target55.editor.width=900
+<<<<<<< Updated upstream
 target156.y=370
 dependency764.from=OuterSpace
 target156.x=190
+=======
+target156.y=3250
+dependency764.from=OuterSpace
+target156.x=230
+>>>>>>> Stashed changes
 dependency155.type=UsesDependency
 target24.editor.width=900
 class.LevelCreatorBlockHover.superclass=LevelCreatorObject
 dependency729.to=SpikeBlock
 target202.editor.width=900
 target42.type=ClassTarget
+<<<<<<< Updated upstream
 target172.name=Level33
 dependency220.to=ClimbBlock
 class.Platformer.superclass=greenfoot.World
 target81.editor.y=23
+=======
+target172.name=ShopButton
+dependency220.to=ClimbBlock
+target81.editor.y=23
+class.Platformer.superclass=greenfoot.World
+>>>>>>> Stashed changes
 target81.editor.x=0
 dependency264.type=UsesDependency
 target98.type=ClassTarget
 dependency156.to=SpaceObject
 dependency648.from=Level19
 target216.editor.height=700
+<<<<<<< Updated upstream
 dependency190.from=Player
 target60.typeParameters=
+=======
+target60.typeParameters=
+dependency190.from=Player
+>>>>>>> Stashed changes
 dependency15.to=Player
 dependency701.from=Level60
 target159.typeParameters=
@@ -2056,13 +2972,20 @@ target89.editor.x=40
 class.Asteroid.superclass=SpaceObject
 dependency373.type=UsesDependency
 dependency757.from=OuterSpace
+<<<<<<< Updated upstream
 target145.editor.width=841
 target210.y=2710
 target210.x=240
+=======
+target145.editor.width=900
+target210.y=2530
+target210.x=10
+>>>>>>> Stashed changes
 dependency99.to=Space
 dependency315.to=ElevatorBlock
 dependency148.type=UsesDependency
 dependency810.from=Level81
+<<<<<<< Updated upstream
 target134.y=910
 target134.x=130
 dependency201.type=UsesDependency
@@ -2070,6 +2993,15 @@ target114.editor.width=900
 target35.type=ClassTarget
 target170.editor.width=1130
 target165.name=PlatformObject
+=======
+target134.y=1690
+target134.x=10
+dependency201.type=UsesDependency
+target114.editor.width=900
+target35.type=ClassTarget
+target170.editor.width=900
+target165.name=BackgroundStar
+>>>>>>> Stashed changes
 target53.showInterface=false
 dependency463.to=SlimeBlock
 target97.width=170
@@ -2086,6 +3018,7 @@ target7.editor.width=900
 dependency558.to=ExitPortal
 dependency770.to=MeltingBlock
 dependency186.from=Level3
+<<<<<<< Updated upstream
 target132.editor.height=773
 dependency803.from=Level93
 target19.naviview.expanded=true
@@ -2093,6 +3026,15 @@ target112.y=790
 target74.naviview.expanded=true
 target112.x=100
 target73.naviview.expanded=true
+=======
+target132.editor.height=700
+dependency803.from=Level93
+target19.naviview.expanded=true
+target74.naviview.expanded=true
+target112.y=790
+target73.naviview.expanded=true
+target112.x=100
+>>>>>>> Stashed changes
 target44.editor.height=700
 dependency475.type=UsesDependency
 target118.showInterface=false
@@ -2101,7 +3043,11 @@ dependency22.from=Player
 target161.typeParameters=
 dependency295.from=Space
 dependency717.to=PlatformPlayer
+<<<<<<< Updated upstream
 target161.editor.y=23
+=======
+target161.editor.y=43
+>>>>>>> Stashed changes
 target161.editor.x=40
 dependency690.type=UsesDependency
 dependency584.type=UsesDependency
@@ -2109,13 +3055,22 @@ target147.naviview.expanded=true
 target146.naviview.expanded=true
 dependency123.from=Object
 dependency78.from=Object
+<<<<<<< Updated upstream
 target214.name=CompletedLabel
+=======
+target214.name=WeaponShopFG
+>>>>>>> Stashed changes
 dependency144.to=EngineText
 dependency359.type=UsesDependency
 dependency412.type=UsesDependency
 target159.height=50
+<<<<<<< Updated upstream
 target169.editor.y=23
 target169.editor.x=40
+=======
+target169.editor.y=42
+target169.editor.x=150
+>>>>>>> Stashed changes
 dependency179.from=PlatformPlayer
 dependency292.to=LavaBlock
 dependency232.from=ClimbBlock
@@ -2130,9 +3085,15 @@ target180.showInterface=false
 dependency15.from=DamageBar
 dependency288.from=Level10
 dependency341.from=Level6
+<<<<<<< Updated upstream
 dependency239.to=ExitPortal
 target92.showInterface=false
 target90.typeParameters=
+=======
+target92.showInterface=false
+target90.typeParameters=
+dependency239.to=ExitPortal
+>>>>>>> Stashed changes
 dependency451.to=WireButtonDown
 class.Beam.image=Laser.png
 target189.typeParameters=
@@ -2142,7 +3103,11 @@ dependency577.type=UsesDependency
 target198.type=ClassTarget
 target197.editor.height=700
 dependency630.type=UsesDependency
+<<<<<<< Updated upstream
 target207.name=Level16
+=======
+target207.name=Level15
+>>>>>>> Stashed changes
 dependency387.to=Coin
 target46.editor.y=81
 target46.editor.x=120
@@ -2166,11 +3131,19 @@ class.BoostBarSegment.image=BoostBarSegment.png
 target96.editor.width=900
 class.Ship.superclass=Player
 dependency623.type=UsesDependency
+<<<<<<< Updated upstream
 target130.width=90
 target94.y=2230
 target138.type=ClassTarget
 dependency705.to=Block
 target94.x=120
+=======
+target130.width=80
+target94.y=2230
+target94.x=120
+target138.type=ClassTarget
+dependency705.to=Block
+>>>>>>> Stashed changes
 target65.editor.width=937
 dependency443.from=Level20
 target34.editor.width=900
@@ -2191,13 +3164,17 @@ class.WaterBlockBackground.superclass=NoCollisionBlock
 dependency788.type=UsesDependency
 target166.typeParameters=
 target217.editor.height=700
+<<<<<<< Updated upstream
 dependency841.type=UsesDependency
+=======
+>>>>>>> Stashed changes
 dependency75.to=Space
 dependency661.from=Level41
 target186.editor.width=900
 target29.naviview.expanded=false
 target28.naviview.expanded=false
 target168.width=80
+<<<<<<< Updated upstream
 dependency227.to=Level6
 target54.width=110
 target82.naviview.expanded=true
@@ -2216,11 +3193,35 @@ dependency725.type=UsesDependency
 target180.editor.width=900
 dependency619.type=UsesDependency
 target54.showInterface=false
+=======
+target54.width=110
+dependency227.to=Level6
+target82.naviview.expanded=true
+target72.y=10
+target72.x=70
+dependency436.from=Platformer
+target19.y=490
+target19.x=10
+target155.editor.width=900
+target126.editor.y=88
+target126.editor.x=204
+target142.showInterface=false
+dependency375.to=ClimbBlock
+target124.editor.width=900
+dependency725.type=UsesDependency
+target180.editor.width=900
+target54.showInterface=false
+dependency619.type=UsesDependency
+>>>>>>> Stashed changes
 dependency161.type=UsesDependency
 class.EngineBars.image=Bars.png
 dependency545.from=Coin
 class.Asteroid1.image=Asteroid1.png
+<<<<<<< Updated upstream
 target155.naviview.expanded=false
+=======
+target155.naviview.expanded=true
+>>>>>>> Stashed changes
 target159.editor.height=700
 target103.height=50
 dependency834.type=UsesDependency
@@ -2230,8 +3231,13 @@ dependency534.to=ElevatorBlock
 dependency654.from=Level41
 target11.typeParameters=
 dependency682.to=WaterBlock
+<<<<<<< Updated upstream
 target185.editor.y=43
 target185.editor.x=40
+=======
+target185.editor.y=23
+target185.editor.x=0
+>>>>>>> Stashed changes
 target202.editor.height=700
 class.OuterSpace.superclass=Space
 dependency53.type=UsesDependency
@@ -2244,10 +3250,16 @@ dependency154.type=UsesDependency
 target1.width=80
 target119.showInterface=false
 dependency629.to=FallingBlock
+<<<<<<< Updated upstream
 dependency841.to=PlatformPlayer
 target41.type=ClassTarget
 class.WireButton.superclass=WireActivator
 target171.name=Level31
+=======
+target41.type=ClassTarget
+class.WireButton.superclass=WireActivator
+target171.name=Level33
+>>>>>>> Stashed changes
 dependency120.to=Ship
 dependency777.to=Block
 target168.height=50
@@ -2255,6 +3267,7 @@ target62.editor.y=23
 target62.editor.x=40
 dependency263.type=UsesDependency
 target97.type=ClassTarget
+<<<<<<< Updated upstream
 target205.y=1510
 target205.x=240
 dependency647.from=Level26
@@ -2262,13 +3275,27 @@ target182.y=1810
 target129.y=970
 target182.x=130
 target129.x=10
+=======
+target205.y=1270
+target205.x=240
+dependency647.from=Level26
+target182.y=3490
+target129.y=2590
+target182.x=130
+target129.x=220
+>>>>>>> Stashed changes
 dependency700.from=Level60
 dependency46.type=UsesDependency
 target39.typeParameters=
 dependency63.to=Space
 dependency372.type=UsesDependency
+<<<<<<< Updated upstream
 class.BoostBarOutside.image=BoostBarOutside.png
 target86.width=80
+=======
+target86.width=80
+class.BoostBarOutside.image=BoostBarOutside.png
+>>>>>>> Stashed changes
 dependency756.from=OuterSpace
 dependency215.to=Resolution
 dependency147.type=UsesDependency
@@ -2277,7 +3304,11 @@ dependency200.type=UsesDependency
 target181.showInterface=false
 target70.height=50
 target34.type=ClassTarget
+<<<<<<< Updated upstream
 target164.name=PortalProjectile
+=======
+target164.name=PlatformObject
+>>>>>>> Stashed changes
 class.Level0.superclass=Platformer
 dependency363.to=ElevatorBlock
 target196.typeParameters=
@@ -2290,9 +3321,15 @@ target15.height=50
 target18.width=80
 class.NonPlayer.superclass=PlatformObject
 target16.showInterface=false
+<<<<<<< Updated upstream
 target160.y=1990
 target107.y=2170
 target160.x=100
+=======
+target160.y=1930
+target107.y=2170
+target160.x=10
+>>>>>>> Stashed changes
 target107.x=10
 dependency84.from=Entity
 dependency522.to=WarningBG
@@ -2321,7 +3358,11 @@ dependency765.to=Level5
 dependency122.from=Player
 class.WarningBG.image=RespawnMenuBG.png
 dependency77.from=Space
+<<<<<<< Updated upstream
 target213.name=Level19
+=======
+target213.name=CompletedLabel
+>>>>>>> Stashed changes
 target44.editor.width=900
 dependency358.type=UsesDependency
 target164.naviview.expanded=true
@@ -2329,8 +3370,13 @@ dependency411.type=UsesDependency
 target13.editor.width=900
 dependency178.from=PlatformPlayer
 dependency192.to=AlienShip
+<<<<<<< Updated upstream
 target211.editor.y=43
 target211.editor.x=40
+=======
+target211.editor.y=23
+target211.editor.x=0
+>>>>>>> Stashed changes
 target95.editor.height=1056
 dependency231.from=LevelCreator
 dependency51.to=IconFire
@@ -2344,13 +3390,19 @@ dependency287.from=Platformer
 dependency14.from=DamageBar
 target187.height=50
 class.BeamText.image=BeamText.png
+<<<<<<< Updated upstream
 target219.editor.y=43
 target219.editor.x=40
+=======
+target219.editor.y=23
+target219.editor.x=0
+>>>>>>> Stashed changes
 dependency340.from=Level6
 dependency139.to=WeaponShopFG
 dependency351.to=ClimbBlock
 dependency576.type=UsesDependency
 target197.type=ClassTarget
+<<<<<<< Updated upstream
 target206.name=Level13
 dependency287.to=WaterBlockBackground
 target69.typeParameters=
@@ -2359,6 +3411,16 @@ dependency396.from=OuterSpace
 target27.editor.y=40
 target112.height=50
 target27.editor.x=25
+=======
+target69.typeParameters=
+target206.name=Level16
+dependency287.to=WaterBlockBackground
+target143.showInterface=false
+dependency396.from=OuterSpace
+target27.editor.y=40
+target27.editor.x=25
+target112.height=50
+>>>>>>> Stashed changes
 target134.editor.width=900
 target190.editor.width=900
 target55.showInterface=false
@@ -2373,11 +3435,19 @@ target89.y=490
 target89.x=190
 dependency513.type=UsesDependency
 dependency407.type=UsesDependency
+<<<<<<< Updated upstream
 target153.editor.y=23
 target9.y=2830
 target153.editor.x=40
 dependency794.type=UsesDependency
 target9.x=100
+=======
+target9.y=2830
+target153.editor.y=23
+target9.x=100
+target153.editor.x=0
+dependency794.type=UsesDependency
+>>>>>>> Stashed changes
 dependency594.to=PlatformPlayer
 dependency333.from=Asteroid
 target117.typeParameters=
@@ -2402,18 +3472,31 @@ target30.editor.x=40
 dependency551.from=CutsceneA
 target40.showInterface=false
 dependency180.to=LavaBlock
+<<<<<<< Updated upstream
 target157.width=100
 target67.y=1750
+=======
+target67.y=1750
+target157.width=80
+>>>>>>> Stashed changes
 target67.x=140
 target43.width=80
 dependency787.type=UsesDependency
 class.OpenTrapdoor.image=OpenTrapdoor.png
+<<<<<<< Updated upstream
 target71.typeParameters=
 target8.showInterface=false
 dependency840.type=UsesDependency
 target46.typeParameters=
 class.Credits.image=BlackSpace.png
 dependency848.to=Wire
+=======
+target8.showInterface=false
+target71.typeParameters=
+dependency840.type=UsesDependency
+target46.typeParameters=
+class.Credits.image=BlackSpace.png
+>>>>>>> Stashed changes
 target57.editor.height=700
 dependency660.from=Level41
 dependency509.type=UsesDependency
@@ -2424,8 +3507,13 @@ target46.naviview.expanded=true
 target45.naviview.expanded=true
 dependency275.to=MineDes
 dependency724.type=UsesDependency
+<<<<<<< Updated upstream
 target199.y=3970
 target199.x=100
+=======
+target199.y=3790
+target199.x=10
+>>>>>>> Stashed changes
 target24.height=50
 dependency618.type=UsesDependency
 dependency160.type=UsesDependency
@@ -2434,6 +3522,7 @@ target31.editor.height=700
 target105.showInterface=false
 target119.naviview.expanded=true
 target199.editor.height=700
+<<<<<<< Updated upstream
 dependency833.type=UsesDependency
 target45.y=1150
 target173.naviview.expanded=true
@@ -2441,6 +3530,15 @@ class.About.superclass=Menu
 target151.width=80
 target207.height=50
 target45.x=100
+=======
+target45.y=1150
+dependency833.type=UsesDependency
+target173.naviview.expanded=false
+target45.x=100
+class.About.superclass=Menu
+target151.width=80
+target207.height=50
+>>>>>>> Stashed changes
 target172.naviview.expanded=true
 dependency434.to=GoldText
 target17.showInterface=false
@@ -2454,13 +3552,22 @@ dependency52.type=UsesDependency
 dependency2.to=Space
 dependency762.from=OuterSpace
 dependency153.type=UsesDependency
+<<<<<<< Updated upstream
 target177.y=3850
 target177.x=130
+=======
+target177.y=3730
+target177.x=10
+>>>>>>> Stashed changes
 dependency529.to=Coin
 dependency741.to=Coin
 target89.height=50
 target40.type=ClassTarget
+<<<<<<< Updated upstream
 target170.name=Player
+=======
+target170.name=Level31
+>>>>>>> Stashed changes
 target110.editor.y=23
 target110.editor.x=0
 target147.typeParameters=
@@ -2476,8 +3583,13 @@ class.Level40.superclass=Platformer
 dependency646.from=Level26
 target54.editor.width=900
 class.Counter.image=Counter.png
+<<<<<<< Updated upstream
 target215.width=110
 target184.editor.height=700
+=======
+target215.width=80
+target184.editor.height=691
+>>>>>>> Stashed changes
 target118.editor.y=44
 target118.editor.x=29
 dependency45.type=UsesDependency
@@ -2486,7 +3598,11 @@ target208.typeParameters=
 dependency829.type=UsesDependency
 dependency371.type=UsesDependency
 target96.editor.height=700
+<<<<<<< Updated upstream
 dependency836.to=Coin
+=======
+dependency836.to=GravityBlock
+>>>>>>> Stashed changes
 target196.height=50
 dependency755.from=OuterSpace
 class.Space.superclass=greenfoot.World
@@ -2495,17 +3611,29 @@ dependency115.to=Player
 target5.editor.x=40
 dependency146.type=UsesDependency
 target33.type=ClassTarget
+<<<<<<< Updated upstream
 target163.name=ShieldText
 target155.y=1330
 dependency263.to=OuterSpace
 target155.x=10
+=======
+target163.name=PortalProjectile
+target155.y=370
+dependency263.to=OuterSpace
+target155.x=190
+>>>>>>> Stashed changes
 class.BeamDes.superclass=WeaponShop
 target110.name=WireOn
 dependency199.to=SoundToggle
 target76.typeParameters=
 dependency255.type=UsesDependency
+<<<<<<< Updated upstream
 target213.showInterface=false
 target89.type=ClassTarget
+=======
+target89.type=ClassTarget
+target213.showInterface=false
+>>>>>>> Stashed changes
 dependency58.to=WeaponBG
 target177.editor.y=43
 target144.showInterface=false
@@ -2525,8 +3653,13 @@ dependency473.type=UsesDependency
 target54.editor.y=23
 target54.editor.x=40
 target103.name=BeamDes
+<<<<<<< Updated upstream
 target133.y=2410
 target133.x=250
+=======
+target133.y=910
+target133.x=130
+>>>>>>> Stashed changes
 dependency20.from=Player
 dependency293.from=Planet
 dependency517.to=BoostBarDes
@@ -2534,20 +3667,34 @@ target204.editor.height=700
 target55.naviview.expanded=false
 target54.naviview.expanded=true
 class.Track.superclass=NoCollisionBlock
+<<<<<<< Updated upstream
 target29.type=ClassTarget
 target6.editor.width=900
 target159.name=FireShip
+=======
+target6.editor.width=900
+target29.type=ClassTarget
+target159.name=Counter
+>>>>>>> Stashed changes
 dependency582.type=UsesDependency
 dependency665.to=Block
 dependency121.from=Space
 dependency76.from=Space
+<<<<<<< Updated upstream
 target212.name=BlackBar
+=======
+target212.name=Level19
+>>>>>>> Stashed changes
 dependency357.type=UsesDependency
 dependency410.type=UsesDependency
 target128.naviview.expanded=true
 target127.naviview.expanded=true
 dependency177.from=PlatformPlayer
+<<<<<<< Updated upstream
 target181.naviview.expanded=false
+=======
+target181.naviview.expanded=true
+>>>>>>> Stashed changes
 dependency230.from=PlatformPlayer
 target41.showInterface=false
 dependency824.to=ExitPortal
@@ -2566,12 +3713,21 @@ target111.x=190
 class.PlanetCompletedMP.superclass=Minimap
 target58.editor.height=700
 dependency251.to=BeamText
+<<<<<<< Updated upstream
 dependency575.type=UsesDependency
 target33.height=50
 target196.type=ClassTarget
 dependency69.from=IconFire
 dependency187.to=Level3
 target205.name=Level14
+=======
+target33.height=50
+dependency575.type=UsesDependency
+target196.type=ClassTarget
+dependency69.from=IconFire
+dependency187.to=Level3
+target205.name=Level13
+>>>>>>> Stashed changes
 dependency395.from=OuterSpace
 dependency46.to=Fireball
 target120.editor.height=700
@@ -2591,8 +3747,13 @@ target18.showInterface=false
 dependency793.type=UsesDependency
 dependency494.to=SpaceObject
 dependency332.from=Asteroid
+<<<<<<< Updated upstream
 target134.editor.y=23
 target134.editor.x=0
+=======
+target134.editor.y=105
+target134.editor.x=380
+>>>>>>> Stashed changes
 class.Player.superclass=Object
 dependency568.type=UsesDependency
 dependency621.type=UsesDependency
@@ -2602,7 +3763,11 @@ target98.height=50
 dependency388.from=Level15
 dependency441.from=Level20
 dependency653.to=BackgroundBlock
+<<<<<<< Updated upstream
 target146.width=130
+=======
+target146.width=110
+>>>>>>> Stashed changes
 dependency677.type=UsesDependency
 dependency730.type=UsesDependency
 target154.typeParameters=
@@ -2614,11 +3779,19 @@ dependency550.from=Gold
 target11.editor.x=40
 dependency9.to=Ship
 target193.editor.y=23
+<<<<<<< Updated upstream
 target193.editor.x=40
 dependency786.type=UsesDependency
 dependency812.to=PlatformPlayer
 dependency219.from=Level6
 target185.editor.height=691
+=======
+target193.editor.x=0
+dependency786.type=UsesDependency
+dependency812.to=PlatformPlayer
+dependency219.from=Level6
+target185.editor.height=700
+>>>>>>> Stashed changes
 target215.typeParameters=
 dependency748.to=Level1
 target19.editor.y=-8
@@ -2647,7 +3820,11 @@ dependency334.to=AsteroidMedium
 target78.editor.y=43
 target78.editor.x=40
 dependency599.from=Level33
+<<<<<<< Updated upstream
 target137.naviview.expanded=true
+=======
+target137.naviview.expanded=false
+>>>>>>> Stashed changes
 target58.name=Level60
 target136.naviview.expanded=true
 target52.height=50
@@ -2660,9 +3837,15 @@ target216.naviview.expanded=true
 target215.naviview.expanded=true
 dependency761.from=OuterSpace
 target71.y=3070
+<<<<<<< Updated upstream
 target18.y=4390
 target71.x=10
 target82.editor.height=700
+=======
+target82.editor.height=700
+target71.x=10
+target18.y=4390
+>>>>>>> Stashed changes
 dependency152.type=UsesDependency
 target18.x=190
 target178.width=110
@@ -2675,9 +3858,15 @@ dependency577.to=Cart
 dependency719.type=UsesDependency
 dependency261.type=UsesDependency
 class.Cart.superclass=Block
+<<<<<<< Updated upstream
 target27.typeParameters=
 class.Bullet.image=BigBullet.png
 target95.type=ClassTarget
+=======
+target95.type=ClassTarget
+target27.typeParameters=
+class.Bullet.image=BigBullet.png
+>>>>>>> Stashed changes
 dependency645.from=Level26
 dependency539.from=Level2
 target104.height=50
@@ -2694,8 +3883,13 @@ dependency145.type=UsesDependency
 target147.editor.height=700
 target32.type=ClassTarget
 target150.editor.y=93
+<<<<<<< Updated upstream
 target172.width=80
 target150.editor.x=153
+=======
+target172.width=100
+target150.editor.x=253
+>>>>>>> Stashed changes
 dependency163.to=Gold
 target59.editor.height=700
 dependency22.to=Projectile
@@ -2703,11 +3897,16 @@ dependency254.type=UsesDependency
 target88.type=ClassTarget
 class.Level81.superclass=Platformer
 class.RespawnMenuBG.superclass=RespawnMenu
+<<<<<<< Updated upstream
 target158.editor.y=23
+=======
+target158.editor.y=43
+>>>>>>> Stashed changes
 target158.editor.x=40
 target121.editor.height=700
 dependency82.from=Object
 dependency322.to=BoostBarInside
+<<<<<<< Updated upstream
 target204.y=310
 target169.height=50
 target204.x=10
@@ -2718,24 +3917,45 @@ target128.y=1270
 target181.x=10
 class.Level14.superclass=Platformer
 target128.x=120
+=======
+target204.y=1510
+target169.height=50
+target204.x=240
+dependency363.type=UsesDependency
+target104.width=80
+target181.y=1810
+target128.y=970
+target181.x=130
+class.Level14.superclass=Platformer
+target128.x=10
+>>>>>>> Stashed changes
 dependency258.to=ShootingStar
 dependency470.to=Platformer
 target107.showInterface=false
 dependency183.from=Level3
 dependency800.from=Level93
+<<<<<<< Updated upstream
 class.PlasmaTrail.superclass=SpaceObject
+=======
+>>>>>>> Stashed changes
 dependency472.type=UsesDependency
 target96.width=80
 target102.name=SlimeBlock
 target35.editor.y=43
+<<<<<<< Updated upstream
 dependency292.from=Level10
 target35.editor.x=40
+=======
+target35.editor.x=40
+dependency292.from=Level10
+>>>>>>> Stashed changes
 target195.showInterface=false
 class.BoostBarOutside.superclass=BoostBar
 dependency417.to=Cart
 target71.height=50
 target18.naviview.expanded=true
 target28.type=ClassTarget
+<<<<<<< Updated upstream
 target158.name=Nebula
 dependency581.type=UsesDependency
 dependency565.to=Track
@@ -2744,6 +3964,16 @@ target71.naviview.expanded=true
 dependency120.from=MenuNo
 dependency75.from=Play
 target211.name=Level17
+=======
+target158.name=FireShip
+dependency581.type=UsesDependency
+target72.naviview.expanded=true
+dependency565.to=Track
+target71.naviview.expanded=true
+dependency120.from=MenuNo
+dependency75.from=Play
+target211.name=BlackBar
+>>>>>>> Stashed changes
 dependency356.type=UsesDependency
 class.Ship.image=RocketBoost.png
 target16.height=50
@@ -2752,24 +3982,40 @@ dependency303.type=UsesDependency
 target106.y=2410
 target106.x=160
 dependency176.from=PlatformPlayer
+<<<<<<< Updated upstream
 target145.naviview.expanded=false
+=======
+target145.naviview.expanded=true
+>>>>>>> Stashed changes
 dependency724.to=Wire
 dependency465.type=UsesDependency
 target94.editor.y=96
 target94.editor.x=0
+<<<<<<< Updated upstream
 target222.typeParameters=
 dependency12.from=AlienShip
 dependency285.from=PlatformObject
 target186.editor.height=700
 target57.typeParameters=
 target90.width=90
+=======
+dependency12.from=AlienShip
+dependency285.from=PlatformObject
+target186.editor.height=700
+target90.width=90
+target57.typeParameters=
+>>>>>>> Stashed changes
 dependency151.to=IconShip
 dependency574.type=UsesDependency
 target195.type=ClassTarget
 dependency10.to=AlienShip
 class.WeaponsText.image=WeaponsText.png
 dependency68.from=IconFire
+<<<<<<< Updated upstream
 target204.name=DamageBar
+=======
+target204.name=Level14
+>>>>>>> Stashed changes
 class.PlanetMP.superclass=Minimap
 dependency394.from=OuterSpace
 dependency819.to=FallingBlock
@@ -2811,8 +4057,13 @@ target69.showInterface=false
 target113.height=50
 target34.typeParameters=
 dependency785.type=UsesDependency
+<<<<<<< Updated upstream
 target174.editor.y=43
 target174.editor.x=40
+=======
+target174.editor.y=23
+target174.editor.x=0
+>>>>>>> Stashed changes
 dependency712.to=Coin
 target212.editor.width=900
 dependency218.from=Level6
@@ -2834,15 +4085,25 @@ target148.editor.height=700
 dependency722.type=UsesDependency
 dependency616.type=UsesDependency
 dependency489.from=PushButton
+<<<<<<< Updated upstream
 dependency807.to=ExitPortal
 target51.editor.y=43
+=======
+target51.editor.y=43
+dependency807.to=ExitPortal
+>>>>>>> Stashed changes
 target51.editor.x=40
 target27.naviview.expanded=true
 dependency542.from=Player
 target81.naviview.expanded=true
 target80.naviview.expanded=true
+<<<<<<< Updated upstream
 dependency82.to=Fireball
 target87.typeParameters=
+=======
+target87.typeParameters=
+dependency82.to=Fireball
+>>>>>>> Stashed changes
 target178.height=50
 dependency778.type=UsesDependency
 dependency831.type=UsesDependency
@@ -2852,6 +4113,7 @@ class.WireButtonDown.superclass=WireActivator
 dependency598.from=Level33
 target57.name=Level61
 target59.editor.y=43
+<<<<<<< Updated upstream
 target59.editor.x=40
 target66.y=3130
 dependency651.from=Level41
@@ -2860,6 +4122,16 @@ class.Level3.superclass=Platformer
 dependency382.to=Block
 target167.width=80
 target154.naviview.expanded=true
+=======
+target66.y=3130
+target59.editor.x=40
+target66.x=130
+dependency651.from=Level41
+class.Level3.superclass=Platformer
+dependency382.to=Block
+target167.width=80
+target154.naviview.expanded=false
+>>>>>>> Stashed changes
 target153.naviview.expanded=true
 dependency29.to=Player
 dependency50.type=UsesDependency
@@ -2868,18 +4140,31 @@ class.LaserText.superclass=WeaponShop
 class.SoundToggle.image=soundOn.png
 dependency760.from=OuterSpace
 dependency609.type=UsesDependency
+<<<<<<< Updated upstream
 target135.typeParameters=
 target80.height=50
+=======
+target80.height=50
+target135.typeParameters=
+>>>>>>> Stashed changes
 dependency151.type=UsesDependency
 dependency329.to=ShopBackButton
 dependency541.to=FireShip
 dependency429.from=Level19
 target196.showInterface=false
+<<<<<<< Updated upstream
 target198.y=370
 target198.x=100
 dependency477.to=ClimbBlock
 dependency718.type=UsesDependency
 target25.height=50
+=======
+target198.y=3970
+target198.x=100
+dependency477.to=ClimbBlock
+target25.height=50
+dependency718.type=UsesDependency
+>>>>>>> Stashed changes
 class.BlackBar.superclass=HUD
 dependency260.type=UsesDependency
 target45.editor.height=700
@@ -2887,10 +4172,17 @@ target94.type=ClassTarget
 dependency644.from=Level26
 dependency538.from=Level2
 target44.y=70
+<<<<<<< Updated upstream
 dependency700.to=Wire
 target44.x=160
 dependency43.type=UsesDependency
 target161.width=80
+=======
+target44.x=160
+dependency700.to=Wire
+dependency43.type=UsesDependency
+target161.width=90
+>>>>>>> Stashed changes
 target208.height=50
 dependency827.type=UsesDependency
 dependency636.to=ExitPortal
@@ -2902,9 +4194,15 @@ target64.typeParameters=
 target132.height=50
 target31.type=ClassTarget
 class.BoostBarInside.superclass=BoostBar
+<<<<<<< Updated upstream
 target176.y=1390
 class.AsteroidLarge.superclass=Asteroid
 target176.x=240
+=======
+target176.y=3850
+class.AsteroidLarge.superclass=Asteroid
+target176.x=130
+>>>>>>> Stashed changes
 dependency253.type=UsesDependency
 target87.type=ClassTarget
 dependency70.to=Logo
@@ -2917,7 +4215,11 @@ target93.showInterface=false
 target22.y=2290
 target22.x=100
 dependency362.type=UsesDependency
+<<<<<<< Updated upstream
 target199.width=90
+=======
+target199.width=120
+>>>>>>> Stashed changes
 target85.width=80
 target112.typeParameters=
 dependency158.to=Gold
@@ -2925,8 +4227,13 @@ dependency370.to=LavaBlock
 target216.showInterface=false
 dependency182.from=Level3
 dependency17.to=DamageBar
+<<<<<<< Updated upstream
 target208.editor.y=43
 target208.editor.x=40
+=======
+target208.editor.y=69
+target208.editor.x=146
+>>>>>>> Stashed changes
 dependency39.type=UsesDependency
 class.FallingBlock.superclass=Block
 dependency471.type=UsesDependency
@@ -2937,6 +4244,7 @@ dependency291.from=Level10
 class.Checkpoint.superclass=NoCollisionBlock
 dependency317.to=LevelCreatorDisplayBlock
 target16.editor.y=43
+<<<<<<< Updated upstream
 target154.y=3310
 target16.editor.x=40
 target154.x=110
@@ -2950,6 +4258,21 @@ target157.name=GravityBlock
 dependency465.to=BulletLauncher
 dependency74.from=StartMenu
 target210.name=Level18
+=======
+target154.y=1330
+target16.editor.x=40
+target154.x=10
+target198.editor.y=41
+target17.width=80
+target198.editor.x=258
+target172.editor.height=700
+target27.type=ClassTarget
+dependency580.type=UsesDependency
+target157.name=Nebula
+dependency465.to=BulletLauncher
+dependency74.from=StartMenu
+target210.name=Level17
+>>>>>>> Stashed changes
 target84.editor.height=700
 target36.naviview.expanded=true
 target35.naviview.expanded=true
@@ -2958,37 +4281,65 @@ target158.showInterface=false
 dependency249.type=UsesDependency
 target165.typeParameters=
 dependency302.type=UsesDependency
+<<<<<<< Updated upstream
 target193.width=90
 dependency175.from=OuterSpace
 class.Level21.superclass=Platformer
 target142.editor.y=96
 target142.editor.x=276
+=======
+target193.width=80
+dependency175.from=OuterSpace
+class.Level21.superclass=Platformer
+target142.editor.y=23
+target142.editor.x=0
+>>>>>>> Stashed changes
 dependency624.to=Block
 dependency464.type=UsesDependency
 target109.naviview.expanded=true
 target108.naviview.expanded=true
+<<<<<<< Updated upstream
 target163.naviview.expanded=false
 target75.editor.y=23
 class.HUD.superclass=Object
 target222.editor.width=900
 target75.editor.x=0
 target162.naviview.expanded=true
+=======
+target75.editor.y=23
+target163.naviview.expanded=true
+class.HUD.superclass=Object
+target75.editor.x=0
+target162.naviview.expanded=false
+>>>>>>> Stashed changes
 target201.showInterface=false
 dependency772.to=ElevatorBlock
 dependency284.from=PlatformObject
 dependency11.from=AlienShip
 target132.showInterface=false
+<<<<<<< Updated upstream
 target132.y=3550
 target132.x=120
+=======
+target132.y=2410
+target132.x=250
+>>>>>>> Stashed changes
 dependency573.type=UsesDependency
 target194.type=ClassTarget
 target125.width=80
 target11.width=80
 dependency67.from=Space
+<<<<<<< Updated upstream
 target203.name=Level10
 target218.editor.height=700
 dependency393.from=Level14
 target149.editor.height=700
+=======
+target203.name=DamageBar
+target218.editor.height=700
+dependency393.from=Level14
+target149.editor.height=665
+>>>>>>> Stashed changes
 dependency719.to=SpikeBlock
 target196.editor.width=900
 dependency682.type=UsesDependency
@@ -3007,8 +4358,13 @@ dependency330.from=MapButton
 dependency9.from=Entity
 dependency566.type=UsesDependency
 target110.y=1870
+<<<<<<< Updated upstream
 target110.x=260
 target49.width=90
+=======
+target49.width=90
+target110.x=260
+>>>>>>> Stashed changes
 dependency89.to=Player
 target134.type=ClassTarget
 dependency305.to=PlanetLevelText
@@ -3017,15 +4373,24 @@ dependency386.from=Level15
 target142.typeParameters=
 class.RespawnButton.image=RespawnButton.png
 dependency453.to=WireOn
+<<<<<<< Updated upstream
 dependency675.type=UsesDependency
 target34.height=50
+=======
+target34.height=50
+dependency675.type=UsesDependency
+>>>>>>> Stashed changes
 class.MenuYes.superclass=DockMenu
 dependency108.from=Space
 target197.showInterface=false
 dependency389.to=FallingBlock
 class.IconFire.superclass=HUD
 target60.name=MenuNo
+<<<<<<< Updated upstream
 target134.editor.height=700
+=======
+target134.editor.height=691
+>>>>>>> Stashed changes
 dependency495.from=Level21
 target203.typeParameters=
 target46.editor.height=700
@@ -3039,7 +4404,10 @@ dependency760.to=Level92
 target141.height=50
 dependency506.type=UsesDependency
 target127.type=ClassTarget
+<<<<<<< Updated upstream
 class.BlackBG.image=Background.jpeg
+=======
+>>>>>>> Stashed changes
 dependency432.from=Level19
 dependency696.to=ClimbBlock
 target195.typeParameters=
@@ -3059,8 +4427,13 @@ target182.showInterface=false
 dependency830.type=UsesDependency
 dependency134.to=TutorialWorld
 dependency597.from=Level33
+<<<<<<< Updated upstream
 class.Exit.superclass=Menu
 target56.name=Ship
+=======
+target56.name=Ship
+class.Exit.superclass=Menu
+>>>>>>> Stashed changes
 dependency650.from=Level41
 target94.showInterface=false
 dependency282.to=Weapon
@@ -3075,20 +4448,36 @@ dependency229.to=WaterBlock
 dependency441.to=TraceHead
 target92.y=2770
 target15.typeParameters=
+<<<<<<< Updated upstream
 target39.y=4210
 target92.x=130
 dependency428.from=Level19
 target166.editor.y=43
+=======
+target92.x=130
+target39.y=4210
+dependency428.from=Level19
+target166.editor.y=23
+>>>>>>> Stashed changes
 target39.x=190
 target166.editor.x=40
 dependency377.to=ExitPortal
 target173.editor.height=700
+<<<<<<< Updated upstream
 target150.width=100
 dependency717.type=UsesDependency
 target99.editor.y=43
 target99.editor.x=40
 target49.name=Platformer
 target93.type=ClassTarget
+=======
+target150.width=80
+dependency717.type=UsesDependency
+target99.editor.y=43
+target99.editor.x=40
+target93.type=ClassTarget
+target49.name=Platformer
+>>>>>>> Stashed changes
 dependency643.from=Level26
 class.OutsideMP.superclass=Minimap
 dependency537.from=Level2
@@ -3099,17 +4488,26 @@ dependency42.type=UsesDependency
 dependency826.type=UsesDependency
 target29.editor.width=900
 dependency699.from=Level60
+<<<<<<< Updated upstream
 dependency536.to=ExitPortal
 target85.editor.width=900
 class.PushBlock.superclass=WireActivator
 target207.editor.width=900
 target53.height=50
+=======
+target85.editor.width=900
+dependency536.to=ExitPortal
+target53.height=50
+class.PushBlock.superclass=WireActivator
+target207.editor.width=900
+>>>>>>> Stashed changes
 dependency752.from=OuterSpace
 target43.editor.y=43
 target43.editor.x=40
 dependency143.type=UsesDependency
 dependency98.type=UsesDependency
 dependency684.to=ExitPortal
+<<<<<<< Updated upstream
 target202.showInterface=false
 target30.type=ClassTarget
 target70.y=1990
@@ -3124,22 +4522,48 @@ target86.type=ClassTarget
 target74.width=80
 target219.editor.height=700
 dependency843.to=LavaBlock
+=======
+target30.type=ClassTarget
+target202.showInterface=false
+target70.y=1990
+target70.x=10
+target201.editor.width=900
+target17.y=4390
+target17.x=100
+dependency199.type=UsesDependency
+dependency252.type=UsesDependency
+target188.width=80
+target86.type=ClassTarget
+target74.width=80
+target219.editor.height=700
+>>>>>>> Stashed changes
 target160.height=50
 dependency80.from=Object
 dependency122.to=AsteroidLarge
 dependency779.to=SlimeBlock
 dependency819.type=UsesDependency
 dependency361.type=UsesDependency
+<<<<<<< Updated upstream
 target119.editor.width=900
 target70.editor.height=700
+=======
+target70.editor.height=700
+target119.editor.width=900
+>>>>>>> Stashed changes
 target175.editor.width=900
 dependency270.to=LevelUpButton
 dependency639.from=Level26
 dependency181.from=Level3
 target105.height=50
+<<<<<<< Updated upstream
 target149.y=3790
 target149.x=140
 target144.editor.width=900
+=======
+target149.y=1690
+target149.x=130
+target144.editor.width=841
+>>>>>>> Stashed changes
 dependency38.type=UsesDependency
 target56.showInterface=false
 dependency470.type=UsesDependency
@@ -3152,9 +4576,15 @@ dependency290.from=Level10
 dependency217.to=PortalOrange
 dependency139.type=UsesDependency
 class.Exit.image=Exit.png
+<<<<<<< Updated upstream
 target182.width=80
 target26.type=ClassTarget
 target156.name=PlasmaBall
+=======
+target182.width=110
+target26.type=ClassTarget
+target156.name=GravityBlock
+>>>>>>> Stashed changes
 dependency365.to=BackgroundBlock
 dependency73.from=StartMenu
 target30.showInterface=false
@@ -3163,6 +4593,7 @@ dependency248.type=UsesDependency
 class.ShopBackButton.superclass=Menu
 target53.naviview.expanded=true
 dependency301.type=UsesDependency
+<<<<<<< Updated upstream
 target135.editor.height=691
 dependency174.from=TutorialObjectManager
 target210.typeParameters=
@@ -3175,6 +4606,20 @@ target180.x=10
 target123.editor.y=46
 target127.x=10
 target123.editor.x=80
+=======
+target135.editor.height=700
+dependency174.from=TutorialObjectManager
+target210.typeParameters=
+target203.y=310
+target203.x=10
+target45.typeParameters=
+target180.y=2410
+target127.y=1270
+target180.x=10
+target123.editor.y=23
+target127.x=120
+target123.editor.x=0
+>>>>>>> Stashed changes
 dependency524.to=FallingBlock
 target47.editor.height=700
 target150.height=50
@@ -3185,6 +4630,7 @@ dependency672.to=FallingBlock
 dependency10.from=Space
 dependency283.from=Alien
 target126.naviview.expanded=true
+<<<<<<< Updated upstream
 target180.naviview.expanded=true
 target19.type=ClassTarget
 target193.type=ClassTarget
@@ -3192,13 +4638,26 @@ target149.name=BoostBarDes
 dependency572.type=UsesDependency
 dependency66.from=Space
 target202.name=RespawnButton
+=======
+target180.naviview.expanded=false
+target19.type=ClassTarget
+target193.type=ClassTarget
+target149.name=LevelCreator
+dependency572.type=UsesDependency
+dependency66.from=Space
+target202.name=Level10
+>>>>>>> Stashed changes
 dependency392.from=OuterSpace
 class.Digit.superclass=Menu
 target205.naviview.expanded=true
 dependency619.to=Track
 dependency831.to=Credits
 target182.editor.y=96
+<<<<<<< Updated upstream
 target182.editor.x=0
+=======
+target182.editor.x=380
+>>>>>>> Stashed changes
 dependency681.type=UsesDependency
 dependency110.to=BeamHUD
 dependency767.to=Block
@@ -3249,8 +4708,13 @@ target64.editor.width=900
 target75.typeParameters=
 target203.showInterface=false
 dependency720.type=UsesDependency
+<<<<<<< Updated upstream
 dependency614.type=UsesDependency
 target33.editor.width=1280
+=======
+target33.editor.width=1280
+dependency614.type=UsesDependency
+>>>>>>> Stashed changes
 dependency487.from=PushButton
 dependency607.to=SlimeBlock
 target211.editor.width=900
@@ -3262,16 +4726,28 @@ dependency209.from=LevelCreatorBlockHover
 dependency596.from=Platformer
 class.Back.image=Exit.png
 target62.naviview.expanded=true
+<<<<<<< Updated upstream
 target55.name=ClimbBlock
 target61.naviview.expanded=true
+=======
+target61.naviview.expanded=true
+target55.name=ClimbBlock
+>>>>>>> Stashed changes
 target114.height=50
 target119.type=ClassTarget
 dependency182.to=ExitPortal
 target87.y=2650
+<<<<<<< Updated upstream
 target129.editor.width=900
 target71.editor.height=700
 target123.typeParameters=
 target87.x=200
+=======
+target87.x=200
+target71.editor.height=700
+target129.editor.width=900
+target123.typeParameters=
+>>>>>>> Stashed changes
 target185.editor.width=900
 dependency41.to=Weapon
 dependency318.from=Level3
@@ -3284,33 +4760,58 @@ target134.naviview.expanded=true
 target57.showInterface=false
 dependency607.type=UsesDependency
 target2.height=50
+<<<<<<< Updated upstream
 target123.editor.width=1160
+=======
+target123.editor.width=592
+>>>>>>> Stashed changes
 dependency129.to=AsteroidSmall
 dependency341.to=Coin
 dependency427.from=PlatformPlayer
 class.Level17.superclass=Platformer
+<<<<<<< Updated upstream
 target147.editor.y=23
 target147.editor.x=40
 dependency277.to=PlasmaDes
 target214.naviview.expanded=true
 dependency716.type=UsesDependency
 target213.naviview.expanded=false
+=======
+target147.editor.y=70
+target147.editor.x=60
+dependency277.to=PlasmaDes
+target214.naviview.expanded=true
+dependency716.type=UsesDependency
+target213.naviview.expanded=true
+>>>>>>> Stashed changes
 target92.type=ClassTarget
 target48.name=Mine
 dependency642.from=Level26
 dependency536.from=Level2
 target179.height=50
 dependency500.to=PlatformPlayer
+<<<<<<< Updated upstream
 target216.editor.y=43
+=======
+target216.editor.y=23
+>>>>>>> Stashed changes
 target216.editor.x=40
 target205.editor.height=700
 dependency41.type=UsesDependency
 target136.editor.height=700
+<<<<<<< Updated upstream
 target52.typeParameters=
 target65.y=310
 dependency825.type=UsesDependency
 class.LavaBlock.superclass=NoCollisionBlock
 target65.x=240
+=======
+target65.y=310
+target52.typeParameters=
+dependency825.type=UsesDependency
+target65.x=240
+class.LavaBlock.superclass=NoCollisionBlock
+>>>>>>> Stashed changes
 dependency698.from=Level60
 dependency436.to=Digit
 dependency751.from=OuterSpace
@@ -3326,12 +4827,21 @@ dependency709.type=UsesDependency
 target81.height=50
 dependency251.type=UsesDependency
 target85.type=ClassTarget
+<<<<<<< Updated upstream
 target197.y=3250
 target197.x=10
 dependency529.from=Level1
 dependency743.to=SlimeBlock
 target100.typeParameters=
 target162.name=BeamHUD
+=======
+target197.y=370
+target197.x=100
+dependency529.from=Level1
+dependency743.to=SlimeBlock
+target100.typeParameters=
+target162.name=ShieldText
+>>>>>>> Stashed changes
 target109.width=110
 dependency679.to=LavaBlock
 target26.height=50
@@ -3349,7 +4859,11 @@ target1.typeParameters=
 target171.width=80
 target209.height=50
 dependency37.type=UsesDependency
+<<<<<<< Updated upstream
 dependency838.to=LavaBlock
+=======
+dependency838.to=Trapdoor
+>>>>>>> Stashed changes
 target33.editor.height=773
 dependency747.from=OuterSpace
 class.MovingNonPlayer.superclass=NonPlayer
@@ -3358,11 +4872,19 @@ dependency138.type=UsesDependency
 target133.height=50
 target25.type=ClassTarget
 target19.showInterface=false
+<<<<<<< Updated upstream
 target155.name=AsteroidMedium
 target175.y=490
 dependency265.to=FallingBlock
 target153.typeParameters=
 target175.x=100
+=======
+target155.name=PlasmaBall
+target175.y=1390
+dependency265.to=FallingBlock
+target153.typeParameters=
+target175.x=240
+>>>>>>> Stashed changes
 dependency72.from=StartMenu
 target128.typeParameters=
 dependency353.type=UsesDependency
@@ -3383,14 +4905,21 @@ dependency282.from=UnlockButton
 class.IconPlasma.image=PlasmaBall.png
 target49.editor.width=900
 target18.type=ClassTarget
+<<<<<<< Updated upstream
 target144.naviview.expanded=true
 target148.name=Orbiter
 target143.naviview.expanded=false
+=======
+target144.naviview.expanded=false
+target148.name=BoostBarDes
+target143.naviview.expanded=true
+>>>>>>> Stashed changes
 dependency571.type=UsesDependency
 target192.type=ClassTarget
 target81.showInterface=false
 target198.height=50
 dependency65.from=IconPlasma
+<<<<<<< Updated upstream
 target201.name=PlayerShield
 target18.editor.width=900
 target82.typeParameters=
@@ -3398,6 +4927,14 @@ dependency849.from=PlasmaShip
 target153.y=4090
 target74.editor.width=900
 target153.x=190
+=======
+target201.name=RespawnButton
+target18.editor.width=900
+target82.typeParameters=
+target74.editor.width=900
+target153.y=3310
+target153.x=110
+>>>>>>> Stashed changes
 dependency391.from=Level15
 dependency519.to=BoostBarInside
 dependency731.to=Coin
@@ -3405,7 +4942,10 @@ target27.width=80
 target43.editor.width=900
 dependency680.type=UsesDependency
 target98.editor.height=700
+<<<<<<< Updated upstream
 target222.naviview.expanded=true
+=======
+>>>>>>> Stashed changes
 dependency667.to=SlimeBlock
 target123.height=50
 dependency113.from=Mine
@@ -3431,15 +4971,24 @@ target108.editor.width=900
 target40.editor.y=43
 target40.editor.x=40
 target164.editor.width=900
+<<<<<<< Updated upstream
 target131.y=730
 target131.x=10
+=======
+target131.y=3550
+target131.x=120
+>>>>>>> Stashed changes
 target58.showInterface=false
 class.CargoShip.superclass=Entity
 dependency253.to=MineText
 dependency673.type=UsesDependency
 target133.editor.width=900
 target115.editor.y=96
+<<<<<<< Updated upstream
 target135.width=80
+=======
+target135.width=90
+>>>>>>> Stashed changes
 target115.editor.x=0
 target21.width=80
 target188.type=ClassTarget
@@ -3462,7 +5011,11 @@ target158.typeParameters=
 target137.editor.height=700
 dependency504.type=UsesDependency
 target125.type=ClassTarget
+<<<<<<< Updated upstream
 mainWindow.width=1936
+=======
+mainWindow.width=1280
+>>>>>>> Stashed changes
 class.SoundToggle.superclass=Menu
 dependency430.from=Level19
 dependency496.to=FallingBlock
@@ -3474,8 +5027,13 @@ dependency486.from=PushButton
 target219.typeParameters=
 dependency507.to=PlanetCompletedMP
 class.MeltingBlock.superclass=Block
+<<<<<<< Updated upstream
 dependency775.type=UsesDependency
 target35.height=50
+=======
+target35.height=50
+dependency775.type=UsesDependency
+>>>>>>> Stashed changes
 dependency655.to=SlimeBlock
 dependency669.type=UsesDependency
 dependency208.from=LevelCreator
@@ -3494,14 +5052,24 @@ class.Planets.superclass=SpaceObject
 class.BackgroundStar.image=star1.png
 target185.showInterface=false
 class.IconMine.image=Mine.png
+<<<<<<< Updated upstream
 target122.editor.height=700
+=======
+target122.editor.height=737
+>>>>>>> Stashed changes
 dependency606.type=UsesDependency
 class.BoostBarInside.image=BoostBarInside.png
 target142.height=50
 target53.width=110
+<<<<<<< Updated upstream
 dependency241.to=LevelCreatorDisplayBlock
 target152.naviview.expanded=true
 target34.editor.height=700
+=======
+target34.editor.height=700
+dependency241.to=LevelCreatorDisplayBlock
+target152.naviview.expanded=true
+>>>>>>> Stashed changes
 dependency426.from=Platformer
 class.All.superclass=greenfoot.Actor
 dependency177.to=OuterSpace
@@ -3509,8 +5077,13 @@ target160.typeParameters=
 target6.width=120
 dependency715.type=UsesDependency
 dependency36.to=Player
+<<<<<<< Updated upstream
 target47.name=LevelCreatorGrid
 target91.type=ClassTarget
+=======
+target91.type=ClassTarget
+target47.name=LevelCreatorGrid
+>>>>>>> Stashed changes
 dependency641.from=Level26
 dependency535.from=Level2
 dependency400.to=PlatformPlayer
@@ -3531,6 +5104,7 @@ dependency708.type=UsesDependency
 class.GotoShopButton.superclass=Menu
 dependency250.type=UsesDependency
 target91.y=730
+<<<<<<< Updated upstream
 target38.y=3610
 target84.type=ClassTarget
 target91.x=190
@@ -3545,6 +5119,22 @@ target187.editor.height=700
 target161.name=Asteroid
 target131.editor.y=23
 target131.editor.x=0
+=======
+target91.x=190
+target84.type=ClassTarget
+target82.showInterface=false
+target38.y=3610
+target38.x=10
+target188.typeParameters=
+target28.editor.width=900
+target84.editor.width=900
+dependency528.from=Level1
+dependency643.to=SlimeBlock
+target187.editor.height=700
+target161.name=BeamHUD
+target131.editor.y=116
+target131.editor.x=-1510
+>>>>>>> Stashed changes
 target53.editor.width=900
 target160.width=80
 dependency579.to=ElevatorBlock
@@ -3557,8 +5147,13 @@ target64.editor.x=40
 dependency637.from=Level26
 dependency89.type=UsesDependency
 dependency802.to=FallingBlock
+<<<<<<< Updated upstream
 target139.editor.y=23
 target139.editor.x=0
+=======
+target139.editor.y=43
+target139.editor.x=40
+>>>>>>> Stashed changes
 dependency36.type=UsesDependency
 dependency799.from=Level93
 target161.editor.height=700
@@ -3567,12 +5162,21 @@ dependency738.to=TraceHead
 dependency746.from=OuterSpace
 dependency137.type=UsesDependency
 target147.showInterface=false
+<<<<<<< Updated upstream
 target190.editor.y=41
 target190.editor.x=150
 target16.y=4390
 target24.type=ClassTarget
 target16.x=10
 target154.name=MeltingBlock
+=======
+target190.editor.y=23
+target190.editor.x=40
+target16.y=4390
+target24.type=ClassTarget
+target16.x=10
+target154.name=AsteroidMedium
+>>>>>>> Stashed changes
 dependency165.to=Gold
 dependency71.from=StartMenu
 target9.type=ClassTarget
@@ -3589,9 +5193,15 @@ dependency29.type=UsesDependency
 dependency324.to=Ship
 dependency461.type=UsesDependency
 target34.naviview.expanded=false
+<<<<<<< Updated upstream
 target148.y=1570
 target190.typeParameters=
 target148.x=100
+=======
+target148.y=3790
+target190.typeParameters=
+target148.x=140
+>>>>>>> Stashed changes
 dependency739.from=Level0
 dependency472.to=ElevatorBlock
 dependency281.from=LevelUpButton
@@ -3600,12 +5210,20 @@ target17.type=ClassTarget
 class.Beam.superclass=Weapon
 dependency570.type=UsesDependency
 target191.type=ClassTarget
+<<<<<<< Updated upstream
 target147.name=RespawnMenu
 dependency64.from=IconPlasma
 target200.name=TurnSpeedText
 target107.naviview.expanded=true
 target5.editor.width=900
 dependency848.from=Level00
+=======
+target147.name=Orbiter
+dependency64.from=IconPlasma
+target200.name=PlayerShield
+target107.naviview.expanded=true
+target5.editor.width=900
+>>>>>>> Stashed changes
 dependency390.from=Level15
 target161.naviview.expanded=true
 target160.naviview.expanded=true
@@ -3613,6 +5231,7 @@ dependency239.type=UsesDependency
 target44.height=50
 dependency419.to=Track
 dependency631.to=WaterBlock
+<<<<<<< Updated upstream
 class.BlackBox.image=BlackSpace.png
 target192.width=110
 dependency567.to=ElevatorBlock
@@ -3624,16 +5243,37 @@ target202.x=10
 dependency401.type=UsesDependency
 dependency274.from=Shop
 target126.y=550
+=======
+target192.width=90
+target44.showInterface=false
+dependency567.to=ElevatorBlock
+dependency112.from=Projectile
+dependency348.type=UsesDependency
+target202.y=2950
+target202.x=190
+dependency401.type=UsesDependency
+dependency274.from=Shop
+target126.y=3010
+>>>>>>> Stashed changes
 dependency168.from=TutorialObjectManager
 target126.x=10
 dependency6.from=BackgroundStar
 dependency221.from=Level6
+<<<<<<< Updated upstream
 target213.editor.y=43
 target213.editor.x=40
 dependency563.type=UsesDependency
 target151.height=50
 dependency726.to=Trapdoor
 target124.width=110
+=======
+target213.editor.y=23
+target213.editor.x=0
+dependency563.type=UsesDependency
+target151.height=50
+dependency726.to=Trapdoor
+target124.width=80
+>>>>>>> Stashed changes
 target10.width=80
 dependency457.type=UsesDependency
 target10.typeParameters=
@@ -3641,7 +5281,11 @@ target109.typeParameters=
 dependency510.type=UsesDependency
 target131.type=ClassTarget
 dependency383.from=Level15
+<<<<<<< Updated upstream
 target123.editor.height=737
+=======
+target123.editor.height=665
+>>>>>>> Stashed changes
 dependency153.to=Block
 dependency672.type=UsesDependency
 target187.type=ClassTarget
@@ -3663,17 +5307,28 @@ target124.type=ClassTarget
 target38.typeParameters=
 dependency396.to=GotoShopButton
 dependency323.from=Player
+<<<<<<< Updated upstream
 target155.editor.y=43
 class.Credits.superclass=Cutscene
 target155.editor.x=40
+=======
+target155.editor.y=91
+class.Credits.superclass=Cutscene
+target155.editor.x=194
+>>>>>>> Stashed changes
 dependency559.type=UsesDependency
 dependency612.type=UsesDependency
 dependency485.from=PushButton
 target171.showInterface=false
 dependency407.to=OptionsMenu
 target88.editor.y=68
+<<<<<<< Updated upstream
 dependency379.from=OuterSpace
 target88.editor.x=522
+=======
+target88.editor.x=522
+dependency379.from=OuterSpace
+>>>>>>> Stashed changes
 target83.showInterface=false
 dependency555.to=LavaBlock
 dependency774.type=UsesDependency
@@ -3685,6 +5340,7 @@ dependency594.from=Level31
 target188.editor.height=700
 target53.name=SmoothMover
 target63.editor.width=900
+<<<<<<< Updated upstream
 class.IconFire.image=FireballIcon.png
 target117.type=ClassTarget
 target32.editor.y=43
@@ -3696,6 +5352,19 @@ target43.naviview.expanded=true
 dependency316.from=PlatformPlayer
 target42.naviview.expanded=true
 target63.height=50
+=======
+target32.editor.y=43
+class.IconFire.image=FireballIcon.png
+target117.type=ClassTarget
+target32.editor.x=40
+target156.width=100
+target42.width=80
+target32.editor.width=900
+target43.naviview.expanded=true
+target63.height=50
+target42.naviview.expanded=true
+dependency316.from=PlatformPlayer
+>>>>>>> Stashed changes
 dependency714.to=ClimbBlock
 dependency605.type=UsesDependency
 dependency141.to=Ship3D
@@ -3711,9 +5380,15 @@ target91.editor.y=23
 target91.editor.x=0
 target90.type=ClassTarget
 target46.name=StartMenu
+<<<<<<< Updated upstream
 dependency809.to=ElevatorBlock
 target170.height=50
 target40.typeParameters=
+=======
+target40.typeParameters=
+dependency809.to=ElevatorBlock
+target170.height=50
+>>>>>>> Stashed changes
 dependency640.from=Level26
 target139.typeParameters=
 dependency534.from=Level2
@@ -3738,13 +5413,22 @@ class.FireballDes.superclass=WeaponShop
 class.AsteroidSmall.superclass=Asteroid
 dependency196.type=UsesDependency
 dependency707.type=UsesDependency
+<<<<<<< Updated upstream
 target39.name=Level80
 target83.type=ClassTarget
+=======
+target83.type=ClassTarget
+target39.name=Level80
+>>>>>>> Stashed changes
 target3.height=50
 dependency527.from=Level1
 dependency543.to=CargoShip
 class.Space.image=BlackSpace.png
+<<<<<<< Updated upstream
 target160.name=Counter
+=======
+target160.name=Asteroid
+>>>>>>> Stashed changes
 target68.typeParameters=
 target133.showInterface=false
 class.LevelCreatorObject.superclass=All
@@ -3753,7 +5437,10 @@ dependency479.to=Bullet
 dependency691.to=Coin
 target112.editor.x=380
 dependency816.type=UsesDependency
+<<<<<<< Updated upstream
 class.PlasmaShip.image=PlasmaShip.png
+=======
+>>>>>>> Stashed changes
 target45.showInterface=false
 dependency636.from=Level25
 target200.height=50
@@ -3762,7 +5449,11 @@ class.LaserDes.image=LaserDes.png
 target64.y=3430
 target64.x=10
 dependency702.to=SpikeBlock
+<<<<<<< Updated upstream
 target214.width=130
+=======
+target214.width=110
+>>>>>>> Stashed changes
 class.WorldObjects.superclass=SmoothMover
 dependency35.type=UsesDependency
 dependency798.from=Level93
@@ -3777,6 +5468,7 @@ target7.editor.x=15
 target23.type=ClassTarget
 target171.editor.y=23
 target171.editor.x=40
+<<<<<<< Updated upstream
 target153.name=Level40
 target124.editor.height=665
 dependency70.from=StartMenu
@@ -3788,6 +5480,18 @@ class.Level1.image=Background2.png
 dependency351.type=UsesDependency
 target196.y=2710
 target196.x=140
+=======
+target153.name=MeltingBlock
+target124.editor.height=700
+dependency70.from=StartMenu
+target8.type=ClassTarget
+target219.y=1630
+target219.x=110
+dependency809.type=UsesDependency
+dependency351.type=UsesDependency
+target196.y=3250
+target196.x=10
+>>>>>>> Stashed changes
 dependency245.type=UsesDependency
 target79.type=ClassTarget
 class.Projectile.image=Laser.png
@@ -3810,6 +5514,7 @@ target198.showInterface=false
 dependency280.from=Shop
 target52.naviview.expanded=true
 target51.naviview.expanded=true
+<<<<<<< Updated upstream
 dependency129.type=UsesDependency
 target70.typeParameters=
 dependency19.to=DamageBar
@@ -3823,12 +5528,30 @@ dependency63.from=MissileIcon
 dependency847.from=Level00
 dependency238.type=UsesDependency
 target56.editor.y=554
+=======
+target70.typeParameters=
+dependency129.type=UsesDependency
+dependency19.to=DamageBar
+target169.typeParameters=
+target181.width=80
+target16.type=ClassTarget
+target146.name=RespawnMenu
+target190.type=ClassTarget
+class.TutorialWorld.superclass=Space
+dependency63.from=MissileIcon
+target56.editor.y=554
+dependency238.type=UsesDependency
+>>>>>>> Stashed changes
 target56.editor.x=0
 dependency319.to=BackgroundBlock
 dependency531.to=Entity
 target125.naviview.expanded=true
 target124.naviview.expanded=true
+<<<<<<< Updated upstream
 target174.y=4270
+=======
+target174.y=490
+>>>>>>> Stashed changes
 target174.x=100
 target172.showInterface=false
 dependency467.to=SpikeBlock
@@ -3840,6 +5563,7 @@ dependency347.type=UsesDependency
 target20.y=1150
 target20.x=10
 target204.naviview.expanded=true
+<<<<<<< Updated upstream
 target203.naviview.expanded=false
 dependency400.type=UsesDependency
 target189.editor.height=700
@@ -3851,6 +5575,19 @@ dependency220.from=Level6
 class.GoldText.image=GoldText.png
 dependency626.to=Track
 target98.typeParameters=
+=======
+target203.naviview.expanded=true
+dependency400.type=UsesDependency
+target72.height=50
+target189.editor.height=700
+dependency273.from=Shop
+dependency167.from=TutorialWorld
+dependency5.from=Player
+dependency220.from=Level6
+target98.typeParameters=
+class.GoldText.image=GoldText.png
+dependency626.to=Track
+>>>>>>> Stashed changes
 dependency562.type=UsesDependency
 dependency456.type=UsesDependency
 target130.type=ClassTarget
@@ -3858,7 +5595,11 @@ target17.height=50
 dependency382.from=Level15
 dependency774.to=FallingBlock
 dependency671.type=UsesDependency
+<<<<<<< Updated upstream
 target152.y=4150
+=======
+target152.y=4090
+>>>>>>> Stashed changes
 target186.type=ClassTarget
 target152.x=190
 dependency104.from=Space
@@ -3882,12 +5623,17 @@ dependency502.type=UsesDependency
 target123.type=ClassTarget
 target9.naviview.expanded=false
 target8.naviview.expanded=false
+<<<<<<< Updated upstream
 package.numTargets=222
+=======
+package.numTargets=221
+>>>>>>> Stashed changes
 dependency269.from=LevelUpButton
 target207.typeParameters=
 dependency296.to=GoldText
 dependency322.from=Space
 target86.editor.height=700
+<<<<<<< Updated upstream
 target136.editor.y=56
 target179.type=ClassTarget
 target136.editor.x=73
@@ -3896,17 +5642,35 @@ dependency611.type=UsesDependency
 target130.y=2590
 dependency484.from=PushButton
 target130.x=220
+=======
+target136.editor.y=96
+target179.type=ClassTarget
+target136.editor.x=276
+dependency558.type=UsesDependency
+dependency611.type=UsesDependency
+target130.y=730
+dependency484.from=PushButton
+target130.x=10
+>>>>>>> Stashed changes
 dependency307.to=LevelCreatorDisplayBlock
 class.ExitPortal.superclass=NoCollisionBlock
 dependency378.from=OuterSpace
 target217.editor.width=900
 dependency773.type=UsesDependency
 dependency455.to=WireButtonDown
+<<<<<<< Updated upstream
 target145.width=90
 target205.editor.y=96
 target205.editor.x=380
 target199.typeParameters=
 target31.width=80
+=======
+target145.width=130
+target205.editor.y=96
+target31.width=80
+target205.editor.x=38
+target199.typeParameters=
+>>>>>>> Stashed changes
 dependency667.type=UsesDependency
 dependency206.from=LevelCreatorBlock
 dependency593.from=Level31
@@ -3914,8 +5678,13 @@ target52.name=OutsideMP
 target134.showInterface=false
 target189.height=50
 target13.editor.y=43
+<<<<<<< Updated upstream
 target13.editor.x=40
 target46.showInterface=false
+=======
+target46.showInterface=false
+target13.editor.x=40
+>>>>>>> Stashed changes
 class.MenuNo.image=ButtonNo.png
 target195.editor.y=23
 target195.editor.x=0
@@ -3930,12 +5699,20 @@ class.PushButton.superclass=Block
 target91.height=50
 target69.width=90
 dependency713.type=UsesDependency
+<<<<<<< Updated upstream
 target133.naviview.expanded=false
+=======
+target133.naviview.expanded=true
+>>>>>>> Stashed changes
 target45.name=BoostBar
 dependency709.to=SpikeBlock
 target72.editor.y=66
 target72.editor.x=171
+<<<<<<< Updated upstream
 target209.width=100
+=======
+target209.width=80
+>>>>>>> Stashed changes
 dependency533.from=Level2
 target36.height=50
 dependency200.to=Back
@@ -3945,11 +5722,19 @@ dependency308.from=Space
 dependency822.type=UsesDependency
 dependency695.from=Level60
 dependency136.to=Asteroid
+<<<<<<< Updated upstream
 target212.naviview.expanded=true
 dependency589.from=Level31
 target219.height=50
 dependency94.type=UsesDependency
 target31.showInterface=false
+=======
+target212.naviview.expanded=false
+dependency589.from=Level31
+target219.height=50
+target31.showInterface=false
+dependency94.type=UsesDependency
+>>>>>>> Stashed changes
 dependency284.to=Platformer
 dependency417.from=PlatformPlayer
 target199.showInterface=false
@@ -3961,7 +5746,11 @@ dependency706.type=UsesDependency
 target48.editor.height=700
 target82.type=ClassTarget
 target38.name=PushButton
+<<<<<<< Updated upstream
 target177.width=100
+=======
+target177.width=110
+>>>>>>> Stashed changes
 target63.width=90
 dependency526.from=Level1
 dependency443.to=PlatformPlayer
@@ -3973,19 +5762,29 @@ dependency591.to=Cart
 dependency815.type=UsesDependency
 target110.editor.height=773
 dependency635.from=Level25
+<<<<<<< Updated upstream
 dependency87.type=UsesDependency
 target22.editor.height=700
+=======
+target22.editor.height=700
+dependency87.type=UsesDependency
+>>>>>>> Stashed changes
 dependency602.to=SpikeBlock
 dependency34.type=UsesDependency
 dependency797.from=Level93
 dependency538.to=TraceHead
 dependency750.to=Level30
+<<<<<<< Updated upstream
 package.numDependencies=849
+=======
+package.numDependencies=840
+>>>>>>> Stashed changes
 dependency744.from=OuterSpace
 dependency135.type=UsesDependency
 dependency686.to=Coin
 dependency519.from=Player
 target22.type=ClassTarget
+<<<<<<< Updated upstream
 target152.name=Level41
 target90.y=1630
 target37.y=4330
@@ -3994,6 +5793,16 @@ target7.type=ClassTarget
 target37.x=100
 class.AsteroidMedium.superclass=Asteroid
 target96.showInterface=false
+=======
+target152.name=Level40
+target90.y=1630
+target90.x=10
+target7.type=ClassTarget
+target37.y=4330
+target96.showInterface=false
+target37.x=100
+class.AsteroidMedium.superclass=Asteroid
+>>>>>>> Stashed changes
 dependency808.type=UsesDependency
 dependency350.type=UsesDependency
 dependency244.type=UsesDependency
@@ -4001,8 +5810,12 @@ target78.type=ClassTarget
 dependency628.from=Level25
 target219.showInterface=false
 dependency170.from=Planet
+<<<<<<< Updated upstream
 dependency845.to=Coin
 target221.editor.y=23
+=======
+target221.editor.y=43
+>>>>>>> Stashed changes
 target221.editor.x=40
 dependency27.type=UsesDependency
 dependency124.to=AsteroidMedium
@@ -4010,12 +5823,17 @@ target70.showInterface=false
 dependency737.from=Level0
 dependency272.to=LaserDes
 dependency128.type=UsesDependency
+<<<<<<< Updated upstream
 target169.y=4090
+=======
+target169.y=130
+>>>>>>> Stashed changes
 target169.x=10
 target15.naviview.expanded=true
 target175.editor.height=700
 target214.typeParameters=
 target15.type=ClassTarget
+<<<<<<< Updated upstream
 target145.name=OuterSpace
 target49.typeParameters=
 target104.editor.y=55
@@ -4024,6 +5842,15 @@ dependency67.to=Weapon
 dependency62.from=MissileIcon
 target87.editor.height=700
 dependency846.from=Level00
+=======
+target145.name=BoostBarSegment
+target49.typeParameters=
+target104.editor.y=43
+target104.editor.x=40
+dependency67.to=Weapon
+dependency62.from=MissileIcon
+target87.editor.height=700
+>>>>>>> Stashed changes
 target102.width=90
 dependency237.type=UsesDependency
 target15.y=4330
@@ -4033,7 +5860,11 @@ dependency431.to=LevelCreatorDisplayBlock
 target37.editor.y=43
 target37.editor.x=40
 dependency367.to=PlatformPlayer
+<<<<<<< Updated upstream
 target142.naviview.expanded=true
+=======
+target142.naviview.expanded=false
+>>>>>>> Stashed changes
 target141.naviview.expanded=true
 dependency110.from=Space
 dependency346.type=UsesDependency
@@ -4043,6 +5874,7 @@ target135.showInterface=false
 dependency166.from=Gold
 target221.editor.width=900
 dependency4.from=Space
+<<<<<<< Updated upstream
 target163.editor.y=43
 target163.editor.x=40
 target221.naviview.expanded=true
@@ -4056,31 +5888,64 @@ dependency839.from=Level83
 target96.editor.y=23
 dependency381.from=Player
 target96.editor.x=40
+=======
+target163.editor.y=96
+target221.naviview.expanded=true
+target163.editor.x=225
+target220.naviview.expanded=true
+target147.y=1570
+target147.x=100
+dependency561.type=UsesDependency
+dependency526.to=ElevatorBlock
+dependency455.type=UsesDependency
+dependency839.from=Level00
+target96.editor.y=23
+target96.editor.x=40
+dependency381.from=Player
+>>>>>>> Stashed changes
 class.PlayerIcon.superclass=MapItems
 dependency674.to=BackgroundBlock
 class.Block.superclass=NonPlayer
 dependency670.type=UsesDependency
 target185.type=ClassTarget
+<<<<<<< Updated upstream
 target139.editor.width=900
 target72.editor.height=700
+=======
+target72.editor.height=700
+target139.editor.width=900
+>>>>>>> Stashed changes
 dependency103.from=Object
 dependency58.from=IconLaser
 dependency490.from=PushButton
 dependency339.type=UsesDependency
 target45.height=50
+<<<<<<< Updated upstream
 dependency833.to=Block
+=======
+dependency833.to=PlatformPlayer
+>>>>>>> Stashed changes
 dependency159.from=Player
 dependency112.to=Space
 dependency212.from=Space
 dependency769.to=ExitPortal
 target26.typeParameters=
 class.DamageBar.superclass=Object
+<<<<<<< Updated upstream
 target201.y=3070
 target201.x=140
 dependency448.type=UsesDependency
 target125.y=1090
 dependency260.to=Player
 target125.x=100
+=======
+target201.y=3490
+target201.x=10
+dependency448.type=UsesDependency
+target125.y=550
+dependency260.to=Player
+target125.x=10
+>>>>>>> Stashed changes
 dependency501.type=UsesDependency
 target122.type=ClassTarget
 dependency268.from=Shop
@@ -4089,7 +5954,11 @@ dependency321.from=PlatformPlayer
 target32.showInterface=false
 dependency55.to=Ship
 target152.height=50
+<<<<<<< Updated upstream
 target134.width=90
+=======
+target134.width=80
+>>>>>>> Stashed changes
 target183.typeParameters=
 target20.width=140
 dependency557.type=UsesDependency
@@ -4122,7 +5991,11 @@ dependency423.from=Level18
 dependency598.to=BackgroundBlock
 target127.typeParameters=
 dependency659.type=UsesDependency
+<<<<<<< Updated upstream
 target120.editor.y=20
+=======
+target120.editor.y=23
+>>>>>>> Stashed changes
 target120.editor.x=40
 dependency712.type=UsesDependency
 target44.name=SpaceObject
@@ -4132,9 +6005,15 @@ dependency821.to=ElevatorBlock
 target97.showInterface=false
 dependency532.from=Level2
 target53.editor.y=43
+<<<<<<< Updated upstream
 target151.naviview.expanded=true
 target53.editor.x=40
 target150.naviview.expanded=false
+=======
+target53.editor.x=40
+target151.naviview.expanded=true
+target150.naviview.expanded=true
+>>>>>>> Stashed changes
 dependency100.to=Space
 dependency757.to=Level61
 dependency768.type=UsesDependency
@@ -4157,8 +6036,13 @@ dependency194.type=UsesDependency
 target176.editor.height=700
 target56.typeParameters=
 dependency705.type=UsesDependency
+<<<<<<< Updated upstream
 target37.name=Level81
 target81.type=ClassTarget
+=======
+target81.type=ClassTarget
+target37.name=Level81
+>>>>>>> Stashed changes
 dependency141.type=UsesDependency
 dependency525.from=Level1
 dependency343.to=Player
@@ -4191,14 +6075,24 @@ dependency586.to=Block
 dependency518.from=Player
 target21.type=ClassTarget
 dependency6.to=Space
+<<<<<<< Updated upstream
 target151.name=All
+=======
+target151.name=Level41
+>>>>>>> Stashed changes
 target5.typeParameters=
 target6.type=ClassTarget
 dependency807.type=UsesDependency
 dependency243.type=UsesDependency
+<<<<<<< Updated upstream
 target149.editor.width=900
 target73.editor.height=700
 target77.type=ClassTarget
+=======
+target77.type=ClassTarget
+target73.editor.height=700
+target149.editor.width=900
+>>>>>>> Stashed changes
 dependency627.from=Level25
 dependency745.to=Level91
 target118.editor.width=900
@@ -4206,6 +6100,7 @@ target174.editor.width=900
 dependency299.type=UsesDependency
 dependency26.type=UsesDependency
 target59.showInterface=false
+<<<<<<< Updated upstream
 target202.editor.y=87
 target157.typeParameters=
 class.MenuNo.superclass=DockMenu
@@ -4216,17 +6111,37 @@ dependency736.from=Level0
 target63.y=2590
 dependency172.to=OuterSpace
 target63.x=120
+=======
+target202.editor.y=43
+target157.typeParameters=
+class.MenuNo.superclass=DockMenu
+target202.editor.x=40
+target198.width=90
+target84.width=100
+target63.y=2590
+dependency736.from=Level0
+target63.x=120
+dependency172.to=OuterSpace
+>>>>>>> Stashed changes
 dependency127.type=UsesDependency
 target161.height=50
 dependency31.to=Entity
 target14.type=ClassTarget
 target121.showInterface=false
+<<<<<<< Updated upstream
 target144.name=Checkpoint
 class.Button.superclass=WeaponShop
 dependency61.from=IconMine
 target33.naviview.expanded=true
 target32.naviview.expanded=false
 dependency845.from=Level00
+=======
+target144.name=OuterSpace
+class.Button.superclass=WeaponShop
+target33.naviview.expanded=true
+dependency61.from=IconMine
+target32.naviview.expanded=false
+>>>>>>> Stashed changes
 target33.showInterface=false
 dependency236.type=UsesDependency
 target106.height=50
@@ -4234,11 +6149,19 @@ dependency119.to=Planet
 dependency331.to=Space
 target138.editor.height=700
 target16.width=80
+<<<<<<< Updated upstream
 target218.y=1270
 target218.x=10
 target195.y=2170
 dependency267.to=Number
 target195.x=190
+=======
+target218.y=3670
+target218.x=150
+target195.y=2710
+dependency267.to=Number
+target195.x=140
+>>>>>>> Stashed changes
 dependency19.type=UsesDependency
 target106.naviview.expanded=true
 target105.naviview.expanded=true
@@ -4248,6 +6171,7 @@ dependency729.from=Level61
 dependency271.from=LevelUpButton
 dependency165.from=Entity
 target41.y=3730
+<<<<<<< Updated upstream
 dependency3.from=SpaceObject
 target41.x=230
 target144.editor.y=20
@@ -4257,18 +6181,38 @@ dependency426.to=Cart
 dependency454.type=UsesDependency
 class.About.image=About.png
 dependency838.from=Level83
+=======
+target41.x=230
+dependency3.from=SpaceObject
+target144.editor.y=23
+dependency560.type=UsesDependency
+target144.editor.x=0
+dependency426.to=Cart
+dependency454.type=UsesDependency
+class.About.image=About.png
+dependency838.from=Level00
+>>>>>>> Stashed changes
 dependency380.from=Player
 class.Trapdoor.superclass=Block
 dependency574.to=Block
 dependency229.type=UsesDependency
 version=2.7.1
+<<<<<<< Updated upstream
 target191.width=80
+=======
+target191.width=110
+>>>>>>> Stashed changes
 target184.type=ClassTarget
 target134.typeParameters=
 dependency102.from=Object
 dependency57.from=IconProjectile
+<<<<<<< Updated upstream
 target173.y=1510
 target173.x=10
+=======
+target173.y=4270
+target173.x=100
+>>>>>>> Stashed changes
 dependency338.type=UsesDependency
 target186.showInterface=false
 dependency733.to=FallingBlock
@@ -4277,9 +6221,15 @@ target21.editor.x=40
 dependency158.from=TutorialWorld
 target98.showInterface=false
 dependency211.from=LevelCreatorDisplayBlock
+<<<<<<< Updated upstream
 dependency669.to=LavaBlock
 target35.editor.height=700
 target123.width=80
+=======
+target35.editor.height=700
+dependency669.to=LavaBlock
+target123.width=110
+>>>>>>> Stashed changes
 dependency447.type=UsesDependency
 dependency160.to=Gold
 target121.type=ClassTarget
@@ -4304,8 +6254,13 @@ target80.editor.y=96
 target80.editor.x=380
 dependency376.from=Level14
 target177.editor.height=700
+<<<<<<< Updated upstream
 target151.y=3190
 target151.x=110
+=======
+target151.y=4150
+target151.x=190
+>>>>>>> Stashed changes
 dependency771.type=UsesDependency
 dependency255.to=PlasmaText
 dependency665.type=UsesDependency
@@ -4318,8 +6273,13 @@ target69.editor.width=900
 class.OpenTrapdoor.superclass=NoCollisionBlock
 target125.height=50
 dependency313.from=Level3
+<<<<<<< Updated upstream
 dependency414.to=PlatformPlayer
 target38.editor.width=900
+=======
+target38.editor.width=900
+dependency414.to=PlatformPlayer
+>>>>>>> Stashed changes
 target94.editor.width=900
 target111.typeParameters=
 dependency549.type=UsesDependency
@@ -4342,11 +6302,19 @@ target162.editor.height=700
 dependency509.to=PlanetCompletedMP
 dependency721.to=BackgroundBlock
 dependency531.from=Space
+<<<<<<< Updated upstream
 target155.width=130
 target159.editor.width=900
 target74.editor.height=700
 dependency657.to=BulletLauncher
 target41.width=110
+=======
+target155.width=90
+target74.editor.height=700
+target159.editor.width=900
+target41.width=110
+dependency657.to=BulletLauncher
+>>>>>>> Stashed changes
 dependency767.type=UsesDependency
 target114.naviview.expanded=false
 dependency306.from=BulletLauncher
@@ -4366,8 +6334,13 @@ target153.editor.width=900
 class.Logo.image=Logo.png
 dependency415.from=Level17
 dependency816.to=FallingBlock
+<<<<<<< Updated upstream
 target122.editor.width=900
 target160.editor.y=43
+=======
+target122.editor.width=1160
+target160.editor.y=23
+>>>>>>> Stashed changes
 target160.editor.x=40
 dependency193.type=UsesDependency
 target122.showInterface=false
@@ -4382,16 +6355,28 @@ dependency524.from=Level1
 dependency243.to=LevelCreatorDisplayBlock
 target92.height=50
 target168.editor.y=23
+<<<<<<< Updated upstream
 target168.editor.x=0
 dependency179.to=ExitPortal
 target139.editor.height=700
 target79.width=180
+=======
+target168.editor.x=40
+target79.width=180
+dependency179.to=ExitPortal
+target139.editor.height=700
+>>>>>>> Stashed changes
 dependency391.to=ExitPortal
 dependency813.type=UsesDependency
 dependency38.to=Ship
 dependency633.from=Level25
+<<<<<<< Updated upstream
 class.InsideMP.superclass=Minimap
 target93.typeParameters=
+=======
+target93.typeParameters=
+class.InsideMP.superclass=Minimap
+>>>>>>> Stashed changes
 dependency85.type=UsesDependency
 target37.height=50
 dependency402.to=GifImage
@@ -4407,7 +6392,11 @@ dependency486.to=MeltingBlock
 class.Asteroid2.superclass=Asteroids
 dependency517.from=Shop
 target20.type=ClassTarget
+<<<<<<< Updated upstream
 target150.name=LevelCreator
+=======
+target150.name=All
+>>>>>>> Stashed changes
 class.Level1.superclass=Platformer
 target5.type=ClassTarget
 dependency189.type=UsesDependency
@@ -4416,7 +6405,11 @@ dependency806.type=UsesDependency
 target141.typeParameters=
 target1.editor.height=700
 dependency242.type=UsesDependency
+<<<<<<< Updated upstream
 target187.width=80
+=======
+target187.width=90
+>>>>>>> Stashed changes
 target76.type=ClassTarget
 target58.y=4270
 target73.width=110
@@ -4424,7 +6417,11 @@ target58.x=10
 dependency626.from=Level25
 dependency645.to=ExitPortal
 class.PlanetOne.superclass=Planet
+<<<<<<< Updated upstream
 target213.width=80
+=======
+target213.width=130
+>>>>>>> Stashed changes
 target187.showInterface=false
 dependency25.type=UsesDependency
 dependency298.type=UsesDependency
@@ -4440,16 +6437,25 @@ dependency126.type=UsesDependency
 target119.width=80
 dependency804.to=BackgroundBlock
 target13.type=ClassTarget
+<<<<<<< Updated upstream
 target143.name=ShootingStar
 dependency60.from=IconMine
 dependency844.from=Level00
+=======
+target143.name=Checkpoint
+dependency60.from=IconMine
+>>>>>>> Stashed changes
 dependency235.type=UsesDependency
 class.Entity.superclass=SpaceObject
 target194.typeParameters=
 target69.type=ClassTarget
 target50.naviview.expanded=true
 dependency231.to=LevelCreatorGrid
+<<<<<<< Updated upstream
 target199.name=CutsceneA
+=======
+target199.name=TurnSpeedText
+>>>>>>> Stashed changes
 target36.y=3370
 target36.x=260
 dependency167.to=Object
@@ -4459,7 +6465,11 @@ dependency344.type=UsesDependency
 dependency728.from=Level61
 target134.height=50
 dependency270.from=Shop
+<<<<<<< Updated upstream
 target123.naviview.expanded=false
+=======
+target123.naviview.expanded=true
+>>>>>>> Stashed changes
 target122.naviview.expanded=false
 dependency164.from=AsteroidSmall
 dependency2.from=SpaceObject
@@ -4467,6 +6477,7 @@ target79.editor.width=900
 dependency326.to=MapButton
 target84.showInterface=false
 dependency453.type=UsesDependency
+<<<<<<< Updated upstream
 target125.editor.y=96
 target125.editor.x=0
 target48.editor.width=900
@@ -4478,13 +6489,31 @@ target202.naviview.expanded=true
 dependency474.to=OuterSpace
 dependency228.type=UsesDependency
 target201.naviview.expanded=false
+=======
+target125.editor.y=23
+target125.editor.x=0
+target48.editor.width=900
+target168.y=4090
+dependency837.from=Level00
+target168.x=10
+target202.naviview.expanded=false
+dependency474.to=OuterSpace
+dependency228.type=UsesDependency
+target201.naviview.expanded=true
+>>>>>>> Stashed changes
 target207.showInterface=false
 target17.editor.width=900
 target73.editor.width=900
 target183.type=ClassTarget
+<<<<<<< Updated upstream
 target139.name=Projectile
 dependency101.from=MenuNo
 target42.editor.width=900
+=======
+target139.name=LaserDes
+target42.editor.width=900
+dependency101.from=MenuNo
+>>>>>>> Stashed changes
 target14.y=190
 dependency56.from=IconProjectile
 target14.x=140
@@ -4502,12 +6531,18 @@ target199.height=50
 target184.editor.x=40
 dependency569.to=SlimeBlock
 dependency781.to=ElevatorBlock
+<<<<<<< Updated upstream
 target169.editor.width=900
 target75.editor.height=700
+=======
+target75.editor.height=700
+target169.editor.width=1130
+>>>>>>> Stashed changes
 dependency446.type=UsesDependency
 target149.showInterface=false
 target120.type=ClassTarget
 target171.typeParameters=
+<<<<<<< Updated upstream
 target222.y=2350
 target222.x=240
 target138.editor.width=900
@@ -4515,6 +6550,13 @@ dependency266.from=Number
 target194.editor.width=900
 target146.y=970
 target146.x=200
+=======
+target138.editor.width=900
+dependency266.from=Number
+target194.editor.width=900
+target146.y=3430
+target146.x=140
+>>>>>>> Stashed changes
 target107.editor.width=900
 target163.editor.width=900
 dependency728.to=PlatformPlayer
@@ -4522,7 +6564,11 @@ dependency555.type=UsesDependency
 target176.type=ClassTarget
 dependency49.from=Space
 dependency481.from=PushButton
+<<<<<<< Updated upstream
 target132.editor.width=1280
+=======
+target132.editor.width=900
+>>>>>>> Stashed changes
 dependency375.from=Level14
 target7.naviview.expanded=true
 target61.editor.y=-8
@@ -4542,6 +6588,7 @@ target46.height=50
 target69.editor.y=56
 target69.editor.x=73
 dependency259.from=WeaponShop
+<<<<<<< Updated upstream
 target200.y=3790
 dependency312.from=PlatformPlayer
 target200.x=10
@@ -4557,6 +6604,21 @@ target115.typeParameters=
 dependency462.to=ClimbBlock
 dependency601.type=UsesDependency
 target222.type=ClassTarget
+=======
+target200.y=3070
+dependency312.from=PlatformPlayer
+target200.x=140
+dependency98.to=DockMenu
+dependency314.to=ElevatorBlock
+target124.y=1090
+target60.editor.height=700
+target124.x=100
+target169.type=ClassTarget
+dependency548.type=UsesDependency
+target115.typeParameters=
+dependency462.to=ClimbBlock
+dependency601.type=UsesDependency
+>>>>>>> Stashed changes
 target116.type=ClassTarget
 dependency368.from=Level14
 dependency421.from=Level18
@@ -4579,14 +6641,23 @@ target98.name=LevelCreatorPalletBlock
 dependency692.from=Level80
 target188.showInterface=false
 dependency586.from=Level31
+<<<<<<< Updated upstream
 target132.naviview.expanded=true
+=======
+target132.naviview.expanded=false
+>>>>>>> Stashed changes
 target131.naviview.expanded=true
 target125.editor.height=700
 target102.y=2290
 target102.x=10
 target109.type=ClassTarget
+<<<<<<< Updated upstream
 dependency91.type=UsesDependency
 target44.typeParameters=
+=======
+target44.typeParameters=
+dependency91.type=UsesDependency
+>>>>>>> Stashed changes
 target37.editor.height=700
 dependency414.from=Level17
 dependency716.to=ExitPortal
@@ -4601,18 +6672,30 @@ dependency143.to=WeaponsText
 dependency759.type=UsesDependency
 target210.editor.y=43
 target210.editor.x=40
+<<<<<<< Updated upstream
 target149.editor.y=23
 dependency812.type=UsesDependency
 dependency291.to=FallingBlock
 target149.editor.x=380
+=======
+target149.editor.y=93
+dependency812.type=UsesDependency
+dependency291.to=FallingBlock
+target149.editor.x=153
+>>>>>>> Stashed changes
 dependency579.from=Level32
 dependency632.from=Level25
 class.Level41.superclass=Platformer
 dependency86.to=EnemyShip
 dependency302.to=GoldText
 dependency31.type=UsesDependency
+<<<<<<< Updated upstream
 target218.editor.y=23
 target218.editor.x=0
+=======
+target218.editor.y=43
+target218.editor.x=40
+>>>>>>> Stashed changes
 target173.showInterface=false
 dependency688.from=Level80
 dependency238.to=BackgroundBlock
@@ -4620,6 +6703,7 @@ dependency450.to=WireButton
 dependency741.from=Level0
 target85.showInterface=false
 dependency132.type=UsesDependency
+<<<<<<< Updated upstream
 target176.width=90
 dependency386.to=ClimbBlock
 target62.width=110
@@ -4636,6 +6720,24 @@ class.IconProjectile.superclass=HUD
 dependency188.type=UsesDependency
 dependency805.type=UsesDependency
 target199.naviview.expanded=true
+=======
+target176.width=100
+target62.width=110
+dependency386.to=ClimbBlock
+target58.editor.width=900
+target65.height=50
+dependency516.from=Shop
+target26.editor.y=43
+target26.editor.x=40
+target202.width=80
+target27.editor.width=900
+target83.editor.width=900
+target4.type=ClassTarget
+dependency188.type=UsesDependency
+class.IconProjectile.superclass=HUD
+dependency805.type=UsesDependency
+target199.naviview.expanded=false
+>>>>>>> Stashed changes
 dependency241.type=UsesDependency
 target75.type=ClassTarget
 target52.editor.width=900
@@ -4645,16 +6747,25 @@ dependency545.to=GifImage
 target21.editor.width=900
 target108.width=80
 target152.editor.y=23
+<<<<<<< Updated upstream
 target152.editor.x=40
 dependency24.type=UsesDependency
 dependency297.type=UsesDependency
 target164.editor.height=700
 dependency693.to=ExitPortal
+=======
+dependency297.type=UsesDependency
+dependency24.type=UsesDependency
+target152.editor.x=40
+dependency693.to=ExitPortal
+target164.editor.height=700
+>>>>>>> Stashed changes
 dependency734.from=Level61
 target85.editor.y=23
 target85.editor.x=40
 dependency125.type=UsesDependency
 target84.y=2230
+<<<<<<< Updated upstream
 dependency704.to=ExitPortal
 target84.x=10
 target12.type=ClassTarget
@@ -4673,6 +6784,25 @@ dependency788.to=ExitPortal
 target14.naviview.expanded=true
 target142.editor.width=900
 target74.typeParameters=
+=======
+target84.x=10
+dependency704.to=ExitPortal
+target12.type=ClassTarget
+target170.width=80
+target142.name=ShootingStar
+target4.y=430
+target4.x=10
+target173.editor.width=900
+class.Back.superclass=Menu
+dependency234.type=UsesDependency
+target68.type=ClassTarget
+dependency131.to=Space
+target198.name=CutsceneA
+dependency788.to=ExitPortal
+target74.typeParameters=
+target142.editor.width=900
+target14.naviview.expanded=true
+>>>>>>> Stashed changes
 target13.naviview.expanded=false
 target55.height=50
 dependency17.type=UsesDependency
@@ -4684,6 +6814,7 @@ dependency74.to=Exit
 dependency163.from=AsteroidMedium
 dependency1.from=Space
 dependency399.type=UsesDependency
+<<<<<<< Updated upstream
 target140.naviview.expanded=false
 dependency226.to=ClimbBlock
 class.Gold.superclass=SpaceObject
@@ -4694,49 +6825,94 @@ target94.width=130
 dependency836.from=Level83
 target122.typeParameters=
 target61.editor.height=1056
+=======
+target140.naviview.expanded=true
+dependency226.to=ClimbBlock
+class.Gold.superclass=SpaceObject
+target62.y=3130
+target62.x=10
+dependency452.type=UsesDependency
+target94.width=130
+dependency836.from=Level00
+target61.editor.height=1056
+target122.typeParameters=
+>>>>>>> Stashed changes
 dependency374.to=ExitPortal
 dependency227.type=UsesDependency
 target162.height=50
 target4.editor.width=900
+<<<<<<< Updated upstream
 target182.type=ClassTarget
 target138.name=MapBackButton
+=======
+target138.name=Projectile
+target182.type=ClassTarget
+>>>>>>> Stashed changes
 target47.showInterface=false
 dependency100.from=Planet
 dependency55.from=Cannon
 dependency336.type=UsesDependency
 target107.height=50
+<<<<<<< Updated upstream
 target217.y=1330
 target217.x=190
 dependency533.to=FallingBlock
 target194.y=4150
 target26.width=80
 target194.x=100
+=======
+target217.y=1270
+target217.x=10
+dependency533.to=FallingBlock
+target26.width=80
+target194.y=2170
+target194.x=190
+>>>>>>> Stashed changes
 dependency156.from=Player
 dependency469.to=PushButton
 dependency681.to=SlimeBlock
 dependency445.type=UsesDependency
 target21.showInterface=false
+<<<<<<< Updated upstream
 simulation.speed=50
+=======
+simulation.speed=49
+>>>>>>> Stashed changes
 target40.y=1150
 target40.x=190
 dependency265.from=Level6
 target126.editor.height=700
 target51.typeParameters=
+<<<<<<< Updated upstream
 target175.type=ClassTarget
 dependency554.type=UsesDependency
 dependency628.to=TraceHead
 dependency840.to=BackgroundBlock
 target38.editor.height=700
+=======
+dependency628.to=TraceHead
+dependency554.type=UsesDependency
+target175.type=ClassTarget
+target38.editor.height=700
+dependency840.to=Wire
+>>>>>>> Stashed changes
 dependency48.from=Space
 dependency480.from=PushButton
 dependency374.from=Level14
 dependency776.to=SpikeBlock
 dependency149.from=MenuYes
 dependency663.type=UsesDependency
+<<<<<<< Updated upstream
 target172.y=4090
 target172.x=100
 target119.y=1090
 dependency202.from=IconShip
+=======
+target172.y=1510
+dependency202.from=IconShip
+target119.y=1090
+target172.x=10
+>>>>>>> Stashed changes
 target119.x=10
 target117.editor.y=40
 target117.editor.x=25
@@ -4748,6 +6924,7 @@ target4.editor.y=96
 target4.editor.x=98
 dependency311.from=Level3
 dependency214.to=IconShip
+<<<<<<< Updated upstream
 target168.type=ClassTarget
 dependency547.type=UsesDependency
 dependency362.to=Coin
@@ -4757,10 +6934,22 @@ class.Level60.superclass=Platformer
 target74.height=50
 target174.showInterface=false
 target115.type=ClassTarget
+=======
+dependency547.type=UsesDependency
+target168.type=ClassTarget
+target221.type=ClassTarget
+dependency600.type=UsesDependency
+dependency362.to=Coin
+class.Level60.superclass=Platformer
+target74.height=50
+target115.type=ClassTarget
+target174.showInterface=false
+>>>>>>> Stashed changes
 dependency367.from=Level14
 dependency420.from=Level18
 dependency298.to=Digit
 target86.showInterface=false
+<<<<<<< Updated upstream
 target176.editor.y=23
 target176.editor.x=40
 class.PlatformObject.superclass=Object
@@ -4787,6 +6976,34 @@ dependency691.from=Level80
 dependency585.from=Level32
 target31.editor.width=900
 world.lastInstantiated=Level1
+=======
+target176.editor.y=43
+target23.editor.height=700
+class.PlatformObject.superclass=Object
+target176.editor.x=40
+dependency656.type=UsesDependency
+target19.height=50
+target41.name=BoostBarText
+target150.y=3190
+dependency476.from=PushButton
+target150.x=110
+dependency309.to=PlayerIcon
+dependency521.to=WarningSector
+target93.editor.width=900
+target22.naviview.expanded=true
+target152.typeParameters=
+target62.editor.width=900
+dependency457.to=WireButton
+dependency765.type=UsesDependency
+target181.height=50
+dependency304.from=Planet
+target97.name=WaterBlockBackground
+dependency691.from=Level80
+class.RespawnButton.superclass=RespawnMenu
+target31.editor.width=900
+dependency585.from=Level32
+world.lastInstantiated=OuterSpace
+>>>>>>> Stashed changes
 target108.type=ClassTarget
 dependency90.type=UsesDependency
 target213.typeParameters=
@@ -4796,12 +7013,18 @@ dependency616.to=ClimbBlock
 dependency649.type=UsesDependency
 dependency191.type=UsesDependency
 dependency702.type=UsesDependency
+<<<<<<< Updated upstream
 dependency764.to=Level26
 target217.type=ClassTarget
+=======
+target217.type=ClassTarget
+dependency764.to=Level26
+>>>>>>> Stashed changes
 target34.name=Level3
 dependency469.from=PlatformPlayer
 dependency522.from=Player
 target71.showInterface=false
+<<<<<<< Updated upstream
 dependency758.type=UsesDependency
 target81.typeParameters=
 dependency811.type=UsesDependency
@@ -4822,13 +7045,40 @@ dependency138.to=TutorialWorld
 dependency350.to=LavaBlock
 dependency740.from=Level0
 target150.editor.height=665
+=======
+target81.typeParameters=
+dependency758.type=UsesDependency
+dependency191.to=Level3
+dependency811.type=UsesDependency
+target5.width=80
+dependency578.from=Level32
+dependency50.to=IconPlasma
+target121.editor.width=900
+dependency631.from=Level25
+target88.editor.height=700
+target165.width=80
+target51.width=110
+dependency202.to=OptionsMenu
+dependency30.type=UsesDependency
+target211.height=50
+dependency687.from=Level80
+dependency138.to=TutorialWorld
+dependency350.to=LavaBlock
+dependency740.from=Level0
+target150.editor.height=700
+>>>>>>> Stashed changes
 dependency131.type=UsesDependency
 dependency286.to=WaterBlockBackground
 dependency515.from=Shop
 target62.editor.height=700
 dependency409.from=Track
+<<<<<<< Updated upstream
 dependency796.from=Level93
 target136.showInterface=false
+=======
+target136.showInterface=false
+dependency796.from=Level93
+>>>>>>> Stashed changes
 target3.type=ClassTarget
 dependency187.type=UsesDependency
 dependency804.type=UsesDependency
@@ -4841,6 +7091,7 @@ class.Resolution.superclass=Menu
 target79.y=2110
 target79.x=10
 class.MineText.image=MineText.png
+<<<<<<< Updated upstream
 dependency23.type=UsesDependency
 dependency296.type=UsesDependency
 dependency593.to=ElevatorBlock
@@ -4882,16 +7133,62 @@ target57.x=10
 target30.naviview.expanded=false
 dependency342.type=UsesDependency
 target197.width=120
+=======
+dependency296.type=UsesDependency
+dependency23.type=UsesDependency
+target133.editor.y=23
+dependency593.to=ElevatorBlock
+target133.editor.x=0
+target110.showInterface=false
+target4.height=50
+class.Level15.superclass=Platformer
+dependency733.from=Level61
+target38.height=50
+dependency124.type=UsesDependency
+dependency79.type=UsesDependency
+dependency604.to=Track
+target182.typeParameters=
+target11.type=ClassTarget
+target141.name=Play
+dependency789.from=Level94
+target127.editor.height=700
+dependency752.to=Level32
+dependency233.type=UsesDependency
+target201.height=50
+target67.type=ClassTarget
+target197.name=Beam
+dependency688.to=LavaBlock
+class.WireOn.superclass=WireActivator
+class.PlanetOne.image=PlanetOne.png
+target10.editor.y=93
+class.Fireball.superclass=Weapon
+target10.editor.x=15
+target192.editor.y=23
+target192.editor.x=40
+target218.typeParameters=
+dependency289.type=UsesDependency
+dependency16.type=UsesDependency
+target57.y=4330
+target57.x=10
+target31.naviview.expanded=true
+target30.naviview.expanded=false
+dependency342.type=UsesDependency
+target197.width=80
+>>>>>>> Stashed changes
 target83.width=80
 dependency726.from=Level61
 dependency162.from=AsteroidLarge
 target18.editor.y=43
+<<<<<<< Updated upstream
 dependency847.to=WireButton
+=======
+>>>>>>> Stashed changes
 target18.editor.x=40
 dependency398.type=UsesDependency
 dependency126.to=Object
 target83.height=50
 dependency451.type=UsesDependency
+<<<<<<< Updated upstream
 target104.naviview.expanded=true
 target103.naviview.expanded=true
 dependency835.from=Level83
@@ -4907,23 +7204,51 @@ target112.editor.height=700
 target28.height=50
 target137.name=MissileText
 target181.type=ClassTarget
+=======
+target104.naviview.expanded=false
+target103.naviview.expanded=true
+dependency835.from=Level00
+dependency274.to=MissileDes
+dependency226.type=UsesDependency
+target189.y=4150
+target189.x=10
+target129.width=90
+class.Block.image=brick.png
+target15.width=80
+target175.showInterface=false
+target28.height=50
+target112.editor.height=700
+target181.type=ClassTarget
+target137.name=MapBackButton
+>>>>>>> Stashed changes
 dependency69.to=Space
 dependency54.from=Space
 target24.editor.height=700
 dependency335.type=UsesDependency
 target35.y=4450
+<<<<<<< Updated upstream
 target35.x=10
 target77.editor.y=43
+=======
+target77.editor.y=43
+target35.x=10
+>>>>>>> Stashed changes
 target77.editor.x=40
 dependency433.to=Number
 target190.height=50
 dependency155.from=OuterSpace
+<<<<<<< Updated upstream
 dependency369.to=ElevatorBlock
 class.Cannon.image=Cannon.png
+=======
+class.Cannon.image=Cannon.png
+dependency369.to=ElevatorBlock
+>>>>>>> Stashed changes
 dependency581.to=BulletLauncher
 dependency444.type=UsesDependency
 dependency1.to=Ship
 target135.height=50
+<<<<<<< Updated upstream
 dependency264.from=UnlockButton
 target41.editor.width=900
 target220.typeParameters=
@@ -4944,12 +7269,35 @@ dependency676.to=Coin
 class.Level37.superclass=Platformer
 dependency148.from=PlatformPlayer
 target13.y=1390
+=======
+target41.editor.width=900
+dependency264.from=UnlockButton
+target220.typeParameters=
+target10.editor.width=900
+target167.y=3250
+target167.x=140
+dependency528.to=ExitPortal
+dependency553.type=UsesDependency
+target174.type=ClassTarget
+dependency740.to=SlimeBlock
+target215.editor.y=43
+target215.editor.x=40
+target99.naviview.expanded=false
+class.Level7.superclass=Platformer
+dependency47.from=Entity
+dependency373.from=Level14
+dependency676.to=Coin
+class.Level37.superclass=Platformer
+target13.y=1390
+dependency148.from=PlatformPlayer
+>>>>>>> Stashed changes
 target13.x=120
 dependency662.type=UsesDependency
 dependency201.from=Back
 target72.showInterface=false
 target187.typeParameters=
 dependency437.type=UsesDependency
+<<<<<<< Updated upstream
 dependency835.to=ElevatorBlock
 dependency257.from=PlatformPlayer
 target220.height=50
@@ -4964,10 +7312,27 @@ dependency262.to=Player
 target145.y=1930
 target220.type=ClassTarget
 target145.x=190
+=======
+dependency835.to=LavaBlock
+dependency257.from=PlatformPlayer
+target220.height=50
+dependency310.from=PlatformPlayer
+target89.editor.height=700
+dependency114.to=Entity
+dependency546.type=UsesDependency
+target167.type=ClassTarget
+target221.y=2350
+target221.x=240
+target220.type=ClassTarget
+target145.y=970
+dependency262.to=Player
+target145.x=200
+>>>>>>> Stashed changes
 target47.width=120
 target114.type=ClassTarget
 dependency366.from=Level14
 target220.editor.height=700
+<<<<<<< Updated upstream
 target151.editor.height=700
 dependency198.to=StartMenu
 dependency57.to=Space
@@ -4978,13 +7343,31 @@ target157.editor.x=40
 target40.name=TraceHead
 target137.showInterface=false
 dependency475.from=PushButton
+=======
+dependency198.to=StartMenu
+target151.editor.height=700
+dependency655.type=UsesDependency
+dependency57.to=Space
+target216.editor.width=900
+target157.editor.y=23
+target157.editor.x=40
+target40.name=TraceHead
+dependency475.from=PushButton
+target137.showInterface=false
+>>>>>>> Stashed changes
 dependency209.to=LevelCreatorDisplayBlock
 dependency421.to=Block
 class.PlanetCompletedMP.image=PlanetCompletedMP.png
 target49.showInterface=false
+<<<<<<< Updated upstream
 dependency357.to=RespawnButton
 dependency764.type=UsesDependency
 target40.naviview.expanded=true
+=======
+target40.naviview.expanded=true
+dependency764.type=UsesDependency
+dependency357.to=RespawnButton
+>>>>>>> Stashed changes
 target32.typeParameters=
 class.ClimbBlock.superclass=NoCollisionBlock
 target96.name=InsideMP
@@ -4994,9 +7377,15 @@ target47.height=50
 target107.type=ClassTarget
 dependency359.from=Space
 class.Level4.superclass=Platformer
+<<<<<<< Updated upstream
 target123.y=1570
 target123.x=10
 target34.editor.y=43
+=======
+target123.y=1750
+target34.editor.y=43
+target123.x=140
+>>>>>>> Stashed changes
 target34.editor.x=40
 dependency412.from=Level17
 target113.naviview.expanded=true
@@ -5006,22 +7395,36 @@ dependency648.type=UsesDependency
 dependency190.type=UsesDependency
 dependency701.type=UsesDependency
 class.MissleIcon.superclass=HUD
+<<<<<<< Updated upstream
 target216.type=ClassTarget
 dependency664.to=Trapdoor
+=======
+dependency664.to=Trapdoor
+target216.type=ClassTarget
+>>>>>>> Stashed changes
 target33.name=Level2
 dependency468.from=Level19
 class.Level00.superclass=Platformer
 class.ShopPlanet.image=ShopPlanet.png
 dependency521.from=Player
 target154.height=50
+<<<<<<< Updated upstream
 target154.width=100
+=======
+target154.width=130
+>>>>>>> Stashed changes
 dependency757.type=UsesDependency
 target89.name=HUD
 dependency810.type=UsesDependency
 dependency577.from=Level32
 dependency823.to=BackgroundBlock
+<<<<<<< Updated upstream
 dependency630.from=Level25
 target93.editor.y=96
+=======
+target93.editor.y=96
+dependency630.from=Level25
+>>>>>>> Stashed changes
 target93.editor.x=0
 target34.showInterface=false
 dependency102.to=Space
@@ -5041,6 +7444,7 @@ dependency795.from=Level94
 target108.typeParameters=
 target2.type=ClassTarget
 dependency186.type=UsesDependency
+<<<<<<< Updated upstream
 dependency803.type=UsesDependency
 target176.showInterface=false
 target113.editor.height=700
@@ -5051,6 +7455,18 @@ dependency345.to=Player
 target25.editor.height=700
 dependency22.type=UsesDependency
 dependency295.type=UsesDependency
+=======
+target176.showInterface=false
+dependency803.type=UsesDependency
+target113.editor.height=700
+target73.type=ClassTarget
+target29.name=LevelUpButton
+dependency623.from=MeltingBlock
+target25.editor.height=700
+dependency345.to=Player
+dependency295.type=UsesDependency
+dependency22.type=UsesDependency
+>>>>>>> Stashed changes
 dependency493.to=GifImage
 target9.typeParameters=
 dependency679.from=Level5
@@ -5062,6 +7478,7 @@ class.SmoothMover.superclass=All
 dependency78.type=UsesDependency
 dependency504.to=ExitPortal
 target10.type=ClassTarget
+<<<<<<< Updated upstream
 target1.editor.y=70
 target140.name=LaserDes
 target1.editor.x=60
@@ -5070,10 +7487,20 @@ target62.typeParameters=
 dependency179.type=UsesDependency
 dependency652.to=PlatformPlayer
 dependency841.from=Level00
+=======
+target140.name=LavaBlock
+target1.editor.y=70
+target1.editor.x=60
+dependency788.from=Level94
+target62.typeParameters=
+dependency652.to=PlatformPlayer
+dependency179.type=UsesDependency
+>>>>>>> Stashed changes
 dependency232.type=UsesDependency
 target186.width=80
 target66.type=ClassTarget
 target72.width=90
+<<<<<<< Updated upstream
 target196.name=FireballText
 dependency588.to=Coin
 dependency8.to=Space
@@ -5086,6 +7513,19 @@ dependency15.type=UsesDependency
 target173.editor.y=56
 target173.editor.x=73
 class.Level0.image=Background0.png
+=======
+target196.name=NoCollisionBlock
+dependency588.to=Coin
+target9.editor.y=43
+target212.width=80
+dependency8.to=Space
+target9.editor.x=40
+target161.showInterface=false
+target173.editor.y=43
+dependency15.type=UsesDependency
+dependency288.type=UsesDependency
+target173.editor.x=40
+>>>>>>> Stashed changes
 dependency341.type=UsesDependency
 dependency811.to=BackgroundBlock
 target73.showInterface=false
@@ -5096,6 +7536,7 @@ dependency161.from=Space
 dependency747.to=Level4
 target110.typeParameters=
 class.Level22.superclass=Platformer
+<<<<<<< Updated upstream
 target178.editor.height=700
 target118.width=80
 class.Gold.image=gold.png
@@ -5117,6 +7558,29 @@ target180.width=80
 target221.editor.height=700
 target180.type=ClassTarget
 target136.name=MapButton
+=======
+target118.width=80
+target178.editor.height=700
+class.Gold.image=gold.png
+dependency397.type=UsesDependency
+dependency450.type=UsesDependency
+dependency834.from=Level00
+target83.y=610
+target83.x=110
+dependency174.to=Planet
+dependency225.type=UsesDependency
+target121.naviview.expanded=false
+dependency119.type=UsesDependency
+target50.editor.y=23
+dependency33.to=Entity
+target50.editor.x=0
+target3.y=3970
+target3.x=200
+target180.width=140
+target221.editor.height=700
+target136.name=MissileText
+target180.type=ClassTarget
+>>>>>>> Stashed changes
 class.MapButton.superclass=Menu
 target152.editor.height=700
 dependency53.from=Space
@@ -5125,6 +7589,7 @@ target200.naviview.expanded=false
 dependency333.to=AsteroidSmall
 target58.editor.y=23
 target58.editor.x=40
+<<<<<<< Updated upstream
 dependency154.from=NonPlayer
 target138.showInterface=false
 class.PlatformPlayer.superclass=PlatformObject
@@ -5134,20 +7599,39 @@ target56.height=50
 dependency481.to=Coin
 target138.typeParameters=
 dependency443.type=UsesDependency
+=======
+target138.showInterface=false
+dependency154.from=NonPlayer
+class.FireShip.superclass=Entity
+class.PlatformPlayer.superclass=PlatformObject
+target56.height=50
+dependency269.to=Player
+dependency481.to=Coin
+dependency443.type=UsesDependency
+target138.typeParameters=
+>>>>>>> Stashed changes
 target112.width=80
 dependency263.from=Shop
 class.TurnSpeedText.superclass=WeaponShop
 target61.y=3490
 target61.x=250
 dependency499.type=UsesDependency
+<<<<<<< Updated upstream
 target129.name=IconMine
 target173.type=ClassTarget
 dependency552.type=UsesDependency
 dependency428.to=Block
+=======
+dependency428.to=Block
+dependency552.type=UsesDependency
+target173.type=ClassTarget
+target129.name=PlasmaDes
+>>>>>>> Stashed changes
 dependency640.to=BulletLauncher
 dependency46.from=Entity
 class.DockMenu.superclass=HUD
 dependency372.from=Fireball
+<<<<<<< Updated upstream
 target163.height=50
 dependency576.to=Track
 dependency147.from=PlatformPlayer
@@ -5161,6 +7645,21 @@ target92.typeParameters=
 target108.height=50
 target193.y=2350
 target193.x=140
+=======
+dependency576.to=Track
+target163.height=50
+dependency147.from=PlatformPlayer
+dependency661.type=UsesDependency
+class.DamageBar.image=DamageBar_100.png
+dependency200.from=OptionsMenu
+target216.y=1330
+target216.x=190
+target92.typeParameters=
+dependency436.type=UsesDependency
+target193.y=4150
+target108.height=50
+target193.x=100
+>>>>>>> Stashed changes
 target6.naviview.expanded=true
 target5.naviview.expanded=false
 target67.typeParameters=
@@ -5169,8 +7668,13 @@ dependency735.to=PlatformPlayer
 target189.naviview.expanded=true
 dependency256.from=Shop
 target35.showInterface=false
+<<<<<<< Updated upstream
 target166.type=ClassTarget
 dependency545.type=UsesDependency
+=======
+dependency545.type=UsesDependency
+target166.type=ClassTarget
+>>>>>>> Stashed changes
 dependency162.to=Gold
 target113.type=ClassTarget
 dependency365.from=Level14
@@ -5183,6 +7687,7 @@ target138.editor.x=0
 dependency474.from=PushButton
 dependency109.to=Fireball
 dependency321.to=MeltingBlock
+<<<<<<< Updated upstream
 target171.y=4030
 target114.editor.height=700
 target171.x=190
@@ -5190,6 +7695,15 @@ target118.y=790
 target118.x=190
 dependency763.type=UsesDependency
 dependency257.to=FallingBlock
+=======
+target114.editor.height=700
+target171.y=4090
+target118.y=790
+target171.x=100
+target118.x=190
+dependency257.to=FallingBlock
+dependency763.type=UsesDependency
+>>>>>>> Stashed changes
 target95.name=WireButtonDown
 target207.editor.y=43
 target207.editor.x=40
@@ -5199,6 +7713,7 @@ dependency358.from=RespawnButton
 target2.editor.height=700
 dependency411.from=Level17
 target15.editor.y=43
+<<<<<<< Updated upstream
 dependency416.to=TraceHead
 target15.editor.x=40
 target197.editor.y=23
@@ -5211,21 +7726,48 @@ dependency564.to=FallingBlock
 target215.type=ClassTarget
 target168.typeParameters=
 target32.name=Cutscene
+=======
+target15.editor.x=40
+dependency416.to=TraceHead
+target197.editor.y=23
+target197.editor.x=40
+dependency647.type=UsesDependency
+target130.naviview.expanded=true
+dependency700.type=UsesDependency
+target75.height=50
+target215.type=ClassTarget
+dependency564.to=FallingBlock
+target32.name=Cutscene
+target168.typeParameters=
+>>>>>>> Stashed changes
 dependency467.from=Level19
 dependency520.from=OuterSpace
 dependency756.type=UsesDependency
 target88.name=Number
+<<<<<<< Updated upstream
 target141.editor.y=23
 target141.editor.x=40
+=======
+target141.editor.y=96
+target141.editor.x=276
+>>>>>>> Stashed changes
 target68.width=90
 dependency576.from=Level32
 target162.showInterface=false
 dependency723.to=WireButton
+<<<<<<< Updated upstream
 target208.width=80
 target74.editor.y=56
 target74.editor.x=73
 dependency659.to=SpikeBlock
 target182.height=50
+=======
+target208.width=100
+target74.editor.y=56
+target74.editor.x=73
+target182.height=50
+dependency659.to=SpikeBlock
+>>>>>>> Stashed changes
 target11.editor.height=700
 dependency685.from=Level5
 class.EnemyShip.image=EnemyShipIcon.png
@@ -5234,8 +7776,13 @@ target179.editor.height=700
 target208.type=ClassTarget
 dependency84.type=UsesDependency
 target127.height=50
+<<<<<<< Updated upstream
 dependency513.from=Shop
 target97.typeParameters=
+=======
+target97.typeParameters=
+dependency513.from=Shop
+>>>>>>> Stashed changes
 dependency407.from=Level14
 dependency818.to=Block
 dependency794.from=Level94
@@ -5244,6 +7791,7 @@ dependency185.type=UsesDependency
 dependency802.type=UsesDependency
 target89.editor.width=900
 dependency93.to=Player
+<<<<<<< Updated upstream
 target222.editor.height=700
 dependency569.from=Level30
 target28.name=PortalWorld
@@ -5258,16 +7806,36 @@ target139.showInterface=false
 dependency393.to=MeltingBlock
 target170.typeParameters=
 target205.editor.width=900
+=======
+dependency569.from=Level30
+target72.type=ClassTarget
+target28.name=PortalWorld
+class.PlasmaText.image=PlasmaText.png
+dependency622.from=Level40
+dependency245.to=LevelCreatorPalletBlock
+target208.showInterface=false
+dependency294.type=UsesDependency
+dependency21.type=UsesDependency
+target139.showInterface=false
+target205.editor.width=900
+target170.typeParameters=
+dependency393.to=MeltingBlock
+>>>>>>> Stashed changes
 dependency678.from=Level5
 target198.naviview.expanded=true
 target145.typeParameters=
 dependency731.from=Level61
 dependency122.type=UsesDependency
+<<<<<<< Updated upstream
 target175.width=80
+=======
+target175.width=90
+>>>>>>> Stashed changes
 dependency77.type=UsesDependency
 dependency404.to=OptionsMenu
 dependency787.from=Level94
 target172.height=50
+<<<<<<< Updated upstream
 dependency552.to=MovingNonPlayer
 dependency178.type=UsesDependency
 dependency840.from=Level83
@@ -5293,6 +7861,33 @@ dependency724.from=Level61
 target78.x=220
 dependency618.from=Level40
 target198.typeParameters=
+=======
+dependency178.type=UsesDependency
+dependency552.to=MovingNonPlayer
+dependency840.from=Level00
+target206.typeParameters=
+dependency231.type=UsesDependency
+target76.editor.height=700
+target65.type=ClassTarget
+target179.editor.width=900
+target195.name=FireballText
+dependency488.to=TraceHead
+dependency509.from=Space
+target148.editor.width=900
+target117.height=50
+target107.width=170
+dependency287.type=UsesDependency
+dependency14.type=UsesDependency
+target117.editor.width=900
+class.LaserDes.superclass=WeaponShop
+dependency340.type=UsesDependency
+dependency711.to=ElevatorBlock
+target78.y=3610
+target78.x=220
+dependency724.from=Level61
+target198.typeParameters=
+dependency618.from=Level40
+>>>>>>> Stashed changes
 dependency160.from=TutorialObjectManager
 dependency647.to=Coin
 target12.naviview.expanded=true
@@ -5301,11 +7896,16 @@ dependency396.type=UsesDependency
 target124.showInterface=false
 dependency795.to=SpikeBlock
 target5.height=50
+<<<<<<< Updated upstream
 dependency833.from=Level83
+=======
+dependency833.from=Level00
+>>>>>>> Stashed changes
 target36.showInterface=false
 dependency224.type=UsesDependency
 dependency118.type=UsesDependency
 dependency806.to=LavaBlock
+<<<<<<< Updated upstream
 target135.name=Alien
 dependency52.from=Space
 dependency81.to=Mine
@@ -5327,10 +7927,33 @@ target115.editor.height=700
 dependency442.type=UsesDependency
 dependency28.to=SpaceObject
 class.PlasmaTrail.image=PlasmaTrail.png
+=======
+target135.name=MapButton
+dependency81.to=Mine
+dependency52.from=Space
+target106.editor.y=23
+target106.editor.x=0
+dependency333.type=UsesDependency
+target101.width=80
+target202.height=50
+dependency233.to=Block
+dependency153.from=Platformer
+target56.y=130
+target56.x=100
+target39.editor.y=43
+target39.editor.x=40
+dependency169.to=Shop
+dependency381.to=Entity
+dependency389.type=UsesDependency
+target115.editor.height=700
+dependency28.to=SpaceObject
+dependency442.type=UsesDependency
+>>>>>>> Stashed changes
 target93.width=80
 target18.typeParameters=
 dependency262.from=Shop
 dependency498.type=UsesDependency
+<<<<<<< Updated upstream
 target3.editor.height=700
 target84.height=50
 target172.type=ClassTarget
@@ -5344,13 +7967,33 @@ dependency45.from=Entity
 target188.y=3190
 target188.x=10
 dependency829.from=Credits
+=======
+target84.height=50
+target3.editor.height=700
+target128.name=IconMine
+target165.editor.y=43
+dependency328.to=GotoShopButton
+dependency551.type=UsesDependency
+target172.type=ClassTarget
+dependency540.to=SpikeBlock
+target165.editor.x=40
+dependency45.from=Entity
+target188.y=4270
+dependency829.from=Credits
+target188.x=190
+>>>>>>> Stashed changes
 dependency371.from=Player
 dependency476.to=WaterBlock
 target189.showInterface=false
 target175.typeParameters=
 target98.editor.y=43
+<<<<<<< Updated upstream
 target139.width=80
 target98.editor.x=40
+=======
+target98.editor.x=40
+target139.width=80
+>>>>>>> Stashed changes
 target25.width=80
 dependency146.from=Shop
 target29.height=50
@@ -5365,20 +8008,36 @@ dependency255.from=Shop
 target42.editor.y=43
 target42.editor.x=40
 target163.showInterface=false
+<<<<<<< Updated upstream
 target100.editor.height=700
 class.MapItems.superclass=HUD
 dependency783.to=ExitPortal
 class.BoostBarText.superclass=WeaponShop
 target165.type=ClassTarget
 dependency544.type=UsesDependency
+=======
+class.MapItems.superclass=HUD
+target100.editor.height=700
+dependency783.to=ExitPortal
+dependency544.type=UsesDependency
+target165.type=ClassTarget
+class.BoostBarText.superclass=WeaponShop
+>>>>>>> Stashed changes
 target12.editor.height=700
 target136.height=50
 target112.type=ClassTarget
 dependency364.from=Level14
+<<<<<<< Updated upstream
 target166.y=190
 target166.x=10
 dependency653.type=UsesDependency
 target133.width=80
+=======
+target166.y=4030
+target166.x=100
+dependency653.type=UsesDependency
+target133.width=90
+>>>>>>> Stashed changes
 class.WeaponBG.superclass=HUD
 target20.typeParameters=
 class.FireballText.image=FireballText.png
@@ -5388,16 +8047,24 @@ dependency221.to=WaterBlock
 target12.y=370
 target12.x=10
 target99.editor.width=900
+<<<<<<< Updated upstream
 dependency157.to=Gold
 dependency762.type=UsesDependency
 target68.editor.width=900
 target94.name=BackgroundBlock
+=======
+dependency762.type=UsesDependency
+dependency157.to=Gold
+target94.name=BackgroundBlock
+target68.editor.width=900
+>>>>>>> Stashed changes
 dependency16.to=Entity
 dependency582.from=Level32
 target209.showInterface=false
 target37.editor.width=900
 target21.naviview.expanded=true
 target20.naviview.expanded=true
+<<<<<<< Updated upstream
 target215.editor.width=900
 target105.type=ClassTarget
 dependency357.from=Player
@@ -5413,19 +8080,47 @@ target60.showInterface=false
 target57.width=80
 dependency464.to=ElevatorBlock
 target214.type=ClassTarget
+=======
+target105.type=ClassTarget
+target215.editor.width=900
+dependency357.from=Player
+target221.height=50
+dependency410.from=Cart
+target220.y=1450
+target220.x=10
+dependency316.to=SlimeBlock
+target144.y=1930
+target60.showInterface=false
+target144.x=190
+dependency646.type=UsesDependency
+target57.width=80
+target214.type=ClassTarget
+dependency464.to=ElevatorBlock
+>>>>>>> Stashed changes
 target31.name=MineDes
 dependency466.from=Level19
 target165.editor.height=700
 target48.typeParameters=
+<<<<<<< Updated upstream
 target189.editor.width=900
 target77.editor.height=700
+=======
+target77.editor.height=700
+target189.editor.width=900
+>>>>>>> Stashed changes
 dependency755.type=UsesDependency
 class.Level18.superclass=Platformer
 target87.name=MineText
 target158.editor.width=900
+<<<<<<< Updated upstream
 target122.editor.y=43
 dependency575.from=Level32
 target122.editor.x=40
+=======
+dependency575.from=Level32
+target122.editor.y=46
+target122.editor.x=80
+>>>>>>> Stashed changes
 dependency623.to=PlatformPlayer
 target127.editor.width=900
 target183.editor.width=900
@@ -5436,8 +8131,13 @@ target152.editor.width=900
 dependency684.from=Level5
 target48.height=50
 target125.showInterface=false
+<<<<<<< Updated upstream
 target122.y=1870
 target122.x=110
+=======
+target122.y=1570
+target122.x=10
+>>>>>>> Stashed changes
 target207.type=ClassTarget
 dependency83.type=UsesDependency
 dependency512.from=Shop
@@ -5445,22 +8145,39 @@ target37.showInterface=false
 dependency406.from=Player
 dependency718.to=SlimeBlock
 dependency793.from=Level94
+<<<<<<< Updated upstream
 target181.editor.y=43
 target181.editor.x=40
+=======
+target181.editor.y=96
+target181.editor.x=0
+>>>>>>> Stashed changes
 dependency184.type=UsesDependency
 dependency801.type=UsesDependency
 target4.width=80
 dependency568.from=Level30
+<<<<<<< Updated upstream
 target27.name=GifImage
 target71.type=ClassTarget
+=======
+target71.type=ClassTarget
+target27.name=GifImage
+>>>>>>> Stashed changes
 target89.naviview.expanded=true
 target88.naviview.expanded=false
 dependency621.from=Level40
 dependency145.to=ShieldText
+<<<<<<< Updated upstream
 dependency293.type=UsesDependency
 target189.editor.y=23
 dependency20.type=UsesDependency
 target189.editor.x=0
+=======
+dependency20.type=UsesDependency
+target189.editor.y=41
+dependency293.type=UsesDependency
+target189.editor.x=150
+>>>>>>> Stashed changes
 dependency293.to=Object
 dependency677.from=Level5
 dependency730.from=OpenTrapdoor
@@ -5469,6 +8186,7 @@ dependency121.type=UsesDependency
 class.Nebula.superclass=SpaceObject
 dependency76.type=UsesDependency
 target25.typeParameters=
+<<<<<<< Updated upstream
 target100.y=3310
 target93.height=50
 target100.x=220
@@ -5491,13 +8209,42 @@ target66.editor.x=40
 dependency508.from=Space
 dependency13.type=UsesDependency
 dependency286.type=UsesDependency
+=======
+target93.height=50
+target100.y=3310
+target100.x=220
+dependency88.to=Ship
+dependency304.to=PlanetLevelText
+target89.width=80
+class.GoldText.superclass=WeaponShop
+dependency786.from=Level94
+dependency177.type=UsesDependency
+dependency452.to=WireButton
+target4.editor.height=700
+class.PlanetsMP.image=ant.png
+dependency230.type=UsesDependency
+target64.type=ClassTarget
+target22.showInterface=false
+target194.name=PortalBlue
+target66.editor.y=43
+dependency388.to=ElevatorBlock
+target66.editor.x=40
+dependency508.from=Space
+dependency286.type=UsesDependency
+dependency13.type=UsesDependency
+>>>>>>> Stashed changes
 dependency611.to=Trapdoor
 class.TraceHead.superclass=Block
 target39.editor.height=700
 dependency723.from=Level61
 dependency617.from=Level40
+<<<<<<< Updated upstream
 dependency69.type=UsesDependency
 dependency547.to=WireOn
+=======
+dependency547.to=WireOn
+dependency69.type=UsesDependency
+>>>>>>> Stashed changes
 target78.typeParameters=
 dependency395.type=UsesDependency
 target145.height=50
@@ -5509,6 +8256,7 @@ dependency223.type=UsesDependency
 dependency117.type=UsesDependency
 target13.editor.height=700
 dependency706.to=ExitPortal
+<<<<<<< Updated upstream
 target134.name=PlayerShip
 dependency279.type=UsesDependency
 dependency51.from=Space
@@ -5521,6 +8269,20 @@ target126.typeParameters=
 dependency152.from=Platformer
 dependency388.type=UsesDependency
 dependency281.to=Weapon
+=======
+target134.name=Alien
+dependency51.from=Space
+dependency279.type=UsesDependency
+target102.naviview.expanded=true
+dependency332.type=UsesDependency
+target196.width=120
+target82.width=80
+target126.typeParameters=
+dependency133.to=AlienShip
+dependency152.from=Platformer
+dependency281.to=Weapon
+dependency388.type=UsesDependency
+>>>>>>> Stashed changes
 target87.showInterface=false
 dependency441.type=UsesDependency
 target78.editor.width=900
@@ -5528,6 +8290,7 @@ dependency719.from=Level22
 dependency261.from=Shop
 dependency76.to=InsideMP
 target47.editor.width=900
+<<<<<<< Updated upstream
 target128.width=110
 dependency497.type=UsesDependency
 target14.width=80
@@ -5553,19 +8316,52 @@ target2.x=10
 dependency376.to=Coin
 dependency219.type=UsesDependency
 mainWindow.height=1084
+=======
+target128.width=90
+target14.width=80
+dependency497.type=UsesDependency
+dependency228.to=Level7
+dependency550.type=UsesDependency
+target171.type=ClassTarget
+target127.name=AsteroidSmall
+dependency440.to=SlimeBlock
+target16.editor.width=900
+target82.y=730
+target82.x=100
+target72.editor.width=899
+target29.y=2830
+target29.x=190
+target146.editor.y=23
+dependency44.from=Entity
+target146.editor.x=40
+dependency828.from=OuterSpace
+target61.showInterface=false
+dependency370.from=Level14
+target2.y=250
+target2.x=10
+dependency376.to=Coin
+dependency219.type=UsesDependency
+mainWindow.height=754
+>>>>>>> Stashed changes
 target190.width=80
 dependency145.from=Shop
 target166.editor.height=700
 target55.typeParameters=
 target98.naviview.expanded=false
 target97.naviview.expanded=true
+<<<<<<< Updated upstream
 target199.editor.width=900
 target78.editor.height=700
+=======
+target78.editor.height=700
+target199.editor.width=900
+>>>>>>> Stashed changes
 dependency434.type=UsesDependency
 dependency328.type=UsesDependency
 dependency535.to=SlimeBlock
 target168.editor.width=900
 dependency254.from=Shop
+<<<<<<< Updated upstream
 target23.editor.y=87
 target23.editor.x=224
 target57.height=50
@@ -5591,11 +8387,38 @@ target100.editor.width=900
 dependency472.from=PushButton
 dependency121.to=PlanetMP
 target164.height=50
+=======
+target23.editor.y=43
+target57.height=50
+target23.editor.x=40
+target137.editor.width=900
+dependency683.to=SpikeBlock
+target193.editor.width=900
+dependency543.type=UsesDependency
+target164.type=ClassTarget
+target122.width=80
+target106.editor.width=900
+target111.type=ClassTarget
+target162.editor.width=900
+target60.y=250
+target60.x=10
+dependency363.from=Platformer
+target103.typeParameters=
+target126.showInterface=false
+dependency599.type=UsesDependency
+target131.editor.width=1280
+dependency652.type=UsesDependency
+target100.editor.width=900
+dependency472.from=PushButton
+target164.height=50
+dependency121.to=PlanetMP
+>>>>>>> Stashed changes
 dependency778.to=PlatformPlayer
 target82.editor.y=96
 target82.editor.x=380
 target4.typeParameters=
 dependency761.type=UsesDependency
+<<<<<<< Updated upstream
 target215.y=1510
 target215.x=120
 target93.name=NonPlayer
@@ -5610,6 +8433,22 @@ class.SpeedDes.superclass=WeaponShop
 target46.width=80
 target104.type=ClassTarget
 dependency64.to=WeaponBG
+=======
+target215.y=670
+target215.x=100
+target93.name=NonPlayer
+target192.y=2350
+target139.y=190
+target192.x=140
+target139.x=230
+target63.editor.height=700
+dependency581.from=Level32
+class.SpeedDes.superclass=WeaponShop
+target109.height=50
+target46.width=80
+dependency64.to=WeaponBG
+target104.type=ClassTarget
+>>>>>>> Stashed changes
 dependency356.from=Player
 class.Weapon.superclass=SpaceObject
 target156.typeParameters=
@@ -5618,8 +8457,13 @@ dependency303.from=PlanetLevelText
 dependency216.to=OptionsMenu
 dependency645.type=UsesDependency
 dependency539.type=UsesDependency
+<<<<<<< Updated upstream
 dependency364.to=Block
 target213.type=ClassTarget
+=======
+target213.type=ClassTarget
+dependency364.to=Block
+>>>>>>> Stashed changes
 target30.name=Trapdoor
 dependency465.from=Level19
 target111.showInterface=false
@@ -5627,6 +8471,7 @@ target217.typeParameters=
 target5.editor.height=700
 target11.height=50
 target111.naviview.expanded=true
+<<<<<<< Updated upstream
 target110.naviview.expanded=true
 dependency754.type=UsesDependency
 target23.showInterface=false
@@ -5640,6 +8485,21 @@ target117.x=110
 dependency523.to=Block
 dependency459.to=FallingBlock
 target40.width=90
+=======
+dependency754.type=UsesDependency
+target110.naviview.expanded=true
+target23.showInterface=false
+target86.name=IconLaser
+dependency574.from=Level32
+target170.y=4030
+target117.y=970
+target170.x=190
+target128.editor.height=700
+target117.x=110
+dependency523.to=Block
+target40.width=90
+dependency459.to=FallingBlock
+>>>>>>> Stashed changes
 dependency671.to=PlatformPlayer
 target85.typeParameters=
 class.ShieldText.superclass=WeaponShop
@@ -5651,6 +8511,7 @@ class.BomberShip.superclass=Entity
 class.Level92.superclass=Platformer
 dependency405.from=Player
 dependency618.to=SpikeBlock
+<<<<<<< Updated upstream
 dependency792.from=Level94
 dependency830.to=Credits
 dependency183.type=UsesDependency
@@ -5674,11 +8535,37 @@ class.PlatformPlayer.image=PlayerRight.png
 dependency676.from=Level5
 dependency52.to=WeaponBG
 target218.width=100
+=======
+dependency830.to=Credits
+dependency792.from=Level94
+dependency183.type=UsesDependency
+dependency800.type=UsesDependency
+target162.editor.y=43
+target76.height=50
+target162.editor.x=40
+dependency567.from=Level30
+dependency766.to=Level93
+class.Level25.superclass=Platformer
+target70.type=ClassTarget
+target26.name=CostText
+target190.editor.height=700
+dependency620.from=Level40
+class.GifImage.superclass=
+target133.typeParameters=
+dependency292.type=UsesDependency
+target78.width=90
+class.PlatformPlayer.image=PlayerRight.png
+dependency193.to=Object
+dependency676.from=Level5
+dependency52.to=WeaponBG
+target218.width=150
+>>>>>>> Stashed changes
 target88.showInterface=false
 dependency120.type=UsesDependency
 dependency75.type=UsesDependency
 target88.editor.width=753
 dependency204.to=OptionsMenu
+<<<<<<< Updated upstream
 target179.naviview.expanded=false
 dependency785.from=Level91
 target57.editor.width=900
@@ -5690,18 +8577,37 @@ target19.name=Space
 target63.type=ClassTarget
 target82.editor.width=900
 target193.name=WaterBlock
+=======
+target179.naviview.expanded=true
+dependency785.from=Level91
+target57.editor.width=900
+dependency176.type=UsesDependency
+dependency352.to=ExitPortal
+target150.showInterface=false
+target26.editor.width=900
+target63.type=ClassTarget
+target19.name=Space
+target82.editor.width=900
+target193.name=Level26
+>>>>>>> Stashed changes
 dependency288.to=Block
 dependency507.from=Planet
 target47.editor.y=43
 target47.editor.x=40
 target51.editor.width=900
 target186.typeParameters=
+<<<<<<< Updated upstream
 dependency285.type=UsesDependency
 dependency12.type=UsesDependency
+=======
+dependency12.type=UsesDependency
+dependency285.type=UsesDependency
+>>>>>>> Stashed changes
 target167.editor.height=700
 target20.editor.width=900
 dependency511.to=SpeedDes
 dependency722.from=Level61
+<<<<<<< Updated upstream
 dependency616.from=Level40
 target66.height=50
 dependency68.type=UsesDependency
@@ -5711,12 +8617,24 @@ target99.x=100
 dependency394.type=UsesDependency
 class.UnlockButton.superclass=WeaponShop
 dependency778.from=Level91
+=======
+target66.height=50
+dependency616.from=Level40
+dependency447.to=WireButton
+dependency68.type=UsesDependency
+target99.y=4450
+target99.x=100
+dependency394.type=UsesDependency
+dependency778.from=Level91
+class.UnlockButton.superclass=WeaponShop
+>>>>>>> Stashed changes
 dependency595.to=ExitPortal
 target210.editor.height=700
 dependency831.from=IconShip
 target147.editor.width=900
 dependency116.type=UsesDependency
 target116.editor.width=900
+<<<<<<< Updated upstream
 target172.editor.width=900
 dependency606.to=BulletLauncher
 class.IconShip.image=IconShip.png
@@ -5724,10 +8642,20 @@ target133.name=Cart
 target173.height=50
 dependency278.type=UsesDependency
 dependency50.from=Space
+=======
+dependency606.to=BulletLauncher
+target172.editor.width=900
+class.IconShip.image=IconShip.png
+target133.name=PlayerShip
+target173.height=50
+dependency50.from=Space
+dependency278.type=UsesDependency
+>>>>>>> Stashed changes
 target141.editor.width=900
 dependency754.to=Level40
 dependency331.type=UsesDependency
 target59.type=ClassTarget
+<<<<<<< Updated upstream
 target120.naviview.expanded=true
 target110.editor.width=1280
 target189.name=Level22
@@ -5743,32 +8671,69 @@ dependency440.type=UsesDependency
 class.PlanetTwo.superclass=Planet
 class.BomberShip.image=AlienBomber.png
 dependency40.to=Particle
+=======
+target110.editor.width=1280
+target120.naviview.expanded=false
+target189.name=Level25
+dependency609.from=Level33
+dependency151.from=StartMenu
+target118.height=50
+target117.width=80
+dependency181.to=PlatformPlayer
+dependency387.type=UsesDependency
+target77.y=2530
+target77.x=220
+class.PlanetTwo.superclass=Planet
+dependency440.type=UsesDependency
+dependency40.to=Particle
+class.BomberShip.image=AlienBomber.png
+>>>>>>> Stashed changes
 target9.editor.width=900
 target64.editor.height=700
 dependency718.from=Level22
 dependency260.from=UnlockButton
 dependency109.type=UsesDependency
+<<<<<<< Updated upstream
 dependency849.to=PlasmaTrail
 dependency496.type=UsesDependency
 target163.typeParameters=
 dependency128.to=AsteroidMedium
 target126.name=Object
 target170.type=ClassTarget
+=======
+dependency496.type=UsesDependency
+target163.typeParameters=
+target170.type=ClassTarget
+target126.name=Map
+dependency128.to=AsteroidMedium
+>>>>>>> Stashed changes
 dependency340.to=BulletLauncher
 target3.editor.width=900
 target6.height=50
 dependency43.from=Entity
 dependency827.from=OuterSpace
+<<<<<<< Updated upstream
 class.ElevatorBlock.superclass=Block
 dependency276.to=FireballDes
 dependency218.type=UsesDependency
 target20.height=50
+=======
+dependency276.to=FireballDes
+class.ElevatorBlock.superclass=Block
+target20.height=50
+dependency218.type=UsesDependency
+>>>>>>> Stashed changes
 dependency144.from=Shop
 dependency99.from=Cannon
 target112.showInterface=false
 dependency433.type=UsesDependency
+<<<<<<< Updated upstream
 target111.width=80
 target203.height=50
+=======
+target203.height=50
+target111.width=80
+>>>>>>> Stashed changes
 target24.showInterface=false
 dependency327.type=UsesDependency
 target55.y=2290
@@ -5778,15 +8743,28 @@ dependency253.from=Shop
 target129.editor.height=700
 dependency489.type=UsesDependency
 dependency583.to=ExitPortal
+<<<<<<< Updated upstream
 target119.name=MenuBG
 target163.type=ClassTarget
 dependency542.type=UsesDependency
+=======
+dependency542.type=UsesDependency
+target163.type=ClassTarget
+target119.name=MenuBG
+>>>>>>> Stashed changes
 target186.editor.y=23
 target186.editor.x=0
 dependency3.to=Ship
 target110.type=ClassTarget
+<<<<<<< Updated upstream
 class.Planet.superclass=SpaceObject
 target4.naviview.expanded=true
 dependency362.from=Platformer
 target3.naviview.expanded=true
+=======
+target4.naviview.expanded=true
+class.Planet.superclass=SpaceObject
+target3.naviview.expanded=true
+dependency362.from=Platformer
+>>>>>>> Stashed changes
 =\=\=\=\=\=\=
