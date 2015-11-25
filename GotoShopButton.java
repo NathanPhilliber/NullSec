@@ -12,6 +12,7 @@ public class GotoShopButton extends Menu
         super();
         setImage("images/GotoShop.png");
     }
+
     public void act() 
     {
         if(Greenfoot.mousePressed(null)){
@@ -23,11 +24,12 @@ public class GotoShopButton extends Menu
             }
         }
     }   
-    
+
     public void select(boolean sel){
-        GreenfootSound ding = new GreenfootSound("sounds/buttonSound.wav");
-            ding.play();
+
         if(sel){
+            GreenfootSound ding = new GreenfootSound("sounds/buttonSound.wav");
+            ding.play();
             Space space = (Space) getWorld();
             Ship ship = space.getShip();
             Greenfoot.setWorld(new Shop(ship.getSpaceX(), ship.getSpaceY()));

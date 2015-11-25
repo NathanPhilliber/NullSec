@@ -349,6 +349,8 @@ public class Player extends Object implements DamageTaker
         if(obj != null){
             if(obj instanceof Planet){
                 if(touch(obj)){ //Don't run this disgusting function unless neceessary
+                    GreenfootSound launch = new GreenfootSound("sounds/woosh.mp3");
+                    launch.play();
                     Planet planet = (Planet) obj;
                     lockPlayer(true);
                     currentPlanet = planet;

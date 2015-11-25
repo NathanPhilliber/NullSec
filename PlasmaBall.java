@@ -9,12 +9,13 @@ public class PlasmaBall extends Weapon implements ProjectileObject
     private int step = 0;
     
     private double speed = 7.0;
-    
-    
+    private boolean firstTime = true;
+
 
     public void act() 
     {
         super.act();
+        
         waveMove(1);
         spaceMove(speed);
         checkRemoval();//LAST

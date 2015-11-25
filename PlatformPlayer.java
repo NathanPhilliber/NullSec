@@ -332,6 +332,8 @@ public class PlatformPlayer extends PlatformObject
             kill();
         }
         else if(anySlime){
+            GreenfootSound chime = new GreenfootSound("sounds/spring.wav");
+            chime.play();
             velY = -velY*.97;
             addRealY(-3);
             onBlock = true;
@@ -381,6 +383,8 @@ public class PlatformPlayer extends PlatformObject
             {
                 if(firstTime)
                 {
+                    GreenfootSound launch = new GreenfootSound("sounds/launch.mp3");
+                    launch.play();
                     List<Actor> port = w.getObjects(ExitPortal.class);
                     for(Actor p : port)
                     {

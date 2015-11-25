@@ -26,9 +26,10 @@ public class ShopBackButton extends Menu
     }   
     
     public void select(boolean sel){
-        GreenfootSound ding = new GreenfootSound("sounds/buttonSound.wav");
-            ding.play();
+        
         if(sel){
+            GreenfootSound ding = new GreenfootSound("sounds/buttonSound.wav");
+        ding.play();
             Shop shop = (Shop) getWorld();
             shop.exit();
         }

@@ -109,8 +109,6 @@ public class Space extends World
         addObject(new Cannon(),getWidth()/2,getHeight()/2);
 
         
-        
-
         secx = (int) Math.ceil(((int) ship.getSpaceX()/10 + 460)/getWidth());
         secy = (int) Math.ceil(((int) ship.getSpaceY()/10 + 270)/getWidth());
     }
@@ -372,6 +370,9 @@ public class Space extends World
         {
             if(firstPass)
             {
+                GreenfootSound launch = new GreenfootSound("sounds/radar.mp3");
+                launch.setVolume(25);
+                launch.play();
 
                 Map map = new Map(getSector(ship));
 
@@ -432,11 +433,11 @@ public class Space extends World
     public int getSectorMiddleX(int sector)
     {
         int sectorX = 0;
-        
+
         if(sector == 0 || sector == 3 || sector == 6) { sectorX = 0; }
         if(sector == 1 || sector == 4 || sector == 7) { sectorX = 1; }
         if(sector == 2 || sector == 5 || sector == 8) { sectorX = 2; }
-       
+
         return (sectorX)*(getWidth()*10);
     }
 
@@ -444,11 +445,11 @@ public class Space extends World
     public int getSectorMiddleY(int sector)
     {
         int sectorY = 0;
-        
+
         if(sector == 0 || sector == 1 || sector == 2) { sectorY = 0; }
         if(sector == 3 || sector == 4 || sector == 5) { sectorY = 1; }
         if(sector == 6 || sector == 7 || sector == 8) { sectorY = 2; }
-        
+
         return (sectorY)*(getHeight()*10);
     }
 

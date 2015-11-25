@@ -206,7 +206,7 @@ public class OuterSpace extends Space
         addObject(planet34,3000, 0);
         //blue with circles
 
-        Planet planet35 = new Planet(15920, 9333,  new Level7(15920, 9333), "images/Planet31.png", "36", 2);
+        Planet planet35 = new Planet(15920, 9333,  new Level100(15920, 9333), "images/Planet31.png", "36", 2);
         addObject(planet35,3000, 0);
         //green and blue
 

@@ -120,7 +120,7 @@ public class Object extends SmoothMover
             GreenfootSound explodeSound = new GreenfootSound("sounds/explode1.mp3");
             explodeSound.play();
         }
-        
+
     }
 
     //Written by Manny
@@ -384,6 +384,11 @@ public class Object extends SmoothMover
     //Written by John
     protected void plasmaBall(int angle,int LV,double X,double Y,boolean isPlayer)
     {
+        if(isOffEdge(100) == false){
+            GreenfootSound shootSound = new GreenfootSound("plasma.wav");
+            shootSound.setVolume(80);
+            shootSound.play();
+        }
         spawnPlasmaBall(getRotation(),X,Y,isPlayer);
         if (LV>=1)
         {
