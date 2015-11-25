@@ -12,7 +12,7 @@ public class WarningBG extends RespawnMenu
      * Act - do whatever the WarningBG wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    private int delay = 10;
+    private int delay = 30;
     
     public void act() 
     {

@@ -19,7 +19,6 @@ public class HUD extends Object
     
     public void addedToWorld(World world){
         space = (Space) getWorld();
-        
     }
 }
 interface weaponGUI{

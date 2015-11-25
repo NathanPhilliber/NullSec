@@ -29,7 +29,7 @@ public class Gold extends SpaceObject
         if(killGold < 0){
             deleteMe = true;
         }
-        //setImage(coinAnimation.getCurrentImage());
+        setImage(coinAnimation.getCurrentImage());
         deleteMe();
     }   
 

@@ -187,14 +187,14 @@ public class Shop extends World
             switch(i){
                 case 0:
 
-                addObject(ship, (getWidth()/2)-45, 195);
-                addObject(speeddes, (getWidth()/2)+60, 210);
+                addObject(ship, (int) (getWidth()*.45), (int) (getHeight()*.36));
+                addObject(speeddes, (int)(getWidth()*.57), 210);
 
-                addObject(costtext, 544,247);
+                addObject(costtext, (int) (getWidth()*.591),247);
                 costNumber = new Number(Player.SPEED_COST[Player.speedLevel]+"", 1);
                 addObject(costNumber, 610,240); 
 
-                addObject(levelupengine0, getWidth()/2+320, getHeight()/2+15);
+                addObject(levelupengine0, (int) (getWidth()*.85), 285);
 
                 break;
                 case 1:
@@ -206,7 +206,7 @@ public class Shop extends World
                 costNumber = new Number(Player.TURN_SPEED_COST[Player.turnSpeedLevel]+"", 1);
                 addObject(costNumber, 610,240);
 
-                addObject(levelupengine1, getWidth()/2+320, getHeight()/2+15);
+                addObject(levelupengine1, (int) (getWidth()*.85), 285);
 
                 break;
                 case 2:
@@ -218,7 +218,7 @@ public class Shop extends World
                 costNumber = new Number(Player.BOOST_BAR_COST[Player.boostBarLevel]+"", 1);
                 addObject(costNumber, 610,240); 
 
-                addObject(levelupengine2, getWidth()/2+320, getHeight()/2+15);
+                addObject(levelupengine2, (int) (getWidth()*.85), 285);
 
                 break;
                 case 3:
@@ -262,7 +262,7 @@ public class Shop extends World
                 addObject(lasertext2, getWidth()/2+150, 80);
                 addObject(laserdes, (getWidth()/2) + 139, 153);
                 if(!Player.projectileEnabled){
-                    addObject(unlock0, getWidth()/2+150, getHeight()/2+15); 
+                    addObject(unlock0, (int) (getWidth()*.85), getHeight()/2+15); 
                     addObject(costtext, 544,247);
                     costNumber = new Number(Weapon.PROJECTILE_COST[Player.projectileLevel]+"", 1);
                     addObject(costNumber, 610,240); 
@@ -274,7 +274,7 @@ public class Shop extends World
                     addObject(leveltext, getWidth()/2+15-50, getHeight()/2);
 
                     if(Weapon.PROJECTILE_COST.length > Player.projectileLevel){
-                        addObject(levelup0, getWidth()/2+320, getHeight()/2+15);
+                        addObject(levelup0, (int) (getWidth()*.85), getHeight()/2+15);
                         addObject(costtext, 712,245);
                         costNumber = new Number(Weapon.PROJECTILE_COST[Player.projectileLevel]+"", 1);
                         addObject(costNumber, 775,240); 
@@ -287,7 +287,7 @@ public class Shop extends World
                 addObject(beamdes, (getWidth()/2) + 139, 157);
 
                 if(!Player.beamEnabled){
-                    addObject(unlock1, getWidth()/2+150, getHeight()/2+15);
+                    addObject(unlock1, (int) (getWidth()*.85), getHeight()/2+15);
                     addObject(costtext, 544,247);
                     costNumber = new Number(Weapon.BEAM_COST[Player.beamLevel]+"", 1);
                     addObject(costNumber, 610,240); 
@@ -297,7 +297,7 @@ public class Shop extends World
                     addObject(levelNumber, getWidth()/2+150-50, getHeight()/2);
                     addObject(leveltext, getWidth()/2+15-50, getHeight()/2);
                     if(Weapon.BEAM_COST.length > Player.beamLevel){
-                        addObject(levelup1, getWidth()/2+320, getHeight()/2+15);
+                        addObject(levelup1,(int) (getWidth()*.85), getHeight()/2+15);
                         addObject(costtext, 712,245);
                         costNumber = new Number(Weapon.BEAM_COST[Player.beamLevel]+"", 1);
                         addObject(costNumber, 775,240); 
@@ -309,7 +309,7 @@ public class Shop extends World
                 addObject(missiletext2, getWidth()/2+150,80);
                 addObject(missiledes, (getWidth()/2) + 139, 157);
                 if(!Player.missileEnabled){
-                    addObject(unlock2, getWidth()/2+150, getHeight()/2+15);
+                    addObject(unlock2, (int) (getWidth()*.85), getHeight()/2+15);
                     addObject(costtext, 544,247);
                     costNumber = new Number(Weapon.MISSILE_COST[Player.missileLevel]+"", 1);
                     addObject(costNumber, 610,240); 
@@ -320,7 +320,7 @@ public class Shop extends World
                     addObject(leveltext, getWidth()/2+15-50, getHeight()/2);
 
                     if(Weapon.MISSILE_COST.length > Player.missileLevel){
-                        addObject(levelup2, getWidth()/2+320, getHeight()/2+15);
+                        addObject(levelup2, (int) (getWidth()*.85), getHeight()/2+15);
                         addObject(costtext, 712,245);
                         costNumber = new Number(Weapon.MISSILE_COST[Player.missileLevel]+"", 1);
                         addObject(costNumber, 775,240); 
@@ -332,7 +332,7 @@ public class Shop extends World
                 addObject(minetext2, getWidth()/2+150, 80);
                 addObject(minedes,(getWidth()/2) + 139, 157);
                 if(!Player.mineEnabled){
-                    addObject(unlock3, getWidth()/2+150, getHeight()/2+15);
+                    addObject(unlock3, (int) (getWidth()*.85), getHeight()/2+15);
                     addObject(costtext, 544,247);
                     costNumber = new Number(Weapon.MINE_COST[Player.mineLevel]+"", 1);
                     addObject(costNumber, 610,240); 
@@ -343,7 +343,7 @@ public class Shop extends World
                     addObject(leveltext, getWidth()/2+15-50, getHeight()/2);
 
                     if(Weapon.MINE_COST.length > Player.mineLevel){
-                        addObject(levelup3, getWidth()/2+320, getHeight()/2+15);
+                        addObject(levelup3, (int) (getWidth()*.85), getHeight()/2+15);
                         addObject(costtext, 712,245);
                         costNumber = new Number(Weapon.MINE_COST[Player.mineLevel]+"", 1);
                         addObject(costNumber, 775,240); 
@@ -355,7 +355,7 @@ public class Shop extends World
                 addObject(fireballtext2, getWidth()/2+150, 80);
                 addObject(fireballdes, (getWidth()/2) + 139, 157);
                 if(!Player.fireballEnabled){
-                    addObject(unlock4, getWidth()/2+150, getHeight()/2+15);
+                    addObject(unlock4, (int) (getWidth()*.85), getHeight()/2+15);
                     addObject(costtext, 544,247);
                     costNumber = new Number(Weapon.FIREBALL_COST[Player.fireballLevel]+"", 1);
                     addObject(costNumber, 610,240); 
@@ -366,7 +366,7 @@ public class Shop extends World
                     addObject(leveltext, getWidth()/2+15-50, getHeight()/2);
 
                     if(Weapon.FIREBALL_COST.length > Player.fireballLevel){
-                        addObject(levelup4, getWidth()/2+320, getHeight()/2+15);
+                        addObject(levelup4, (int) (getWidth()*.85), getHeight()/2+15);
                         addObject(costtext, 712,245);
                         costNumber = new Number(Weapon.FIREBALL_COST[Player.fireballLevel]+"", 1);
                         addObject(costNumber, 775,240); 
@@ -378,7 +378,7 @@ public class Shop extends World
                 addObject(plasmatext2, getWidth()/2+150, 80);
                 addObject(plasmades, (getWidth()/2) + 139, 157);
                 if(!Player.plasmaballEnabled){
-                    addObject(unlock5, getWidth()/2+150, getHeight()/2+15);
+                    addObject(unlock5, (int) (getWidth()*.85), getHeight()/2+15);
                     addObject(costtext, 544,247);
                     costNumber = new Number(Weapon.PLASMA_COST[Player.plasmaLevel]+"", 1);
                     addObject(costNumber, 610,240); 
@@ -389,7 +389,7 @@ public class Shop extends World
                     addObject(leveltext, getWidth()/2+15-50, getHeight()/2);
 
                     if(Weapon.PLASMA_COST.length > Player.plasmaLevel){
-                        addObject(levelup5, getWidth()/2+320, getHeight()/2+15);
+                        addObject(levelup5, (int) (getWidth()*.85), 285);
                         addObject(costtext, 712,245);
                         costNumber = new Number(Weapon.PLASMA_COST[Player.plasmaLevel]+"", 1);
                         addObject(costNumber, 775,240); 

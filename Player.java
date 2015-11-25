@@ -314,21 +314,16 @@ public class Player extends Object implements DamageTaker
         {
             flashRed();
         }
-        else
-        {
-            space.removeObjects(space.getObjects(WarningSector.class));
-        }
     }
 
     public void flashRed()
     {
-        WarningSector warning = new WarningSector();
         WarningBG respawnBG = new WarningBG();
         flash++;
-        if(flash%40 == 0)
+        if(flash%60 == 0)
         {
-            space.addObject(warning, space.getWidth()/2, space.getHeight()/2);
             space.addObject(respawnBG, space.getWidth()/2, space.getHeight()/2);
+            respawnBG.getImage().scale(space.getWidth(), space.getHeight());
         }
     }
 

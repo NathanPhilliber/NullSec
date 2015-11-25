@@ -89,7 +89,7 @@ public class Space extends World
 
         setPaintOrder(RespawnButton.class, RespawnMenu.class, RespawnMenuBG.class,
             MapBackButton.class, PlayerIcon.class, Map.class, MapButton.class, GotoShopButton.class, GoldText.class,
-            Counter.class, TutorialObjectManager.class, DockMenu.class, OutsideMP.class, 
+            Counter.class, BlackBG.class, TutorialObjectManager.class, DockMenu.class, OutsideMP.class, 
             PlayerShip.class, PlanetMP.class, PlanetCompletedMP.class,EnemyShip.class, InsideMP.class, CompletedLabel.class, IconProjectile.class, 
             IconFire.class, MissileIcon.class, IconPlasma.class, IconLaser.class, IconMine.class, 
             WeaponBG.class, BoostBarInside.class, BoostBarSegment.class, BoostBarOutside.class,
@@ -376,29 +376,31 @@ public class Space extends World
                 Map map = new Map(getSector(ship));
 
                 //System.out.println(secPos);
-                int x = (int) (ship.getSpaceX()/10) +  getWidth()/2;
-                int y = (int) (ship.getSpaceY()/10) + getHeight()/2;
-                int newx = (int) (ship.getSpaceX()/10) +  getWidth()/2;
-                int newy = (int) (ship.getSpaceY()/10) + getHeight()/2;
+                int x = (int) (ship.getSpaceX()/10) +  920/2;
+                int y = (int) (ship.getSpaceY()/10) +540/2;
+                int newx = (int) (ship.getSpaceX()/10) +  920/2;
+                int newy = (int) (ship.getSpaceY()/10) + 540/2;
 
                 if(x > getWidth())
                 {
-                    newx = x - getWidth()*secx;
+                    newx = x - 920*secx;
                 }
                 if(y > getHeight())
                 {
-                    newy = y - getHeight()*secy;
+                    newy = y - 540*secy;
                 }
                 if(x < 0)
                 {
-                    newx = x + getWidth()*secx;
+                    newx = x + 920*secx;
                 }
                 if(y < 0)
                 {
-                    newy = y + getHeight()*secy;
+                    newy = y + 540*secy;
                 }
                 addObject(map, getWidth()/2, getHeight()/2);
-                map.getImage().scale(OptionsMenu.getWorldWidth(), OptionsMenu.getWorldHeight());
+                BlackBG bg = new BlackBG();
+                addObject(bg, getWidth()/2, getHeight()/2);
+                bg.getImage().scale(OptionsMenu.getWorldWidth(), OptionsMenu.getWorldHeight());
                 addObject(new PlayerIcon(), newx, newy);
                 addObject(mapBackButton, 471, 18);
                 mapIsOpen = true;
@@ -452,13 +454,13 @@ public class Space extends World
 
     public int getSector(SpaceObject ship)
     {
-        int x = (int) (ship.getSpaceX()/10) + getWidth()/2;
-        int y = (int) (ship.getSpaceY()/10) + getHeight()/2;
+        int x = (int) (ship.getSpaceX()/10) + 920/2;
+        int y = (int) (ship.getSpaceY()/10) + 540/2;
 
         //int[] secArray = {0, 1, 2, 10, 11, 12, 20, 21, 22};
         int[] secArray = {0, 10, 20, 1, 11, 21, 2, 12, 22};
-        secx = (x>0) ? (int) Math.floor(x/getWidth()) : -1;
-        secy = (y>0) ? (int) Math.floor(y/getHeight()) : -1;
+        secx = (x>0) ? (int) Math.floor(x/920) : -1;
+        secy = (y>0) ? (int) Math.floor(y/540) : -1;
 
         String a = secx + "" + secy;
         String b = "-1";
@@ -472,15 +474,15 @@ public class Space extends World
 
     public int getSector(Player ship)
     {
-        int x = (int) (ship.getSpaceX()/10) +  getWidth()/2;
-        int y = (int) (ship.getSpaceY()/10) + getHeight()/2;
+        int x = (int) (ship.getSpaceX()/10) +  920/2;
+        int y = (int) (ship.getSpaceY()/10) + 540/2;
 
         //int[] secArray = {0, 1, 2, 10, 11, 12, 20, 21, 22};
 
         int[] secArray = {0, 10, 20, 1, 11, 21, 2, 12, 22};
 
-        secx = (x>0) ? (int) Math.floor(x/getWidth()) : -1;
-        secy = (y>0) ? (int) Math.floor(y/getHeight()) : -1;
+        secx = (x>0) ? (int) Math.floor(x/920) : -1;
+        secy = (y>0) ? (int) Math.floor(y/540) : -1;
 
         String a = secx + "" + secy;
         String b = "-1";

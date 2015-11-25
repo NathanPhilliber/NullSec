@@ -8,7 +8,6 @@ import greenfoot.*;
  */
 public class PlasmaShip extends Entity
 {
-    World w;
     
     public PlasmaShip(){
         this(0,0);
@@ -37,7 +36,7 @@ public class PlasmaShip extends Entity
     public void act() 
     {
         super.act();
-        addTrail();
+        //addTrail();
     }    
 
     public void attackMode(){
@@ -59,12 +58,17 @@ public class PlasmaShip extends Entity
 
         }
     }
-    public void addedToWorld(World world)
-    {
-        World w = getWorld();
-    }
+
     public void addTrail()
     {
-        w.addObject(new PlasmaTrail(), getX(), getY());
+        PlasmaTrail trail = new PlasmaTrail();
+        space.addObject(trail, 0, -1000);
+        trail.setSpaceX(getSpaceX() + cosRot()*-43);
+        trail.setSpaceY(getSpaceY());
+        
+        PlasmaTrail trail2 = new PlasmaTrail();
+        space.addObject(trail2, 0, -1000);
+        trail2.setSpaceX(getSpaceX() + cosRot()*8);
+        trail2.setSpaceY(getSpaceY() + sinRot()*-43);
     }
 }

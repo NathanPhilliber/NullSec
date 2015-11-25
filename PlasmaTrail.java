@@ -8,7 +8,7 @@ import greenfoot.*;
  */
 public class PlasmaTrail extends SpaceObject
 {
-    private int delay = 25;
+    private int delay = 50;
     public void act() 
     {
         super.act();
@@ -17,7 +17,7 @@ public class PlasmaTrail extends SpaceObject
     public void fade()
     {
         delay--;
-        getImage().setTransparency(delay*10);
+        getImage().setTransparency(delay*5);
         if(delay <= 0)
         {
             getWorld().removeObject(this);

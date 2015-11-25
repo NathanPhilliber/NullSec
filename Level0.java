@@ -28,8 +28,7 @@ public class Level0 extends Platformer{
 
         int offsetX = 0;
         int offsetY = (getHeight()-540)/2;
-
-        setBackground("PlanetOneBG.png");
+        
         addObject(new PlatformPlayer(),50+offsetX,200+offsetY);
         addObject(new Block(17),13+offsetX,472+offsetY);
         addObject(new Block(17),13+offsetX,526+offsetY);
