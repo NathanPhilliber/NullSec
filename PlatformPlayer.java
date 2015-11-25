@@ -154,6 +154,8 @@ public class PlatformPlayer extends PlatformObject
             checkSpecialCollisions();
             updateGoldScore();
             flipMe();
+            checkMelting();
+            checkSuffocation();
             updatePosition();//LAST
         }
 
@@ -560,6 +562,32 @@ public class PlatformPlayer extends PlatformObject
             deleteMe = true;
         }
     }
+    
+    private int suffocationTime = 0;
+
+    public void checkSuffocation(){
+        if(getOneObjectAtOffset(0,-20, Block.class) != null){
+            suffocationTime++;
+        }
+        else{
+            suffocationTime = 0;
+        }
+        if(suffocationTime > 3){
+            kill();
+        }
+    }
+    private int meltDelay = 0;
+    public void checkMelting(){
+        if(MeltingBlock.isMelting){
+            meltDelay++;
+            if(meltDelay > 9){
+                meltDelay = 0;
+                MeltingBlock.isMelting = false;
+                GreenfootSound noise = new GreenfootSound("sounds/pop.wav");
+                noise.play();
+            }
+        }
+    }
 
     //Written by John (fourth rewrite)
     private void updatePosition()
@@ -627,6 +655,7 @@ public class PlatformPlayer extends PlatformObject
                 if(b instanceof MeltingBlock){
                     MeltingBlock melt = (MeltingBlock) b;
                     melt.melt(5);
+
                 }
                 addRealX(-getVelX()/steps);
                 setLocation(getRealX()-w.getXOffset(),getExactY());
@@ -649,6 +678,7 @@ public class PlatformPlayer extends PlatformObject
                 if(b instanceof MeltingBlock){
                     MeltingBlock melt = (MeltingBlock) b;
                     melt.melt(5);
+
                 }
                 if(b instanceof TraceHead){
                     TraceHead t = (TraceHead) b;
@@ -827,6 +857,8 @@ public class PlatformPlayer extends PlatformObject
     {
         if ((Greenfoot.isKeyDown("space")||Greenfoot.isKeyDown("w")) && onBlock)
         {
+            GreenfootSound noise = new GreenfootSound("sounds/jump.wav");
+            noise.play();
             onBlock=false;
             if(gravity > 0){
                 velY-=jumpSpeed;

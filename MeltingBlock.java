@@ -9,6 +9,8 @@ public class MeltingBlock extends Block
     private int delayDelete = 0;
     private int delay = 0;
     private boolean start = false;
+    
+    public static boolean isMelting = false;
 
     public int meltDelay = 9;
 
@@ -66,6 +68,7 @@ public class MeltingBlock extends Block
     public void melt(int f){
 
         if(PlatformPlayer.locked == false){
+            isMelting = true;
             deleteMe = true;
             start = true;
 
