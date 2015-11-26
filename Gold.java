@@ -20,6 +20,7 @@ public class Gold extends SpaceObject
     public Gold(double x, double y, int value){
         super(x,y);
         this.value = value;
+        setImage(coinAnimation.getCurrentImage());
     }
 
     public void act() 
@@ -29,7 +30,7 @@ public class Gold extends SpaceObject
         if(killGold < 0){
             deleteMe = true;
         }
-        setImage(coinAnimation.getCurrentImage());
+        //setImage(coinAnimation.getCurrentImage());
         deleteMe();
     }   
 

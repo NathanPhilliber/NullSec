@@ -82,6 +82,7 @@ public class TutorialObjectManager extends SpaceObject
             currentTick = 0;
             stage++;
             ding2.play();
+            Greenfoot.setWorld(new OuterSpace());
         }
 
 
