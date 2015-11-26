@@ -149,7 +149,7 @@ public class OuterSpace extends Space
         Planet planet23 = new Planet(18745, 6045,  new Level13(18745,6045), "images/Planet20.png", "24", 2);
         addObject(planet23,3000, 0);
         //white 
-        Planet planet24 = new Planet(18745, 3927,  new Level37(18745,3927), "images/Planet22.png", "25", 3);
+        Planet planet24 = new Planet(18745, 3927,  new Level102(18745,3927), "images/Planet22.png", "25", 3);
         addObject(planet24,3000, 0);
         //green/white
         
@@ -221,6 +221,10 @@ public class OuterSpace extends Space
     public void act()
     {
         super.act();
+        if(Greenfoot.isKeyDown("i")){
+            activeMusic.stop();
+            calmMusic.stop();
+        }
         //playAmbientMusic();
     }
 

@@ -334,8 +334,10 @@ public class PlatformPlayer extends PlatformObject
             kill();
         }
         else if(anySlime){
-            GreenfootSound chime = new GreenfootSound("sounds/spring.wav");
-            chime.play();
+            if(Math.abs(velY)>3){
+                GreenfootSound chime = new GreenfootSound("sounds/spring.wav");
+                chime.play();
+            }
             velY = -velY*.97;
             addRealY(-3);
             onBlock = true;
@@ -562,7 +564,7 @@ public class PlatformPlayer extends PlatformObject
             deleteMe = true;
         }
     }
-    
+
     private int suffocationTime = 0;
 
     public void checkSuffocation(){
