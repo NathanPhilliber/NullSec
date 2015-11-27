@@ -111,7 +111,6 @@ public class Entity extends SpaceObject implements DamageTaker
     public static final int entityCap = 15;
 
     public int maxCoins = 20;
-    
 
     /**********************************************************
      * 
@@ -167,14 +166,12 @@ public class Entity extends SpaceObject implements DamageTaker
             miniMap(new EnemyShip());
 
             if(isScheduledForRemoval()){
-
+                numberEntities--;
                 addExplosion(getSpaceX(), getSpaceY(), !isOffscreen());
                 isAlive = false;
                 dropCoins();
             }
-            if(checkRemoval()){
-                numberEntities--;
-            }
+            checkRemoval();
         }
     }
 
@@ -192,7 +189,6 @@ public class Entity extends SpaceObject implements DamageTaker
             modeChanged = false;
 
         }
-
 
         switch(getMode()){
             case EXPLORE_MODE: /***************** EXPLORE MODE */

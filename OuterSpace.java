@@ -32,6 +32,7 @@ public class OuterSpace extends Space
     public OuterSpace(double spawnX, double spawnY){
         super(spawnX, spawnY);
         prepareObjects();
+        Entity.numberEntities = 0;
     }
 
     //Written by Trace
@@ -202,15 +203,15 @@ public class OuterSpace extends Space
         //pink
         
 
-        Planet planet34 = new Planet(16887, 10999,  new Level15(16887, 10999), "images/Planet34.png", "35", 1);
+        Planet planet34 = new Planet(16887, 10999,  new Level9001(16887, 10999), "images/Planet34.png", "35", 1);
         addObject(planet34,3000, 0);
         //blue with circles
 
-        Planet planet35 = new Planet(15920, 9333,  new Level100(15920, 9333), "images/Planet31.png", "36", 2);
+        Planet planet35 = new Planet(15920, 9333,  new Level000(15920, 9333), "images/Planet31.png", "36", 2);
         addObject(planet35,3000, 0);
         //green and blue
 
-        Planet planet36 = new Planet(14893, 10957,  new Level7(14893, 10957), "images/Planet32.png", "37", 3);
+        Planet planet36 = new Planet(14893, 10957,  new Level100(14893, 10957), "images/Planet32.png", "37", 3);
         addObject(planet36,3000, 0);
         //brown
        
