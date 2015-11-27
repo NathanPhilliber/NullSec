@@ -105,6 +105,7 @@ public class CutsceneA extends Cutscene
             if(time == 255){
                 stage++;
                 time = 0;
+                end();
             }
         }
 

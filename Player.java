@@ -130,6 +130,9 @@ public class Player extends Object implements DamageTaker
     public static boolean aboutToPlayCompletedLevel = false;
 
     public static Planet planetImGoingTo = null;
+
+    private boolean isTutorial = false;
+
     public static int getNextEngineCost(int i){
         switch(i){
             case 0:
@@ -175,7 +178,7 @@ public class Player extends Object implements DamageTaker
     //Allows ship to "move" (changes coords), displays debug info and spawns stars
     //Updates health
 
-    public void actEvery100(){
+    public void actEvery25(){
         actDelay++;
         if(actDelay > 25){
             actDelay = 0;
@@ -200,14 +203,18 @@ public class Player extends Object implements DamageTaker
 
             showDebug(false);
             scrollWeapon();
-            spawnAsteroid();  
+            if(!isTutorial){
+                spawnAsteroid();
+            }
             spawnShootingStar();
             lookForGold();
 
-            actEvery100();
+            actEvery25();
             addSmokeWhenLow();
 
-            destroyPlayerInWrongSector();
+            if(!isTutorial){
+                destroyPlayerInWrongSector();
+            }
 
             generateStars(starDensity);
             generateNebulas(nebulaDensity); //Cant shoot in nebulas
@@ -217,8 +224,10 @@ public class Player extends Object implements DamageTaker
             weaponSystems();//john
             //keepEnemyOnScreen();
 
-            if(Greenfoot.getRandomNumber(1300) == 0){
-                spawnFleet(Greenfoot.getRandomNumber(6)+1, Entity.ANY_SHIP, 30); 
+            if(!isTutorial){
+                if(Greenfoot.getRandomNumber(1300) == 0){
+                    spawnFleet(Greenfoot.getRandomNumber(6)+1, Entity.ANY_SHIP, 30); 
+                }
             }
 
             updateGoldScore();
@@ -227,7 +236,7 @@ public class Player extends Object implements DamageTaker
             checkDeath();
             respawn();
             flashWrongSector();
-            
+
             justHit = false;
         }
     } 
@@ -243,7 +252,6 @@ public class Player extends Object implements DamageTaker
             PlatformPlayer.quitting = false;
 
             if(planetImGoingTo != null){
-
 
                 planetImGoingTo.exitWorldWithoutWinning();
                 planetImGoingTo.isBeaten = false;
@@ -540,7 +548,7 @@ public class Player extends Object implements DamageTaker
         addSpaceX(getVelX());
         addSpaceY(getVelY());
     }
-    
+
     public void addSmokeWhenLow()
     {
         if(health/maxHealth < .5)
@@ -620,7 +628,7 @@ public class Player extends Object implements DamageTaker
     //Ships auto-agro at 25
 
     public void spawnFleet(int numberShips, int type, int difficulty){
-        
+
         int x = 0;
         int y = 0;
 
@@ -646,7 +654,7 @@ public class Player extends Object implements DamageTaker
 
             for(int i = 0; i < numberShips; i++){
                 if(Entity.numberEntities < Entity.entityCap)
-                spawnSetupShip(type, difficulty, x, y);
+                    spawnSetupShip(type, difficulty, x, y);
             }
         }
     }
@@ -1250,6 +1258,7 @@ public class Player extends Object implements DamageTaker
                 tutObj = new TutorialObjectManager();
                 space.addObject(tutObj,-10,-10);
                 updateAvailableWeapons(true, false, false, false, false, false);
+                isTutorial = true;
 
             }
             else{
