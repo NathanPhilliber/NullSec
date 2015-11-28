@@ -29,7 +29,7 @@ public class PlasmaShip extends Entity
 
         catchUpDis = 12000;
         
-        maxCoins = 30;
+        maxCoins = 75;
 
     }
 

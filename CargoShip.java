@@ -18,7 +18,7 @@ public class CargoShip extends Entity
         maxFlySpeed *= 1.5;
         MAX_FLY_SPEED *= 1.5;
 
-        maxCoins = 80;
+        maxCoins = 100;
     }
 
     public void act() 

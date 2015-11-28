@@ -13,6 +13,8 @@ public class CutsceneA extends Cutscene
     CutsceneObject enterText = new CutsceneObject("images/enteringnullsec.png");
     CutsceneObject redScreen = new CutsceneObject();
     CutsceneObject whiteScreen = new CutsceneObject();
+    
+    
     public CutsceneA(){
         this(null);
     }
@@ -60,6 +62,10 @@ public class CutsceneA extends Cutscene
             if(time >= 20){
                 stage++;
                 addObject(shockwave, getWidth()+100, getHeight()/2);
+                GreenfootSound sound = new GreenfootSound("sounds/woosh1.wav");
+                sound.play();
+                GreenfootSound sound1 = new GreenfootSound("sounds/woosh2.wav");
+                sound1.play();
             }
             ship.setLocation(ship.getX()-Greenfoot.getRandomNumber(16)+8,ship.getY()-Greenfoot.getRandomNumber(16)+8);
         }
@@ -87,6 +93,11 @@ public class CutsceneA extends Cutscene
             ship.setLocation(ship.getX()-Greenfoot.getRandomNumber(16)+8,ship.getY()-Greenfoot.getRandomNumber(16)+8);
             ship.turn(Greenfoot.getRandomNumber(30)-15);
             redScreen.getImage().setTransparency(Math.abs((time*8)%255));
+            if(time*8%255<8){
+                GreenfootSound sound = new GreenfootSound("sounds/beep-10.mp3");
+                sound.setVolume(50);
+                sound.play();
+            }
             if(time == 300){
                 time = 0;
                 stage++;

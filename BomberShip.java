@@ -19,7 +19,7 @@ public class BomberShip extends Entity
         
         setMaxHealth(50);
         
-        maxCoins = 35;
+        maxCoins = 65;
         
     }
     public void act() 

@@ -14,6 +14,8 @@ public class AlienShip extends Entity
 
         projectileDamage = 1.0;
         missileDamage = 1.0;
+        
+        maxCoins = 40;
     }
 
     public void act() 

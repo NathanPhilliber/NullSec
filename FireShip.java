@@ -27,7 +27,7 @@ public class FireShip extends Entity
 
         catchUpDis = 12000;
         
-        maxCoins = 30;
+        maxCoins = 60;
 
     }
 
