@@ -1439,9 +1439,6 @@ addObject(new Block(70),6331+offsetX,283+offsetY);
 addObject(new Block(70),6304+offsetX,256+offsetY);
 addObject(new Block(70),6250+offsetX,256+offsetY);
 addObject(new Block(70),6277+offsetX,256+offsetY);
-addObject(new Block(70),6277+offsetX,283+offsetY);
-addObject(new Block(70),6304+offsetX,283+offsetY);
-addObject(new Block(70),6304+offsetX,310+offsetY);
 addObject(new Block(70),6331+offsetX,310+offsetY);
 addObject(new Block(70),6331+offsetX,337+offsetY);
 addObject(new Block(70),6358+offsetX,364+offsetY);
@@ -1478,7 +1475,6 @@ addObject(new SlimeBlock(88),5710+offsetX,526+offsetY);
 addObject(new SlimeBlock(88),5737+offsetX,526+offsetY);
 addObject(new SlimeBlock(88),5764+offsetX,526+offsetY);
 addObject(new SlimeBlock(88),5791+offsetX,526+offsetY);
-addObject(new SlimeBlock(88),5818+offsetX,526+offsetY);
 addObject(new SpikeBlock(84),5656+offsetX,364+offsetY);
 addObject(new SpikeBlock(84),5683+offsetX,364+offsetY);
 addObject(new SpikeBlock(84),5170+offsetX,364+offsetY);
@@ -1607,7 +1603,6 @@ addObject(new Block(70),6223+offsetX,364+offsetY);
 addObject(new Block(70),6142+offsetX,337+offsetY);
 addObject(new Block(70),6196+offsetX,364+offsetY);
 addObject(new WireButton(97),6007+offsetX,256+offsetY);
-addObject(new Block(70),5953+offsetX,283+offsetY);
 addObject(new Block(70),5953+offsetX,256+offsetY);
 addObject(new Block(70),5953+offsetX,229+offsetY);
 addObject(new Wire(96),6007+offsetX,229+offsetY);
@@ -1643,6 +1638,11 @@ addObject(new Coin(90),6196+offsetX,445+offsetY);
 addObject(new Coin(90),6196+offsetX,418+offsetY);
 addObject(new Coin(90),6196+offsetX,391+offsetY);
 addObject(new ClimbBlock(61),6277+offsetX,499+offsetY);
+addObject(new Block(70),5926+offsetX,229+offsetY);
+addObject(new Block(70),5926+offsetX,526+offsetY);
+addObject(new Block(70),5953+offsetX,283+offsetY);
+addObject(new Block(70),5872+offsetX,202+offsetY);
+
 
 
 
