@@ -580,14 +580,18 @@ public class PlatformPlayer extends PlatformObject
     }
     private int meltDelay = 0;
     public void checkMelting(){
-        if(MeltingBlock.isMelting){
-            meltDelay++;
-            if(meltDelay > 9){
-                meltDelay = 0;
-                MeltingBlock.isMelting = false;
-                GreenfootSound noise = new GreenfootSound("sounds/pop.wav");
-                noise.play();
+        try{
+            if(MeltingBlock.isMelting){
+                meltDelay++;
+                if(meltDelay > 9){
+                    meltDelay = 0;
+                    MeltingBlock.isMelting = false;
+                    GreenfootSound noise = new GreenfootSound("sounds/pop.wav");
+                    noise.play();
+                }
             }
+        } catch(NullPointerException e){
+            
         }
     }
 
