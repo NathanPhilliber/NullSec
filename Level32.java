@@ -35,8 +35,7 @@ public class Level32 extends Platformer
 
         int offsetX = 0;
         int offsetY = (getHeight()-540)/2;
-
-        setBackground("PlanetOneBG.png");
+        
         addObject(new Block(32),13+offsetX,337+offsetY);
         addObject(new Block(32),40+offsetX,337+offsetY);
         addObject(new Block(32),67+offsetX,337+offsetY);

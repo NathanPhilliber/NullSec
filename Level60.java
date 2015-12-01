@@ -29,8 +29,7 @@ public class Level60 extends Platformer{
 
         int offsetX = 0;
         int offsetY = (getHeight()-540)/2;
-
-        setBackground("PlanetOneBG.png");
+        
         addObject(new Block(62),13+offsetX,472+offsetY);
         addObject(new Block(62),13+offsetX,526+offsetY);
         addObject(new Block(62),13+offsetX,499+offsetY);

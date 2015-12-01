@@ -3,8 +3,6 @@ public class Level1 extends Platformer
 {
     public Level1(){
         this(0,0);
-
-        prepare();
     }
 
     public Level1(double x, double y)

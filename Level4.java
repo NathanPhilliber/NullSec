@@ -29,7 +29,7 @@ public class Level4 extends Platformer{
         int offsetX = 0;
         int offsetY = (getHeight()-540)/2;
 
-        setBackground("PlanetOneBG.png");
+        setBackground("BrickBackground.png");
         addObject(new Block(0),-14+offsetX,13+offsetY);
         addObject(new Block(0),-14+offsetX,40+offsetY);
         addObject(new Block(0),94+offsetX,67+offsetY);

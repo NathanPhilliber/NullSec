@@ -9,7 +9,7 @@ import greenfoot.*;
 public class Level80 extends Platformer
 {
     private int offsetX = 0;
-    private int offsetY = 0;
+    private int offsetY = (getHeight()-540)/2;
 
     /**
      * Constructor for objects of class Level80.
@@ -38,7 +38,7 @@ public class Level80 extends Platformer
 
     public void prepare()
     {
-        setBackground("PlanetOneBG.png");
+        setBackground("StoneBackground.png");
         addObject(new Block(76),-14+offsetX,499+offsetY);
         addObject(new Block(76),-14+offsetX,553+offsetY);
         addObject(new Block(76),-14+offsetX,526+offsetY);

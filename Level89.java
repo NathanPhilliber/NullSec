@@ -27,8 +27,7 @@ public class Level89 extends Platformer{
 
         int offsetX = 0;
         int offsetY = (getHeight()-540)/2;
-
-        setBackground("PlanetOneBG.png");
+        setBackground("BlueStoneBackground.png");
         addObject(new Block(76),-14+offsetX,499+offsetY);
         addObject(new Block(76),-14+offsetX,553+offsetY);
         addObject(new Block(76),-14+offsetX,526+offsetY);
