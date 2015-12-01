@@ -32,6 +32,7 @@ public class Level9001 extends Platformer{
 
         setBackground("BrickBackground.png");
         addObject(new PlatformPlayer(1,0,2000),100+offsetX,200+offsetY);
+
         addObject(new Block(0),40+offsetX,67+offsetY);
         addObject(new Block(0),40+offsetX,40+offsetY);
         addObject(new Block(0),40+offsetX,94+offsetY);
@@ -722,7 +723,6 @@ public class Level9001 extends Platformer{
         addObject(new Block(0),796+offsetX,445+offsetY);
         addObject(new Block(0),769+offsetX,445+offsetY);
         addObject(new Block(0),796+offsetX,499+offsetY);
-        addObject(new Block(0),823+offsetX,499+offsetY);
         addObject(new Block(0),850+offsetX,499+offsetY);
         addObject(new Block(0),1093+offsetX,499+offsetY);
         addObject(new Block(0),1120+offsetX,499+offsetY);
@@ -826,10 +826,7 @@ public class Level9001 extends Platformer{
         addObject(new Coin(90),877+offsetX,202+offsetY);
         addObject(new Coin(90),931+offsetX,202+offsetY);
         addObject(new Coin(90),904+offsetX,202+offsetY);
-        addObject(new Coin(90),958+offsetX,202+offsetY);
         addObject(new Coin(90),985+offsetX,202+offsetY);
-        addObject(new Coin(90),796+offsetX,202+offsetY);
-        addObject(new Coin(90),823+offsetX,202+offsetY);
         addObject(new Coin(90),769+offsetX,202+offsetY);
         addObject(new Coin(90),742+offsetX,202+offsetY);
         addObject(new Coin(90),715+offsetX,202+offsetY);
@@ -1062,7 +1059,6 @@ public class Level9001 extends Platformer{
         addObject(new Coin(90),796+offsetX,526+offsetY);
         addObject(new Coin(90),796+offsetX,580+offsetY);
         addObject(new Coin(90),796+offsetX,553+offsetY);
-        addObject(new Coin(90),823+offsetX,526+offsetY);
         addObject(new Coin(90),823+offsetX,580+offsetY);
         addObject(new Coin(90),823+offsetX,553+offsetY);
         addObject(new Coin(90),850+offsetX,526+offsetY);
@@ -1125,13 +1121,8 @@ public class Level9001 extends Platformer{
         addObject(new Block(0),1039+offsetX,688+offsetY);
         addObject(new Block(0),1066+offsetX,688+offsetY);
         addObject(new Block(0),1093+offsetX,688+offsetY);
-        addObject(new Block(0),1120+offsetX,688+offsetY);
         addObject(new Block(0),1147+offsetX,688+offsetY);
         addObject(new Block(0),1201+offsetX,688+offsetY);
-        addObject(new GravityBlock(95),1174+offsetX,661+offsetY);
-        addObject(new Block(27),1174+offsetX,688+offsetY);
-        addObject(new Block(27),769+offsetX,499+offsetY);
-        addObject(new GravityBlock(95),769+offsetX,526+offsetY);
         addObject(new Block(0),715+offsetX,580+offsetY);
         addObject(new Block(0),715+offsetX,688+offsetY);
         addObject(new Block(0),769+offsetX,742+offsetY);
@@ -2285,8 +2276,15 @@ public class Level9001 extends Platformer{
         addObject(new FallingBlock(75),472+offsetX,1876+offsetY);
         addObject(new FallingBlock(75),472+offsetX,1849+offsetY);
         addObject(new FallingBlock(75),472+offsetX,1822+offsetY);
-
-
+        addObject(new SpikeBlock(84),1120+offsetX,202+offsetY);
+        addObject(new SpikeBlock(84),958+offsetX,202+offsetY);
+        addObject(new SpikeBlock(84),796+offsetX,202+offsetY);
+        addObject(new Block(0),769+offsetX,499+offsetY);
+        addObject(new Block(27),823+offsetX,499+offsetY);
+        addObject(new GravityBlock(95),823+offsetX,526+offsetY);
+        addObject(new GravityBlock(95),1120+offsetX,661+offsetY);
+        addObject(new Block(27),1120+offsetX,688+offsetY);
+        addObject(new Block(0),1174+offsetX,688+offsetY);
 
 
     }

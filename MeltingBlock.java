@@ -9,7 +9,7 @@ public class MeltingBlock extends Block
     private int delayDelete = 0;
     private int delay = 0;
     private boolean start = false;
-    
+
     public static boolean isMelting = false;
 
     public int meltDelay = 9;
@@ -49,17 +49,21 @@ public class MeltingBlock extends Block
         if(start){
             delay++;
             if(delay > meltDelay){
-                if(left != null){
-                    left.melt(0);
-                }
-                if(right != null){
-                    right.melt(1);
-                }
-                if(up != null){
-                    up.melt(2);
-                }
-                if(down != null){
-                    down.melt(3);
+                try{
+                    if(left != null){
+                        left.melt(0);
+                    }
+                    if(right != null){
+                        right.melt(1);
+                    }
+                    if(up != null){
+                        up.melt(2);
+                    }
+                    if(down != null){
+                        down.melt(3);
+                    }
+                } catch(IllegalStateException e){
+                    
                 }
             }
         }

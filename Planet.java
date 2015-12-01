@@ -16,6 +16,7 @@ public class Planet extends SpaceObject
     public int sector;
 
     private boolean firstTime = true;
+    private boolean isPortal = false;
 
     public Planet(double startX, double startY, World world, String image, String worldNumber, int sectorLevel){
         super(startX, startY);
@@ -23,19 +24,28 @@ public class Planet extends SpaceObject
         setImage(image);
         this.worldNumber = worldNumber;
         this.sectorLevel = sectorLevel;
+        if(world instanceof Credits){
+            isPortal = true;
+
+        }
         //System.out.println(world);
     }
 
     public void act() 
     {
         super.act();
-        if(isBeaten){
-            miniMap(new PlanetCompletedMP());
+        if(isPortal){
+            miniMap(new PortalMP());
         }
         else{
-            miniMap(new PlanetMP());
-        }
 
+            if(isBeaten){
+                miniMap(new PlanetCompletedMP());
+            }
+            else{
+                miniMap(new PlanetMP());
+            }
+        }
 
         tryDrawLabel();
         if(firstTime){
@@ -60,7 +70,7 @@ public class Planet extends SpaceObject
         if(Player.aboutToPlayCompletedLevel == false){
             boolean com = true;
             for(int i = 0; i < 4; i++){
-                
+
                 if(Player.levelsBeaten[i][space.getSector(this)] == false){
                     com = false;
                 }
@@ -72,7 +82,6 @@ public class Planet extends SpaceObject
             Player.levelsBeaten[sectorLevel][space.getSector(this)] = false;
 
             isBeaten = false;
-
 
         }
     }
