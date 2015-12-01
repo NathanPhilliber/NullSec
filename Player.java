@@ -266,7 +266,7 @@ public class Player extends Object implements DamageTaker
     public void checkDone(){
         if(workingSector == 9 && !spawnedPortal){
             spawnedPortal = true;
-            space.addObject(new Planet(getShipLocX(), getShipLocY() - 1000, new Credits(new StartMenu()), "images/coin.png", "0000",0), -1000,-100000);
+            space.addObject(new Planet(getShipLocX(), getShipLocY() - 1000, new Credits(new StartMenu()), "images/EndgamePortal.png", "",0), -1000,-100000);
         }
     }
     
@@ -1273,6 +1273,7 @@ public class Player extends Object implements DamageTaker
                 space.addObject(tutObj,-10,-10);
                 updateAvailableWeapons(true, false, false, false, false, false);
                 isTutorial = true;
+                workingSector = 0;
 
             }
             else{
