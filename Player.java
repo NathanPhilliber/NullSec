@@ -236,6 +236,8 @@ public class Player extends Object implements DamageTaker
             checkDeath();
             respawn();
             flashWrongSector();
+            
+            checkDone();
 
             justHit = false;
         }
@@ -260,6 +262,15 @@ public class Player extends Object implements DamageTaker
 
         }
     }
+    private boolean spawnedPortal = false;
+    public void checkDone(){
+        if(workingSector == 9 && !spawnedPortal){
+            spawnedPortal = true;
+            space.addObject(new Planet(getShipLocX(), getShipLocY() - 1000, new Credits(new StartMenu()), "images/coin.png", "0000",0), -1000,-100000);
+        }
+    }
+    
+    
 
     /*************************************************************************/
     /*********************  MOVEMENT AND COLLISION  **************************/
@@ -1139,6 +1150,9 @@ public class Player extends Object implements DamageTaker
         if(Greenfoot.isKeyDown("o")){
             System.out.println("Health: " +health);
             System.out.println("WorkingSector: " +workingSector);
+        }
+        if(Greenfoot.isKeyDown("k")){
+            workingSector = 9;
         }
     }
 

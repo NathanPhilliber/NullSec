@@ -158,20 +158,20 @@ public class OuterSpace extends Space
        //*****************************************************************
         
         //Sector 6   done 
-        Planet planet25 = new Planet(-2138, 11144,  new Level15(-2138,11144), "images/Planet25.png", "26", 0);
+        Planet planet25 = new Planet(-2138, 11144,  new Level84(-2138,11144), "images/Planet25.png", "26", 0);
         addObject(planet25,3000, 0);
         //black planet
         
 
-        Planet planet26 = new Planet(716, 11624,  new Level15(716,11624), "images/Planet26.png", "27", 1);
+        Planet planet26 = new Planet(716, 11624,  new Level85(716,11624), "images/Planet26.png", "27", 1);
         addObject(planet26,3000, 0);
         //brown planet
 
-        Planet planet27 = new Planet(-226, 10002,  new Level7(-226,10002), "images/Planet23.png", "28", 2);
+        Planet planet27 = new Planet(-226, 10002,  new Level86(-226,10002), "images/Planet23.png", "28", 2);
         addObject(planet27,3000, 0);
         //blue planet
 
-        Planet planet28 = new Planet(2536, 9563,  new Level7(2536,9536), "images/Planet24.png", "29", 3);
+        Planet planet28 = new Planet(2536, 9563,  new Level87(2536,9536), "images/Planet24.png", "29", 3);
         addObject(planet28,3000, 0);
         //green
         
