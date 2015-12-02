@@ -9,8 +9,8 @@ public class OptionsMenu extends World
     private boolean playing=false;
     private GreenfootSound music=new GreenfootSound("AmbientSpace.wav");
     
-    private static int worldWidth = (int)(1280/1.5);
-    private static int worldHeight = (int)(720/1.5);
+    private static int worldWidth = (int)(920);
+    private static int worldHeight = (int)(540);
 
     
     public OptionsMenu(GreenfootSound m)
@@ -39,16 +39,14 @@ public class OptionsMenu extends World
 
     private void prepare()
     {    
-        Resolution resolution = new Resolution(0);
-        addObject(resolution, getWidth()/2, 47);
 
         Resolution resolution2 = new Resolution(1);
-        addObject(resolution2, getWidth()/2, 106);
+        addObject(resolution2, getWidth()/2, getHeight()/2-50);
 
         Resolution resolution3 = new Resolution(2);
-        addObject(resolution3, getWidth()/2, 150);
+        addObject(resolution3, getWidth()/2, getHeight()/2);
 
         Resolution resolution4 = new Resolution(3);
-        addObject(resolution4, getWidth()/2, 215);
+        addObject(resolution4, getWidth()/2, getHeight()/2 + 50);
     }
 }

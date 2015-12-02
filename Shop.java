@@ -10,7 +10,7 @@ public class Shop extends World
     WeaponShopFG weaponShopFg = new WeaponShopFG();
     ShopButton weaponButton = new ShopButton(WeaponShop.ENGINE);
     ShopButton weaponButton2 = new ShopButton(WeaponShop.WEAPONS);
-    
+
     Ship3D ship = new Ship3D();
     Button sideButton = new Button(0);
     Button sideButton2 = new Button(1);
@@ -180,18 +180,15 @@ public class Shop extends World
                 addObject(ship, (int) (getWidth()*.45), (int) (getHeight()*.36));
                 addObject(speeddes, (int)(getWidth()*.57), 210);
 
-                addObject(costtext, (int) (getWidth()*.63),247);
+                addObject(costtext, (int)(getWidth()*.59) ,235);
                 costNumber = new Number(Player.SPEED_COST[Player.speedLevel]+"", 1);
-                addObject(costNumber, (int)(getWidth()*.66),240); 
-
-                addObject(costNumber, (int) (getWidth()*.599),247); 
+                addObject(costNumber, (int)(getWidth()*.66),230); 
 
                 addObject(levelupengine0, (int) (getWidth()*.83), 250);
 
-
                 levelNumber = new Number(Player.speedLevel + "");
-                addObject(levelNumber, getWidth()/2+150-50, getHeight()/2);
-                addObject(leveltext, getWidth()/2+15-50, getHeight()/2);
+                addObject(levelNumber, (int)(getWidth()*.65), getHeight()/2);
+                addObject(leveltext, (int)(getWidth()*.50), getHeight()/2);
 
                 break;
                 case 1:
@@ -199,15 +196,15 @@ public class Shop extends World
                 addObject(ship, (int) (getWidth()*.45), (int) (getHeight()*.36));
                 addObject(turnspeeddes, (int)(getWidth()*.57), 210);
 
-                addObject(costtext, (int) (getWidth()*.591),247);
+                addObject(costtext, (int)(getWidth()*.59) ,235);
                 costNumber = new Number(Player.TURN_SPEED_COST[Player.turnSpeedLevel]+"", 1);
-                addObject(costNumber, (int)(getWidth()*.66),240); 
+                addObject(costNumber, (int)(getWidth()*.66),230); 
 
                 addObject(levelupengine1, (int) (getWidth()*.83), 250);
 
                 levelNumber = new Number(Player.turnSpeedLevel + "");
-                addObject(levelNumber, getWidth()/2+150-50, getHeight()/2);
-                addObject(leveltext, getWidth()/2+15-50, getHeight()/2);
+                addObject(levelNumber, (int)(getWidth()*.65), getHeight()/2);
+                addObject(leveltext, (int)(getWidth()*.50), getHeight()/2);
 
                 break;
                 case 2:
@@ -215,15 +212,15 @@ public class Shop extends World
                 addObject(ship, (int) (getWidth()*.45), (int) (getHeight()*.36));
                 addObject(boostbardes, (int)(getWidth()*.70), 110);
 
-                addObject(costtext, (int) (getWidth()*.591),247);
+                addObject(costtext, (int)(getWidth()*.59) ,235);
                 costNumber = new Number(Player.BOOST_BAR_COST[Player.boostBarLevel]+"", 1);
-                addObject(costNumber, (int)(getWidth()*.66),240); 
+                addObject(costNumber, (int)(getWidth()*.66),230); 
 
                 addObject(levelupengine2, (int) (getWidth()*.83), 250);
 
                 levelNumber = new Number(Player.boostBarLevel + "");
-                addObject(levelNumber, getWidth()/2+150-50, getHeight()/2);
-                addObject(leveltext, getWidth()/2+15-50, getHeight()/2);
+                addObject(levelNumber, (int)(getWidth()*.65), getHeight()/2);
+                addObject(leveltext, (int)(getWidth()*.50), getHeight()/2);
 
                 break;
                 case 3:
