@@ -21,7 +21,7 @@ public class ShopButton extends WeaponShop
         if(isSelected){
             setImage("images/ButtonShopHover.png");
             shop.setPanel(myFunction);
-            
+
         }
         else{
             setImage("images/ButtonShopNormal.png");
@@ -30,9 +30,13 @@ public class ShopButton extends WeaponShop
 
     public void act() 
     {
+
         if(Greenfoot.mousePressed(null)){
             if(Greenfoot.mousePressed(this)){
+
+                    
                 select(true);
+
             }
             else{
                 select(false);

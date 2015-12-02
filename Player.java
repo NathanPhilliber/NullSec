@@ -183,8 +183,8 @@ public class Player extends Object implements DamageTaker
         if(actDelay > 25){
             actDelay = 0;
             currentSector = space.getSector(this);
-            if(!(health <= 0.0) ){
-                addHealth(1.0);
+            if(!(health <= 0.0) && !inWrongSector){
+                addHealth(0.25);
             }
         }
 
@@ -229,6 +229,12 @@ public class Player extends Object implements DamageTaker
                     spawnFleet(Greenfoot.getRandomNumber(6)+1, Entity.ANY_SHIP, 30); 
                 }
             }
+            
+            if(!isTutorial){
+                if(Greenfoot.getRandomNumber(500) == 0){
+                    spawnFleet(Greenfoot.getRandomNumber(1)+1, Entity.ANY_SHIP, 75); 
+                }
+            }
 
             updateGoldScore();
             checkDock();
@@ -246,6 +252,8 @@ public class Player extends Object implements DamageTaker
     private int explosionAmount = Greenfoot.getRandomNumber(10) + 5;
     private int deathDelay = 10;
     private boolean isDead;
+    
+    
 
     public void checkQuitWorld(){
 
@@ -637,6 +645,8 @@ public class Player extends Object implements DamageTaker
     //Look for ship types in entity
     //Difficulty is number 1-100, 100 is really hard.
     //Ships auto-agro at 25
+    
+    
 
     public void spawnFleet(int numberShips, int type, int difficulty){
 

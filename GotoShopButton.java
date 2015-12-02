@@ -28,11 +28,15 @@ public class GotoShopButton extends Menu
     public void select(boolean sel){
 
         if(sel){
-            GreenfootSound ding = new GreenfootSound("sounds/buttonSound.wav");
-            ding.play();
+
             Space space = (Space) getWorld();
             Ship ship = space.getShip();
-            Greenfoot.setWorld(new Shop(ship.getSpaceX(), ship.getSpaceY()));
+
+            if(ship.inWrongSector == false){
+                Greenfoot.setWorld(new Shop(ship.getSpaceX(), ship.getSpaceY()));
+                GreenfootSound ding = new GreenfootSound("sounds/buttonSound.wav");
+                ding.play();
+            }
         }
     }  
 }
