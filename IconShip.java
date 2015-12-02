@@ -57,7 +57,6 @@ public class IconShip extends Menu
             ding.play();
             if(getY() == 280)
             {
-                music.stop();
                 Greenfoot.setWorld(new TutorialWorld());
             }
             if(getY() == 430)
@@ -70,7 +69,6 @@ public class IconShip extends Menu
             }
             if(getY() == 380)
             {
-                music.stop();
                 Greenfoot.setWorld(new Credits(new StartMenu()));
             } 
         }
