@@ -194,7 +194,7 @@ public class Player extends Object implements DamageTaker
     {
         super.act();
         
-        System.out.println(Entity.numberEntities);
+
 
         if(!space.getIsPaused())
         {
