@@ -9,8 +9,13 @@ public class OptionsMenu extends World
     private boolean playing=false;
     private GreenfootSound music=new GreenfootSound("AmbientSpace.wav");
     
+<<<<<<< HEAD
+    private static int worldWidth = (int)(1600);
+    private static int worldHeight = (int)(900);
+=======
     private static int worldWidth = (int)(1280/1.5);
     private static int worldHeight = (int)(720/1.5);
+>>>>>>> 1fd0cbf08f3ddac6bace1d31206e8af71cf7ea4b
     
     public OptionsMenu(GreenfootSound m)
     {    
@@ -37,69 +42,17 @@ public class OptionsMenu extends World
     
 
     private void prepare()
-    {
-        addObject(soundToggle,870,490);
-        addObject(back,460,450);
-        IconShip iconship = new IconShip();
-        addObject(iconship, 59, 123);
-        iconship.setLocation(41, 95);
+    {    
         Resolution resolution = new Resolution(0);
-        addObject(resolution, 210, 47);
-        resolution.setLocation(209, 38);
+        addObject(resolution, getWidth()/2, 47);
+
         Resolution resolution2 = new Resolution(1);
-        addObject(resolution2, 243, 106);
-        resolution2.setLocation(224, 98);
-        iconship.setLocation(40, 100);
+        addObject(resolution2, getWidth()/2, 106);
+
         Resolution resolution3 = new Resolution(2);
-        addObject(resolution3, 233, 150);
-        resolution3.setLocation(238, 155);
+        addObject(resolution3, getWidth()/2, 150);
+
         Resolution resolution4 = new Resolution(3);
-        addObject(resolution4, 218, 215);
-        resolution4.setLocation(252, 214);
-        resolution3.setLocation(238, 157);
-        resolution.setLocation(209, 34);
-    }
-
-
-    public void act()
-    {
-        mouseMenu();
-        musicToggle();
-    }
-    private void mouseMenu()
-    {       
-        if (Greenfoot.mouseClicked(back))
-        {
-            music.stop();
-        }
-    }
-    private void musicToggle()
-    {
-        if(StartMenu.musicToggle&&(!playing))
-        {
-            music.playLoop();
-            playing=true;
-        }
-        if((!StartMenu.musicToggle)&&playing)
-        {
-            music.stop();
-            playing=false;
-        }
-        if (StartMenu.musicToggle)
-        {
-            soundToggle.setImage("soundOn.png");
-            if (Greenfoot.mouseClicked(soundToggle))
-            {
-                StartMenu.musicToggle=false;
-            }
-        }
-        else
-        {
-            soundToggle.setImage("soundOff.png");
-            if (Greenfoot.mouseClicked(soundToggle))
-            {
-                StartMenu.musicToggle=true;
-            }
-        }
+        addObject(resolution4, getWidth()/2, 215);
     }
 }

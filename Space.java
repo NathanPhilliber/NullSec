@@ -509,7 +509,7 @@ class ScrollingListener implements MouseWheelListener
     }
 
     public double getScroll(){
-        double t = Math.round(initAmount/2);
+        double t = (initAmount>0) ? Math.ceil(initAmount/2) : Math.floor(initAmount/2);
 
         initAmount = 0;
         return t;
