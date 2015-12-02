@@ -377,24 +377,24 @@ public class Space extends World
                 Map map = new Map(getSector(ship));
 
                 //System.out.println(secPos);
-                int x = (int) (ship.getSpaceX()/10) +  920/2;
-                int y = (int) (ship.getSpaceY()/10) +540/2;
-                int newx = (int) (ship.getSpaceX()/10) +  920/2;
-                int newy = (int) (ship.getSpaceY()/10) + 540/2;
+                int x = (int) (ship.getSpaceX()/10) +  ((getWidth()-920)/2)+920/2;
+                int y = (int) (ship.getSpaceY()/10) +  ((getHeight()-540)/2)+540/2;
+                int newx = (int) (ship.getSpaceX()/10) +  ((getWidth()-920)/2)+920/2;
+                int newy = (int) (ship.getSpaceY()/10) +  ((getHeight()-540)/2)+540/2;
 
-                if(x > getWidth())
+                if(x > getWidth()-((getWidth()-920)/2))
                 {
                     newx = x - 920*secx;
                 }
-                if(y > getHeight())
+                if(y > getHeight()-((getHeight()-540)/2))
                 {
                     newy = y - 540*secy;
                 }
-                if(x < 0)
+                if(x < 0 + ((getWidth()-920)/2))
                 {
                     newx = x + 920*secx;
                 }
-                if(y < 0)
+                if(y < 0 + ((getHeight()-540)/2))
                 {
                     newy = y + 540*secy;
                 }
@@ -455,8 +455,8 @@ public class Space extends World
 
     public int getSector(SpaceObject ship)
     {
-        int x = (int) (ship.getSpaceX()/10) + 920/2;
-        int y = (int) (ship.getSpaceY()/10) + 540/2;
+        int x = (int) (ship.getSpaceX()/10) + ((getWidth()-920)/2)+920/2;
+        int y = (int) (ship.getSpaceY()/10) + ((getHeight()-540)/2)+540/2;
 
         //int[] secArray = {0, 1, 2, 10, 11, 12, 20, 21, 22};
         int[] secArray = {0, 10, 20, 1, 11, 21, 2, 12, 22};
@@ -475,15 +475,15 @@ public class Space extends World
 
     public int getSector(Player ship)
     {
-        int x = (int) (ship.getSpaceX()/10) +  920/2;
-        int y = (int) (ship.getSpaceY()/10) + 540/2;
+        int x = (int) (ship.getSpaceX()/10) + ((getWidth()-920)/2)+920/2;
+        int y = (int) (ship.getSpaceY()/10) + ((getHeight()-540)/2)+540/2;
 
         //int[] secArray = {0, 1, 2, 10, 11, 12, 20, 21, 22};
 
         int[] secArray = {0, 10, 20, 1, 11, 21, 2, 12, 22};
 
-        secx = (x>0) ? (int) Math.floor(x/920) : -1;
-        secy = (y>0) ? (int) Math.floor(y/540) : -1;
+        secx = (x>0) ? (int) Math.floor(x/(920 + ((getWidth()-920)/2))) : -1;
+        secy = (y>0) ? (int) Math.floor(y/(540 + ((getHeight()-540)/2))) : -1;
 
         String a = secx + "" + secy;
         String b = "-1";
