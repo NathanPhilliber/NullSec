@@ -104,7 +104,7 @@ public class Player extends Object implements DamageTaker
 
     public boolean playerDisabled = false;
 
-    public static int gold = 100000;
+    public static int gold = 0;
     public static int goldPotential = 0;
 
     public static boolean respawnIsPressed;
