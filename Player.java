@@ -193,6 +193,8 @@ public class Player extends Object implements DamageTaker
     public void act() 
     {
         super.act();
+        
+        System.out.println(Entity.numberEntities);
 
         if(!space.getIsPaused())
         {
@@ -231,8 +233,8 @@ public class Player extends Object implements DamageTaker
             }
             
             if(!isTutorial){
-                if(Greenfoot.getRandomNumber(500) == 0){
-                    spawnFleet(Greenfoot.getRandomNumber(1)+1, Entity.ANY_SHIP, 75); 
+                if(Greenfoot.getRandomNumber(500-(currentSector*10)) == 0){
+                    spawnFleet(Greenfoot.getRandomNumber(currentSector+1)+1, Entity.ANY_SHIP, 75); 
                 }
             }
 
