@@ -182,13 +182,12 @@ public class Shop extends World
 
                 addObject(costtext, (int) (getWidth()*.63),247);
                 costNumber = new Number(Player.SPEED_COST[Player.speedLevel]+"", 1);
-<<<<<<< HEAD
                 addObject(costNumber, (int)(getWidth()*.66),240); 
-=======
+
                 addObject(costNumber, (int) (getWidth()*.599),247); 
 
                 addObject(levelupengine0, (int) (getWidth()*.83), 250);
->>>>>>> 1fd0cbf08f3ddac6bace1d31206e8af71cf7ea4b
+
 
                 levelNumber = new Number(Player.speedLevel + "");
                 addObject(levelNumber, getWidth()/2+150-50, getHeight()/2);
