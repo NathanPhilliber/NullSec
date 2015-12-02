@@ -565,7 +565,7 @@ public class Entity extends SpaceObject implements DamageTaker
         if(getHealth() <= 0.0){
             damageBar.scheduleRemoval();
             scheduleRemoval();
-            numberEntities--;
+            
         }
     }
 

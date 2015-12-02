@@ -180,11 +180,19 @@ public class Shop extends World
                 addObject(ship, (int) (getWidth()*.45), (int) (getHeight()*.36));
                 addObject(speeddes, (int)(getWidth()*.57), 210);
 
-                addObject(costtext, (int) (getWidth()*.591),247);
+                addObject(costtext, (int) (getWidth()*.63),247);
                 costNumber = new Number(Player.SPEED_COST[Player.speedLevel]+"", 1);
+<<<<<<< HEAD
                 addObject(costNumber, (int)(getWidth()*.66),240); 
+=======
+                addObject(costNumber, (int) (getWidth()*.599),247); 
 
-                addObject(levelupengine0, (int) (getWidth()*.85), 285);
+                addObject(levelupengine0, (int) (getWidth()*.83), 250);
+>>>>>>> 1fd0cbf08f3ddac6bace1d31206e8af71cf7ea4b
+
+                levelNumber = new Number(Player.speedLevel + "");
+                addObject(levelNumber, getWidth()/2+150-50, getHeight()/2);
+                addObject(leveltext, getWidth()/2+15-50, getHeight()/2);
 
                 break;
                 case 1:
@@ -196,7 +204,11 @@ public class Shop extends World
                 costNumber = new Number(Player.TURN_SPEED_COST[Player.turnSpeedLevel]+"", 1);
                 addObject(costNumber, (int)(getWidth()*.66),240); 
 
-                addObject(levelupengine1, (int) (getWidth()*.85), 285);
+                addObject(levelupengine1, (int) (getWidth()*.83), 250);
+
+                levelNumber = new Number(Player.turnSpeedLevel + "");
+                addObject(levelNumber, getWidth()/2+150-50, getHeight()/2);
+                addObject(leveltext, getWidth()/2+15-50, getHeight()/2);
 
                 break;
                 case 2:
@@ -208,7 +220,11 @@ public class Shop extends World
                 costNumber = new Number(Player.BOOST_BAR_COST[Player.boostBarLevel]+"", 1);
                 addObject(costNumber, (int)(getWidth()*.66),240); 
 
-                addObject(levelupengine2, (int) (getWidth()*.85), 285);
+                addObject(levelupengine2, (int) (getWidth()*.83), 250);
+
+                levelNumber = new Number(Player.boostBarLevel + "");
+                addObject(levelNumber, getWidth()/2+150-50, getHeight()/2);
+                addObject(leveltext, getWidth()/2+15-50, getHeight()/2);
 
                 break;
                 case 3:
@@ -227,7 +243,6 @@ public class Shop extends World
             }
         }
         else if(currentPanel == WeaponShop.WEAPONS){
-
 
             try{
                 unlock0.updateImage();
