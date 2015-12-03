@@ -1,18 +1,17 @@
 import greenfoot.*;
-public class IconShip extends Menu
+
+/**
+ * Write a description of class OptionsMenuPointer here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class OptionsMenuPointer extends Menu
 {
     private int initialDelay = 10;
     private int delay = initialDelay;
     GreenfootSound music;
     private boolean dontAct = true;
-    public IconShip(GreenfootSound m)
-    {
-        music=m;
-    }
-
-    public IconShip()
-    {
-    }
 
     public void act()
     {
@@ -46,21 +45,13 @@ public class IconShip extends Menu
             setLocation(getX(), getY()-50);
             delay = initialDelay; 
         }
-        if(getY() <= getWorld().getHeight()/2-50 && getWorld() instanceof OptionsMenu)
+        if(getY() <= getWorld().getHeight()/2-50)
         {
             setLocation(getX(), getWorld().getHeight()/2-50);
         }
-        if(getY() <= 280 && getWorld() instanceof StartMenu)
+        if(getY() >= getWorld().getHeight()/2+50)
         {
-            setLocation(getX(), 280);
-        }
-        if(getY() >= 380 && getWorld() instanceof OptionsMenu)
-        {
-            setLocation(getX(), 380); 
-        }
-        if(getY() >= 430 && getWorld() instanceof StartMenu)
-        {
-            setLocation(getX(), 430);
+            setLocation(getX(), getWorld().getHeight()/2+50); 
         }
         delay--;
         if(delay <= -1000000){
@@ -70,26 +61,23 @@ public class IconShip extends Menu
 
     public void selectOption()
     {
-        if(Greenfoot.isKeyDown("ENTER"))
-        {
-            GreenfootSound ding = new GreenfootSound("sounds/buttonSound.wav");
-            ding.play();
-            if(getY() == 280)
+        if(Greenfoot.isKeyDown("ENTER")){
+            if(getY() == getWorld().getHeight()/2-50)
             {
-                Greenfoot.setWorld(new TutorialWorld());
+                OptionsMenu.worldWidth = 1920;
+                OptionsMenu.worldHeight = 1080;
             }
-            if(getY() == 430)
+            if(getY() == getWorld().getHeight()/2)
             {
-                System.exit(0);
+                OptionsMenu.worldWidth = 1280;
+                OptionsMenu.worldHeight = 720;
             }
-            if(getY() == 330)
+            if(getY() == getWorld().getHeight()/2+50)
             {
-                Greenfoot.setWorld(new OptionsMenu(music));
+                OptionsMenu.worldWidth = 920;
+                OptionsMenu.worldHeight = 540;
             }
-            if(getY() == 380)
-            {
-                Greenfoot.setWorld(new Credits(new StartMenu()));
-            } 
+            Greenfoot.setWorld(new StartMenu());
         }
     }
 }

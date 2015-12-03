@@ -10,11 +10,9 @@ public class Shop extends World
     WeaponShopFG weaponShopFg = new WeaponShopFG();
     ShopButton weaponButton = new ShopButton(WeaponShop.ENGINE);
     ShopButton weaponButton2 = new ShopButton(WeaponShop.WEAPONS);
-<<<<<<< HEAD
 
-=======
     //ShopButton weaponButton3 = new ShopButton(WeaponShop.SHIELD);
->>>>>>> 30b3c7081b8ac4994947e319dbb78d1c881c76e8
+
     Ship3D ship = new Ship3D();
     Button sideButton = new Button(0);
     Button sideButton2 = new Button(1);
@@ -193,16 +191,9 @@ public class Shop extends World
 
                 addObject(ship, (int) (getWidth()*.45), (int) (getHeight()*.36));
                 addObject(speeddes, (int)(getWidth()*.57), 210);
-
-<<<<<<< HEAD
                 addObject(costtext, (int)(getWidth()*.59) ,235);
                 costNumber = new Number(Player.SPEED_COST[Player.speedLevel]+"", 1);
                 addObject(costNumber, (int)(getWidth()*.66),230); 
-=======
-                addObject(costtext, (int) (getWidth()*.66),235);
-                costNumber = new Number(Player.SPEED_COST[Player.speedLevel]+"", 1);
-                addObject(costNumber, (int) (getWidth()*.66),255); 
->>>>>>> 30b3c7081b8ac4994947e319dbb78d1c881c76e8
 
                 addObject(levelupengine0, (int) (getWidth()*.83), 250);
 
@@ -216,15 +207,9 @@ public class Shop extends World
                 addObject(ship, (getWidth()/2)-45, 195);
                 addObject(turnspeeddes, (getWidth()/2)+60, 210);
 
-<<<<<<< HEAD
                 addObject(costtext, (int)(getWidth()*.59) ,235);
                 costNumber = new Number(Player.TURN_SPEED_COST[Player.turnSpeedLevel]+"", 1);
                 addObject(costNumber, (int)(getWidth()*.66),230); 
-=======
-                addObject(costtext, (int) (getWidth()*.66),235);
-                costNumber = new Number(Player.TURN_SPEED_COST[Player.turnSpeedLevel]+"", 1);
-                addObject(costNumber, (int) (getWidth()*.66),255);
->>>>>>> 30b3c7081b8ac4994947e319dbb78d1c881c76e8
 
                 addObject(levelupengine1, (int) (getWidth()*.83), 250);
 
@@ -238,15 +223,10 @@ public class Shop extends World
                 addObject(ship, (getWidth()/2)-45, 195);
                 addObject(boostbardes, (getWidth()/2)+170, 130);
 
-<<<<<<< HEAD
                 addObject(costtext, (int)(getWidth()*.59) ,235);
                 costNumber = new Number(Player.BOOST_BAR_COST[Player.boostBarLevel]+"", 1);
                 addObject(costNumber, (int)(getWidth()*.66),230); 
-=======
-                addObject(costtext, (int) (getWidth()*.66),235);
-                costNumber = new Number(Player.BOOST_BAR_COST[Player.boostBarLevel]+"", 1);
-                addObject(costNumber, (int) (getWidth()*.66),255); 
->>>>>>> 30b3c7081b8ac4994947e319dbb78d1c881c76e8
+
 
                 addObject(levelupengine2, (int) (getWidth()*.83), 250);
 
