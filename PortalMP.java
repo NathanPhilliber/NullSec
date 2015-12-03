@@ -8,6 +8,9 @@ import greenfoot.*;
  */
 public class PortalMP extends Minimap
 {
+    public PortalMP(){
+        setImage("images/StarMP.png");
+    }
     public void act()
     {
         space.removeObject(this);

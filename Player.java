@@ -1166,6 +1166,13 @@ public class Player extends Object implements DamageTaker
         if(Greenfoot.isKeyDown("k")){
             workingSector = 9;
         }
+        if(Greenfoot.isKeyDown("m")){
+            levelsBeaten[0][currentSector] = true;
+            levelsBeaten[1][currentSector] = true;
+            levelsBeaten[2][currentSector] = true;
+            levelsBeaten[3][currentSector] = true;
+            workingSector = currentSector + 1;
+        }
     }
 
     //Written by Nathan
