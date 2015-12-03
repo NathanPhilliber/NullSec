@@ -233,7 +233,7 @@ public class Player extends Object implements DamageTaker
             }
             
             if(!isTutorial){
-                if(Greenfoot.getRandomNumber(500-(currentSector*10)) == 0){
+                if(Greenfoot.getRandomNumber(500-(currentSector*5)) == 0){
                     spawnFleet(Greenfoot.getRandomNumber(currentSector+1)+1, Entity.ANY_SHIP, 75); 
                 }
             }
