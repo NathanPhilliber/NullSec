@@ -233,7 +233,7 @@ public class Player extends Object implements DamageTaker
             }
             
             if(!isTutorial){
-                if(Greenfoot.getRandomNumber(500-(currentSector*5)) == 0){
+                if(Greenfoot.getRandomNumber(750-(currentSector*3)) == 0){
                     spawnFleet(Greenfoot.getRandomNumber(currentSector+1)+1, Entity.ANY_SHIP, 75); 
                 }
             }
@@ -1165,6 +1165,13 @@ public class Player extends Object implements DamageTaker
         }
         if(Greenfoot.isKeyDown("k")){
             workingSector = 9;
+        }
+        if(Greenfoot.isKeyDown("m")){
+            levelsBeaten[0][currentSector] = true;
+            levelsBeaten[1][currentSector] = true;
+            levelsBeaten[2][currentSector] = true;
+            levelsBeaten[3][currentSector] = true;
+            workingSector = currentSector + 1;
         }
     }
 
