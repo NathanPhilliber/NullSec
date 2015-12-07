@@ -42,7 +42,7 @@ public class Level37 extends Platformer
         int offsetX = 0;
         int offsetY = (getHeight()-540)/2;
 
-        setBackground("PlanetOneBG.png");
+        setBackground("Background3.png");
         addObject(new Block(49),13+offsetX,13+offsetY);
         addObject(new Block(49),-14+offsetX,-14+offsetY);
         addObject(new Block(49),13+offsetX,-14+offsetY);

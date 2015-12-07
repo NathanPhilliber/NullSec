@@ -41,7 +41,7 @@ public class Level22 extends Platformer
         int offsetX = 0;
         int offsetY = (getHeight()-540)/2;
 
-        setBackground("PlanetOneBG.png");
+        setBackground("BrickBackground.png");
         addObject(new Block(0),13+offsetX,499+offsetY);
         addObject(new Block(0),-14+offsetX,526+offsetY);
         addObject(new Block(0),13+offsetX,526+offsetY);
