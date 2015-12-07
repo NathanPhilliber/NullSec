@@ -272,6 +272,8 @@ public class Player extends Object implements DamageTaker
 
         }
     }
+    
+    //Written by Nathan
     private boolean spawnedPortal = false;
     public void checkDone(){
         if(workingSector == 9 && !spawnedPortal){
@@ -285,7 +287,8 @@ public class Player extends Object implements DamageTaker
     /*************************************************************************/
     /*********************  MOVEMENT AND COLLISION  **************************/
     /*************************************************************************/
-
+    
+    //Written by Nathan
     public void destroyPlayerInWrongSector(){
         inWrongSector = currentSector > workingSector || currentSector == -1;
         if(inWrongSector){
@@ -331,12 +334,14 @@ public class Player extends Object implements DamageTaker
             curObj.spaceMove(10);
         }
     }
-
+    
+    //Written by Nathan
     public boolean isInCorrectSector()
     {
         return !inWrongSector;
     }
 
+    //Written by Trace
     public void flashWrongSector()
     {
         if(!isInCorrectSector())
@@ -344,15 +349,23 @@ public class Player extends Object implements DamageTaker
             flashRed();
         }
     }
-
+    
+    //Written by Trace
     public void flashRed()
     {
         WarningBG respawnBG = new WarningBG();
+        WarningSector warnSec = new WarningSector();
         flash++;
         if(flash%60 == 0)
         {
             space.addObject(respawnBG, space.getWidth()/2, space.getHeight()/2);
             respawnBG.getImage().scale(space.getWidth(), space.getHeight());
+            
+            space.addObject(warnSec, space.getWidth()/2, (space.getHeight()/3)*2);
+        }
+        if(flash == Integer.MAX_VALUE)
+        {
+            flash = 0;
         }
     }
 
