@@ -4,14 +4,13 @@ import greenfoot.*;
 //Level designed by: 
 
 public class Level85 extends Platformer{
-    GreenfootSound song = new GreenfootSound("Dungeon.mp3");
+
     public Level85(){
         this(0,0);
     }
 
     public Level85(double x, double y){
         super(x,y);
-        song.playLoop();
     }
 
     private boolean firstPass = true;

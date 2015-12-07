@@ -4,14 +4,12 @@ import greenfoot.*;
 //Level designed by: 
 
 public class Level84 extends Platformer{
-    GreenfootSound song = new GreenfootSound("Infected_Euphoria.mp3");
     public Level84(){
         this(0,0);
     }
 
     public Level84(double x, double y){
         super(x,y);
-        song.playLoop();
     }
 
     private boolean firstPass = true;
@@ -21,10 +19,6 @@ public class Level84 extends Platformer{
         {
             prepare();
             firstPass = false;
-        }
-        if(this == null)
-        {
-            song.stop();
         }
     }
 
